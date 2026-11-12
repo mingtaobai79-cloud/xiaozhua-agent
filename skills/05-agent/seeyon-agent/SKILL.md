@@ -1,12 +1,12 @@
 ---
 name: seeyon-agent
-description: "Use when driving Seeyon UDC development tasks from Hermes: dispatch requirements, generate backend/frontend skeletons, run readonly live probes against test2."
+description: "Use when driving 2小爪 UDC development tasks from Hermes: dispatch requirements, generate backend/frontend skeletons, run readonly live probes against test2."
 version: 1.0.0
 ---
 
-# Seeyon Agent（Hermes 宿主接入）
+# 2小爪 Agent（Hermes 宿主接入）
 
-Seeyon Agent 是**嵌入宿主的组件**，不是独立 agent。通过 `seeyon_host_bootstrap.bootstrap()` 装配，宿主（Hermes/CC/Codex）注入 context/session/policy。
+2小爪 Agent 是**嵌入宿主的组件**，不是独立 agent。通过 `seeyon_host_bootstrap.bootstrap()` 装配，宿主（Hermes/CC/Codex）注入 context/session/policy。
 
 ## 初始化（一次）
 

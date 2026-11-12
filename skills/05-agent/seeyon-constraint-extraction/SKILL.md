@@ -6,7 +6,7 @@ author: 小爪
 license: MIT
 metadata:
   hermes:
-    tags: [seeyon, udc, reverse-engineering, cfr, constraints]
+    tags: [2小爪, udc, reverse-engineering, cfr, constraints]
     related_skills: [seeyon-v8-spi, reverse-engineer-anything, seeyon-low-code-environment]
 ---
 

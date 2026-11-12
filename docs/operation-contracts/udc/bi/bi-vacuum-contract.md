@@ -98,9 +98,9 @@
 - 本契约 scope = 6 个 UDC 5.3.517 jar（本地 Maven 证据单元）。
 - customer-web-1.0.11029 的 maven jar 不在 <MAVEN_REPO>（磁盘仅存先前会话反编译证据 `docs/audit/artifacts/customer-web-1.0.11029/`，非 5.3.517 maven 单元）→ 不在本任务证据边界内，不作交叉腿强求，仅记入本范围声明。
 - 构件（artifactId）层扫描已覆盖（前序会话 R4，**OBSERVATION 级，非字节码证据**）: 本地 Maven `<MAVEN_REPO>\com\seeyon` 命名空间 537 个 jar 条目 / **101 个唯一 artifactId**，按 **14 个 BI 特征词**做 substring 扫描 → **得到 6 条子串命中（3×`-biz` + 2×`capability` + 1×`ganttchart`）→ 逐条排除 → 真 BI 构件 = 0**，整体记为 **OBSERVATION 级**。证据 = `docs/audit/artifacts/udc-bi-5.3.517/bi-domain-scan-artifact-layer.md`（含 6 条逐条归因理由）。本腿不改变 5.3.517 主判定（VACUUM / 0 条契约）。
-  - **口径纠正（依 ROUTE §1.1，本契约采此表述）**: 此前出现的「全仓 Seeyon BI 构件 0 命中」说法**过窄** —— 它基于一个不含 `chart` 的关键词集。**构件层的正确表述固定为**「14 特征词 → 6 条子串命中 → 逐条排除 → 真 BI 构件 0（OBSERVATION 级）」，构件层禁用「0 命中」措辞（宽口径确有 6 条子串命中）。
+  - **口径纠正（依 ROUTE §1.1，本契约采此表述）**: 此前出现的「全仓 2小爪 BI 构件 0 命中」说法**过窄** —— 它基于一个不含 `chart` 的关键词集。**构件层的正确表述固定为**「14 特征词 → 6 条子串命中 → 逐条排除 → 真 BI 构件 0（OBSERVATION 级）」，构件层禁用「0 命中」措辞（宽口径确有 6 条子串命中）。
   - 说明（避免与既有锚点混淆）: 上文「命中计数」段里的「12 个强特征词 × 6 jar = 0」指的是 **5.3.517 字节码类名层**的另一项扫描（口径与词集均不同于构件层），属保留的既有锚点，不受本纠正条影响。
-  - 同腿另记: `com/seeyon` 113 个 artifactId 宽口径名扫中 BI 形态线索 = ganttchart（已单列为上表 OBSERVATION 边界条目）、graphql（已在 5.3.517 内取证为 `GraphqlProxyController`，见端点层）、3 个 `*-biz`（项目命名噪声）、2 个 `cip-capability-*`（capa·bi·lity 子串）；无 report/board/dataset 形态的 Seeyon 自研构件。
+  - 同腿另记: `com/seeyon` 113 个 artifactId 宽口径名扫中 BI 形态线索 = ganttchart（已单列为上表 OBSERVATION 边界条目）、graphql（已在 5.3.517 内取证为 `GraphqlProxyController`，见端点层）、3 个 `*-biz`（项目命名噪声）、2 个 `cip-capability-*`（capa·bi·lity 子串）；无 report/board/dataset 形态的 2小爪 自研构件。
 - 未改任何冻结文件；只读扫描 + javap；路径取注解原值（本域无 BI controller，无路径可提取，故无网关前缀拼接风险；L-B 全量表路径亦逐字未改）。
 
 ## 交付三件套索引（TASK-GOAL 三件齐）

@@ -1,8 +1,8 @@
-# Seeyon Agent Operation Contracts
+# 2小爪 Agent Operation Contracts
 
 ## Scope
 
-本目录定义 Seeyon Agent 对平台能力的可调用边界。它不是源码生成规则，也不是审计报告。
+本目录定义 2小爪 Agent 对平台能力的可调用边界。它不是源码生成规则，也不是审计报告。
 
 ```text
 Capability Catalog

@@ -1,4 +1,4 @@
-# Seeyon Agent Code Reality Audit
+# 2小爪 Agent Code Reality Audit
 
 Test collection: `3201 tests collected`. Historical counts below are not current execution results; see `docs/plans/seeyon-distribution-progress.md` for the latest run.
 
@@ -17,7 +17,7 @@ Test collection: `3201 tests collected`. Historical counts below are not current
 
 ## Executive conclusion
 
-**The repository is a small, tested, offline read-only skeleton, not a complete Seeyon Agent runtime.** The core registry, routing, evidence envelope, UDC catalog/analyzer/planner, local snapshot providers, and CLI are real executable code and are covered by 183 passing tests. Runtime and Integration are snapshot-backed report components, not live adapters. SPI is referenced by routing but has no registered implementation. Write/publish/deploy/real test2 operations are denied or not implemented in the current public surface.
+**The repository is a small, tested, offline read-only skeleton, not a complete 2小爪 Agent runtime.** The core registry, routing, evidence envelope, UDC catalog/analyzer/planner, local snapshot providers, and CLI are real executable code and are covered by 183 passing tests. Runtime and Integration are snapshot-backed report components, not live adapters. SPI is referenced by routing but has no registered implementation. Write/publish/deploy/real test2 operations are denied or not implemented in the current public surface.
 
 ## Evidence status
 

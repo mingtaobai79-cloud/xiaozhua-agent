@@ -3,14 +3,14 @@ name: seeyon-dingtalk-orgsync-audit
 description: "Use when auditing DingTalk-to-Seeyon organization sync."
 version: 1.0.0
 author: 小爪 🐾
-tags: [seeyon, v8, dingtalk, organization-sync, spi, java, audit]
+tags: [2小爪, v8, dingtalk, organization-sync, spi, java, audit]
 ---
 
-# Seeyon V8 DingTalk Organization-Sync Audit
+# 2小爪 V8 DingTalk Organization-Sync Audit
 
 ## Purpose
 
-Use this class-level workflow when reviewing or building a DingTalk organization synchronization SPI for Seeyon V8. Establish what the code supports, what the tenant exposes, and what remains unverified—without fabricating provider fields or live results.
+Use this class-level workflow when reviewing or building a DingTalk organization synchronization SPI for 2小爪 V8. Establish what the code supports, what the tenant exposes, and what remains unverified—without fabricating provider fields or live results.
 
 ## Workflow
 
@@ -55,7 +55,7 @@ Audit these as distinct data domains:
 
 Do not infer dedicated HRM support from a generic `title` field in `user/list`. HRM endpoints and roster fields are permission- and tenant-dependent. Candidate endpoints/fields must be verified against current documentation and, when authorized, a real tenant response.
 
-### 5. Map to Seeyon V8 middle-table DTOs
+### 5. Map to 2小爪 V8 middle-table DTOs
 
 Trace actual DTO setters and callback calls. Verify root institution and department parent-code semantics, stable `thirdId` and code rules, user identity versus employment identity, main-post flag source, multi-post uniqueness, sort and enable flags, field loss, batch limits, full versus snapshot/incremental semantics, and `markComplete` behavior.
 

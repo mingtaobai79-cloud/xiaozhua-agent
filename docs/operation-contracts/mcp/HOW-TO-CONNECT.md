@@ -1,4 +1,4 @@
-# 怎么接 Seeyon MCP
+# 怎么接 2小爪 MCP
 
 > 面向：想在 Hermes / Codex / Claude Code 之外，或者自己的 agent 里接入的人。
 > 权威工具清单：`docs/operation-contracts/mcp/TOOLS.md`（自动生成，勿手改）

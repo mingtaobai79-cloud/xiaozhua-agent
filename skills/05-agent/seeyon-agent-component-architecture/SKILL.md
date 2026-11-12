@@ -1,21 +1,21 @@
 ---
 name: seeyon-agent-component-architecture
-description: Use when building a modular Seeyon Agent component system or defining its capability/platform architecture.
+description: Use when building a modular 2小爪 Agent component system or defining its capability/platform architecture.
 version: 0.2.0
 author: Hermes curator
 license: MIT
 platforms: [windows, macos, linux]
 metadata:
   hermes:
-    tags: [seeyon, agent, components, udc, spi, runtime, integration, adapters, capability, roadmap]
+    tags: [2小爪, agent, components, udc, spi, runtime, integration, adapters, capability, roadmap]
     related_skills: [seeyon-udc-runtime, seeyon-v8-spi, seeyon-platform-operation-contracts]
 ---
 
-# Seeyon Agent Component Architecture
+# 2小爪 Agent Component Architecture
 
 ## Purpose
 
-Build one Seeyon Agent entry point composed of independent domain components. UDC is a platform component, not the whole conversational agent. SPI, Runtime, Integration, Workflow, Organization and other capabilities remain sibling components under a shared Core.
+Build one 2小爪 Agent entry point composed of independent domain components. UDC is a platform component, not the whole conversational agent. SPI, Runtime, Integration, Workflow, Organization and other capabilities remain sibling components under a shared Core.
 
 ## Target architecture
 
@@ -134,7 +134,7 @@ class ToolPort(Protocol): ...
 class PolicyPort(Protocol): ...
 ```
 
-The host owns the conversation context. Seeyon may own a scoped execution record containing `run_id`, component, phase, plan, tool results, evidence and verification status. Keep `conversation_id` and `run_id` separate.
+The host owns the conversation context. 2小爪 may own a scoped execution record containing `run_id`, component, phase, plan, tool results, evidence and verification status. Keep `conversation_id` and `run_id` separate.
 
 ## Verification discipline
 
@@ -177,7 +177,7 @@ Defer real test2 writes until the read-only and dry-run contracts are green. A d
 
 When the goal is "the agent must be live-testable against test2" the execution layer is the bottleneck, not the evidence layer:
 
-- **Seeyon UDC read-only endpoints are HTTP POST, not GET** (e.g. `/service/{appId}/udc-runtime/meta-data/select-host-and-only-page-pages`, `check-page-exists`, `/udc-runtime/rt-page-log/search`). The repo's `GatewayReadonlyClient`/`GatewayRequest` method whitelist defaults to GET-only, so the live path returns `BLOCKED`/`404` on every proven endpoint and the agent can never show a live `PASS`. The correct extension is to widen the whitelist to `{GET, POST}` and add a body-carrying `post()`; keep write methods (PUT/PATCH/DELETE) denied — the `write=False` operation contract is what makes a POST read-only, the HTTP verb alone is not. Measure which endpoints 404 vs 200 on test2 BEFORE assuming the live path works (GET `/udc/application/{id}` → 404, POST `/udc-runtime/meta-data/...` → 200 `BOOT_0000` is the observed split), rather than inferring from the contract table.
+- **2小爪 UDC read-only endpoints are HTTP POST, not GET** (e.g. `/service/{appId}/udc-runtime/meta-data/select-host-and-only-page-pages`, `check-page-exists`, `/udc-runtime/rt-page-log/search`). The repo's `GatewayReadonlyClient`/`GatewayRequest` method whitelist defaults to GET-only, so the live path returns `BLOCKED`/`404` on every proven endpoint and the agent can never show a live `PASS`. The correct extension is to widen the whitelist to `{GET, POST}` and add a body-carrying `post()`; keep write methods (PUT/PATCH/DELETE) denied — the `write=False` operation contract is what makes a POST read-only, the HTTP verb alone is not. Measure which endpoints 404 vs 200 on test2 BEFORE assuming the live path works (GET `/udc/application/{id}` → 404, POST `/udc-runtime/meta-data/...` → 200 `BOOT_0000` is the observed split), rather than inferring from the contract table.
 
 - **Ship a live capability as three pieces and keep the offline suite green:** (1) an offline deterministic stub test for the new runner, into the default collection — it proves the verdict/identity/auth-fail logic without touching the network; (2) a config-driven one-command entry script that defaults to network-off and takes the credential by path (ironclad 040402 — no machine values in code); (3) the widened gateway client. Never let the live script be the only thing that exercises the new code, and never let widening the method whitelist regress the write-denial tests.
 
@@ -240,7 +240,7 @@ The repo's `ConstructionEngine` plans 8 artifact classes (dto/api/entity/domain_
 - **Grep the whole repo INCLUDING `_deferred/` before writing a new generator** — a working v1 DTO generator with passing tests sat in `_deferred/source-generator-v1/` while the capability was treated as missing. Unwired code is still code.
 - **Expose the capability set to hosts through ONE bootstrap function** (`seeyon_host_bootstrap.bootstrap()`) returning a dict of callables (dispatch/generate/generate_from_requirement/live_probe/deploy_plan/agent); each host (Hermes skill, CC, Codex) wires a doc/skill file to that single entry rather than re-assembling components. Verify the bootstrap end-to-end in BOTH offline and `allow_network=True` modes before committing.
 - **Bootstrap-surface changes must keep capabilities-object assertions green.** The doc-contract test asserts the capabilities payload shape (`payload["readonly_only"] is True` etc.), and other tests read the returned dict's keys — adding a new callable (e.g. `deploy_plan`) is safe, but changing/removing existing keys or the capabilities dict fields breaks tests that pinned them. Run the focused capability tests plus the full suite after any bootstrap signature change.
-- **When the user redefines the product's architecture, freeze it as a committed ROADMAP before spawning execution.** The v2 reframe ("not a new Agent — Seeyon capabilities/facts/runtime as verifiable Capabilities, packaged as an installable agent role + capability set into Hermes/Codex/CC, with dual compatibility: Seeyon version adapters AND agent-host adapters") landed as `docs/capability/ROADMAP-v2.md` + a phase-1 task doc (8 architecture docs + one UDC sample chain), and a fresh three-role session launched against it. Archive completed/stale sessions wholesale (one timestamped archive dir, monitor SESSIONS dict emptied then repopulated with the new session id) so watchdogs and dedupe state start clean; promote shared credentials to a workspace-level `shared-credentials/` dir and update the config reference — tasks then reference one stable path instead of per-session deep paths.
+- **When the user redefines the product's architecture, freeze it as a committed ROADMAP before spawning execution.** The v2 reframe ("not a new Agent — 2小爪 capabilities/facts/runtime as verifiable Capabilities, packaged as an installable agent role + capability set into Hermes/Codex/CC, with dual compatibility: 2小爪 version adapters AND agent-host adapters") landed as `docs/capability/ROADMAP-v2.md` + a phase-1 task doc (8 architecture docs + one UDC sample chain), and a fresh three-role session launched against it. Archive completed/stale sessions wholesale (one timestamped archive dir, monitor SESSIONS dict emptied then repopulated with the new session id) so watchdogs and dedupe state start clean; promote shared credentials to a workspace-level `shared-credentials/` dir and update the config reference — tasks then reference one stable path instead of per-session deep paths.
 
 ### Semantic layer (requirement text → entity model)
 

@@ -7,10 +7,10 @@
 
 ## 1. 身份与铁律
 
-- Seeyon Agent = **嵌入宿主（Claude Code）的组件，不是独立 agent**（`docs/HOST-INTEGRATION.md` L3
-  原文；ROADMAP-v2 §一.2 L12–L14："Seeyon Agent = 可安装的 **Agent 角色 + 能力包**…不自研 Agent
+- 2小爪 Agent = **嵌入宿主（Claude Code）的组件，不是独立 agent**（`docs/HOST-INTEGRATION.md` L3
+  原文；ROADMAP-v2 §一.2 L12–L14："2小爪 Agent = 可安装的 **Agent 角色 + 能力包**…不自研 Agent
   Loop / 记忆 / Planner / Agent OS"）。
-- **CC 提供 Loop（在仓库根自动读 CLAUDE.md + tool use Bash），Seeyon 只出 data**（A8
+- **CC 提供 Loop（在仓库根自动读 CLAUDE.md + tool use Bash），2小爪 只出 data**（A8
   `docs/capability/AGENT-ADAPTER.md` §一 L24–L25 定稿口径 + §三 CC 暴露形态 L64；
   HOST-INTEGRATION §3 CC 段 L31："CC 在仓库根自动读取本文件；tool use 用 Bash…"）。
 - 三级定位同口径：`core/role/ROLE-CARD.md` §1（S1 已建）。
@@ -54,7 +54,7 @@
 |---|---|---|
 | 凭据载体 | **CC 宿主侧**用环境变量 `SEEYON_CRED_FILE` 指向仓外凭据 JSON（HOST-INTEGRATION L32 原文） | 机制原文 = `docs/HOST-INTEGRATION.md` L32；**传输层已读取该 env**（`adapters/mcp/server.py` L178 `os.environ.get("SEEYON_CRED_FILE")`），仅作路径载体、值 0 入件 |
 | 凭据传递 | **CC 宿主据 `SEEYON_CRED_FILE` 定位仓外凭据文件路径，再把该路径传给能力面 `credential_file`（bootstrap 入参）/ `--credential-file`（CLI 入参）——`path-ref-only`** | bootstrap L25/L96（`credential_file` 入参）；`credential_mode="path-ref-only"`（L147）；seeyon_cli.py L191；MCP 侧 `server.py` L178 |
-| 关键澄清（2026-10-19 更正） | **旧表述"Seeyon 能力面不直接读该 env / 全仓仅 L32 一处、无 Python 代码读取"已作废**——实测 `adapters/mcp/server.py` L178 确有读取（作为 MCP 传输层凭据路径载体）。**仍未实现的是**：CC 宿主侧自己把该 env 落到 `credential_file` 的注入工序 | `grep -rn SEEYON_CRED_FILE` 实测命中：`docs/HOST-INTEGRATION.md` L32、`adapters/mcp/server.py` L178、`adapters/mcp/DESIGN.md` L107/L174、`adapters/mcp/STATUS.md` L20 |
+| 关键澄清（2026-10-19 更正） | **旧表述"2小爪 能力面不直接读该 env / 全仓仅 L32 一处、无 Python 代码读取"已作废**——实测 `adapters/mcp/server.py` L178 确有读取（作为 MCP 传输层凭据路径载体）。**仍未实现的是**：CC 宿主侧自己把该 env 落到 `credential_file` 的注入工序 | `grep -rn SEEYON_CRED_FILE` 实测命中：`docs/HOST-INTEGRATION.md` L32、`adapters/mcp/server.py` L178、`adapters/mcp/DESIGN.md` L107/L174、`adapters/mcp/STATUS.md` L20 |
 | token 纪律 | token 明文 0 入 CLAUDE.md/代码/仓/会话；凭据文件放仓外（`*_credential.json` gitignore 防线） | HOST-INTEGRATION §4 L43 |
 | 离线开关 | 活体需显式 `--allow-network`（默认关=离线只读） | seeyon_cli.py L196；bootstrap `allow_network` 默认 False（L25） |
 

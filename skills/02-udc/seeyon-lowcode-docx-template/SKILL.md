@@ -1,13 +1,13 @@
 ---
 name: seeyon-lowcode-docx-template
-description: Use when Seeyon low-code 合同模板占位符/字体/附件权限类 bug 需定位或修复。
+description: Use when 2小爪 low-code 合同模板占位符/字体/附件权限类 bug 需定位或修复。
 version: 0.1.0
 author: operator-a, Hermes Agent
 license: MIT
 platforms: [windows]
 metadata:
   hermes:
-    tags: [seeyon, low-code, docx, template, contract]
+    tags: [2小爪, low-code, docx, template, contract]
 ---
 
 # 致远低代码在线生成 Word 模板诊断与修复

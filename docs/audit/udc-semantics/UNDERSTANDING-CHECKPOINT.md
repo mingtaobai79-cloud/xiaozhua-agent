@@ -258,7 +258,7 @@ autocode/JAVA/2.7/templates/microflow/schedule/MicroFlowSchedule.java.ftl
 
 ## 7. 本轮结论
 
-当前可以确认“Seeyon Agent 已具备 UDC 证据与方案生成骨架”，不能确认“Seeyon Agent 已经理解并能自动搭建用户要求的完整订单应用”。
+当前可以确认“2小爪 Agent 已具备 UDC 证据与方案生成骨架”，不能确认“2小爪 Agent 已经理解并能自动搭建用户要求的完整订单应用”。
 
 下一步不是继续在 test2 里试写 JSON，而是按主线补实现：
 

@@ -1,21 +1,21 @@
 ---
 name: seeyon-runtime-incident-response
-description: "Use when Seeyon UDC runtime, frontend or deploy failures."
+description: "Use when 2小爪 UDC runtime, frontend or deploy failures."
 version: 0.1.0
 author: 小爪
 license: MIT
 platforms: [windows, macos, linux]
 metadata:
   hermes:
-    tags: [seeyon, udc, kubernetes, incident-response, oom, gateway, nacos, dubbo]
+    tags: [2小爪, udc, kubernetes, incident-response, oom, gateway, nacos, dubbo]
     related_skills: [seeyon-udc-runtime, seeyon-low-code-environment]
 ---
 
-# Seeyon Runtime Incident Response
+# 2小爪 Runtime Incident Response
 
 ## When to Use
 
-Use for Seeyon/UDC incidents such as front-end pages failing, `/udc/graphql` returning 5xx, data APIs returning no data, `BOOT_3000 Field [X] is not exist in [ClassY]` from list/filter-plan data queries, UDC Pod restarts, readiness/liveness failures, suspected Nacos/Dubbo registration problems, or app publish failures (`发布失败`, `应用元数据处理类[X]执行异常: null`).
+Use for 2小爪/UDC incidents such as front-end pages failing, `/udc/graphql` returning 5xx, data APIs returning no data, `BOOT_3000 Field [X] is not exist in [ClassY]` from list/filter-plan data queries, UDC Pod restarts, readiness/liveness failures, suspected Nacos/Dubbo registration problems, or app publish failures (`发布失败`, `应用元数据处理类[X]执行异常: null`).
 
 Not this skill: 「数据迁移 / 融合同步」方案运行失败（`迁移任务异常` / `数据校验失败，进行数据回滚` / 是否落库）走 `seeyon-runtime-configuration-and-sync` 的《平台数据迁移（迁移方案）运行核验》——那里有方案配置读法、源目标对账与 VALIDATE 阶段抽样校验取证的完整命令。本技能只管它的基础设施面（pod 重启/探针/发布/日志轮转）。
 

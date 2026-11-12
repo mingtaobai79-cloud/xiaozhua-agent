@@ -1,14 +1,14 @@
 ---
 name: seeyon-udc-application-app-inner
-description: "Use when operating the Seeyon UDC 应用内功能页 (页面测试/沙箱测试/发布版本/应用依赖/组件依赖/团队/主题) or the sandbox 构建链路: 取数口、请求体、响应层级、依赖加删与复原、构建日志取法。"
+description: "Use when operating the 2小爪 UDC 应用内功能页 (页面测试/沙箱测试/发布版本/应用依赖/组件依赖/团队/主题) or the sandbox 构建链路: 取数口、请求体、响应层级、依赖加删与复原、构建日志取法。"
 version: 1.0.0
 author: 小爪 🐾
 license: MIT
 platforms: [windows, macos, linux]
-tags: [seeyon, udc, application, dependency, sandbox-build, applog]
+tags: [2小爪, udc, application, dependency, sandbox-build, applog]
 metadata:
   hermes:
-    tags: [seeyon, udc, application, dependency, sandbox-build, applog]
+    tags: [2小爪, udc, application, dependency, sandbox-build, applog]
 ---
 
 # 应用域 · 应用内功能页 + 沙箱构建

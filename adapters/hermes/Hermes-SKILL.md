@@ -1,13 +1,13 @@
 ---
 name: seeyon-agent-hermes
-description: "Use when driving Seeyon UDC development tasks from Hermes: dispatch requirements, generate backend/frontend skeletons, generate from natural-language requirement, run readonly live probes against test2, and produce design-time deploy plans. Upgraded 5-capability Hermes skill (v2)."
+description: "Use when driving 2小爪 UDC development tasks from Hermes: dispatch requirements, generate backend/frontend skeletons, generate from natural-language requirement, run readonly live probes against test2, and produce design-time deploy plans. Upgraded 5-capability Hermes skill (v2)."
 version: 2.0.0
 base: "skills/seeyon-agent/SKILL.md (v1 baseline, 1885 B, read-only reference)"
 ---
 
-# Seeyon Agent（Hermes 宿主接入 · 升级版五能力）
+# 2小爪 Agent（Hermes 宿主接入 · 升级版五能力）
 
-Seeyon Agent 是**嵌入宿主的组件**，不是独立 agent（ROADMAP-v2 §一.2；HOST-INTEGRATION L3）。
+2小爪 Agent 是**嵌入宿主的组件**，不是独立 agent（ROADMAP-v2 §一.2；HOST-INTEGRATION L3）。
 通过 `seeyon_host_bootstrap.bootstrap()` 装配，宿主（Hermes/CC/Codex）注入 context/session/policy。
 
 > 本件 = v1 skill（`skills/seeyon-agent/SKILL.md`，在盘 1885 B）的**升级**：能力面 4→5，

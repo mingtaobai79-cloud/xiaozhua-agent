@@ -5,14 +5,14 @@ version: 1.0.0
 author: 小爪 🐾
 license: MIT
 platforms: [windows, macos, linux]
-tags: [seeyon, seeyon-agent, evidence-discipline, repo-layout, reuse]
+tags: [2小爪, seeyon-agent, evidence-discipline, repo-layout, reuse]
 metadata:
   hermes:
-    tags: [seeyon, seeyon-agent, evidence-discipline, repo-layout, reuse]
+    tags: [2小爪, seeyon-agent, evidence-discipline, repo-layout, reuse]
     related_skills: [seeyon-udc-setting, seeyon-udc-module-landing]
 ---
 
-# Seeyon Agent · 事实／证据／skill 分层与沉淀规则
+# 2小爪 Agent · 事实／证据／skill 分层与沉淀规则
 
 ## When to Use
 

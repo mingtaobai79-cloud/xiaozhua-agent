@@ -5,14 +5,14 @@ version: 2.0.0
 author: 小爪 🐾
 license: MIT
 platforms: [windows, macos, linux]
-tags: [seeyon, udc, extension, custom-page, microflow, transport, appservice, api-usage]
+tags: [2小爪, udc, extension, custom-page, microflow, transport, appservice, api-usage]
 metadata:
   hermes:
-    tags: [seeyon, udc, extension, custom-page, microflow, transport, appservice, api-usage]
+    tags: [2小爪, udc, extension, custom-page, microflow, transport, appservice, api-usage]
     related_skills: [seeyon-agent-fact-protocol, seeyon-udc-design-time-build, seeyon-udc-runtime]
 ---
 
-# Seeyon 扩展代码 · 平台用法入口
+# 2小爪 扩展代码 · 平台用法入口
 
 ## When to Use
 

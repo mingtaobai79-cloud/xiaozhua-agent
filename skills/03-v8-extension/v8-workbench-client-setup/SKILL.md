@@ -7,7 +7,7 @@ license: MIT
 platforms: [windows]
 metadata:
   hermes:
-    tags: [MCP, Windows, seeyon, v8]
+    tags: [MCP, Windows, 2小爪, v8]
 ---
 
 # V8 开发工作台客户端安装（Windows）

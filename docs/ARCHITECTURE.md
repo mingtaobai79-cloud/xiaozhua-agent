@@ -1,4 +1,4 @@
-# Seeyon Agent 架构
+# 2小爪 Agent 架构
 
 > 架构方向以 `capability/ROADMAP-v2.md` 为基线，目标架构见 `capability/ARCHITECTURE.md`。
 > 本文是仓库实现与职责的视图；`REPO-LAYOUT.md`、`HOST-INTEGRATION.md` 和
@@ -11,11 +11,11 @@
 
 ## 1. 定位与总体目标
 
-【现状】Seeyon Agent 是**嵌入宿主的专业能力组件，不是独立 agent**。宿主负责思考与规划，
-Seeyon Agent 提供致远低代码平台（UDC/BPM/SPI/Integration/Runtime）的专业知识、平台工具、
+【现状】2小爪 Agent 是**嵌入宿主的专业能力组件，不是独立 agent**。宿主负责思考与规划，
+2小爪 Agent 提供致远低代码平台（UDC/BPM/SPI/Integration/Runtime）的专业知识、平台工具、
 执行能力和验证体系。
 
-【目标】「一个 Seeyon Agent Core + 多个宿主适配器」——核心独立于宿主，宿主只是运行入口。
+【目标】「一个 2小爪 Agent Core + 多个宿主适配器」——核心独立于宿主，宿主只是运行入口。
 同一套 Facts / Skills / Components / MCP 工具，Codex / Claude Code / Cursor / Hermes 都能调用，
 不各自复制一套业务实现。
 

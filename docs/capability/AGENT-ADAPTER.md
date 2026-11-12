@@ -19,11 +19,11 @@ ROADMAP-v2 §一 两级兼容 + §一.2 明令"不自研 Agent Loop/记忆/Plann
 
 | 层 | 语义 | 在盘锚点 | 现状 |
 |---|---|---|---|
-| **Seeyon 版本兼容（对内）** | 客户当前仓库 = Canonical，能力定义稳定；差异走 **Version Adapter**（adapter-5.3 / 5.4 / …），Agent 不自行判版本分支 | A5 已定 Canonical=5.3.517；`registry.py` 全 5.3.517 锚点 | 目标态（Version Adapter 未建，UNVERIFIED）|
+| **2小爪 版本兼容（对内）** | 客户当前仓库 = Canonical，能力定义稳定；差异走 **Version Adapter**（adapter-5.3 / 5.4 / …），Agent 不自行判版本分支 | A5 已定 Canonical=5.3.517；`registry.py` 全 5.3.517 锚点 | 目标态（Version Adapter 未建，UNVERIFIED）|
 | **Agent 角色 + 能力包** | 可安装单元 = **Role + Facts + Skills + Tools + Code + Sandbox**（§二 目录骨架 `core/{role,facts,skills,tools,capabilities}` + `sandbox/`） | `core/registry.py`（ComponentRegistry，在盘）；`components/platform_operations/`（契约/写门，在盘）；`core/{role,facts,skills,tools}` 已在盘，`core/capabilities/` 仍未建 | 部分在盘（registry/契约/role/facts/skills/tools 在），`core/capabilities/` 未建（UNVERIFIED）|
-| **Agent Host 兼容（对外）** | 角色包经 **Adapter** 进入已有宿主（Hermes / Codex / Claude Code），暴露形态=MCP tool 清单 / Skill 文件 / 角色提示词包；**宿主只提供 Loop/记忆/Planner，Seeyon Agent 不自研** | ROADMAP §二 `adapters/{hermes,codex,claude-code}/`（**目录已在盘**，内容为声明级模板/清单）；**v1 adapter = `seeyon_host_bootstrap.py` 在盘**（见 §三） | 目录在盘；v1 bootstrap 在盘 |
+| **Agent Host 兼容（对外）** | 角色包经 **Adapter** 进入已有宿主（Hermes / Codex / Claude Code），暴露形态=MCP tool 清单 / Skill 文件 / 角色提示词包；**宿主只提供 Loop/记忆/Planner，2小爪 Agent 不自研** | ROADMAP §二 `adapters/{hermes,codex,claude-code}/`（**目录已在盘**，内容为声明级模板/清单）；**v1 adapter = `seeyon_host_bootstrap.py` 在盘**（见 §三） | 目录在盘；v1 bootstrap 在盘 |
 
-**定稿口径**：Seeyon Agent 是"可安装角色+能力包"，宿主是"提供 Agent Loop/记忆/Planner 的既有系统"，
+**定稿口径**：2小爪 Agent 是"可安装角色+能力包"，宿主是"提供 Agent Loop/记忆/Planner 的既有系统"，
 二者经 Adapter 解耦——宿主可换，能力包定义稳定。
 
 ---
@@ -32,7 +32,7 @@ ROADMAP-v2 §一 两级兼容 + §一.2 明令"不自研 Agent Loop/记忆/Plann
 
 **位置**：仓库根 `seeyon_host_bootstrap.py`，入口 `bootstrap(*, credential_file=None, allow_network=False, …)`
 （L25）。这是 ROADMAP §一.2 "可安装角色+能力包经 Adapter 进宿主"的**在盘 v1 实例**，宿主（Hermes/CC/Codex）
-拿到它即可调 Seeyon 能力。
+拿到它即可调 2小爪 能力。
 
 **`bootstrap()` 返回 dict（实测 L136–L149，main 已在 ROUTE L21-25 独立复核一致）**：
 

@@ -1,4 +1,4 @@
-# Seeyon Agent 当前工程版本边界与文档漂移审计
+# 2小爪 Agent 当前工程版本边界与文档漂移审计
 
 - **目标工程：** `<SEEYON_AGENT_ROOT>`
 - **审计范围：** README、`pyproject.toml`、CLI capabilities、测试收集/执行结果及既有本地审计文档
@@ -7,7 +7,7 @@
 
 ## 结论摘要
 
-当前工程是一个可执行、可测试的**离线只读骨架**，不是已接入真实 Seeyon 运行环境的完整 Agent。代码包版本为 `0.1.0`；Test collection: `3201 tests collected`，收集数不等于通过数，实际执行结果见 `docs/plans/seeyon-distribution-progress.md`。CLI `capabilities` 实际声明 `udc`、`runtime`、`integration` 三个只读组件，网络边界为 `disabled`；README 中关于 SPI “占位、未实现或注册”的描述与代码一致。
+当前工程是一个可执行、可测试的**离线只读骨架**，不是已接入真实 2小爪 运行环境的完整 Agent。代码包版本为 `0.1.0`；Test collection: `3201 tests collected`，收集数不等于通过数，实际执行结果见 `docs/plans/seeyon-distribution-progress.md`。CLI `capabilities` 实际声明 `udc`、`runtime`、`integration` 三个只读组件，网络边界为 `disabled`；README 中关于 SPI “占位、未实现或注册”的描述与代码一致。
 
 此前文档中出现过若干历史测试计数，本次以当前 checkout 的实际全量运行结果为准，旧计数不再作为当前版本依据，本次以当前 checkout 的实际全量运行结果为准，旧计数不再作为当前版本依据。
 
@@ -23,7 +23,7 @@
 | installable console script | 未声明 `[project.scripts]` | `pyproject.toml` | **FACT / GAP** |
 | supported implementation shape | Core + UDC + Runtime + Integration；SPI 无注册实现 | source inventory and capabilities | **FACT** |
 
-代码版本只描述仓库声明与实际源码形态，不等于 Seeyon 平台版本兼容性，也不等于生产部署版本。
+代码版本只描述仓库声明与实际源码形态，不等于 2小爪 平台版本兼容性，也不等于生产部署版本。
 
 ### 2. 事实版本（Evidence/data version）
 

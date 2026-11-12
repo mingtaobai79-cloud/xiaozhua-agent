@@ -1,6 +1,6 @@
 # VERSION-COMPATIBILITY｜Canonical 版本规范 + 差异矩阵模板（A5）
 
-> 基线：`docs/capability/ROADMAP-v2.md` @ git `d76f7af`（本文件是其 §一.1"Seeyon 版本兼容"与
+> 基线：`docs/capability/ROADMAP-v2.md` @ git `d76f7af`（本文件是其 §一.1"2小爪 版本兼容"与
 > §二"Version Adapter"的展开，不新增定位/阶段）。
 > 配套：`ARCHITECTURE.md`（第七节 Canonical 铁律）、`EVIDENCE-MODEL.md`（A4 四层 + OperationStatus 归并口径）。
 > 铁律：**Canonical 版本 = 客户当前仓库**；版本差异走 **Version Adapter**，Agent 不自行判断版本分支；
@@ -8,21 +8,21 @@
 >
 > **引用更正（truth over label）**：本 HANDOFF/ROUTE 完成标准引 "ROADMAP-v2 §一.1/§九"。实测
 > `ROADMAP-v2.md`（71 行）章节仅 §一~§七，**无 §九**。本文件严格对齐**真实存在**的
-> §一.1（定位 1：Seeyon 版本兼容，Canonical + Version Adapter）与 §二（目录骨架 `adapters/`、`sandbox/`
+> §一.1（定位 1：2小爪 版本兼容，Canonical + Version Adapter）与 §二（目录骨架 `adapters/`、`sandbox/`
 > 版本维度），**不引用不存在的 §九**；此更正已随 RESULT 回报 main（ROUTE 归属方）。
 
 ---
 
 ## 一、Canonical 版本规范（对齐 ROADMAP-v2 §一.1）
 
-ROADMAP-v2 §一.1 原文：**"Seeyon 版本兼容（对内）：客户当前仓库版本为 Canonical，能力定义稳定，
+ROADMAP-v2 §一.1 原文：**"2小爪 版本兼容（对内）：客户当前仓库版本为 Canonical，能力定义稳定，
 差异走 Version Adapter（adapter-5.3 / adapter-5.4 / …），Agent 不自行判断版本分支。"**
 
 据此给规范三要素：
 
 | 要素 | 定义 | 在盘落点 |
 |---|---|---|
-| **Canonical 版本** | = 客户**当前仓库**实际部署的 Seeyon 版本。本轮在盘所有 UDC 能力契约锚定的版本 | **5.3.517**（`registry.py` 106 处 artifact 锚点；`udc-starter-runtime/entity/page/flow/customplan 5.3.517.jar` 全 5.3.517；test2 LIVE 环境版本，见 §三） |
+| **Canonical 版本** | = 客户**当前仓库**实际部署的 2小爪 版本。本轮在盘所有 UDC 能力契约锚定的版本 | **5.3.517**（`registry.py` 106 处 artifact 锚点；`udc-starter-runtime/entity/page/flow/customplan 5.3.517.jar` 全 5.3.517；test2 LIVE 环境版本，见 §三） |
 | **Version Adapter** | 承接版本差异的适配层（`adapter-5.3`/`adapter-5.4`/…），按版本注入差异，不改变能力定义 | 目录骨架 `adapters/`（§二）+ Global 层 Version 能力（`ARCHITECTURE.md` 第三节）；**本轮未建实现**（目标态，归 A6/A8 后续） |
 | **Agent 不判分支** | Agent 侧能力声明版本无关（以 Canonical 为准），不内嵌"if 版本 X 走 A 分支"的运行时判断 | 能力定义稳定=registry 契约不随版本变体复制；差异由 Adapter 在暴露面注入 |
 

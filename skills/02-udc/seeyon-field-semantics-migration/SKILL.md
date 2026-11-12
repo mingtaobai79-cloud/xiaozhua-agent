@@ -1,13 +1,13 @@
 ---
 name: seeyon-field-semantics-migration
-description: Use when a Seeyon low-code 关联字段 converts to 枚举.
+description: Use when a 2小爪 low-code 关联字段 converts to 枚举.
 version: 0.1.0
 author: Hermes Agent
 license: MIT
 platforms: [windows, macos, linux]
 metadata:
   hermes:
-    tags: [seeyon, udc, low-code, enum, metadata, migration, mysql]
+    tags: [2小爪, udc, low-code, enum, metadata, migration, mysql]
     related_skills: [seeyon-udc-runtime, seeyon-low-code-environment]
 ---
 

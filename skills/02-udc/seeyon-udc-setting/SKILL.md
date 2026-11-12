@@ -1,17 +1,17 @@
 ---
 name: seeyon-udc-setting
-description: "Use when working on the Seeyon UDC 设置 domain: 枚举/选项集/自定义对象/页面设置等 tab 的配置、校验与删除。"
+description: "Use when working on the 2小爪 UDC 设置 domain: 枚举/选项集/自定义对象/页面设置等 tab 的配置、校验与删除。"
 version: 1.0.0
 author: 小爪 🐾
 license: MIT
 platforms: [windows, macos, linux]
-tags: [seeyon, udc, setting, enum, option-set, custom-object]
+tags: [2小爪, udc, setting, enum, option-set, custom-object]
 metadata:
   hermes:
-    tags: [seeyon, udc, setting, enum, option-set, custom-object]
+    tags: [2小爪, udc, setting, enum, option-set, custom-object]
 ---
 
-# Seeyon UDC · 设置域
+# 2小爪 UDC · 设置域
 
 ## 域定位
 

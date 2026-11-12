@@ -1,4 +1,4 @@
-# Seeyon Agent 下一阶段方向审计输入
+# 2小爪 Agent 下一阶段方向审计输入
 
 > ✅ **P6 裁决（2026-11-07）：保留原地，不移动、不删除。**
 > 本文件是下一阶段方向的审计输入（高难度问题 / 决策闸门 / 证据要求），**仍被程序读取**：
@@ -7,7 +7,7 @@
 > `tests/test_audit_summary.py:20` 也按此文件名写临时输入。
 > ⇒ 要动本文件，必须同步改代码与测试。上级登记见 `docs/audit/README.md` §六。
 
-> 目的：在已完成的 UDC 静态审计和当前 Seeyon Agent 只读骨架基础上，整理下一阶段必须继续回答的高难度问题、决策闸门和证据要求。本文**不是实施方案**，不定义功能代码、接口改造或环境操作；未授权连接 test2，也不以静态证据替代动态验证。
+> 目的：在已完成的 UDC 静态审计和当前 2小爪 Agent 只读骨架基础上，整理下一阶段必须继续回答的高难度问题、决策闸门和证据要求。本文**不是实施方案**，不定义功能代码、接口改造或环境操作；未授权连接 test2，也不以静态证据替代动态验证。
 >
 > 证据口径：`FACT` 表示已有直接文件/源码/反编译/哈希证据；`OBSERVATION` 表示审计中观察到的现象；`UNVERIFIED/HYPOTHESIS` 表示尚未形成闭环。版本结论仅适用于明确的 artifact + version + sha256，不外推到全部 5.3 或全部客户。
 
@@ -213,7 +213,7 @@ UDC Construction Rule Model
 
 ### 8.1 绝对边界
 
-- UDC、BPM、SPI、Connector 是 Seeyon Agent 的同级独立平台模块。
+- UDC、BPM、SPI、Connector 是 2小爪 Agent 的同级独立平台模块。
 - `UDC/BPM Construction`、`UDC/SPI Construction`、`UDC/Connector Construction` 是 UDC 的构造规则，不是对应平台模块的子模块。
 - 客户项目不用于反推 UDC 通用规则，只用于最后验证标准规则和识别客户扩展。
 

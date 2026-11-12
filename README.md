@@ -1,4 +1,4 @@
-# Seeyon Agent
+# 2小爪 Agent
 
 致远 UDC / SPI 平台的操作能力包（MCP）。给 Hermes、Codex、Claude Code 这类宿主用，
 让 AI 以用户身份经平台接口真实操作 —— 建实体、配枚举、发规则、出报文。
@@ -458,4 +458,4 @@ CLI 层的写操作会明确拒绝并返回退出码 2 —— 写平台走 MCP �
 **硬规矩**：HTTP 200 或 `BOOT_0000` 不等于成功，必须按 id 回读。
 平台有些字段错名不报错（见 6.8），只能对 DTO 才能发现。
 
-UDC 是 Seeyon Agent 的组件，不是独立总 Agent；Context、Session、Tool 和 LLM 可由宿主注入。
+UDC 是 2小爪 Agent 的组件，不是独立总 Agent；Context、Session、Tool 和 LLM 可由宿主注入。

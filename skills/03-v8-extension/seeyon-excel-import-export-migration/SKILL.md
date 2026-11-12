@@ -1,10 +1,10 @@
 ---
 name: seeyon-excel-import-export-migration
-description: Seeyon V8 Excel import/export migration patterns for existing ServiceImpl/controller implementations, sheet mapping, enum/member conversion, template sheets, and JDK 8 compatibility.
+description: 2小爪 V8 Excel import/export migration patterns for existing ServiceImpl/controller implementations, sheet mapping, enum/member conversion, template sheets, and JDK 8 compatibility.
 ---
-# Seeyon Excel import/export migration
+# 2小爪 Excel import/export migration
 
-Use this skill when migrating, fixing, or extending Excel-based import/export in a Seeyon V8 SPI project.
+Use this skill when migrating, fixing, or extending Excel-based import/export in a 2小爪 V8 SPI project.
 
 ## Default shape
 - Keep the import/export methods in the existing `*ServiceImpl` class when the project already follows that pattern.
@@ -40,7 +40,7 @@ Use this skill when migrating, fixing, or extending Excel-based import/export in
   - update when found, create when missing
   - save the parent first, then child rows
   - if child rows are replaced wholesale, delete old children before rebuilding
-- **CRITICAL — update does not cascade children**: `appService.update(parentDto)` only updates the parent record. The platform `updateBase()` source reveals why: internally it calls `selectCascadeById` to get old data, then `mergeMapData(oldMap, newMap)` diffs old vs new by id. New child DTOs built from Excel rows have no id, so the merge phase discards them before `recursiveUpdate` ever runs. The `create()` path bypasses merge diff, so it cascades fine. This is the #1 cause of "import update loses child data" bugs in Seeyon V8 migrations.
+- **CRITICAL — update does not cascade children**: `appService.update(parentDto)` only updates the parent record. The platform `updateBase()` source reveals why: internally it calls `selectCascadeById` to get old data, then `mergeMapData(oldMap, newMap)` diffs old vs new by id. New child DTOs built from Excel rows have no id, so the merge phase discards them before `recursiveUpdate` ever runs. The `create()` path bypasses merge diff, so it cascades fine. This is the #1 cause of "import update loses child data" bugs in 2小爪 V8 migrations.
 - **Fix: use Dao.createBatch, NOT childAppService.create**: The intuitive fix is `childAppService.create(childDto)` after `update()`, but this hits **aggregate-root validation** — the child AppService validates that parentId references a valid aggregate root and rejects standalone creates. The correct bypass is:
   1. Convert each child DTO to its Entity via `BeanUtil.copyProperties(dto, Entity.class)`
   2. Set `entity.setId(null)` and `entity.setParentId(parentId)`

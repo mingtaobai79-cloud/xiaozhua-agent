@@ -1,4 +1,4 @@
-# EVIDENCE-DISCIPLINE｜Seeyon Agent 证据纪律
+# EVIDENCE-DISCIPLINE｜2小爪 Agent 证据纪律
 
 > 声明级文档。锚点全部在盘可复核；未建/未实现项逐条标 UNVERIFIED 或"未实现"。
 

@@ -1,21 +1,21 @@
 ---
 name: seeyon-external-data-sync
-description: "Use for Seeyon UDC integrations with external data APIs."
+description: "Use for 2小爪 UDC integrations with external data APIs."
 version: 0.1.0
 author: Hermes Agent
 license: MIT
 platforms: [windows, macos, linux]
 metadata:
   hermes:
-    tags: [seeyon, udc, sync, api, dto, data-quality, kubernetes]
+    tags: [2小爪, udc, sync, api, dto, data-quality, kubernetes]
     related_skills: [seeyon-low-code-environment, seeyon-udc-runtime]
 ---
 
-# Seeyon External Data Synchronization
+# 2小爪 External Data Synchronization
 
 ## When to use
 
-Use this skill for Seeyon UDC custom microflows or AppServices that pull ERP, invoice, bill-pool, tax-cloud, or other third-party data and persist it through generated AppService DTOs.
+Use this skill for 2小爪 UDC custom microflows or AppServices that pull ERP, invoice, bill-pool, tax-cloud, or other third-party data and persist it through generated AppService DTOs.
 
 Typical tasks:
 

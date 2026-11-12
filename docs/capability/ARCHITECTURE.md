@@ -1,4 +1,4 @@
-# ARCHITECTURE｜Seeyon Agent v2 总架构（A1）
+# ARCHITECTURE｜2小爪 Agent v2 总架构（A1）
 
 > 基线：`docs/capability/ROADMAP-v2.md` @ git `d76f7af`（本文件是 §一/§二/§三/§五 的展开，不新增定位）。
 > 任务：seeyon-v2-capability-phase1 交付物 A1。证据纪律：STATIC / VERIFIED / LIVE 为事实，
@@ -11,15 +11,15 @@
 
 ## 一、定位：两级兼容模型（展开 ROADMAP-v2 §一）
 
-Seeyon Agent v2 的核心原则（引自 ROADMAP-v2 §一）：**不造新的 Agent，而是把 Seeyon 现有能力、
+2小爪 Agent v2 的核心原则（引自 ROADMAP-v2 §一）：**不造新的 Agent，而是把 2小爪 现有能力、
 代码、事实、运行环境和版本差异固化成 Agent 可调用、可验证、可兼容的 Capability——再以
 "可安装的 Agent 角色与能力包"形态嵌入已有宿主。**
 
 据此有两级兼容：
 
-1. **Seeyon 版本兼容（对内）**：客户当前仓库版本为 **Canonical**，能力定义稳定；
+1. **2小爪 版本兼容（对内）**：客户当前仓库版本为 **Canonical**，能力定义稳定；
    版本差异走 **Version Adapter**（`adapter-5.3` / `adapter-5.4` / …），Agent 不自行判断版本分支。
-2. **Agent Host 兼容（对外）**：Seeyon Agent = 可安装的 **Agent 角色 + 能力包**
+2. **Agent Host 兼容（对外）**：2小爪 Agent = 可安装的 **Agent 角色 + 能力包**
    （Role / Facts / Skills / Tools / Code / Sandbox），经 Adapter 进入不同宿主；
    **不自研 Agent Loop / 记忆 / Planner / Agent OS**。
 

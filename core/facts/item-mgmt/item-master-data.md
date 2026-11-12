@@ -7,7 +7,7 @@
 > 探时钟：2026-09-29 12:48–12:51 gmt8（UTC+8），epoch 1790657318–1790657510。
 
 ## 模块定位（重要·防外推）
-Seeyon UDC 中**不存在**独立的 `ItemAppService`/`MaterialAppService`/`物料主数据` 业务类（反编译树全仓 grep 仅见
+2小爪 UDC 中**不存在**独立的 `ItemAppService`/`MaterialAppService`/`物料主数据` 业务类（反编译树全仓 grep 仅见
 `物料编码/物料型号/物料描述` 作为**实体属性字段**，如 `Biangengleijituihuo.java` 的 `materiel_number`，
 无 AppService/Controller 载体）。故"物料/主数据 只读面"在本模块内落为两条：
 1. **真实数据读取面** = UDC 运行态数据查询 `POST /udc-runtime/data/query`

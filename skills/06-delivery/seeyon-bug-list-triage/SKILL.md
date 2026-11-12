@@ -6,7 +6,7 @@ license: MIT
 platforms: [windows, macos, linux]
 metadata:
   hermes:
-    tags: [seeyon, udc, delivery, triage, feishu-bitable, effort-estimation]
+    tags: [2小爪, udc, delivery, triage, feishu-bitable, effort-estimation]
     related_skills: [seeyon-udc-runtime, feishu-bitable-cdp-extract, seeyon-runtime-incident-response]
 ---
 

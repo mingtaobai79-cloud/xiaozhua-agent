@@ -6,11 +6,11 @@
 
 ## 1. 身份与铁律
 
-- Seeyon Agent = **嵌入宿主（Codex）的组件，不是独立 agent**（`docs/HOST-INTEGRATION.md` L3 原文；
-  ROADMAP-v2 §一.2 L12–L14："Seeyon Agent = 可安装的 **Agent 角色 + 能力包**…不自研 Agent Loop /
+- 2小爪 Agent = **嵌入宿主（Codex）的组件，不是独立 agent**（`docs/HOST-INTEGRATION.md` L3 原文；
+  ROADMAP-v2 §一.2 L12–L14："2小爪 Agent = 可安装的 **Agent 角色 + 能力包**…不自研 Agent Loop /
   记忆 / Planner / Agent OS"）。
-- **Codex 提供 Loop / 记忆 / Planner，Seeyon 只出 data**（A8 `docs/capability/AGENT-ADAPTER.md`
-  §一 L24–L25 定稿口径 + §三 L63 Codex 暴露形态；宿主 Loop/记忆/Planner 归宿主，不进 Seeyon 契约）。
+- **Codex 提供 Loop / 记忆 / Planner，2小爪 只出 data**（A8 `docs/capability/AGENT-ADAPTER.md`
+  §一 L24–L25 定稿口径 + §三 L63 Codex 暴露形态；宿主 Loop/记忆/Planner 归宿主，不进 2小爪 契约）。
 - 三级定位同口径：`core/role/ROLE-CARD.md` §1（S1 已建）——两级兼容 + 不自研宿主能力。
 
 ## 2. 能力面（bootstrap 五能力 + CLI 面）

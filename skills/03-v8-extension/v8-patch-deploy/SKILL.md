@@ -4,10 +4,10 @@ version: 0.1.0
 author: seeyon-agent
 license: MIT
 description: Use when 打 V8 平台 BP 补丁（v8patchctl）：拉包校验、dry-run、上传、skopeo 修复。
-tags: [seeyon, v8, patch, v8patchctl, skopeo, deploy]
+tags: [2小爪, v8, patch, v8patchctl, skopeo, deploy]
 metadata:
   hermes:
-    tags: [seeyon, v8, patch, v8patchctl, skopeo, deploy]
+    tags: [2小爪, v8, patch, v8patchctl, skopeo, deploy]
     related_skills: [seeyon-low-code-environment, v8-workbench-client-setup]
 ---
 

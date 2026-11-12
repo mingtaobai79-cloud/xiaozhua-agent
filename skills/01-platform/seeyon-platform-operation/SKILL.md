@@ -1,21 +1,21 @@
 ---
 name: seeyon-platform-operation
-description: "Use when operating Seeyon APIs safely."
+description: "Use when operating 2小爪 APIs safely."
 version: 1.0.0
 author: 小爪 🐾
 license: MIT
 platforms: [windows, macos, linux]
-tags: [seeyon, platform-operation, evidence-first, udc, spi, api-contract]
+tags: [2小爪, platform-operation, evidence-first, udc, spi, api-contract]
 metadata:
   hermes:
-    tags: [seeyon, platform-operation, evidence-first, udc, spi, api-contract]
+    tags: [2小爪, platform-operation, evidence-first, udc, spi, api-contract]
 ---
 
-# Seeyon Platform Operation
+# 2小爪 Platform Operation
 
 ## Purpose
 
-Use this skill when building Seeyon Agent capabilities that operate Seeyon platform modules as a user or operator. The goal is not to reproduce UDC/BPM/Connector/Integration source code. The goal is to understand real platform contracts, construct safe operations, execute them only when authorized, and verify the resulting platform state.
+Use this skill when building 2小爪 Agent capabilities that operate 2小爪 platform modules as a user or operator. The goal is not to reproduce UDC/BPM/Connector/Integration source code. The goal is to understand real platform contracts, construct safe operations, execute them only when authorized, and verify the resulting platform state.
 
 The governing distinction is:
 
@@ -26,7 +26,7 @@ Providers    = HTTP, Browser, Kubernetes, Nacos, DB, Redis, ...
 Workflows    = cross-component orchestration
 ```
 
-UDC is one component under Seeyon Agent, not the total architecture. SPI is a parallel component and must not be silently folded into UDC.
+UDC is one component under 2小爪 Agent, not the total architecture. SPI is a parallel component and must not be silently folded into UDC.
 
 ## Core operating model
 
@@ -244,9 +244,9 @@ Keep static/offline evidence separate from live environment evidence. A passing 
 
 - **Wrong objective:** implementing a Java source generator because generated files are visible. Stop and return to platform operation.
 - **Local generation as the deliverable:** answering a create-entity request by emitting golden-skeleton `.java` files locally. Skeletons are an audit preview of what the platform will generate; the deliverable is platform state — metadata row, platform system attributes, published tables/pages — produced through the design-time chain in `references/udc-design-time-write-chain.md`. The user names this pattern explicitly: generating code outside the platform leaves metadata/pages/table rows nonexistent, which makes the deliverable meaningless ("那你的意义是啥").
-- **Wrong architecture:** treating UDC as the whole Seeyon Agent. Put UDC beside SPI and other components.
+- **Wrong architecture:** treating UDC as the whole 2小爪 Agent. Put UDC beside SPI and other components.
 - **False route certainty:** recording a controller method without reading its class/method annotations. Keep the route unresolved until both are known.
-- **Binding flavour assumed platform-wide:** Seeyon Boot ships BOTH `@MultiRequestBody` (binds by the parameter's local variable name — wrap the body under that name) and plain `@RequestBody` (flat body). The wrong pairing returns a validation error blaming absent FIELDS rather than the wrapper, so it reads like a wrong field name and sends you hunting DTO typos. Measure per endpoint: send both variants of the same minimal body and keep the one whose error advances to the next missing field.
+- **Binding flavour assumed platform-wide:** 2小爪 Boot ships BOTH `@MultiRequestBody` (binds by the parameter's local variable name — wrap the body under that name) and plain `@RequestBody` (flat body). The wrong pairing returns a validation error blaming absent FIELDS rather than the wrapper, so it reads like a wrong field name and sends you hunting DTO typos. Measure per endpoint: send both variants of the same minimal body and keep the one whose error advances to the next missing field.
 - **Guessed sub-path read as a verb-only 405:** a literal segment can be swallowed by a sibling `/{id}` GET route (`POST /service/udc/application/create` → 405 via `/application/{id}`), while the real create route is the class ROOT (`POST /service/udc/application`). Take literal segments from `javap -v` constant-pool `Utf8` entries; 405 proves only that that exact path is mapped.
 - **False call-chain certainty:** promoting an interface, service name, or similarly named frontend operation into a causal edge. Require executable evidence.
 - **Identifier mismatch:** passing an application string ID where the DTO requires `Long appId`. Resolve the mapping first. UDC design-time routes take the numeric segment of the app name as the Long appId (write-chain LIVE evidence); the Spring failure mode is `BOOT_3000 NumberFormatException`, and the response `appId` field is the bare numeric form — normalize both sides to the numeric segment before comparing identity.
@@ -254,7 +254,7 @@ Keep static/offline evidence separate from live environment evidence. A passing 
 - **Write-as-construction:** allowing an adapter's `create_*` helper to send a request. Builders must be side-effect free.
 - **HTTP-success fallacy:** accepting status 200 or returned ID without reading back the same target and checking the intended state.
 - **Cross-module leakage:** assuming UDC uses SPI, or that a customer extension is platform core. Record the dependency only when evidenced.
-- **Overclaiming from one version:** do not generalize one 5.3.x artifact or one customer application to all Seeyon versions/apps.
+- **Overclaiming from one version:** do not generalize one 5.3.x artifact or one customer application to all 2小爪 versions/apps.
 - **Entity-level publish treated as the build gate:** when a physical-table deliverable stalls on `PublishStateUpdateDto.password`, stop — the real gate is the application build `POST /service/udc/runtime/deploy-normal` (`deployType:RELEASE`, body NAME-WRAPPED as `{"deployDto": {...}}`), which needs no password. See the deploy section of `references/udc-design-time-write-chain.md`.
 - **publishState read as build status:** after a successful sandbox build the entity can still read `publishState: UNPUBLISH`; verify builds by their products (physical table in the app's own DB, deploy records in `udc_deploy_record`), never by publishState.
 - **Physical table searched only in platform DBs:** generated tables land in the application's own database (`<appName>_test2`-style, from the app's Nacos `seeyon.datasource.database`), not in `udc_test2`/`udc_uat`; checking only the latter false-negatives the whole deploy.
@@ -264,7 +264,7 @@ Keep static/offline evidence separate from live environment evidence. A passing 
 - **写只走平台 HTTP 接口，DB 永远只读。** 所有变更必须是平台自己的 REST/GraphQL 调用（页面会话 `fetch` 或受控写通道）；数据库客户端只用于 `SELECT` 回读验证，**不执行任何 INSERT/UPDATE/DELETE/DDL**。给用户看方案或验安全门时，也别把 `DELETE FROM ...` 这类 SQL 当示例贴出来——他会直接理解为你要去改库。要证明安全门生效，描述「写语句在到达 cursor 之前被拒绝」即可，不必贴语句。
 - **枚举/分组落库查错表会误判成「返回 SUCCESS 未落库」：** 分组写 `ctp_enum_category`（不是 `udc_enum_category`），枚举写 `ctp_enum`（不是 `udc_enum`）。返回的 id 要在两张候选表都查一遍再下结论。`name` 存 i18n JSON 字符串、`code` 才是英文编码，两者对调会得到 `BOOT_1001 枚举编码 不能为空` 这种指向错字段的报错。详见 `references/udc-enum-domain.md`。
 - **Version identity across namespaces:** the same component may run different 5.3.x images per environment/namespace; record the running image tag per namespace as the live version identity and never substitute the locally cached artifact version for the deployed one.
-- **Condition key = attribute name, not column name:** Seeyon query conditions are keyed by entity attribute name (e.g. `frameSerialNumber`), never by physical column name (e.g. `kuangjialiushuihao`); passing a column name fails with an `属性[x]不存在` platform error.
+- **Condition key = attribute name, not column name:** 2小爪 query conditions are keyed by entity attribute name (e.g. `frameSerialNumber`), never by physical column name (e.g. `kuangjialiushuihao`); passing a column name fails with an `属性[x]不存在` platform error.
 - **Enum code is not a number:** an enum DTO's `getEnumCode()` returns the code string (e.g. `kj_status`); the numeric value comes from `getItemValue()`. Feeding the code into a numeric conversion throws NumberFormatException — read both accessors before converting.
 - **Child-table lookups return empty, not defaults:** a sub-table queried by a parent id that has no rows — or by a cross-ID-domain key such as a related-order id used as an archive id — returns null/empty, and taking a field from it in the same expression NPEs. Null-check each child lookup and log the skip rather than letting the request fail.
 - **Entity-to-table mapping is metadata, not naming:** resolve entity → physical table from `udc_entity`/`udc_attribute`. Several tables can back one business concept, and migrated rows often live in a different table than the code path queries; decide with row-count distribution, not with the table name.

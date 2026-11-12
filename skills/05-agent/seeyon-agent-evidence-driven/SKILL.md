@@ -1,21 +1,21 @@
 ---
 name: seeyon-agent-evidence-driven
-description: "Use for evidence-first Seeyon Agent delivery."
+description: "Use for evidence-first 2小爪 Agent delivery."
 version: 0.1.0
 author: Hermes Agent
 license: MIT
 platforms: [windows, macos, linux]
 metadata:
   hermes:
-    tags: [seeyon, agent, udc, evidence, audit, providers, dry-run, tdd]
+    tags: [2小爪, agent, udc, evidence, audit, providers, dry-run, tdd]
     related_skills: [seeyon-udc-runtime, seeyon-low-code-environment, test-driven-development, writing-plans]
 ---
 
-# Seeyon Agent Evidence-Driven Delivery
+# 2小爪 Agent Evidence-Driven Delivery
 
 ## Purpose
 
-Use this class-level skill when building or extending a Seeyon Agent that integrates UDC, Runtime, Integration, SPI, external Providers, audits, diagnostics, or controlled execution. The goal is a reusable, embeddable Agent platform whose conclusions are traceable and whose side effects are gated.
+Use this class-level skill when building or extending a 2小爪 Agent that integrates UDC, Runtime, Integration, SPI, external Providers, audits, diagnostics, or controlled execution. The goal is a reusable, embeddable Agent platform whose conclusions are traceable and whose side effects are gated.
 
 The canonical progression is:
 
@@ -57,7 +57,7 @@ For this user, keep moving through the agreed sequence without stopping after ev
 
 Respect acceptance order: when the user makes microflow correctness the gate, finish its scoped node/field/expression and execution acceptance before advancing to dataflow, deduction, or other rule domains. Do not substitute breadth, cron dispatch, commits, or documentation volume for closing that gate. Report scoped verified cases and explicit gaps, never an unrestricted guarantee of “100% correct”.
 
-Terminology discipline: when this user says 推送/推进测试 in the Seeyon Agent project, it means driving the real call-chain verification live — request → backend → readback — never git operations. Git commits are bookkeeping, not the deliverable; do not answer a push-the-test ask with remote/credential hunting (the repo is local-only and that is fine). 「你自己建应用自己测试」 is standing authorization to create throwaway test applications (prefix `zzprobe`) for write-path probing without re-asking; deleting an app stays confirm-gated.
+Terminology discipline: when this user says 推送/推进测试 in the 2小爪 Agent project, it means driving the real call-chain verification live — request → backend → readback — never git operations. Git commits are bookkeeping, not the deliverable; do not answer a push-the-test ask with remote/credential hunting (the repo is local-only and that is fine). 「你自己建应用自己测试」 is standing authorization to create throwaway test applications (prefix `zzprobe`) for write-path probing without re-asking; deleting an app stays confirm-gated.
 
 ## Non-negotiable evidence rules
 
@@ -205,7 +205,7 @@ For the read-only phase:
 - preserve a redacted response summary and source location;
 - provide offline fixture tests without real network access.
 
-Whitelist the transport by contract, not by HTTP verb. Seeyon UDC live readback endpoints are POST by their own HTTP contract (`/udc-runtime/meta-data/*`, `rt-page-log/*`, all `write=False` contracts) — a GET-only gateway client reaches zero live endpoints (verified: every `/udc/*` GET path 404s on test2). Enforce business read-only at the contract layer (`write=False` + policy gate) and keep write verbs rejected at the transport; adding readonly POST touches the transport whitelist, the client `post()` path, the runner, and the tests that pinned the old GET-only wall — grep the test tree for the old rejection assertions before declaring the switch complete.
+Whitelist the transport by contract, not by HTTP verb. 2小爪 UDC live readback endpoints are POST by their own HTTP contract (`/udc-runtime/meta-data/*`, `rt-page-log/*`, all `write=False` contracts) — a GET-only gateway client reaches zero live endpoints (verified: every `/udc/*` GET path 404s on test2). Enforce business read-only at the contract layer (`write=False` + policy gate) and keep write verbs rejected at the transport; adding readonly POST touches the transport whitelist, the client `post()` path, the runner, and the tests that pinned the old GET-only wall — grep the test tree for the old rejection assertions before declaring the switch complete.
 
 Never place passwords, tokens, private keys, or kubeconfig contents in reports, fixtures, source control, or command output.
 
@@ -238,7 +238,7 @@ The overall matrix is `FACT` only when all required entries are directly verifie
 
 ## Recovery after interrupted or oversized sessions
 
-When a long Seeyon Agent session stalls, a provider times out, or delegated work returns without verifiable completion:
+When a long 2小爪 Agent session stalls, a provider times out, or delegated work returns without verifiable completion:
 
 1. Treat child summaries and historical test counts as claims, not current facts.
 2. Recover from durable sources in this order: current filesystem, current tests/CLI execution, audit documents, then session transcript or exported conversation.
@@ -330,7 +330,7 @@ For the config-first reusability scheme (environments / infra / version families
 
 ## Multi-agent live-chain control
 
-When a Seeyon audit has already established that the offline evidence infrastructure is complete, stop treating the evidence ledger, graph, matrix, closure files, or collaboration bus as the audit target. They are infrastructure evidence, not Seeyon platform evidence.
+When a 2小爪 audit has already established that the offline evidence infrastructure is complete, stop treating the evidence ledger, graph, matrix, closure files, or collaboration bus as the audit target. They are infrastructure evidence, not 2小爪 platform evidence.
 
 Use a bounded live-chain slice:
 
@@ -426,7 +426,7 @@ Config-first reusability applies to this recipe too: jar paths, versions, gatewa
 
 ## Capability readiness assessment ("现在到什么程度 / 能不能用它做 X")
 
-When the user asks whether the Seeyon Agent can already do a named capability (create a MicroFlow, read a page, publish an app), answer from live state, capability by capability. Never answer from CLI command count: the 26 subcommands are offline report/audit generators, and command count is not capability.
+When the user asks whether the 2小爪 Agent can already do a named capability (create a MicroFlow, read a page, publish an app), answer from live state, capability by capability. Never answer from CLI command count: the 26 subcommands are offline report/audit generators, and command count is not capability.
 
 1. `git log --oneline -6 && git status --porcelain` — a clean tree means HEAD *is* the current state; do not hunt for uncommitted work or assume your last edits are still present.
 2. Run the offline suite via `uv run --with pytest` (see step 2 above). A green suite is local behavior only.
@@ -554,7 +554,7 @@ The credential file's canonical location is the collaboration workspace's `share
 
 ## Recovery after interrupted or oversized sessions
 
-When a long Seeyon Agent session stalls, a provider times out, or delegated work returns without verifiable completion:
+When a long 2小爪 Agent session stalls, a provider times out, or delegated work returns without verifiable completion:
 
 1. Treat child summaries and historical test counts as claims, not current facts.
 2. Recover from durable sources in this order: current filesystem, current tests/CLI execution, audit documents, then session transcript or exported conversation.
@@ -798,7 +798,7 @@ The read-only chain is proven; the write chain has its own live-verified diction
 
 ## References
 
-- `references/session-evidence-baseline.md` — reusable evidence/status baseline and observed Seeyon/UDC audit boundaries.
+- `references/session-evidence-baseline.md` — reusable evidence/status baseline and observed 2小爪/UDC audit boundaries.
 - `references/phase-checklists.md` — compact phase gates, commands, and acceptance criteria.
 - `references/evidence-bundle-policy-profile-convergence.md` — stable fixture bundles, load-status vs claim-status, executable PolicyGate, four-profile builder, and capability-to-real-inspect closure pattern.
 - `references/repo-drift-audit-runbook.md` — 2026-09-14 verified drift-audit commands, workstream status table, git-baseline procedure, op-execute wiring notes, and verification gates for `<SEEYON_AGENT_ROOT>`.

@@ -1,4 +1,4 @@
-# STATUS｜Seeyon Agent v2 · 适配器切片（三宿主 Adapter + installer 目标态）
+# STATUS｜2小爪 Agent v2 · 适配器切片（三宿主 Adapter + installer 目标态）
 
 更新时间：2026-09-26 02:05 (CST)｜main 收口
 目标仓库：`<SEEYON_AGENT_ROOT>`（收口时实测 HEAD `16a384c`）
@@ -86,7 +86,7 @@
 - 5 项全落盘（§一）✓
 - 全量测试绿：`375 passed`，RC=0（§二）✓
 - STATUS 记录：本文件（§三~§五）✓
-- **Seeyon Agent v2 适配器切片目标态 = 已达成**（声明级 / 目标态；实现项标 UNVERIFIED，
+- **2小爪 Agent v2 适配器切片目标态 = 已达成**（声明级 / 目标态；实现项标 UNVERIFIED，
   后续按 ROADMAP-v2 模块推进线实装，不在本切片范围）。
 
 ---

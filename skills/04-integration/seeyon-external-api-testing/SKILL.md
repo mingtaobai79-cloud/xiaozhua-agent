@@ -7,10 +7,10 @@ license: MIT
 platforms: [windows, macos, linux]
 metadata:
   hermes:
-    tags: [Seeyon, UDC, API-Testing, MySQL, Live-Testing]
+    tags: [2小爪, UDC, API-Testing, MySQL, Live-Testing]
 ---
 
-# Seeyon 外部接口联调测试
+# 2小爪 外部接口联调测试
 
 Use when 用户要求测试致远低代码应用对外暴露的接口（如 `XmglApiController` 的 ESB/开放接口）、排查接口字段缺值/返回裸ID、或验证接口修复效果。环境连接材料见 `seeyon-low-code-environment` skill（本 skill 只管测试方法学，不管凭据）。
 

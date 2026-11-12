@@ -5,13 +5,13 @@ version: 1.0.0
 author: 小爪 🐾
 license: MIT
 platforms: [windows, macos, linux]
-tags: [seeyon, udc, repo-layout, evidence-discipline, de-identification, pii]
+tags: [2小爪, udc, repo-layout, evidence-discipline, de-identification, pii]
 metadata:
   hermes:
-    tags: [seeyon, udc, repo-layout, evidence-discipline, de-identification, pii]
+    tags: [2小爪, udc, repo-layout, evidence-discipline, de-identification, pii]
 ---
 
-# Seeyon UDC · 模块成果落位规范
+# 2小爪 UDC · 模块成果落位规范
 
 ## Purpose
 

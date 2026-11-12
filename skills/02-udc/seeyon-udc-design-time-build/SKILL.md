@@ -7,11 +7,11 @@ license: MIT
 platforms: [windows, macos, linux]
 metadata:
   hermes:
-    tags: [seeyon, udc, low-code, design-time, deploy, entity, attribute, build, physical-table]
+    tags: [2小爪, udc, low-code, design-time, deploy, entity, attribute, build, physical-table]
     related_skills: [seeyon-udc-runtime, seeyon-low-code-environment]
 ---
 
-# Seeyon UDC 设计态搭建（实体/属性/构建）
+# 2小爪 UDC 设计态搭建（实体/属性/构建）
 
 > 节点数据补全（「所选数据已变更」红字两类根因 / 候选集权威源 / 重写器顺序 / 编辑锁假阴性 / 跨应用引用处置）见 references/microflow-node-data-completion.md。
 
@@ -139,7 +139,7 @@ POST /service/udc/runtime/deploy-normal
 {"deployDto": {"appId": <数字Long>, "deployType": "TEST", "projectType": "ALL", "terminalType": "ALL"}}
 ```
 
-- **body 必须按参数名包一层 `deployDto`。** `deployNormal` 的参数注解是 Seeyon Boot 的 `@MultiRequestBody`（**不是** `@RequestBody`），按**参数局部变量名**从 JSON 顶层取值。裸平铺 body 会把 DTO 绑成 null，请求**HTTP 200** 返回 `status:3` + `BOOT_3000 EL1007E: Property or field 'appId' cannot be found on null`——报错指向 DTO 的第一个字段而不指向包装，极易误判成字段名写错。**判成功看响应信封 `status/code`，不看 HTTP 状态码。**
+- **body 必须按参数名包一层 `deployDto`。** `deployNormal` 的参数注解是 2小爪 Boot 的 `@MultiRequestBody`（**不是** `@RequestBody`），按**参数局部变量名**从 JSON 顶层取值。裸平铺 body 会把 DTO 绑成 null，请求**HTTP 200** 返回 `status:3` + `BOOT_3000 EL1007E: Property or field 'appId' cannot be found on null`——报错指向 DTO 的第一个字段而不指向包装，极易误判成字段名写错。**判成功看响应信封 `status/code`，不看 HTTP 状态码。**
 - **别把"包装体"推广到所有设计态写接口——两种绑定形态并存，逐接口实测。** `deployNormal` 是 `@MultiRequestBody`，而 `ApplicationController.create`（`POST /service/udc/application`）是标准 `@RequestBody` **平铺**。喂错的组合不报 4xx，而是把字段说成"没传"：包装体喂平铺 handler → `BOOT_1001 caption must not be blank`；平铺体喂 MultiRequestBody handler → `BOOT_3000 EL1007E: Property or field 'x' cannot be found on null`。判定法：同一最小 body 的平铺/包装两版各发一次，**保留"错误往前推进到下个必填字段"的那版**。
 - `DeployParamDto`（`DeployNormalDto` 继承它）字段：`deployId / appId(Long) / deployType / projectType / terminalType / pushEnv / extraParamMap`；`DeployNormalDto` 另有 `lockCompatibility / generateLog / entityFullNameCondition`。
 - `deployType` 枚举：TEST / RELEASE / ON_ONLINE / DELTA（`udc_deploy_record.deploy_type` 数字编码 **TEST=0、RELEASE=2**）。
@@ -299,7 +299,7 @@ POST /service/udc/runtime/deploy-normal
 - **单点探测否定不了功能（用户方法论纠正：「别死抓一个示例不放」）**：某 panel 字段空着、某候选 query 返 0、某枚举拒绝某个值，都只证明「这一条探测路径」不通，**不证明功能不存在**——先把该面板的全部 tab/变体/通道枚举出来（例：「事件选择器」有『应用内』`udcMicroflowFilterEventPost` 与『应用间』`udcMicroflowSearchAppsPost`+`udcMicroflowFilterMqPost` 两个 tab，BPM 流程事件只在后者），**再从前端渲染 chunk 顺链定位**：chunk 名即源码路径（`src_pages_*`/`src_components_*`）→ `wakaru --unpack auto` 解出该页/面板的渲染模块 → 读按钮 `onClick` 与组件 `onConfirm` 的组装 → 得真实 op + body/JSON → 翻译成字段语义。有 REA 逆向工具（`analyze_web_bundle` / `recover_javascript_sources` / `analyze_javascript_application`）时优先用它做 bundle 结构分析与源码恢复，别只靠文本 grep 死磕。
 
 - **鉴权走 Cookie 不走 header**：写操作必须带 `Cookie: SY_ACCESS_TOKEN=<jwt>`（配套 `TK_EXP` / `SY_UID`）。发 `accessToken` header 会得到 `BOOT_1006` 跳 SSO，且响应看似 200——别把 header 形态当契约，读前端 fetch 拦截器确认实际挂载位置。token 续期后从登录响应的 `Set-Cookie` 头同步取 cookie 三件套（续期流程见 `references/test2-env-access.md`）。另：本机 python urllib 直连 test2 会间歇 `SSL: UNEXPECTED_EOF_WHILE_READING`（带 retry 也复现）——subprocess 调 `curl --retry 3 --retry-delay 2` 稳定；GraphQL body 大时写临时文件用 `--data-binary @file`，避开 shell 转义。
-- **★ 用户红线：不要自己导出/复用 token；人工登录好之后，写操作只在那个标签页里发 `fetch`**（`credentials:'include'`，配方见 `references/udc-web-console-cdp.md`「带 cookie 调 Seeyon REST」）。从浏览器 cookie 抄出 `SY_ACCESS_TOKEN` 再去 urllib 直连，等于给用户手工建立的会话另开一条出口：平台一旦判定为新登录/异常会话就把该 token 打进黑名单（`BOOT_1006 token黑名单`），用户正开着的页面当场失效。用户对此的原话是「不是你别自己获取 token 啊，直接就黑名单了」。
+- **★ 用户红线：不要自己导出/复用 token；人工登录好之后，写操作只在那个标签页里发 `fetch`**（`credentials:'include'`，配方见 `references/udc-web-console-cdp.md`「带 cookie 调 2小爪 REST」）。从浏览器 cookie 抄出 `SY_ACCESS_TOKEN` 再去 urllib 直连，等于给用户手工建立的会话另开一条出口：平台一旦判定为新登录/异常会话就把该 token 打进黑名单（`BOOT_1006 token黑名单`），用户正开着的页面当场失效。用户对此的原话是「不是你别自己获取 token 啊，直接就黑名单了」。
   **连带坑（本轮实测）**：从页面 cookie 读出 token 后**用它向服务端发请求做验证**（哪怕只是 GET 探活）也算「自己获取 token」——用户建好的会话不该被复制出去用。验证渠道是否可用，应该**在那个已登录的标签页里用 `fetch` 试**，而不是把 token 抄到脚本里。页内 fetch 抓到请求原文（`window.fetch` 包装器记录 url + body）既能拿到接口形态，又不碰 token。
 - **同平台多账号会互相踢号，旧 token 立即进黑名单**：平台侧一个用户只保留一个有效会话，登录 B 账号会把 A 已有 token 拉黑（实测 `BOOT_1006`），**不分浏览器 profile、不分调试端口**。⇒ 引入第二个账号前先确认它**对目标应用有权限**（用它的 token 直呼该 app 的设计态读面，403 / `server_404` 就是没权限），否则代价是「新号顶不上 + 原号被拉黑」双输。多账号不能用来隔离并行任务，只能当只读探针。
 - **GraphQL mutation 的统一包装形态（`graphqlLoader` + `$params0` + `body:`）**：除少数带 `id/path` 直参数的特例外，绝大多数写 op 都是这个骨架——
@@ -376,7 +376,7 @@ POST + {stereotype:"standard", category:"ENTITY"}
 5. **404 响应体的 `path` 字段直接回显服务端实际收到的路径 ——用它当“我到底请求了什么”的地面真值，比对自己拼的字符串可靠得多**：`{"status":404,"error":"Not Found","path":"/udc/enum/select-all-by-appid/8704..."}` 说明网关剥掉 `/service/` 后剩下的是 `/udc/...`。两个高频错觉都由它纰正：①**控制器类名 ≠ 路径段**——`UdcEntityController` 的类级路径是 `udc/entity`，拼成 `/service/udc/udc-entity` 会 404 且回显 `/udc/udc-entity`，见到回显里多一个名字段就是自己叠了一层；②**`/service/udc` 后面直接接资源名**（`/service/udc/entity/select-all-by-appid/{appId}`、`/service/udc/entity/attribute`），不是再接一个 `udc`。⇒ 探路径时先发一次、**读回显的 path 再决定下一版**，不要连续盲猜。
 6. **405 是“路径存在、方法/绑定不对”的强信号，但要把两种 405 分开**：路由真的只挂了别的动词（换成 GET 即通），或者参数是 PathVariable 而你在用 query（`?id=999...` 报 `Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'` = 值从路径/其他绑定源取了字符串，**换参数名无效，换绑定位置才有效**）。
 
-- **双发 identity 验收器必须配信封门，两次响应相同 ≠ 成功**：`LiveReadonlyRunner` 原逻辑只比同一请求双发的 md5 identity + auth-fail 判定，HTTP 500 与业务 `status=3` 的响应两次相同也会判 `PASS`（验收器不可信）。已修：`_envelope_gates` 检查 HTTP 2xx + 业务信封 `status==0`，任一不成立判 BLOCKED 并记 gate 原因；body 无 status 键（流式下载等）不臆造业务检查。自建任何双读/回读验收器时，identity 只证稳定性，必须与成功判据（HTTP 区间 + Seeyon 信封 status/code）组合作门槛，否则错误响应会静默通过验收。
+- **双发 identity 验收器必须配信封门，两次响应相同 ≠ 成功**：`LiveReadonlyRunner` 原逻辑只比同一请求双发的 md5 identity + auth-fail 判定，HTTP 500 与业务 `status=3` 的响应两次相同也会判 `PASS`（验收器不可信）。已修：`_envelope_gates` 检查 HTTP 2xx + 业务信封 `status==0`，任一不成立判 BLOCKED 并记 gate 原因；body 无 status 键（流式下载等）不臆造业务检查。自建任何双读/回读验收器时，identity 只证稳定性，必须与成功判据（HTTP 区间 + 2小爪 信封 status/code）组合作门槛，否则错误响应会静默通过验收。
 
 ## 删除探测残留的连锁失败（删前必读）
 

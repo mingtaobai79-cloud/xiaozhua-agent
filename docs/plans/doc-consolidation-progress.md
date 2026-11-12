@@ -1,4 +1,4 @@
-# Seeyon Agent 文档整理进度
+# 2小爪 Agent 文档整理进度
 
 > **本文件只放当前结论。** 第 1–15 轮的逐轮记录（668 行 / 43,853 B，逐字保留、倒序）
 > 已迁至 `docs/ledger/LOG-doc-consolidation-20261107-rounds1-15.md`。

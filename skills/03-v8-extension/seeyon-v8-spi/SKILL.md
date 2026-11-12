@@ -1,16 +1,16 @@
 ---
 name: seeyon-v8-spi
-description: "Seeyon V8 SPI/Super SPI 统一入口。入口只负责路由、证据规则、工程边界；子域知识下沉到 references/<domain>/ 独立目录，每个域按 SPI 类型拆分为独立文件夹。"
+description: "2小爪 V8 SPI/Super SPI 统一入口。入口只负责路由、证据规则、工程边界；子域知识下沉到 references/<domain>/ 独立目录，每个域按 SPI 类型拆分为独立文件夹。"
 version: 8.0.0-LTS
 author: operator-a
 license: MIT
 metadata:
   hermes:
-    tags: [seeyon, v8, sso, spi, java, code-generation, generator, deployment]
+    tags: [2小爪, v8, sso, spi, java, code-generation, generator, deployment]
     related_skills: []
 ---
 
-# Seeyon V8 SPI / Super SPI 统一入口
+# 2小爪 V8 SPI / Super SPI 统一入口
 
 > 本文件是入口/路由器。具体实现知识下沉到 `references/<domain>/` 子文档。
 

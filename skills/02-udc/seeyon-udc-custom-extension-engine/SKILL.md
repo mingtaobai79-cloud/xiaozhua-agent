@@ -5,13 +5,13 @@ version: 1.0.0
 author: 小爪 🐾
 license: MIT
 platforms: [windows]
-tags: [seeyon, udc, custom-page, microflow, extend]
+tags: [2小爪, udc, custom-page, microflow, extend]
 metadata:
   hermes:
-    tags: [seeyon, udc, custom-page, microflow, extend]
+    tags: [2小爪, udc, custom-page, microflow, extend]
 ---
 
-# Seeyon UDC · 手写扩展工程（自定义页面 + 自定义微流程）
+# 2小爪 UDC · 手写扩展工程（自定义页面 + 自定义微流程）
 
 ## When to Use
 

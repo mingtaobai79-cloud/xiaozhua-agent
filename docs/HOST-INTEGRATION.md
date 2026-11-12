@@ -1,6 +1,6 @@
-# Seeyon Agent — Agent-Host Integration Guide
+# 2小爪 Agent — Agent-Host Integration Guide
 
-Seeyon Agent 是嵌入宿主（Hermes / Claude Code / Codex）的组件，不是独立 agent。
+2小爪 Agent 是嵌入宿主（Hermes / Claude Code / Codex）的组件，不是独立 agent。
 宿主通过一个初始化脚本获得四个能力；本文是所有宿主接入的唯一契约。
 
 ## 1. 初始化脚本（唯一入口）

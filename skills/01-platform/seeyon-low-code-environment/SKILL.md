@@ -7,7 +7,7 @@ license: MIT
 platforms: [windows, macos, linux]
 metadata:
   hermes:
-    tags: [seeyon, low-code, redis, mysql, kubernetes, nacos, uat, test2, config-isolation]
+    tags: [2小爪, low-code, redis, mysql, kubernetes, nacos, uat, test2, config-isolation]
     related_skills: [seeyon-udc-runtime, seeyon-platform-operation]
 ---
 

@@ -1,15 +1,15 @@
-# Seeyon Agent Platform — 总路线收口（v2 架构定稿）
+# 2小爪 Agent Platform — 总路线收口（v2 架构定稿）
 
 > 2026-09-25 operator-a裁示。本文件取代此前所有"继续单类审计/继续舰队推进"的路线描述。
-> 核心原则（一句话）：**不造新的 Agent，而是把 Seeyon 现有能力、代码、事实、运行环境和
+> 核心原则（一句话）：**不造新的 Agent，而是把 2小爪 现有能力、代码、事实、运行环境和
 > 版本差异固化成 Agent 可调用、可验证、可兼容的 Capability——再以"可安装的 Agent 角色与
 > 能力包"形态嵌入 Hermes / Codex / Claude Code 等已有宿主。**
 
 ## 一、定位（两级兼容模型）
 
-1. **Seeyon 版本兼容**（对内）：客户当前仓库版本为 Canonical，能力定义稳定，
+1. **2小爪 版本兼容**（对内）：客户当前仓库版本为 Canonical，能力定义稳定，
    差异走 Version Adapter（adapter-5.3 / adapter-5.4 / ...），Agent 不自行判断版本分支。
-2. **Agent Host 兼容**（对外）：Seeyon Agent = 可安装的 **Agent 角色 + 能力包**
+2. **Agent Host 兼容**（对外）：2小爪 Agent = 可安装的 **Agent 角色 + 能力包**
    （Role / Facts / Skills / Tools / Code / Sandbox），经 Adapter 进入不同宿主。
    不自研 Agent Loop / 记忆 / Planner / Agent OS。
 
@@ -62,7 +62,7 @@ Tool Contract → Skill → Test → Sandbox 需求 → Agent Adapter 暴露。
 
 ## 六、三 Agent 生产线的新职责
 
-不再"发现一个类研究一个类"，而是**给 Seeyon Agent 补充能力资产**：
+不再"发现一个类研究一个类"，而是**给 2小爪 Agent 补充能力资产**：
 每个审计回合的产出=Capability Contract + Fact 文档 + Test + 证据等级。
 （生产线机制保留：main 路由 / implementer 执行 / auditor 验证。）
 

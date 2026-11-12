@@ -1,17 +1,17 @@
 ---
 name: seeyon-integration-diagnosis
-description: Use for Seeyon integration diagnosis.
+description: Use for 2小爪 integration diagnosis.
 version: 0.1.0
 author: Hermes curator
 license: MIT
 platforms: [windows, macos, linux]
 metadata:
   hermes:
-    tags: [seeyon, low-code, integration, nacos, kubernetes, mysql, logs]
+    tags: [2小爪, low-code, integration, nacos, kubernetes, mysql, logs]
     related_skills: [seeyon-low-code-environment]
 ---
 
-# Seeyon Integration Diagnosis
+# 2小爪 Integration Diagnosis
 
 用于排查致远低代码应用的第三方接口、微流程、实体落库和运行时配置问题。核心原则是证据优先：先确认真实代码链路、真实配置、真实日志，再判断同步是否成功。报告先给结论和证据，避免重复背景。
 

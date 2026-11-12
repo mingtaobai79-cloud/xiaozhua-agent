@@ -1,4 +1,4 @@
-# BEHAVIOR｜Seeyon Agent 行为规范
+# BEHAVIOR｜2小爪 Agent 行为规范
 
 > 声明级文档。锚点全部在盘可复核；未建/未实现项逐条标 UNVERIFIED 或"未实现"。
 

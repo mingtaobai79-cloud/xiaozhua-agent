@@ -3,7 +3,7 @@ name: seeyon-udc-page-debug
 description: Use when a UDC detail page loads or submits the wrong data.
 ---
 
-# Seeyon UDC 详情页装载/提交调试
+# 2小爪 UDC 详情页装载/提交调试
 
 调试「详情页有数据但提交走 create」「提交撞子表主键」以及「前端弹窗关闭后仍产生页面数据」时的硬规则。平台机制细节与取证配方在 `references/detail-page-load-submit.md`；弹窗关闭/选择结果与前端副作用的定位配方在 `references/frontend-modal-side-effects.md`；Excel 导入/导出模板类问题（模板列不对、按模板填完导不进、导入入口的参照列不显示）在 `references/excel-import-template.md`；不打开设计器、用 udc_* 元数据库直查页面/微流程定义与相互引用（页面↔微流程按数字 id 反查、page_schema 节点树解树与分组字段清单、data_schema 解剖、模板文件与枚举存储机制、实体↔物理表映射与子表外键取证、按钮显隐与「提交后不能再操作」锁定排查、**校验类 bug 从报错文案反查微流程（判定在微流程里、页面规则只是入口；文案相近≠同一校验；判定里「缺的条件」就是根因）**、低代码 bug 先定位后动手工作流）在 `references/udc-designer-metadata-db.md`；整块/字段「打开无值」的定性（存量查询 vs 实时取数、谁负责落库、外源双环境对照核验）见 `references/section-empty-value-triage.md`。
 

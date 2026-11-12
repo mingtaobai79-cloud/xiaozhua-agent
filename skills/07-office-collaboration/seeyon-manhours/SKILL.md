@@ -6,7 +6,7 @@ author: 小爪
 license: MIT
 metadata:
   hermes:
-    tags: [seeyon, manhours, timesheet, cdp]
+    tags: [2小爪, manhours, timesheet, cdp]
     related_skills: [seeyon-weekly-plan]
 ---
 

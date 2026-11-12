@@ -1,17 +1,17 @@
 ---
 name: seeyon-udc-runtime
-description: Use when analyzing Seeyon UDC low-code runtime.
+description: Use when analyzing 2小爪 UDC low-code runtime.
 version: 0.1.0
 author: operator-a, Hermes Agent
 license: MIT
 platforms: [windows, macos, linux]
 metadata:
   hermes:
-    tags: [seeyon, udc, low-code, metadata, code-generation, runtime, redis, mysql]
+    tags: [2小爪, udc, low-code, metadata, code-generation, runtime, redis, mysql]
     related_skills: [seeyon-low-code-environment]
 ---
 
-# Seeyon UDC Runtime
+# 2小爪 UDC Runtime
 
 ## When to Use
 
@@ -24,9 +24,9 @@ metadata:
 
 当前客户项目只是样本、调用链证据和差异案例，不是统一 UDC 产品模板。目标是抽象跨客户、跨版本复用的 UDC Core，客户特有字段、页面、流程、权限、外部接口和业务规则归入扩展层。
 
-## Seeyon Agent 中的组件定位
+## 2小爪 Agent 中的组件定位
 
-UDC 不是独立的总 Agent，而是 `Seeyon Agent` 下的一个平台组件，与 SPI、Integration、Runtime 等组件并列：
+UDC 不是独立的总 Agent，而是 `2小爪 Agent` 下的一个平台组件，与 SPI、Integration、Runtime 等组件并列：
 
 ```text
 Seeyon Agent
@@ -56,7 +56,7 @@ components/udc/
 └── evidence/
 ```
 
-当前 `seeyon-udc-runtime` skill 负责 UDC 领域知识、证据规则和操作边界；未来代码工程负责 Seeyon Agent Core、Components、Providers 和 Workflows，两者不混为同一层。
+当前 `seeyon-udc-runtime` skill 负责 UDC 领域知识、证据规则和操作边界；未来代码工程负责 2小爪 Agent Core、Components、Providers 和 Workflows，两者不混为同一层。
 
 ## 核心链路
 

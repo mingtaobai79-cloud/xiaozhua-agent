@@ -1,17 +1,17 @@
 ---
 name: seeyon-runtime-configuration-and-sync
-description: Use when changing Seeyon runtime config, verifying sync, diagnosing data-migration plan runs (为什么失败/是否落库), or converting a field between entity-reference and enum semantics (字段引用转枚举/影响面清单).
+description: Use when changing 2小爪 runtime config, verifying sync, diagnosing data-migration plan runs (为什么失败/是否落库), or converting a field between entity-reference and enum semantics (字段引用转枚举/影响面清单).
 version: 0.1.0
 author: Hermes Agent
 license: MIT
 platforms: [windows, macos, linux]
 metadata:
   hermes:
-    tags: [seeyon, nacos, low-code, integration, sync, mysql, kubernetes]
+    tags: [2小爪, nacos, low-code, integration, sync, mysql, kubernetes]
     related_skills: [seeyon-low-code-environment]
 ---
 
-# Seeyon Runtime Configuration and Sync
+# 2小爪 Runtime Configuration and Sync
 
 用于处理致远低代码应用的第三方接口配置、票据/开票同步、Nacos 配置核验、实体字段限制与落库验证。核心原则：把“接口调用成功”“业务逻辑成功”“实体校验成功”“数据库写入成功”分别取证，不能用 HTTP 200 或 `content: true` 代替最终成功。
 

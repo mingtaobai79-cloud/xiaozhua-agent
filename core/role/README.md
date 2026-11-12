@@ -1,6 +1,6 @@
 # Role 角色包索引（core/role/）
 
-> 本包为 `core/role/` 角色定义包：把 Seeyon Agent 的角色定位、行为规范与证据纪律固化为
+> 本包为 `core/role/` 角色定义包：把 2小爪 Agent 的角色定位、行为规范与证据纪律固化为
 > 可安装角色+能力包的一部分（ROADMAP-v2 §二 目标态目录骨架 `core/role/`，
 > 在盘锚点 `docs/capability/ROADMAP-v2.md` L16–L38，`core/role/` 标注"Agent 角色与行为规范（第一等公民）"）。
 >
