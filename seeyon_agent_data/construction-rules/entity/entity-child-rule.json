@@ -1,0 +1,39 @@
+{
+  "schema": "udc.construction.entity.child.v1",
+  "status": "PARTIAL_STATIC_RULE",
+  "input_contract": {
+    "EntityDto.children": "VERIFIED_STATIC_BYTECODE",
+    "EntityDto.parent": "VERIFIED_STATIC_BYTECODE"
+  },
+  "runtime_contract": {
+    "EntityMeta.children": "OBSERVED",
+    "BaseEntityCurdService recursive child handling": "VERIFIED_STATIC_BYTECODE"
+  },
+  "output_contract": {
+    "child_entity": "OBSERVED when child entity exists",
+    "child_dto": "OBSERVED when child DTO exists",
+    "child_service": "OBSERVED when child service exists",
+    "child_dao": "OBSERVED when child DAO exists"
+  },
+  "chain": [
+    "parent Entity",
+    "children[]",
+    "child Entity",
+    "child DTO",
+    "child Service",
+    "child DAO"
+  ],
+  "separation": {
+    "construction_rule": "child companion output existence is observed but input-to-output causality UNKNOWN",
+    "runtime_recursive_crud": "recursive child handling is VERIFIED_STATIC_BYTECODE"
+  },
+  "evidence": [
+    "../audit/artifacts/udc-common-5.3.517/EntityDto.javap.txt",
+    "../audit/p0-3a-runtime-crud-boundary-audit.md",
+    "../audit/p0-4-generated-contract-cross-sample.json"
+  ],
+  "caveats": [
+    "No specific parent-child Golden Sample relation payload was recovered",
+    "Do not infer child generation solely from runtime recursion"
+  ]
+}

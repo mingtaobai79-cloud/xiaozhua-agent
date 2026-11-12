@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>SSO Bridge</title>
+<style>
+  body{font-family:"Microsoft YaHei",sans-serif;display:flex;align-items:center;justify-content:center;height:100vh;margin:0;background:#f5f6f8}
+  .box{text-align:center;color:#333}
+  .box .status{margin-top:12px;font-size:14px;color:#888}
+  .box .err{color:#c0392b;white-space:pre-wrap;max-width:480px;text-align:left;margin-top:16px;font-size:13px}
+  .spinner{width:28px;height:28px;border:3px solid #ddd;border-top-color:#3477fc;border-radius:50%;margin:0 auto;animation:s .8s linear infinite}
+  @keyframes s{to{transform:rotate(360deg)}}
+</style>
+</head>
+<body>
+<div class="box">
+  <div class="spinner"></div>
+  <div class="status" id="status">正在建立免登会话…</div>
+  <div class="err" id="err"></div>
+</div>
+<script>
+/**
+ * SSO 跳板页 —— 三方系统 iframe 内嵌 V8 单点入口
+ *
+ * 链路：三方门户(父页面) -> 本页(iframe) -> postMessage 取 authCode
+ *       -> 拼接钉钉移动插件单点地址(/oauth/home?type=dingTalk&code=xxx&web=业务地址)
+ *       -> 由标品单点页完成登录(POST /ctp-user/auth/third 种 SY_ACCESS_TOKEN)并跳转业务地址
+ *
+ * URL 参数：
+ *   webUrl   登录成功后要打开的业务 web 地址（encodeURIComponent 后传入）——单点跳转用
+ *   clientId 钉钉 appKey（可覆盖 CONFIG 默认值）
+ *   corpId   钉钉 corpId（可覆盖）
+ *   mode     sso=拼接 /oauth/home 单点地址跳转（默认，走标品单点页）
+ *            api=本页直接 POST /auth/third 后自跳（备用，联调对照用）
+ *   debug    =1 时页面停留并打印日志，便于联调
+ */
+(function () {
+  'use strict';
+
+  // ===== 配置区：联调拿到真实值后改这里 =====
+  var CONFIG = {
+    clientId:  'dingtfp7grpdc9a2huti',              // 钉钉应用 appKey（= 样例 clientId）
+    corpId:    'dingc6fe0934083fa30c4ac5d6980864d335',
+    channel:   'seeyon',
+    // 父页面 origin 白名单。测试期填 ['*']；生产必须换成对方真实域名，如 ['https://portal.example.com']
+    parentOrigins: ['*'],
+    // localStorage 兜底 key（张平给 key 后填上；空 = 不启用兜底）
+    lsKey: '',
+    reqTimeoutMs: 3000,       // 取 authCode 总超时
+    pollIntervalMs: 300,      // localStorage 轮询间隔
+    defaultTarget: '/main/portal',
+    oauthHomePath: '/oauth/home',   // frontBaseRoute 若不是根路径（如 /seeyon），联调时改这里
+    lsKey: 'seeyon_sso_authcode'    // localStorage 兜底 key（模拟页父页面用同名 key 下发）
+  };
+
+  var qs = new URLSearchParams(location.search);
+  var MODE = qs.get('mode') || 'sso';                     // sso=拼 /oauth/home 单点跳转（默认）| api=本页直调 /auth/third
+  var webUrl = qs.get('webUrl') || qs.get('target') || CONFIG.defaultTarget;   // 业务地址（单点 web 跳转参数）
+  var clientId = qs.get('clientId') || CONFIG.clientId;
+  var corpId = qs.get('corpId') || CONFIG.corpId;
+  var DEBUG = qs.get('debug') === '1';
+
+  var statusEl = document.getElementById('status');
+  var errEl = document.getElementById('err');
+  function setStatus(t) { if (statusEl) statusEl.textContent = t; }
+  function showError(t) { errEl.textContent = t; document.querySelector('.spinner').style.display = 'none'; }
+  function log() { if (DEBUG) { var a = [].slice.call(arguments); a.unshift('[bridge]'); console.log.apply(console, a); } }
+
+  // ===== 1. 先探测已有会话（cookie 未过期就不用走取码） =====
+  // /auth/third 带 cookie 且未过期时返回 useCookies:true（AuthController.third 首段逻辑）
+  function probeExistingSession() {
+    return fetch('/ctp-user/auth/third', {
+      method: 'POST',
+      credentials: 'include',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ thirdType: 'DING_TALK', thirdAppId: clientId, thirdCode: '', clientType: 'WEB' })
+    }).then(function (r) { return r.json(); }).then(function (res) {
+      log('probe', res);
+      // useCookies:true 说明 cookie 有效；code=mobile-sso-err 说明走到了单点逻辑但 code 无效（cookie 其实已由前次登录建立与否无法确定，保守视为无会话）
+      return !!(res && res.data && res.data.content && res.data.content.useCookies);
+    }).catch(function () { return false; });
+  }
+
+  // ===== 2. postMessage 取 authCode =====
+  function genId() { return 'bridge_' + Date.now() + '_' + Math.random().toString(36).slice(2, 8); }
+  function originAllowed(origin) {
+    return CONFIG.parentOrigins.indexOf('*') >= 0 || CONFIG.parentOrigins.indexOf(origin) >= 0;
+  }
+
+  function requestAuthCode() {
+    return new Promise(function (resolve, reject) {
+      var id = genId();
+      var settled = false;
+      var timer = setTimeout(function () {
+        if (settled) return; settled = true;
+        window.removeEventListener('message', onMsg);
+        clearInterval(poll);
+        reject(new Error('取 authCode 超时（' + CONFIG.reqTimeoutMs + 'ms）：父页面未响应 reqAuthCode'));
+      }, CONFIG.reqTimeoutMs);
+
+      function finish(code) {
+        if (settled) return; settled = true;
+        clearTimeout(timer); clearInterval(poll);
+        window.removeEventListener('message', onMsg);
+        resolve(code);
+      }
+
+      function onMsg(e) {
+        if (!originAllowed(e.origin)) { log('忽略未知来源消息', e.origin); return; }
+        var d = e.data || {};
+        if (d.channel !== CONFIG.channel) return;
+        if (d.id !== id) { log('id 不匹配，忽略', d.id); return; }
+        if (d.code !== 200 || !d.data || !d.data.authCode) {
+          reject(new Error('父页面返回错误：code=' + d.code + ', data=' + JSON.stringify(d.data || null)));
+          return;
+        }
+        finish(d.data.authCode);
+      }
+      window.addEventListener('message', onMsg);
+
+      // localStorage 兜底轮询（key 由对方提供后填 CONFIG.lsKey）
+      var poll = CONFIG.lsKey ? setInterval(function () {
+        try {
+          var v = localStorage.getItem(CONFIG.lsKey);
+          if (v) { finish(v.replace(/^"|"$/g, '')); }
+        } catch (e) { /* localStorage 不可用则忽略 */ }
+      }, CONFIG.pollIntervalMs) : null;
+
+      var msg = {
+        type: 'reqAuthCode',
+        id: id,
+        channel: CONFIG.channel,
+        data: { clientId: clientId, corpId: corpId }
+      };
+      log('发送 reqAuthCode', msg);
+      // 测试期 origin 用 *；生产改为白名单第一个 origin
+      var postTarget = CONFIG.parentOrigins.indexOf('*') >= 0 ? '*' : CONFIG.parentOrigins[0];
+      (window.parent !== window ? window.parent : window.top).postMessage(msg, postTarget);
+      setStatus('已向父页面请求授权码，等待回包…');
+    });
+  }
+
+  // ===== 3. authCode 换 V8 登录态 =====
+  // mode=sso（默认）：拼接移动插件标准单点入口地址，由标品 /oauth/home 页面完成登录+跳转
+  //   标品生成格式（DingTalkApplicationProviderServiceImpl#getMobileUrlDto）：
+  //   {frontBaseRoute}/oauth/home?type=DING_TALK&corpId={corpId}&appId={appKey}&web={webIndexPage}
+  //   /oauth/home 有 code 则直接 POST /ctp-user/auth/third 换登录态并跳 web；无 code 则自行取免登码
+  //   我们已通过 postMessage 拿到 authCode，故直接追加 code 参数
+  function buildSsoUrl(authCode) {
+    var params = [
+      'type=DING_TALK',
+      'appId=' + encodeURIComponent(clientId),
+      'corpId=' + encodeURIComponent(corpId),
+      'web=' + encodeURIComponent(webUrl),
+      'code=' + encodeURIComponent(authCode)
+    ].join('&');
+    return location.origin + CONFIG.oauthHomePath + '?' + params;
+  }
+
+  // mode=api（备用）：本页直接调 /auth/third，成功后自跳 webUrl
+  function loginWithCode(authCode) {
+    setStatus('授权码已获取，正在换取登录态…');
+    return fetch('/ctp-user/auth/third', {
+      method: 'POST',
+      credentials: 'include',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        thirdType: 'DING_TALK',
+        thirdAppId: clientId,
+        thirdCode: authCode,
+        clientType: 'WEB'
+      })
+    }).then(function (r) { return r.json(); }).then(function (res) {
+      log('third 响应', res);
+      if (res && res.status === 0) return res;   // SingleResponse 成功
+      var msg = (res && res.message) || '免登失败';
+      if (msg.indexOf('mobile-sso-err') === 0) msg = '移动插件单点失败：' + msg.replace('mobile-sso-err', '') + '（请检查用户映射/移动插件配置）';
+      throw new Error(msg);
+    });
+  }
+
+  function go(url) {
+    setStatus('登录成功，正在跳转…');
+    setTimeout(function () { location.replace(DEBUG && qs.get('stay') === '1' ? 'javascript:void 0' : url); }, 300);
+  }
+
+  // ===== 主流程 =====
+  setStatus('正在检测本地会话…');
+  probeExistingSession().then(function (hasSession) {
+    if (hasSession) { log('已有有效会话，直接跳转'); return go(webUrl); }
+    return requestAuthCode()
+      .then(function (code) {
+        log('authCode 已获取，mode=' + MODE);
+        if (MODE === 'sso') {
+          // 标品单点链路：跳 /oauth/home，由它完成 POST /auth/third + 跳 webUrl
+          var ssoUrl = buildSsoUrl(code);
+          log('跳转单点地址', ssoUrl);
+          setStatus('正在进入单点登录…');
+          setTimeout(function () { location.replace(ssoUrl); }, 300);
+          return;   // 后续流程交给标品单点页
+        }
+        return loginWithCode(code).then(function () { go(webUrl); });
+      })
+      .catch(function (e) {
+        showError(String(e.message || e));
+        // 兜底：跳原生登录页（带回跳地址），不把用户卡死在本页
+        setTimeout(function () {
+          if (!DEBUG) location.replace('/login?redirectUri=' + encodeURIComponent(webUrl));
+        }, 2500);
+      });
+  });
+})();
+</script>
+</body>
+</html>

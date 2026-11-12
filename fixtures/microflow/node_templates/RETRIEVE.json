@@ -1,0 +1,200 @@
+{
+ "nodeId": "RETRIEVE_umo5kh",
+ "name": null,
+ "type": "ACTIVITY",
+ "caption": "查询单条数据(1)",
+ "description": null,
+ "runAfter": null,
+ "input": null,
+ "output": {
+  "appName": "datamigration8704025620829192834",
+  "id": "com.seeyon.datamigration8704025620829192834.dto.MigrationPlanDto",
+  "javaType": "com.seeyon.datamigration8704025620829192834.dto.MigrationPlanDto",
+  "dataType": "DTO",
+  "type": "OBJECT",
+  "desc": "迁移方案配置_1",
+  "dtoType": "MASTER_ENTITY",
+  "udcApp": true,
+  "name": "_RETRIEVE_rECxaA"
+ },
+ "isCompleted": true,
+ "actionType": "RETRIEVE",
+ "fetchType": "CONDITION",
+ "app": {
+  "appId": "8704025620829192834",
+  "appName": "datamigration8704025620829192834",
+  "caption": "智能项目管理平台",
+  "inApp": true,
+  "udcApp": true,
+  "dynamicDependency": false
+ },
+ "structure": {
+  "key": "com.seeyon.datamigration8704025620829192834.domain.entity.MigrationPlan",
+  "id": "com.seeyon.datamigration8704025620829192834.dto.MigrationPlanDto",
+  "label": "迁移方案配置",
+  "dataType": "DTO",
+  "entity": "com.seeyon.datamigration8704025620829192834.domain.entity.MigrationPlan",
+  "dtoType": "MASTER_ENTITY",
+  "udcApp": true,
+  "fullName": "com.seeyon.datamigration8704025620829192834.dto.MigrationPlanDto",
+  "relationEntity": "4796455827714164161",
+  "methodLegal": {
+   "available": true,
+   "complexCondition": true,
+   "seniorMethod": true,
+   "serviceType": "NONE",
+   "interfaceClassFullName": null
+  }
+ },
+ "condition": [
+  {
+   "type": "GROUP",
+   "uuid": "b8fbc662-062b-4af8-b64c-ef6edd38517e",
+   "conditions": [
+    {
+     "type": "CONDITION",
+     "leftParam": {
+      "id": "com.seeyon.datamigration8704025620829192834.dto.MigrationPlanDto.sourceDatasourceId",
+      "type": "OBJECT",
+      "javaType": "java.lang.Long",
+      "dto": "_sourceDatasourceId",
+      "field": "sourceDatasourceId",
+      "desc": "源数据源ID",
+      "dataType": "BIGINTEGER",
+      "multiSelect": false
+     },
+     "operator": {
+      "value": "EQ",
+      "desc": "="
+     },
+     "rightParams": [
+      {
+       "type": "CONTEXT_VARIABLE",
+       "value": "{\"key\":\"_FLOW_INPUT_8EkIDO_com.seeyon.datamigration8704025620829192834.dto.microflow.Pddqqyfasfczzxtyzbrc.yuanshujuyuanID\",\"name\":\"yuanshujuyuanID\",\"id\":\"com.seeyon.datamigration8704025620829192834.dto.microflow.Pddqqyfasfczzxtyzbrc.yuanshujuyuanID\",\"appName\":\"datamigration8704025620829192834\",\"description\":\"源数据源ID\",\"position\":\"children\",\"path\":\"comseeyondatamigration8704025620829192834dtomicroflowPddqqyfasfczzxtyzbrc.yuanshujuyuanID\",\"outputName\":\"_FLOW_INPUT_8EkIDO\",\"dataType\":\"BIGINTEGER\",\"type\":\"OBJECT\",\"javaType\":\"java.lang.Long\",\"dtoType\":\"CUSTOM\",\"udcApp\":false,\"multiSelect\":false,\"customs\":{\"basicType\":false,\"inApp\":true,\"dataType\":\"BIGINTEGER\",\"name\":\"yuanshujuyuanID\",\"id\":\"6104727634050238571\"},\"parentLabel\":\"判断当前启用方案是否存在指向同一张表入参\"}",
+       "desc": "源数据源ID"
+      }
+     ],
+     "uuid": "f7ee7a86-5557-43fc-856c-dcdbf04354cd",
+     "logicalOperator": "AND"
+    },
+    {
+     "type": "CONDITION",
+     "leftParam": {
+      "id": "com.seeyon.datamigration8704025620829192834.dto.MigrationPlanDto.targetDatasourceId",
+      "type": "OBJECT",
+      "javaType": "java.lang.Long",
+      "dto": "_targetDatasourceId",
+      "field": "targetDatasourceId",
+      "desc": "目标数据源ID",
+      "dataType": "BIGINTEGER",
+      "multiSelect": false
+     },
+     "operator": {
+      "value": "EQ",
+      "desc": "="
+     },
+     "rightParams": [
+      {
+       "type": "CONTEXT_VARIABLE",
+       "value": "{\"key\":\"_FLOW_INPUT_8EkIDO_com.seeyon.datamigration8704025620829192834.dto.microflow.Pddqqyfasfczzxtyzbrc.mubiaoshujuyuanID\",\"name\":\"mubiaoshujuyuanID\",\"id\":\"com.seeyon.datamigration8704025620829192834.dto.microflow.Pddqqyfasfczzxtyzbrc.mubiaoshujuyuanID\",\"appName\":\"datamigration8704025620829192834\",\"description\":\"目标数据源ID\",\"position\":\"children\",\"path\":\"comseeyondatamigration8704025620829192834dtomicroflowPddqqyfasfczzxtyzbrc.mubiaoshujuyuanID\",\"outputName\":\"_FLOW_INPUT_8EkIDO\",\"dataType\":\"BIGINTEGER\",\"type\":\"OBJECT\",\"javaType\":\"java.lang.Long\",\"dtoType\":\"CUSTOM\",\"udcApp\":false,\"multiSelect\":false,\"customs\":{\"basicType\":false,\"inApp\":true,\"dataType\":\"BIGINTEGER\",\"name\":\"mubiaoshujuyuanID\",\"id\":\"5249967967049434683\"},\"parentLabel\":\"判断当前启用方案是否存在指向同一张表入参\"}",
+       "desc": "目标数据源ID"
+      }
+     ],
+     "uuid": "1a23ef1c-55b5-47b6-9396-e40a2ecde57e",
+     "logicalOperator": "AND"
+    },
+    {
+     "type": "CONDITION",
+     "leftParam": {
+      "id": "com.seeyon.datamigration8704025620829192834.dto.MigrationPlanDto.enabled",
+      "type": "OBJECT",
+      "javaType": "java.lang.Boolean",
+      "dto": "_enabled",
+      "field": "enabled",
+      "desc": "是否启用",
+      "dataType": "BOOLEAN",
+      "multiSelect": false
+     },
+     "operator": {
+      "value": "EQ",
+      "desc": "="
+     },
+     "rightParams": [
+      {
+       "type": "CONSTANT",
+       "value": true,
+       "desc": true
+      }
+     ],
+     "uuid": "2361e4a2-7191-4271-9fb8-d00e4d4e0fb3",
+     "logicalOperator": "AND"
+    },
+    {
+     "type": "CONDITION",
+     "leftParam": {
+      "id": "com.seeyon.datamigration8704025620829192834.dto.MigrationPlanDto.targetTable",
+      "type": "OBJECT",
+      "javaType": "java.lang.String",
+      "dto": "_targetTable",
+      "field": "targetTable",
+      "desc": "目标表",
+      "dataType": "STRING",
+      "multiSelect": false
+     },
+     "operator": {
+      "value": "EQ",
+      "desc": "="
+     },
+     "rightParams": [
+      {
+       "type": "CONTEXT_VARIABLE",
+       "value": "{\"key\":\"_FLOW_INPUT_8EkIDO_com.seeyon.datamigration8704025620829192834.dto.microflow.Pddqqyfasfczzxtyzbrc.mubiaobiaoming\",\"name\":\"mubiaobiaoming\",\"id\":\"com.seeyon.datamigration8704025620829192834.dto.microflow.Pddqqyfasfczzxtyzbrc.mubiaobiaoming\",\"appName\":\"datamigration8704025620829192834\",\"description\":\"目标表名\",\"position\":\"children\",\"path\":\"comseeyondatamigration8704025620829192834dtomicroflowPddqqyfasfczzxtyzbrc.mubiaobiaoming\",\"outputName\":\"_FLOW_INPUT_8EkIDO\",\"dataType\":\"STRING\",\"type\":\"OBJECT\",\"javaType\":\"java.lang.String\",\"dtoType\":\"CUSTOM\",\"udcApp\":false,\"multiSelect\":false,\"customs\":{\"basicType\":false,\"inApp\":true,\"dataType\":\"STRING\",\"name\":\"mubiaobiaoming\",\"id\":\"6581300161782696381\"},\"parentLabel\":\"判断当前启用方案是否存在指向同一张表入参\"}",
+       "desc": "目标表名"
+      }
+     ],
+     "uuid": "99d5ff23-f959-491a-891f-066f0c46855d",
+     "logicalOperator": "AND"
+    },
+    {
+     "type": "CONDITION",
+     "leftParam": {
+      "id": "com.seeyon.datamigration8704025620829192834.dto.MigrationPlanDto.id",
+      "type": "OBJECT",
+      "javaType": "java.lang.Long",
+      "dto": "_id",
+      "field": "id",
+      "desc": "ID",
+      "dataType": "BIGINTEGER",
+      "multiSelect": false
+     },
+     "operator": {
+      "value": "NEQ",
+      "desc": "!="
+     },
+     "rightParams": [
+      {
+       "type": "CONTEXT_VARIABLE",
+       "value": "{\"key\":\"_FLOW_INPUT_8EkIDO_com.seeyon.datamigration8704025620829192834.dto.microflow.Pddqqyfasfczzxtyzbrc.dangqianfanganID\",\"name\":\"dangqianfanganID\",\"id\":\"com.seeyon.datamigration8704025620829192834.dto.microflow.Pddqqyfasfczzxtyzbrc.dangqianfanganID\",\"appName\":\"datamigration8704025620829192834\",\"description\":\"当前方案ID\",\"position\":\"children\",\"path\":\"comseeyondatamigration8704025620829192834dtomicroflowPddqqyfasfczzxtyzbrc.dangqianfanganID\",\"outputName\":\"_FLOW_INPUT_8EkIDO\",\"dataType\":\"BIGINTEGER\",\"type\":\"OBJECT\",\"javaType\":\"java.lang.Long\",\"dtoType\":\"CUSTOM\",\"udcApp\":false,\"multiSelect\":false,\"customs\":{\"basicType\":false,\"inApp\":true,\"dataType\":\"BIGINTEGER\",\"name\":\"dangqianfanganID\",\"id\":\"1552616488309640787\"},\"parentLabel\":\"判断当前启用方案是否存在指向同一张表入参\"}",
+       "desc": "当前方案ID"
+      }
+     ],
+     "uuid": "2111283f-bb00-4d73-bcd5-a452508ea5ee",
+     "logicalOperator": "AND"
+    }
+   ]
+  }
+ ],
+ "sortParams": [],
+ "needCascade": false,
+ "title": "迁移方案配置_1",
+ "nullHandling": "CONTINUE",
+ "selectType": "DTO",
+ "scope": "OBJECT",
+ "methodLegal": {
+  "available": true,
+  "complexCondition": true,
+  "seniorMethod": true,
+  "serviceType": "NONE",
+  "interfaceClassFullName": null
+ }
+}

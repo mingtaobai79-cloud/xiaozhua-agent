@@ -1,0 +1,61 @@
+Classfile /<SEEYON_AGENT_ROOT>/tools/jars/udc-rt-classes/com/seeyon/boot/starter/udcrt/proxy/controller/NormalAppInfoController.class
+  Last modified 2026年10月1日; size 737 bytes
+  SHA-256 checksum 2b0574dc5ff19b0b39d84ce68796889c122f81d7626912f67b1e37bd7cdda195
+  Compiled from "NormalAppInfoController.java"
+public class com.seeyon.boot.starter.udcrt.proxy.controller.NormalAppInfoController extends com.seeyon.boot.starter.udcrt.proxy.controller.UdcBaseAppInfoController
+  minor version: 0
+  major version: 52
+  flags: (0x0021) ACC_PUBLIC, ACC_SUPER
+  this_class: #2                          // com/seeyon/boot/starter/udcrt/proxy/controller/NormalAppInfoController
+  super_class: #3                         // com/seeyon/boot/starter/udcrt/proxy/controller/UdcBaseAppInfoController
+  interfaces: 0, fields: 0, methods: 1, attributes: 2
+Constant pool:
+   #1 = Methodref          #3.#20         // com/seeyon/boot/starter/udcrt/proxy/controller/UdcBaseAppInfoController."<init>":()V
+   #2 = Class              #21            // com/seeyon/boot/starter/udcrt/proxy/controller/NormalAppInfoController
+   #3 = Class              #22            // com/seeyon/boot/starter/udcrt/proxy/controller/UdcBaseAppInfoController
+   #4 = Utf8               <init>
+   #5 = Utf8               ()V
+   #6 = Utf8               Code
+   #7 = Utf8               LineNumberTable
+   #8 = Utf8               LocalVariableTable
+   #9 = Utf8               this
+  #10 = Utf8               Lcom/seeyon/boot/starter/udcrt/proxy/controller/NormalAppInfoController;
+  #11 = Utf8               SourceFile
+  #12 = Utf8               NormalAppInfoController.java
+  #13 = Utf8               RuntimeVisibleAnnotations
+  #14 = Utf8               Lorg/springframework/web/bind/annotation/RestController;
+  #15 = Utf8               Lorg/springframework/web/bind/annotation/RequestMapping;
+  #16 = Utf8               value
+  #17 = Utf8               {currentAppName}/app-info
+  #18 = Utf8               Lcom/seeyon/boot/annotation/RestApi;
+  #19 = Utf8               普通应用-生成代码应用信息
+  #20 = NameAndType        #4:#5          // "<init>":()V
+  #21 = Utf8               com/seeyon/boot/starter/udcrt/proxy/controller/NormalAppInfoController
+  #22 = Utf8               com/seeyon/boot/starter/udcrt/proxy/controller/UdcBaseAppInfoController
+{
+  public com.seeyon.boot.starter.udcrt.proxy.controller.NormalAppInfoController();
+    descriptor: ()V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method com/seeyon/boot/starter/udcrt/proxy/controller/UdcBaseAppInfoController."<init>":()V
+         4: return
+      LineNumberTable:
+        line 10: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lcom/seeyon/boot/starter/udcrt/proxy/controller/NormalAppInfoController;
+}
+SourceFile: "NormalAppInfoController.java"
+RuntimeVisibleAnnotations:
+  0: #14()
+    org.springframework.web.bind.annotation.RestController
+  1: #15(#16=[s#17])
+    org.springframework.web.bind.annotation.RequestMapping(
+      value=["{currentAppName}/app-info"]
+    )
+  2: #18(#16=s#19)
+    com.seeyon.boot.annotation.RestApi(
+      value="普通应用-生成代码应用信息"
+    )

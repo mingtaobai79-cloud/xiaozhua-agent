@@ -1,0 +1,545 @@
+{
+ "endNode": {
+  "id": "",
+  "name": "",
+  "type": "END",
+  "actionType": "END_NODE",
+  "nodeId": "MFEndNode",
+  "caption": "结束",
+  "description": "",
+  "input": null,
+  "output": null,
+  "paramType": "NONE"
+ },
+ "output": null,
+ "input": {
+  "id": "com.seeyon.datamigration8704025620829192834.dto.microflow.ScfasjrcjSKa",
+  "javaType": "com.seeyon.datamigration8704025620829192834.dto.microflow.ScfasjrcjSKa",
+  "inApp": true,
+  "appName": "datamigration8704025620829192834",
+  "dataType": "DTO",
+  "type": "OBJECT",
+  "desc": "方案id",
+  "dtoType": "CUSTOM",
+  "udcApp": true,
+  "hasPagination": false,
+  "name": "_FLOW_INPUT_CAVQVZ"
+ },
+ "sourceType": "PAGE",
+ "trigger": {
+  "id": "",
+  "nodeId": "MFStartNode",
+  "caption": null,
+  "description": null,
+  "type": "MANUAL",
+  "input": null,
+  "output": {
+   "id": "com.seeyon.datamigration8704025620829192834.dto.microflow.ScfasjrcjSKa",
+   "javaType": "com.seeyon.datamigration8704025620829192834.dto.microflow.ScfasjrcjSKa",
+   "inApp": true,
+   "appName": "datamigration8704025620829192834",
+   "dataType": "DTO",
+   "type": "OBJECT",
+   "desc": "方案id",
+   "dtoType": "CUSTOM",
+   "udcApp": true,
+   "hasPagination": false,
+   "name": "_FLOW_INPUT_CAVQVZ"
+  },
+  "paramType": "DEFAULT_OBJECT",
+  "basic": null,
+  "isArray": false,
+  "desc": "方案id",
+  "app": {
+   "appId": "8704025620829192834",
+   "appName": "datamigration8704025620829192834",
+   "caption": "数据迁移",
+   "inApp": true,
+   "udcApp": true,
+   "dynamicDependency": false
+  },
+  "hasPagination": false,
+  "defaultObject": {
+   "key": "com.seeyon.datamigration8704025620829192834.dto.microflow.ScfasjrcjSKa",
+   "label": "1.10删除方案数据入参jSKa",
+   "title": "1.10删除方案数据入参jSKa",
+   "id": "com.seeyon.datamigration8704025620829192834.dto.microflow.ScfasjrcjSKa",
+   "value": "com.seeyon.datamigration8704025620829192834.dto.microflow.ScfasjrcjSKa",
+   "dataType": "DTO",
+   "dtoType": "CUSTOM",
+   "udcApp": true,
+   "fullName": "com.seeyon.datamigration8704025620829192834.dto.microflow.ScfasjrcjSKa",
+   "dtoId": "3004133022713370417",
+   "filterTitle": "1.10删除方案数据入参jSKacom.seeyon.datamigration8704025620829192834.dto.microflow.ScfasjrcjSKa"
+  }
+ },
+ "nodes": [
+  {
+   "nodeId": "BRANCH_RmSC15",
+   "name": "userBranch",
+   "type": "BRANCH",
+   "caption": "分支(1)",
+   "description": "",
+   "runAfter": null,
+   "conditions": [
+    {
+     "nodeId": "CONDITION_Y4gEDT",
+     "name": "ifBranch",
+     "type": "CONDITION",
+     "caption": "符合条件即进入该分支",
+     "description": "微流程.开始.方案id [1.10删除方案数据入参jSKa].是否全部删除 ",
+     "runAfter": null,
+     "expression": {
+      "title": "微流程.开始.方案id [1.10删除方案数据入参jSKa].是否全部删除 ",
+      "schema": "{\"designData\":{\"expressionTranslation\":\"微流程.开始.方案id [1.10删除方案数据入参jSKa].是否全部删除 \",\"resultTypeInfo\":\"BOOLEAN\",\"resultTypeFullName\":null,\"terminalType\":\"BACKEND\",\"isMultiSelect\":false,\"context\":[{\"name\":\"_FLOW_INPUT_CAVQVZ\",\"description\":\"开始\",\"type\":\"OBJECT\",\"selectable\":false,\"enableDataI18n\":false,\"properties\":[{\"name\":\"_FLOW_INPUT_CAVQVZ\",\"description\":\"方案id [1.10删除方案数据入参jSKa]\",\"type\":\"OBJECT\",\"selectable\":true,\"enableDataI18n\":false,\"properties\":[{\"name\":\"shifouquanbushanchu\",\"description\":\"是否全部删除\",\"type\":\"BOOLEAN\",\"selectable\":true,\"enableDataI18n\":false,\"uniformityParams\":{\"paramId\":\"com.seeyon.datamigration8704025620829192834.dto.microflow.ScfasjrcjSKa.shifouquanbushanchu\",\"paramCategory\":\"BOOLEAN\",\"extensionProperties\":\"{\\\"id\\\":\\\"com.seeyon.datamigration8704025620829192834.dto.microflow.ScfasjrcjSKa.shifouquanbushanchu\\\",\\\"relationType\\\":\\\"\\\",\\\"javaType\\\":\\\"java.lang.Boolean\\\"}\",\"pageNodeExtension\":null}}],\"uniformityParams\":{\"paramId\":\"com.seeyon.datamigration8704025620829192834.dto.microflow.ScfasjrcjSKa\",\"paramCategory\":\"OBJECT\",\"extensionProperties\":\"{\\\"id\\\":\\\"com.seeyon.datamigration8704025620829192834.dto.microflow.ScfasjrcjSKa\\\"}\",\"pageNodeExtension\":null}}],\"uniformityParams\":{\"paramId\":\"com.seeyon.datamigration8704025620829192834.dto.microflow.ScfasjrcjSKa\",\"paramCategory\":\"DTO\",\"extensionProperties\":\"{\\\"id\\\":\\\"com.seeyon.datamigration8704025620829192834.dto.microflow.ScfasjrcjSKa\\\",\\\"javaType\\\":\\\"com.seeyon.datamigration8704025620829192834.dto.microflow.ScfasjrcjSKa\\\"}\",\"pageNodeExtension\":null}}],\"tokens\":[{\"uid\":\"eb989b14-685b-46f1-9b6a-45bf12731757\",\"type\":\"VARIABLE\",\"value\":\"_FLOW_INPUT_CAVQVZ._FLOW_INPUT_CAVQVZ.shifouquanbushanchu\",\"desc\":\"微流程.开始.方案id [1.10删除方案数据入参jSKa].是否全部删除\"}],\"sourceAppName\":null},\"runtimeData\":{\"executableExpr\":\"93gDaq3/nXB1+C8j4AjYNEVRRY+GX/DRejGmES20GvQ=_FLOW_INPUT_CAVQVZ._FLOW_INPUT_CAVQVZ.shifouquanbushanchu\"}}"
+     },
+     "isCompleted": true,
+     "nodes": [
+      {
+       "paramType": "OTHER",
+       "mappingType": "attrs",
+       "attrs": [
+        {
+         "value": {
+          "type": "Simple",
+          "simple": 1,
+          "desc": 1
+         },
+         "attrType": {
+          "name": "pageNumber",
+          "id": "com.seeyon.boot.transport.PageInfo.pageNumber",
+          "fullName": "com.seeyon.boot.transport.PageInfo.pageNumber",
+          "javaType": "java.lang.Integer",
+          "dataType": "INTEGER",
+          "type": "OBJECT",
+          "desc": "当前页数",
+          "jsr303": {
+           "Min": {
+            "groups": "",
+            "value": "1",
+            "description": "检查约束元素不能小于Value值"
+           }
+          },
+          "relationApp": "udc",
+          "refApp": "udc",
+          "multiSelect": false,
+          "filterDataType": "INTEGER",
+          "filterType": "OBJECT",
+          "filterFullName": "com.seeyon.boot.transport.PageInfo.pageNumber",
+          "dataI18n": false,
+          "sort": 0,
+          "description": ""
+         }
+        },
+        {
+         "value": {
+          "type": "Simple",
+          "simple": 20,
+          "desc": 20
+         },
+         "attrType": {
+          "name": "pageSize",
+          "id": "com.seeyon.boot.transport.PageInfo.pageSize",
+          "fullName": "com.seeyon.boot.transport.PageInfo.pageSize",
+          "javaType": "java.lang.Integer",
+          "dataType": "INTEGER",
+          "type": "OBJECT",
+          "desc": "每页记录数",
+          "jsr303": {
+           "Min": {
+            "groups": "",
+            "value": "1",
+            "description": "检查约束元素不能小于Value值"
+           }
+          },
+          "relationApp": "udc",
+          "refApp": "udc",
+          "multiSelect": false,
+          "filterDataType": "INTEGER",
+          "filterType": "OBJECT",
+          "filterFullName": "com.seeyon.boot.transport.PageInfo.pageSize",
+          "dataI18n": false,
+          "sort": 0,
+          "description": ""
+         }
+        },
+        {
+         "value": {
+          "type": "Simple",
+          "simple": true,
+          "desc": true
+         },
+         "attrType": {
+          "name": "needTotal",
+          "id": "com.seeyon.boot.transport.PageInfo.needTotal",
+          "fullName": "com.seeyon.boot.transport.PageInfo.needTotal",
+          "javaType": "java.lang.Boolean",
+          "dataType": "BOOLEAN",
+          "type": "OBJECT",
+          "desc": "是否需要查询总记录数",
+          "relationApp": "udc",
+          "refApp": "udc",
+          "multiSelect": false,
+          "filterDataType": "BOOLEAN",
+          "filterType": "OBJECT",
+          "filterFullName": "com.seeyon.boot.transport.PageInfo.needTotal",
+          "dataI18n": false,
+          "sort": 0,
+          "description": ""
+         }
+        }
+       ],
+       "title": "分页参数对象",
+       "dataType": "DTO",
+       "structure": {
+        "dataType": "DTO",
+        "dtoId": null,
+        "dtoType": "CUSTOM",
+        "fullName": "com.seeyon.boot.transport.PageInfo",
+        "id": "com.seeyon.boot.transport.PageInfo",
+        "key": "com.seeyon.boot.transport.PageInfo",
+        "value": "com.seeyon.boot.transport.PageInfo",
+        "label": "分页对象",
+        "udcApp": true
+       },
+       "nodeRemark": null,
+       "otherType": "SYSTEM_PAGE_INFO",
+       "nodeId": "CREATE_VARIABLE_GgKlpn",
+       "actionType": "CREATE_VARIABLE",
+       "caption": "系统分页查询对象",
+       "description": null,
+       "type": "ACTIVITY",
+       "output": {
+        "id": "com.seeyon.boot.transport.PageInfo",
+        "javaType": "com.seeyon.boot.transport.PageInfo",
+        "dataType": "DTO",
+        "type": "OBJECT",
+        "desc": "分页参数对象",
+        "appName": "datamigration8704025620829192834",
+        "dtoType": "CUSTOM",
+        "udcApp": true,
+        "name": "CREATE_VARIABLE_tcTEfM"
+       },
+       "isCompleted": true
+      },
+      {
+       "nodeId": "RETRIEVE_ARRAY_Kct2FT",
+       "name": null,
+       "type": "ACTIVITY",
+       "actionType": "RETRIEVE_ARRAY",
+       "caption": "第一页的记录",
+       "description": null,
+       "runAfter": null,
+       "input": null,
+       "output": {
+        "id": "com.seeyon.datamigration8704025620829192834.dto.MigrationPlanDto",
+        "dataType": "DTO",
+        "type": "ARRAY",
+        "desc": "第一页数据",
+        "dtoType": "MASTER_ENTITY",
+        "udcApp": true,
+        "javaType": "com.seeyon.datamigration8704025620829192834.dto.MigrationPlanDto",
+        "appName": "datamigration8704025620829192834",
+        "name": "RETRIEVE_ARRAY_D7hhuM"
+       },
+       "isCompleted": true,
+       "fetchType": "CONDITION",
+       "app": {
+        "appId": "8704025620829192834",
+        "appName": "datamigration8704025620829192834",
+        "caption": "数据迁移",
+        "inApp": true,
+        "udcApp": true,
+        "dynamicDependency": false
+       },
+       "structure": {
+        "key": "com.seeyon.datamigration8704025620829192834.domain.entity.MigrationPlan",
+        "id": "com.seeyon.datamigration8704025620829192834.dto.MigrationPlanDto",
+        "label": "迁移方案配置",
+        "dataType": "DTO",
+        "entity": "com.seeyon.datamigration8704025620829192834.domain.entity.MigrationPlan",
+        "dtoType": "MASTER_ENTITY",
+        "udcApp": true,
+        "fullName": "com.seeyon.datamigration8704025620829192834.dto.MigrationPlanDto",
+        "relationEntity": "4796455827714164161",
+        "methodLegal": {
+         "available": true,
+         "complexCondition": true,
+         "seniorMethod": true,
+         "serviceType": "NONE",
+         "interfaceClassFullName": null
+        }
+       },
+       "condition": null,
+       "variableTitle": "第一页数据",
+       "selectType": "DTO",
+       "scope": "ARRAY",
+       "methodLegal": {
+        "available": true,
+        "complexCondition": true,
+        "seniorMethod": true,
+        "serviceType": "NONE",
+        "interfaceClassFullName": null
+       },
+       "mappingType": null,
+       "sortParams": null,
+       "sortObject": null,
+       "pageSearch": "true",
+       "pageInfo": {
+        "type": "SelectParam",
+        "selectParam": {
+         "description": "分页参数对象",
+         "dataType": "DTO",
+         "outputName": "CREATE_VARIABLE_tcTEfM",
+         "position": "parent",
+         "udcApp": true,
+         "dtoType": "CUSTOM",
+         "appName": "mnzzdsfst6961110428361441530",
+         "path": "comseeyonboottransportPageInfo",
+         "id": "com.seeyon.boot.transport.PageInfo",
+         "name": "comseeyonboottransportPageInfo",
+         "type": "OBJECT",
+         "javaType": "com.seeyon.boot.transport.PageInfo",
+         "relationEntity": "com.seeyon.boot.transport.PageInfo",
+         "relationEntityFullName": null,
+         "nodeInfo": {
+          "nodeId": "CREATE_VARIABLE_GgKlpn",
+          "type": "ACTIVITY",
+          "actionType": "CREATE_VARIABLE",
+          "entityCaption": "分页信息"
+         },
+         "key": "CREATE_VARIABLE_tcTEfMcom.seeyon.boot.transport.PageInfo",
+         "iconKey": "LinedModifyVariable",
+         "parentLabel": "",
+         "disabled": false
+        }
+       }
+      },
+      {
+       "nodeId": "For_S5BAF5",
+       "type": "FOR",
+       "caption": "计数循环(1)",
+       "description": null,
+       "runAfter": null,
+       "foreach": null,
+       "isCompleted": true,
+       "forStart": {
+        "type": "Simple",
+        "simple": 0,
+        "desc": 0
+       },
+       "forEnd": {
+        "type": "Expression",
+        "expression": {
+         "schema": "{\"designData\":{\"expressionTranslation\":\"向下取整(微流程.系统分页查询对象.分页参数对象 [分页信息].总记录数/999)\",\"resultTypeInfo\":\"INTEGER\",\"resultTypeFullName\":null,\"terminalType\":\"BACKEND\",\"isMultiSelect\":false,\"context\":[{\"name\":\"CREATE_VARIABLE_tcTEfM\",\"description\":\"系统分页查询对象\",\"type\":\"OBJECT\",\"selectable\":false,\"enableDataI18n\":false,\"properties\":[{\"name\":\"CREATE_VARIABLE_tcTEfM\",\"description\":\"分页参数对象 [分页信息]\",\"type\":\"OBJECT\",\"selectable\":true,\"enableDataI18n\":false,\"properties\":[{\"name\":\"total\",\"description\":\"总记录数\",\"type\":\"INTEGER\",\"selectable\":true,\"enableDataI18n\":false,\"uniformityParams\":{\"paramId\":\"com.seeyon.boot.transport.PageInfo.total\",\"paramCategory\":\"INTEGER\",\"extensionProperties\":\"{\\\"id\\\":\\\"com.seeyon.boot.transport.PageInfo.total\\\",\\\"relationType\\\":\\\"\\\",\\\"javaType\\\":\\\"java.lang.Integer\\\"}\",\"pageNodeExtension\":null}}],\"uniformityParams\":{\"paramId\":\"com.seeyon.boot.transport.PageInfo\",\"paramCategory\":\"OBJECT\",\"extensionProperties\":\"{\\\"id\\\":\\\"com.seeyon.boot.transport.PageInfo\\\"}\",\"pageNodeExtension\":null}}],\"uniformityParams\":{\"paramId\":\"com.seeyon.boot.transport.PageInfo\",\"paramCategory\":\"DTO\",\"extensionProperties\":\"{\\\"id\\\":\\\"com.seeyon.boot.transport.PageInfo\\\",\\\"javaType\\\":\\\"com.seeyon.boot.transport.PageInfo\\\"}\",\"pageNodeExtension\":null}}],\"tokens\":[{\"uid\":\"72aca46c-6a3e-4bd8-b0a2-bd351df6563c\",\"type\":\"FUNCTION\",\"value\":\"roundOffFloor\",\"desc\":\"向下取整\",\"subOps\":[[{\"uid\":\"8c182e67-5f41-4887-a22d-2ed1300e74bf\",\"type\":\"VARIABLE\",\"value\":\"CREATE_VARIABLE_tcTEfM.CREATE_VARIABLE_tcTEfM.total\",\"desc\":\"微流程.系统分页查询对象.分页参数对象 [分页信息].总记录数\"},{\"uid\":\"3c7c13c6-b6e4-47e8-852a-8cc7f60ba638\",\"type\":\"OPERATOR\",\"value\":\"/\",\"desc\":\"÷\"},{\"uid\":\"42dbf29f-7901-4bf3-a930-303a31f8bbff\",\"type\":\"CONSTANT\",\"value\":\"999\",\"desc\":\"999\"}]]}],\"sourceAppName\":null},\"runtimeData\":{\"executableExpr\":\"93gDaq3/nXB1+C8j4AjYNEVRRY+GX/DRejGmES20GvQ=roundOffFloor%28+%28+CREATE_VARIABLE_tcTEfM.CREATE_VARIABLE_tcTEfM.total+%2F+999+%29+%29\"}}",
+         "title": "{向下取整(微流程.系统分页查询对象.分页参数对象 [分页信息].总记录数/999)}"
+        },
+        "desc": "{向下取整(微流程.系统分页查询对象.分页参数对象 [分页信息].总记录数/999)}"
+       },
+       "forStep": 1,
+       "operator": "<=",
+       "targetName": "计数循环变量_1",
+       "output": {
+        "id": "",
+        "dataType": "INTEGER",
+        "type": "OBJECT",
+        "desc": "计数循环变量_1",
+        "javaType": "java.lang.Integer",
+        "name": "_FOR_4n5jTP"
+       },
+       "nodes": [
+        {
+         "nodeId": "DELETE_ENTITY_FjfXqB",
+         "name": null,
+         "type": "ACTIVITY",
+         "caption": "删除数据(2)",
+         "description": null,
+         "runAfter": null,
+         "input": null,
+         "output": {
+          "id": null,
+          "name": "_DELETE_ENTITY_Niydv3",
+          "dataType": "INTEGER",
+          "type": "OBJECT",
+          "desc": "删除迁移方案配置成功的数量_1",
+          "javaType": "java.lang.Integer"
+         },
+         "isCompleted": true,
+         "actionType": "DELETE_ENTITY",
+         "deleteType": "CONDITION",
+         "app": {
+          "appId": "8704025620829192834",
+          "appName": "datamigration8704025620829192834",
+          "caption": "数据迁移",
+          "inApp": true,
+          "udcApp": true,
+          "dynamicDependency": false
+         },
+         "structure": {
+          "key": "com.seeyon.datamigration8704025620829192834.domain.entity.MigrationPlan",
+          "id": "com.seeyon.datamigration8704025620829192834.dto.MigrationPlanDto",
+          "label": "迁移方案配置",
+          "dataType": "DTO",
+          "entity": "com.seeyon.datamigration8704025620829192834.domain.entity.MigrationPlan",
+          "dtoType": "MASTER_ENTITY",
+          "udcApp": true,
+          "fullName": "com.seeyon.datamigration8704025620829192834.dto.MigrationPlanDto",
+          "relationEntity": "4796455827714164161",
+          "methodLegal": {
+           "available": true,
+           "complexCondition": true,
+           "seniorMethod": true,
+           "serviceType": "NONE",
+           "interfaceClassFullName": null
+          }
+         },
+         "title": "删除迁移方案配置成功的数量_1",
+         "condition": [
+          {
+           "type": "GROUP",
+           "uuid": "85ff7707-2bff-4c3d-8c2d-6f6098866752",
+           "conditions": [
+            {
+             "type": "CONDITION",
+             "leftParam": {
+              "id": "com.seeyon.datamigration8704025620829192834.dto.MigrationPlanDto.id",
+              "type": "OBJECT",
+              "javaType": "java.lang.Long",
+              "dto": "_id",
+              "field": "id",
+              "desc": "ID",
+              "dataType": "BIGINTEGER",
+              "multiSelect": false
+             },
+             "operator": {
+              "value": "NEQ",
+              "desc": "!="
+             },
+             "rightParams": [
+              {
+               "type": "CONSTANT",
+               "value": 0,
+               "desc": 0
+              }
+             ],
+             "uuid": "a5fd3338-7aa5-4061-8515-c45f011a3c14",
+             "logicalOperator": "AND"
+            }
+           ]
+          }
+         ],
+         "methodLegal": {
+          "available": true,
+          "complexCondition": true,
+          "seniorMethod": true,
+          "serviceType": "NONE",
+          "interfaceClassFullName": null
+         }
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "nodeId": "CONDITION_1zusrg",
+     "name": "elseBranch",
+     "type": "CONDITION",
+     "caption": "不符合条件即进入该分支",
+     "description": "",
+     "runAfter": null,
+     "expression": null,
+     "nodes": [
+      {
+       "nodeId": "DELETE_ENTITY_90jya7",
+       "name": null,
+       "type": "ACTIVITY",
+       "caption": "删除数据(1)",
+       "description": null,
+       "runAfter": null,
+       "input": null,
+       "output": {
+        "id": null,
+        "name": "_DELETE_ENTITY_68bLqd",
+        "dataType": "INTEGER",
+        "type": "OBJECT",
+        "desc": "删除小爪验收实体全量成功的数量_1",
+        "javaType": "java.lang.Integer"
+       },
+       "isCompleted": true,
+       "actionType": "DELETE_ENTITY",
+       "deleteType": "CONDITION",
+       "app": {
+        "appId": "8704025620829192834",
+        "appName": "datamigration8704025620829192834",
+        "caption": "数据迁移",
+        "inApp": true,
+        "udcApp": true,
+        "dynamicDependency": false
+       },
+       "structure": {
+        "key": "com.seeyon.datamigration8704025620829192834.domain.entity.MigrationPlan",
+        "id": "com.seeyon.datamigration8704025620829192834.dto.MigrationPlanDto",
+        "label": "迁移方案配置",
+        "dataType": "DTO",
+        "entity": "com.seeyon.datamigration8704025620829192834.domain.entity.MigrationPlan",
+        "dtoType": "MASTER_ENTITY",
+        "udcApp": true,
+        "fullName": "com.seeyon.datamigration8704025620829192834.dto.MigrationPlanDto",
+        "relationEntity": "4796455827714164161",
+        "methodLegal": {
+         "available": true,
+         "complexCondition": true,
+         "seniorMethod": true,
+         "serviceType": "NONE",
+         "interfaceClassFullName": null
+        }
+       },
+       "condition": [
+        {
+         "type": "GROUP",
+         "uuid": "0c27b299-8f25-425e-a4e0-1add4be51101",
+         "conditions": [
+          {
+           "type": "CONDITION",
+           "leftParam": {
+            "id": "com.seeyon.datamigration8704025620829192834.dto.MigrationPlanDto.id",
+            "type": "OBJECT",
+            "javaType": "java.lang.Long",
+            "dto": "_id",
+            "field": "id",
+            "desc": "ID",
+            "dataType": "BIGINTEGER",
+            "multiSelect": false
+           },
+           "operator": {
+            "value": "EQ",
+            "desc": "="
+           },
+           "rightParams": [
+            {
+             "type": "EXPRESSION",
+             "value": "{\"designData\":{\"expressionTranslation\":\"微流程.开始.方案id [1.10删除方案数据入参jSKa].方案id \",\"resultTypeInfo\":\"BIGINTEGER\",\"resultTypeFullName\":null,\"terminalType\":\"BACKEND\",\"isMultiSelect\":false,\"context\":[{\"name\":\"_FLOW_INPUT_CAVQVZ\",\"description\":\"开始\",\"type\":\"OBJECT\",\"selectable\":false,\"enableDataI18n\":false,\"properties\":[{\"name\":\"_FLOW_INPUT_CAVQVZ\",\"description\":\"方案id [1.10删除方案数据入参jSKa]\",\"type\":\"OBJECT\",\"selectable\":true,\"enableDataI18n\":false,\"properties\":[{\"name\":\"fanganid\",\"description\":\"方案id\",\"type\":\"BIGINTEGER\",\"selectable\":true,\"enableDataI18n\":false,\"uniformityParams\":{\"paramId\":\"com.seeyon.datamigration8704025620829192834.dto.microflow.ScfasjrcjSKa.fanganid\",\"paramCategory\":\"BIGINTEGER\",\"extensionProperties\":\"{\\\"id\\\":\\\"com.seeyon.datamigration8704025620829192834.dto.microflow.ScfasjrcjSKa.fanganid\\\",\\\"relationType\\\":\\\"\\\",\\\"javaType\\\":\\\"java.lang.Long\\\"}\",\"pageNodeExtension\":null}}],\"uniformityParams\":{\"paramId\":\"com.seeyon.datamigration8704025620829192834.dto.microflow.ScfasjrcjSKa\",\"paramCategory\":\"OBJECT\",\"extensionProperties\":\"{\\\"id\\\":\\\"com.seeyon.datamigration8704025620829192834.dto.microflow.ScfasjrcjSKa\\\"}\",\"pageNodeExtension\":null}}],\"uniformityParams\":{\"paramId\":\"com.seeyon.datamigration8704025620829192834.dto.microflow.ScfasjrcjSKa\",\"paramCategory\":\"DTO\",\"extensionProperties\":\"{\\\"id\\\":\\\"com.seeyon.datamigration8704025620829192834.dto.microflow.ScfasjrcjSKa\\\",\\\"javaType\\\":\\\"com.seeyon.datamigration8704025620829192834.dto.microflow.ScfasjrcjSKa\\\"}\",\"pageNodeExtension\":null}}],\"tokens\":[{\"uid\":\"a5cd4adf-d75a-420e-ad33-61d89e2d13a5\",\"type\":\"VARIABLE\",\"value\":\"_FLOW_INPUT_CAVQVZ._FLOW_INPUT_CAVQVZ.fanganid\",\"desc\":\"微流程.开始.方案id [1.10删除方案数据入参jSKa].方案id\"}],\"sourceAppName\":null},\"runtimeData\":{\"executableExpr\":\"93gDaq3/nXB1+C8j4AjYNEVRRY+GX/DRejGmES20GvQ=_FLOW_INPUT_CAVQVZ._FLOW_INPUT_CAVQVZ.fanganid\"}}",
+             "desc": "{微流程.开始.方案id [1.10删除方案数据入参jSKa].方案id}"
+            }
+           ],
+           "uuid": "4a819957-eef3-4373-8ab4-0500c976e346",
+           "logicalOperator": "AND"
+          }
+         ]
+        }
+       ],
+       "title": "删除小爪验收实体全量成功的数量_1",
+       "methodLegal": {
+        "available": true,
+        "complexCondition": true,
+        "seniorMethod": true,
+        "serviceType": "NONE",
+        "interfaceClassFullName": null
+       }
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

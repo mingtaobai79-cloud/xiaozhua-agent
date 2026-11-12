@@ -1,0 +1,31 @@
+{
+  "schema": "udc.construction.entity.package.v1",
+  "status": "STATIC_RULE_CROSS_SAMPLE_OBSERVED",
+  "templates": {
+    "root": "com.seeyon.<ApplicationId>",
+    "facade": "com.seeyon.<ApplicationId>.dto|api",
+    "biz": "com.seeyon.<ApplicationId>.domain.entity|domain.service|domain.dao|appservice",
+    "web": "com.seeyon.<ApplicationId>.controller"
+  },
+  "application_stem": "<ApplicationId> with first character capitalized for DAO prefix",
+  "entity_stem": "X as observed generated Java class stem; source normalization policy UNKNOWN",
+  "support": {
+    "application_count": 10,
+    "applications": [
+      "caihonglian3117198973910469031",
+      "datamigration543622798725236252",
+      "datamigration8699613100046762578",
+      "faccountsreceivable2378987216360786643",
+      "faccountsreceivablecopy4515691026348329440",
+      "faccountsreceivablecopy725909469586801954",
+      "sanfangricheng7417152852034669760",
+      "xiangmuguanli1656355078954763084",
+      "app9000000000000000001",
+      "znxmglptcopy5791640252914287064"
+    ]
+  },
+  "caveats": [
+    "Facade/biz/web versions may differ in repository",
+    "Package template is observed from generated artifacts, not producer implementation"
+  ]
+}

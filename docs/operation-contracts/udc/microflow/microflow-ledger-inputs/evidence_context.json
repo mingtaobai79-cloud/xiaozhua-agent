@@ -1,0 +1,21 @@
+{
+  "status": "UNVERIFIED",
+  "note": "微流程只读里程碑证据上下文。证据落 docs/operation-contracts/udc/microflow/（A3）。sha256 为落盘实测值（前 16 位），完整 64hex 见 a6-milestone-report.md 清单。A2 未 LIVE，整体 UNVERIFIED。",
+  "scope": {"environment": "test2", "application_id": "app9000000000000000001", "version_local": "5.3.517"},
+  "evidence_files": [
+    {"path": "candidate-contracts-evidence.md", "sha256_16": "432a1067d16344a9", "role": "R1 候选 5 条 + 只读/执行判定"},
+    {"path": "local-53517-offline-candidates.md", "sha256_16": "d438457742e65713", "role": "R3 C2/C3 8 要素 locator"},
+    {"path": "gateway-live-facts.md", "sha256_16": "4deec5bb188be227", "role": "P4 网关前缀 + SSO 墙 + 部署态差异"},
+    {"path": "live-evidence/a2_readback_20260917T151317Z.md", "sha256_16": "a9992f50155d4139", "role": "无凭据双发回读"},
+    {"path": "live-evidence/a2_live_readback_20260917T160331Z.md", "sha256_16": "b8228018215c65d4", "role": "带凭据双发回读（微流程段 404）"},
+    {"path": "live-evidence/a2-entity-pilot.md", "sha256_16": "72f2c6102ae3ad60", "role": "23 条 entity 契约路径段活体试点"},
+    {"path": "live-evidence/a2_entity_pilot_20260917T172153Z.md", "sha256_16": "d7fb5abc74bee03f", "role": "entity 试点 raw + 总结"},
+    {"path": "a6-milestone-report.md", "sha256_16": "edc5b4242a1e06b9", "role": "A6 收口报告（能读什么/怎么读/UNVERIFIED·BLOCKED 缺口）"}
+  ],
+  "gaps": [
+    "A2 未 LIVE：test2 只读 token 过期（exp 1789660805，.env 无 APP_TOKEN/APP_COOKIE）",
+    "Long 型 target 缺口：entity 只读端点 path 变量要 Long，字符串 applicationId 不匹配（需 Nacos/P1 确证数字型 id）",
+    "微流程 C1/C2/C3 控制器路径段 test2 404（部署态路由与本地 5.3.517 静态不一致，需 P1 部署态 jar 确证）",
+    "P1 部署态取证网络 BLOCKED（SSH 10.0.0.1:22 无 VPN 路由）"
+  ]
+}

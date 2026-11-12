@@ -1,0 +1,32 @@
+# seeyon-agent UDC 版本族清单 v1 —— 大版本族 + artifact 多版本
+# UDC 不同大版本行为可能不同: 每个族有自己的 profile, 契约/证据按 版本族+版本 隔离, 不混写
+families:
+  "5.3":
+    note: 当前全部证据所在族(本地 5.3.517 / test2 镜像 5.3.496)
+    contract_root: docs/operation-contracts/udc
+    artifacts:
+      udc-common:             {versions: ["5.3.517"], evidence_dirs: ["docs/audit/artifacts/"]}
+      udc-facade:             {versions: ["5.3.517"], evidence_dirs: ["docs/audit/artifacts/"]}
+      udc-starter-runtime:    {versions: ["5.3.517"], evidence_dirs: ["docs/audit/artifacts/udc-runtime-5.3.517/"]}
+      udc-starter-lowcode:    {versions: ["5.3.517"], evidence_dirs: ["docs/audit/artifacts/"]}
+      udc-starter-customplan: {versions: ["5.3.517"], evidence_dirs: ["docs/audit/artifacts/udc-entity-customplan-5.3.517/"]}
+      udc-starter-dataflow:   {versions: ["5.3.517"], evidence_dirs: ["docs/audit/artifacts/udc-flow-5.3.517/"]}
+      udc-starters:           {versions: ["5.3.517"], evidence_dirs: ["docs/audit/artifacts/"],
+                               note: "5.3.517 仅 pom(聚合模块), 无 jar"}
+      udc-biz:                {versions: ["5.3.517"], evidence_dirs: ["docs/audit/artifacts/"],
+                               note: "设计态 DataTypeChangeUtil / TypeChangeSqlResolver / EntityTransportHandler"}
+      udc-web:                {versions: ["5.3.517"], evidence_dirs: ["docs/audit/artifacts/"]}
+      udc-extend:             {versions: ["5.3.517"], evidence_dirs: ["docs/audit/artifacts/"]}
+      udc-plugin-api:         {versions: ["5.3.517"], evidence_dirs: ["docs/audit/artifacts/"],
+                               note: "承载 com/seeyon/udc/common/autocode/config/AutoCodeProperties(enableDropColumn 等)"}
+      bpm-facade:             {versions: ["3.12.101"], evidence_dirs: ["docs/audit/modules/decompiled/"],
+                               note: "标品BPM证据(非UDC平台); 相邻版本 bpm-facade 5.3.374 禁混写"}
+    # 2026-10-13: udc-biz/udc-web/udc-extend/udc-plugin-api 5.3.517 已从 Artifactory libs-release
+    # (http://10.0.0.1/artifactory, 匿名) 拉取并 sha1 核对, 落 <MAVEN_REPO>/com/seeyon/
+    # udc-assemble: libs-release 无 5.3.517 路径 (仍缺)
+  # "5.4":
+  #   note: 未来新族示例; 行为差异登记在 behavior_diffs, 契约单独走 docs/operation-contracts/udc-5.4/(如有差异)
+  #   behavior_diffs: []
+
+# artifact 实际路径组装: {environments.environments.<env>.maven_root}/{artifact}/{version}/<artifact>-<version>.jar
+path_template: "{maven_root}/{artifact}/{version}/{artifact}-{version}.jar"

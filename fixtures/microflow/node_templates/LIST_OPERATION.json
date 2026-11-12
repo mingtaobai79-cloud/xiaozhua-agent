@@ -1,0 +1,32 @@
+{
+ "nodeId": "LIST_OPERATION_8ua7pm",
+ "name": null,
+ "type": "ACTIVITY",
+ "caption": "列表处理(SIZE)",
+ "description": null,
+ "runAfter": null,
+ "input": null,
+ "output": null,
+ "isCompleted": true,
+ "actionType": "LIST_OPERATION",
+ "selectParam": {
+  "id": null,
+  "javaType": "java.lang.String",
+  "dataType": "STRING",
+  "type": "ARRAY",
+  "desc": "vList",
+  "name": "_CREATE_LIST_U7yqmc",
+  "position": "parent",
+  "outputName": "_CREATE_LIST_U7yqmc",
+  "description": "vList",
+  "nodeInfo": {
+   "nodeId": "CREATE_LIST_U7yqmc",
+   "type": "ACTIVITY",
+   "actionType": "CREATE_LIST"
+  }
+ },
+ "operationType": {
+  "type": "SIZE"
+ },
+ "title": "列表处理后结果"
+}

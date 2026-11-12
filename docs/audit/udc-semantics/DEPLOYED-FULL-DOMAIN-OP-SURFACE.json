@@ -1,0 +1,284 @@
+{
+  "class_count": 1044,
+  "class_files": 1170,
+  "classes_prefixed": 90,
+  "classes_with_routes": 238,
+  "classlist_sha256": "737960a170534dbe5bcf86fd17ef31faab751a71f2a24950e71507fbc0f1d2e7",
+  "distinct_op": 2107,
+  "domain": "部署态全构件注解路由面（常量池含 bind/annotation 的 class，= 全部 HTTP 注解类的可证超集）",
+  "domain_superset_argument": "任何带 @RequestMapping/@GetMapping/... 的类必然引用 org/springframework/web/bind/annotation/*，故该筛选是超集；routed_without_bind_annotation 为该论证的实测检验（须为空）。",
+  "duplicate_class_names": {
+    "groups": 123,
+    "reading": "同一 FQCN 在多个 jar 内重复（部署 fat jar 常态）。route_conflicts 为空 = 不存在「两份同名类各自都带路由」⇒ 按 FQCN 建索引合并副本不会丢端点。",
+    "route_conflicts": []
+  },
+  "evidence": "LIVE-DEPLOYED (pod BOOT-INF/lib) + VERIFIED_STATIC_BYTECODE",
+  "jars_contributing_ops": 53,
+  "limitations": [
+    "域 = 磁盘构件内可注解路由面；运行期动态注册通道（ControllerDynamicRegister）已由 tools/core/enumerate_dynamic_register_channel.py 与 DYNAMIC-REGISTER-CHANNEL.json 锚定：其暴露的 udc 前缀路由，控制器必为 BaseComponentController 后代（前缀谓词集合 是 闸门集合 的子集）；未消除的部分 = 运行期加载的域外 ext 组件（不在磁盘构件内，静态不可见）⇒ 「60 条不存在」仍不可断言。",
+    "不含运行时才加载的客户 ext 组件。",
+    "jar / class 本体不入 git；本件为复算产物。",
+    "动态通道的「当前有无活对象」在本窗口不可证：pod 日志仅保留约 2 小时，且 /udc/** 未带会话一律返回 BOOT_1006（负控同响应）⇒ BOOT_1006 不是路由存在性/可用性判据。"
+  ],
+  "methods": 2110,
+  "per_jar": {
+    "boot-formula-engine-5.3.318": {
+      "methods": 10,
+      "ops": 10
+    },
+    "boot-starter-artifact-5.3.358": {
+      "methods": 1,
+      "ops": 1
+    },
+    "boot-starter-basicdata-5.3.260": {
+      "methods": 23,
+      "ops": 23
+    },
+    "boot-starter-cip-5.3.318": {
+      "methods": 12,
+      "ops": 4
+    },
+    "boot-starter-condition-5.3.318": {
+      "methods": 4,
+      "ops": 4
+    },
+    "boot-starter-datainit-5.3.358": {
+      "methods": 5,
+      "ops": 5
+    },
+    "boot-starter-datamigration-5.3.358": {
+      "methods": 37,
+      "ops": 21
+    },
+    "boot-starter-dynamicloader-5.3.289": {
+      "methods": 5,
+      "ops": 5
+    },
+    "boot-starter-dynamicsql-5.3.358": {
+      "methods": 7,
+      "ops": 3
+    },
+    "boot-starter-enums-5.3.318": {
+      "methods": 46,
+      "ops": 24
+    },
+    "boot-starter-environment-5.3.358": {
+      "methods": 5,
+      "ops": 5
+    },
+    "boot-starter-excel-5.3.318": {
+      "methods": 21,
+      "ops": 21
+    },
+    "boot-starter-extmetadata-5.3.318": {
+      "methods": 21,
+      "ops": 19
+    },
+    "boot-starter-file-5.3.358": {
+      "methods": 30,
+      "ops": 30
+    },
+    "boot-starter-formconvert-5.3.260": {
+      "methods": 15,
+      "ops": 7
+    },
+    "boot-starter-formula-5.3.318": {
+      "methods": 10,
+      "ops": 10
+    },
+    "boot-starter-frontend-log-5.3.358": {
+      "methods": 1,
+      "ops": 1
+    },
+    "boot-starter-ganttchart-5.3.260": {
+      "methods": 16,
+      "ops": 9
+    },
+    "boot-starter-graphql-5.3.358": {
+      "methods": 6,
+      "ops": 1
+    },
+    "boot-starter-i18n-5.3.358": {
+      "methods": 6,
+      "ops": 6
+    },
+    "boot-starter-labelprint-5.3.260": {
+      "methods": 18,
+      "ops": 18
+    },
+    "boot-starter-license-5.3.358": {
+      "methods": 5,
+      "ops": 5
+    },
+    "boot-starter-metadata-5.3.358": {
+      "methods": 105,
+      "ops": 105
+    },
+    "boot-starter-mgn-export-5.3.358": {
+      "methods": 2,
+      "ops": 2
+    },
+    "boot-starter-monitor-5.3.358": {
+      "methods": 30,
+      "ops": 24
+    },
+    "boot-starter-parameter-5.3.318": {
+      "methods": 17,
+      "ops": 6
+    },
+    "boot-starter-prometheus-5.3.358": {
+      "methods": 3,
+      "ops": 1
+    },
+    "boot-starter-qrcode-5.3.262": {
+      "methods": 22,
+      "ops": 14
+    },
+    "boot-starter-sandbox-5.3.289": {
+      "methods": 40,
+      "ops": 6
+    },
+    "boot-starter-schedule-5.3.358": {
+      "methods": 9,
+      "ops": 9
+    },
+    "boot-starter-serialnumber-5.3.318": {
+      "methods": 45,
+      "ops": 17
+    },
+    "boot-starter-sharding-5.3.358": {
+      "methods": 25,
+      "ops": 25
+    },
+    "boot-starter-shortlink-5.3.358": {
+      "methods": 2,
+      "ops": 2
+    },
+    "boot-starter-tomcat-5.3.358": {
+      "methods": 1,
+      "ops": 1
+    },
+    "boot-starter-upgrade-5.3.260": {
+      "methods": 4,
+      "ops": 4
+    },
+    "boot-starter-web-5.3.358": {
+      "methods": 5,
+      "ops": 1
+    },
+    "cdp-data-web-5.3.278": {
+      "methods": 344,
+      "ops": 12
+    },
+    "ctp-affair-web-5.3.330": {
+      "methods": 126,
+      "ops": 1
+    },
+    "ctp-message-web-5.3.287": {
+      "methods": 60,
+      "ops": 3
+    },
+    "spring-boot-actuator-autoconfigure-2.7.18": {
+      "methods": 1,
+      "ops": 1
+    },
+    "spring-boot-autoconfigure-2.7.18": {
+      "methods": 2,
+      "ops": 1
+    },
+    "springfox-swagger-common-2.10.2": {
+      "methods": 3,
+      "ops": 3
+    },
+    "springfox-swagger2-2.10.2": {
+      "methods": 2,
+      "ops": 1
+    },
+    "udc-cdpbi-5.3.517": {
+      "methods": 2,
+      "ops": 2
+    },
+    "udc-extend-5.3.517": {
+      "methods": 8,
+      "ops": 1
+    },
+    "udc-m5-5.3.517": {
+      "methods": 5,
+      "ops": 5
+    },
+    "udc-portal-5.3.517": {
+      "methods": 6,
+      "ops": 4
+    },
+    "udc-starter-customplan-5.3.517": {
+      "methods": 34,
+      "ops": 1
+    },
+    "udc-starter-dataflow-5.3.517": {
+      "methods": 19,
+      "ops": 1
+    },
+    "udc-starter-runtime-5.3.517": {
+      "methods": 131,
+      "ops": 14
+    },
+    "udc-upgrade-5.3.517": {
+      "methods": 64,
+      "ops": 64
+    },
+    "udc-user-5.3.517": {
+      "methods": 15,
+      "ops": 15
+    },
+    "udc-web-5.3.517": {
+      "methods": 674,
+      "ops": 5
+    }
+  },
+  "prefix_mechanism": {
+    "app_name_used": "udc",
+    "authority": "boot-starter-web-5.3.358 :: com.seeyon.boot.starter.web.WebAutoConfiguration.configurePathMatch",
+    "bytecode": "configurer.addPathPrefix(Apps.getAppName(), predicate: BaseComponentController.class.isAssignableFrom(aClass))",
+    "reading": [
+      "前缀段 = Apps.getAppName()（运行期取值，本部署 = udc），不是硬编码字面量",
+      "判据是传递父类链 isAssignableFrom，不是字符串包含",
+      "LIVE 锚点 /service//udc/file/download：FileController 自身 mapping=file、方法=download ⇒ 叠加段 = udc",
+      "addPathPrefix 全仓仅在 boot-starter-web-5.3.358 命中，故该机制是单点权威源"
+    ]
+  },
+  "relocated_32_control": {
+    "hits": 32,
+    "total": 32,
+    "verdict": "PASS",
+    "what": "跨构件归位 32 条同域命中数 —— 同时校验前缀规则本身（这 32 条正是靠 addPathPrefix 才归位）"
+  },
+  "robustness_variants": {
+    "none": {
+      "distinct_op": 2104,
+      "reading": "余 60 命中须仍为 0，否则 0 命中依赖前缀写法、不可断言",
+      "relocated_32_hits": 5,
+      "remaining_60_hits": 0,
+      "same_domain_control_hits": 674
+    },
+    "substr": {
+      "distinct_op": 2107,
+      "reading": "余 60 命中须仍为 0，否则 0 命中依赖前缀写法、不可断言",
+      "relocated_32_hits": 32,
+      "remaining_60_hits": 0,
+      "same_domain_control_hits": 674
+    }
+  },
+  "routed_without_bind_annotation": [],
+  "same_domain_control": {
+    "contract_ops": 674,
+    "hits": 674,
+    "verdict": "PASS",
+    "what": "udc-web 674 契约 op 面在同域 op 集内的命中数"
+  },
+  "schema": "deployed-op-surface-full.v1",
+  "target_60": {
+    "hits": 0,
+    "total": 60,
+    "verdict": "0 命中 ⇒ 部署态全构件注解路由面内确不承接（强负面）；仍不可断言「不存在」，见 limitations"
+  }
+}

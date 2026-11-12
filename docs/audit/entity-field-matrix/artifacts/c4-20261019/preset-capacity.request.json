@@ -1,0 +1,8 @@
+{
+ "query": "query graphqlLoader ($params0: udcEntityAttributePresetAttributeCapacityAllAppGetInputPath) { \n  data0: udcEntityAttributePresetAttributeCapacityAllAppGet(path: $params0) { code data { content } message status } }",
+ "variables": {
+  "params0": {
+   "appId": "8704025620829192834"
+  }
+ }
+}

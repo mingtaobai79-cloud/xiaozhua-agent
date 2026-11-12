@@ -1,0 +1,124 @@
+{
+  "schema": "udc.platform-operation-engine.mvp.v1",
+  "status": "REDIRECTED_TO_PLATFORM_OPERATION",
+  "network": "disabled",
+  "scope": {
+    "repository": "<PATH>",
+    "read_only": true,
+    "attribute_sample_expansion": false,
+    "graphql_resolver_investigation": false
+  },
+  "layers": [
+    {
+      "name": "ai-intent",
+      "status": "future",
+      "responsibility": "understand user requirements and produce ConstructionTask"
+    },
+    {
+      "name": "input-adapter",
+      "status": "missing",
+      "responsibility": "frontend/API/CLI input to normalized construction intent"
+    },
+    {
+      "name": "operation-registry",
+      "status": "missing",
+      "responsibility": "verified platform operation contracts and capability lookup"
+    },
+    {
+      "name": "operation-engine",
+      "status": "missing",
+      "responsibility": "build payload, invoke UI/API, enforce confirmation boundary"
+    },
+    {
+      "name": "readback-validation",
+      "status": "missing",
+      "responsibility": "read platform state and verify requested outcome"
+    },
+    {
+      "name": "udc-platform",
+      "status": "external",
+      "responsibility": "UDC performs low-code generation"
+    },
+    {
+      "name": "spi-extension-engine",
+      "status": "separate",
+      "responsibility": "SPI contract, extension point, plugin registration and invocation"
+    }
+  ],
+  "inputs": [
+    "ConstructionTask",
+    "NormalizedConstructionIntent",
+    "verified frontend/API contract"
+  ],
+  "rules": [
+    "UDC frontend operation evidence",
+    "verified UDC API/DTO contracts",
+    "runtime contract as platform operation knowledge"
+  ],
+  "intermediateModel": {
+    "name": "NormalizedConstructionIntent",
+    "required_fields": [
+      "target_platform",
+      "application_id",
+      "operation",
+      "resource_type"
+    ],
+    "preserve_unknown": true,
+    "evidence_refs": true,
+    "not_source_code_ir": true
+  },
+  "artifactPlan": {
+    "name": "OperationPlan",
+    "outputs": [
+      "operation",
+      "endpoint_or_ui_action",
+      "payload",
+      "expected_readback"
+    ],
+    "writes_source": false
+  },
+  "outputs": [
+    "OperationPlan",
+    "OperationResult",
+    "ReadbackValidationReport"
+  ],
+  "validation": {
+    "current": "static audit and golden evidence",
+    "mvp": "request/result/readback verification",
+    "external_writes": "requires explicit authorization and confirmation"
+  },
+  "blocked": [
+    "P0-3B GraphQL Resolver implementation artifact unavailable",
+    "live UDC operation endpoint/session not yet wired"
+  ],
+  "unknown": [
+    "exact design-time payload mapping",
+    "live frontend/backend operation endpoint",
+    "platform generation timing/state transitions",
+    "Page/MicroFlow operation contracts",
+    "SPI implementation-specific contracts"
+  ],
+  "existing_entrypoints": {
+    "models": "components/udc/models.py",
+    "planner": "components/udc/planner.py",
+    "component_registry": "core/registry.py",
+    "agent": "core/agent.py",
+    "rule_json_root": "docs/construction-rules"
+  },
+  "next_minimal_implementation": [
+    "components/platform_operations/models.py",
+    "components/platform_operations/registry.py",
+    "components/platform_operations/udc_adapter.py",
+    "components/platform_operations/validation.py"
+  ],
+  "deferred": [
+    "source generator",
+    "Java templates",
+    "compiler",
+    "RAG",
+    "MCP",
+    "full AI Agent integration",
+    "SPI plugin implementation"
+  ],
+  "purpose": "Operate UDC and related platform capabilities as a user through frontend or backend interfaces; the platform itself performs low-code generation."
+}

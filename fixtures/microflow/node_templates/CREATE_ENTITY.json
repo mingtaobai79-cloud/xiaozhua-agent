@@ -1,0 +1,245 @@
+{
+ "nodeId": "CREATE_ENTITY_UuKpNp",
+ "name": null,
+ "type": "ACTIVITY",
+ "caption": "插入数据",
+ "description": null,
+ "runAfter": null,
+ "input": null,
+ "output": {
+  "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+  "javaType": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+  "dataType": "DTO",
+  "type": "OBJECT",
+  "desc": "小爪验收实体全量",
+  "appName": "datamigration8704025620829192834",
+  "dtoType": "MASTER_ENTITY",
+  "udcApp": true,
+  "relationEntity": "-2537349473285092530",
+  "name": "_CREATE_ENTITY_UuKpNp"
+ },
+ "isCompleted": true,
+ "actionType": "CREATE_ENTITY",
+ "app": {
+  "appId": "8704025620829192834",
+  "appName": "datamigration8704025620829192834",
+  "caption": "",
+  "inApp": true,
+  "udcApp": true,
+  "dynamicDependency": false
+ },
+ "structure": {
+  "key": "com.seeyon.datamigration8704025620829192834.domain.entity.YsFull6956",
+  "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+  "label": "小爪验收实体全量",
+  "dataType": "DTO",
+  "entity": "com.seeyon.datamigration8704025620829192834.domain.entity.YsFull6956",
+  "dtoType": "MASTER_ENTITY",
+  "udcApp": true,
+  "fullName": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+  "relationEntity": "-2537349473285092530",
+  "entityId": "-2537349473285092530",
+  "methodLegal": {
+   "available": true,
+   "complexCondition": true,
+   "seniorMethod": true,
+   "serviceType": "NONE",
+   "interfaceClassFullName": null
+  }
+ },
+ "title": "小爪验收实体全量",
+ "methodLegal": {
+  "available": true,
+  "complexCondition": true,
+  "seniorMethod": true,
+  "serviceType": "NONE",
+  "interfaceClassFullName": null
+ },
+ "mappingType": "attrs",
+ "attrs": [
+  {
+   "attrType": {
+    "validate": true,
+    "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f01text",
+    "name": "f01text",
+    "fullName": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f01text",
+    "md5": "",
+    "javaType": "java.lang.String",
+    "dataType": "STRING",
+    "type": "OBJECT",
+    "caption": "文本字段",
+    "desc": "文本字段",
+    "description": "",
+    "refId": "",
+    "refApp": "datamigration8704025620829192834",
+    "refType": "NONE",
+    "multiSelect": false,
+    "dataI18n": false,
+    "sort": 6,
+    "customs": {
+     "basicType": false,
+     "mfDataI18n": false,
+     "defaultOrExpression": false,
+     "notNull": false,
+     "sourceType": "ENTITY",
+     "dataType": "STRING",
+     "name": "f01text",
+     "id": "-4144494497326241617"
+    }
+   },
+   "value": {
+    "type": "SelectParam",
+    "selectParam": {
+     "key": "_CREATE_VARIABLE_uX6yClcom.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f01text",
+     "name": "f01text",
+     "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f01text",
+     "appName": "datamigration8704025620829192834",
+     "description": "文本字段",
+     "position": "children",
+     "path": "comseeyondatamigration8704025620829192834dtoYsFull6956Dtof01text",
+     "outputName": "_CREATE_VARIABLE_uX6yCl",
+     "dataType": "STRING",
+     "type": "OBJECT",
+     "javaType": "java.lang.String",
+     "dtoType": "CUSTOM",
+     "udcApp": true,
+     "multiSelect": false,
+     "customs": {
+      "basicType": false,
+      "mfDataI18n": false,
+      "defaultOrExpression": false,
+      "notNull": false,
+      "sourceType": "ENTITY",
+      "dataType": "STRING",
+      "name": "f01text",
+      "id": "-4144494497326241617"
+     },
+     "parentLabel": ""
+    }
+   }
+  },
+  {
+   "attrType": {
+    "validate": true,
+    "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f03int",
+    "name": "f03int",
+    "fullName": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f03int",
+    "md5": "",
+    "javaType": "java.lang.Integer",
+    "dataType": "INTEGER",
+    "type": "OBJECT",
+    "caption": "整数字段",
+    "desc": "整数字段",
+    "description": "",
+    "refId": "",
+    "refApp": "datamigration8704025620829192834",
+    "refType": "NONE",
+    "multiSelect": false,
+    "dataI18n": false,
+    "sort": 8,
+    "customs": {
+     "basicType": false,
+     "mfDataI18n": false,
+     "defaultOrExpression": false,
+     "notNull": false,
+     "sourceType": "ENTITY",
+     "dataType": "INTEGER",
+     "name": "f03int",
+     "id": "-6040618203145140416"
+    }
+   },
+   "value": {
+    "type": "SelectParam",
+    "selectParam": {
+     "key": "_CREATE_VARIABLE_uX6yClcom.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f03int",
+     "name": "f03int",
+     "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f03int",
+     "appName": "datamigration8704025620829192834",
+     "description": "整数字段",
+     "position": "children",
+     "path": "comseeyondatamigration8704025620829192834dtoYsFull6956Dtof03int",
+     "outputName": "_CREATE_VARIABLE_uX6yCl",
+     "dataType": "INTEGER",
+     "type": "OBJECT",
+     "javaType": "java.lang.Integer",
+     "dtoType": "CUSTOM",
+     "udcApp": true,
+     "multiSelect": false,
+     "customs": {
+      "basicType": false,
+      "mfDataI18n": false,
+      "defaultOrExpression": false,
+      "notNull": false,
+      "sourceType": "ENTITY",
+      "dataType": "INTEGER",
+      "name": "f03int",
+      "id": "-6040618203145140416"
+     },
+     "parentLabel": ""
+    }
+   }
+  },
+  {
+   "attrType": {
+    "validate": true,
+    "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f05dec",
+    "name": "f05dec",
+    "fullName": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f05dec",
+    "md5": "",
+    "javaType": "java.math.BigDecimal",
+    "dataType": "DECIMAL",
+    "type": "OBJECT",
+    "caption": "小数字段",
+    "desc": "小数字段",
+    "description": "",
+    "refId": "",
+    "refApp": "datamigration8704025620829192834",
+    "refType": "NONE",
+    "multiSelect": false,
+    "dataI18n": false,
+    "sort": 10,
+    "customs": {
+     "basicType": false,
+     "mfDataI18n": false,
+     "defaultOrExpression": false,
+     "notNull": false,
+     "sourceType": "ENTITY",
+     "dataType": "DECIMAL",
+     "name": "f05dec",
+     "id": "-6666907948550150155"
+    }
+   },
+   "value": {
+    "type": "SelectParam",
+    "selectParam": {
+     "key": "_CREATE_VARIABLE_uX6yClcom.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f05dec",
+     "name": "f05dec",
+     "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f05dec",
+     "appName": "datamigration8704025620829192834",
+     "description": "小数字段",
+     "position": "children",
+     "path": "comseeyondatamigration8704025620829192834dtoYsFull6956Dtof05dec",
+     "outputName": "_CREATE_VARIABLE_uX6yCl",
+     "dataType": "DECIMAL",
+     "type": "OBJECT",
+     "javaType": "java.math.BigDecimal",
+     "dtoType": "CUSTOM",
+     "udcApp": true,
+     "multiSelect": false,
+     "customs": {
+      "basicType": false,
+      "mfDataI18n": false,
+      "defaultOrExpression": false,
+      "notNull": false,
+      "sourceType": "ENTITY",
+      "dataType": "DECIMAL",
+      "name": "f05dec",
+      "id": "-6666907948550150155"
+     },
+     "parentLabel": ""
+    }
+   }
+  }
+ ],
+ "value": null
+}

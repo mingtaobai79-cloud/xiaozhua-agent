@@ -1,0 +1,17 @@
+C8 artifacts manifest
+generated: 2026-10-19T15:42:00Z / 23:42 CST
+env: test2 | app: 8704025620829192834 | entity: 4796455827714164161
+
+[1] save-batch-c8.json
+    source: CDP Network.requestWillBeSent + getResponseBody（页面点击保存产生）
+    bytes: 310934
+    sha256: 0d5b34d5634c0f09a78a417b160dc051e5d083797279ba648155ad572a457013
+            （完整 64 位；2026-10-20 00:01:19 由 sha256sum 实算补全，未重跑环境）
+    内容: 4 条 udc/graphql 的 request+response 全文
+      #1 udcMultiEditLockPost            请求 431   响应 283
+      #2 udcAttributeGroupOperateBatchPost 请求 72973 响应 75120   ← 含新字段 DTO
+      #3 udcEntityAttributePresetAttributeCapacityAllAppGet 请求 282 响应 53147
+      #4 udcAttributeGroupEntityGet      请求 2106  响应 70029   ← 含新字段 72 键回读
+    事件时刻（保存动作）：2026-10-19 23:39:11（DB create_time）
+    落盘时刻（本文件写入）：2026-10-19 23:41
+    note: 事件时刻与落盘时刻分列，遵守 C-7B 后确立的纪律

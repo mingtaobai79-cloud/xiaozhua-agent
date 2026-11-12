@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "purpose": "Copy to config/udc-semantics-evidence.local.json; local file is git-ignored. Supply source and reference artifact locations; never put credentials here.",
+  "source_snapshot": {
+    "id": "udc-source-checkout",
+    "root": "<local_backend_source_root>",
+    "version_binding": "UNVERIFIED",
+    "kind": "local_source_tree"
+  },
+  "artifacts": {
+    "udc_biz_reference": {
+      "artifact": "udc-biz",
+      "version": "5.3.517",
+      "path": "<local_reference_jar_path>",
+      "sha256": "8a1cda618cdc23d18d02e39f4f93d6fad4ff732c987fd47bbb28118dbf66ef25",
+      "live_version_binding": "UNVERIFIED"
+    }
+  }
+}

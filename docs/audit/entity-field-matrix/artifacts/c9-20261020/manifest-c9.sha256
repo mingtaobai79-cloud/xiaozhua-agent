@@ -1,0 +1,15 @@
+# C-9 artifact manifest
+# 事件时刻: 首次探测 11:38-11:44 | 9223 只读确认 11:53-11:56 CST
+# 落盘时刻: 2026-10-20 11:58 CST（两者分列，佐证非事后补写）
+# 修订时刻: 2026-10-20 12:02 CST（补证轮：c9step1.js 正则 + 本清单标注）
+# env: test2 | app 8704025620829192834 | entity 4796455827714164161
+# cdp: 9223（现有会话，无登录态）/ 9240（上轮探测，已停）
+# result: BLOCKED（第 3 次：9223 实例 0 cookie，renderer 健康）
+# c9step1.js / c9redir.js = 本轮只读确认；c9run3.js = 恢复后待执行（未运行）
+fc7565dd4445cfc715be5c302c86ed38f89b5d3c8cbf261da465da96d1f9c518 *BLOCKED-DIAGNOSIS.txt   [SUPERSEDED by 89a5309 §4] 含已作废结论『凭据已证有效，排除』；正文保留不改
+9026fdae97e97db8923d4fc1b9f91f6c65bae83e4105ef86cd406009e24afedd *c9auth.js
+f83fb2e709449b433965da781e8111ca68d677ec60c6e2f9a9589a67118643ba *c9dialog.js
+43cd41260410e8617911c8f55cfce1a17e85b0867228913bda9a7045bd6704e0 *c9probe.js
+532e89b207484452cc964097e166fffffcc1106b1f1e6183a020209efe2b3d57 *c9redir.js
+e2b65954b0ce0156dd933932cc3a49ffc909376220def388db2f687b37b4b0d6 *c9run3.js
+7ce26f95d03a05620c3c9a4476fa53e192f8857c106963e1f03e9988b45a9945 *c9step1.js   2026-10-20 12:02 修订 L77 登录正则，与 c9redir.js L46 统一

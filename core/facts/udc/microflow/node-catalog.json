@@ -1,0 +1,1298 @@
+{
+ "source": "src_redux_store_ts.14dc061e.js",
+ "sourceBytes": 2452504,
+ "definitionCount": 51,
+ "definitions": [
+  {
+   "scope": "MICROFLOW",
+   "name": "自定义服务",
+   "type": "CALL_APP_SERVICE",
+   "offset": 1062400,
+   "requiredTop": [
+    "app",
+    "selectMethod",
+    "value",
+    "mappingType",
+    "selectParam",
+    "pageInfo",
+    "outputName"
+   ],
+   "requiredInRules": [],
+   "fields": [
+    {
+     "key": "app",
+     "required": true,
+     "requiredInRules": false,
+     "control": null
+    },
+    {
+     "key": "selectMethod",
+     "required": true,
+     "requiredInRules": false,
+     "control": null
+    },
+    {
+     "key": "condition",
+     "required": false,
+     "requiredInRules": false,
+     "control": null
+    },
+    {
+     "key": "value",
+     "required": true,
+     "requiredInRules": false,
+     "control": null
+    },
+    {
+     "key": "mappingType",
+     "required": true,
+     "requiredInRules": false,
+     "control": null
+    },
+    {
+     "key": "value",
+     "required": false,
+     "requiredInRules": false,
+     "control": null
+    },
+    {
+     "key": "value",
+     "required": false,
+     "requiredInRules": false,
+     "control": null
+    },
+    {
+     "key": "attrs",
+     "required": false,
+     "requiredInRules": false,
+     "control": null
+    },
+    {
+     "key": "selectParam",
+     "required": true,
+     "requiredInRules": false,
+     "control": null
+    },
+    {
+     "key": "mapping",
+     "required": false,
+     "requiredInRules": false,
+     "control": null
+    },
+    {
+     "key": "pageInfo",
+     "required": true,
+     "requiredInRules": false,
+     "control": null
+    },
+    {
+     "key": "outPutDesc",
+     "required": false,
+     "requiredInRules": false,
+     "control": null
+    },
+    {
+     "key": "outputName",
+     "required": true,
+     "requiredInRules": false,
+     "control": null
+    }
+   ]
+  },
+  {
+   "scope": "MICROFLOW",
+   "name": "类型转换",
+   "type": "CONVERT_DATA",
+   "offset": 1094438,
+   "requiredTop": [
+    "convertType",
+    "selectParam",
+    "regex",
+    "title"
+   ],
+   "requiredInRules": [],
+   "fields": [
+    {
+     "key": "convertType",
+     "required": true,
+     "requiredInRules": false,
+     "control": null
+    },
+    {
+     "key": "selectParam",
+     "required": true,
+     "requiredInRules": false,
+     "control": null
+    },
+    {
+     "key": "regex",
+     "required": true,
+     "requiredInRules": false,
+     "control": null
+    },
+    {
+     "key": "title",
+     "required": true,
+     "requiredInRules": false,
+     "control": null
+    }
+   ]
+  },
+  {
+   "scope": "MICROFLOW",
+   "name": "子微流程",
+   "type": "SUB_MICROFLOW",
+   "offset": 1097858,
+   "requiredTop": [
+    "mfService",
+    "value",
+    "mappingType",
+    "value",
+    "pageInfo",
+    "outputName"
+   ],
+   "requiredInRules": [],
+   "fields": [
+    {
+     "key": "mfService",
+     "required": true,
+     "requiredInRules": false,
+     "control": null
+    },
+    {
+     "key": "value",
+     "required": true,
+     "requiredInRules": false,
+     "control": null
+    },
+    {
+     "key": "mappingType",
+     "required": true,
+     "requiredInRules": false,
+     "control": null
+    },
+    {
+     "key": "value",
+     "required": true,
+     "requiredInRules": false,
+     "control": null
+    },
+    {
+     "key": "attrs",
+     "required": false,
+     "requiredInRules": false,
+     "control": null
+    },
+    {
+     "key": "pageInfo",
+     "required": true,
+     "requiredInRules": false,
+     "control": null
+    },
+    {
+     "key": "outPutDesc",
+     "required": false,
+     "requiredInRules": false,
+     "control": null
+    },
+    {
+     "key": "outputName",
+     "required": true,
+     "requiredInRules": false,
+     "control": null
+    }
+   ]
+  },
+  {
+   "scope": "MICROFLOW",
+   "name": "只读",
+   "type": "READ_ONLY",
+   "offset": 1128149,
+   "requiredTop": [],
+   "requiredInRules": [],
+   "fields": [
+    {
+     "key": "readOnly",
+     "required": false,
+     "requiredInRules": false,
+     "control": null
+    },
+    {
+     "key": "disabled",
+     "required": false,
+     "requiredInRules": false,
+     "control": null
+    },
+    {
+     "key": "editable",
+     "required": false,
+     "requiredInRules": false,
+     "control": null
+    }
+   ]
+  },
+  {
+   "scope": "MICROFLOW",
+   "name": "控件状态",
+   "type": "CONTROL_STATUS",
+   "offset": 1129446,
+   "requiredTop": [],
+   "requiredInRules": [],
+   "fields": [
+    {
+     "key": "editable",
+     "required": false,
+     "requiredInRules": false,
+     "control": null
+    },
+    {
+     "key": "readOnly",
+     "required": false,
+     "requiredInRules": false,
+     "control": null
+    },
+    {
+     "key": "disabled",
+     "required": false,
+     "requiredInRules": false,
+     "control": null
+    },
+    {
+     "key": "invisible",
+     "required": false,
+     "requiredInRules": false,
+     "control": null
+    }
+   ]
+  },
+  {
+   "scope": "FRONTEND_RULE",
+   "name": "执行脚本",
+   "type": "EXECUTE",
+   "offset": 1132231,
+   "requiredTop": [
+    "caption"
+   ],
+   "requiredInRules": [],
+   "fields": [
+    {
+     "key": "caption",
+     "required": true,
+     "requiredInRules": false,
+     "control": null
+    }
+   ]
+  },
+  {
+   "scope": "FRONTEND_RULE",
+   "name": "打开链接",
+   "type": "OPEN_LINK",
+   "offset": 1132388,
+   "requiredTop": [],
+   "requiredInRules": [],
+   "fields": [
+    {
+     "key": "config",
+     "required": false,
+     "requiredInRules": false,
+     "control": null
+    }
+   ]
+  },
+  {
+   "scope": "FRONTEND_RULE",
+   "name": "打开页面",
+   "type": "OPEN_PAGE",
+   "offset": 1133341,
+   "requiredTop": [
+    "outputName"
+   ],
+   "requiredInRules": [],
+   "fields": [
+    {
+     "key": "config",
+     "required": false,
+     "requiredInRules": false,
+     "control": null
+    },
+    {
+     "key": "outputName",
+     "required": true,
+     "requiredInRules": false,
+     "control": null
+    }
+   ]
+  },
+  {
+   "scope": "FRONTEND_RULE",
+   "name": "设置可见",
+   "type": "VISIBLE",
+   "offset": 1134828,
+   "requiredTop": [],
+   "requiredInRules": [],
+   "fields": [
+    {
+     "key": "visible",
+     "required": false,
+     "requiredInRules": false,
+     "control": null
+    },
+    {
+     "key": "invisible",
+     "required": false,
+     "requiredInRules": false,
+     "control": null
+    }
+   ]
+  },
+  {
+   "scope": "FRONTEND_RULE",
+   "name": "取消关闭页面",
+   "type": "CLOSE_PAGE",
+   "offset": 1135608,
+   "requiredTop": [],
+   "requiredInRules": [],
+   "fields": []
+  },
+  {
+   "scope": "FRONTEND_RULE",
+   "name": "确定关闭页面",
+   "type": "CONFIRM_CLOSE_PAGE",
+   "offset": 1135772,
+   "requiredTop": [],
+   "requiredInRules": [],
+   "fields": []
+  },
+  {
+   "scope": "FRONTEND_RULE",
+   "name": "控件动作",
+   "type": "OTHER_CONTROL",
+   "offset": 1135992,
+   "requiredTop": [
+    "outputName"
+   ],
+   "requiredInRules": [],
+   "fields": [
+    {
+     "key": "config",
+     "required": false,
+     "requiredInRules": false,
+     "control": null
+    },
+    {
+     "key": "outputName",
+     "required": true,
+     "requiredInRules": false,
+     "control": null
+    }
+   ]
+  },
+  {
+   "scope": "FRONTEND_RULE",
+   "name": "设置值",
+   "type": "ASSIGN_VALUE",
+   "offset": 1137911,
+   "requiredTop": [
+    "element",
+    "value"
+   ],
+   "requiredInRules": [],
+   "fields": [
+    {
+     "key": "element",
+     "required": true,
+     "requiredInRules": false,
+     "control": null
+    },
+    {
+     "key": "value",
+     "required": true,
+     "requiredInRules": false,
+     "control": null
+    }
+   ]
+  },
+  {
+   "scope": "FRONTEND_RULE",
+   "name": "值操作",
+   "type": "VALUE_HANDLE",
+   "offset": 1138831,
+   "requiredTop": [],
+   "requiredInRules": [],
+   "fields": [
+    {
+     "key": "items",
+     "required": false,
+     "requiredInRules": false,
+     "control": null
+    }
+   ]
+  },
+  {
+   "scope": "FRONTEND_RULE",
+   "name": "高级属性操作",
+   "type": "ADDVANCED_PROPERTIES",
+   "offset": 1140193,
+   "requiredTop": [],
+   "requiredInRules": [],
+   "fields": [
+    {
+     "key": "items",
+     "required": false,
+     "requiredInRules": false,
+     "control": null
+    }
+   ]
+  },
+  {
+   "scope": "FRONTEND_RULE",
+   "name": "必填",
+   "type": "CLEAR_VALUE",
+   "offset": 1141367,
+   "requiredTop": [],
+   "requiredInRules": [],
+   "fields": [
+    {
+     "key": "element",
+     "required": false,
+     "requiredInRules": false,
+     "control": null
+    }
+   ]
+  },
+  {
+   "scope": "FRONTEND_RULE",
+   "name": "必填",
+   "type": "ATTRIBUTE_REQUIRED",
+   "offset": 1141564,
+   "requiredTop": [],
+   "requiredInRules": [],
+   "fields": [
+    {
+     "key": "required",
+     "required": false,
+     "requiredInRules": false,
+     "control": null
+    },
+    {
+     "key": "option",
+     "required": false,
+     "requiredInRules": false,
+     "control": null
+    }
+   ]
+  },
+  {
+   "scope": "FRONTEND_RULE",
+   "name": "数据源删除",
+   "type": "DATA_SOURCE_DELETE",
+   "offset": 1142512,
+   "requiredTop": [
+    "dataSource"
+   ],
+   "requiredInRules": [],
+   "fields": [
+    {
+     "key": "dataSource",
+     "required": true,
+     "requiredInRules": false,
+     "control": null
+    }
+   ]
+  },
+  {
+   "scope": "FRONTEND_RULE",
+   "name": "数据源保存",
+   "type": "DATA_SOURCE_SAVE",
+   "offset": 1142717,
+   "requiredTop": [
+    "dataSource"
+   ],
+   "requiredInRules": [],
+   "fields": [
+    {
+     "key": "dataSource",
+     "required": true,
+     "requiredInRules": false,
+     "control": null
+    }
+   ]
+  },
+  {
+   "scope": "FRONTEND_RULE",
+   "name": "数据源查询",
+   "type": "DATA_SOURCE_SEARCH",
+   "offset": 1142925,
+   "requiredTop": [
+    "dataSource"
+   ],
+   "requiredInRules": [],
+   "fields": [
+    {
+     "key": "dataSource",
+     "required": true,
+     "requiredInRules": false,
+     "control": null
+    }
+   ]
+  },
+  {
+   "scope": "FRONTEND_RULE",
+   "name": "对话框",
+   "type": "DIALOG",
+   "offset": 1143142,
+   "requiredTop": [
+    "title",
+    "showInfo",
+    "outPutName"
+   ],
+   "requiredInRules": [],
+   "fields": [
+    {
+     "key": "scenario",
+     "required": false,
+     "requiredInRules": false,
+     "control": null
+    },
+    {
+     "key": "title",
+     "required": true,
+     "requiredInRules": false,
+     "control": null
+    },
+    {
+     "key": "showInfo",
+     "required": true,
+     "requiredInRules": false,
+     "control": null
+    },
+    {
+     "key": "okText",
+     "required": false,
+     "requiredInRules": false,
+     "control": null
+    },
+    {
+     "key": "cancelText",
+     "required": false,
+     "requiredInRules": false,
+     "control": null
+    },
+    {
+     "key": "configBtn",
+     "required": false,
+     "requiredInRules": false,
+     "control": null
+    },
+    {
+     "key": "outPutName",
+     "required": true,
+     "requiredInRules": false,
+     "control": null
+    }
+   ]
+  },
+  {
+   "scope": "FRONTEND_RULE",
+   "name": "对话框",
+   "type": "DIALOG",
+   "offset": 1145122,
+   "requiredTop": [
+    "showInfo"
+   ],
+   "requiredInRules": [
+    "closeType"
+   ],
+   "fields": [
+    {
+     "key": "messageType",
+     "required": false,
+     "requiredInRules": false,
+     "control": null
+    },
+    {
+     "key": "showInfo",
+     "required": true,
+     "requiredInRules": false,
+     "control": null
+    },
+    {
+     "key": "element",
+     "required": false,
+     "requiredInRules": false,
+     "control": null
+    },
+    {
+     "key": "closeType",
+     "required": false,
+     "requiredInRules": true,
+     "control": null
+    }
+   ]
+  },
+  {
+   "scope": "FRONTEND_RULE",
+   "name": "清空信息",
+   "type": "CLEAR_MESSAGE_INFO",
+   "offset": 1146696,
+   "requiredTop": [],
+   "requiredInRules": [
+    "element",
+    "element"
+   ],
+   "fields": [
+    {
+     "key": "element",
+     "required": false,
+     "requiredInRules": true,
+     "control": null
+    },
+    {
+     "key": "element",
+     "required": false,
+     "requiredInRules": true,
+     "control": null
+    }
+   ]
+  },
+  {
+   "scope": "FRONTEND_RULE",
+   "name": "调用微流程",
+   "type": "CALL_MICRO_FLOW",
+   "offset": 1148440,
+   "requiredTop": [
+    "mfService",
+    "value",
+    "mappingType",
+    "value",
+    "pageInfoSourceElement",
+    "outputName"
+   ],
+   "requiredInRules": [],
+   "fields": [
+    {
+     "key": "mfService",
+     "required": true,
+     "requiredInRules": false,
+     "control": null
+    },
+    {
+     "key": "value",
+     "required": true,
+     "requiredInRules": false,
+     "control": null
+    },
+    {
+     "key": "mappingType",
+     "required": true,
+     "requiredInRules": false,
+     "control": null
+    },
+    {
+     "key": "value",
+     "required": true,
+     "requiredInRules": false,
+     "control": null
+    },
+    {
+     "key": "attrs",
+     "required": false,
+     "requiredInRules": false,
+     "control": null
+    },
+    {
+     "key": "outPutDesc",
+     "required": false,
+     "requiredInRules": false,
+     "control": null
+    },
+    {
+     "key": "pageInfoSourceElement",
+     "required": true,
+     "requiredInRules": false,
+     "control": null
+    },
+    {
+     "key": "outputName",
+     "required": true,
+     "requiredInRules": false,
+     "control": null
+    }
+   ]
+  },
+  {
+   "scope": "FRONTEND_RULE",
+   "name": "调用页面规则",
+   "type": "CALL_FRONT_FLOW",
+   "offset": 1153951,
+   "requiredTop": [
+    "microFlow",
+    "value",
+    "mappingType",
+    "value",
+    "outputName"
+   ],
+   "requiredInRules": [],
+   "fields": [
+    {
+     "key": "microFlow",
+     "required": true,
+     "requiredInRules": false,
+     "control": null
+    },
+    {
+     "key": "value",
+     "required": true,
+     "requiredInRules": false,
+     "control": null
+    },
+    {
+     "key": "mappingType",
+     "required": true,
+     "requiredInRules": false,
+     "control": null
+    },
+    {
+     "key": "value",
+     "required": true,
+     "requiredInRules": false,
+     "control": null
+    },
+    {
+     "key": "attrs",
+     "required": false,
+     "requiredInRules": false,
+     "control": null
+    },
+    {
+     "key": "outPutDesc",
+     "required": false,
+     "requiredInRules": false,
+     "control": null
+    },
+    {
+     "key": "outputName",
+     "required": true,
+     "requiredInRules": false,
+     "control": null
+    }
+   ]
+  },
+  {
+   "scope": "ENTITY_RULE",
+   "name": "调用后端服务",
+   "type": "CALL_SERVICE",
+   "offset": 1197637,
+   "requiredTop": [
+    "outputName"
+   ],
+   "requiredInRules": [],
+   "fields": [
+    {
+     "key": "app",
+     "required": false,
+     "requiredInRules": false,
+     "control": null
+    },
+    {
+     "key": "service",
+     "required": false,
+     "requiredInRules": false,
+     "control": null
+    },
+    {
+     "key": "paramList",
+     "required": false,
+     "requiredInRules": false,
+     "control": null
+    },
+    {
+     "key": "outPutDesc",
+     "required": false,
+     "requiredInRules": false,
+     "control": null
+    },
+    {
+     "key": "outputName",
+     "required": true,
+     "requiredInRules": false,
+     "control": null
+    }
+   ]
+  },
+  {
+   "scope": "ENTITY_RULE",
+   "name": "流程动作",
+   "type": "FLOW_ACTION",
+   "offset": 1198732,
+   "requiredTop": [],
+   "requiredInRules": [],
+   "fields": [
+    {
+     "key": "actionName",
+     "required": false,
+     "requiredInRules": false,
+     "control": null
+    }
+   ]
+  },
+  {
+   "scope": "ENTITY_RULE",
+   "name": "类型转换",
+   "type": "CONVERT_DATA",
+   "offset": 1199579,
+   "requiredTop": [
+    "convertType",
+    "selectParam",
+    "regex",
+    "title"
+   ],
+   "requiredInRules": [],
+   "fields": [
+    {
+     "key": "convertType",
+     "required": true,
+     "requiredInRules": false,
+     "control": null
+    },
+    {
+     "key": "selectParam",
+     "required": true,
+     "requiredInRules": false,
+     "control": null
+    },
+    {
+     "key": "regex",
+     "required": true,
+     "requiredInRules": false,
+     "control": null
+    },
+    {
+     "key": "title",
+     "required": true,
+     "requiredInRules": false,
+     "control": null
+    }
+   ]
+  },
+  {
+   "scope": "ENTITY_RULE",
+   "name": "刷新页面",
+   "type": "RELOAD_PAGE",
+   "offset": 1203869,
+   "requiredTop": [],
+   "requiredInRules": [],
+   "fields": []
+  },
+  {
+   "scope": "ENTITY_RULE",
+   "name": "附件下载",
+   "type": "ATTACHMENT_DOWNLOAD",
+   "offset": 1204506,
+   "requiredTop": [],
+   "requiredInRules": [],
+   "fields": []
+  },
+  {
+   "scope": "ENTITY_RULE",
+   "name": "附件预览",
+   "type": "ATTACHMENT_PREVIEW",
+   "offset": 1205061,
+   "requiredTop": [],
+   "requiredInRules": [],
+   "fields": [
+    {
+     "key": "config",
+     "required": false,
+     "requiredInRules": false,
+     "control": null
+    }
+   ]
+  },
+  {
+   "scope": "ENTITY_RULE",
+   "name": "附件上传",
+   "type": "ATTACHMENT_UPLOAD",
+   "offset": 1205648,
+   "requiredTop": [
+    "outputName"
+   ],
+   "requiredInRules": [],
+   "fields": [
+    {
+     "key": "outputName",
+     "required": true,
+     "requiredInRules": false,
+     "control": null
+    }
+   ]
+  },
+  {
+   "scope": "ENTITY_RULE",
+   "name": "扫码",
+   "type": "SCAN_CODE",
+   "offset": 1206551,
+   "requiredTop": [
+    "outputName"
+   ],
+   "requiredInRules": [],
+   "fields": [
+    {
+     "key": "scanType",
+     "required": false,
+     "requiredInRules": false,
+     "control": null
+    },
+    {
+     "key": "outputName",
+     "required": true,
+     "requiredInRules": false,
+     "control": null
+    }
+   ]
+  },
+  {
+   "scope": "ENTITY_RULE",
+   "name": "抛出页面事件",
+   "type": "THROW_EVENT",
+   "offset": 1207171,
+   "requiredTop": [
+    "event"
+   ],
+   "requiredInRules": [],
+   "fields": [
+    {
+     "key": "event",
+     "required": true,
+     "requiredInRules": false,
+     "control": null
+    }
+   ]
+  },
+  {
+   "scope": "ENTITY_RULE",
+   "name": "自定义错误",
+   "type": "FRONT_CUSTOM_ERROR",
+   "offset": 1207387,
+   "requiredTop": [
+    "error"
+   ],
+   "requiredInRules": [],
+   "fields": [
+    {
+     "key": "error",
+     "required": true,
+     "requiredInRules": false,
+     "control": null
+    }
+   ]
+  },
+  {
+   "scope": "ENTITY_RULE",
+   "name": "打开链接",
+   "type": "OPEN_REPORT",
+   "offset": 1207912,
+   "requiredTop": [],
+   "requiredInRules": [],
+   "fields": [
+    {
+     "key": "config",
+     "required": false,
+     "requiredInRules": false,
+     "control": null
+    }
+   ]
+  },
+  {
+   "scope": "ENTITY_RULE",
+   "name": "下载全部",
+   "type": "DOWNLOAD_ALL",
+   "offset": 1208392,
+   "requiredTop": [],
+   "requiredInRules": [],
+   "fields": [
+    {
+     "key": "config",
+     "required": false,
+     "requiredInRules": false,
+     "control": null
+    }
+   ]
+  },
+  {
+   "scope": "ENTITY_RULE",
+   "name": "单据转文档",
+   "type": "FROM_CONVERT",
+   "offset": 1208636,
+   "requiredTop": [],
+   "requiredInRules": [],
+   "fields": [
+    {
+     "key": "config",
+     "required": false,
+     "requiredInRules": false,
+     "control": null
+    }
+   ]
+  },
+  {
+   "scope": "ENTITY_RULE",
+   "name": "批量标签打印",
+   "type": "LABEL_PRINT",
+   "offset": 1208890,
+   "requiredTop": [],
+   "requiredInRules": [],
+   "fields": [
+    {
+     "key": "config",
+     "required": false,
+     "requiredInRules": false,
+     "control": null
+    }
+   ]
+  },
+  {
+   "scope": "ENTITY_RULE",
+   "name": "收藏/取消收藏",
+   "type": "ATTENTION",
+   "offset": 1209144,
+   "requiredTop": [],
+   "requiredInRules": [],
+   "fields": [
+    {
+     "key": "config",
+     "required": false,
+     "requiredInRules": false,
+     "control": null
+    }
+   ]
+  },
+  {
+   "scope": "ENTITY_RULE",
+   "name": "锚点跳转",
+   "type": "LOCATION_CMP",
+   "offset": 1209402,
+   "requiredTop": [],
+   "requiredInRules": [],
+   "fields": []
+  },
+  {
+   "scope": "ENTITY_RULE",
+   "name": "打印",
+   "type": "PRINTPAGE",
+   "offset": 1209655,
+   "requiredTop": [],
+   "requiredInRules": [],
+   "fields": []
+  },
+  {
+   "scope": "ENTITY_RULE",
+   "name": "设置数据源",
+   "type": "SET_DATASOURCE",
+   "offset": 1209811,
+   "requiredTop": [],
+   "requiredInRules": [],
+   "fields": [
+    {
+     "key": "items",
+     "required": false,
+     "requiredInRules": false,
+     "control": null
+    }
+   ]
+  },
+  {
+   "scope": "ENTITY_RULE",
+   "name": "扩展行为",
+   "type": "EXTEND_ACTION",
+   "offset": 1210643,
+   "requiredTop": [],
+   "requiredInRules": [],
+   "fields": [
+    {
+     "key": "config",
+     "required": false,
+     "requiredInRules": false,
+     "control": null
+    }
+   ]
+  },
+  {
+   "scope": "ENTITY_RULE",
+   "name": "实体操作",
+   "type": "ENTITY",
+   "offset": 1211919,
+   "requiredTop": [
+    "outputName"
+   ],
+   "requiredInRules": [
+    "config"
+   ],
+   "fields": [
+    {
+     "key": "config",
+     "required": false,
+     "requiredInRules": true,
+     "control": null
+    },
+    {
+     "key": "outputName",
+     "required": true,
+     "requiredInRules": false,
+     "control": null
+    }
+   ]
+  },
+  {
+   "scope": "ENTITY_RULE",
+   "name": "唯一",
+   "type": "ATTRIBUTE_UNIQUE",
+   "offset": 1213985,
+   "requiredTop": [
+    "value"
+   ],
+   "requiredInRules": [
+    "params"
+   ],
+   "fields": [
+    {
+     "key": "params",
+     "required": false,
+     "requiredInRules": true,
+     "control": null
+    },
+    {
+     "key": "value",
+     "required": true,
+     "requiredInRules": false,
+     "control": null
+    }
+   ]
+  },
+  {
+   "scope": "ENTITY_RULE",
+   "name": "默认值",
+   "type": "DEFAULT_VALUE",
+   "offset": 1215625,
+   "requiredTop": [
+    "attrs"
+   ],
+   "requiredInRules": [],
+   "fields": [
+    {
+     "key": "attrs",
+     "required": true,
+     "requiredInRules": false,
+     "control": null
+    }
+   ]
+  },
+  {
+   "scope": "ENTITY_RULE",
+   "name": "设置值",
+   "type": "ASSIGN_VALUE",
+   "offset": 1216303,
+   "requiredTop": [
+    "value"
+   ],
+   "requiredInRules": [
+    "param"
+   ],
+   "fields": [
+    {
+     "key": "param",
+     "required": false,
+     "requiredInRules": true,
+     "control": null
+    },
+    {
+     "key": "value",
+     "required": true,
+     "requiredInRules": false,
+     "control": null
+    }
+   ]
+  },
+  {
+   "scope": "ENTITY_RULE",
+   "name": "必填",
+   "type": "ATTRIBUTE_REQUIRED",
+   "offset": 1217649,
+   "requiredTop": [
+    "value"
+   ],
+   "requiredInRules": [
+    "params"
+   ],
+   "fields": [
+    {
+     "key": "params",
+     "required": false,
+     "requiredInRules": true,
+     "control": null
+    },
+    {
+     "key": "value",
+     "required": true,
+     "requiredInRules": false,
+     "control": null
+    }
+   ]
+  },
+  {
+   "scope": "ENTITY_RULE",
+   "name": "显示信息",
+   "type": "SHOW_MESSAGE",
+   "offset": 1218418,
+   "requiredTop": [
+    "level",
+    "value"
+   ],
+   "requiredInRules": [
+    "param"
+   ],
+   "fields": [
+    {
+     "key": "param",
+     "required": false,
+     "requiredInRules": true,
+     "control": null
+    },
+    {
+     "key": "level",
+     "required": true,
+     "requiredInRules": false,
+     "control": null
+    },
+    {
+     "key": "value",
+     "required": true,
+     "requiredInRules": false,
+     "control": null
+    }
+   ]
+  },
+  {
+   "scope": "ENTITY_RULE",
+   "name": "可见性",
+   "type": "ATTR_VISIBLE",
+   "offset": 1219107,
+   "requiredTop": [],
+   "requiredInRules": [],
+   "fields": [
+    {
+     "key": "visible",
+     "required": false,
+     "requiredInRules": false,
+     "control": null
+    },
+    {
+     "key": "invisible",
+     "required": false,
+     "requiredInRules": false,
+     "control": null
+    }
+   ]
+  }
+ ]
+}

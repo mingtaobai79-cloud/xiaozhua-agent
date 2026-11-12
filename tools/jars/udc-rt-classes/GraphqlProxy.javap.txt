@@ -1,0 +1,132 @@
+Classfile /<SEEYON_AGENT_ROOT>/tools/jars/udc-rt-classes/com/seeyon/boot/starter/udcrt/controller/GraphqlProxyController.class
+  Last modified 2026年10月1日; size 1865 bytes
+  SHA-256 checksum a83c2355e040c799eddd152c43ad2d4dbc0ceb3cae444bfb892b785c5a6bcb56
+  Compiled from "GraphqlProxyController.java"
+public class com.seeyon.boot.starter.udcrt.controller.GraphqlProxyController extends com.seeyon.boot.starter.web.BaseComponentController
+  minor version: 0
+  major version: 52
+  flags: (0x0021) ACC_PUBLIC, ACC_SUPER
+  this_class: #5                          // com/seeyon/boot/starter/udcrt/controller/GraphqlProxyController
+  super_class: #6                         // com/seeyon/boot/starter/web/BaseComponentController
+  interfaces: 0, fields: 1, methods: 2, attributes: 2
+Constant pool:
+   #1 = Methodref          #6.#40         // com/seeyon/boot/starter/web/BaseComponentController."<init>":()V
+   #2 = Fieldref           #5.#41         // com/seeyon/boot/starter/udcrt/controller/GraphqlProxyController.appService:Lcom/seeyon/boot/starter/udcrt/api/GraphqlProxyAppService;
+   #3 = Methodref          #42.#43        // com/seeyon/boot/transport/SingleRequest.from:(Ljava/lang/Object;)Lcom/seeyon/boot/transport/SingleRequest;
+   #4 = InterfaceMethodref #44.#45        // com/seeyon/boot/starter/udcrt/api/GraphqlProxyAppService.doGraphQL:(Lcom/seeyon/boot/transport/SingleRequest;)Lcom/seeyon/boot/transport/SingleResponse;
+   #5 = Class              #46            // com/seeyon/boot/starter/udcrt/controller/GraphqlProxyController
+   #6 = Class              #47            // com/seeyon/boot/starter/web/BaseComponentController
+   #7 = Utf8               appService
+   #8 = Utf8               Lcom/seeyon/boot/starter/udcrt/api/GraphqlProxyAppService;
+   #9 = Utf8               RuntimeVisibleAnnotations
+  #10 = Utf8               Lorg/springframework/beans/factory/annotation/Autowired;
+  #11 = Utf8               <init>
+  #12 = Utf8               ()V
+  #13 = Utf8               Code
+  #14 = Utf8               LineNumberTable
+  #15 = Utf8               LocalVariableTable
+  #16 = Utf8               this
+  #17 = Utf8               Lcom/seeyon/boot/starter/udcrt/controller/GraphqlProxyController;
+  #18 = Utf8               doGraphql
+  #19 = Utf8               (Lcom/seeyon/boot/starter/udcrt/dto/GraphqlProxyRequestDto;)Lcom/seeyon/boot/transport/SingleResponse;
+  #20 = Utf8               requestDto
+  #21 = Utf8               Lcom/seeyon/boot/starter/udcrt/dto/GraphqlProxyRequestDto;
+  #22 = Utf8               Signature
+  #23 = Utf8               (Lcom/seeyon/boot/starter/udcrt/dto/GraphqlProxyRequestDto;)Lcom/seeyon/boot/transport/SingleResponse<Ljava/lang/String;>;
+  #24 = Utf8               Lorg/springframework/web/bind/annotation/PostMapping;
+  #25 = Utf8               value
+  #26 = Utf8               graphql
+  #27 = Utf8               Lcom/seeyon/boot/annotation/RestApiOperation;
+  #28 = Utf8               1.0 执行GraphQL
+  #29 = Utf8               description
+  #30 = Utf8               执行GraphQL
+  #31 = Utf8               RuntimeVisibleParameterAnnotations
+  #32 = Utf8               Lorg/springframework/web/bind/annotation/RequestBody;
+  #33 = Utf8               SourceFile
+  #34 = Utf8               GraphqlProxyController.java
+  #35 = Utf8               Lorg/springframework/web/bind/annotation/RestController;
+  #36 = Utf8               Lorg/springframework/web/bind/annotation/RequestMapping;
+  #37 = Utf8               udc-runtime/graphql-proxy
+  #38 = Utf8               Lcom/seeyon/boot/annotation/RestApi;
+  #39 = Utf8               GraphQL代理接口
+  #40 = NameAndType        #11:#12        // "<init>":()V
+  #41 = NameAndType        #7:#8          // appService:Lcom/seeyon/boot/starter/udcrt/api/GraphqlProxyAppService;
+  #42 = Class              #48            // com/seeyon/boot/transport/SingleRequest
+  #43 = NameAndType        #49:#50        // from:(Ljava/lang/Object;)Lcom/seeyon/boot/transport/SingleRequest;
+  #44 = Class              #51            // com/seeyon/boot/starter/udcrt/api/GraphqlProxyAppService
+  #45 = NameAndType        #52:#53        // doGraphQL:(Lcom/seeyon/boot/transport/SingleRequest;)Lcom/seeyon/boot/transport/SingleResponse;
+  #46 = Utf8               com/seeyon/boot/starter/udcrt/controller/GraphqlProxyController
+  #47 = Utf8               com/seeyon/boot/starter/web/BaseComponentController
+  #48 = Utf8               com/seeyon/boot/transport/SingleRequest
+  #49 = Utf8               from
+  #50 = Utf8               (Ljava/lang/Object;)Lcom/seeyon/boot/transport/SingleRequest;
+  #51 = Utf8               com/seeyon/boot/starter/udcrt/api/GraphqlProxyAppService
+  #52 = Utf8               doGraphQL
+  #53 = Utf8               (Lcom/seeyon/boot/transport/SingleRequest;)Lcom/seeyon/boot/transport/SingleResponse;
+{
+  private com.seeyon.boot.starter.udcrt.api.GraphqlProxyAppService appService;
+    descriptor: Lcom/seeyon/boot/starter/udcrt/api/GraphqlProxyAppService;
+    flags: (0x0002) ACC_PRIVATE
+    RuntimeVisibleAnnotations:
+      0: #10()
+        org.springframework.beans.factory.annotation.Autowired
+
+  public com.seeyon.boot.starter.udcrt.controller.GraphqlProxyController();
+    descriptor: ()V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method com/seeyon/boot/starter/web/BaseComponentController."<init>":()V
+         4: return
+      LineNumberTable:
+        line 25: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lcom/seeyon/boot/starter/udcrt/controller/GraphqlProxyController;
+
+  public com.seeyon.boot.transport.SingleResponse<java.lang.String> doGraphql(com.seeyon.boot.starter.udcrt.dto.GraphqlProxyRequestDto);
+    descriptor: (Lcom/seeyon/boot/starter/udcrt/dto/GraphqlProxyRequestDto;)Lcom/seeyon/boot/transport/SingleResponse;
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0
+         1: getfield      #2                  // Field appService:Lcom/seeyon/boot/starter/udcrt/api/GraphqlProxyAppService;
+         4: aload_1
+         5: invokestatic  #3                  // Method com/seeyon/boot/transport/SingleRequest.from:(Ljava/lang/Object;)Lcom/seeyon/boot/transport/SingleRequest;
+         8: invokeinterface #4,  2            // InterfaceMethod com/seeyon/boot/starter/udcrt/api/GraphqlProxyAppService.doGraphQL:(Lcom/seeyon/boot/transport/SingleRequest;)Lcom/seeyon/boot/transport/SingleResponse;
+        13: areturn
+      LineNumberTable:
+        line 33: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      14     0  this   Lcom/seeyon/boot/starter/udcrt/controller/GraphqlProxyController;
+            0      14     1 requestDto   Lcom/seeyon/boot/starter/udcrt/dto/GraphqlProxyRequestDto;
+    Signature: #23                          // (Lcom/seeyon/boot/starter/udcrt/dto/GraphqlProxyRequestDto;)Lcom/seeyon/boot/transport/SingleResponse<Ljava/lang/String;>;
+    RuntimeVisibleAnnotations:
+      0: #24(#25=[s#26])
+        org.springframework.web.bind.annotation.PostMapping(
+          value=["graphql"]
+        )
+      1: #27(#25=s#28,#29=s#30)
+        com.seeyon.boot.annotation.RestApiOperation(
+          value="1.0 执行GraphQL"
+          description="执行GraphQL"
+        )
+    RuntimeVisibleParameterAnnotations:
+      parameter 0:
+        0: #32()
+          org.springframework.web.bind.annotation.RequestBody
+}
+SourceFile: "GraphqlProxyController.java"
+RuntimeVisibleAnnotations:
+  0: #35()
+    org.springframework.web.bind.annotation.RestController
+  1: #36(#25=[s#37])
+    org.springframework.web.bind.annotation.RequestMapping(
+      value=["udc-runtime/graphql-proxy"]
+    )
+  2: #38(#25=s#39)
+    com.seeyon.boot.annotation.RestApi(
+      value="GraphQL代理接口"
+    )

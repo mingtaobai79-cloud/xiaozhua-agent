@@ -1,0 +1,220 @@
+{
+  "schema": "runtime-url-surface.v1",
+  "evidence": "LIVE (pods/log AppContextFilter:50) + VERIFIED_STATIC_BYTECODE (provider classes)",
+  "source": {
+    "tool": "tools/core/k8s_pod_log_surface.py 扩展扫描（只读 GET，pods/log）",
+    "namespace_pods_running": 32,
+    "tail_lines_per_pod": 60000,
+    "request_url_lines_total": 1407,
+    "distinct_raw_urls": 421,
+    "pods_emitting_request_url": 6,
+    "pods_by_class": {
+      "platform": 1,
+      "app_runtime": 5
+    },
+    "window_250k_single_pod": {
+      "lines": 213073,
+      "request_url_lines": 1095,
+      "appservice_log_lines": 78617,
+      "distinct_biz_methods": 133,
+      "note": "udc pod tailLines=250000 单窗（仅本机只读 GET pods/log）；数字为聚合计数，非业务明细"
+    }
+  },
+  "control_plane": {
+    "distinct": 271,
+    "templates": [
+      "/udc/application/role-resource",
+      "/udc/application/search/front-detection",
+      "/udc/application/user-role",
+      "/udc/data-transfer-object/search-micro-flow-custom-dto/{arg}",
+      "/udc/data-transfer-object/select-dto/{arg}",
+      "/udc/deployment/latest-test-info",
+      "/udc/graphql",
+      "/udc/metadata/app-service-by-name",
+      "/udc/micro-flow-group/search-list",
+      "/udc/micro-flow-group/select-by-appid/{arg}",
+      "/udc/micro-flow-group/select-by-type",
+      "/udc/microflow/create",
+      "/udc/microflow/findById/{arg}",
+      "/udc/microflow/search",
+      "/udc/microflow/search-no-page",
+      "/udc/runtime/expect-deploy-time",
+      "/udc/sandbox/delta-build-info/{arg}",
+      "/udc/udc-enum-item/search-by-enum-code"
+    ],
+    "verdicts_on_distinct_raw_urls": {
+      "EXACT": 10,
+      "PARAM": 258,
+      "MISS": 3
+    },
+    "miss_routes": [
+      "/udc/graphql",
+      "/udc/metadata/app-service-by-name",
+      "/udc/micro-flow-group/select-by-appid/{arg}"
+    ],
+    "contract_endpoints": 674,
+    "template_verdicts": {
+      "/udc/application/role-resource": "EXACT_T",
+      "/udc/application/search/front-detection": "EXACT_T",
+      "/udc/application/user-role": "EXACT_T",
+      "/udc/data-transfer-object/search-micro-flow-custom-dto/{arg}": "EXACT_T",
+      "/udc/data-transfer-object/select-dto/{arg}": "EXACT_T",
+      "/udc/deployment/latest-test-info": "EXACT_T",
+      "/udc/graphql": "MISS_T",
+      "/udc/metadata/app-service-by-name": "MISS_T",
+      "/udc/micro-flow-group/search-list": "MISS_T",
+      "/udc/micro-flow-group/select-by-appid/{arg}": "MISS_T",
+      "/udc/micro-flow-group/select-by-type": "EXACT_T",
+      "/udc/microflow/create": "EXACT_T",
+      "/udc/microflow/findById/{arg}": "EXACT_T",
+      "/udc/microflow/search": "EXACT_T",
+      "/udc/microflow/search-no-page": "EXACT_T",
+      "/udc/runtime/expect-deploy-time": "EXACT_T",
+      "/udc/sandbox/delta-build-info/{arg}": "EXACT_T",
+      "/udc/udc-enum-item/search-by-enum-code": "EXACT_T"
+    },
+    "templates_matching_contract": [
+      "/udc/application/role-resource",
+      "/udc/application/search/front-detection",
+      "/udc/application/user-role",
+      "/udc/data-transfer-object/search-micro-flow-custom-dto/{arg}",
+      "/udc/data-transfer-object/select-dto/{arg}",
+      "/udc/deployment/latest-test-info",
+      "/udc/micro-flow-group/select-by-type",
+      "/udc/microflow/create",
+      "/udc/microflow/findById/{arg}",
+      "/udc/microflow/search",
+      "/udc/microflow/search-no-page",
+      "/udc/runtime/expect-deploy-time",
+      "/udc/sandbox/delta-build-info/{arg}",
+      "/udc/udc-enum-item/search-by-enum-code"
+    ],
+    "templates_absent_from_contract": [
+      "/udc/graphql",
+      "/udc/metadata/app-service-by-name",
+      "/udc/micro-flow-group/search-list",
+      "/udc/micro-flow-group/select-by-appid/{arg}"
+    ],
+    "route_family_usage_in_window": {
+      "/udc/metadata/": 20,
+      "/udc/design-metadata/": 0,
+      "note": "udc-web 契约登记的 design-metadata 家族在真实运行期窗口内 0 次调用；实际使用的是 /udc/metadata/（ctp MetadataController）"
+    }
+  },
+  "app_runtime": {
+    "distinct": 150,
+    "families": [
+      "/{appId}/ctp-parameter/values",
+      "/{appId}/enum-item/search-by-enum-codes",
+      "/{appId}/file/details",
+      "/{appId}/graphql",
+      "/{appId}/udc-runtime/app-draft/create",
+      "/{appId}/udc-runtime/app-draft/exist",
+      "/{appId}/udc-runtime/app-draft/select",
+      "/{appId}/udc-runtime/app-log/create-batch",
+      "/{appId}/udc-runtime/evn-check/build-info/{key}",
+      "/{appId}/udc-runtime/meta-data/refer-and-metadata",
+      "/{appId}/udc-runtime/meta-data/select-host-and-only-page-pages",
+      "/{appId}/{key}/filter-plan/{key}/{key}/{id}",
+      "/{appId}/{key}/microflow/getProgressByPlan",
+      "/{appId}/{key}/microflow/{key}",
+      "/{appId}/{key}/refer-carry/organization/org-member/{key}/select-cascade-list-by-conditions",
+      "/{appId}/{key}/refer-carry/{key}/{key}/{key}/select-cascade-list-by-conditions",
+      "/{appId}/{key}/refer/{key}/{key}/{id}",
+      "/{appId}/{key}/refer/{key}/{key}/{id}/select-by-ids",
+      "/{appId}/{key}/{key}",
+      "/{appId}/{key}/{key}/{key}",
+      "/{appId}/{key}/{key}/{key}/{key}/get-cascade-default-value",
+      "/{appId}/{key}/{key}/{key}/{key}/operate-root-batch",
+      "/{appId}/{key}/{key}/{key}/{key}/select-cascade-by-conditions"
+    ],
+    "family_classes": {
+      "udc_runtime": [
+        "/{appId}/udc-runtime/app-draft/create",
+        "/{appId}/udc-runtime/app-draft/exist",
+        "/{appId}/udc-runtime/app-draft/select",
+        "/{appId}/udc-runtime/app-log/create-batch",
+        "/{appId}/udc-runtime/evn-check/build-info/{key}",
+        "/{appId}/udc-runtime/meta-data/refer-and-metadata",
+        "/{appId}/udc-runtime/meta-data/select-host-and-only-page-pages"
+      ],
+      "app_graphql": [
+        "/{appId}/graphql"
+      ],
+      "app_page": [
+        "/{appId}/{key}/filter-plan/{key}/{key}/{id}",
+        "/{appId}/{key}/microflow/getProgressByPlan",
+        "/{appId}/{key}/microflow/{key}",
+        "/{appId}/{key}/refer-carry/organization/org-member/{key}/select-cascade-list-by-conditions",
+        "/{appId}/{key}/refer-carry/{key}/{key}/{key}/select-cascade-list-by-conditions",
+        "/{appId}/{key}/refer/{key}/{key}/{id}",
+        "/{appId}/{key}/refer/{key}/{key}/{id}/select-by-ids",
+        "/{appId}/{key}/{key}",
+        "/{appId}/{key}/{key}/{key}",
+        "/{appId}/{key}/{key}/{key}/{key}/get-cascade-default-value",
+        "/{appId}/{key}/{key}/{key}/{key}/operate-root-batch",
+        "/{appId}/{key}/{key}/{key}/{key}/select-cascade-by-conditions"
+      ],
+      "app_scoped": [
+        "/{appId}/ctp-parameter/values",
+        "/{appId}/enum-item/search-by-enum-codes",
+        "/{appId}/file/details",
+        "/{appId}/graphql",
+        "/{appId}/udc-runtime/app-draft/create",
+        "/{appId}/udc-runtime/app-draft/exist",
+        "/{appId}/udc-runtime/app-draft/select",
+        "/{appId}/udc-runtime/app-log/create-batch",
+        "/{appId}/udc-runtime/evn-check/build-info/{key}",
+        "/{appId}/udc-runtime/meta-data/refer-and-metadata",
+        "/{appId}/udc-runtime/meta-data/select-host-and-only-page-pages"
+      ]
+    }
+  },
+  "findings": {
+    "A_non_udc_web_provider_under_udc_prefix": {
+      "live_route": "/udc/metadata/app-service-by-name",
+      "live_calls_in_window": 16,
+      "same_thread_biz": "MetadataQueryAppService#selectAppServiceMetadataByFullName",
+      "same_thread_biz_calls": 18,
+      "provider_class": "com.seeyon.ctp.metadata.controller.MetadataController",
+      "provider_artifact": "metadata-5.3.358",
+      "provider_restapi_path": "metadata",
+      "provider_extends": "com.seeyon.boot.starter.web.BaseComponentController",
+      "udc_web_sibling": "UdcDesignMetadataController @RestApi udc/design-metadata -> same op name",
+      "conclusion": "674 端点契约是**单构件（udc-web）视图**；运行期 /udc 前缀下另有 ctp metadata 提供者，同名 op 并行存在。",
+      "live_vs_contract_usage": {
+        "live_metadata_calls": 20,
+        "live_design_metadata_calls": 0,
+        "interpretation": "契约登记的路由 ≠ 前端实际调用的路由：metadata op 面实际走 ctp 提供者。"
+      }
+    },
+    "B_called_but_unimplemented_route": {
+      "live_route_shape": "/udc/micro-flow-group/select-by-appid/{appId}",
+      "live_calls_in_window": 1,
+      "same_thread_followup_biz": "NONE（同线程后续无任何 AppServiceLogFilter 行）",
+      "contract_path_for_same_method": "/udc/micro-flow-group/select-by-type",
+      "contract_method": "MicroFlowGroupController.selectByAppId",
+      "conclusion": "平台源码自身把 selectByAppId 的字面量写成 select-by-type（复制粘贴瑕疵）；调用方按语义请求 select-by-appid => 无实现（404/静默）。与第八轮「形近字面段」陷阱互补：这里是「语义正确、字面不存在」。",
+      "sibling_contract_absent_route": {
+        "live_route": "/udc/micro-flow-group/search-list",
+        "in_contract": false,
+        "same_prefix_contract_routes": [
+          "/udc/micro-flow-group/create",
+          "/udc/micro-flow-group/update",
+          "/udc/micro-flow-group/batch-move",
+          "/udc/micro-flow-group/delete",
+          "/udc/micro-flow-group/delete-batch",
+          "/udc/micro-flow-group/{microFlowGroupId}",
+          "/udc/micro-flow-group/select-by-type"
+        ],
+        "status": "UNVERIFIED（同线程无 biz 记录；三种可能：部署版本≠5.3.517 / 另一构件提供 / 死路径）"
+      }
+    }
+  },
+  "limitations": [
+    "AppContextFilter 只打印 URL：不含 HTTP 状态码；「被调用」≠「成功」。",
+    "同线程 URL→AppServiceLogFilter 关联可作为「路由有实现」的强证据（B 项即以此判定「无实现」）。",
+    "pod 名内嵌客户应用名/appId ⇒ 本产物只落计数，不落任何 pod 名。",
+    "客户应用的 appId/页面键/表名/记录 id 一律占位化，不入库。"
+  ]
+}

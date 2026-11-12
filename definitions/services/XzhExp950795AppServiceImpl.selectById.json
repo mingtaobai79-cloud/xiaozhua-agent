@@ -1,0 +1,41 @@
+{
+ "caption": "查询小爪实验实体950795V2",
+ "customs": null,
+ "description": "查询小爪实验实体950795V2",
+ "dubbo": true,
+ "dubboVersion": "1.0",
+ "fullName": "com.seeyon.datamigration8704025620829192834.appservice.XzhExp950795AppServiceImpl.selectById",
+ "group": null,
+ "implClass": "com.seeyon.datamigration8704025620829192834.appservice.XzhExp950795AppServiceImpl",
+ "interfaceClass": "com.seeyon.datamigration8704025620829192834.api.XzhExp950795AppService",
+ "md5": "3290570881886684761",
+ "parameter": {
+  "caption": "小爪实验实体950795V2-ID",
+  "type": "com.seeyon.boot.transport.SingleRequest",
+  "item": {
+   "itemType": "java.lang.Long",
+   "javaType": "java.lang.Long",
+   "type": "OBJECT",
+   "dataType": "BIGINTEGER",
+   "dtoType": "CUSTOM",
+   "udcApp": false,
+   "refId": "",
+   "refApp": "",
+   "caption": ""
+  }
+ },
+ "returnValue": {
+  "type": "com.seeyon.boot.transport.SingleResponse",
+  "item": {
+   "itemType": "com.seeyon.datamigration8704025620829192834.dto.XzhExp950795Dto",
+   "javaType": "com.seeyon.datamigration8704025620829192834.dto.XzhExp950795Dto",
+   "type": "OBJECT",
+   "dataType": "DTO",
+   "dtoType": "CUSTOM",
+   "udcApp": false,
+   "refId": "",
+   "refApp": "",
+   "caption": ""
+  }
+ }
+}

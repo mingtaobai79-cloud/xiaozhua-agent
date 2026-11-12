@@ -1,0 +1,69 @@
+{
+  "schema": "udc.construction.entity.rule-flags.v1",
+  "status": "INPUT_CONTRACT_ONLY",
+  "fields": [
+    {
+      "field": "hasValidateRule",
+      "EntityDto_status": "VERIFIED_STATIC_BYTECODE",
+      "generated_class_or_method": "UNKNOWN",
+      "lifecycle_hook": "UNKNOWN",
+      "confidence": "UNKNOWN"
+    },
+    {
+      "field": "hasAssignValueRule",
+      "EntityDto_status": "VERIFIED_STATIC_BYTECODE",
+      "generated_class_or_method": "UNKNOWN",
+      "lifecycle_hook": "UNKNOWN",
+      "confidence": "UNKNOWN"
+    },
+    {
+      "field": "hasDefaultValueRule",
+      "EntityDto_status": "VERIFIED_STATIC_BYTECODE",
+      "generated_class_or_method": "UNKNOWN",
+      "lifecycle_hook": "UNKNOWN",
+      "confidence": "UNKNOWN"
+    },
+    {
+      "field": "generateAggregateValidateClass",
+      "EntityDto_status": "VERIFIED_STATIC_BYTECODE",
+      "generated_class_or_method": "UNKNOWN",
+      "lifecycle_hook": "UNKNOWN",
+      "confidence": "UNKNOWN"
+    },
+    {
+      "field": "generateAggregateAssignClass",
+      "EntityDto_status": "VERIFIED_STATIC_BYTECODE",
+      "generated_class_or_method": "UNKNOWN",
+      "lifecycle_hook": "UNKNOWN",
+      "confidence": "UNKNOWN"
+    },
+    {
+      "field": "generateAggregateDefaultValueClass",
+      "EntityDto_status": "VERIFIED_STATIC_BYTECODE",
+      "generated_class_or_method": "UNKNOWN",
+      "lifecycle_hook": "UNKNOWN",
+      "confidence": "UNKNOWN"
+    },
+    {
+      "field": "hasOrderNo",
+      "EntityDto_status": "VERIFIED_STATIC_BYTECODE",
+      "generated_class_or_method": "UNKNOWN",
+      "lifecycle_hook": "UNKNOWN",
+      "confidence": "UNKNOWN"
+    },
+    {
+      "field": "hasDefaultValueSystemVariable",
+      "EntityDto_status": "VERIFIED_STATIC_BYTECODE",
+      "generated_class_or_method": "UNKNOWN",
+      "lifecycle_hook": "UNKNOWN",
+      "confidence": "UNKNOWN"
+    }
+  ],
+  "evidence": [
+    "../audit/artifacts/udc-common-5.3.517/EntityDto.javap.txt",
+    "../audit/p0-4-generated-entity-contract-audit.md"
+  ],
+  "caveats": [
+    "Field existence/default initialization is not proof of generated behavior"
+  ]
+}

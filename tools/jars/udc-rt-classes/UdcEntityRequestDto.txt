@@ -1,0 +1,11 @@
+Compiled from "UdcEntityRequestDto.java"
+public class com.seeyon.boot.starter.udcrt.proxy.dto.UdcEntityRequestDto extends com.seeyon.boot.starter.udcrt.proxy.dto.UdcEntityBaseRequestDto {
+  private static final long serialVersionUID;
+  private com.seeyon.boot.starter.extmetadata.dto.UdcAppServiceMethodMetadataDto methodMetadata;
+  private java.lang.Object data;
+  public com.seeyon.boot.starter.udcrt.proxy.dto.UdcEntityRequestDto();
+  public com.seeyon.boot.starter.extmetadata.dto.UdcAppServiceMethodMetadataDto getMethodMetadata();
+  public java.lang.Object getData();
+  public void setMethodMetadata(com.seeyon.boot.starter.extmetadata.dto.UdcAppServiceMethodMetadataDto);
+  public void setData(java.lang.Object);
+}

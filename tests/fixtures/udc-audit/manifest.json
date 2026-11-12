@@ -1,0 +1,72 @@
+{
+  "schema_version": "udc-evidence-bundle.v1",
+  "application_id": "app9000000000000000001",
+  "artifact_version": "5.3.517",
+  "verification_level": "FIXTURE",
+  "source_documents": [
+    "docs/audit/udc-evidence-consistency-audit.md",
+    "docs/audit/next-direction-input.md",
+    "docs/audit/recovery-checkpoint.md"
+  ],
+  "files": [
+    {
+      "name": "udc_5_3_517_core_chain_audit.json",
+      "sha256": "95947309882a32c30e38ff0b77b493c523b1e1ee939214a278d9e213dfbaddd5",
+      "bytes": 201
+    },
+    {
+      "name": "udc_controller_service_edges.json",
+      "sha256": "96cbda99f81ea66d45aee7b098070178c28e8bfaac3765ad8062e55915a66246",
+      "bytes": 184
+    },
+    {
+      "name": "udc_deployment_artifacts_audit.json",
+      "sha256": "0cc069005d43c379a40712ad286cb8c02e10b926db0e80be1fdf5c7874aea645",
+      "bytes": 342
+    },
+    {
+      "name": "udc_dynamic_contract_gap_catalog.json",
+      "sha256": "00412184e30c4a53af6dcc3c6d42ad833a1a611a82d1744bdffab129c12c9982",
+      "bytes": 5579
+    },
+    {
+      "name": "udc_frontend_core_api_mapping.json",
+      "sha256": "21482c860a8f295de6d19f67f7ec7ea65478e297fb14e9c439bdd78c7e76ec7f",
+      "bytes": 1715
+    },
+    {
+      "name": "udc_frontend_static_source_gap.json",
+      "sha256": "e3a8893e6d52d9a57bc0eb3c963eca2af6b7a4c023158ec083c94fec0ee00a23",
+      "bytes": 200
+    },
+    {
+      "name": "udc_runtime_side_effect_catalog.json",
+      "sha256": "e078c19b82b96fd966754ebe03e33e5ed37cfa121de99e68cb6f5446a663c9a1",
+      "bytes": 198
+    },
+    {
+      "name": "udc_service_persistence_audit_2.json",
+      "sha256": "1588d0be57b0504f7c7ec47cb9005bfc6d24f497647499d0efd0e1305da8af30",
+      "bytes": 185
+    },
+    {
+      "name": "udc_version_compatibility_catalog.json",
+      "sha256": "b73f9df24d532873c7e04258b3e262c62d99968a27f326a9e43f8cbf7cda18b1",
+      "bytes": 183
+    },
+    {
+      "name": "udc_version_samples_manifest.json",
+      "sha256": "ef4fe21eec7b4dd8b758375f336388709237b08e209812ceafe1d08cf0b30f8f",
+      "bytes": 283
+    },
+    {
+      "name": "udc_web_controller_contracts.json",
+      "sha256": "65b2fab8d777a27ceaebec88c000b494fd9b4ccd22d3cc7d0794ec24292ca08e",
+      "bytes": 292
+    }
+  ],
+  "limitations": [
+    "This bundle is a stable, redacted offline fixture reconstructed from prior bounded static audit results.",
+    "It is not proof of current test2 runtime state, persistence, cache, publish, deployment, or wire compatibility."
+  ]
+}

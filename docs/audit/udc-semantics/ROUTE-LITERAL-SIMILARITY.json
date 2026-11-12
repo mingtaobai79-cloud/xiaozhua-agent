@@ -1,0 +1,254 @@
+{
+  "kind": "UDC_ROUTE_LITERAL_SIMILARITY",
+  "round": "第八轮 (2026-10-15)",
+  "artifact": "udc-web-5.3.517",
+  "evidence_level": "LIVE_LOG_CHANNEL + VERIFIED_STATIC_BYTECODE",
+  "why": [
+    "第七轮遗留：pod BOOT-INF/lib 全量扫描是 60 条余量 op 定域的唯一剩余静态路径。",
+    "本轮取得 LIVE 通道（非静态推断）：low-code/zhiyuan SA 无 pods/exec(403)，但有 pods/log。",
+    "udc pod 的 AppContextFilter:50 逐条打印真实请求 URL，可对账契约 vs 运行时。",
+    "RBAC 自审实测：pods/exec=forbidden，故 BOOT-INF/lib 静态路径仍被挡；pod 内 /tmp 快照为历史遗留，无法复现。"
+  ],
+  "live_channel": {
+    "namespace": "lowcode-test",
+    "pod_role": "udc (image tag 5.3.517)",
+    "rbac": {
+      "pods/exec": "forbidden(403)",
+      "pods/log": "allowed"
+    },
+    "log_lines_scanned": 11137,
+    "request_url_lines": 425,
+    "distinct_request_urls": 13,
+    "contract_match": {
+      "exact": 5,
+      "param_placeholder": 6,
+      "miss": 2
+    },
+    "miss_reasons": [
+      "/udc/graphql (GraphQL 单一入口，非 REST)",
+      "/udc/entity/select-all-by-entity-id/<entityId实参> (形近路由；契约里只有 select-all-by-entityId)"
+    ],
+    "note": "pod 内无 SQL/StackTrace 行（logback 未开），故无法从日志取运行期 bean 映射全集。",
+    "classifier_bug_caught": {
+      "what": "第一版分类器用 re.escape(p) 后再替换 \\{，导致 /udc/entity/{id} 这类路径无法整段匹配，误报 MISS 8 条（把 /udc/function/{id}、/udc/page-info/{id} 等判成不存在）。",
+      "how_caught": "改用 tools/core/k8s_pod_log_surface.py 复跑并与独立脚本对账，两侧不一致 → 定位到正则顺序缺陷。",
+      "fix": "改为按段拼接骨架（占位符→[^/]+，字面段→re.escape），并按长度降序匹配。",
+      "corrected": "EXACT 5 + PARAM 6 = 11 命中，MISS 2（/udc/graphql + 形近路由）。"
+    }
+  },
+  "camel_literal_segment_count": 41,
+  "camel_literal_segments": [
+    {
+      "controller": "ApplicationController",
+      "method": "copyDependentAppSchema",
+      "full_path": "/udc/application/copyDependent"
+    },
+    {
+      "controller": "ApplicationController",
+      "method": "getAppFeatureByAppId",
+      "full_path": "/udc/application/appFeature/{appId}"
+    },
+    {
+      "controller": "ApplicationController",
+      "method": "importOtherAppOnLine",
+      "full_path": "/udc/application/importOtherAppOnLine"
+    },
+    {
+      "controller": "ApplicationController",
+      "method": "importOtherAppZip",
+      "full_path": "/udc/application/importOtherAppZip"
+    },
+    {
+      "controller": "ApplicationController",
+      "method": "registerJar",
+      "full_path": "/udc/application/registerJar"
+    },
+    {
+      "controller": "ApplicationController",
+      "method": "saveAsNewDesign",
+      "full_path": "/udc/application/save-as-newDesign"
+    },
+    {
+      "controller": "ApplicationController",
+      "method": "saveAsNormalNewDesign",
+      "full_path": "/udc/application/save/normal/newDesign"
+    },
+    {
+      "controller": "ApplicationController",
+      "method": "selectAppVersionByAppGuid",
+      "full_path": "/udc/application/appVersion/{appGuid}"
+    },
+    {
+      "controller": "AttributeSetController",
+      "method": "create",
+      "full_path": "/udc/attributeSet"
+    },
+    {
+      "controller": "AttributeSetController",
+      "method": "selectById",
+      "full_path": "/udc/attributeSet/{id}"
+    },
+    {
+      "controller": "DataTransferObjectController",
+      "method": "selectAllByMicroFlowId",
+      "full_path": "/udc/data-transfer-object/search-by-microFlow-id/{microFlowId}"
+    },
+    {
+      "controller": "DeductionRuleController",
+      "method": "validRule",
+      "full_path": "/udc/deduction/validRule"
+    },
+    {
+      "controller": "EntityController",
+      "method": "repairSqlStorageKey",
+      "full_path": "/udc/entity/sql/deploy-record/repair-sql-storageKey"
+    },
+    {
+      "controller": "EntityController",
+      "method": "selectAllEntitiesByEntityId",
+      "full_path": "/udc/entity/select-all-by-entityId/{id}"
+    },
+    {
+      "controller": "EntityController",
+      "method": "selectEventDatasByEntityId",
+      "full_path": "/udc/entity/select-event-data-by-entityId/{id}"
+    },
+    {
+      "controller": "EntityController",
+      "method": "selectPresetEntityListByAppId",
+      "full_path": "/udc/entity/preset-entity-by-appId/{appId}"
+    },
+    {
+      "controller": "EntityController",
+      "method": "selectPresetListByAppId",
+      "full_path": "/udc/entity/preset-by-appId/{appId}"
+    },
+    {
+      "controller": "MicroFlowController",
+      "method": "checkSchema",
+      "full_path": "/udc/microflow/checkSchema"
+    },
+    {
+      "controller": "MicroFlowController",
+      "method": "copyBySourceId",
+      "full_path": "/udc/microflow/copyBySourceId"
+    },
+    {
+      "controller": "MicroFlowController",
+      "method": "entityRef",
+      "full_path": "/udc/microflow/test/entityRef/{appId}"
+    },
+    {
+      "controller": "MicroFlowController",
+      "method": "findCustomDto",
+      "full_path": "/udc/microflow/find/customDto"
+    },
+    {
+      "controller": "MicroFlowController",
+      "method": "getListOperationType",
+      "full_path": "/udc/microflow/listOperationType"
+    },
+    {
+      "controller": "MicroFlowController",
+      "method": "getMicroFlowDefinition",
+      "full_path": "/udc/microflow/findById/{id}"
+    },
+    {
+      "controller": "MicroFlowController",
+      "method": "searchAppService",
+      "full_path": "/udc/microflow/search/appService"
+    },
+    {
+      "controller": "MicroFlowController",
+      "method": "searchAppServiceByAppName",
+      "full_path": "/udc/microflow/search/appService-by-appName"
+    },
+    {
+      "controller": "MicroFlowController",
+      "method": "searchAppServiceByName",
+      "full_path": "/udc/microflow/search/appService-by-name"
+    },
+    {
+      "controller": "MicroFlowController",
+      "method": "searchEnumByAppName",
+      "full_path": "/udc/microflow/search/enum-by-appName"
+    },
+    {
+      "controller": "MicroFlowController",
+      "method": "searchNonEntityDtoByAppName",
+      "full_path": "/udc/microflow/search/nonEntityDto"
+    },
+    {
+      "controller": "MicroFlowController",
+      "method": "searchTreeEntity",
+      "full_path": "/udc/microflow/search/treeEntity"
+    },
+    {
+      "controller": "MicroFlowController",
+      "method": "selectEntityRulePageByEntityId",
+      "full_path": "/udc/microflow/search/entityRule"
+    },
+    {
+      "controller": "MicroFlowUpgradeController",
+      "method": "batchThirdEntity",
+      "full_path": "/udc/micro-flow-upgrade/batch/thirdEntity"
+    },
+    {
+      "controller": "MicroFlowUpgradeController",
+      "method": "thirdEntity",
+      "full_path": "/udc/micro-flow-upgrade/thirdEntity/{appId}"
+    },
+    {
+      "controller": "MicroFlowUpgradeController",
+      "method": "thirdEntity",
+      "full_path": "/udc/micro-flow-upgrade/thirdEntity/{appId}/{serviceName}"
+    },
+    {
+      "controller": "OperationLogController",
+      "method": "initData",
+      "full_path": "/udc/operation-log/search-initData/{appId}"
+    },
+    {
+      "controller": "OperationLogController",
+      "method": "search4StorageKey",
+      "full_path": "/udc/operation-log/search-storageKey"
+    },
+    {
+      "controller": "PageInfoController",
+      "method": "findPageByRelationId",
+      "full_path": "/udc/page-info/relation-info/relationGroupId"
+    },
+    {
+      "controller": "PageInfoController",
+      "method": "selectByAppIdV2",
+      "full_path": "/udc/page-info/select-by-appId/{appId}"
+    },
+    {
+      "controller": "PortletController",
+      "method": "selectAllByAppId",
+      "full_path": "/udc/portlet/select-by-appId/{appId}"
+    },
+    {
+      "controller": "PortletGroupController",
+      "method": "selectAllByAppId",
+      "full_path": "/udc/portlet-group/select-by-appId/{appId}"
+    },
+    {
+      "controller": "ScalabilityOptionController",
+      "method": "selectAllOptionName",
+      "full_path": "/udc/scalability-option/select-all-optionName"
+    },
+    {
+      "controller": "UdcSandBoxLogController",
+      "method": "searchFlowDetails",
+      "full_path": "/udc/sandbox/logs/search-details/microflow/flowLog"
+    }
+  ],
+  "normalized_near_collisions": {},
+  "conclusion": [
+    "契约 674 端点中 5 条被逐字命中、6 条仅差路径参数实参（合计 11/13 命中），2 条 MISS = /udc/graphql（非 REST）+ /udc/entity/select-all-by-entity-id/<实参>（形近路由）。",
+    "形近改写（驼峰<->连字符）经归一化比对：0 组真实撞车。",
+    "故判据唯一：必须逐字使用 full_path；不得据『读起来像』拼路径，也不得据占位符名区分端点。",
+    "本文件不含客户业务 ID/名称；仅平台路由字面量。"
+  ]
+}

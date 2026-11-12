@@ -1,0 +1,43 @@
+Classfile /<SEEYON_AGENT_ROOT>/tools/jars/udc-rt-classes/com/seeyon/boot/starter/udcrt/proxy/controller/NormalAppPcController.class
+  Last modified 2026年10月1日; size 437 bytes
+  SHA-256 checksum bcf0d762ca968a5d855a2dccbb5992ff68ba8e6e77a712dbeea64f47790f5d0a
+  Compiled from "NormalAppPcController.java"
+public class com.seeyon.boot.starter.udcrt.proxy.controller.NormalAppPcController extends com.seeyon.boot.starter.udcrt.proxy.controller.UdcBaseGeneralController
+  minor version: 0
+  major version: 52
+  flags: (0x0021) ACC_PUBLIC, ACC_SUPER
+  this_class: #2                          // com/seeyon/boot/starter/udcrt/proxy/controller/NormalAppPcController
+  super_class: #3                         // com/seeyon/boot/starter/udcrt/proxy/controller/UdcBaseGeneralController
+  interfaces: 0, fields: 0, methods: 1, attributes: 1
+Constant pool:
+   #1 = Methodref          #3.#13         // com/seeyon/boot/starter/udcrt/proxy/controller/UdcBaseGeneralController."<init>":()V
+   #2 = Class              #14            // com/seeyon/boot/starter/udcrt/proxy/controller/NormalAppPcController
+   #3 = Class              #15            // com/seeyon/boot/starter/udcrt/proxy/controller/UdcBaseGeneralController
+   #4 = Utf8               <init>
+   #5 = Utf8               ()V
+   #6 = Utf8               Code
+   #7 = Utf8               LineNumberTable
+   #8 = Utf8               LocalVariableTable
+   #9 = Utf8               this
+  #10 = Utf8               Lcom/seeyon/boot/starter/udcrt/proxy/controller/NormalAppPcController;
+  #11 = Utf8               SourceFile
+  #12 = Utf8               NormalAppPcController.java
+  #13 = NameAndType        #4:#5          // "<init>":()V
+  #14 = Utf8               com/seeyon/boot/starter/udcrt/proxy/controller/NormalAppPcController
+  #15 = Utf8               com/seeyon/boot/starter/udcrt/proxy/controller/UdcBaseGeneralController
+{
+  public com.seeyon.boot.starter.udcrt.proxy.controller.NormalAppPcController();
+    descriptor: ()V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method com/seeyon/boot/starter/udcrt/proxy/controller/UdcBaseGeneralController."<init>":()V
+         4: return
+      LineNumberTable:
+        line 10: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lcom/seeyon/boot/starter/udcrt/proxy/controller/NormalAppPcController;
+}
+SourceFile: "NormalAppPcController.java"

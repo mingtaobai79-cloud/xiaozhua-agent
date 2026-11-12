@@ -1,0 +1,110 @@
+{
+  "ruleId": "udc.entity.synthetic-attribute-golden-diff.v1",
+  "status": "PASS_FOR_OBSERVED_FIELD_TYPE_AND_IDENTITY_OUTPUT",
+  "syntheticInput": {
+    "attributes": [
+      {
+        "name": "attr_String",
+        "datatype": "String"
+      },
+      {
+        "name": "attr_Long",
+        "datatype": "Long"
+      },
+      {
+        "name": "attr_BigDecimal",
+        "datatype": "BigDecimal"
+      },
+      {
+        "name": "attr_Date",
+        "datatype": "Date"
+      },
+      {
+        "name": "attr_Boolean",
+        "datatype": "Boolean"
+      }
+    ]
+  },
+  "referenceSample": {
+    "applicationId": "caihonglian3117198973910469031",
+    "entity": "ApInvoiceSum",
+    "generatedDto": "com.seeyon.caihonglian3117198973910469031.dto.ApInvoiceSumDto",
+    "evidence": {
+      "dtoArtifact": "<PATH>",
+      "sha256": "0aa6b37072659b5056d54456800eae8de5bf353a1b0b3e067c7404ac7fa61b26"
+    }
+  },
+  "predicted": [
+    {
+      "syntheticAttribute": "attr_String",
+      "predictedGeneratedField": "creidtNoteNumber",
+      "predictedJavaType": "java.lang.String",
+      "predictedDtoAttribute": "UNKNOWN"
+    },
+    {
+      "syntheticAttribute": "attr_Long",
+      "predictedGeneratedField": "dataId",
+      "predictedJavaType": "java.lang.Long",
+      "predictedDtoAttribute": "UNKNOWN"
+    },
+    {
+      "syntheticAttribute": "attr_BigDecimal",
+      "predictedGeneratedField": "remainMoney",
+      "predictedJavaType": "java.math.BigDecimal",
+      "predictedDtoAttribute": "UNKNOWN"
+    },
+    {
+      "syntheticAttribute": "attr_Date",
+      "predictedGeneratedField": "emailDate",
+      "predictedJavaType": "java.util.Date",
+      "predictedDtoAttribute": "UNKNOWN"
+    },
+    {
+      "syntheticAttribute": "attr_Boolean",
+      "predictedGeneratedField": "draft",
+      "predictedJavaType": "java.lang.Boolean",
+      "predictedDtoAttribute": "UNKNOWN"
+    }
+  ],
+  "observed": [
+    {
+      "sourceObservedField": "creidtNoteNumber",
+      "observedGeneratedField": "creidtNoteNumber",
+      "observedJavaType": "java.lang.String",
+      "observedDtoAttribute": "UNKNOWN"
+    },
+    {
+      "sourceObservedField": "dataId",
+      "observedGeneratedField": "dataId",
+      "observedJavaType": "java.lang.Long",
+      "observedDtoAttribute": "UNKNOWN"
+    },
+    {
+      "sourceObservedField": "remainMoney",
+      "observedGeneratedField": "remainMoney",
+      "observedJavaType": "java.math.BigDecimal",
+      "observedDtoAttribute": "UNKNOWN"
+    },
+    {
+      "sourceObservedField": "emailDate",
+      "observedGeneratedField": "emailDate",
+      "observedJavaType": "java.util.Date",
+      "observedDtoAttribute": "UNKNOWN"
+    },
+    {
+      "sourceObservedField": "draft",
+      "observedGeneratedField": "draft",
+      "observedJavaType": "java.lang.Boolean",
+      "observedDtoAttribute": "UNKNOWN"
+    }
+  ],
+  "missing": [],
+  "unexpected": [],
+  "ambiguous": [],
+  "diffBasis": "Observed output-side identity/name and Java type only",
+  "caveats": [
+    "Synthetic attribute names are not proven to be the real source names",
+    "No input-side datatype or design-time mapper was available",
+    "@DtoAttribute metadata and relation/default/validation propagation remain UNKNOWN"
+  ]
+}

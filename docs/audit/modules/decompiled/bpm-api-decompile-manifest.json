@@ -1,0 +1,33 @@
+{
+  "schema_version": "targeted-decompile.v1",
+  "artifact": "bpm-facade",
+  "version": "3.12.101",
+  "source_sha256": "26b312fdd40cc921a4cd8d08239f6b8d857c02a5ac8d4db271d07f6fcbd98af0",
+  "records": [
+    {
+      "class": "com.seeyon.bpm.api.udc.BpmUdcApiService.class",
+      "output": "<PATH>",
+      "sha256": "5028e167dd1309cb4e04dfd20a81f2b2561ebd0a51007627a7a37a0b897cf64e"
+    },
+    {
+      "class": "com.seeyon.bpm.api.udc.BpmApiProcessAppService.class",
+      "output": "<PATH>",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "class": "com.seeyon.bpm.api.common.BpmApiProcessAppService.class",
+      "output": "<PATH>",
+      "sha256": "40d07249abe01ab7a74d6e1201df93e18d9d57e35e35d8c221612aec390c17c3"
+    },
+    {
+      "class": "com.seeyon.bpm.api.common.BpmAppService.class",
+      "output": "<PATH>",
+      "sha256": "56275617d7c23c9b9869297013763881c22adcba6d38db3c1ffa8df426944402"
+    },
+    {
+      "class": "com.seeyon.bpm.api.common.BpmDeployAppService.class",
+      "output": "<PATH>",
+      "sha256": "1bb3370091f021aeb974eb7c6b12eab058d2de91277d39cadaeb39a79c159090"
+    }
+  ]
+}

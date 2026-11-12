@@ -1,0 +1,19 @@
+{
+ "id": 908877618948883045,
+ "create_time": "2026-10-15T22:18:37",
+ "tenant_id": -8112660841495312922,
+ "update_time": "2026-10-17T00:23:09",
+ "version": 5,
+ "guid": 3145081792763350981,
+ "publish_state": 1,
+ "app_id": 8704025620829192834,
+ "caption": "小爪生单规则",
+ "creator": -2638952494757493308,
+ "definition": "{\"lines\":[{\"id\":\"id_474806313816300867-id_-6338668863907875875\",\"startId\":\"id_474806313816300867\",\"endId\":\"id_-6338668863907875875\",\"text\":0,\"startDirection\":\"right\",\"endDirection\":\"left\",\"x1\":0,\"y1\":0,\"x2\":300,\"y2\":0,\"circleX\":150,\"circleY\":0,\"path\":\"M 0,0 L 300,0\"}],\"nodes\":[{\"x\":75.0,\"y\":294.0,\"id\":\"id_474806313816300867\",\"title\":\"小爪实验实体950795V2\",\"style\":{\"width\":180,\"height\":50,\"left\":0,\"top\":0},\"direction\":\"\",\"appId\":\"8704025620829192834\",\"appName\":\"datamigration8704025620829192834\",\"fullName\":\"com.seeyon.datamigration8704025620829192834.domain.entity.XzhExp950795\"},{\"x\":475.0,\"y\":294.0,\"id\":\"id_-6338668863907875875\",\"title\":\"小爪验收实体\",\"style\":{\"width\":180,\"height\":50,\"left\":0,\"top\":0},\"direction\":\"\",\"appId\":\"8704025620829192834\",\"appName\":\"datamigration8704025620829192834\",\"fullName\":\"com.seeyon.datamigration8704025620829192834.domain.entity.XzhVerifyEntity\"}],\"transform\":{\"x\":14.7,\"y\":0,\"scale\":1}}",
+ "description": "REST 实测生单规则",
+ "last_modifier": -2638952494757493308,
+ "state": 0,
+ "owner_code": null,
+ "backup_code": null,
+ "original_id": 0
+}

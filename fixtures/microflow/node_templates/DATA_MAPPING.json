@@ -1,0 +1,153 @@
+{
+ "targetType": "ENTITY",
+ "app": {
+  "appId": "8704025620829192834",
+  "appName": "datamigration8704025620829192834",
+  "caption": "",
+  "inApp": true,
+  "udcApp": true,
+  "dynamicDependency": false
+ },
+ "title": "数据转换后的结果",
+ "dataType": "DTO",
+ "structure": {
+  "key": "com.seeyon.datamigration8704025620829192834.domain.entity.YsFull6956",
+  "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+  "label": "小爪验收实体全量",
+  "dataType": "DTO",
+  "entity": "com.seeyon.datamigration8704025620829192834.domain.entity.YsFull6956",
+  "dtoType": "MASTER_ENTITY",
+  "udcApp": true,
+  "fullName": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+  "relationEntity": "-2537349473285092530",
+  "entityId": "-2537349473285092530",
+  "methodLegal": {
+   "available": true,
+   "complexCondition": true,
+   "seniorMethod": true,
+   "serviceType": "NONE",
+   "interfaceClassFullName": null
+  }
+ },
+ "mappingRule": {
+  "uuid": "B6jcDdkY4xn21bnM",
+  "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+  "caption": "小爪验收实体全量",
+  "type": "OBJECT",
+  "javaType": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+  "subobjects": [],
+  "targetType": "ENTITY",
+  "mappingRows": [
+   {
+    "uuid": "AEOYuFjEdw3TZ801",
+    "targetField": {
+     "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f01text",
+     "path": [],
+     "name": "f01text",
+     "desc": "文本字段",
+     "dataType": "STRING",
+     "type": "OBJECT",
+     "javaType": "java.lang.String"
+    },
+    "mappingMode": "REFERENCE",
+    "value": {
+     "reference": {
+      "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f01text",
+      "path": [],
+      "name": "f01text",
+      "desc": "文本字段",
+      "dataType": "STRING",
+      "type": "OBJECT",
+      "javaType": "java.lang.String"
+     }
+    }
+   },
+   {
+    "uuid": "czm6zHhpVBUKz2wn",
+    "targetField": {
+     "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f03int",
+     "path": [],
+     "name": "f03int",
+     "desc": "整数字段",
+     "dataType": "INTEGER",
+     "type": "OBJECT",
+     "javaType": "java.lang.Integer"
+    },
+    "mappingMode": "REFERENCE",
+    "value": {
+     "reference": {
+      "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f03int",
+      "path": [],
+      "name": "f03int",
+      "desc": "整数字段",
+      "dataType": "INTEGER",
+      "type": "OBJECT",
+      "javaType": "java.lang.Integer"
+     }
+    }
+   },
+   {
+    "uuid": "cupcdpQcw9FnQXpi",
+    "targetField": {
+     "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f05dec",
+     "path": [],
+     "name": "f05dec",
+     "desc": "小数字段",
+     "dataType": "DECIMAL",
+     "type": "OBJECT",
+     "javaType": "java.math.BigDecimal"
+    },
+    "mappingMode": "REFERENCE",
+    "value": {
+     "reference": {
+      "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f05dec",
+      "path": [],
+      "name": "f05dec",
+      "desc": "小数字段",
+      "dataType": "DECIMAL",
+      "type": "OBJECT",
+      "javaType": "java.math.BigDecimal"
+     }
+    }
+   }
+  ]
+ },
+ "selectParam": {
+  "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+  "javaType": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+  "dataType": "DTO",
+  "type": "OBJECT",
+  "desc": "小爪验收实体全量",
+  "appName": "datamigration8704025620829192834",
+  "dtoType": "MASTER_ENTITY",
+  "udcApp": true,
+  "relationEntity": "-2537349473285092530",
+  "name": "_RETRIEVE_KNCEzh",
+  "position": "parent",
+  "outputName": "_RETRIEVE_KNCEzh",
+  "description": "小爪验收实体全量",
+  "nodeInfo": {
+   "nodeId": "RETRIEVE_KNCEzh",
+   "type": "ACTIVITY",
+   "actionType": "RETRIEVE"
+  }
+ },
+ "nodeId": "DATA_MAPPING_cfph6l",
+ "actionType": "DATA_MAPPING",
+ "caption": "数据转换",
+ "description": null,
+ "type": "ACTIVITY",
+ "output": {
+  "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+  "javaType": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+  "dataType": "DTO",
+  "type": "OBJECT",
+  "desc": "小爪验收实体全量",
+  "appName": "datamigration8704025620829192834",
+  "dtoType": "MASTER_ENTITY",
+  "udcApp": true,
+  "relationEntity": "-2537349473285092530",
+  "name": "_DATA_MAPPING_cfph6l"
+ },
+ "isCompleted": true
+}

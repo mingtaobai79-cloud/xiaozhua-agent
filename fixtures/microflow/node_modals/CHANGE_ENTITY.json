@@ -1,0 +1,33 @@
+{
+ "actionType": "CHANGE_ENTITY",
+ "caption": "更新数据",
+ "captured_from": "编辑器弹窗（用户逐屏讲解，2026-10-25）",
+ "semantics": "选择聚合根实体单条数据，修改后更新到数据库，返回成功数量；未赋值的字段不更新",
+ "modal_fields": [
+  {
+   "label": "选择更新的数据",
+   "required": true,
+   "control": "param-picker",
+   "placeholder": "请选择类型为实体的数据",
+   "note": "引用实体变量(如 vKey[小爪实验实体950795V2])"
+  },
+  {
+   "label": "字段赋值",
+   "required": false,
+   "control": "mapping-rows",
+   "note": "字段行(字段下拉+值编辑器) + 添加字段 + 批量添加(checkbox多选)；值=引用/高级模式(表达式)/空值[系统预制]"
+  },
+  {
+   "label": "节点出参名称",
+   "required": true,
+   "control": "input",
+   "placeholder": "请输入",
+   "note": "如 更新XX成功的数量_1"
+  }
+ ],
+ "validation_rules": [
+  "选择更新的数据必填(必须是实体类型变量)",
+  "节点出参名称必填",
+  "字段赋值每个字段的值不能空(引用/常量/表达式 三态)"
+ ]
+}

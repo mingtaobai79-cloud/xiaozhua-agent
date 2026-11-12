@@ -1,0 +1,31 @@
+{
+  "schema_version": "targeted-decompile.v1",
+  "artifact": "udc-starter-runtime",
+  "version": "5.3.517",
+  "records": [
+    {
+      "class": "com.seeyon.boot.starter.udcrt.domain.service.ApproveFeatureService.class",
+      "output": "udcrt-5.3.517-ApproveFeatureService.java",
+      "sha256": "f49a858213c2037001b95ff86ebe94a65fa04ab5bdcaf90c90b512abdc7ceb0d",
+      "bytes": 35407
+    },
+    {
+      "class": "com.seeyon.boot.starter.udcrt.event.listener.ApprovalStateChangeListener.class",
+      "output": "udcrt-5.3.517-ApprovalStateChangeListener.java",
+      "sha256": "15513d47626b6f762f405aeaebdbf9e8117ff7b55a873ebb49bc83db65e06239",
+      "bytes": 8928
+    },
+    {
+      "class": "com.seeyon.boot.starter.udcrt.appservice.UdcBpmProcessServiceImpl.class",
+      "output": "udcrt-5.3.517-UdcBpmProcessServiceImpl.java",
+      "sha256": "5d324773ff045fe5be03bd73e6f65b191ca25b9aac042ad3e252a464430bdb5f",
+      "bytes": 16340
+    },
+    {
+      "class": "com.seeyon.boot.starter.udcrt.api.UdcBpmProcessService.class",
+      "output": "udcrt-5.3.517-UdcBpmProcessService.java",
+      "sha256": "feeec5ce0d7818da4de12634259a8610d9133a155a41ccf0083810557d78c474",
+      "bytes": 1901
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+ "schema": "deployed-op-surface.v1",
+ "evidence": "LIVE-DEPLOYED jar (pod BOOT-INF/lib) + VERIFIED_STATIC_BYTECODE",
+ "domain": "部署态 10 个 udc-*.jar",
+ "domain_scope_note": "本件只裁 udc-*.jar 域；boot-starter-* 等其余 jar 未纳入",
+ "classes": 100,
+ "methods": 958,
+ "distinct_op": 958,
+ "per_jar": {
+  "udc-cdpbi-5.3.517.jar": {
+   "classes": 1,
+   "methods": 2,
+   "ops": 2
+  },
+  "udc-extend-5.3.517.jar": {
+   "classes": 2,
+   "methods": 8,
+   "ops": 8
+  },
+  "udc-m5-5.3.517.jar": {
+   "classes": 1,
+   "methods": 5,
+   "ops": 5
+  },
+  "udc-portal-5.3.517.jar": {
+   "classes": 2,
+   "methods": 6,
+   "ops": 6
+  },
+  "udc-starter-customplan-5.3.517.jar": {
+   "classes": 6,
+   "methods": 34,
+   "ops": 34
+  },
+  "udc-starter-dataflow-5.3.517.jar": {
+   "classes": 5,
+   "methods": 19,
+   "ops": 19
+  },
+  "udc-starter-runtime-5.3.517.jar": {
+   "classes": 27,
+   "methods": 131,
+   "ops": 131
+  },
+  "udc-upgrade-5.3.517.jar": {
+   "classes": 1,
+   "methods": 64,
+   "ops": 64
+  },
+  "udc-user-5.3.517.jar": {
+   "classes": 1,
+   "methods": 15,
+   "ops": 15
+  },
+  "udc-web-5.3.517.jar": {
+   "classes": 54,
+   "methods": 674,
+   "ops": 674
+  }
+ },
+ "same_domain_control": {
+  "what": "udc-web 674 契约 op 面在同域 op 集内的命中数",
+  "contract_ops": 674,
+  "hits": 674,
+  "verdict": "PASS",
+  "why": "同域对照才成立：契约 op 必须全落本域，否则 0 命中不可信"
+ },
+ "target_60": {
+  "hits": 0,
+  "total": 60,
+  "verdict": "0 命中 ⇒ 本域内确不承接（强负面）"
+ },
+ "relocated_32_in_this_domain": {
+  "hits": [
+   "udcCdpDataReportGetReportListPost",
+   "udcPortalPortalSpaceCreatePost",
+   "udcPortalPortalSpaceDeletePost",
+   "udcPortalPortalSpaceSpaceSaveCopyPost",
+   "udcPortalPortalSpaceUpdatePost"
+  ],
+  "hit_count": 5,
+  "explanation": "其余归位到 boot-starter-sandbox(22) 及本域外构件，故不在本域；跨域当阳性对照会得假阴性（上一轮口径错用，已更正）"
+ },
+ "limitations": [
+  "本域仅 udc-*.jar；跨域结论需另立域复算",
+  "jar 本体不入 git"
+ ]
+}

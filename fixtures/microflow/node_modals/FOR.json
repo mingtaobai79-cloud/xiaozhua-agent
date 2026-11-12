@@ -1,0 +1,66 @@
+{
+ "actionType": "FOR",
+ "caption": "计数循环 / 列表循环",
+ "captured_from": "编辑器（用户逐屏讲解，2026-10-25）",
+ "analogy": "计数循环=代码 fori(for+index)，列表循环=代码 for(for-each)",
+ "count_loop": {
+  "fields": [
+   {
+    "label": "循环起始值",
+    "required": true,
+    "note": "值 或 高级模式(表达式)"
+   },
+   {
+    "label": "循环终止值",
+    "required": true,
+    "note": "值 或 高级模式(表达式)"
+   },
+   {
+    "label": "步长",
+    "required": true,
+    "default": 1
+   },
+   {
+    "label": "执行条件",
+    "note": "循环变量 [小于等于/小于/大于等于/大于] 循环终止值"
+   },
+   {
+    "label": "循环变量名称",
+    "required": true,
+    "default": "计数循环变量_1"
+   }
+  ],
+  "loop_var_accessible": "循环体内可取到「循环变量」(计数/序号)"
+ },
+ "list_loop": {
+  "fields": [
+   {
+    "label": "选择列表",
+    "required": true,
+    "placeholder": "请选择类型为列表的数据",
+    "note": "引用列表变量"
+   },
+   {
+    "label": "循环对象名称",
+    "required": true,
+    "default": "列表循环变量_1"
+   }
+  ],
+  "loop_item_accessible": "循环体内可引用「当前遍历的那条数据」(当条)"
+ },
+ "loop_body": {
+  "internal_palette_top": [
+   "自定义错误",
+   "跳出循环(BREAK)"
+  ],
+  "can_nest": "可以循环里再嵌套循环",
+  "can_use_expression": "循环体内可用表达式和调用子节点",
+  "avoid": "帮助文案提示：尽量避免在循环内用 插入/更新数据、自定义服务、子微流程"
+ },
+ "break_inside_loop": "跳出循环(BREAK)只在循环内部面板出现，不是顶层节点",
+ "validation_rules": [
+  "计数循环：起始值/终止值/步长/循环变量名称必填",
+  "列表循环：选择列表/循环对象名称必填",
+  "循环体可嵌套、可表达式"
+ ]
+}

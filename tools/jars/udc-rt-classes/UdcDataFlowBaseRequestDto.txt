@@ -1,0 +1,28 @@
+Compiled from "UdcDataFlowBaseRequestDto.java"
+public class com.seeyon.boot.starter.udcrt.proxy.dto.UdcDataFlowBaseRequestDto extends com.seeyon.boot.transport.BaseDto {
+  private com.seeyon.boot.starter.condition.dto.dynamicsearch.DynamicSearchParamDto paramDto;
+  private com.seeyon.boot.transport.PageInfo pageInfo;
+  private java.lang.String restMappingName;
+  private java.lang.Boolean isDepend;
+  private java.lang.Boolean isPersonalApp;
+  private com.seeyon.boot.starter.extmetadata.dto.UdcApplicationMetaDataDto appMetaDataDto;
+  private com.seeyon.udc.common.dto.datasource.RuntimeEntityDataSourceDto dataSourceDto;
+  private com.seeyon.udc.common.dto.DataFlowExecuteParamDto dataFlowParamDto;
+  public com.seeyon.boot.starter.udcrt.proxy.dto.UdcDataFlowBaseRequestDto();
+  public com.seeyon.boot.starter.condition.dto.dynamicsearch.DynamicSearchParamDto getParamDto();
+  public com.seeyon.boot.transport.PageInfo getPageInfo();
+  public java.lang.String getRestMappingName();
+  public java.lang.Boolean getIsDepend();
+  public java.lang.Boolean getIsPersonalApp();
+  public com.seeyon.boot.starter.extmetadata.dto.UdcApplicationMetaDataDto getAppMetaDataDto();
+  public com.seeyon.udc.common.dto.datasource.RuntimeEntityDataSourceDto getDataSourceDto();
+  public com.seeyon.udc.common.dto.DataFlowExecuteParamDto getDataFlowParamDto();
+  public void setParamDto(com.seeyon.boot.starter.condition.dto.dynamicsearch.DynamicSearchParamDto);
+  public void setPageInfo(com.seeyon.boot.transport.PageInfo);
+  public void setRestMappingName(java.lang.String);
+  public void setIsDepend(java.lang.Boolean);
+  public void setIsPersonalApp(java.lang.Boolean);
+  public void setAppMetaDataDto(com.seeyon.boot.starter.extmetadata.dto.UdcApplicationMetaDataDto);
+  public void setDataSourceDto(com.seeyon.udc.common.dto.datasource.RuntimeEntityDataSourceDto);
+  public void setDataFlowParamDto(com.seeyon.udc.common.dto.DataFlowExecuteParamDto);
+}

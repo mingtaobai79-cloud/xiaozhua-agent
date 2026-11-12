@@ -1,0 +1,45 @@
+{
+ "nodeId": "CHANGE_ENTITY_UVTac4",
+ "name": null,
+ "type": "ACTIVITY",
+ "caption": "修改数据",
+ "description": null,
+ "runAfter": null,
+ "input": null,
+ "output": {
+  "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+  "javaType": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+  "dataType": "DTO",
+  "type": "OBJECT",
+  "desc": "小爪验收实体全量",
+  "appName": "datamigration8704025620829192834",
+  "dtoType": "MASTER_ENTITY",
+  "udcApp": true,
+  "relationEntity": "-2537349473285092530",
+  "name": "_CHANGE_ENTITY_UVTac4"
+ },
+ "isCompleted": true,
+ "actionType": "CHANGE_ENTITY",
+ "selectParam": {
+  "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+  "javaType": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+  "dataType": "DTO",
+  "type": "OBJECT",
+  "desc": "vEntity",
+  "appName": "datamigration8704025620829192834",
+  "dtoType": "MASTER_ENTITY",
+  "udcApp": true,
+  "relationEntity": "-2537349473285092530",
+  "name": "_CREATE_VARIABLE_uX6yCl",
+  "position": "parent",
+  "outputName": "_CREATE_VARIABLE_uX6yCl",
+  "description": "vEntity",
+  "nodeInfo": {
+   "nodeId": "CREATE_VARIABLE_uX6yCl",
+   "type": "ACTIVITY",
+   "actionType": "CREATE_VARIABLE"
+  }
+ },
+ "title": "小爪验收实体全量",
+ "attrs": []
+}

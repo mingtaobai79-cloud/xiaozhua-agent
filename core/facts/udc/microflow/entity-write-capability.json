@@ -1,0 +1,262 @@
+{
+ "source": "构建产物 metadata zip 的 domain/service + facade/api",
+ "note": "CREATE_ENTITY 生成 xxxAppService.create(SingleRequest) —— 无 create 的实体不可用；实体字段若配了默认值表达式，preCreateBatch 会在 require_null=false 时无条件覆盖传入值",
+ "entities_without_create": [
+  "Asongda",
+  "Asongdaasongda",
+  "MigrationBatchItem",
+  "MigrationLog",
+  "MigrationPlanField",
+  "MigrationPlanJoin"
+ ],
+ "entities": {
+  "Asongda": {
+   "expression_field_count": 0,
+   "fields": {},
+   "has_create": false
+  },
+  "Asongdaasongda": {
+   "expression_field_count": 0,
+   "fields": {},
+   "has_create": false
+  },
+  "ExpTypeBase2": {
+   "expression_field_count": 0,
+   "fields": {},
+   "has_create": true
+  },
+  "ExpTypeBasi": {
+   "expression_field_count": 0,
+   "fields": {},
+   "has_create": true
+  },
+  "FileMigration": {
+   "expression_field_count": 1,
+   "fields": {
+    "updater": {
+     "expr": "exp6655028630572781335",
+     "require_null": false
+    }
+   },
+   "has_create": true
+  },
+  "LogSchemeInformatio": {
+   "expression_field_count": 1,
+   "fields": {
+    "updater": {
+     "expr": "exp9002277167801582206",
+     "require_null": false
+    }
+   },
+   "has_create": true
+  },
+  "MigrationBackupRecord": {
+   "expression_field_count": 1,
+   "fields": {
+    "updater": {
+     "expr": "exp1605057409808025024",
+     "require_null": false
+    }
+   },
+   "has_create": true
+  },
+  "MigrationBatchItem": {
+   "expression_field_count": 0,
+   "fields": {},
+   "has_create": false
+  },
+  "MigrationCheckpoint": {
+   "expression_field_count": 1,
+   "fields": {
+    "updater": {
+     "expr": "exp2226033177124160985",
+     "require_null": false
+    }
+   },
+   "has_create": true
+  },
+  "MigrationConsole": {
+   "expression_field_count": 1,
+   "fields": {
+    "updater": {
+     "expr": "exp2388148950250963918",
+     "require_null": false
+    }
+   },
+   "has_create": true
+  },
+  "MigrationDatasource": {
+   "expression_field_count": 1,
+   "fields": {
+    "updater": {
+     "expr": "exp546439035886979469",
+     "require_null": false
+    }
+   },
+   "has_create": true
+  },
+  "MigrationLog": {
+   "expression_field_count": 0,
+   "fields": {},
+   "has_create": false
+  },
+  "MigrationMapArchive": {
+   "expression_field_count": 1,
+   "fields": {
+    "updater": {
+     "expr": "exp8507413176585898343",
+     "require_null": false
+    }
+   },
+   "has_create": true
+  },
+  "MigrationPlan": {
+   "expression_field_count": 1,
+   "fields": {
+    "updater": {
+     "expr": "exp6860292755375735870",
+     "require_null": false
+    }
+   },
+   "has_create": true
+  },
+  "MigrationPlanField": {
+   "expression_field_count": 0,
+   "fields": {},
+   "has_create": false
+  },
+  "MigrationPlanGroup": {
+   "expression_field_count": 1,
+   "fields": {
+    "updater": {
+     "expr": "exp5207373648801449653",
+     "require_null": false
+    }
+   },
+   "has_create": true
+  },
+  "MigrationPlanJoin": {
+   "expression_field_count": 0,
+   "fields": {},
+   "has_create": false
+  },
+  "MigrationRowMap": {
+   "expression_field_count": 1,
+   "fields": {
+    "updater": {
+     "expr": "exp4002110732158977385",
+     "require_null": false
+    }
+   },
+   "has_create": true
+  },
+  "MigrationSqlSnippet": {
+   "expression_field_count": 1,
+   "fields": {
+    "updater": {
+     "expr": "exp2236661103546617267",
+     "require_null": false
+    }
+   },
+   "has_create": true
+  },
+  "MigrationTaskBatch": {
+   "expression_field_count": 1,
+   "fields": {
+    "updater": {
+     "expr": "exp8058410374932415715",
+     "require_null": false
+    }
+   },
+   "has_create": true
+  },
+  "XzhDedBill": {
+   "expression_field_count": 2,
+   "fields": {
+    "billDate": {
+     "expr": "exp6676370084572447310",
+     "require_null": true
+    },
+    "updater": {
+     "expr": "exp2800833245250996852",
+     "require_null": false
+    }
+   },
+   "has_create": true
+  },
+  "XzhExp950795": {
+   "expression_field_count": 3,
+   "fields": {
+    "expDate": {
+     "expr": "exp1344121947345535636",
+     "require_null": true
+    },
+    "expText": {
+     "expr": "exp4224856086070969204",
+     "require_null": false
+    },
+    "updater": {
+     "expr": "exp5534085474264107758",
+     "require_null": false
+    }
+   },
+   "has_create": true
+  },
+  "XzhVerifyEntity": {
+   "expression_field_count": 1,
+   "fields": {
+    "updater": {
+     "expr": "exp5227179244879234201",
+     "require_null": false
+    }
+   },
+   "has_create": true
+  },
+  "YsFull6956": {
+   "expression_field_count": 10,
+   "fields": {
+    "f09dt": {
+     "expr": "exp2357891453500606906",
+     "require_null": false
+    },
+    "f08time": {
+     "expr": "exp2129295573985936538",
+     "require_null": false
+    },
+    "f07date": {
+     "expr": "exp8680350614639103510",
+     "require_null": false
+    },
+    "f05dec": {
+     "expr": "exp9056335983934914588",
+     "require_null": false
+    },
+    "f03int": {
+     "expr": "exp8819270636132126282",
+     "require_null": false
+    },
+    "f06cur": {
+     "expr": "exp4396864407444540078",
+     "require_null": false
+    },
+    "f04bigint": {
+     "expr": "exp5563441882014304157",
+     "require_null": false
+    },
+    "f02multi": {
+     "expr": "exp4227519523174370579",
+     "require_null": false
+    },
+    "f01text": {
+     "expr": "exp712816380319321633",
+     "require_null": false
+    },
+    "updater": {
+     "expr": "exp938622489817468546",
+     "require_null": false
+    }
+   },
+   "has_create": true
+  }
+ }
+}

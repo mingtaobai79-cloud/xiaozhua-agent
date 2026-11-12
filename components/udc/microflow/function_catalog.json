@@ -1,0 +1,764 @@
+{
+ "_source": "LIVE /service/udc/expression/preset/list (test2 2026-10-23)",
+ "_count": 88,
+ "functions": {
+  "isNull": {
+   "desc": "为空",
+   "category": "基础函数",
+   "paramCount": 1,
+   "argDescs": [
+    "对象"
+   ]
+  },
+  "multMemberBelongsTo": {
+   "desc": "多维组织人员隶属",
+   "category": "基础函数",
+   "paramCount": 2,
+   "argDescs": [
+    "人员参数",
+    "被判断值"
+   ]
+  },
+  "isNotNull": {
+   "desc": "不为空",
+   "category": "基础函数",
+   "paramCount": 1,
+   "argDescs": [
+    "对象"
+   ]
+  },
+  "multUnitBelongsTo": {
+   "desc": "多维组织隶属",
+   "category": "基础函数",
+   "paramCount": 2,
+   "argDescs": [
+    "组织参数",
+    "被判断值"
+   ]
+  },
+  "contains": {
+   "desc": "包含(全部)",
+   "category": "基础函数",
+   "paramCount": 2,
+   "argDescs": [
+    "参数",
+    "被包含变量"
+   ]
+  },
+  "notContains": {
+   "desc": "不包含(全部)",
+   "category": "基础函数",
+   "paramCount": 2,
+   "argDescs": [
+    "参数",
+    "被包含变量"
+   ]
+  },
+  "containsAny": {
+   "desc": "包含任一",
+   "category": "基础函数",
+   "paramCount": 2,
+   "argDescs": [
+    "参数",
+    "被包含变量"
+   ]
+  },
+  "notContainsAny": {
+   "desc": "不包含任一",
+   "category": "基础函数",
+   "paramCount": 2,
+   "argDescs": [
+    "参数",
+    "被包含变量"
+   ]
+  },
+  "memberBelongsTo": {
+   "desc": "人员隶属",
+   "category": "基础函数",
+   "paramCount": 2,
+   "argDescs": [
+    "人员参数",
+    "被判断值"
+   ]
+  },
+  "thereIn": {
+   "desc": "属于",
+   "category": "基础函数",
+   "paramCount": 2,
+   "argDescs": [
+    "参数1",
+    "参数2"
+   ]
+  },
+  "idGenerate": {
+   "desc": "ID生成",
+   "category": "基础函数",
+   "paramCount": 0,
+   "argDescs": []
+  },
+  "unitBelongsTo": {
+   "desc": "组织隶属",
+   "category": "基础函数",
+   "paramCount": 2,
+   "argDescs": [
+    "组织参数",
+    "被判断值"
+   ]
+  },
+  "uniqueMark": {
+   "desc": "唯一标识",
+   "category": "基础函数",
+   "paramCount": 0,
+   "argDescs": []
+  },
+  "rand": {
+   "desc": "随机数",
+   "category": "基础函数",
+   "paramCount": 0,
+   "argDescs": []
+  },
+  "randBetween": {
+   "desc": "指定范围随机数",
+   "category": "基础函数",
+   "paramCount": 2,
+   "argDescs": [
+    "最小整数",
+    "最大整数"
+   ]
+  },
+  "dateToString": {
+   "desc": "日期转文本",
+   "category": "日期函数",
+   "paramCount": 2,
+   "argDescs": [
+    "日期",
+    "格式"
+   ]
+  },
+  "stringToDate": {
+   "desc": "文本转日期",
+   "category": "日期函数",
+   "paramCount": 2,
+   "argDescs": [
+    "日期字符串",
+    "日期格式"
+   ]
+  },
+  "dateDiff": {
+   "desc": "日期天数差",
+   "category": "日期函数",
+   "paramCount": 2,
+   "argDescs": [
+    "日期1",
+    "日期2"
+   ]
+  },
+  "minuteDiff": {
+   "desc": "日期分钟差",
+   "category": "日期函数",
+   "paramCount": 2,
+   "argDescs": [
+    "日期1",
+    "日期2"
+   ]
+  },
+  "hoursDiff": {
+   "desc": "日期小时差",
+   "category": "日期函数",
+   "paramCount": 2,
+   "argDescs": [
+    "日期1",
+    "日期2"
+   ]
+  },
+  "timeMinuteDiff": {
+   "desc": "时间分钟差",
+   "category": "日期函数",
+   "paramCount": 2,
+   "argDescs": [
+    "时间1",
+    "时间2"
+   ]
+  },
+  "timeDiff": {
+   "desc": "时间比较",
+   "category": "日期函数",
+   "paramCount": 2,
+   "argDescs": [
+    "时间1",
+    "时间2"
+   ]
+  },
+  "year": {
+   "desc": "获取指定日期的年份",
+   "category": "日期函数",
+   "paramCount": 1,
+   "argDescs": [
+    "日期"
+   ]
+  },
+  "month": {
+   "desc": "获取指定日期的月份",
+   "category": "日期函数",
+   "paramCount": 1,
+   "argDescs": [
+    "日期"
+   ]
+  },
+  "day": {
+   "desc": "获取指定日期的天数",
+   "category": "日期函数",
+   "paramCount": 1,
+   "argDescs": [
+    "日期"
+   ]
+  },
+  "addDay": {
+   "desc": "增加天数",
+   "category": "日期函数",
+   "paramCount": 2,
+   "argDescs": [
+    "日期或日期时间",
+    "天数"
+   ]
+  },
+  "addMon": {
+   "desc": "增加月数",
+   "category": "日期函数",
+   "paramCount": 2,
+   "argDescs": [
+    "日期或日期时间",
+    "月数"
+   ]
+  },
+  "addHourToTime": {
+   "desc": "增加小时(时间)",
+   "category": "日期函数",
+   "paramCount": 2,
+   "argDescs": [
+    "时间",
+    "小时数"
+   ]
+  },
+  "addHour": {
+   "desc": "增加小时",
+   "category": "日期函数",
+   "paramCount": 2,
+   "argDescs": [
+    "日期或日期时间",
+    "小时数"
+   ]
+  },
+  "addMinuteToTime": {
+   "desc": "增加分钟(时间)",
+   "category": "日期函数",
+   "paramCount": 2,
+   "argDescs": [
+    "时间",
+    "分钟数"
+   ]
+  },
+  "addMinutes": {
+   "desc": "增加分钟",
+   "category": "日期函数",
+   "paramCount": 2,
+   "argDescs": [
+    "日期或日期时间",
+    "分钟数"
+   ]
+  },
+  "getWeekday": {
+   "desc": "获取星期几",
+   "category": "日期函数",
+   "paramCount": 1,
+   "argDescs": [
+    "日期或日期时间"
+   ]
+  },
+  "getHours": {
+   "desc": "获取指定日期的小时数",
+   "category": "日期函数",
+   "paramCount": 1,
+   "argDescs": [
+    "日期或日期时间"
+   ]
+  },
+  "getMinutes": {
+   "desc": "获取指定日期的分钟数",
+   "category": "日期函数",
+   "paramCount": 1,
+   "argDescs": [
+    "日期或日期时间"
+   ]
+  },
+  "getSeconds": {
+   "desc": "获取指定日期的秒数",
+   "category": "日期函数",
+   "paramCount": 1,
+   "argDescs": [
+    "日期或日期时间"
+   ]
+  },
+  "getHoursByTime": {
+   "desc": "获取指定时间的小时数",
+   "category": "日期函数",
+   "paramCount": 1,
+   "argDescs": [
+    "时间"
+   ]
+  },
+  "getMinutesByTime": {
+   "desc": "获取指定时间的分钟数",
+   "category": "日期函数",
+   "paramCount": 1,
+   "argDescs": [
+    "时间"
+   ]
+  },
+  "getSecondsByTime": {
+   "desc": "获取指定时间的秒数",
+   "category": "日期函数",
+   "paramCount": 1,
+   "argDescs": [
+    "时间"
+   ]
+  },
+  "getTimeStampByDate": {
+   "desc": "获取指定日期的时间戳",
+   "category": "日期函数",
+   "paramCount": 1,
+   "argDescs": [
+    "日期或日期时间"
+   ]
+  },
+  "roundOff": {
+   "desc": "取整",
+   "category": "数学函数",
+   "paramCount": 1,
+   "argDescs": [
+    "数字"
+   ]
+  },
+  "roundOffCeiling": {
+   "desc": "向上取整",
+   "category": "数学函数",
+   "paramCount": 1,
+   "argDescs": [
+    "数字"
+   ]
+  },
+  "roundOffFloor": {
+   "desc": "向下取整",
+   "category": "数学函数",
+   "paramCount": 1,
+   "argDescs": [
+    "数字"
+   ]
+  },
+  "quotient": {
+   "desc": "取商",
+   "category": "数学函数",
+   "paramCount": 2,
+   "argDescs": [
+    "被除数",
+    "除数"
+   ]
+  },
+  "thousandBitSep": {
+   "desc": "千分位显示",
+   "category": "数学函数",
+   "paramCount": 1,
+   "argDescs": [
+    "待转换字段"
+   ]
+  },
+  "textToInt": {
+   "desc": "文本转整数",
+   "category": "数学函数",
+   "paramCount": 1,
+   "argDescs": [
+    "文本"
+   ]
+  },
+  "textToLong": {
+   "desc": "文本转长整数",
+   "category": "数学函数",
+   "paramCount": 1,
+   "argDescs": [
+    "文本"
+   ]
+  },
+  "textToDecimal": {
+   "desc": "文本转小数",
+   "category": "数学函数",
+   "paramCount": 1,
+   "argDescs": [
+    "文本"
+   ]
+  },
+  "abs": {
+   "desc": "绝对值",
+   "category": "数学函数",
+   "paramCount": 1,
+   "argDescs": [
+    "数字"
+   ]
+  },
+  "round": {
+   "desc": "四舍五入",
+   "category": "数学函数",
+   "paramCount": 2,
+   "argDescs": [
+    "数值：小数、货币、整数、长整数",
+    "位数：0-10"
+   ]
+  },
+  "startsWith": {
+   "desc": "开头为",
+   "category": "文本函数",
+   "paramCount": 2,
+   "argDescs": [
+    "字符串",
+    "开头字符串"
+   ]
+  },
+  "notStartsWith": {
+   "desc": "开头不为",
+   "category": "文本函数",
+   "paramCount": 2,
+   "argDescs": [
+    "字符串",
+    "开头字符串"
+   ]
+  },
+  "endsWith": {
+   "desc": "结尾为",
+   "category": "文本函数",
+   "paramCount": 2,
+   "argDescs": [
+    "字符串",
+    "结尾字符串"
+   ]
+  },
+  "notEndsWith": {
+   "desc": "结尾不为",
+   "category": "文本函数",
+   "paramCount": 2,
+   "argDescs": [
+    "字符串",
+    "结尾字符串"
+   ]
+  },
+  "containsText": {
+   "desc": "文本包含",
+   "category": "文本函数",
+   "paramCount": 2,
+   "argDescs": [
+    "参数",
+    "被包含文本"
+   ]
+  },
+  "split": {
+   "desc": "按指定符号分割文本",
+   "category": "文本函数",
+   "paramCount": 2,
+   "argDescs": [
+    "指定文本",
+    "指定符号"
+   ]
+  },
+  "join": {
+   "desc": "按指定符号合并文本数组",
+   "category": "文本函数",
+   "paramCount": 2,
+   "argDescs": [
+    "文本数组",
+    "指定符号"
+   ]
+  },
+  "indexOf": {
+   "desc": "获取指定下标文本",
+   "category": "文本函数",
+   "paramCount": 2,
+   "argDescs": [
+    "文本数组",
+    "指定下标"
+   ]
+  },
+  "len": {
+   "desc": "获取字符串长度",
+   "category": "文本函数",
+   "paramCount": 1,
+   "argDescs": [
+    "字符串"
+   ]
+  },
+  "substringByIndex": {
+   "desc": "按位置截取字符串",
+   "category": "文本函数",
+   "paramCount": 3,
+   "argDescs": [
+    "字符串",
+    "起始位置",
+    "结束位置"
+   ]
+  },
+  "replace": {
+   "desc": "按位置替换字符串",
+   "category": "文本函数",
+   "paramCount": 4,
+   "argDescs": [
+    "要替换的字符串",
+    "开始替换的位置",
+    "从开始位置替换的字符个数",
+    "新的替换文本"
+   ]
+  },
+  "find": {
+   "desc": "查找文本位置",
+   "category": "文本函数",
+   "paramCount": 3,
+   "argDescs": [
+    "查找文本",
+    "被查找文本",
+    "查找起始位置"
+   ]
+  },
+  "substring": {
+   "desc": "按长度截取字符串",
+   "category": "文本函数",
+   "paramCount": 3,
+   "argDescs": [
+    "字符串",
+    "起始位置",
+    "截取长度"
+   ]
+  },
+  "subStituteAll": {
+   "desc": "按内容替换字符串",
+   "category": "文本函数",
+   "paramCount": 3,
+   "argDescs": [
+    "要替换的字符串",
+    "被替换文本",
+    "新的替换文本"
+   ]
+  },
+  "subStitute": {
+   "desc": "按内容位置替换字符串",
+   "category": "文本函数",
+   "paramCount": 4,
+   "argDescs": [
+    "要替换的字符串",
+    "被替换文本",
+    "新的替换文本",
+    "匹配第几个位置"
+   ]
+  },
+  "rmbUpperCase": {
+   "desc": "人民币大写",
+   "category": "文本函数",
+   "paramCount": 1,
+   "argDescs": [
+    "数字"
+   ]
+  },
+  "rmbUpperForShort": {
+   "desc": "人民币小写",
+   "category": "文本函数",
+   "paramCount": 1,
+   "argDescs": [
+    "数值"
+   ]
+  },
+  "ifs": {
+   "desc": "条件返回",
+   "category": "条件函数",
+   "paramCount": 3,
+   "argDescs": [
+    "条件",
+    "结果1",
+    "结果2"
+   ]
+  },
+  "sum": {
+   "desc": "明细表求和",
+   "category": "聚合函数",
+   "paramCount": 1,
+   "argDescs": [
+    "明细表属性"
+   ]
+  },
+  "count": {
+   "desc": "明细表计数",
+   "category": "聚合函数",
+   "paramCount": 1,
+   "argDescs": [
+    "明细表对象"
+   ]
+  },
+  "avg": {
+   "desc": "明细表求平均",
+   "category": "聚合函数",
+   "paramCount": 1,
+   "argDescs": [
+    "明细表属性"
+   ]
+  },
+  "min": {
+   "desc": "明细表求最小值",
+   "category": "聚合函数",
+   "paramCount": 1,
+   "argDescs": [
+    "明细表属性"
+   ]
+  },
+  "max": {
+   "desc": "明细表求最大值",
+   "category": "聚合函数",
+   "paramCount": 1,
+   "argDescs": [
+    "明细表属性"
+   ]
+  },
+  "sumif": {
+   "desc": "明细表条件求和",
+   "category": "聚合函数",
+   "paramCount": 2,
+   "argDescs": [
+    "条件",
+    "求和属性"
+   ]
+  },
+  "countIf": {
+   "desc": "明细表条件计数",
+   "category": "聚合函数",
+   "paramCount": 1,
+   "argDescs": [
+    "条件"
+   ]
+  },
+  "avgif": {
+   "desc": "明细表条件求平均",
+   "category": "聚合函数",
+   "paramCount": 2,
+   "argDescs": [
+    "条件",
+    "求平均字段属性"
+   ]
+  },
+  "allLineMatch": {
+   "desc": "明细表所有行满足",
+   "category": "聚合函数",
+   "paramCount": 1,
+   "argDescs": [
+    "条件"
+   ]
+  },
+  "anyLineMatch": {
+   "desc": "明细表任意行满足",
+   "category": "聚合函数",
+   "paramCount": 1,
+   "argDescs": [
+    "条件"
+   ]
+  },
+  "getListIndex": {
+   "desc": "获取明细行字段",
+   "category": "聚合函数",
+   "paramCount": 2,
+   "argDescs": [
+    "待获取属性",
+    "用于定位明细行第几行"
+   ]
+  },
+  "getSubValueByEarliest": {
+   "desc": "明细表最早行取值",
+   "category": "聚合函数",
+   "paramCount": 2,
+   "argDescs": [
+    "明细表日期/日期时间字段",
+    "明细表取值字段"
+   ]
+  },
+  "getSubValueByLatest": {
+   "desc": "明细表最晚行取值",
+   "category": "聚合函数",
+   "paramCount": 2,
+   "argDescs": [
+    "明细表日期/日期时间字段",
+    "明细表取值字段"
+   ]
+  },
+  "getSubValueByMaxIf": {
+   "desc": "明细表条件求最大值",
+   "category": "聚合函数",
+   "paramCount": 2,
+   "argDescs": [
+    "条件",
+    "明细表数字字段"
+   ]
+  },
+  "getSubValueByMinIf": {
+   "desc": "明细表条件求最小值",
+   "category": "聚合函数",
+   "paramCount": 2,
+   "argDescs": [
+    "条件",
+    "明细表数值字段"
+   ]
+  },
+  "getSubValueByEarliestIf": {
+   "desc": "明细表条件求最早值",
+   "category": "聚合函数",
+   "paramCount": 2,
+   "argDescs": [
+    "条件",
+    "明细表日期/日期时间字段"
+   ]
+  },
+  "getSubValueByLatestIf": {
+   "desc": "明细表条件求最晚值",
+   "category": "聚合函数",
+   "paramCount": 2,
+   "argDescs": [
+    "条件",
+    "明细表日期/日期时间字段"
+   ]
+  },
+  "listUnique": {
+   "desc": "明细表列不重",
+   "category": "聚合函数",
+   "paramCount": 1,
+   "argDescs": [
+    "明细表属性"
+   ]
+  },
+  "changeTo": {
+   "desc": "值变化",
+   "category": "变化函数",
+   "paramCount": 3,
+   "argDescs": [
+    "变化前的值",
+    "变化后的值",
+    "期望值"
+   ]
+  },
+  "getEnumItemName": {
+   "desc": "获取枚举项名称",
+   "category": "枚举函数",
+   "paramCount": 1,
+   "argDescs": [
+    "枚举项id"
+   ]
+  },
+  "getEnumItemValue": {
+   "desc": "获取枚举项值",
+   "category": "枚举函数",
+   "paramCount": 1,
+   "argDescs": [
+    "枚举项id"
+   ]
+  }
+ }
+}

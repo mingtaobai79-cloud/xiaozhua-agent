@@ -1,0 +1,48 @@
+{
+  "ruleId": "udc.entity.dtoattribute-cooccurrence.v1",
+  "status": "BLOCKED_PARTIAL",
+  "evidenceLevel": "CLASS_ONLY_FIELDS_OBSERVED",
+  "statistics": {
+    "entityCount": 40,
+    "applicationCount": 4,
+    "dtoBusinessFieldCount": 1237,
+    "dtoAttributeObservedFieldCount": 0,
+    "cooccurrenceRate": null
+  },
+  "byCategory": {
+    "ordinary": {
+      "dtoFields": "OBSERVED",
+      "dtoAttribute": "UNKNOWN",
+      "cooccurrence": "UNKNOWN"
+    },
+    "relation": {
+      "dtoFields": "OBSERVED",
+      "dtoAttribute": "UNKNOWN",
+      "cooccurrence": "UNKNOWN"
+    },
+    "nestedDto": {
+      "dtoFields": "OBSERVED",
+      "dtoAttribute": "UNKNOWN",
+      "cooccurrence": "UNKNOWN"
+    },
+    "collection": {
+      "dtoFields": "OBSERVED",
+      "dtoAttribute": "UNKNOWN",
+      "cooccurrence": "UNKNOWN"
+    },
+    "enum": {
+      "dtoFields": "OBSERVED",
+      "dtoAttribute": "UNKNOWN",
+      "cooccurrence": "UNKNOWN"
+    }
+  },
+  "reason": "Selected cross-sample artifacts were class files inspected with javap; runtime annotations are not emitted by javap field listings. The source-level Golden Sample proves @DtoAttribute for 462 fields, but not cross-sample co-occurrence.",
+  "evidence": [
+    "SEEYON_CUSTOMER_EVIDENCE_ROOT/construction-rule-inputs/p0-4-hetongdangan-attribute-contract.json",
+    "../../audit/entity-appservice-implementation-evidence.md"
+  ],
+  "limitations": [
+    "No source jars/source files for the selected 40 entities",
+    "Do not interpret null cooccurrenceRate as zero"
+  ]
+}

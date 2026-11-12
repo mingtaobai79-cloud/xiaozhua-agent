@@ -1,0 +1,20 @@
+{
+ "paramType": "BASIC",
+ "title": "vList",
+ "dataType": "STRING",
+ "nodeId": "CREATE_LIST_U7yqmc",
+ "actionType": "CREATE_LIST",
+ "caption": "创建列表(vList)",
+ "description": null,
+ "type": "ACTIVITY",
+ "output": {
+  "id": null,
+  "javaType": "java.lang.String",
+  "dataType": "STRING",
+  "type": "ARRAY",
+  "desc": "vList",
+  "name": "_CREATE_LIST_U7yqmc"
+ },
+ "isCompleted": true,
+ "value": []
+}

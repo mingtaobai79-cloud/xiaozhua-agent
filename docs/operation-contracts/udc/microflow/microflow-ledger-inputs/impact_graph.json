@@ -1,0 +1,10 @@
+{
+  "status": "UNVERIFIED",
+  "note": "微流程只读能力影响图。A2 未 LIVE，节点均 UNVERIFIED；live_pass 依赖 test2 只读 token（已过期）+ P1/Nacos 解 Long 型 target 缺口。",
+  "nodes": [
+    {"id": "C1_function_node_tree", "status": "UNVERIFIED", "gaps": ["test2 路径段 404", "需部署态 jar 确证路由"]},
+    {"id": "C2_datatype_get_all", "status": "UNVERIFIED", "gaps": ["test2 路径段 404"]},
+    {"id": "C3_applog_select_by_id", "status": "UNVERIFIED", "gaps": ["test2 路径段 404"]},
+    {"id": "A2_live_readback", "status": "UNVERIFIED", "gaps": ["test2 只读 token 过期（exp 1789660805）", "entity 端点需 Long 型 target id（Nacos/P1 确证数字型应用/实体 id）"]}
+  ]
+}

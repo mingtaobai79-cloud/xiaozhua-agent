@@ -1,0 +1,8 @@
+{
+  "schema_version": "fixture.v1",
+  "status": "UNVERIFIED",
+  "gap": "frontend_static_source",
+  "limitations": [
+    "Customer frontend source and exact OSS mapping are unavailable."
+  ]
+}

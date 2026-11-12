@@ -1,0 +1,13 @@
+Compiled from "DeployNormalDto.java"
+public class com.seeyon.udc.common.dto.DeployNormalDto extends com.seeyon.udc.common.dto.DeployParamDto {
+  boolean lockCompatibility;
+  boolean generateLog;
+  private java.util.Map<java.lang.String, java.util.Map<java.lang.String, java.lang.Object>> entityFullNameCondition;
+  public com.seeyon.udc.common.dto.DeployNormalDto();
+  public void setLockCompatibility(boolean);
+  public void setGenerateLog(boolean);
+  public void setEntityFullNameCondition(java.util.Map<java.lang.String, java.util.Map<java.lang.String, java.lang.Object>>);
+  public boolean isLockCompatibility();
+  public boolean isGenerateLog();
+  public java.util.Map<java.lang.String, java.util.Map<java.lang.String, java.lang.Object>> getEntityFullNameCondition();
+}

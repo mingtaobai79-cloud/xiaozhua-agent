@@ -1,0 +1,63 @@
+{
+  "schema_version": "spi-module-profile.v1",
+  "module_id": "spi",
+  "status": "FACT",
+  "verification_level": "STATIC",
+  "network": "disabled",
+  "evidence": {
+    "repository": "<PATH>",
+    "modules": [
+      "spi-mobile",
+      "spi-sso"
+    ],
+    "spi_info": [
+      {
+        "path": "spi-mobile\\src\\main\\resources\\metadata\\spi_info.json",
+        "name": "boot-starter-spi-customized",
+        "scopes": [
+          "dongfangtong9044958822953602326"
+        ]
+      },
+      {
+        "path": "spi-sso\\src\\main\\resources\\metadata\\spi_info.json",
+        "name": "boot-starter-spi-customized",
+        "scopes": [
+          "dongfangtong9044958822953602326"
+        ]
+      }
+    ],
+    "source_contract": "seeyon-v8-spi skill and local spi_info.json"
+  },
+  "scope": "Independent SPI module; not UDC or Standard Product Application.",
+  "limitations": [
+    "Local project registration proves project metadata, not deployment success or runtime invocation.",
+    "Specific SPI method contracts require artifact/version/SHA-tied decompilation.",
+    "The two modules currently contain identical SsoService template registration; this proves static registration evidence, not intended production ownership or runtime loading."
+  ],
+  "registration_evidence": [
+    {
+      "module": "spi-sso",
+      "contract": "com.seeyon.cip.connector.api.sso.SsoService",
+      "implementation": "com.seeyon.extend.spi.sso.TemplateSsoServiceImpl",
+      "locator": "spi-sso/src/main/resources/META-INF/spring.factories",
+      "status": "FACT",
+      "verification_level": "STATIC"
+    },
+    {
+      "module": "spi-mobile",
+      "contract": "com.seeyon.cip.connector.api.sso.SsoService",
+      "implementation": "com.seeyon.extend.spi.sso.TemplateSsoServiceImpl",
+      "locator": "spi-mobile/src/main/resources/META-INF/spring.factories",
+      "status": "FACT",
+      "verification_level": "STATIC"
+    },
+    {
+      "module": "spi-mobile",
+      "contract": "com.seeyon.cip.connector.api.sso.SsoService",
+      "implementation": "com.seeyon.extend.spi.sso.TemplateSsoServiceImpl",
+      "locator": "spi-mobile/src/main/java/com/seeyon/extend/spi/sso/TemplateSsoServiceImpl.java",
+      "status": "FACT",
+      "verification_level": "STATIC"
+    }
+  ]
+}

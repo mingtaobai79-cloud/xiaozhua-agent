@@ -1,0 +1,18 @@
+{
+ "nodeId": "CUSTOM_ERROR_g9eDjU",
+ "name": null,
+ "type": "CUSTOM_ERROR",
+ "caption": "自定义错误",
+ "description": null,
+ "runAfter": null,
+ "input": null,
+ "output": null,
+ "isCompleted": true,
+ "actionType": "CUSTOM_ERROR",
+ "error": {
+  "type": "Simple",
+  "simple": "全节点覆盖流程：走到这里说明前面都通过了",
+  "desc": "全节点覆盖流程：走到这里说明前面都通过了"
+ },
+ "errorType": "GLOBAL"
+}

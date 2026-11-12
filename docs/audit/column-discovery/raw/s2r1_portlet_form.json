@@ -1,0 +1,152 @@
+{
+ "at": "2026-10-17T22:45:37+0800",
+ "form_before_fill": {
+  "href": "https://lowcode-test2.example.com/main/child-frame/udc/app-design/page-manage/portlet/add/null?appId=8704025620829192834",
+  "items": [
+   {
+    "label": "栏目分组",
+    "required": true,
+    "inputs": [
+     {
+      "id": "groupId",
+      "type": "search",
+      "ph": "",
+      "val": "",
+      "checked": false,
+      "cls": "ant-select-selection-search-input"
+     }
+    ],
+    "selected": "S2GROUP20261017",
+    "text": "栏目分组|S2GROUP20261017"
+   },
+   {
+    "label": "栏目名称",
+    "required": true,
+    "inputs": [
+     {
+      "id": "caption",
+      "type": "text",
+      "ph": "请输入栏目名称",
+      "val": "",
+      "checked": false,
+      "cls": "ant-input contentAlignmentLeft required-item-empty"
+     },
+     {
+      "id": "handWritten",
+      "type": "checkbox",
+      "ph": "",
+      "val": "",
+      "checked": false,
+      "cls": "ant-checkbox-input"
+     }
+    ],
+    "selected": null,
+    "text": "栏目名称|自定义页面"
+   },
+   {
+    "label": "",
+    "required": false,
+    "inputs": [
+     {
+      "id": "caption",
+      "type": "text",
+      "ph": "请输入栏目名称",
+      "val": "",
+      "checked": false,
+      "cls": "ant-input contentAlignmentLeft required-item-empty"
+     }
+    ],
+    "selected": null,
+    "text": ""
+   },
+   {
+    "label": "",
+    "required": false,
+    "inputs": [
+     {
+      "id": "handWritten",
+      "type": "checkbox",
+      "ph": "",
+      "val": "",
+      "checked": false,
+      "cls": "ant-checkbox-input"
+     }
+    ],
+    "selected": null,
+    "text": "自定义页面"
+   },
+   {
+    "label": "栏目标识",
+    "required": true,
+    "inputs": [
+     {
+      "id": "pageUrl",
+      "type": "text",
+      "ph": "请输入栏目标识",
+      "val": "",
+      "checked": false,
+      "cls": "ant-input contentAlignmentLeft required-item-empty"
+     }
+    ],
+    "selected": null,
+    "text": "栏目标识"
+   },
+   {
+    "label": "适配终端",
+    "required": true,
+    "inputs": [
+     {
+      "id": "",
+      "type": "checkbox",
+      "ph": "",
+      "val": "PC",
+      "checked": true,
+      "cls": "ant-checkbox-input"
+     },
+     {
+      "id": "",
+      "type": "checkbox",
+      "ph": "",
+      "val": "MOBILE",
+      "checked": false,
+      "cls": "ant-checkbox-input"
+     }
+    ],
+    "selected": null,
+    "text": "适配终端|web端|移动端"
+   },
+   {
+    "label": "",
+    "required": false,
+    "inputs": [
+     {
+      "id": "",
+      "type": "text",
+      "ph": "请输入模板名称搜索",
+      "val": "",
+      "checked": false,
+      "cls": "ant-input"
+     }
+    ],
+    "selected": null,
+    "text": "Web端|公开模板|自定义模板|空白页面"
+   },
+   {
+    "label": "",
+    "required": false,
+    "inputs": [
+     {
+      "id": "",
+      "type": "text",
+      "ph": "请输入模板名称搜索",
+      "val": "",
+      "checked": false,
+      "cls": "ant-input"
+     }
+    ],
+    "selected": null,
+    "text": "Web端|公开模板|自定义模板|空白页面"
+   }
+  ]
+ }
+}

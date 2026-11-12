@@ -1,0 +1,818 @@
+{
+ "_note": "CONDITION 不是独立节点，内嵌在 BRANCH.conditions[]。三种 name 同一 type。",
+ "ifBranch": {
+  "nodeId": "CONDITION_mPKzjO",
+  "name": "ifBranch",
+  "type": "CONDITION",
+  "caption": "符合条件即进入该分支",
+  "description": "false ",
+  "runAfter": null,
+  "expression": {
+   "title": "false ",
+   "schema": "{\"designData\":{\"expressionTranslation\":\"false \",\"resultTypeInfo\":\"BOOLEAN\",\"resultTypeFullName\":null,\"terminalType\":\"BACKEND\",\"isMultiSelect\":false,\"context\":[],\"tokens\":[{\"uid\":\"664fc5d2-3033-4e55-acb9-07c42048f1b4\",\"type\":\"OPERATOR\",\"value\":\"false\",\"desc\":\"false\"}],\"sourceAppName\":null},\"runtimeData\":{\"executableExpr\":\"93gDaq3/nXB1+C8j4AjYNEVRRY+GX/DRejGmES20GvQ=false\"}}"
+  },
+  "isCompleted": true,
+  "nodes": [
+   {
+    "nodeId": "PUBLISH_BUSINESS_EVENT_vLwOdB",
+    "name": null,
+    "type": "ACTIVITY",
+    "caption": "事件投递(2)",
+    "description": null,
+    "runAfter": null,
+    "input": null,
+    "output": null,
+    "isCompleted": true,
+    "actionType": "PUBLISH_BUSINESS_EVENT",
+    "eventType": "AMONG_APP",
+    "app": {
+     "appId": "3289082814923688017",
+     "appName": "znxmglpt3289082814923688017",
+     "caption": "智能项目管理平台",
+     "inApp": true,
+     "udcApp": true,
+     "dynamicDependency": false
+    },
+    "selectMq": {
+     "key": "UDC_ZNXMGLPT3289082814923688017_MQ.com.seeyon.znxmglpt3289082814923688017.dto.microflow.message.Tbmkdbyj",
+     "label": "投标模块待办邮件",
+     "value": "UDC_ZNXMGLPT3289082814923688017_MQ.com.seeyon.znxmglpt3289082814923688017.dto.microflow.message.Tbmkdbyj",
+     "fullName": "UDC_ZNXMGLPT3289082814923688017_MQ.com.seeyon.znxmglpt3289082814923688017.dto.microflow.message.Tbmkdbyj",
+     "topic": "UDC_ZNXMGLPT3289082814923688017_MQ",
+     "contentDto": {
+      "type": "com.seeyon.znxmglpt3289082814923688017.dto.microflow.message.Tbmkdbyj"
+     },
+     "customs": {
+      "name": "tbmkdbyj",
+      "from": "udc",
+      "eventDataType": "OBJECT",
+      "id": "-6163204464146420060",
+      "source": "MICRO_FLOW"
+     },
+     "caption": "投标模块待办邮件"
+    },
+    "messageType": "DEFAULT",
+    "mappingType": "attrs",
+    "attrs": [
+     {
+      "value": {
+       "type": "SelectParam",
+       "selectParam": {
+        "dataType": "DTO",
+        "outputName": "_CREATE_VARIABLE_diIGcF",
+        "position": "parent",
+        "description": "1.1 发送邮件入参zpto",
+        "udcApp": true,
+        "dtoType": "CUSTOM",
+        "appName": "znxmglpt3289082814923688017",
+        "path": "comseeyonznxmglpt3289082814923688017dtomicroflowFsyjrczpto",
+        "id": "com.seeyon.znxmglpt3289082814923688017.dto.microflow.Fsyjrczpto",
+        "name": "comseeyonznxmglpt3289082814923688017dtomicroflowFsyjrczpto",
+        "type": "OBJECT",
+        "javaType": "com.seeyon.znxmglpt3289082814923688017.dto.microflow.Fsyjrczpto",
+        "relationEntity": "com.seeyon.znxmglpt3289082814923688017.dto.microflow.Fsyjrczpto",
+        "relationEntityFullName": null,
+        "desc": "变量_2",
+        "title": "变量_2 [1.1 发送邮件入参zpto]",
+        "key": "_CREATE_VARIABLE_diIGcF_com.seeyon.znxmglpt3289082814923688017.dto.microflow.Fsyjrczpto"
+       },
+       "desc": "变量_2 [1.1 发送邮件入参zpto]"
+      },
+      "attrType": {
+       "name": "youjianduixiang",
+       "id": "com.seeyon.znxmglpt3289082814923688017.dto.microflow.message.Tbmkdbyj.youjianduixiang",
+       "refId": "com.seeyon.znxmglpt3289082814923688017.dto.microflow.Fsyjrczpto",
+       "fullName": "com.seeyon.znxmglpt3289082814923688017.dto.microflow.message.Tbmkdbyj.youjianduixiang",
+       "javaType": "com.seeyon.znxmglpt3289082814923688017.dto.microflow.Fsyjrczpto",
+       "dataType": "DTO",
+       "type": "OBJECT",
+       "desc": "邮件对象",
+       "relationApp": "znxmglpt3289082814923688017",
+       "relationEntity": "com.seeyon.znxmglpt3289082814923688017.dto.microflow.Fsyjrczpto",
+       "refApp": "znxmglpt3289082814923688017",
+       "multiSelect": false,
+       "filterDataType": "DTO",
+       "filterRelationEntity": "com.seeyon.znxmglpt3289082814923688017.dto.microflow.Fsyjrczpto",
+       "filterType": "OBJECT",
+       "filterFullName": "com.seeyon.znxmglpt3289082814923688017.dto.microflow.message.Tbmkdbyj.youjianduixiang",
+       "dataI18n": false,
+       "sort": 0,
+       "description": ""
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "elseBranch": {
+  "nodeId": "CONDITION_MObryz",
+  "name": "elseBranch",
+  "type": "CONDITION",
+  "caption": "不符合条件即进入该分支",
+  "description": "",
+  "runAfter": null,
+  "expression": null,
+  "nodes": [
+   {
+    "nodeId": "RETRIEVE_IUNluo",
+    "name": null,
+    "type": "ACTIVITY",
+    "caption": "查询单条数据(8)",
+    "description": null,
+    "runAfter": null,
+    "input": null,
+    "output": {
+     "appName": "organization",
+     "id": "com.seeyon.organization.dto.core.response.OrgUnitDto",
+     "javaType": "com.seeyon.organization.dto.core.response.OrgUnitDto",
+     "dataType": "DTO",
+     "type": "OBJECT",
+     "desc": "事业部",
+     "dtoType": "MASTER_ENTITY",
+     "udcApp": null,
+     "name": "_RETRIEVE_2tKzck"
+    },
+    "isCompleted": true,
+    "actionType": "RETRIEVE",
+    "fetchType": "CONDITION",
+    "app": {
+     "appId": null,
+     "appName": "organization",
+     "caption": "组织模型",
+     "inApp": false,
+     "udcApp": false,
+     "dynamicDependency": "NONE"
+    },
+    "structure": {
+     "key": "com.seeyon.organization.domain.core.entity.OrgUnit",
+     "id": "com.seeyon.organization.dto.core.response.OrgUnitDto",
+     "label": "组织信息",
+     "dataType": "DTO",
+     "entity": "com.seeyon.organization.domain.core.entity.OrgUnit",
+     "dtoType": "MASTER_ENTITY",
+     "udcApp": false,
+     "fullName": "com.seeyon.organization.dto.core.response.OrgUnitDto",
+     "relationEntity": "com.seeyon.organization.domain.core.entity.OrgUnit",
+     "methodLegal": {
+      "available": true,
+      "complexCondition": false,
+      "seniorMethod": false,
+      "serviceType": "SELECT_LIST_BY_COMPLEX_CONDITIONS",
+      "interfaceClassFullName": "com.seeyon.organization.api.core.unit.OrgUnitBaseAppService"
+     }
+    },
+    "condition": [
+     {
+      "type": "GROUP",
+      "uuid": "20ca51b6-5d00-44f7-bd37-81147f1a6ab3",
+      "conditions": [
+       {
+        "type": "CONDITION",
+        "leftParam": {
+         "id": "com.seeyon.organization.dto.core.response.OrgUnitDto.shortName",
+         "type": "OBJECT",
+         "javaType": "java.lang.String",
+         "dto": "_shortName",
+         "field": "shortName",
+         "desc": "组织简称",
+         "dataType": "STRING",
+         "multiSelect": false
+        },
+        "operator": {
+         "value": "EQ",
+         "desc": "="
+        },
+        "rightParams": [
+         {
+          "type": "CONTEXT_VARIABLE",
+          "value": "{\"key\":\"_RETRIEVE_PjOUCi_com.seeyon.znxmglpt3289082814923688017.dto.TbbbsqDto.suoshushiyebu\",\"name\":\"suoshushiyebu\",\"id\":\"com.seeyon.znxmglpt3289082814923688017.dto.TbbbsqDto.suoshushiyebu\",\"appName\":\"znxmglpt3289082814923688017\",\"description\":\"所属事业部\",\"position\":\"children\",\"path\":\"comseeyonznxmglpt3289082814923688017dtoTbbbsqDto.suoshushiyebu\",\"outputName\":\"_RETRIEVE_PjOUCi\",\"dataType\":\"STRING\",\"type\":\"OBJECT\",\"javaType\":\"java.lang.String\",\"dtoType\":\"CUSTOM\",\"udcApp\":false,\"multiSelect\":false,\"customs\":{\"basicType\":false,\"mfDataI18n\":false,\"defaultOrExpression\":false,\"notNull\":false,\"sourceType\":\"ENTITY\",\"dataType\":\"STRING\",\"name\":\"suoshushiyebu\",\"id\":\"6824747839516120610\"},\"parentLabel\":\"投标报备申请_1\"}",
+          "desc": "所属事业部"
+         }
+        ],
+        "uuid": "d9d51a76-2499-46e2-ac29-7532b7e5617a",
+        "logicalOperator": "AND"
+       }
+      ]
+     }
+    ],
+    "sortParams": [],
+    "title": "事业部",
+    "nullHandling": "CONTINUE",
+    "selectType": "DTO",
+    "scope": "OBJECT",
+    "methodLegal": {
+     "available": true,
+     "complexCondition": false,
+     "seniorMethod": false,
+     "serviceType": "SELECT_LIST_BY_COMPLEX_CONDITIONS",
+     "interfaceClassFullName": "com.seeyon.organization.api.core.unit.OrgUnitBaseAppService"
+    }
+   },
+   {
+    "nodeId": "RETRIEVE_Uvfc11",
+    "name": null,
+    "type": "ACTIVITY",
+    "caption": "查询单条数据(8)",
+    "description": null,
+    "runAfter": null,
+    "input": null,
+    "output": {
+     "appName": "organization",
+     "id": "com.seeyon.organization.dto.core.response.OrgUnitDto",
+     "javaType": "com.seeyon.organization.dto.core.response.OrgUnitDto",
+     "dataType": "DTO",
+     "type": "OBJECT",
+     "desc": "本部",
+     "dtoType": "MASTER_ENTITY",
+     "udcApp": null,
+     "name": "_RETRIEVE_EJz5ql"
+    },
+    "isCompleted": true,
+    "actionType": "RETRIEVE",
+    "fetchType": "CONDITION",
+    "app": {
+     "appId": null,
+     "appName": "organization",
+     "caption": "组织模型",
+     "inApp": false,
+     "udcApp": false,
+     "dynamicDependency": "NONE"
+    },
+    "structure": {
+     "key": "com.seeyon.organization.domain.core.entity.OrgUnit",
+     "id": "com.seeyon.organization.dto.core.response.OrgUnitDto",
+     "label": "组织信息",
+     "dataType": "DTO",
+     "entity": "com.seeyon.organization.domain.core.entity.OrgUnit",
+     "dtoType": "MASTER_ENTITY",
+     "udcApp": false,
+     "fullName": "com.seeyon.organization.dto.core.response.OrgUnitDto",
+     "relationEntity": "com.seeyon.organization.domain.core.entity.OrgUnit",
+     "methodLegal": {
+      "available": true,
+      "complexCondition": false,
+      "seniorMethod": false,
+      "serviceType": "SELECT_LIST_BY_COMPLEX_CONDITIONS",
+      "interfaceClassFullName": "com.seeyon.organization.api.core.unit.OrgUnitBaseAppService"
+     }
+    },
+    "condition": [
+     {
+      "type": "GROUP",
+      "uuid": "20ca51b6-5d00-44f7-bd37-81147f1a6ab3",
+      "conditions": [
+       {
+        "type": "CONDITION",
+        "leftParam": {
+         "id": "com.seeyon.organization.dto.core.response.OrgUnitDto.id",
+         "type": "OBJECT",
+         "javaType": "java.lang.Long",
+         "dto": "_id",
+         "field": "id",
+         "desc": "组织ID,新建时不必填，修改时必填",
+         "dataType": "BIGINTEGER",
+         "multiSelect": false
+        },
+        "operator": {
+         "value": "EQ",
+         "desc": "="
+        },
+        "rightParams": [
+         {
+          "type": "CONTEXT_VARIABLE",
+          "value": "{\"key\":\"_RETRIEVE_2tKzck_com.seeyon.organization.dto.core.response.OrgUnitDto.parentId\",\"name\":\"parentId\",\"id\":\"com.seeyon.organization.dto.core.response.OrgUnitDto.parentId\",\"appName\":\"organization\",\"description\":\"上级组织id\",\"position\":\"children\",\"path\":\"comseeyonorganizationdtocoreresponseOrgUnitDto.parentId\",\"outputName\":\"_RETRIEVE_2tKzck\",\"dataType\":\"ENTITY\",\"type\":\"OBJECT\",\"javaType\":\"java.lang.Long\",\"dtoType\":\"CUSTOM\",\"udcApp\":false,\"multiSelect\":false,\"customs\":{\"excelHideFlag\":\"true\",\"basicType\":false,\"mfDataI18n\":false},\"relationEntity\":\"com.seeyon.organization.domain.core.entity.OrgUnit\",\"relationType\":\"One2OneAssociation\",\"relationApp\":\"organization\",\"refId\":\"com.seeyon.organization.domain.core.entity.OrgUnit\",\"refApp\":\"organization\",\"refType\":\"One2OneAssociation\",\"parentLabel\":\"事业部\"}",
+          "desc": "上级组织id"
+         }
+        ],
+        "uuid": "13c513f9-dd25-4640-bb80-5cd26e379ea0",
+        "logicalOperator": "AND"
+       }
+      ]
+     }
+    ],
+    "sortParams": [],
+    "title": "本部",
+    "nullHandling": "CONTINUE",
+    "selectType": "DTO",
+    "scope": "OBJECT",
+    "methodLegal": {
+     "available": true,
+     "complexCondition": false,
+     "seniorMethod": false,
+     "serviceType": "SELECT_LIST_BY_COMPLEX_CONDITIONS",
+     "interfaceClassFullName": "com.seeyon.organization.api.core.unit.OrgUnitBaseAppService"
+    }
+   },
+   {
+    "nodeId": "RETRIEVE_7fmKcF",
+    "name": null,
+    "type": "ACTIVITY",
+    "caption": "查询单条数据(8)",
+    "description": null,
+    "runAfter": null,
+    "input": null,
+    "output": {
+     "appName": "organization",
+     "id": "com.seeyon.organization.dto.core.response.OrgUnitDto",
+     "javaType": "com.seeyon.organization.dto.core.response.OrgUnitDto",
+     "dataType": "DTO",
+     "type": "OBJECT",
+     "desc": "业务部",
+     "dtoType": "MASTER_ENTITY",
+     "udcApp": null,
+     "name": "_RETRIEVE_EEaINS"
+    },
+    "isCompleted": true,
+    "actionType": "RETRIEVE",
+    "fetchType": "CONDITION",
+    "app": {
+     "appId": null,
+     "appName": "organization",
+     "caption": "组织模型",
+     "inApp": false,
+     "udcApp": false,
+     "dynamicDependency": "NONE"
+    },
+    "structure": {
+     "key": "com.seeyon.organization.domain.core.entity.OrgUnit",
+     "id": "com.seeyon.organization.dto.core.response.OrgUnitDto",
+     "label": "组织信息",
+     "dataType": "DTO",
+     "entity": "com.seeyon.organization.domain.core.entity.OrgUnit",
+     "dtoType": "MASTER_ENTITY",
+     "udcApp": false,
+     "fullName": "com.seeyon.organization.dto.core.response.OrgUnitDto",
+     "relationEntity": "com.seeyon.organization.domain.core.entity.OrgUnit",
+     "methodLegal": {
+      "available": true,
+      "complexCondition": false,
+      "seniorMethod": false,
+      "serviceType": "SELECT_LIST_BY_COMPLEX_CONDITIONS",
+      "interfaceClassFullName": "com.seeyon.organization.api.core.unit.OrgUnitBaseAppService"
+     }
+    },
+    "condition": [
+     {
+      "type": "GROUP",
+      "uuid": "20ca51b6-5d00-44f7-bd37-81147f1a6ab3",
+      "conditions": [
+       {
+        "type": "CONDITION",
+        "leftParam": {
+         "id": "com.seeyon.organization.dto.core.response.OrgUnitDto.shortName",
+         "type": "OBJECT",
+         "javaType": "java.lang.String",
+         "dto": "_shortName",
+         "field": "shortName",
+         "desc": "组织简称",
+         "dataType": "STRING",
+         "multiSelect": false
+        },
+        "operator": {
+         "value": "EQ",
+         "desc": "="
+        },
+        "rightParams": [
+         {
+          "type": "CONTEXT_VARIABLE",
+          "value": "{\"key\":\"_RETRIEVE_PjOUCi_com.seeyon.znxmglpt3289082814923688017.dto.TbbbsqDto.suoshuyewubu\",\"name\":\"suoshuyewubu\",\"id\":\"com.seeyon.znxmglpt3289082814923688017.dto.TbbbsqDto.suoshuyewubu\",\"appName\":\"znxmglpt3289082814923688017\",\"description\":\"所属业务部\",\"position\":\"children\",\"path\":\"comseeyonznxmglpt3289082814923688017dtoTbbbsqDto.suoshuyewubu\",\"outputName\":\"_RETRIEVE_PjOUCi\",\"dataType\":\"STRING\",\"type\":\"OBJECT\",\"javaType\":\"java.lang.String\",\"dtoType\":\"CUSTOM\",\"udcApp\":false,\"multiSelect\":false,\"customs\":{\"basicType\":false,\"mfDataI18n\":false,\"defaultOrExpression\":false,\"notNull\":false,\"sourceType\":\"ENTITY\",\"dataType\":\"STRING\",\"name\":\"suoshuyewubu\",\"id\":\"-4808576636300970066\"},\"parentLabel\":\"投标报备申请_1\"}",
+          "desc": "所属业务部"
+         }
+        ],
+        "uuid": "d9d51a76-2499-46e2-ac29-7532b7e5617a",
+        "logicalOperator": "AND"
+       }
+      ]
+     }
+    ],
+    "sortParams": [],
+    "title": "业务部",
+    "nullHandling": "CONTINUE",
+    "selectType": "DTO",
+    "scope": "OBJECT",
+    "methodLegal": {
+     "available": true,
+     "complexCondition": false,
+     "seniorMethod": false,
+     "serviceType": "SELECT_LIST_BY_COMPLEX_CONDITIONS",
+     "interfaceClassFullName": "com.seeyon.organization.api.core.unit.OrgUnitBaseAppService"
+    }
+   },
+   {
+    "nodeId": "CHANGE_VARIABLE_q43r3K",
+    "name": null,
+    "type": "ACTIVITY",
+    "caption": "修改变量(21)",
+    "description": null,
+    "runAfter": null,
+    "input": null,
+    "output": null,
+    "isCompleted": true,
+    "actionType": "CHANGE_VARIABLE",
+    "selectParam": {
+     "description": "投标报备申请_1",
+     "dataType": "DTO",
+     "outputName": "_RETRIEVE_PjOUCi",
+     "position": "parent",
+     "udcApp": true,
+     "dtoType": "MASTER_ENTITY",
+     "appName": "znxmglpt3289082814923688017",
+     "path": "comseeyonznxmglpt3289082814923688017dtoTbbbsqDto",
+     "id": "com.seeyon.znxmglpt3289082814923688017.dto.TbbbsqDto",
+     "name": "comseeyonznxmglpt3289082814923688017dtoTbbbsqDto",
+     "type": "OBJECT",
+     "javaType": "com.seeyon.znxmglpt3289082814923688017.dto.TbbbsqDto",
+     "relationEntity": "2728744314287130025",
+     "relationEntityFullName": "com.seeyon.znxmglpt3289082814923688017.domain.entity.Tbbbsq",
+     "nodeInfo": {
+      "nodeId": "RETRIEVE_JHoy36",
+      "type": "ACTIVITY",
+      "actionType": "RETRIEVE",
+      "entityCaption": "投标报备申请"
+     },
+     "key": "_RETRIEVE_PjOUCicom.seeyon.znxmglpt3289082814923688017.dto.TbbbsqDto",
+     "iconKey": "LinedSearch",
+     "parentLabel": "",
+     "disabled": false
+    },
+    "mappingType": "attrs",
+    "attrs": [
+     {
+      "value": {
+       "type": "SelectParam",
+       "selectParam": {
+        "key": "_RETRIEVE_EJz5ql_com.seeyon.organization.dto.core.response.OrgUnitDto.id",
+        "name": "id",
+        "id": "com.seeyon.organization.dto.core.response.OrgUnitDto.id",
+        "appName": "organization",
+        "description": "组织ID,新建时不必填，修改时必填",
+        "position": "children",
+        "path": "comseeyonorganizationdtocoreresponseOrgUnitDto.id",
+        "outputName": "_RETRIEVE_EJz5ql",
+        "dataType": "BIGINTEGER",
+        "type": "OBJECT",
+        "javaType": "java.lang.Long",
+        "dtoType": "CUSTOM",
+        "udcApp": false,
+        "multiSelect": false,
+        "customs": {
+         "basicType": false,
+         "mfDataI18n": false
+        },
+        "parentLabel": "本部"
+       },
+       "desc": "组织ID,新建时不必填，修改时必填 [长整数]"
+      },
+      "attrType": {
+       "name": "benbushiti",
+       "id": "com.seeyon.znxmglpt3289082814923688017.dto.TbbbsqDto.benbushiti",
+       "refId": "com.seeyon.organization.domain.core.entity.OrgUnit",
+       "fullName": "com.seeyon.znxmglpt3289082814923688017.dto.TbbbsqDto.benbushiti",
+       "javaType": "java.lang.Long",
+       "dataType": "ENTITY",
+       "type": "OBJECT",
+       "desc": "本部实体",
+       "relationApp": "organization",
+       "relationEntity": "com.seeyon.organization.domain.core.entity.OrgUnit",
+       "relationEntityId": "com.seeyon.organization.domain.core.entity.OrgUnit",
+       "refApp": "organization",
+       "multiSelect": false,
+       "filterDataType": "ENTITY",
+       "filterRelationEntity": "com.seeyon.organization.domain.core.entity.OrgUnit",
+       "filterType": "OBJECT",
+       "filterFullName": "com.seeyon.znxmglpt3289082814923688017.dto.TbbbsqDto.benbushiti",
+       "dataI18n": false,
+       "sort": 198,
+       "description": ""
+      }
+     },
+     {
+      "value": {
+       "type": "SelectParam",
+       "selectParam": {
+        "key": "_RETRIEVE_2tKzck_com.seeyon.organization.dto.core.response.OrgUnitDto.id",
+        "name": "id",
+        "id": "com.seeyon.organization.dto.core.response.OrgUnitDto.id",
+        "appName": "organization",
+        "description": "组织ID,新建时不必填，修改时必填",
+        "position": "children",
+        "path": "comseeyonorganizationdtocoreresponseOrgUnitDto.id",
+        "outputName": "_RETRIEVE_2tKzck",
+        "dataType": "BIGINTEGER",
+        "type": "OBJECT",
+        "javaType": "java.lang.Long",
+        "dtoType": "CUSTOM",
+        "udcApp": false,
+        "multiSelect": false,
+        "customs": {
+         "basicType": false,
+         "mfDataI18n": false
+        },
+        "parentLabel": "事业部"
+       },
+       "desc": "组织ID,新建时不必填，修改时必填 [长整数]"
+      },
+      "attrType": {
+       "name": "shiyebushiti",
+       "id": "com.seeyon.znxmglpt3289082814923688017.dto.TbbbsqDto.shiyebushiti",
+       "refId": "com.seeyon.organization.domain.core.entity.OrgUnit",
+       "fullName": "com.seeyon.znxmglpt3289082814923688017.dto.TbbbsqDto.shiyebushiti",
+       "javaType": "java.lang.Long",
+       "dataType": "ENTITY",
+       "type": "OBJECT",
+       "desc": "事业部实体",
+       "relationApp": "organization",
+       "relationEntity": "com.seeyon.organization.domain.core.entity.OrgUnit",
+       "relationEntityId": "com.seeyon.organization.domain.core.entity.OrgUnit",
+       "refApp": "organization",
+       "multiSelect": false,
+       "filterDataType": "ENTITY",
+       "filterRelationEntity": "com.seeyon.organization.domain.core.entity.OrgUnit",
+       "filterType": "OBJECT",
+       "filterFullName": "com.seeyon.znxmglpt3289082814923688017.dto.TbbbsqDto.shiyebushiti",
+       "dataI18n": false,
+       "sort": 199,
+       "description": ""
+      }
+     },
+     {
+      "value": {
+       "type": "SelectParam",
+       "selectParam": {
+        "key": "_RETRIEVE_EEaINS_com.seeyon.organization.dto.core.response.OrgUnitDto.id",
+        "name": "id",
+        "id": "com.seeyon.organization.dto.core.response.OrgUnitDto.id",
+        "appName": "organization",
+        "description": "组织ID,新建时不必填，修改时必填",
+        "position": "children",
+        "path": "comseeyonorganizationdtocoreresponseOrgUnitDto.id",
+        "outputName": "_RETRIEVE_EEaINS",
+        "dataType": "BIGINTEGER",
+        "type": "OBJECT",
+        "javaType": "java.lang.Long",
+        "dtoType": "CUSTOM",
+        "udcApp": false,
+        "multiSelect": false,
+        "customs": {
+         "basicType": false,
+         "mfDataI18n": false
+        },
+        "parentLabel": "业务部"
+       },
+       "desc": "组织ID,新建时不必填，修改时必填 [长整数]"
+      },
+      "attrType": {
+       "name": "yewubushiti",
+       "id": "com.seeyon.znxmglpt3289082814923688017.dto.TbbbsqDto.yewubushiti",
+       "refId": "com.seeyon.organization.domain.core.entity.OrgUnit",
+       "fullName": "com.seeyon.znxmglpt3289082814923688017.dto.TbbbsqDto.yewubushiti",
+       "javaType": "java.lang.Long",
+       "dataType": "ENTITY",
+       "type": "OBJECT",
+       "desc": "业务部实体",
+       "relationApp": "organization",
+       "relationEntity": "com.seeyon.organization.domain.core.entity.OrgUnit",
+       "relationEntityId": "com.seeyon.organization.domain.core.entity.OrgUnit",
+       "refApp": "organization",
+       "multiSelect": false,
+       "filterDataType": "ENTITY",
+       "filterRelationEntity": "com.seeyon.organization.domain.core.entity.OrgUnit",
+       "filterType": "OBJECT",
+       "filterFullName": "com.seeyon.znxmglpt3289082814923688017.dto.TbbbsqDto.yewubushiti",
+       "dataI18n": false,
+       "sort": 200,
+       "description": ""
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "elseIfBranch": {
+  "nodeId": "CONDITION_YJY8br",
+  "name": "elseIfBranch",
+  "type": "CONDITION",
+  "caption": "符合条件即进入该分支",
+  "description": "明细表计数(微流程.创建列表(5).费用申请列表 [投标费用申请])== 1 && 明细表所有行满足(为空(微流程.创建列表(5).费用申请列表 [投标费用申请].借款单号))",
+  "runAfter": null,
+  "expression": {
+   "title": "明细表计数(微流程.创建列表(5).费用申请列表 [投标费用申请])== 1 && 明细表所有行满足(为空(微流程.创建列表(5).费用申请列表 [投标费用申请].借款单号))",
+   "schema": "{\"designData\":{\"expressionTranslation\":\"明细表计数(微流程.创建列表(5).费用申请列表 [投标费用申请])== 1 && 明细表所有行满足(为空(微流程.创建列表(5).费用申请列表 [投标费用申请].借款单号))\",\"resultTypeInfo\":\"BOOLEAN\",\"resultTypeFullName\":null,\"terminalType\":\"BACKEND\",\"isMultiSelect\":false,\"context\":[{\"name\":\"_CREATE_LIST_dJN24D\",\"description\":\"创建列表(5)\",\"type\":\"OBJECT\",\"selectable\":false,\"enableDataI18n\":false,\"properties\":[{\"name\":\"_CREATE_LIST_dJN24D\",\"description\":\"费用申请列表 [投标费用申请]\",\"type\":\"ARRAY\",\"selectable\":true,\"enableDataI18n\":false,\"uniformityParams\":{\"paramId\":\"com.seeyon.znxmglpt3289082814923688017.dto.Tbfysq1Dto\",\"paramCategory\":\"OBJECT\",\"extensionProperties\":\"{\\\"id\\\":\\\"com.seeyon.znxmglpt3289082814923688017.dto.Tbfysq1Dto\\\"}\",\"pageNodeExtension\":null},\"items\":{\"type\":\"OBJECT\",\"properties\":[{\"name\":\"jiekuandanhao\",\"description\":\"借款单号\",\"type\":\"STRING\",\"selectable\":true,\"enableDataI18n\":false,\"uniformityParams\":{\"paramId\":\"com.seeyon.znxmglpt3289082814923688017.dto.Tbfysq1Dto.jiekuandanhao\",\"paramCategory\":\"STRING\",\"extensionProperties\":\"{\\\"id\\\":\\\"com.seeyon.znxmglpt3289082814923688017.dto.Tbfysq1Dto.jiekuandanhao\\\",\\\"relationType\\\":\\\"NONE\\\",\\\"relationEntity\\\":\\\"\\\",\\\"javaType\\\":\\\"java.lang.String\\\"}\",\"pageNodeExtension\":null}}]}}],\"uniformityParams\":{\"paramId\":\"com.seeyon.znxmglpt3289082814923688017.dto.Tbfysq1Dto\",\"paramCategory\":\"DTO\",\"extensionProperties\":\"{\\\"id\\\":\\\"com.seeyon.znxmglpt3289082814923688017.dto.Tbfysq1Dto\\\",\\\"javaType\\\":\\\"com.seeyon.znxmglpt3289082814923688017.dto.Tbfysq1Dto\\\"}\",\"pageNodeExtension\":null}}],\"tokens\":[{\"uid\":\"15bcd6a2-fcf3-4c38-a697-d2c8cf331dfa\",\"type\":\"FUNCTION\",\"value\":\"count\",\"desc\":\"明细表计数\",\"subOps\":[[{\"uid\":\"f530cc9c-3668-421d-b71a-311dd49cb7cf\",\"type\":\"VARIABLE\",\"value\":\"_CREATE_LIST_dJN24D._CREATE_LIST_dJN24D\",\"desc\":\"微流程.创建列表(5).费用申请列表 [投标费用申请]\"}]]},{\"uid\":\"9e3a17c6-4686-446c-b011-30d61c2b4b89\",\"type\":\"OPERATOR\",\"value\":\"==\",\"desc\":\"=\"},{\"uid\":\"82d39e89-c8eb-457d-a07f-82eaa5250c9a\",\"type\":\"CONSTANT\",\"value\":\"1\",\"desc\":\"1\"},{\"uid\":\"3dd24038-4a78-4ccf-880d-db127215e094\",\"type\":\"OPERATOR\",\"value\":\"&\",\"desc\":\"and\"},{\"uid\":\"07699100-73fa-4c1f-9cc2-498e629dd3a5\",\"type\":\"FUNCTION\",\"value\":\"allLineMatch\",\"desc\":\"明细表所有行满足\",\"subOps\":[[{\"uid\":\"c015c38e-61f0-40dc-a58b-adbc6d879537\",\"type\":\"FUNCTION\",\"value\":\"isNull\",\"desc\":\"为空\",\"subOps\":[[{\"uid\":\"622b9004-fbdd-4285-a608-083bb9a9611e\",\"type\":\"VARIABLE\",\"value\":\"_CREATE_LIST_dJN24D._CREATE_LIST_dJN24D.jiekuandanhao\",\"desc\":\"微流程.创建列表(5).费用申请列表 [投标费用申请].借款单号\"}]]}]]}],\"sourceAppName\":null},\"runtimeData\":{\"executableExpr\":\"93gDaq3/nXB1+C8j4AjYNEVRRY+GX/DRejGmES20GvQ=+%28++%28+count%28_CREATE_LIST_dJN24D._CREATE_LIST_dJN24D%29+%3D%3D+1+%29++%26%26+allLineMatchExecutable%28_CREATE_LIST_dJN24D._CREATE_LIST_dJN24D%2C%27_CREATE_LIST_dJN24D%27%2C%22isNull%28_CREATE_LIST_dJN24D.jiekuandanhao%29%22%29+%29+\"}}"
+  },
+  "isCompleted": true,
+  "nodes": [
+   {
+    "nodeId": "ForEach_4Vm7Co",
+    "type": "FOR_EACH",
+    "caption": "列表循环(11)",
+    "description": null,
+    "runAfter": null,
+    "foreach": null,
+    "isCompleted": true,
+    "selectParam": {
+     "description": "费用申请列表",
+     "dataType": "DTO",
+     "outputName": "_CREATE_LIST_dJN24D",
+     "position": "parent",
+     "udcApp": true,
+     "dtoType": "SUB_ENTITY",
+     "appName": "znxmglpt3289082814923688017",
+     "path": "comseeyonznxmglpt3289082814923688017dtoTbfysq1Dto",
+     "id": "com.seeyon.znxmglpt3289082814923688017.dto.Tbfysq1Dto",
+     "name": "comseeyonznxmglpt3289082814923688017dtoTbfysq1Dto",
+     "type": "ARRAY",
+     "javaType": "com.seeyon.znxmglpt3289082814923688017.dto.Tbfysq1Dto",
+     "relationEntity": "6089545828459128113",
+     "relationEntityFullName": "com.seeyon.znxmglpt3289082814923688017.domain.entity.Tbfysq1",
+     "nodeInfo": {
+      "nodeId": "CREATE_LIST_TXQYl7",
+      "type": "ACTIVITY",
+      "actionType": "CREATE_LIST",
+      "entityCaption": "投标费用申请"
+     },
+     "key": "_CREATE_LIST_dJN24Dcom.seeyon.znxmglpt3289082814923688017.dto.Tbfysq1Dto",
+     "iconKey": "LinedCreateBar",
+     "parentLabel": "",
+     "disabled": false,
+     "isLeaf": true
+    },
+    "targetName": "列表循环变量_10",
+    "output": {
+     "id": "com.seeyon.znxmglpt3289082814923688017.dto.Tbfysq1Dto",
+     "desc": "列表循环变量_10",
+     "type": "OBJECT",
+     "dataType": "DTO",
+     "javaType": "com.seeyon.znxmglpt3289082814923688017.dto.Tbfysq1Dto",
+     "appName": "znxmglpt3289082814923688017",
+     "dtoType": "SUB_ENTITY",
+     "udcApp": true,
+     "relationEntity": "6089545828459128113",
+     "name": "_FOR_EACH_xd2UhF"
+    },
+    "nodes": [
+     {
+      "nodeId": "CHANGE_VARIABLE_bkZcgZ",
+      "name": null,
+      "type": "ACTIVITY",
+      "caption": "修改变量(40)",
+      "description": null,
+      "runAfter": null,
+      "input": null,
+      "output": null,
+      "isCompleted": true,
+      "actionType": "CHANGE_VARIABLE",
+      "selectParam": {
+       "description": "借款单号",
+       "key": "_FOR_EACH_xd2UhFjiekuandanhao",
+       "name": "jiekuandanhao",
+       "id": "com.seeyon.znxmglpt3289082814923688017.dto.Tbfysq1Dto.jiekuandanhao",
+       "appName": "znxmglpt3289082814923688017",
+       "position": "children",
+       "path": "comseeyonznxmglpt3289082814923688017dtoTbfysq1Dto.jiekuandanhao",
+       "outputName": "_FOR_EACH_xd2UhF",
+       "dataType": "STRING",
+       "type": "OBJECT",
+       "javaType": "java.lang.String",
+       "dtoType": "CUSTOM",
+       "udcApp": false,
+       "multiSelect": false,
+       "customs": {
+        "basicType": false,
+        "mfDataI18n": false,
+        "defaultOrExpression": false,
+        "notNull": false,
+        "sourceType": "ENTITY",
+        "dataType": "STRING",
+        "name": "jiekuandanhao",
+        "id": "5959496889780018167"
+       },
+       "iconKey": "LinedCirculation",
+       "parentLabel": "",
+       "disabled": false,
+       "isLeaf": true
+      },
+      "value": {
+       "type": "SelectParam",
+       "selectParam": {
+        "key": "_RETRIEVE_PjOUCi_com.seeyon.znxmglpt3289082814923688017.dto.TbbbsqDto.applyNumber",
+        "name": "applyNumber",
+        "id": "com.seeyon.znxmglpt3289082814923688017.dto.TbbbsqDto.applyNumber",
+        "appName": "znxmglpt3289082814923688017",
+        "description": "借款编号",
+        "position": "children",
+        "path": "comseeyonznxmglpt3289082814923688017dtoTbbbsqDto.applyNumber",
+        "outputName": "_RETRIEVE_PjOUCi",
+        "dataType": "STRING",
+        "type": "OBJECT",
+        "javaType": "java.lang.String",
+        "dtoType": "CUSTOM",
+        "udcApp": false,
+        "multiSelect": false,
+        "customs": {
+         "basicType": false,
+         "mfDataI18n": false,
+         "defaultOrExpression": false,
+         "notNull": false,
+         "sourceType": "ENTITY",
+         "dataType": "STRING",
+         "name": "applyNumber",
+         "id": "-4427096191714066975"
+        },
+        "parentLabel": "投标报备申请_1"
+       },
+       "desc": "借款编号 [文本]"
+      }
+     }
+    ]
+   },
+   {
+    "nodeId": "CHANGE_VARIABLE_MTyJNc",
+    "name": null,
+    "type": "ACTIVITY",
+    "caption": "修改变量(41)",
+    "description": null,
+    "runAfter": null,
+    "input": null,
+    "output": null,
+    "isCompleted": true,
+    "actionType": "CHANGE_VARIABLE",
+    "selectParam": {
+     "description": "投标报备申请_1",
+     "dataType": "DTO",
+     "outputName": "_RETRIEVE_PjOUCi",
+     "position": "parent",
+     "udcApp": true,
+     "dtoType": "MASTER_ENTITY",
+     "appName": "znxmglpt3289082814923688017",
+     "path": "comseeyonznxmglpt3289082814923688017dtoTbbbsqDto",
+     "id": "com.seeyon.znxmglpt3289082814923688017.dto.TbbbsqDto",
+     "name": "comseeyonznxmglpt3289082814923688017dtoTbbbsqDto",
+     "type": "OBJECT",
+     "javaType": "com.seeyon.znxmglpt3289082814923688017.dto.TbbbsqDto",
+     "relationEntity": "2728744314287130025",
+     "relationEntityFullName": "com.seeyon.znxmglpt3289082814923688017.domain.entity.Tbbbsq",
+     "nodeInfo": {
+      "nodeId": "RETRIEVE_JHoy36",
+      "type": "ACTIVITY",
+      "actionType": "RETRIEVE",
+      "entityCaption": "投标报备申请"
+     },
+     "key": "_RETRIEVE_PjOUCicom.seeyon.znxmglpt3289082814923688017.dto.TbbbsqDto",
+     "iconKey": "LinedSearch",
+     "parentLabel": "",
+     "disabled": false
+    },
+    "mappingType": "attrs",
+    "attrs": [
+     {
+      "value": {
+       "type": "SelectParam",
+       "selectParam": {
+        "dataType": "DTO",
+        "outputName": "_CREATE_LIST_dJN24D",
+        "position": "parent",
+        "description": "投标费用申请",
+        "udcApp": true,
+        "dtoType": "SUB_ENTITY",
+        "appName": "znxmglpt3289082814923688017",
+        "path": "comseeyonznxmglpt3289082814923688017dtoTbfysq1Dto",
+        "id": "com.seeyon.znxmglpt3289082814923688017.dto.Tbfysq1Dto",
+        "name": "comseeyonznxmglpt3289082814923688017dtoTbfysq1Dto",
+        "type": "ARRAY",
+        "javaType": "com.seeyon.znxmglpt3289082814923688017.dto.Tbfysq1Dto",
+        "relationEntity": "6089545828459128113",
+        "relationEntityFullName": "com.seeyon.znxmglpt3289082814923688017.domain.entity.Tbfysq1",
+        "desc": "费用申请列表",
+        "title": "费用申请列表 [投标费用申请] [多条数据]",
+        "key": "_CREATE_LIST_dJN24D_com.seeyon.znxmglpt3289082814923688017.dto.Tbfysq1Dto"
+       },
+       "desc": "费用申请列表 [投标费用申请] [多条数据]"
+      },
+      "attrType": {
+       "name": "tbfysq1DtoList",
+       "id": "com.seeyon.znxmglpt3289082814923688017.dto.TbbbsqDto.tbfysq1DtoList",
+       "refId": "com.seeyon.znxmglpt3289082814923688017.dto.Tbfysq1Dto",
+       "fullName": "com.seeyon.znxmglpt3289082814923688017.dto.TbbbsqDto.tbfysq1DtoList",
+       "javaType": "com.seeyon.znxmglpt3289082814923688017.dto.Tbfysq1Dto",
+       "dataType": "DTO",
+       "type": "ARRAY",
+       "desc": "投标费用申请",
+       "relationApp": "znxmglpt3289082814923688017",
+       "relationEntity": "com.seeyon.znxmglpt3289082814923688017.dto.Tbfysq1Dto",
+       "relationEntityId": "6089545828459128113",
+       "refApp": "znxmglpt3289082814923688017",
+       "multiSelect": false,
+       "filterDataType": "DTO",
+       "filterRelationEntity": "6089545828459128113",
+       "filterType": "ARRAY",
+       "filterFullName": "com.seeyon.znxmglpt3289082814923688017.dto.TbbbsqDto.tbfysq1DtoList",
+       "dataI18n": false,
+       "sort": 0,
+       "description": ""
+      }
+     }
+    ]
+   }
+  ]
+ }
+}

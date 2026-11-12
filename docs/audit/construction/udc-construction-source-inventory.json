@@ -1,0 +1,8506 @@
+{
+  "schema_version": "udc-construction-source-inventory.v1",
+  "status": "FACT",
+  "verification_level": "STATIC",
+  "network": "disabled",
+  "read_only": true,
+  "roots": [
+    "<PATH>",
+    "<PATH>"
+  ],
+  "file_count": 1696,
+  "decompiled_java_count": 1441,
+  "domain_counts": {
+    "application": 257,
+    "page": 306,
+    "entity": 314,
+    "generation": 22,
+    "microflow": 542
+  },
+  "files": [
+    {
+      "path": "<PATH>",
+      "bytes": 8855,
+      "suffix": ".json"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5823,
+      "suffix": ".json"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 10654,
+      "suffix": ".json"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 37,
+      "suffix": ".json"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 40,
+      "suffix": ".json"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 51,
+      "suffix": ".json"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 294,
+      "suffix": ".json"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 198,
+      "suffix": ".json"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2,
+      "suffix": ".json"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2,
+      "suffix": ".json"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 18,
+      "suffix": ".json"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 40,
+      "suffix": ".json"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 353,
+      "suffix": ".json"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 31,
+      "suffix": ".json"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 49,
+      "suffix": ".json"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2533,
+      "suffix": ".json"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 201,
+      "suffix": ".json"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 184,
+      "suffix": ".json"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 342,
+      "suffix": ".json"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 92,
+      "suffix": ".json"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1715,
+      "suffix": ".json"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 200,
+      "suffix": ".json"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 198,
+      "suffix": ".json"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 185,
+      "suffix": ".json"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 183,
+      "suffix": ".json"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 283,
+      "suffix": ".json"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 292,
+      "suffix": ".json"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 37,
+      "suffix": ".json"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 40,
+      "suffix": ".json"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 51,
+      "suffix": ".json"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 294,
+      "suffix": ".json"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 198,
+      "suffix": ".json"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2,
+      "suffix": ".json"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2,
+      "suffix": ".json"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 18,
+      "suffix": ".json"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 40,
+      "suffix": ".json"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 353,
+      "suffix": ".json"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 31,
+      "suffix": ".json"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 49,
+      "suffix": ".json"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2533,
+      "suffix": ".json"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 201,
+      "suffix": ".json"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 184,
+      "suffix": ".json"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 342,
+      "suffix": ".json"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 92,
+      "suffix": ".json"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1715,
+      "suffix": ".json"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 200,
+      "suffix": ".json"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 198,
+      "suffix": ".json"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 185,
+      "suffix": ".json"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 183,
+      "suffix": ".json"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 283,
+      "suffix": ".json"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 292,
+      "suffix": ".json"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 49,
+      "suffix": ".json"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5553,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5472,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1805,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 291,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1795,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5214,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1177,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1116,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5553,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5472,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1805,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 291,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1795,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5214,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1177,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1116,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5553,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5472,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1805,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 291,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1795,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5214,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1177,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1116,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 413,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7325,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 16277,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 10329,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 13908,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1194,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2410,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1448,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2258,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2409,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1116,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1852,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1697,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 758,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7571,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 266,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1219,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 771,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 860,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 757,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1552,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2175,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1327,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2011,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2105,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7647,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 826,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1658,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 817,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 779,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2489,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1175,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 830,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4403,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2631,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2067,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 667,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1130,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1022,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2479,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1771,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 750,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2270,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1652,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1025,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1259,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5648,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1817,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2461,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7443,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7264,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4379,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1035,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 8212,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 8415,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4742,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 508,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 424,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1737,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 3787,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 6844,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 849,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1880,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1631,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5779,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 840,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 3371,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 15123,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 20949,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5571,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7103,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 10170,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 9826,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 8901,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5754,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2011,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 18963,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 25861,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 21149,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 11443,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2424,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5471,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1652,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 3818,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 6921,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1429,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2231,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 3949,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 11015,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 8442,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1736,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 546,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2004,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 605,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 639,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 326,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 595,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2665,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 999,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 3291,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4491,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 6019,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4491,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 6177,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 9305,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 8488,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 11477,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1764,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 493,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 413,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7325,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 16277,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 10329,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 13908,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1194,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2410,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1448,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2258,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2409,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1116,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1852,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1697,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 758,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7571,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 266,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1219,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 771,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 860,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 757,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1552,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2175,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1327,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2011,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2105,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7647,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 826,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1658,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 817,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 779,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2489,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1175,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 830,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4403,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2631,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2067,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 667,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1130,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1022,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2479,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1771,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 750,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2270,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1652,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1025,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1259,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5648,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1817,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2461,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7443,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7264,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4379,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1035,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 8212,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 8415,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4742,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 508,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 424,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1737,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 3787,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 6844,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 849,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1880,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1631,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5779,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 840,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 3371,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 15123,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 20949,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5571,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7103,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 10170,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 9826,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 8901,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5754,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2011,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 18963,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 25861,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 21149,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 11443,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2424,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5471,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1652,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 3818,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 6921,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1429,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2231,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 3949,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 11015,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 8442,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1736,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 546,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2004,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 605,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 639,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 326,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 595,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2665,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 999,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 3291,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4491,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 6019,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4491,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 6177,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 9305,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 8488,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 11477,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1764,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 493,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 413,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7325,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 16277,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 10329,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 13908,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1194,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2410,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1448,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2258,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2409,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1116,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1852,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1697,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 758,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7571,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 266,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1219,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 771,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 860,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 757,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1552,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2175,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1327,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2011,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2105,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7647,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 826,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1658,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 817,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 779,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2489,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1175,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 830,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4403,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2631,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2067,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 667,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1130,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1022,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2479,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1771,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 750,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2270,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1652,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1025,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1259,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5648,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1817,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2461,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7443,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7264,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4379,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1035,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 8212,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 8415,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4742,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 508,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 424,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1737,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 3787,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 6844,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 849,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1880,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1631,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5779,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 840,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 3371,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 15123,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 20949,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5571,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7103,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 10170,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 9826,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 8901,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5754,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2011,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 18963,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 25861,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 21149,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 11443,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2424,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5471,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1652,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 3818,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 6921,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1429,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2231,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 3949,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 11015,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 8442,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1736,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 546,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2004,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 605,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 639,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 326,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 595,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2665,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 999,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 3291,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4491,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 6019,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4491,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 6177,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 9305,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 8488,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 11477,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1764,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 493,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 413,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7325,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 16277,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 10329,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 13908,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1194,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2410,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1448,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2258,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2409,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1116,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1852,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1697,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 758,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7571,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 266,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1219,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 771,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 860,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 757,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1552,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2175,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1327,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2011,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2105,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7647,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 826,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1658,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 817,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 779,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2489,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1175,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 830,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4403,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2631,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2067,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 667,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1130,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1022,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2479,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1771,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 750,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2270,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1652,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1025,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1259,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5648,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1817,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2461,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7443,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7264,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4379,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1035,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 8212,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 8415,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4742,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 508,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 424,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1737,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 3787,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 6844,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 849,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1880,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1631,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5779,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 840,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 3371,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 15123,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 20949,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5571,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7103,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 10170,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 9826,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 8901,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5754,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2011,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 18963,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 25861,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 21149,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 11443,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2424,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5471,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1652,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 3818,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 6921,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1429,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2231,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 3949,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 11015,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 8442,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1736,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 546,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2004,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 605,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 639,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 326,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 595,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2665,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 999,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 3291,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4491,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 6019,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4491,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 6177,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 9305,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 8488,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 11477,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1764,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 493,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 413,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7325,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 16277,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 10329,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 13908,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1194,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2410,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1448,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2258,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2409,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1116,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1852,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1697,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 758,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7571,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 266,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1219,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 771,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 860,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 757,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1552,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2175,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1327,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2011,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2105,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7647,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 826,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1658,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 817,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 779,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2489,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1175,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 830,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4403,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2631,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2067,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 667,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1130,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1022,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2479,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1771,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 750,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2270,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1652,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1025,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1259,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5648,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1817,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2461,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7443,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7264,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4379,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1035,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 8212,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 8415,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4742,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 508,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 424,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1737,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 3787,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 6844,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 849,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1880,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1631,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5779,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 840,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 3371,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 15123,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 20949,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5571,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7103,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 10170,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 9826,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 8901,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5754,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2011,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 18963,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 25861,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 21149,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 11443,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2424,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5471,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1652,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 3818,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 6921,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1429,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2231,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 3949,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 11015,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 8442,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1736,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 546,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2004,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 605,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 639,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 326,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 595,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2665,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 999,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 3291,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4491,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 6019,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4491,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 6177,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 9305,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 8488,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 11477,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1764,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 493,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 413,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7325,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 16277,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 10329,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 13908,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1194,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2410,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1448,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2258,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2409,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1116,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1852,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1697,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 758,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7571,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 266,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1219,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 771,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 860,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 757,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1552,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2175,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1327,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2011,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2105,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7647,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 826,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1658,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 817,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 779,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2489,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1175,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 830,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4403,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2631,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2067,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 667,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1130,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1022,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2479,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1771,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 750,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2270,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1652,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1025,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1259,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5648,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1817,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2461,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7443,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7264,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4379,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1035,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 8212,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 8415,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4742,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 508,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 424,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1737,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 3787,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 6844,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 849,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1880,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1631,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5779,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 840,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 3371,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 15123,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 20949,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5571,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7103,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 10170,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 9826,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 8901,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5754,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2011,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 18963,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 25861,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 21149,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 11443,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2424,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5471,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1652,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 3818,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 6921,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1429,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2231,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 3949,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 11015,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 8442,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1736,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 546,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2004,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 605,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 639,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 326,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 595,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2665,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 999,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 3291,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4491,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 6019,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4491,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 6177,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 9305,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 8488,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 11477,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1764,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 493,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 413,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7325,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 16277,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 10329,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 13907,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1194,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2410,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1448,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2258,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2409,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1116,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1852,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1697,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 758,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7571,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 266,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1219,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 771,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 860,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 757,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1552,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2175,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1327,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2011,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2105,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7647,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 826,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1658,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 817,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 779,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2489,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1175,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 830,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4403,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2631,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2067,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 667,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1130,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1022,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2479,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1771,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 750,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2270,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1652,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1025,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1259,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5648,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1817,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2461,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7443,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7264,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4379,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1035,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 8212,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 8415,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4742,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 508,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 424,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1737,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 3787,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 6844,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 849,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1880,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1631,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5779,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 840,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 3371,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 15123,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 20949,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5571,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7103,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 10170,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 9826,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 8901,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5754,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2011,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 18963,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 25861,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 21149,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 11443,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2424,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5471,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1652,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 3818,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 6921,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1429,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2231,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 3949,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 11015,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 8442,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1736,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 546,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2004,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 605,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 639,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 326,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 595,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2665,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 999,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 3291,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4491,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 6019,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4491,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 6177,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 9305,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 8488,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 11477,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1764,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 493,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 413,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7325,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 16277,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 10329,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 13908,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1194,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2410,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1448,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2258,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2409,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1116,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1852,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1697,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 758,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7571,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 266,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1219,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 771,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 860,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 757,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1552,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2175,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1327,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2011,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2105,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7647,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 826,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1658,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 817,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 779,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2489,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1175,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 830,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4403,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2631,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2067,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 667,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1130,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1022,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2479,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1771,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 750,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2270,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1652,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1025,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1259,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5648,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1817,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2461,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7443,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7264,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4379,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1035,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 8212,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 8415,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4742,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 508,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 424,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1737,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 3787,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 6844,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 849,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1880,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1631,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5779,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 840,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 3371,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 15123,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 20949,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5571,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7103,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 10170,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 9826,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 8901,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5754,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2011,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 18963,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 25861,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 21149,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 11443,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2424,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5471,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1652,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 3818,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 6921,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1429,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2231,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 3949,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 11015,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 8442,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1736,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 546,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2004,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 605,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 639,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 326,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 595,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2665,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 999,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 3291,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4491,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 6019,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4491,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 6177,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 9305,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 8488,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 11477,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1764,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 493,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 413,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7325,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 16277,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 10329,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 13908,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1194,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2410,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1448,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2258,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2409,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1116,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1852,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1697,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 758,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7571,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 266,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1219,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 771,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 860,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 757,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1552,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2175,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1327,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2011,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2105,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7647,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 826,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1658,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 817,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 779,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2489,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1175,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 830,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4403,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2631,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2067,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 667,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1130,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1022,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2479,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1771,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 750,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2270,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1652,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1025,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1259,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5648,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1817,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2461,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7443,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7264,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4379,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1035,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 8212,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 8415,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4742,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 508,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 424,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1737,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 3787,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 6844,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 849,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1880,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1631,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5779,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 840,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 3371,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 15123,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 20949,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5571,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7103,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 10170,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 9826,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 8901,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5754,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2011,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 18963,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 25861,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 21149,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 11443,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2424,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5471,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1652,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 3818,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 6921,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1429,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2231,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 3949,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 11015,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 8442,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1736,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 546,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2004,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 605,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 639,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 326,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 595,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2665,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 999,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 3291,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4491,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 6019,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4491,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 6177,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 9305,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 8488,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 11477,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1764,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 493,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 413,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7325,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 16277,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 10329,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 13908,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1194,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2410,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1448,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2258,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2409,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1116,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1852,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1697,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 758,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7571,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 266,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1219,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 771,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 860,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 757,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1552,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2175,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1327,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2011,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2105,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7647,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 826,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1658,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 817,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 779,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2489,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1175,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 830,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4403,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2631,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2067,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 667,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1130,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1022,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2479,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1771,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 750,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2270,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1652,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1025,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1259,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5648,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1817,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2461,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7443,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7264,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4379,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1035,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 8212,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 8415,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4742,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 508,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 424,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1737,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 3787,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 6844,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 849,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1880,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1631,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5779,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 840,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 3371,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 15123,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 20949,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5571,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7103,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 10170,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 9826,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 8901,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5754,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2011,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 18963,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 25861,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 21149,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 11443,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2424,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5471,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1652,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 3818,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 6921,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1429,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2231,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 3949,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 11015,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 8442,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1736,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 546,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2004,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 605,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 639,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 326,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 595,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2665,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 999,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 3291,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4491,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 6019,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4491,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 6177,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 9305,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 8488,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 11477,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1764,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 493,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 413,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7325,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 16277,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 10329,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 13908,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1194,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2410,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1448,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2258,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2409,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1116,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1852,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1697,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 758,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7571,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 266,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1219,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 771,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 860,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 757,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1552,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2175,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1327,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2011,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2105,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7647,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 826,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1658,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 817,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 779,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2489,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1175,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 830,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4403,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2631,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2067,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 667,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1130,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1022,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2479,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1771,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 750,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2270,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1652,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1025,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1259,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5648,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1817,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2461,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7443,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7264,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4379,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1035,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 8212,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 8415,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4742,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 508,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 424,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1737,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 3787,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 6844,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 849,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1880,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1631,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5779,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 840,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 3371,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 15123,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 20949,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5571,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7103,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 10170,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 9826,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 8901,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5754,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2011,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 18963,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 25861,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 21149,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 11443,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2424,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5471,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1652,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 3818,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 6921,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1429,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2231,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 3949,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 11015,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 8442,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1736,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 546,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2004,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 605,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 639,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 326,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 595,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2665,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 999,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 3291,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4491,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 6019,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4491,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 6177,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 9305,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 8488,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 11477,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1764,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 493,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 413,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7325,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 16277,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 10329,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 13908,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1194,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2410,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1448,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2258,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2409,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1116,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1852,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1697,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 758,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7571,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 266,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1219,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 771,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 860,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 757,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1552,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2175,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1327,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2011,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2105,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7647,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 826,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1658,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 817,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 779,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2489,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1175,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 830,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4403,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2631,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2067,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 667,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1130,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1022,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2479,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1771,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 750,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2270,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1652,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1025,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1259,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5648,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1817,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2461,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7443,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7264,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4379,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1035,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 8212,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 8415,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4742,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 508,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 424,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1737,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 3787,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 6844,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 849,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1880,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1631,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5779,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 840,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 3371,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 15123,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 20949,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5571,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7103,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 10170,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 9826,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 8901,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5754,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2011,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 18963,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 25861,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 21149,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 11443,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2424,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5471,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1652,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 3818,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 6921,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1429,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2231,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 3949,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 11015,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 8442,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1736,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 546,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2004,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 605,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 639,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 326,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 595,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2665,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 999,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 3291,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4491,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 6019,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4491,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 6177,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 9305,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 8488,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 11477,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1764,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 493,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 413,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7325,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 16277,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 10329,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 13908,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1194,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2410,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1448,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2258,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2409,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1116,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1852,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1697,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 758,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7571,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 266,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1219,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 771,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 860,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 757,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1552,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2175,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1327,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2011,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2105,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7647,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 826,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1658,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 817,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 779,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2489,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1175,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 830,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4403,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2631,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2067,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 667,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1130,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1022,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2479,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1771,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 750,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2270,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1652,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1025,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1259,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5648,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1817,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2461,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7443,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7264,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4379,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1035,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 8212,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 8415,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4742,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 508,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 424,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1737,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 3787,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 6844,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 849,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1880,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1631,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5779,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 840,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 3371,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 15123,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 20949,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5571,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 7103,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 10170,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 9826,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 8901,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5754,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2011,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 18963,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 25861,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 21149,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 11443,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2424,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 5471,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1652,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 3818,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 6921,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1429,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2231,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 3949,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 11015,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 8442,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1736,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 546,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2004,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 605,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 639,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 326,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 595,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2665,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 999,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 3291,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4491,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 6019,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4491,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 6177,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 9305,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 8488,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 11477,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1764,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 493,
+      "suffix": ".java"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1545,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 685424,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1545,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 685426,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1545,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 685332,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1543,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 667073,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1540,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 714715,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1543,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 716665,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1543,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 716811,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1543,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 716807,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1543,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 716806,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1543,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 717825,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1543,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 718645,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1543,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 718644,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1543,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 718565,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1543,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 718566,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1543,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 910,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 64344,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 910,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 64350,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 910,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 64182,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 908,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 58758,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 905,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 66452,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 908,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 66451,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 908,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 66453,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 908,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 66452,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 908,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 66452,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 908,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 66490,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 908,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 66491,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 908,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 66490,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 908,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 66490,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 908,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 66490,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 908,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 15786,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 15786,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 15786,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 15763,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 12797,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 14477,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 14477,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 14477,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 14477,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 14477,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 14477,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 14477,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 14477,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 14477,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 14477,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1913,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 243537,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1913,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 243539,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1913,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 243444,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1911,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 230841,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1908,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 247702,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2035,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 247664,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2035,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 248208,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2035,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 248362,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2035,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 248376,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2035,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 248377,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2035,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 248415,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2035,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 248412,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2035,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 248550,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2035,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 248550,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2035,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 275347,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2156,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 275348,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2156,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 275344,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2154,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 278463,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2152,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 283044,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2154,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 286822,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2154,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 286898,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2154,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 286897,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2154,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 286897,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2154,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 286897,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2154,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 286964,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2154,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 286963,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2154,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 286897,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2154,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 286897,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 2154,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1682,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 232604,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1682,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 232974,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1682,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 232630,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1680,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 222522,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1677,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 289932,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1790,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 289607,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1790,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 292503,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1790,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 292501,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1790,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 292500,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1790,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 292502,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1790,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 292503,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1790,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 292500,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1790,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 292501,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1790,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 292500,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 1790,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4599,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 684358,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4599,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 684678,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4599,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 672328,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4597,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 594867,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4469,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 854679,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4597,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 861710,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4597,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 861851,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4597,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 861735,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4597,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 861738,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4597,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 861755,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4597,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 861862,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4597,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 861984,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4597,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 861879,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4597,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 861880,
+      "suffix": ".jar"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 4597,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 792,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 792,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 792,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 790,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 788,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 790,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 790,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 790,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 790,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 790,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 790,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 790,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 790,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 790,
+      "suffix": ".pom"
+    },
+    {
+      "path": "<PATH>",
+      "bytes": 790,
+      "suffix": ".pom"
+    }
+  ],
+  "limitations": [
+    "Inventory/classification is static and path-based; each rule requires targeted source reading and cross-layer evidence.",
+    "Frontend bytes/source are not claimed unless directly present in inventory."
+  ]
+}

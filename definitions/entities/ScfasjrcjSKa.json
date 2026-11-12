@@ -1,0 +1,61 @@
+{
+ "attributes": {
+  "shifouquanbushanchu": {
+   "validate": true,
+   "id": "com.seeyon.datamigration8704025620829192834.dto.microflow.ScfasjrcjSKa.shifouquanbushanchu",
+   "name": "shifouquanbushanchu",
+   "fullName": "com.seeyon.datamigration8704025620829192834.dto.microflow.ScfasjrcjSKa.shifouquanbushanchu",
+   "md5": "3290352702126786137",
+   "dataType": "BOOLEAN",
+   "type": "OBJECT",
+   "javaType": "java.lang.Boolean",
+   "refApp": "datamigration8704025620829192834",
+   "refType": "",
+   "multiSelect": false,
+   "caption": "是否全部删除",
+   "description": "",
+   "customs": {
+    "basicType": false,
+    "inApp": true,
+    "dataType": "BOOLEAN",
+    "name": "shifouquanbushanchu",
+    "id": "-5633221356365455504"
+   },
+   "sort": 1,
+   "dtoType": "CUSTOM",
+   "udcApp": false,
+   "dataI18n": false
+  },
+  "fanganid": {
+   "validate": true,
+   "id": "com.seeyon.datamigration8704025620829192834.dto.microflow.ScfasjrcjSKa.fanganid",
+   "name": "fanganid",
+   "fullName": "com.seeyon.datamigration8704025620829192834.dto.microflow.ScfasjrcjSKa.fanganid",
+   "md5": "3290352702126753369",
+   "dataType": "BIGINTEGER",
+   "type": "OBJECT",
+   "javaType": "java.lang.Long",
+   "refApp": "datamigration8704025620829192834",
+   "refType": "",
+   "multiSelect": false,
+   "caption": "方案id",
+   "description": "",
+   "customs": {
+    "basicType": false,
+    "inApp": true,
+    "dataType": "BIGINTEGER",
+    "name": "fanganid",
+    "id": "3224826787105495098"
+   },
+   "sort": 0,
+   "dtoType": "CUSTOM",
+   "udcApp": false,
+   "dataI18n": false
+  }
+ },
+ "caption": "1.10删除方案数据入参jSKa",
+ "fullName": "com.seeyon.datamigration8704025620829192834.dto.microflow.ScfasjrcjSKa",
+ "dtoType": "CUSTOM",
+ "udcApp": true,
+ "entity": null
+}

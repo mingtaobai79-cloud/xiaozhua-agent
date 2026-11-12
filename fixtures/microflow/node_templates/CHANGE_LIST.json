@@ -1,0 +1,45 @@
+{
+ "nodeId": "CHANGE_LIST_u3riRG",
+ "name": null,
+ "type": "ACTIVITY",
+ "caption": "修改变量(列表)",
+ "description": null,
+ "runAfter": null,
+ "input": null,
+ "output": null,
+ "isCompleted": true,
+ "actionType": "CHANGE_LIST",
+ "selectParam": {
+  "id": null,
+  "javaType": "java.lang.String",
+  "dataType": "STRING",
+  "type": "ARRAY",
+  "desc": "vList",
+  "name": "_CREATE_LIST_U7yqmc",
+  "position": "parent",
+  "outputName": "_CREATE_LIST_U7yqmc",
+  "description": "vList",
+  "nodeInfo": {
+   "nodeId": "CREATE_LIST_U7yqmc",
+   "type": "ACTIVITY",
+   "actionType": "CREATE_LIST"
+  }
+ },
+ "action": "ADD",
+ "dataSource": {
+  "id": null,
+  "javaType": "java.lang.String",
+  "dataType": "STRING",
+  "type": "OBJECT",
+  "desc": "vText",
+  "name": "_CREATE_VARIABLE_3eLmAb",
+  "position": "parent",
+  "outputName": "_CREATE_VARIABLE_3eLmAb",
+  "description": "vText",
+  "nodeInfo": {
+   "nodeId": "CREATE_VARIABLE_3eLmAb",
+   "type": "ACTIVITY",
+   "actionType": "CREATE_VARIABLE"
+  }
+ }
+}

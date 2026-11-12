@@ -1,0 +1,44 @@
+{
+ "nodeId": "CHANGE_BATCH_ENTITY_fqaCY3",
+ "name": null,
+ "type": "ACTIVITY",
+ "caption": "批量修改",
+ "description": null,
+ "runAfter": null,
+ "input": null,
+ "output": {
+  "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+  "javaType": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+  "dataType": "DTO",
+  "type": "ARRAY",
+  "desc": "小爪验收实体全量列表",
+  "appName": "datamigration8704025620829192834",
+  "dtoType": "MASTER_ENTITY",
+  "udcApp": true,
+  "relationEntity": "-2537349473285092530",
+  "name": "_CHANGE_BATCH_ENTITY_fqaCY3"
+ },
+ "isCompleted": true,
+ "actionType": "CHANGE_BATCH_ENTITY",
+ "selectParam": {
+  "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+  "javaType": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+  "dataType": "DTO",
+  "type": "ARRAY",
+  "desc": "小爪验收实体全量列表",
+  "appName": "datamigration8704025620829192834",
+  "dtoType": "MASTER_ENTITY",
+  "udcApp": true,
+  "relationEntity": "-2537349473285092530",
+  "name": "_RETRIEVE_ARRAY_YNzIUA",
+  "position": "parent",
+  "outputName": "_RETRIEVE_ARRAY_YNzIUA",
+  "description": "小爪验收实体全量列表",
+  "nodeInfo": {
+   "nodeId": "RETRIEVE_ARRAY_YNzIUA",
+   "type": "ACTIVITY",
+   "actionType": "RETRIEVE_ARRAY"
+  }
+ },
+ "title": "小爪验收实体全量列表"
+}

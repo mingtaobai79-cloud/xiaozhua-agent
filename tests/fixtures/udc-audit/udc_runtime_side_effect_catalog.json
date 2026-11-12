@@ -1,0 +1,8 @@
+{
+  "schema_version": "fixture.v1",
+  "artifact_version": "5.3.517",
+  "status": "PARTIALLY_VERIFIED",
+  "limitations": [
+    "Runtime cache/event side effects are not live-verified."
+  ]
+}

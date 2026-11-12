@@ -1,0 +1,48 @@
+{
+ "slice": "C-5",
+ "step": "step2-delete",
+ "env": "test2",
+ "app_id": "8704025620829192834",
+ "entity_id": "4796455827714164161",
+ "field": "zzprobeDecimal01",
+ "capture_method": "CDP Network.requestWillBeSent + Network.getResponseBody",
+ "note": "CDP 事件序列存档，未导出标准 HAR；每接口取本次操作最后一次请求/响应。",
+ "files": [
+  {
+   "file": "edit-lock.request.step2-delete.json",
+   "kind": "request",
+   "bytes": 462,
+   "sha256": "89d8df8f72410a439a50d55ae1b91a72f51504817e5c4e2f03212bcbf0126639"
+  },
+  {
+   "file": "edit-lock.response.step2-delete.json",
+   "kind": "response",
+   "bytes": 383,
+   "sha256": "be771b6fe873757c717af487b6d0cadae82bcfb03e6e8cd8c50a0bc89528587b"
+  },
+  {
+   "file": "save-batch.request.step2-delete.json",
+   "kind": "request",
+   "bytes": 98930,
+   "sha256": "6f666280a0a475c94c1f80aec292aee358d0f7f13668b92f1741e8c13691ab95"
+  },
+  {
+   "file": "save-batch.response.step2-delete.json",
+   "kind": "response",
+   "bytes": 104450,
+   "sha256": "d901f357827a3e469a7bee908e96b282c7f0089158f9adefc2bfd46008c4fb7d"
+  },
+  {
+   "file": "get-entity.request.step2-delete.json",
+   "kind": "request",
+   "bytes": 2127,
+   "sha256": "8d06a97362ce1869b1738a2bf594ac9eabf820c3fb2d6beeea7412fec61289d9"
+  },
+  {
+   "file": "get-entity.response.step2-delete.json",
+   "kind": "response",
+   "bytes": 97315,
+   "sha256": "f753d9b68f99f5c9f9921bf30fa3a54ad90079feb8e4464782ba6362517c8691"
+  }
+ ]
+}

@@ -1,0 +1,78 @@
+{
+  "schema": "udc.construction.entity.generation-contract.v1",
+  "status": "STATIC_RULE_CROSS_SAMPLE_OBSERVED",
+  "parameters": {
+    "application": "A",
+    "entity": "X"
+  },
+  "evidence": [
+    "../audit/p0-4-generated-contract-cross-sample.json",
+    "../audit/p0-4-generated-entity-contract-audit.md"
+  ],
+  "caveats": [
+    "Observed output contract only; generator causality UNKNOWN",
+    "Optional controllers and custom services are not core outputs"
+  ],
+  "outputs": [
+    {
+      "module": "facade",
+      "type": "dto",
+      "class": "XDto",
+      "package": "<package>.dto.XDto",
+      "required": true
+    },
+    {
+      "module": "facade",
+      "type": "api",
+      "class": "XAppService",
+      "package": "<package>.api.XAppService",
+      "required": true
+    },
+    {
+      "module": "biz",
+      "type": "entity",
+      "class": "X",
+      "package": "<package>.domain.entity.X",
+      "required": true
+    },
+    {
+      "module": "biz",
+      "type": "domain_service",
+      "class": "XService",
+      "package": "<package>.domain.service.XService",
+      "required": true
+    },
+    {
+      "module": "biz",
+      "type": "app_service_impl",
+      "class": "XAppServiceImpl",
+      "package": "<package>.appservice.XAppServiceImpl",
+      "required": true
+    },
+    {
+      "module": "biz",
+      "type": "dao",
+      "class": "<ApplicationStem>XDao",
+      "package": "<package>.domain.dao.<ApplicationStem>XDao",
+      "required": true
+    },
+    {
+      "module": "web",
+      "type": "abstract_controller",
+      "class": "AbstractXController",
+      "package": "<package>.controller.AbstractXController",
+      "required": false
+    },
+    {
+      "module": "web",
+      "type": "controller",
+      "class": "XController",
+      "package": "<package>.controller.XController",
+      "required": false
+    }
+  ],
+  "support": {
+    "application_count": 10,
+    "complete_core_entity_count": 813
+  }
+}

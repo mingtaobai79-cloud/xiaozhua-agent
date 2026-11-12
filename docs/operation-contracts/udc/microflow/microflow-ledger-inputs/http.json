@@ -1,0 +1,23 @@
+{
+  "note": "test2 活体只读探测（无凭据 2026-09-17T15:13Z + 带过期前有效 token 2026-09-18T16:03Z/17:21Z）。网关 service 名活体确证 = udc；微流程 C1/C2/C3 的控制器路径段在 test2 /service/udc/ 下 404 Whitelabel（部署态路由与本地 5.3.517 静态不一致，UNVERIFIED）。3 条 probe 均不判 PASS（A2 未 LIVE）。raw 见 live-evidence/ 双发 json。",
+  "probes": [
+    {
+      "label": "GET /service/udc/meta-data/select-function-node-tree/app9000000000000000001",
+      "http_status": 404,
+      "classification": "UNVERIFIED",
+      "detail": "Whitelabel Error Page (Spring no mapping /error fallback); 本地静态路径 udc-runtime/meta-data/... 在 test2 无该路由段"
+    },
+    {
+      "label": "GET /service/udc/datatype/getAll",
+      "http_status": 404,
+      "classification": "UNVERIFIED",
+      "detail": "Whitelabel Error Page; udc-runtime/datatype/getAll 部署态 404"
+    },
+    {
+      "label": "GET /service/udc/app-log/datalog/1",
+      "http_status": 404,
+      "classification": "UNVERIFIED",
+      "detail": "Whitelabel Error Page; udc-runtime/app-log/datalog/{id} 部署态 404"
+    }
+  ]
+}

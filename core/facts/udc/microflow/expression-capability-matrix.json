@@ -1,0 +1,580 @@
+{
+ "_meta": {
+  "source": "pmp_schemas.json 发布语料 643 条",
+  "generated": "2026-11-01",
+  "note": "三态=Simple/SelectParam/Expression；条件右值右三态=CONTEXT_VARIABLE/CONSTANT/EXPRESSION",
+  "scanner": "tools/core/expression/scan_capability_matrix.py",
+  "slot_kinds": {
+   "value_slots": "33 个值槽（Simple/SelectParam 两态为主；Expression 语料仅 END_NODE.value 1 条）",
+   "condition_right_slots": "3 个条件右值槽：RETRIEVE/RETRIEVE_ARRAY rightParams（CONSTANT/CONTEXT_VARIABLE/EXPRESSION）、FOR_EACH 内 conditions 右值",
+   "notable": "FOR.forStart 恒 Simple；forEnd Simple/SelectParam；CREATE_LIST.value[] 全 SelectParam"
+  }
+ },
+ "slots": {
+  "CALL_APP_SERVICE | attrs[].value": {
+   "counts": {
+    "Simple": 100,
+    "SelectParam": 235
+   },
+   "select_dataType": {
+    "BIGINTEGER": 136,
+    "ENTITY": 64,
+    "str": 59,
+    "bool": 41,
+    "STRING": 25,
+    "MAP": 6
+   },
+   "ref_output_prefix": {
+    "RETRIEVE": 78,
+    "CREATE": 73,
+    "FOR": 30,
+    "FLOW": 20
+   }
+  },
+  "CALL_APP_SERVICE | pageInfo": {
+   "counts": {
+    "SelectParam": 2
+   },
+   "select_dataType": {
+    "DTO": 2
+   },
+   "ref_output_prefix": {
+    "CREATE": 2
+   }
+  },
+  "CALL_APP_SERVICE | value": {
+   "counts": {
+    "SelectParam": 93
+   },
+   "select_dataType": {
+    "BIGINTEGER": 65,
+    "ENTITY": 17,
+    "STRING": 9,
+    "ATTACHMENT": 2
+   },
+   "ref_output_prefix": {
+    "FOR": 56,
+    "RETRIEVE": 15,
+    "FLOW": 15,
+    "LIST": 5
+   }
+  },
+  "CALL_DATA_FLOW | condition[].conditions[].rightParams[]": {
+   "counts": {
+    "CONTEXT_VARIABLE": 1
+   },
+   "select_dataType": {},
+   "ref_output_prefix": {}
+  },
+  "CHANGE_ENTITY | attrs[].value": {
+   "counts": {
+    "Simple": 5,
+    "SelectParam": 86
+   },
+   "select_dataType": {
+    "ENTITY": 32,
+    "STRING": 23,
+    "DTO": 22,
+    "CTPENUM": 6,
+    "bool": 5,
+    "DECIMAL": 3
+   },
+   "ref_output_prefix": {
+    "RETRIEVE": 31,
+    "CREATE": 23,
+    "FLOW": 12,
+    "LIST": 10
+   }
+  },
+  "CHANGE_VARIABLE | attrs[].value": {
+   "counts": {
+    "SelectParam": 1531,
+    "Simple": 763
+   },
+   "select_dataType": {
+    "str": 490,
+    "STRING": 488,
+    "DTO": 317,
+    "DECIMAL": 243,
+    "BIGINTEGER": 131,
+    "ENTITY": 119
+   },
+   "ref_output_prefix": {
+    "RETRIEVE": 761,
+    "CREATE": 375,
+    "LIST": 151,
+    "SUB": 73
+   }
+  },
+  "CHANGE_VARIABLE | mapping[].value": {
+   "counts": {
+    "SelectParam": 72
+   },
+   "select_dataType": {
+    "STRING": 56,
+    "CTPENUM": 8,
+    "ENUM": 4,
+    "BIGINTEGER": 4
+   },
+   "ref_output_prefix": {
+    "FOR": 72
+   }
+  },
+  "CHANGE_VARIABLE | value": {
+   "counts": {
+    "SelectParam": 808,
+    "Simple": 825
+   },
+   "select_dataType": {
+    "bool": 486,
+    "str": 312,
+    "STRING": 281,
+    "BIGINTEGER": 237,
+    "ENTITY": 135,
+    "DECIMAL": 78
+   },
+   "ref_output_prefix": {
+    "RETRIEVE": 334,
+    "FOR": 147,
+    "LIST": 112,
+    "SUB": 103
+   }
+  },
+  "CREATE_ENTITY | attrs[].value": {
+   "counts": {
+    "SelectParam": 339,
+    "Simple": 44
+   },
+   "select_dataType": {
+    "STRING": 244,
+    "str": 44,
+    "DATETIME": 23,
+    "BIGINTEGER": 21,
+    "CTPENUM": 15,
+    "DTO": 15
+   },
+   "ref_output_prefix": {
+    "RETRIEVE": 135,
+    "LIST": 123,
+    "FLOW": 29,
+    "CREATE": 15
+   }
+  },
+  "CREATE_ENTITY | value": {
+   "counts": {
+    "SelectParam": 48
+   },
+   "select_dataType": {
+    "DTO": 48
+   },
+   "ref_output_prefix": {
+    "CREATE": 33,
+    "SUB": 10,
+    "FLOW": 4,
+    "LIST": 1
+   }
+  },
+  "CREATE_LIST | value[]": {
+   "counts": {
+    "SelectParam": 74
+   },
+   "select_dataType": {
+    "DTO": 64,
+    "STRING": 7,
+    "BIGINTEGER": 3
+   },
+   "ref_output_prefix": {
+    "RETRIEVE": 39,
+    "BUSINESS": 13,
+    "FLOW": 9,
+    "CREATE": 7
+   }
+  },
+  "CREATE_MAP | entries[].key": {
+   "counts": {
+    "Simple": 20
+   },
+   "select_dataType": {
+    "str": 20
+   },
+   "ref_output_prefix": {}
+  },
+  "CREATE_MAP | entries[].value": {
+   "counts": {
+    "SelectParam": 19,
+    "Simple": 1
+   },
+   "select_dataType": {
+    "STRING": 10,
+    "ENTITY": 5,
+    "DTO": 2,
+    "DATE": 1,
+    "str": 1,
+    "BIGINTEGER": 1
+   },
+   "ref_output_prefix": {
+    "RETRIEVE": 17,
+    "CREATE": 2
+   }
+  },
+  "CREATE_VARIABLE | attrs[].value": {
+   "counts": {
+    "SelectParam": 1853,
+    "Simple": 398
+   },
+   "select_dataType": {
+    "STRING": 1134,
+    "DECIMAL": 265,
+    "str": 242,
+    "BIGINTEGER": 128,
+    "int": 106,
+    "ENTITY": 56
+   },
+   "ref_output_prefix": {
+    "FOR": 730,
+    "RETRIEVE": 520,
+    "LIST": 257,
+    "CREATE": 151
+   }
+  },
+  "CREATE_VARIABLE | mapping[].value": {
+   "counts": {
+    "SelectParam": 3498,
+    "Simple": 29
+   },
+   "select_dataType": {
+    "STRING": 1543,
+    "DECIMAL": 564,
+    "CTPENUM": 324,
+    "ENTITY": 311,
+    "DTO": 204,
+    "BIGINTEGER": 129
+   },
+   "ref_output_prefix": {
+    "RETRIEVE": 1568,
+    "FOR": 1357,
+    "CREATE": 459,
+    "LIST": 114
+   }
+  },
+  "CREATE_VARIABLE | value": {
+   "counts": {
+    "SelectParam": 154,
+    "Simple": 212
+   },
+   "select_dataType": {
+    "int": 77,
+    "bool": 73,
+    "str": 62,
+    "STRING": 61,
+    "DTO": 60,
+    "BIGINTEGER": 14
+   },
+   "ref_output_prefix": {
+    "RETRIEVE": 63,
+    "FOR": 32,
+    "SUB": 26,
+    "FLOW": 13
+   }
+  },
+  "CUSTOM_ERROR | error": {
+   "counts": {
+    "Simple": 69,
+    "SelectParam": 6
+   },
+   "select_dataType": {
+    "str": 69,
+    "STRING": 6
+   },
+   "ref_output_prefix": {
+    "RETRIEVE": 6
+   }
+  },
+  "DELETE_ENTITY | condition[].conditions[].rightParams[]": {
+   "counts": {
+    "EXPRESSION": 2,
+    "CONTEXT_VARIABLE": 9
+   },
+   "select_dataType": {
+    "expression": 2
+   },
+   "ref_output_prefix": {}
+  },
+  "END_NODE | attrs[].value": {
+   "counts": {
+    "SelectParam": 44
+   },
+   "select_dataType": {
+    "STRING": 23,
+    "DTO": 9,
+    "BOOLEAN": 5,
+    "DECIMAL": 3,
+    "BIGINTEGER": 2,
+    "DATE": 2
+   },
+   "ref_output_prefix": {
+    "CREATE": 28,
+    "RETRIEVE": 11,
+    "LIST": 3,
+    "CONVERT": 2
+   }
+  },
+  "END_NODE | pageInfo": {
+   "counts": {
+    "SelectParam": 3
+   },
+   "select_dataType": {
+    "DTO": 3
+   },
+   "ref_output_prefix": {
+    "CREATE": 3
+   }
+  },
+  "END_NODE | value": {
+   "counts": {
+    "SelectParam": 303,
+    "Expression": 1,
+    "Simple": 4
+   },
+   "select_dataType": {
+    "DTO": 120,
+    "BOOLEAN": 61,
+    "STRING": 61,
+    "BIGINTEGER": 45,
+    "DECIMAL": 9,
+    "bool": 4
+   },
+   "ref_output_prefix": {
+    "CREATE": 207,
+    "RETRIEVE": 62,
+    "SUB": 18,
+    "LIST": 11
+   }
+  },
+  "FOR | forEnd": {
+   "counts": {
+    "Simple": 5,
+    "SelectParam": 38
+   },
+   "select_dataType": {
+    "INTEGER": 38,
+    "int": 5
+   },
+   "ref_output_prefix": {
+    "other": 22,
+    "RETRIEVE": 6,
+    "LIST": 6,
+    "CREATE": 4
+   }
+  },
+  "FOR | forStart": {
+   "counts": {
+    "Simple": 42
+   },
+   "select_dataType": {
+    "int": 42
+   },
+   "ref_output_prefix": {}
+  },
+  "LIST_OPERATION | indexValue": {
+   "counts": {
+    "Simple": 63,
+    "SelectParam": 88
+   },
+   "select_dataType": {
+    "INTEGER": 88,
+    "int": 63
+   },
+   "ref_output_prefix": {
+    "CREATE": 80,
+    "FOR": 8
+   }
+  },
+  "MAP_OPERATION | entries[].key": {
+   "counts": {
+    "SelectParam": 48
+   },
+   "select_dataType": {
+    "STRING": 48
+   },
+   "ref_output_prefix": {
+    "FOR": 48
+   }
+  },
+  "MAP_OPERATION | entries[].value": {
+   "counts": {
+    "SelectParam": 48
+   },
+   "select_dataType": {
+    "STRING": 48
+   },
+   "ref_output_prefix": {
+    "MAP": 24,
+    "CREATE": 24
+   }
+  },
+  "MAP_OPERATION | theKey": {
+   "counts": {
+    "SelectParam": 42
+   },
+   "select_dataType": {
+    "STRING": 36,
+    "BIGINTEGER": 6
+   },
+   "ref_output_prefix": {
+    "FOR": 23,
+    "LIST": 8,
+    "CREATE": 5,
+    "RETRIEVE": 4
+   }
+  },
+  "PUBLISH_BUSINESS_EVENT | attrs[].value": {
+   "counts": {
+    "SelectParam": 75
+   },
+   "select_dataType": {
+    "BIGINTEGER": 36,
+    "DTO": 36,
+    "STRING": 3
+   },
+   "ref_output_prefix": {
+    "CREATE": 36,
+    "BUSINESS": 20,
+    "RETRIEVE": 12,
+    "LIST": 7
+   }
+  },
+  "PUBLISH_BUSINESS_EVENT | executeTime": {
+   "counts": {
+    "SelectParam": 5
+   },
+   "select_dataType": {
+    "DATETIME": 5
+   },
+   "ref_output_prefix": {
+    "CREATE": 5
+   }
+  },
+  "RETRIEVE | condition[].conditions[].conditions[].rightParams[]": {
+   "counts": {
+    "CONSTANT": 11
+   },
+   "select_dataType": {
+    "const": 11
+   },
+   "ref_output_prefix": {}
+  },
+  "RETRIEVE | condition[].conditions[].rightParams[]": {
+   "counts": {
+    "EXPRESSION": 133,
+    "CONTEXT_VARIABLE": 743,
+    "CONSTANT": 220
+   },
+   "select_dataType": {
+    "const": 220,
+    "expression": 133
+   },
+   "ref_output_prefix": {}
+  },
+  "RETRIEVE | value": {
+   "counts": {
+    "SelectParam": 530
+   },
+   "select_dataType": {
+    "BIGINTEGER": 342,
+    "ENTITY": 188
+   },
+   "ref_output_prefix": {
+    "FOR": 141,
+    "FLOW": 138,
+    "RETRIEVE": 123,
+    "LIST": 55
+   }
+  },
+  "RETRIEVE_ARRAY | condition[].conditions[].conditions[].rightParams[]": {
+   "counts": {
+    "CONSTANT": 79,
+    "CONTEXT_VARIABLE": 24
+   },
+   "select_dataType": {
+    "const": 79
+   },
+   "ref_output_prefix": {}
+  },
+  "RETRIEVE_ARRAY | condition[].conditions[].rightParams[]": {
+   "counts": {
+    "CONSTANT": 177,
+    "CONTEXT_VARIABLE": 315,
+    "EXPRESSION": 106
+   },
+   "select_dataType": {
+    "const": 177,
+    "expression": 106
+   },
+   "ref_output_prefix": {}
+  },
+  "RETRIEVE_ARRAY | pageInfo": {
+   "counts": {
+    "SelectParam": 76
+   },
+   "select_dataType": {
+    "DTO": 76
+   },
+   "ref_output_prefix": {
+    "other": 60,
+    "CREATE": 16
+   }
+  },
+  "RETRIEVE_ARRAY | value": {
+   "counts": {
+    "SelectParam": 49
+   },
+   "select_dataType": {
+    "BIGINTEGER": 49
+   },
+   "ref_output_prefix": {
+    "LIST": 29,
+    "CONVERT": 10,
+    "FLOW": 9,
+    "CREATE": 1
+   }
+  },
+  "SUB_MICROFLOW | attrs[].value": {
+   "counts": {
+    "SelectParam": 535,
+    "Simple": 160
+   },
+   "select_dataType": {
+    "STRING": 405,
+    "str": 117,
+    "DTO": 57,
+    "BIGINTEGER": 52,
+    "bool": 28,
+    "int": 15
+   },
+   "ref_output_prefix": {
+    "RETRIEVE": 335,
+    "FLOW": 56,
+    "FOR": 45,
+    "LIST": 43
+   }
+  },
+  "SUB_MICROFLOW | value": {
+   "counts": {
+    "SelectParam": 421
+   },
+   "select_dataType": {
+    "STRING": 166,
+    "BIGINTEGER": 146,
+    "DTO": 101,
+    "DATETIME": 8
+   },
+   "ref_output_prefix": {
+    "RETRIEVE": 99,
+    "CREATE": 84,
+    "FOR": 78,
+    "FLOW": 51
+   }
+  }
+ }
+}

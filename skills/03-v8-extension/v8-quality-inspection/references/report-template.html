@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>代码审计报告</title>
+<style>
+:root{
+  --ink:#0f172a; --ink2:#334155; --ink3:#64748b;
+  --line:#e2e8f0; --bg:#f4f7fb; --card:#fff;
+  --brand:#1e4b86; --brand2:#3b6fb0; --soft:#eef4fb;
+  --critical:#c0392b; --high:#e8730c; --midhigh:#d97706; --mid:#eab308; --low:#3b82f6; --info:#94a3b8;
+  --radius:14px;
+  --shadow:0 1px 2px rgba(15,23,42,.04), 0 10px 28px rgba(15,23,42,.06);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;font-size:15px;line-height:1.75}
+.cover{background:linear-gradient(180deg,#f7fbff 0%,#e7f1fb 100%);color:var(--brand);border-bottom:1px solid #d5e4f2;padding:48px 56px 36px}
+.cover-inner{max-width:1180px;margin:0 auto}
+.tagline{display:inline-block;font-size:12px;letter-spacing:.16em;padding:5px 12px;border:1px solid #c5d8ee;border-radius:999px;background:#fff;color:var(--brand2)}
+.cover h1{margin:16px 0 8px;font-size:32px;line-height:1.3;color:#163a66}
+.cover .sub{color:var(--ink2);font-size:15px}
+.verdict{display:inline-flex;align-items:center;gap:10px;margin-top:16px;background:#fff;border:1px solid #d5e4f2;border-radius:12px;padding:10px 16px;color:var(--ink);font-size:15px}
+.dot{width:9px;height:9px;border-radius:50%;background:#e11d48;box-shadow:0 0 0 4px rgba(225,29,72,.15)}
+.dot.ok{background:#16a34a;box-shadow:0 0 0 4px rgba(22,163,74,.15)}
+.meta{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:18px;color:var(--ink2);font-size:13.5px}
+.meta b{color:var(--ink3);font-weight:600;margin-right:6px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px 80px}
+.overview{margin-top:-28px;position:relative;z-index:2}
+.kpis{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+.kpi{background:#fff;border-radius:14px;padding:16px 10px 12px;text-align:center;box-shadow:var(--shadow);border-top:4px solid var(--c)}
+.kpi-n{font-size:30px;font-weight:750;color:var(--c);line-height:1.1;font-variant-numeric:tabular-nums}
+.kpi-t{font-size:12.5px;color:var(--ink3);margin-top:4px}
+.panels{display:grid;grid-template-columns:1.45fr .9fr;gap:16px;margin-top:16px}
+.panel{background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:20px 22px}
+.panel h3{margin:0 0 16px;font-size:15px;color:var(--brand);padding-left:10px;border-left:4px solid var(--brand2)}
+.mrow{margin-bottom:16px}
+.mname{display:flex;justify-content:space-between;font-size:13.5px;color:var(--ink2);margin-bottom:6px}
+.mname b{color:var(--brand);font-variant-numeric:tabular-nums}
+.mbar{display:flex;height:12px;border-radius:999px;overflow:hidden;background:#eef2f7}
+.seg{display:block;min-width:0}
+.mlegend{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px;font-size:12px;color:var(--ink3)}
+.lg i,.dl i{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:4px}
+.donut-wrap{display:flex;align-items:center;gap:22px}
+.donut{width:148px;height:148px;border-radius:50%;position:relative;flex:none}
+.donut::after{content:"";position:absolute;inset:28px;background:#fff;border-radius:50%}
+.donut-c{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:1}
+.donut-c b{font-size:26px;color:var(--brand);line-height:1}
+.donut-c span{font-size:12px;color:var(--ink3)}
+.dl{display:flex;flex-direction:column;gap:8px;font-size:13px;flex:1}
+.dli{display:flex;align-items:center}
+.dli span{flex:1}
+.dli b{margin-right:8px;font-variant-numeric:tabular-nums}
+.dli em{font-style:normal;color:var(--ink3);min-width:48px;text-align:right}
+.layout{display:grid;grid-template-columns:250px minmax(0,1fr);gap:22px;align-items:start;margin-top:22px}
+.sidebar{position:sticky;top:16px}
+.sidebar-inner{background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:16px 12px;max-height:calc(100vh - 32px);overflow:auto}
+.sidebar h4{margin:0 0 8px;font-size:12px;letter-spacing:.14em;color:var(--ink3)}
+.toc-l2,.toc-l3{display:block;text-decoration:none;border-radius:8px;padding:6px 8px}
+.toc-l2{color:var(--ink);font-weight:650;margin-top:6px}
+.toc-l3{color:var(--ink3);font-size:13px;padding-left:16px}
+.toc-l2:hover,.toc-l3:hover,.toc-l2.is-current,.toc-l3.is-current{background:var(--soft);color:var(--brand2)}
+.content{background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:36px 40px 48px;min-width:0;overflow:hidden}
+.content h2{font-size:18px;color:#163a66;margin:36px 0 14px;padding-bottom:8px;border-bottom:1px solid var(--line);scroll-margin-top:18px}
+.content h3{font-size:16px;color:var(--brand);margin:26px 0 10px;padding-left:10px;border-left:4px solid var(--brand2);scroll-margin-top:18px}
+.content h4{font-size:15px;margin:22px 0 8px;scroll-margin-top:18px}
+.content p,.content li{color:var(--ink2)}
+.content .table-wrap{width:100%;overflow:auto;margin:14px 0 18px}
+.content table{width:100%;border-collapse:collapse;margin:0;font-size:13.5px;table-layout:fixed}
+.content th{background:#eef4fb;color:#163a66;text-align:left;padding:10px 12px;white-space:normal}
+.content td{padding:10px 12px;border-top:1px solid var(--line);vertical-align:top;white-space:normal;overflow-wrap:anywhere;word-break:break-word}
+.content tr:nth-child(even) td{background:#fafbfd}
+.sev{display:inline-block;color:#fff;font-size:12px;font-weight:700;border-radius:6px;padding:1px 8px;margin:0 6px;vertical-align:middle}
+.sev-critical{background:var(--critical)}.sev-high{background:var(--high)}.sev-midhigh{background:var(--midhigh)}.sev-mid{background:var(--mid);color:#3f2e04}.sev-low{background:var(--low)}.sev-info{background:var(--info)}
+.content code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:12.5px;background:#f1f5f9;padding:1px 5px;border-radius:4px}
+.content pre{background:#102033;color:#e2e8f0;border-radius:10px;padding:14px 16px;overflow:auto}
+.content pre code{background:none;color:inherit;padding:0}
+.footer{max-width:1180px;margin:0 auto 28px;color:var(--ink3);font-size:12.5px;padding:0 24px}
+@media(max-width:980px){.kpis{grid-template-columns:repeat(3,1fr)}.panels,.layout{grid-template-columns:1fr}.sidebar{position:static}}
+</style>
+</head>
+<body>
+<header class="cover"><div class="cover-inner">
+  <div class="tagline">V8 CODE AUDIT</div>
+  <h1>报告标题</h1>
+  <div class="sub">模块甲 · 模块乙　|　约 0 个文件 / 0 行</div>
+  <div class="verdict"><i class="dot"></i><span>审计已完成　共 0 项发现，其中 P0 发版阻断 0 项</span></div>
+  <div class="meta">
+    <div><b>审计对象</b>相对路径</div>
+    <div><b>审计日期</b>YYYY-MM-DD</div>
+    <div><b>验证级别</b>OWASP ASVS L2</div>
+    <div><b>标准映射</b>OWASP Top 10:2025 · CWE Top 25 · OWASP API Security 2023</div>
+  </div>
+</div></header>
+<div class="wrap">
+  <section class="overview">
+    <div class="kpis">
+      <div class="kpi" style="--c:#1e4b86"><div class="kpi-n">0</div><div class="kpi-t">发现</div></div>
+      <div class="kpi" style="--c:#c0392b"><div class="kpi-n">0</div><div class="kpi-t">严重</div></div>
+      <div class="kpi" style="--c:#e8730c"><div class="kpi-n">0</div><div class="kpi-t">高</div></div>
+      <div class="kpi" style="--c:#eab308"><div class="kpi-n">0</div><div class="kpi-t">中</div></div>
+      <div class="kpi" style="--c:#3b82f6"><div class="kpi-n">0</div><div class="kpi-t">低</div></div>
+      <div class="kpi" style="--c:#94a3b8"><div class="kpi-n">0</div><div class="kpi-t">信息</div></div>
+    </div>
+    <div class="panels">
+      <div class="panel">
+        <h3>模块 × 严重性分布</h3>
+        <div class="mrow">
+          <div class="mname">模块名<b>17</b></div>
+          <div class="mbar">
+            <span class="seg" style="flex:1 0 0;background:#c0392b"></span>
+            <span class="seg" style="flex:2 0 0;background:#e8730c"></span>
+            <span class="seg" style="flex:6 0 0;background:#eab308"></span>
+            <span class="seg" style="flex:8 0 0;background:#3b82f6"></span>
+          </div>
+          <div class="mlegend"><span class="lg"><i style="background:#c0392b"></i>严重 1</span><span class="lg"><i style="background:#e8730c"></i>高 2</span><span class="lg"><i style="background:#eab308"></i>中 6</span><span class="lg"><i style="background:#3b82f6"></i>低 8</span></div>
+        </div>
+      </div>
+      <div class="panel">
+        <h3>审计维度分布</h3>
+        <div class="donut-wrap">
+          <div class="donut" style="background:conic-gradient(#c0392b 0 40%, #1d4ed8 40% 75%, #0d9488 75% 100%)"><div class="donut-c"><b>0</b><span>项发现</span></div></div>
+          <div class="dl">
+            <div class="dli"><i style="background:#c0392b"></i><span>安全 SEC</span><b>0</b><em>0%</em></div>
+            <div class="dli"><i style="background:#1d4ed8"></i><span>功能 FUNC</span><b>0</b><em>0%</em></div>
+            <div class="dli"><i style="background:#0d9488"></i><span>性能 PERF</span><b>0</b><em>0%</em></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="layout">
+    <aside class="sidebar"><div class="sidebar-inner">
+      <h4>报告目录</h4>
+      <a class="toc-l2" href="#s1">一、发现总览</a>
+      <a class="toc-l3" href="#s1-1">1.1 严重性统计矩阵</a>
+      <a class="toc-l3" href="#s1-3">1.3 Top 风险（发版阻断项 P0）</a>
+      <a class="toc-l2" href="#s2">二、模块甲（17 项）</a>
+      <a class="toc-l3" href="#s2-high">2.1 严重/高危（3）</a>
+      <a class="toc-l3" href="#s2-mid">2.2 中（6）</a>
+      <a class="toc-l3" href="#s2-low">2.3 低（8）</a>
+      <a class="toc-l3" href="#s2-info">2.4 信息（1）</a>
+      <a class="toc-l3" href="#s2-good">2.5 积极发现</a>
+      <a class="toc-l2" href="#s3">三、模块乙（10 项）</a>
+      <a class="toc-l3" href="#s3-high">3.1 高危（1）</a>
+    </div></aside>
+    <article class="content">
+      <h2 id="s1">一、发现总览</h2>
+      <h3 id="s1-1">1.1 严重性统计矩阵</h3>
+      <h3 id="s1-3">1.3 Top 风险（发版阻断项 P0）</h3>
+      <div class="table-wrap"><table>
+        <colgroup><col style="width:14%"><col style="width:12%"><col style="width:28%"><col style="width:34%"><col style="width:12%"></colgroup>
+        <thead><tr><th>编号</th><th>模块</th><th>位置</th><th>问题</th><th>CVSS</th></tr></thead>
+        <tbody><tr><td>SEC-001</td><td>模块</td><td>path/File.java:19</td><td>一句话问题，不写长段落。</td><td>7.5</td></tr></tbody>
+      </table></div>
+      <h2 id="s2">二、模块甲（17 项）</h2>
+      <h3 id="s2-high">2.1 严重/高危（3）</h3>
+      <h4>SEC-001<span class="sev sev-high">高</span>短标题</h4>
+      <ul>
+        <li><strong>位置</strong>：相对路径:行号</li>
+        <li><strong>证据</strong>：</li>
+      </ul>
+      <pre><code>代码片段</code></pre>
+      <ul>
+        <li><strong>影响</strong>：人话说明会怎样。</li>
+        <li><strong>标准映射</strong>：OWASP A01:2025；CWE-639</li>
+        <li><strong>修复</strong>：直接写该补什么。</li>
+        <li><strong>运行时验证</strong>：怎样复测。</li>
+      </ul>
+    </article>
+  </div>
+</div>
+<div class="footer">报告标题 · 只读静态审计，未修改任何被审计文件 · 所有发现均附源码行号</div>
+<script>
+(function(){
+  var links=[].slice.call(document.querySelectorAll(".sidebar-inner a"));
+  var heads=links.map(function(a){return document.getElementById(a.getAttribute("href").slice(1));});
+  function onScroll(){
+    var y=window.scrollY+90, idx=0;
+    heads.forEach(function(h,i){ if(h && h.offsetTop<=y) idx=i; });
+    links.forEach(function(a,i){ a.classList.toggle("is-current", i===idx); });
+  }
+  window.addEventListener("scroll", onScroll, {passive:true});
+  onScroll();
+})();
+</script>
+</body>
+</html>

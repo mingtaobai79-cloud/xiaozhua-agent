@@ -1,0 +1,42 @@
+# seeyon-agent 基础设施清单 v1 —— 数据库 / Redis / 存储 / Nacos 等公用设施
+# 铁律: 这里只登记"有什么、怎么连(引用键)", 具体连接值按环境覆盖; 值可来自环境变量/仓外文件, 永不入 git
+# 解析顺序: infra.yaml 键 -> environments.yaml 环境覆盖 -> 运行时注入(env/凭据文件)
+
+defaults:
+  mysql:
+    driver: pymysql
+    connect_timeout_s: 10
+    read_only: true                # agent 取证默认只读; 写必须走策略门
+    note: 只允许 information_schema/元数据/按 application_id 取证查询
+  redis:
+    mode: readonly                 # 只允许 PING/SCAN/TYPE/TTL, 禁 KEYS */写
+    connect_timeout_s: 5
+  nacos:
+    api_version: auto              # v1/v2 自动探测(曾把 v2 实例当 v1 打全 404, 见 microflow/live-evidence/nacos-v2-probe.md)
+    read_only: true
+    note: namespace/dataId 按 application_id 推导, 不猜; 连不上标 BLOCKED 不臆测
+  storage:
+    kind: auto                     # oss/minio/local 由环境覆盖
+    read_only: true
+
+# 按环境覆盖(键与 environments.yaml 的 environments 对齐)
+environments:
+  local-maven: {}                   # 离线取证环境, 无基础设施
+  test2:
+    mysql:
+      host_ref: test2.mysql.host    # 值走运行时注入(env/Nacos推导/人工), 这里只留引用键
+      port: 3306
+      database_ref: test2.lowcode
+      credential_ref: test2-mysql
+    redis:
+      host_ref: test2.redis.host
+      port: 6379
+      credential_ref: test2-redis
+    nacos:
+      host_ref: test2.nacos.host
+      port: 8848
+      credential_ref: test2-nacos
+      note: 真实地址/凭据曾从部署态取到过; 刷新仍需人工或部署态只读取证
+    storage:
+      kind: TBD
+      note: 尚未取证, 取到后补 kind/bucket

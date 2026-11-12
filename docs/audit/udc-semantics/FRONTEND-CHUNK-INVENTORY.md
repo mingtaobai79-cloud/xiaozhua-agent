@@ -1,0 +1,325 @@
+# UDC 设计器前端全量 chunk 盘点 + 页面功能地图
+
+> 日期：2026-10-13 | 来源：test2 `udc/remoteEntry.js`（166 chunk）→ OSS 全量下载 158/166
+> 方法：`GET /udc/remoteEntry.js` 解析 `_.u(e)` 三元链 → cookie 鉴权下载 → wakaru 解包 → 抽取
+> chunk：158 个（8 个 .less CSS 404）
+
+## 1. 页面组清单（从 chunk 名读出，非推断）
+
+| 页面组 | chunk 数 |
+|---|---|
+| analytic-statistics | 1 |
+| app-home | 2 |
+| basic-info | 1 |
+| basic-setting | 1 |
+| business-rules | 1 |
+| cip-rpa | 1 |
+| entity-modeling | 5 |
+| excute-log | 1 |
+| extension-plan | 2 |
+| flow | 1 |
+| page-manage | 5 |
+| page-rules | 1 |
+| role-permission | 1 |
+| rule | 8 |
+| template-manage | 1 |
+| theme-configuration | 1 |
+
+## 2. 前端 op 注册表（store chunk）
+
+store chunk 内 udcMutationLoader fieldType 共 **291** 个唯一 op。
+每个 op 带 paramsType / paramsKey / queryFields（第三约定 契约）。
+
+| op | paramsType | paramsKey |
+|---|---|---|
+| `appCommonSystemConfigSystemConfigGet` | — | — |
+| `appCommonThemeSelectDefaultBrandPost` | appCommonThemeSelectDefaultBrandPostInputBody | body |
+| `bpmSystemSettingListGet` | — | — |
+| `cdpDataUdcPortletReportAppListPost` | cdpDataUdcPortletReportAppListPostInputBody | body |
+| `mainFileDownloadUrlGet` | mainFileDownloadUrlGetInputQuery | query |
+| `portalPortalSpaceGet` | portalPortalSpaceGetInputPath | path |
+| `portalTemplateImageDataPost` | portalTemplateImageDataPostInputBody | body |
+| `udcAffairDeletePost` | udcAffairDeletePostInputBody | body |
+| `udcAffairGet` | udcAffairGetInputPath | path |
+| `udcAffairListPost` | udcAffairListPostInputBody | body |
+| `udcAffairPost` | udcAffairPostInputBody | body |
+| `udcAffairUpdatePost` | udcAffairUpdatePostInputBody | body |
+| `udcApplicationAppVersionAppGuidPost` | udcApplicationAppVersionAppGuidPostInputPath | path |
+| `udcApplicationCopyGet` | udcApplicationCopyGetInputPath | path |
+| `udcApplicationDeleteByGuidPost` | udcApplicationDeleteByGuidPostInputBody | body |
+| `udcApplicationDeletePost` | udcApplicationDeletePostInputBody | body |
+| `udcApplicationDependentApplicationCreateBatchPost` | — | body |
+| `udcApplicationDependentApplicationDeleteByIdPost` | udcApplicationDependentApplicationDeleteByIdPostInputBody | body |
+| `udcApplicationDependentApplicationSelectByConditionPost` | udcApplicationDependentApplicationSelectByConditionPostInputBody | body |
+| `udcApplicationDependentApplicationVersionUpdateBatchPost` | udcApplicationDependentApplicationVersionUpdateBatchPostInputBody | body |
+| `udcApplicationDependentApplicationVersionUpdatePost` | udcApplicationDependentApplicationVersionUpdatePostInputBody | body |
+| `udcApplicationDetailGet` | udcApplicationDetailGetInputPath | path |
+| `udcApplicationFetchLastVersionMetadataPost` | udcApplicationFetchLastVersionMetadataPostInputBody | body |
+| `udcApplicationGet` | udcApplicationGetInputPath | path |
+| `udcApplicationImportNewPost` | udcApplicationImportNewPostInputBody | body |
+| `udcApplicationImportOtherAppZipPost` | udcApplicationImportOtherAppZipPostInputBody | body |
+| `udcApplicationIsLastVersionAppGet` | udcApplicationIsLastVersionAppGetInputPath | path |
+| `udcApplicationMultiVersionPost` | udcApplicationMultiVersionPostInputBody | body |
+| `udcApplicationPost` | udcApplicationPostInputBody | body |
+| `udcApplicationRenewalAppEditingTimeGet` | udcApplicationRenewalAppEditingTimeGetInputPath | path |
+| `udcApplicationSaveAsPost` | udcApplicationSaveAsPostInputBody | body |
+| `udcApplicationSchemaDownloadIdPost` | udcApplicationSchemaDownloadIdPostInputPath | path |
+| `udcApplicationSearchNewWithVersionListPost` | udcApplicationSearchNewWithVersionListPostInputBody | body |
+| `udcApplicationSearchPageByGuidPost` | udcApplicationSearchPageByGuidPostInputBody | body |
+| `udcApplicationTransferParamPost` | udcApplicationTransferParamPostInputBody | body |
+| `udcApplicationUpdatePost` | udcApplicationUpdatePostInputBody | body |
+| `udcApplicationVersionPlatformGet` | udcApplicationVersionPlatformGetInputBody | — |
+| `udcApplicationVersionPlatformServiceGet` | udcApplicationVersionPlatformServiceGetInputBody | path |
+| `udcAttributeGroupEntityGet` | udcAttributeGroupEntityGetInputPath | path |
+| `udcAttributeGroupOperateBatchPost` | udcAttributeGroupOperateBatchPostInputBody | body |
+| `udcAttributeSetDeletePost` | udcAttributeSetDeletePostInputBody | body |
+| `udcAttributeSetPost` | udcAttributeSetPostInputBody | body |
+| `udcAttributeSetSearchTermPost` | udcAttributeSetSearchTermPostInputBody | body |
+| `udcAttributeSetSelectByAppidPost` | udcAttributeSetSelectByAppidPostInputBody | body |
+| `udcAttributeSetSelectByNameAttributesPost` | udcAttributeSetSelectByNameAttributesPostInputBody | body |
+| `udcAttributeSetUpdatePost` | udcAttributeSetUpdatePostInputBody | body |
+| `udcBackendComponentDependentIdDefaultLastVersionGet` | udcBackendComponentDependentIdDefaultLastVersionGetInputPath | path |
+| `udcBackendComponentSearchAppPost` | udcBackendComponentSearchAppPostInputBody | body |
+| `udcCollaborationMembersPost` | udcCollaborationMembersPostInputBody | body |
+| `udcConditionCheckPost` | udcMicroflowSearchEnumByAppNamePostInputBody | body |
+| `udcCtpManagerTransferSelectGet` | udcBackendComponentSearchAppPostInputBody | — |
+| `udcDataFlowDeleteContentPost` | udcDataFlowDeleteContentPostInputBody | body |
+| `udcDataFlowEntityNotExistIdsPost` | udcDataFlowEntityNotExistIdsPostInputBody | body |
+| `udcDataFlowListApplicationAppGet` | udcDataFlowListApplicationAppGetInputPath | path |
+| `udcDataFlowListEventEntityPost` | udcDataFlowListEventEntityPostInputBody | body |
+| `udcDataFlowListEventsPost` | udcDataFlowListEventsPostInputBody | body |
+| `udcDataTransferObjectCreateDtoPost` | udcDataTransferObjectCreateDtoPostInputBody | body |
+| `udcDataTransferObjectCreateDtoWithAttrsPost` | — | body |
+| `udcDataTransferObjectDeleteDtoWithAttrsPost` | udcDataTransferObjectDeleteDtoWithAttrsPostInputBody | body |
+| `udcDataTransferObjectDeletePost` | udcDataTransferObjectDeletePostInputBody | body |
+| `udcDataTransferObjectGet` | udcDataTransferObjectGetInputPath | path |
+| `udcDataTransferObjectSearchByMicroFlowIdMicroFlowGet` | udcDataTransferObjectSearchByMicroFlowIdMicroFlowGetInputPath | path |
+| `udcDataTransferObjectSearchListPost` | udcDataTransferObjectSearchListPostInputBody | body |
+| `udcDataTransferObjectSearchMicroFlowCustomDtoAppGet` | udcDataTransferObjectSearchMicroFlowCustomDtoAppGetInputPath | path |
+| `udcDataTransferObjectSelectDtoGet` | udcDataTransferObjectSelectDtoGetInputPath | path |
+| `udcDataTransferObjectSelectDtoWithAttrsGet` | udcDataTransferObjectSelectDtoWithAttrsGetInputPath | path |
+| `udcDataTransferObjectUpdateDtoPost` | udcDataTransferObjectUpdateDtoPostInputBody | body |
+| `udcDataTransferObjectUpdateDtoWithAttrsPost` | udcDataTransferObjectDeleteDtoWithAttrsPostInputBody | body |
+| `udcDataTypeDataTypesByAppIdAppGet` | udcDataTypeDataTypesByAppIdAppGetInputPath | path |
+| `udcDataTypeSelectByParamsPost` | udcDataTypeSelectByParamsPostInputBody | body |
+| `udcDeductionEntityListPost` | udcDeductionEntityListPostInputBody | body |
+| `udcDeductionEntityNotExistIdsPost` | udcDeductionEntityNotExistIdsPostInputBody | body |
+| `udcDeductionMapAppAppGet` | udcDeductionMapAppAppGetInputPath | path |
+| `udcDeductionMapDeleteContentPost` | udcDeductionMapDeleteContentPostInputBody | body |
+| `udcDeductionMapDeletePost` | udcDeductionMapDeletePostInputBody | body |
+| `udcDeductionMapGet` | udcDeductionMapGetInputPath | path |
+| `udcDeductionMapPost` | udcDeductionMapPostInputBody | body |
+| `udcDeductionMapUpdatePost` | udcDeductionMapUpdatePostInputBody | body |
+| `udcDeductionRuleCountPost` | udcDeductionRuleCountPostInputBody | body |
+| `udcDeductionRuleDeletePost` | udcDeductionRuleDeletePostInputBody | body |
+| `udcDeductionRuleGet` | udcDeductionRuleGetInputPath | path |
+| `udcDeductionRuleInitDataPost` | udcDeductionRuleInitDataPostInputBody | body |
+| `udcDeductionRulePost` | udcDeductionRulePostInputBody | body |
+| `udcDeductionRuleSearch` | udcDeductionRuleSearchInputBody | body |
+| `udcDeductionRuleUpdatePost` | udcDeductionRuleUpdatePostInputBody | body |
+| `udcDeductionValidRulePost` | udcDeductionValidRulePostInputBody | body |
+| `udcDeploymentAppOnlineNewPost` | udcDeploymentAppOnlineNewPostInputBody | body |
+| `udcDeploymentAppReadyStatePost` | udcDeploymentAppReadyStatePostInputBody | body |
+| `udcDeploymentLatestTestInfoPost` | udcDeploymentLatestTestInfoPostInputBody | body |
+| `udcEntityAssociationEntityAppGet` | udcEntityAssociationEntityAppGetInputPath | path |
+| `udcEntityAssociationGroupSerialPost` | udcEntityAssociationGroupSerialPostInputBody | body |
+| `udcEntityAssociationSerialPost` | udcEntityAssociationSerialPostInputBody | body |
+| `udcEntityAttributeBatchDeletePost` | udcEntityAttributeBatchDeletePostInputBody | body |
+| `udcEntityAttributeBatchUpdatePost` | — | body |
+| `udcEntityAttributeGet` | udcEntityAttributeGetInputPath | path |
+| `udcEntityAttributeGroupBathUpdatePost` | — | body |
+| `udcEntityAttributeGroupCanceGroupPost` | udcEntityAttributeGroupCanceGroupPostInputBody | body |
+| `udcEntityAttributeGroupCreateUpdatePost` | — | body |
+| `udcEntityAttributeGroupSearch` | udcEntityAttributeGroupSearchInputBody | body |
+| `udcEntityAttributePost` | udcEntityAttributePostInputBody | body |
+| `udcEntityAttributePresetAttributeCapacityAllAppGet` | udcEntityAttributePresetAttributeCapacityAllAppGetInputPath | path |
+| `udcEntityAttributeSelectByPrimaryGet` | udcEntityAttributeSelectByPrimaryGetInputPath | path |
+| `udcEntityAttributeSelectParentEnumAttrsPost` | Map | body |
+| `udcEntityAttributeTransferPost` | udcEntityAttributeTransferPostInputBody | body |
+| `udcEntityAttributeUpdatePost` | udcEntityAttributeUpdatePostInputBody | body |
+| `udcEntityBatchDeletePost` | udcEntityBatchDeletePostInputBody | body |
+| `udcEntityBatchUpdateEntityGroupIdAndOrdernoPost` | — | body |
+| `udcEntityConstraintEntityPost` | udcEntityConstraintEntityPostInputBody | body |
+| `udcEntityDeletePost` | udcEntityDeletePostInputBody | body |
+| `udcEntityEntityCopyPost` | udcEntityEntityCopyPostInputBody | body |
+| `udcEntityGet` | udcEntityGetInputPath | path |
+| `udcEntityGroupBatchDeletePost` | udcEntityGroupBatchDeletePostInputBody | body |
+| `udcEntityGroupCreatePost` | udcEntityGroupCreatePostInputBody | body |
+| `udcEntityGroupDeletePost` | udcEntityGroupDeletePostInputBody | body |
+| `udcEntityGroupSelectByAppidAppGet` | udcEntityGroupSelectByAppidAppGetInputPath | path |
+| `udcEntityGroupUpdateBatchPost` | — | body |
+| `udcEntityGroupUpdatePost` | udcEntityGroupUpdatePostInputBody | body |
+| `udcEntityOpenApiSelectGet` | udcEntityUpdateExtensionLinkagePostInputBody | body |
+| `udcEntityPost` | udcEntityPostInputBody | body |
+| `udcEntityPrimarySelectByAppidAppGet` | udcEntityPrimarySelectByAppidAppGetInputPath | path |
+| `udcEntityPrimarySelectRootGet` | udcEntityPrimarySelectRootGetInputPath | path |
+| `udcEntitySelectAllByAppidAppGet` | udcEntitySelectAllByAppidAppGetInputPath | path |
+| `udcEntitySelectAllByEntityIdGet` | udcEntitySelectAllByEntityIdGetInputPath | path |
+| `udcEntitySelectEventDataByEntityIdGet` | udcEntitySelectEventDataByEntityIdGetInputPath | path |
+| `udcEntitySelectMasterEntityCountAppGet` | udcEntitySelectMasterEntityCountAppGetInputPath | path |
+| `udcEntityUpdateExtensionLinkagePost` | udcEntityUpdateExtensionLinkagePostInputBody | body |
+| `udcEntityUpdatePost` | udcEntityUpdatePostInputBody | body |
+| `udcEnumItemGet` | udcEnumItemGetInputPath | path |
+| `udcEnvCurrentEnvGet` | — | — |
+| `udcEventCreateWithDataPost` | udcEventCreateWithDataPostInputBody | body |
+| `udcEventDeleteBatchPost` | udcEventDeleteBatchPostInputBody | body |
+| `udcEventDeletePost` | udcEventDeletePostInputBody | body |
+| `udcEventGet` | udcEventGetInputPath | path |
+| `udcEventListPost` | udcEventListPostInputBody | body |
+| `udcEventPost` | udcEventPostInputBody | body |
+| `udcEventSearchTermPost` | udcEventSearchTermPostInputBody | body |
+| `udcEventSelectWithDataGet` | udcEventSelectWithDataGetInputPath | path |
+| `udcEventUpdatePost` | udcEventUpdatePostInputBody | body |
+| `udcEventUpdateWithDataPost` | udcEventUpdateWithDataPostInputBody | body |
+| `udcExpressionSchemaPost` | udcExpressionSchemaPostInputBody | body |
+| `udcExpressionSystemVariableListGet` | udcExpressionSystemVariableListGetInputPath | — |
+| `udcFeatureListGet` | — | — |
+| `udcFunctionBatchDeletePost` | udcFunctionBatchDeletePostInputBody | body |
+| `udcFunctionCopyPost` | udcFunctionCopyPostInputBody | body |
+| `udcFunctionSelectFunctionTreePost` | udcFunctionSelectFunctionTreePostInputBody | body |
+| `udcFunctionUpdateFunctionReferPost` | udcFunctionUpdateFunctionReferPostInputBody | body |
+| `udcFunctionUpdatePost` | udcFunctionUpdatePostInputBody | body |
+| `udcIndexAttributeEntityGet` | udcIndexAttributeEntityGetInputPath | path |
+| `udcIndexDeleteBatchPost` | udcIndexDeleteBatchPostInputBody | body |
+| `udcIndexDeletePost` | udcIndexDeletePostInputBody | body |
+| `udcIndexEntityListPost` | Long | body |
+| `udcIndexPost` | udcIndexPostInputBody | body |
+| `udcIndexUpdatePost` | udcIndexUpdatePostInputBody | body |
+| `udcManagerRequestStatusRequestGet` | udcManagerRequestStatusRequestGetInputPath | path |
+| `udcMessageCategoryCreatePost` | udcMessageCategoryCreatePostInputBody | body |
+| `udcMessageCategoryDeletePost` | udcMessageCategoryDeletePostInputBody | body |
+| `udcMessageCategoryListPost` | udcMessageCategoryListPostInputBody | body |
+| `udcMessageCategoryUpdatePost` | udcMessageCategoryUpdatePostInputBody | body |
+| `udcMessageLinkCreatePost` | udcMessageLinkCreatePostInputBody | body |
+| `udcMessageLinkDeletePost` | udcMessageLinkDeletePostInputBody | body |
+| `udcMessageLinkListPost` | udcMessageLinkListPostInputBody | body |
+| `udcMessageLinkUpdatePost` | udcMessageLinkUpdatePostInputBody | body |
+| `udcMetaDataMergeReferPost` | udcMetaDataMergeReferPostInputBody | body |
+| `udcMetaDataReferAndAppPost` | udcMetaDataReferAndAppPostInputBody | body |
+| `udcMetaDataSearchAvailableAppMultiVersionPost` | udcMetaDataSearchAvailableAppMultiVersionPostInputBody | body |
+| `udcMetaDataSearchAvailableUpgradeAppGet` | udcMetaDataSearchAvailableUpgradeAppGetInputPath | path |
+| `udcMetaDataSelectAggregationEntityEntityGet` | udcMetaDataSelectAggregationEntityEntityGetInputPath | path |
+| `udcMetaDataSelectAggregationEntityPost` | udcMetaDataSelectAggregationEntityPostInputBody | body |
+| `udcMetaDataSelectAppByIdPost` | udcMetaDataSelectAppByIdPostInputBody | body |
+| `udcMetaDataSelectCtpEnumAppGet` | udcMetaDataSelectCtpEnumAppGetInputPath | path |
+| `udcMetaDataSelectCtpEnumByApp1Post` | udcMetaDataSelectCtpEnumByApp1PostInputBody | body |
+| `udcMetaDataSelectCustomReferPageGet` | udcMetaDataSelectCustomReferPageGetInputPath | path |
+| `udcMetaDataSelectEntityByAppIdAppGet` | udcMetaDataSelectEntityByAppIdAppGetInputPath | path |
+| `udcMetaDataSelectEntityPost` | udcMetaDataSelectEntityPostInputBody | body |
+| `udcMetaDataSelectJavaEnumByAppPost` | udcMetaDataSelectJavaEnumByAppPostInputBody | body |
+| `udcMetaDataSelectJavaEnumItemPost` | udcMetaDataSelectJavaEnumItemPostInputBody | body |
+| `udcMetaDataSelectPageInfoListPost` | udcMetaDataSelectPageInfoListPostInputBody | body |
+| `udcMetaDataSelectPagePost` | udcMetaDataSelectPagePostInputBody | body |
+| `udcMicroFlowGroupBatchMovePost` | udcMicroFlowGroupBatchMovePostInputBody | body |
+| `udcMicroFlowGroupCreatePost` | udcMicroFlowGroupCreatePostInputBody | body |
+| `udcMicroFlowGroupDeleteBatchPost` | udcMicroFlowGroupDeleteBatchPostInputBody | body |
+| `udcMicroFlowGroupDeletePost` | udcMicroFlowGroupDeletePostInputBody | body |
+| `udcMicroFlowGroupSelectByTypePost` | udcMicroFlowGroupSelectByTypePostInputBody | body |
+| `udcMicroFlowGroupUpdatePost` | udcMicroFlowGroupUpdatePostInputBody | body |
+| `udcMicroflowBatchFindAggDtoPost` | udcMicroflowBatchFindAggDtoPostInputBody | body |
+| `udcMicroflowBatchFindJavaEnumPost` | udcMicroflowBatchFindJavaEnumPostInputBody | body |
+| `udcMicroflowBatchMovePost` | udcMicroflowBatchMovePostInputBody | body |
+| `udcMicroflowCheckDtoMetadataExistPost` | udcMicroflowCheckDtoMetadataExistPostInputBody | body |
+| `udcMicroflowCheckMicroFlowCaptionPost` | udcMicroflowCheckMicroFlowCaptionPostInputBody | body |
+| `udcMicroflowCheckSchemaUpdatePost` | udcMicroflowCheckSchemaUpdatePostInputBody | body |
+| `udcMicroflowCreateMessagePost` | udcMicroflowCreateMessagePostInputBody | body |
+| `udcMicroflowCreatePost` | udcMicroflowCreatePostInputBody | body |
+| `udcMicroflowDeletePost` | udcMicroflowDeletePostInputBody | body |
+| `udcMicroflowDisableNodePost` | udcMicroflowDisableNodePostInputBody | body |
+| `udcMicroflowFilterEventPost` | udcMicroflowFilterEventPostInputBody | body |
+| `udcMicroflowFilterMqPost` | udcMicroflowFilterMqPostInputBody | body |
+| `udcMicroflowFilterNotVirtualPost` | — | body |
+| `udcMicroflowFindByIdGet` | udcMicroflowFindByIdGetInputPath | path |
+| `udcMicroflowFindCallInfoDownstreamPost` | udcMicroflowFindCallInfoDownstreamPostInputBody | body |
+| `udcMicroflowFindCallInfoUpstreamPost` | udcMicroflowFindCallInfoUpstreamPostInputBody | body |
+| `udcMicroflowFindCustomDtoPost` | udcMicroflowFindCustomDtoPostInputBody | body |
+| `udcMicroflowFindDataSystemPost` | udcMicroflowFindDataSystemPostInputBody | body |
+| `udcMicroflowFindDtoByEntityPost` | udcMicroflowFindDtoByEntityPostInputBody | body |
+| `udcMicroflowFindFullAggDtoPost` | udcMicroflowFindFullAggDtoPostInputBody | body |
+| `udcMicroflowFindNodesGet` | udcMicroflowFindNodesGetInputQuery | query |
+| `udcMicroflowMessageDtoDeletePost` | udcMicroflowMessageDtoDeletePostInputBody | body |
+| `udcMicroflowRecoverPost` | udcMicroflowRecoverPostInputBody | body |
+| `udcMicroflowRefactorRefactoredPost` | udcMicroflowRefactorRefactoredPostInputBody | body |
+| `udcMicroflowRefactorResolveNodesReferenceRelationshipsPost` | udcMicroflowRefactorResolveNodesReferenceRelationshipsPostInputBody | body |
+| `udcMicroflowSearch` | udcMicroflowSearchInputBody | body |
+| `udcMicroflowSearchAppServiceByAppNamePost` | udcMicroflowSearchAppServiceByAppNamePostInputBody | body |
+| `udcMicroflowSearchAppServiceByNamePost` | udcMicroflowSearchAppServiceByNamePostInputBody | body |
+| `udcMicroflowSearchAppServicePost` | udcMicroflowSearchAppServicePostInputBody | body |
+| `udcMicroflowSearchAppsPost` | udcMicroflowSearchAppsPostInputBody | body |
+| `udcMicroflowSearchEntityRulePost` | udcMicroflowSearchEntityRulePostInputBody | body |
+| `udcMicroflowSearchEnumByAppNamePost` | udcMicroflowSearchEnumByAppNamePostInputBody | body |
+| `udcMicroflowSearchEventListPost` | udcMicroflowSearchEventListPostInputBody | body |
+| `udcMicroflowSearchMessageDtoPost` | udcMicroflowSearchMessageDtoPostInputBody | body |
+| `udcMicroflowSearchMethodByNamePost` | udcMicroflowSearchMethodByNamePostInputBody | body |
+| `udcMicroflowSearchMicroFlowEventAppGet` | udcMicroflowSearchMicroFlowEventAppGetInputPath | path |
+| `udcMicroflowSearchMicroFlowMessageAppGet` | udcMicroflowSearchMicroFlowMessageAppGetInputPath | path |
+| `udcMicroflowSearchNonEntityDtoPost` | udcMicroflowSearchNonEntityDtoPostInputBody | body |
+| `udcMicroflowSearchRestExcludeBootPost` | udcMicroflowSearchRestExcludeBootPostInputBody | body |
+| `udcMicroflowSearchSendMqListPost` | udcMicroflowSearchSendMqListPostInputBody | body |
+| `udcMicroflowSearchTreeEntityPost` | udcMicroflowSearchTreeEntityPostInputBody | body |
+| `udcMicroflowSelectMessageGet` | udcMicroflowSelectMessageGetInputPath | path |
+| `udcMicroflowServiceCommonInputListPost` | udcMicroflowServiceCommonInputListPostInputBody | body |
+| `udcMicroflowServiceDetailsDynamicPost` | udcMicroflowServiceDetailsDynamicPostInputBody | body |
+| `udcMicroflowServiceDetailsGet` | udcMicroflowServiceDetailsGetInputPath | path |
+| `udcMicroflowServiceFrontendListPost` | udcMicroflowServiceFrontendListPostInputBody | body |
+| `udcMicroflowServiceListPost` | udcMicroflowServiceListPostInputBody | body |
+| `udcMicroflowServiceListSubMfPost` | udcMicroflowServiceListSubMfPostInputBody | body |
+| `udcMicroflowTreeEntityDtoPost` | udcMicroflowTreeEntityDtoPostInputBody | body |
+| `udcMicroflowUpdateMessagePost` | udcMicroflowUpdateMessagePostInputBody | body |
+| `udcMicroflowUpdateOrderNoAndGroupPost` | udcMicroflowUpdateOrderNoAndGroupPostInputBody | body |
+| `udcMicroflowUpdatePost` | udcMicroflowUpdatePostInputBody | body |
+| `udcMultiEditLockPost` | udcMultiEditLockPostInputBody | body |
+| `udcMultiEditUnlockPost` | udcMultiEditUnlockPostInputBody | body |
+| `udcOperationLogElementIsExistPost` | udcOperationLogElementIsExistPostInputBody | body |
+| `udcOperationLogGet` | udcOperationLogGetInputPath | path |
+| `udcOperationLogSearchStorageKeyPost` | udcOperationLogSearchStorageKeyPostInputBody | body |
+| `udcPageComponentSelectListByDependencyConditionsPost` | udcPageComponentSelectListByDependencyConditionsPostInputBody | body |
+| `udcPageInfoDesignerSelectDetailListByConditionsPost` | udcPageInfoDesignerSelectDetailListByConditionsPostInputBody | body |
+| `udcPageInfoParamsPageGet` | udcPageInfoParamsPageGetInputPath | path |
+| `udcPageInfoRecoverPost` | udcPageInfoRecoverPostInputBody | body |
+| `udcPageInfoSearchNoPagePost` | udcPageInfoSearchNoPagePostInputBody | body |
+| `udcPageInfoSelectListByConditionsPost` | udcPageInfoSelectListByConditionsPostInputBody | body |
+| `udcPageLayoutRecoverPost` | udcPageLayoutRecoverPostInputBody | body |
+| `udcPortalPortalSpaceSpaceSaveCopyPost` | udcPortalPortalSpaceSpaceSaveCopyPostInputBody | body |
+| `udcReferConfigCreateOrUpdatePost` | udcReferConfigCreateOrUpdatePostInputBody | body |
+| `udcReferConfigGroupListPost` | udcReferConfigGroupListPostInputBody | body |
+| `udcRuntimeAuthAccessUrlPost` | udcRuntimeAuthAccessUrlPostInputBody | body |
+| `udcRuntimeDeployFormPost` | udcRuntimeDeployFormPostInputBody | body |
+| `udcRuntimeDeployNormalPost` | udcRuntimeDeployNormalPostInputBody | body |
+| `udcRuntimeDeployPost` | udcRuntimeDeployPostInputBody | body |
+| `udcSandboxAppCleanRestartByAppPost` | udcSandboxAppCleanRestartByAppPostInputBody | body |
+| `udcSandboxAppStartByAppPost` | udcSandboxAppStartByAppPostInputBody | body |
+| `udcSandboxBatchCleanStopPost` | udcSandboxBatchCleanStopPostInputBody | body |
+| `udcSandboxBatchStopPost` | udcSandboxBatchStopPostInputBody | body |
+| `udcSandboxBuildInfoAppGet` | udcSandboxBuildInfoAppGetInputPath | path |
+| `udcSandboxClearDataPost` | String | body |
+| `udcSandboxClientSandboxLogUrlPost` | udcSandboxClientSandboxLogUrlPostInputBody | body |
+| `udcSandboxResourcesGet` | udcSandboxBatchCleanStopPostInputBody | body |
+| `udcSandboxRestartPost` | udcSandboxRestartPostInputBody | body |
+| `udcSandboxSandboxAppsByConditionPost` | udcSandboxSandboxAppsByConditionPostInputBody | body |
+| `udcSandboxSelectAppGet` | udcSandboxSelectAppGetInputPath | path |
+| `udcSandboxSelectRolesPost` | udcSandboxSelectRolesPostInputBody | body |
+| `udcSandboxStopPost` | udcSandboxStopPostInputBody | body |
+| `udcScalabilityBatchDeletePost` | udcScalabilityBatchDeletePostInputBody | body |
+| `udcScalabilityDeletePost` | udcScalabilityDeletePostInputBody | body |
+| `udcScalabilityOptionDataTypeAppGet` | udcScalabilityOptionDataTypeAppGetInputPath | path |
+| `udcScalabilityOptionDeletePost` | udcScalabilityOptionDeletePostInputBody | body |
+| `udcScalabilityOptionOptionGet` | udcScalabilityOptionOptionGetInputPath | path |
+| `udcScalabilityOptionPost` | udcScalabilityOptionPostInputBody | body |
+| `udcScalabilityOptionSelectAllOptionNamePost` | — | — |
+| `udcScalabilityOptionSelectByAppidTreeAppGet` | udcScalabilityOptionSelectByAppidTreeAppGetInputPath | path |
+| `udcScalabilityOptionSelectByAppidWithDetailAppGet` | udcScalabilityOptionSelectByAppidWithDetailAppGetInputPath | path |
+| `udcScalabilityOptionUpdatePost` | udcScalabilityOptionUpdatePostInputBody | body |
+| `udcScalabilityPost` | udcScalabilityPostInputBody | body |
+| `udcScalabilityUpdatePost` | udcScalabilityUpdatePostInputBody | body |
+| `udcSerialSchemeSearchNoPagePost` | udcSerialSchemeSearchNoPagePostInputBody | body |
+| `udcStereotypeListGet` | — | — |
+| `udcUdcEnumCategoryDeletePost` | udcUdcEnumCategoryDeletePostInputBody | body |
+| `udcUdcEnumCategoryPost` | udcUdcEnumCategoryPostInputBody | body |
+| `udcUdcEnumCategorySelectCategoryAndEnumPost` | udcUdcEnumCategorySelectCategoryAndEnumPostInputBody | body |
+| `udcUdcEnumCategoryUpdatePost` | udcUdcEnumCategoryUpdatePostInputBody | body |
+| `udcUdcEnumDeletePost` | udcUdcEnumDeletePostInputBody | body |
+| `udcUdcEnumItemListPost` | udcUdcEnumItemListPostInputBody | body |
+| `udcUdcEnumItemOperateBatchPost` | — | body |
+| `udcUdcEnumPost` | udcUdcEnumPostInputBody | body |
+| `udcUdcEnumUpdatePost` | udcUdcEnumUpdatePostInputBody | body |

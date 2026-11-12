@@ -1,0 +1,45 @@
+{
+ "actionType": "DATA_CONVERSION",
+ "caption": "数据转换",
+ "captured_from": "编辑器（用户讲解，2026-10-25）",
+ "semantics": "将来源数据按映射规则转换为目标数据对象的列表数据",
+ "modal_fields": [
+  {
+   "label": "来源数据",
+   "required": true,
+   "placeholder": "请选择"
+  },
+  {
+   "label": "目标数据对象类型",
+   "required": true,
+   "options": [
+    "实体对象",
+    "自定义对象"
+   ]
+  },
+  {
+   "label": "目标数据对象所属应用",
+   "required": true
+  },
+  {
+   "label": "实体对象",
+   "required": true,
+   "placeholder": "选择实体对象"
+  },
+  {
+   "label": "映射关系",
+   "required": true,
+   "note": "映射关系配置：目标对象 + 映射方式(值拷贝/常量) + 值"
+  },
+  {
+   "label": "节点出参名称",
+   "required": true,
+   "placeholder": "请输入"
+  }
+ ],
+ "validation_rules": [
+  "来源数据必填",
+  "目标类型/所属应用/实体对象必填",
+  "映射关系必填(未配置报错)"
+ ]
+}

@@ -1,0 +1,82 @@
+[
+ {
+  "id": "-2966350857843818371",
+  "name": "DRAFT",
+  "code": 0,
+  "enumId": "1045264166166260005",
+  "caption": "草稿",
+  "fullName": "com.seeyon.datamigration8704025620829192834.enums.XzhDedBillbillStatus.DRAFT",
+  "enable": true,
+  "g_l_index": "1"
+ },
+ {
+  "id": "6001533909847709735",
+  "name": "TO_BE_SUBMITTED",
+  "code": 1,
+  "enumId": "1045264166166260005",
+  "caption": "待提交",
+  "fullName": "com.seeyon.datamigration8704025620829192834.enums.XzhDedBillbillStatus.TO_BE_SUBMITTED",
+  "enable": true,
+  "g_l_index": "2"
+ },
+ {
+  "id": "6968981265964610159",
+  "name": "PENDING_REVIEW",
+  "code": 2,
+  "enumId": "1045264166166260005",
+  "caption": "提交中",
+  "fullName": "com.seeyon.datamigration8704025620829192834.enums.XzhDedBillbillStatus.PENDING_REVIEW",
+  "enable": true,
+  "g_l_index": "3"
+ },
+ {
+  "id": "-5891211892282711602",
+  "name": "COME_INTO_FORCE",
+  "code": 3,
+  "enumId": "1045264166166260005",
+  "caption": "已生效",
+  "fullName": "com.seeyon.datamigration8704025620829192834.enums.XzhDedBillbillStatus.COME_INTO_FORCE",
+  "enable": true,
+  "g_l_index": "4"
+ },
+ {
+  "id": "-4292407042350807903",
+  "name": "TERMINATED",
+  "code": 4,
+  "enumId": "1045264166166260005",
+  "caption": "已终止",
+  "fullName": "com.seeyon.datamigration8704025620829192834.enums.XzhDedBillbillStatus.TERMINATED",
+  "enable": true,
+  "g_l_index": "5"
+ },
+ {
+  "id": "-3936050355592400741",
+  "name": "NULLIFIED",
+  "code": 5,
+  "enumId": "1045264166166260005",
+  "caption": "已作废",
+  "fullName": "com.seeyon.datamigration8704025620829192834.enums.XzhDedBillbillStatus.NULLIFIED",
+  "enable": true,
+  "g_l_index": "6"
+ },
+ {
+  "id": "4211383409134476191",
+  "name": "SUSPENDED",
+  "code": 6,
+  "enumId": "1045264166166260005",
+  "caption": "已挂起",
+  "fullName": "com.seeyon.datamigration8704025620829192834.enums.XzhDedBillbillStatus.SUSPENDED",
+  "enable": true,
+  "g_l_index": "7"
+ },
+ {
+  "id": "-4270547897684553498",
+  "name": "FAILED",
+  "code": 7,
+  "enumId": "1045264166166260005",
+  "caption": "不通过",
+  "fullName": "com.seeyon.datamigration8704025620829192834.enums.XzhDedBillbillStatus.FAILED",
+  "enable": true,
+  "g_l_index": "8"
+ }
+]

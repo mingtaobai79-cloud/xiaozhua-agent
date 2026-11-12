@@ -1,0 +1,128 @@
+{
+  "schema_version": "module-link-evidence.v1",
+  "status": "PARTIALLY_VERIFIED",
+  "network": "disabled",
+  "nodes": [
+    {
+      "id": "udc",
+      "kind": "udc_platform"
+    },
+    {
+      "id": "standard-product",
+      "kind": "standard_product_application"
+    },
+    {
+      "id": "spi",
+      "kind": "spi"
+    },
+    {
+      "id": "integration",
+      "kind": "integration"
+    },
+    {
+      "id": "runtime",
+      "kind": "runtime"
+    },
+    {
+      "id": "customer-extension",
+      "kind": "customer_extension"
+    }
+  ],
+  "relations": [
+    {
+      "source": "customer-extension",
+      "type": "candidate-uses",
+      "target": "spi",
+      "status": "UNVERIFIED",
+      "verification_level": "STATIC_CANDIDATE",
+      "evidence_refs": [
+        "customer source scan"
+      ],
+      "note": "Requires exact dependency, FQCN, call site, and runtime loading evidence."
+    },
+    {
+      "source": "runtime",
+      "type": "hosts-observes",
+      "target": "standard-product",
+      "status": "FACT",
+      "verification_level": "LIVE_READ_ONLY",
+      "evidence_refs": [
+        "phase5-read-only-evidence.json"
+      ]
+    },
+    {
+      "source": "runtime",
+      "type": "hosts-observes",
+      "target": "spi",
+      "status": "UNVERIFIED",
+      "verification_level": "NOT_CLOSED",
+      "evidence_refs": []
+    },
+    {
+      "source": "udc",
+      "type": "generates",
+      "target": "customer-udc-application",
+      "status": "FACT",
+      "verification_level": "STATIC",
+      "evidence_refs": [
+        "udc evidence bundle"
+      ]
+    },
+    {
+      "source": "udc",
+      "type": "exposes-platform-runtime-contracts-to",
+      "target": "standard-product",
+      "status": "VERIFIED_STATIC_BYTECODE",
+      "verification_level": "STATIC_CODE_REFERENCE",
+      "evidence_refs": [
+        "udc-standard-code-evidence.json#targeted_contracts.udc",
+        "udc-standard-code-evidence.json#targeted_contracts.standard-product",
+        "docs/audit/modules/decompiled/bpm-facade-3.12.101-BpmUdcApiService.java",
+        "docs/audit/modules/decompiled/udcrt-5.3.517-ApproveFeatureService.java",
+        "docs/audit/modules/decompiled/udcrt-5.3.517-ApprovalStateChangeListener.java",
+        "docs/audit/modules/decompiled/udcrt-5.3.517-UdcBpmProcessServiceImpl.java"
+      ],
+      "note": "Bytecode-verified: UDC runtime directly injects BpmUdcApiService and calls 6 of its methods; BPM events flow back into UDC via UdcBpmProcessService. Both remain independent modules.",
+      "exact_contracts": {
+        "udc": [
+          "com.seeyon.udc.api.ApplicationManagerAppService",
+          "com.seeyon.udc.api.EntityAppService",
+          "com.seeyon.udc.api.DesignMetadataQueryAppService"
+        ],
+        "standard_product": [
+          "com.seeyon.bpm.dto.approval.BpmSendUdcDto",
+          "com.seeyon.bpm.dto.approval.BpmSaveDraftUdcDto",
+          "com.seeyon.bpm.dto.approval.BpmTriggerFlowUdcRequestDto",
+          "com.seeyon.bpm.api.udc.BpmUdcApiService"
+        ]
+      },
+      "exact_methods": {
+        "udc_runtime": [
+          "EntityAppServiceInvokeService.findAppServiceMetaData",
+          "EntityAppServiceInvokeService.invokeMethod",
+          "EntityAppServiceInvokeService.invokePageMethod"
+        ],
+        "standard_product": [
+          "BpmUdcApiService.sendForUdc",
+          "BpmUdcApiService.saveDraft",
+          "BpmUdcApiService.triggerFlowForUdc",
+          "BpmUdcApiService.repealForUdc",
+          "BpmUdcApiService.stopForUdc"
+        ]
+      },
+      "outbound": [
+        "ApproveFeatureService -> BpmUdcApiService.prefixForUdc/sendForUdc/saveDraft/repealForUdc",
+        "ApprovalStateChangeListener -> BpmUdcApiService.deleteCaseByIdForUdc/stopForUdc"
+      ],
+      "inbound": [
+        "BPM events -> UdcBpmProcessService.processBpmApproval/processBpmStop/processBpmCancel/processBpmTakeBack (UDC-provided impl UdcBpmProcessServiceImpl)"
+      ]
+    }
+  ],
+  "limitations": [
+    "A contract relationship is not a runtime invocation relationship.",
+    "No Standard Product or SPI content is assigned to UDC.",
+    "Customer-specific business detail is excluded from durable evidence.",
+    "SPI is out of scope for this phase; no SPI relation was advanced."
+  ]
+}

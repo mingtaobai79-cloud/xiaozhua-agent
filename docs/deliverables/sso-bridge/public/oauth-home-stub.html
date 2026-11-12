@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>oauth/home 桩页面（本地联调）</title>
+<style>
+  body{font-family:"Microsoft YaHei",sans-serif;background:#0d1117;color:#e6edf3;padding:40px}
+  h2{color:#3fb950}
+  .row{margin:10px 0;font-size:14px}
+  .k{color:#8b949e;display:inline-block;width:120px}
+  .v{color:#79c0ff;font-family:Consolas,monospace;word-break:break-all}
+  .ok{color:#3fb950;font-weight:bold}
+  .warn{color:#e3b341}
+</style>
+</head>
+<body>
+<h2>✅ 已到达 /oauth/home（本地桩页面）</h2>
+<p class="warn">本地静态服务没有真实 V8，这里是模拟标品单点页：下面参数齐了，真实环境就能换登录态并跳 web。</p>
+<div id="params"></div>
+<div class="row"><span class="k">判定：</span><span id="verdict" class="v"></span></div>
+<script>
+(function () {
+  var qs = new URLSearchParams(location.search);
+  var names = ['type', 'appId', 'corpId', 'web', 'code'];
+  var html = names.map(function (n) {
+    var v = qs.get(n) || '(缺失)';
+    return '<div class="row"><span class="k">' + n + '</span><span class="v">' + v.replace(/</g, '&lt;') + '</span></div>';
+  }).join('');
+  document.getElementById('params').innerHTML = html;
+  var hasCode = !!qs.get('code');
+  var hasType = qs.get('type') === 'DING_TALK';
+  var el = document.getElementById('verdict');
+  if (hasCode && hasType) {
+    el.className = 'v ok';
+    el.textContent = '链路验证通过：跳板页 → postMessage 取码 → 拼接单点地址（' + qs.get('web') + '）✓';
+  } else {
+    el.className = 'v warn';
+    el.textContent = '参数不完整：type=' + qs.get('type') + ', code=' + (qs.get('code') || '无');
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,194 @@
+{
+  "slice": "S2-write-chain-static-verification",
+  "ts_gmt8": "2026-10-17T18:01:38+08:00",
+  "purpose": "BLOCKED-standby offline verification (zero network probe, zero write). Calibrate S2 readback expectations.",
+  "evidence_level": "VERIFIED_STATIC_BYTECODE + LIVE(read-only SQL)",
+  "jars": {
+    "dir": "<HERMES_HOME>/cache/scratch/djars",
+    "udc-web": "5.3.517",
+    "udc-biz": "5.3.517",
+    "udc-portal": "5.3.517",
+    "udc-plugin-api": "5.3.517"
+  },
+  "cfr": "<HERMES_HOME>/skills/seeyon/03-v8-extension/seeyon-v8-spi/references/contract-index/tools/cfr.jar 0.152",
+  "decompiled_outputs": [
+    "<HERMES_HOME>/cache/scratch/cfr-web/com/seeyon/udc/controller/PortletController.java",
+    "<HERMES_HOME>/cache/docs/audit/artifacts/decompiled/cfr-r31b/com/seeyon/udc/page/domain/service/PortletService.java",
+    "<HERMES_HOME>/cache/docs/audit/artifacts/decompiled/cfr-r31b/com/seeyon/udc/page/domain/service/PageInfoService.java",
+    "<HERMES_HOME>/cache/docs/audit/artifacts/decompiled/cfr-d1/com/seeyon/udc/portal/appservice/UdcPortalPortletAppServiceImpl.java",
+    "<HERMES_HOME>/cache/scratch/cfr-enums/com/seeyon/udc/operationlog/enums/",
+    "<HERMES_HOME>/cache/docs/audit/artifacts/decompiled/cfr-r31b/com/seeyon/udc/appservice/PortletAppService.java"
+  ],
+  "endpoints": [
+    {
+      "path": "udc/portlet/create",
+      "method": "POST",
+      "dto": "PortletDto",
+      "semantics": "创建栏目分组"
+    },
+    {
+      "path": "udc/portlet/create-portlet",
+      "method": "POST",
+      "dto": "PageDefinitionDto",
+      "semantics": "创建栏目"
+    },
+    {
+      "path": "udc/portlet/update",
+      "method": "POST",
+      "dto": "PortletDto",
+      "semantics": "修改栏目分组"
+    },
+    {
+      "path": "udc/portlet/update-portlet",
+      "method": "POST",
+      "dto": "PageDefinitionDto",
+      "semantics": "修改栏目"
+    },
+    {
+      "path": "udc/portlet/select-by-appId/{appId}",
+      "method": "GET",
+      "dto": "Long",
+      "semantics": "查询应用下栏目分组以及栏目"
+    },
+    {
+      "path": "udc/portlet/delete/{id}",
+      "method": "POST",
+      "dto": "Long",
+      "semantics": "删除指定栏目分组/栏目"
+    },
+    {
+      "path": "udc/portlet/sort",
+      "method": "POST",
+      "dto": "List<PortletDto>",
+      "semantics": "栏目拖拽排序"
+    }
+  ],
+  "key_findings": [
+    {
+      "id": "F1",
+      "claim": "deleteById(GROUP) cascades: deletes child portlets + their page_info + schema + portal category",
+      "evidence": "PortletService L300-330",
+      "level": "VERIFIED_STATIC_BYTECODE"
+    },
+    {
+      "id": "F2",
+      "claim": "delete-order rationale: deleting GROUP first cascades children (L303-310) so S2 would lose the independent delete-portlet evidence",
+      "evidence": "PortletService L303-310",
+      "level": "VERIFIED_STATIC_BYTECODE"
+    },
+    {
+      "id": "F3",
+      "claim": "create() on GROUP triggers cross-service portal category sync via Dubbo (syncPortletCategory), NOT registered in ROUTE",
+      "evidence": "PortletService L419-441 -> PageInfoService L364-366 -> UdcPortalPortletAppServiceImpl#createCategory",
+      "level": "VERIFIED_STATIC_BYTECODE"
+    },
+    {
+      "id": "F4",
+      "claim": "create() does NOT write udc_page_info for type=0; only udc_portlet + op_log + portal category",
+      "evidence": "PortletService L120-131",
+      "level": "VERIFIED_STATIC_BYTECODE"
+    },
+    {
+      "id": "F5",
+      "claim": "orderNo is server-computed getMaxOrder(appId)+1, not client-supplied",
+      "evidence": "PortletService L124, L458-466",
+      "level": "VERIFIED_STATIC_BYTECODE"
+    },
+    {
+      "id": "F6",
+      "claim": "terminalType derived from pageItems count/urlType (>1=>ALL, ==1=>PC|MOBILE), not client-supplied",
+      "evidence": "PortletService L469-479",
+      "level": "VERIFIED_STATIC_BYTECODE"
+    },
+    {
+      "id": "F7",
+      "claim": "udc_page_info.group_id == udc_portlet.group_id, both point to type=0 row (136/136)",
+      "evidence": "LIVE SQL E1/F1/F2",
+      "level": "LIVE"
+    },
+    {
+      "id": "F8",
+      "claim": "page_info/schema global totals drifted +6 during session by another domain; global absolute counts unusable",
+      "evidence": "LIVE SQL snapshot vs S1 baseline",
+      "level": "LIVE"
+    },
+    {
+      "id": "F9",
+      "claim": "zzprobe app already performed create->delete with zero residue",
+      "evidence": "udc_operation_log module=4 app_id=6419954374508955097 + current 0 rows",
+      "level": "LIVE"
+    },
+    {
+      "id": "F10",
+      "claim": "one portlet creation emits TWO op_log rows (PORTLET_PAGE=40 via baseCreate + PORTLET=5 via create)",
+      "evidence": "PageInfoService baseCreate/dealOperationLogModule + PortletService create L127",
+      "level": "VERIFIED_STATIC_BYTECODE"
+    }
+  ],
+  "db_baseline_1800": {
+    "udc_portlet_total": 157,
+    "udc_portlet_type0": 26,
+    "udc_portlet_type1": 131,
+    "udc_portlet_this_app": 0,
+    "udc_portlet_group_total": 0,
+    "udc_page_info_total": 1574,
+    "udc_page_info_portlet_131_136": 136,
+    "udc_page_info_this_app": 31,
+    "udc_page_schema_total": 1561,
+    "s1_baseline_page_info": 1568,
+    "s1_baseline_schema": 1555,
+    "drift_note": "+6 rows in udc_page_info/udc_page_schema from app 8704025620829192834 at 15:18:49-15:41:03, captions '*_副本', page_type SEARCH_LIST/DETAIL — other domain's UI work, unrelated to column domain"
+  },
+  "expected_increment_after_s2": {
+    "udc_portlet_type0": "+1",
+    "udc_portlet_type1": "+1",
+    "udc_page_info_portlet": "+1 or +2 (depends on form terminal selection: 1 end=1 row, 2 ends=2 rows)",
+    "udc_page_schema": "+pageItems count",
+    "udc_portlet_group": "0 (confirmed: syncPortletCategory writes portal, not this table)",
+    "udc_operation_log_module4": "+3 (group 1 + portlet 2)"
+  },
+  "oplog_evidence": {
+    "zzprobe_create": {
+      "create_time": "2026-09-30 22:42:23",
+      "app_id": 6419954374508955097,
+      "module": 4,
+      "sub_module": 40,
+      "action_type": 1,
+      "domain_caption": "zzprobe栏目"
+    },
+    "zzprobe_delete": {
+      "create_time": "2026-10-01 00:42:04",
+      "app_id": 6419954374508955097,
+      "module": 4,
+      "sub_module": 40,
+      "action_type": 2,
+      "domain_caption": "zzprobe栏目"
+    },
+    "zzprobe_current_rows": {
+      "udc_portlet": 0,
+      "udc_page_info": 0
+    },
+    "enums": {
+      "ModuleEnum.PORTLET": 4,
+      "SubModuleEnum.PORTLET": 5,
+      "SubModuleEnum.PORTLET_GROUP": 6,
+      "SubModuleEnum.PORTLET_PAGE": 40,
+      "LogOperationType.CREATE": 1,
+      "DELETE": 2,
+      "UPDATE": 3,
+      "RECOVER": 7
+    }
+  },
+  "new_must_capture_for_s2": [
+    "portal-side category sync after group create (F3) — first LIVE foothold for 'what is a column on portal side'",
+    "single-end vs dual-end form default before submit — decides +1 vs +2 page_info expectation",
+    "portal-side residue recheck after delete (Dubbo not in local TX, may leave dirty category)"
+  ],
+  "gate_check_1759": {
+    "GET /service/common/version": 403,
+    "GET /main/": 200,
+    "conclusion": "recovery gate NOT triggered; still BLOCKED"
+  },
+  "writes_performed": 0,
+  "network_probes": 0
+}

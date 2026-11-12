@@ -1,0 +1,6 @@
+{
+ "boolean_true": {
+  "title": "true ",
+  "schema": "{\"designData\":{\"expressionTranslation\":\"true \",\"resultTypeInfo\":\"BOOLEAN\",\"resultTypeFullName\":null,\"terminalType\":\"BACKEND\",\"isMultiSelect\":false,\"context\":[],\"tokens\":[{\"uid\":\"be82abcd-efc4-4995-be8f-219eaf51fae0\",\"type\":\"OPERATOR\",\"value\":\"true\",\"desc\":\"true\"}],\"sourceAppName\":null},\"runtimeData\":{\"executableExpr\":\"93gDaq3/nXB1+C8j4AjYNEVRRY+GX/DRejGmES20GvQ=true\"}}"
+ }
+}

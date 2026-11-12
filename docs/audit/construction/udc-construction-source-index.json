@@ -1,0 +1,6530 @@
+{
+  "schema_version": "udc-construction-source-index.v1",
+  "status": "FACT",
+  "verification_level": "STATIC",
+  "network": "disabled",
+  "read_only": true,
+  "unique_source_count": 118,
+  "domain_counts": {
+    "application": 10,
+    "generation": 11,
+    "entity": 11,
+    "microflow": 84,
+    "page": 2
+  },
+  "sources": [
+    {
+      "path": "<PATH>",
+      "sha256": "26c908b1fed4109d6872a7f219fd88273c226e0212d733fbbeabb3a19f20818b",
+      "lines": 118,
+      "classes": [
+        "BpmPermissionMaskAbleParse"
+      ],
+      "method_count": 10,
+      "method_samples": [
+        {
+          "line": 39,
+          "text": "public void parse() {"
+        },
+        {
+          "line": 65,
+          "text": "private List<RuntimeDataSourceEntityInfoDto> findAllRuntimeEntityDataSource() {"
+        },
+        {
+          "line": 71,
+          "text": "private void findAll(List<RuntimeDataSourceEntityInfoDto> all, RuntimeEntityDataSourceDto current) {"
+        },
+        {
+          "line": 81,
+          "text": "private MaskType changeMaskType(BpmFormDesensitizedTypeEnum bpmFormDesensitizedTypeEnum) {"
+        },
+        {
+          "line": 94,
+          "text": "public List<BpmFormDesensitizedDto> getBpmFormDesensitizedDtoList() {"
+        },
+        {
+          "line": 98,
+          "text": "public RuntimeEntityDataSourceDto getRootEntityDataSource() {"
+        },
+        {
+          "line": 102,
+          "text": "public void setBpmFormDesensitizedDtoList(List<BpmFormDesensitizedDto> bpmFormDesensitizedDtoList) {"
+        },
+        {
+          "line": 106,
+          "text": "public void setRootEntityDataSource(RuntimeEntityDataSourceDto rootEntityDataSource) {"
+        },
+        {
+          "line": 110,
+          "text": "public BpmPermissionMaskAbleParse(List<BpmFormDesensitizedDto> bpmFormDesensitizedDtoList, RuntimeEntityDataSourceDto rootEntityDataSource) {"
+        },
+        {
+          "line": 115,
+          "text": "public BpmPermissionMaskAbleParse() {"
+        }
+      ],
+      "domain": "application"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "78622dbf2627d06ef1261e3265c83116ab453a6cf7b39b8a8a04fd9de3a5bf1f",
+      "lines": 116,
+      "classes": [
+        "UdcRuntimeDatabaseQueryService"
+      ],
+      "method_count": 4,
+      "method_samples": [
+        {
+          "line": 53,
+          "text": "public UdcRuntimeDatabaseQueryRespDto queryData(RuntimeDataBaseQueryDataReqDto reqDto) {"
+        },
+        {
+          "line": 76,
+          "text": "private List<UdcRuntimeDataBaseColumnMetadataDto> getDatabaseColumnMetadata(String tableName) {"
+        },
+        {
+          "line": 103,
+          "text": "private List getDataList(String ids, Class<?> aClass) {"
+        },
+        {
+          "line": 112,
+          "text": "private static String getTableName(Class<?> aClass) {"
+        }
+      ],
+      "domain": "application"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "2d29844fdec315a6987552176e072f9097094329e267a95478194b15349a39e5",
+      "lines": 52,
+      "classes": [
+        "MemberBelongsToService"
+      ],
+      "method_count": 3,
+      "method_samples": [
+        {
+          "line": 28,
+          "text": "public int getParameterSize() {"
+        },
+        {
+          "line": 33,
+          "text": "public String getFunctionName() {"
+        },
+        {
+          "line": 38,
+          "text": "public Object calculate(List<String> parameter) {"
+        }
+      ],
+      "domain": "application"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "ffb7d8fe775930f6786028719fb6d533e07c80d2ed337191d5c559415c69a143",
+      "lines": 15,
+      "classes": [
+        "SupportService"
+      ],
+      "method_count": 0,
+      "method_samples": [],
+      "domain": "application"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "543b04628155b71b14dd8728c23f1048e20823253aec5fce089f98a988ad3827",
+      "lines": 52,
+      "classes": [
+        "UnitBelongsToService"
+      ],
+      "method_count": 3,
+      "method_samples": [
+        {
+          "line": 28,
+          "text": "public int getParameterSize() {"
+        },
+        {
+          "line": 33,
+          "text": "public String getFunctionName() {"
+        },
+        {
+          "line": 38,
+          "text": "public Object calculate(List<String> parameter) {"
+        }
+      ],
+      "domain": "application"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "bdbadaf919c3ad01acc97b0b8842b28bdaba3b0018e714389008320db9d7b7e0",
+      "lines": 98,
+      "classes": [
+        "BpmApiFormPermissionAppServiceProxy"
+      ],
+      "method_count": 6,
+      "method_samples": [
+        {
+          "line": 53,
+          "text": "public Long create(FormPermissionDto dto) {"
+        },
+        {
+          "line": 60,
+          "text": "public void update(FormPermissionDto dto) {"
+        },
+        {
+          "line": 66,
+          "text": "public void deleteById(Long id) {"
+        },
+        {
+          "line": 71,
+          "text": "public BpmFormPermissionDto selectById(Long id) {"
+        },
+        {
+          "line": 80,
+          "text": "public List<BpmFormPermissionDto> selectByApplicationName(String applicationName) {"
+        },
+        {
+          "line": 85,
+          "text": "public List<BpmFormDesensitizedDto> selectFormDesensitizedList(BillSearchRequestDto billSearchRequestDto) {"
+        }
+      ],
+      "domain": "application"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "0932272b141f3cdca9fa08cf8f10f54bc810f122624d47537fdb36a20e7a4cf6",
+      "lines": 38,
+      "classes": [
+        "BusinessEventPublisher"
+      ],
+      "method_count": 1,
+      "method_samples": [
+        {
+          "line": 26,
+          "text": "public <T extends Serializable> void publish(String eventName, T eventData, EventPublisher.EventPhase phase) {"
+        }
+      ],
+      "domain": "application"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "0baa83c4d59dc902190353e9936998326b413391356c8d621bd170d9b369e9f2",
+      "lines": 37,
+      "classes": [
+        "EntityEventPublisher"
+      ],
+      "method_count": 1,
+      "method_samples": [
+        {
+          "line": 24,
+          "text": "public <T extends Serializable> void publish(String eventName, T eventData, EventPublisher.EventPhase phase) {"
+        }
+      ],
+      "domain": "application"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "5ebaa5fde18f2e28ffb14725671d4f4eabe8646d04c945d77ab8c75c7456ad5e",
+      "lines": 15,
+      "classes": [
+        "SplitImportRecordDao"
+      ],
+      "method_count": 0,
+      "method_samples": [],
+      "domain": "generation"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "e824d607566c1b3f9fde36c782a3124f2848bb442b4f90d1577beb056bd55b70",
+      "lines": 199,
+      "classes": [
+        "SplitImportRecord"
+      ],
+      "method_count": 30,
+      "method_samples": [
+        {
+          "line": 79,
+          "text": "public Long getSourceAppId() {"
+        },
+        {
+          "line": 83,
+          "text": "public Long getAppId() {"
+        },
+        {
+          "line": 87,
+          "text": "public String getSplitModule() {"
+        },
+        {
+          "line": 91,
+          "text": "public Long getSourceId() {"
+        },
+        {
+          "line": 95,
+          "text": "public Long getTargetId() {"
+        },
+        {
+          "line": 99,
+          "text": "public Long getSourceGuid() {"
+        },
+        {
+          "line": 103,
+          "text": "public Long getTargetGuid() {"
+        },
+        {
+          "line": 107,
+          "text": "public String getSourceExt1() {"
+        },
+        {
+          "line": 111,
+          "text": "public String getTargetExt1() {"
+        },
+        {
+          "line": 115,
+          "text": "public String getSourceExt2() {"
+        },
+        {
+          "line": 119,
+          "text": "public String getTargetExt2() {"
+        },
+        {
+          "line": 123,
+          "text": "public String getSourceExt3() {"
+        },
+        {
+          "line": 127,
+          "text": "public String getTargetExt3() {"
+        },
+        {
+          "line": 131,
+          "text": "public String getSourceExt4() {"
+        },
+        {
+          "line": 135,
+          "text": "public String getTargetExt4() {"
+        },
+        {
+          "line": 139,
+          "text": "public void setSourceAppId(Long sourceAppId) {"
+        },
+        {
+          "line": 143,
+          "text": "public void setAppId(Long appId) {"
+        },
+        {
+          "line": 147,
+          "text": "public void setSplitModule(String splitModule) {"
+        },
+        {
+          "line": 151,
+          "text": "public void setSourceId(Long sourceId) {"
+        },
+        {
+          "line": 155,
+          "text": "public void setTargetId(Long targetId) {"
+        },
+        {
+          "line": 159,
+          "text": "public void setSourceGuid(Long sourceGuid) {"
+        },
+        {
+          "line": 163,
+          "text": "public void setTargetGuid(Long targetGuid) {"
+        },
+        {
+          "line": 167,
+          "text": "public void setSourceExt1(String sourceExt1) {"
+        },
+        {
+          "line": 171,
+          "text": "public void setTargetExt1(String targetExt1) {"
+        },
+        {
+          "line": 175,
+          "text": "public void setSourceExt2(String sourceExt2) {"
+        },
+        {
+          "line": 179,
+          "text": "public void setTargetExt2(String targetExt2) {"
+        },
+        {
+          "line": 183,
+          "text": "public void setSourceExt3(String sourceExt3) {"
+        },
+        {
+          "line": 187,
+          "text": "public void setTargetExt3(String targetExt3) {"
+        },
+        {
+          "line": 191,
+          "text": "public void setSourceExt4(String sourceExt4) {"
+        },
+        {
+          "line": 195,
+          "text": "public void setTargetExt4(String targetExt4) {"
+        }
+      ],
+      "domain": "entity"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "c208643367e3c6b947210b0ca28b68de86dd81f7b729db5165200f21dfaaa707",
+      "lines": 294,
+      "classes": [
+        "SplitImportRecordService"
+      ],
+      "method_count": 21,
+      "method_samples": [
+        {
+          "line": 92,
+          "text": "public Long create(SplitImportRecordDto dto) {"
+        },
+        {
+          "line": 99,
+          "text": "public int createBatch(List<SplitImportRecordDto> dtos) {"
+        },
+        {
+          "line": 107,
+          "text": "public int update(SplitImportRecordDto dto) {"
+        },
+        {
+          "line": 113,
+          "text": "public List<SplitImportRecord> selectByAppId(long appId) {"
+        },
+        {
+          "line": 120,
+          "text": "public List<SplitImportRecordDto> selectBySourceId(long sourceId) {"
+        },
+        {
+          "line": 126,
+          "text": "public List<SplitImportRecordDto> selectBySourceIdAndTargetId(long sourceId, long targetId) {"
+        },
+        {
+          "line": 133,
+          "text": "public List<SplitImportRecordDto> selectByAppIdAndModule(long appId, String module) {"
+        },
+        {
+          "line": 140,
+          "text": "public List<SplitImportRecordDto> selectAppRecordBySourceAppId(long sourceAppId) {"
+        },
+        {
+          "line": 147,
+          "text": "public List<SplitImportRecordDto> selectByCondition(Map<String, Object> condition) {"
+        },
+        {
+          "line": 151,
+          "text": "public List<SplitImportRecordDto> selectByCondition(Map<String, Object> condition, Sort sort) {"
+        },
+        {
+          "line": 162,
+          "text": "public List<SplitImportRecordDto> selectBySourceAppIdAndModule(long sourceAppId, String module) {"
+        },
+        {
+          "line": 170,
+          "text": "public int deleteRecordBySourceAppId(long sourceAppId) {"
+        },
+        {
+          "line": 177,
+          "text": "public String deleteBySourceAppId(long sourceAppId) {"
+        },
+        {
+          "line": 198,
+          "text": "public List<SplitImportRecordDto> selectSplitImportRecordList(ListRequest listRequest) {"
+        },
+        {
+          "line": 202,
+          "text": "public void createAppSplitImportRecord(ApplicationDto rootApp, ApplicationSchemaDto newApp) {"
+        },
+        {
+          "line": 207,
+          "text": "public void createEntitySplitImportRecord(SplitImportContext singleSplitImportContext) {"
+        },
+        {
+          "line": 221,
+          "text": "public SplitResultDto selectSplitResult(long sourceAppId) {"
+        },
+        {
+          "line": 252,
+          "text": "public Map<String, String> selectEntityNameConvertMap(long sourceAppId) {"
+        },
+        {
+          "line": 261,
+          "text": "public String getDbTableName(ApplicationSourceEnum applicationSourceEnum, String entityGuid, String entityName) {"
+        },
+        {
+          "line": 268,
+          "text": "public void deleteByAppIdList(List<Long> guids) {"
+        },
+        {
+          "line": 275,
+          "text": "public void invokeAppApprovalDeleteByAppIdList(Long id) {"
+        }
+      ],
+      "domain": "generation"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "d3ed7942c35e01a36cddf6b133871aadff2396fd040e0d8e2cfb13edced59244",
+      "lines": 180,
+      "classes": [
+        "MicroFlowCustomRelationResolver",
+        "MicroFlowDependencyNode"
+      ],
+      "method_count": 11,
+      "method_samples": [
+        {
+          "line": 49,
+          "text": "private MicroFlowCustomRelationResolver(ModuleDependency dependency, SplitContext splitContext) {"
+        },
+        {
+          "line": 56,
+          "text": "public static MicroFlowCustomRelationResolver from(ModuleDependency dependency, SplitContext splitContext) {"
+        },
+        {
+          "line": 60,
+          "text": "public void resolve() {"
+        },
+        {
+          "line": 65,
+          "text": "private void clarifyMicroFlowPageRuleLinks() {"
+        },
+        {
+          "line": 92,
+          "text": "private void clarifyBusinessEventTriggerMicroFlowLinks() {"
+        },
+        {
+          "line": 115,
+          "text": "private void copyAndRemoveOtherEntityDependencies(Long curMicroFlowId, List<Long> candidateRemoveEntityDependencies, Function<DependencyNode, DependencyNode> dependencyFunction) {"
+        },
+        {
+          "line": 131,
+          "text": "private void collectRelationEntityInfoInfo(MicroFlowDefinitionDto dto, Map<Long, Set<Long>> calledChainDependencyMap) {"
+        },
+        {
+          "line": 139,
+          "text": "private void dfsMicroFlow(DependencyNode pre, DependencyNode cur, List<Long> visited, BiConsumer<DependencyNode, DependencyNode> consumer) {"
+        },
+        {
+          "line": 143,
+          "text": "private void dfsMicroFlow(DependencyNode pre, DependencyNode cur, List<Long> visited, Function<DependencyNode, DependencyNode> curFunction, BiConsumer<DependencyNode, DependencyNode> consumer) {"
+        },
+        {
+          "line": 170,
+          "text": "private MicroFlowDependencyNode(DependencyNode preNode, DependencyNode curNode) {"
+        },
+        {
+          "line": 175,
+          "text": "public static MicroFlowDependencyNode from(DependencyNode preNode, DependencyNode curNode) {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "5f3c092cf9d1ae94531bddd44155b4a6ad17729f3364c3c8ac1d4e710abd851f",
+      "lines": 219,
+      "classes": [
+        "MicroFlowDependencyAnalyser"
+      ],
+      "method_count": 19,
+      "method_samples": [
+        {
+          "line": 64,
+          "text": "public static MicroFlowDependencyAnalyser from(AppContext appContext) {"
+        },
+        {
+          "line": 70,
+          "text": "public static MicroFlowDependencyAnalyser from(SplitContext splitContext) {"
+        },
+        {
+          "line": 76,
+          "text": "private MicroFlowDependencyAnalyser(AppContext appContext) {"
+        },
+        {
+          "line": 83,
+          "text": "private MicroFlowDependencyAnalyser(SplitContext splitContext) {"
+        },
+        {
+          "line": 90,
+          "text": "private void analyse() {"
+        },
+        {
+          "line": 98,
+          "text": "private void analyseEntityRule(Collection<MicroFlowDefinitionDto> entityRules) {"
+        },
+        {
+          "line": 105,
+          "text": "private void analyseMicroFlow(Collection<MicroFlowDefinitionDto> microFlows) {"
+        },
+        {
+          "line": 118,
+          "text": "private void analysePageRule(Collection<MicroFlowDefinitionDto> microFlows) {"
+        },
+        {
+          "line": 135,
+          "text": "private Optional<Long> analyseMicroFlowEntityTrigger(ObjectNode schemaObjectNode) {"
+        },
+        {
+          "line": 139,
+          "text": "private void analyseMicroFlowDependencyDetails(Long microFlowId, ObjectNode schemaObjectNode) {"
+        },
+        {
+          "line": 148,
+          "text": "private void addEntityActivityDependency(Long currentMicroFlowId, ObjectNode node, String actionType) {"
+        },
+        {
+          "line": 156,
+          "text": "private void addSubMicroFlowDependency(Long currentMicroFlowId, ObjectNode node, String actionType) {"
+        },
+        {
+          "line": 163,
+          "text": "private void addCommonDependency(Long currentMicroFlowId, ObjectNode node) {"
+        },
+        {
+          "line": 168,
+          "text": "private void addDependentAppDependency(Long currentMicroFlowId, ObjectNode node) {"
+        },
+        {
+          "line": 172,
+          "text": "private void addMicroFlowDtoDependencyFromNode(Long currentMicroFlowId, ObjectNode node) {"
+        },
+        {
+          "line": 181,
+          "text": "private void analyseMicroFlowInputOutput(Long currentMicroFlowId, ObjectNode schemaObjectNode) {"
+        },
+        {
+          "line": 194,
+          "text": "private void addMicroFlowDtoDependencyFromInputOutput(Long currentMicroFlowId, ObjectNode inputObjectNode) {"
+        },
+        {
+          "line": 198,
+          "text": "private void addMicroFlowDtoDependency(Long currentMicroFlowId, Supplier<Optional<String>> dtoTypeSupplier, Supplier<Optional<String>> javaTypeSupplier) {"
+        },
+        {
+          "line": 215,
+          "text": "public ModuleDependency getDependency() {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "74395eea1f1cebc2268da3690cbdb3603b1607ab7bc641cb48e6d9146f3e8cc2",
+      "lines": 57,
+      "classes": [
+        "AttrType"
+      ],
+      "method_count": 10,
+      "method_samples": [
+        {
+          "line": 17,
+          "text": "public String getFullName() {"
+        },
+        {
+          "line": 21,
+          "text": "public String getRefId() {"
+        },
+        {
+          "line": 25,
+          "text": "public boolean isUdcApp() {"
+        },
+        {
+          "line": 29,
+          "text": "public boolean isDataI18n() {"
+        },
+        {
+          "line": 33,
+          "text": "public String getDesc() {"
+        },
+        {
+          "line": 37,
+          "text": "public void setFullName(String fullName) {"
+        },
+        {
+          "line": 41,
+          "text": "public void setRefId(String refId) {"
+        },
+        {
+          "line": 45,
+          "text": "public void setUdcApp(boolean udcApp) {"
+        },
+        {
+          "line": 49,
+          "text": "public void setDataI18n(boolean dataI18n) {"
+        },
+        {
+          "line": 53,
+          "text": "public void setDesc(String desc) {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "203b8373a5b2eb4d224111ab5eeb3adbf1ef2afc282bf22dc6c494bb079feb50",
+      "lines": 99,
+      "classes": [
+        "AttrValue"
+      ],
+      "method_count": 18,
+      "method_samples": [
+        {
+          "line": 27,
+          "text": "public String getType() {"
+        },
+        {
+          "line": 31,
+          "text": "public String getDesc() {"
+        },
+        {
+          "line": 35,
+          "text": "public ExpressionNode getExpression() {"
+        },
+        {
+          "line": 39,
+          "text": "public SelectParam getSelectParam() {"
+        },
+        {
+          "line": 43,
+          "text": "public String getSimple() {"
+        },
+        {
+          "line": 47,
+          "text": "public CtpEnumValue getCtpEnum() {"
+        },
+        {
+          "line": 51,
+          "text": "public SystemValue getSystem() {"
+        },
+        {
+          "line": 55,
+          "text": "public List<SelectPeopleDataParam> getSelectPeopleData() {"
+        },
+        {
+          "line": 59,
+          "text": "public String getJavaEnum() {"
+        },
+        {
+          "line": 63,
+          "text": "public void setType(String type) {"
+        },
+        {
+          "line": 67,
+          "text": "public void setDesc(String desc) {"
+        },
+        {
+          "line": 71,
+          "text": "public void setExpression(ExpressionNode expression) {"
+        },
+        {
+          "line": 75,
+          "text": "public void setSelectParam(SelectParam selectParam) {"
+        },
+        {
+          "line": 79,
+          "text": "public void setSimple(String simple) {"
+        },
+        {
+          "line": 83,
+          "text": "public void setCtpEnum(CtpEnumValue ctpEnum) {"
+        },
+        {
+          "line": 87,
+          "text": "public void setSystem(SystemValue system) {"
+        },
+        {
+          "line": 91,
+          "text": "public void setSelectPeopleData(List<SelectPeopleDataParam> selectPeopleData) {"
+        },
+        {
+          "line": 95,
+          "text": "public void setJavaEnum(String javaEnum) {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "df939b0fe6e7725095db630649b838375801a83c11c976aa4f1ff59e69a66d98",
+      "lines": 43,
+      "classes": [
+        "BaseMicroFlowComponent"
+      ],
+      "method_count": 5,
+      "method_samples": [
+        {
+          "line": 19,
+          "text": "protected BaseMicroFlowComponent(String name, String type, String dataType, String javaType) {"
+        },
+        {
+          "line": 24,
+          "text": "public static BaseMicroFlowComponent buildByObjectNode(ObjectNode node, String location, ParseResult result) {"
+        },
+        {
+          "line": 32,
+          "text": "public String getType() {"
+        },
+        {
+          "line": 36,
+          "text": "public void setType(String type) {"
+        },
+        {
+          "line": 40,
+          "text": "public BaseMicroFlowComponent() {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "5e30de4f3a1b8c5b3e23ee28bbbdc468fa0d8677b4313eb2e1d50271edf8790e",
+      "lines": 96,
+      "classes": [
+        "CallMethod"
+      ],
+      "method_count": 18,
+      "method_samples": [
+        {
+          "line": 24,
+          "text": "public String getService() {"
+        },
+        {
+          "line": 28,
+          "text": "public String getServiceName() {"
+        },
+        {
+          "line": 32,
+          "text": "public String getMethod() {"
+        },
+        {
+          "line": 36,
+          "text": "public String getInputParam() {"
+        },
+        {
+          "line": 40,
+          "text": "public String getInputParamType() {"
+        },
+        {
+          "line": 44,
+          "text": "public String getInputParamGenericType() {"
+        },
+        {
+          "line": 48,
+          "text": "public String getRespOutputParam() {"
+        },
+        {
+          "line": 52,
+          "text": "public String getOutputParam() {"
+        },
+        {
+          "line": 56,
+          "text": "public String getOutputType() {"
+        },
+        {
+          "line": 60,
+          "text": "public void setService(String service) {"
+        },
+        {
+          "line": 64,
+          "text": "public void setServiceName(String serviceName) {"
+        },
+        {
+          "line": 68,
+          "text": "public void setMethod(String method) {"
+        },
+        {
+          "line": 72,
+          "text": "public void setInputParam(String inputParam) {"
+        },
+        {
+          "line": 76,
+          "text": "public void setInputParamType(String inputParamType) {"
+        },
+        {
+          "line": 80,
+          "text": "public void setInputParamGenericType(String inputParamGenericType) {"
+        },
+        {
+          "line": 84,
+          "text": "public void setRespOutputParam(String respOutputParam) {"
+        },
+        {
+          "line": 88,
+          "text": "public void setOutputParam(String outputParam) {"
+        },
+        {
+          "line": 92,
+          "text": "public void setOutputType(String outputType) {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "2c8fbcd971dbf1a6b035b636cbb67f9c58f190bcd77eecd6f741c35eb319ab6d",
+      "lines": 93,
+      "classes": [
+        "CallMethodParam"
+      ],
+      "method_count": 16,
+      "method_samples": [
+        {
+          "line": 29,
+          "text": "public AttrType getAttrType() {"
+        },
+        {
+          "line": 33,
+          "text": "public List<SelectObjectAttr> getAttrs() {"
+        },
+        {
+          "line": 37,
+          "text": "public AttrValue getValue() {"
+        },
+        {
+          "line": 41,
+          "text": "public boolean isPage() {"
+        },
+        {
+          "line": 45,
+          "text": "public boolean isSelectByCondition() {"
+        },
+        {
+          "line": 49,
+          "text": "public boolean isComplexCondition() {"
+        },
+        {
+          "line": 53,
+          "text": "public ConditionInfo getCondition() {"
+        },
+        {
+          "line": 57,
+          "text": "public List<RetrieveSortParam> getSortParams() {"
+        },
+        {
+          "line": 61,
+          "text": "public void setAttrType(AttrType attrType) {"
+        },
+        {
+          "line": 65,
+          "text": "public void setAttrs(List<SelectObjectAttr> attrs) {"
+        },
+        {
+          "line": 69,
+          "text": "public void setValue(AttrValue value) {"
+        },
+        {
+          "line": 73,
+          "text": "public void setPage(boolean page) {"
+        },
+        {
+          "line": 77,
+          "text": "public void setSelectByCondition(boolean selectByCondition) {"
+        },
+        {
+          "line": 81,
+          "text": "public void setComplexCondition(boolean complexCondition) {"
+        },
+        {
+          "line": 85,
+          "text": "public void setCondition(ConditionInfo condition) {"
+        },
+        {
+          "line": 89,
+          "text": "public void setSortParams(List<RetrieveSortParam> sortParams) {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "82a7e5110821108da43fd596af46bff64f9b02f17cafb7a5f93f51624c8fd8ef",
+      "lines": 52,
+      "classes": [
+        "ConditionLeftParam"
+      ],
+      "method_count": 8,
+      "method_samples": [
+        {
+          "line": 20,
+          "text": "public String getField() {"
+        },
+        {
+          "line": 24,
+          "text": "public String getDataType() {"
+        },
+        {
+          "line": 28,
+          "text": "public String getId() {"
+        },
+        {
+          "line": 32,
+          "text": "public SingleConditionDto.Type getType() {"
+        },
+        {
+          "line": 36,
+          "text": "public void setField(String field) {"
+        },
+        {
+          "line": 40,
+          "text": "public void setDataType(String dataType) {"
+        },
+        {
+          "line": 44,
+          "text": "public void setId(String id) {"
+        },
+        {
+          "line": 48,
+          "text": "public void setType(SingleConditionDto.Type type) {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "947fa8a2d809c9262af27e54c5d2944add4941f810b9a32fbbbcf0d0e318ff6a",
+      "lines": 57,
+      "classes": [
+        "ConditionParam"
+      ],
+      "method_count": 8,
+      "method_samples": [
+        {
+          "line": 25,
+          "text": "public ConditionLeftParam getLeftParam() {"
+        },
+        {
+          "line": 29,
+          "text": "public List<ConditionRightParam> getRightParams() {"
+        },
+        {
+          "line": 33,
+          "text": "public SingleConditionDto.LeftParamDto getOriginalLeftParamDto() {"
+        },
+        {
+          "line": 37,
+          "text": "public SingleConditionDto.ConditionOperatorDto getOperator() {"
+        },
+        {
+          "line": 41,
+          "text": "public void setLeftParam(ConditionLeftParam leftParam) {"
+        },
+        {
+          "line": 45,
+          "text": "public void setRightParams(List<ConditionRightParam> rightParams) {"
+        },
+        {
+          "line": 49,
+          "text": "public void setOriginalLeftParamDto(SingleConditionDto.LeftParamDto originalLeftParamDto) {"
+        },
+        {
+          "line": 53,
+          "text": "public void setOperator(SingleConditionDto.ConditionOperatorDto operator) {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "2bb4eb068fe40002d47f7642bbe1f343a1bf87181e5bfa3c580b56fbb55714c5",
+      "lines": 72,
+      "classes": [
+        "ConditionRightParam"
+      ],
+      "method_count": 12,
+      "method_samples": [
+        {
+          "line": 24,
+          "text": "public String getCONTEXT_VARIABLE() {"
+        },
+        {
+          "line": 28,
+          "text": "public String getEXPRESSION_VARIABLE() {"
+        },
+        {
+          "line": 32,
+          "text": "public String getKey() {"
+        },
+        {
+          "line": 36,
+          "text": "public String getType() {"
+        },
+        {
+          "line": 40,
+          "text": "public String getValue() {"
+        },
+        {
+          "line": 44,
+          "text": "public SelectParam getSelectParam() {"
+        },
+        {
+          "line": 48,
+          "text": "public ExpressionNode getExpression() {"
+        },
+        {
+          "line": 52,
+          "text": "public void setKey(String key) {"
+        },
+        {
+          "line": 56,
+          "text": "public void setType(String type) {"
+        },
+        {
+          "line": 60,
+          "text": "public void setValue(String value) {"
+        },
+        {
+          "line": 64,
+          "text": "public void setSelectParam(SelectParam selectParam) {"
+        },
+        {
+          "line": 68,
+          "text": "public void setExpression(ExpressionNode expression) {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "c79d47859b9a745ee425c25502a34f7d81caf14daea22ed9be6aa3d41e614e73",
+      "lines": 44,
+      "classes": [
+        "CtpEnumValue"
+      ],
+      "method_count": 8,
+      "method_samples": [
+        {
+          "line": 12,
+          "text": "public String getId() {"
+        },
+        {
+          "line": 16,
+          "text": "public String getValue() {"
+        },
+        {
+          "line": 20,
+          "text": "public String getCode() {"
+        },
+        {
+          "line": 24,
+          "text": "public String getGuid() {"
+        },
+        {
+          "line": 28,
+          "text": "public void setId(String id) {"
+        },
+        {
+          "line": 32,
+          "text": "public void setValue(String value) {"
+        },
+        {
+          "line": 36,
+          "text": "public void setCode(String code) {"
+        },
+        {
+          "line": 40,
+          "text": "public void setGuid(String guid) {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "a77f16a70f0f029bb99a30a36453ebb4edcff05e63ef0537c81a5d34a6b53f8f",
+      "lines": 216,
+      "classes": [
+        "DataMappingRow",
+        "DataMappingValue",
+        "DataMappingConstantValue",
+        "DataMappingConstantValueType",
+        "DataMappingMode",
+        "DataMappingField"
+      ],
+      "method_count": 28,
+      "method_samples": [
+        {
+          "line": 39,
+          "text": "public DataMappingRow(String uuid, DataMappingField targetField, DataMappingMode mappingMode, DataMappingValue value) {"
+        },
+        {
+          "line": 46,
+          "text": "public String getUuid() {"
+        },
+        {
+          "line": 50,
+          "text": "public DataMappingField getTargetField() {"
+        },
+        {
+          "line": 54,
+          "text": "public DataMappingMode getMappingMode() {"
+        },
+        {
+          "line": 58,
+          "text": "public DataMappingValue getValue() {"
+        },
+        {
+          "line": 69,
+          "text": "public DataMappingConstantValue getConstant() {"
+        },
+        {
+          "line": 73,
+          "text": "public ExpressionNode getExpression() {"
+        },
+        {
+          "line": 77,
+          "text": "public DataMappingField getReference() {"
+        },
+        {
+          "line": 81,
+          "text": "public void setConstant(DataMappingConstantValue constant) {"
+        },
+        {
+          "line": 85,
+          "text": "public void setExpression(ExpressionNode expression) {"
+        },
+        {
+          "line": 89,
+          "text": "public void setReference(DataMappingField reference) {"
+        },
+        {
+          "line": 100,
+          "text": "public DataMappingConstantValueType getConstantType() {"
+        },
+        {
+          "line": 104,
+          "text": "public String getSimple() {"
+        },
+        {
+          "line": 108,
+          "text": "public String getJavaEnum() {"
+        },
+        {
+          "line": 112,
+          "text": "public void setConstantType(DataMappingConstantValueType constantType) {"
+        },
+        {
+          "line": 116,
+          "text": "public void setSimple(String simple) {"
+        },
+        {
+          "line": 120,
+          "text": "public void setJavaEnum(String javaEnum) {"
+        },
+        {
+          "line": 132,
+          "text": "private DataMappingConstantValueType(int code) {"
+        },
+        {
+          "line": 136,
+          "text": "public int code() {"
+        },
+        {
+          "line": 152,
+          "text": "private DataMappingMode(int code) {"
+        },
+        {
+          "line": 156,
+          "text": "public int code() {"
+        },
+        {
+          "line": 168,
+          "text": "private DataMappingField(List<BaseMicroFlowComponent> path, BaseMicroFlowComponent otherFieldInfo) {"
+        },
+        {
+          "line": 173,
+          "text": "public static DataMappingField buildDataMappingField(ObjectNode fieldNode, String location, ParseResult result) {"
+        },
+        {
+          "line": 181,
+          "text": "private static List<BaseMicroFlowComponent> parsePath(ObjectNode fieldObjectNode, String location, ParseResult result) {"
+        },
+        {
+          "line": 195,
+          "text": "private static Map<String, String> parseGenerics(ObjectNode fieldObjectNode, String location, ParseResult result) {"
+        },
+        {
+          "line": 203,
+          "text": "public List<BaseMicroFlowComponent> getPath() {"
+        },
+        {
+          "line": 207,
+          "text": "public Map<String, String> getGenerics() {"
+        },
+        {
+          "line": 211,
+          "text": "public void setGenerics(Map<String, String> generics) {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "f82abfa63973d01f1c5b8229a980159ef93e89d040d5fdbea76724df941969f8",
+      "lines": 17,
+      "classes": [
+        "Element"
+      ],
+      "method_count": 2,
+      "method_samples": [
+        {
+          "line": 9,
+          "text": "public String getId() {"
+        },
+        {
+          "line": 13,
+          "text": "public void setId(String id) {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "431c3f978daed9a8ff4ff667c4f57b787d680cfd20e8a94b08b3d34619ea57d6",
+      "lines": 52,
+      "classes": [
+        "ExpressionMapParam"
+      ],
+      "method_count": 8,
+      "method_samples": [
+        {
+          "line": 13,
+          "text": "public boolean equals(Object obj) {"
+        },
+        {
+          "line": 24,
+          "text": "public int hashCode() {"
+        },
+        {
+          "line": 28,
+          "text": "public String getOutputName() {"
+        },
+        {
+          "line": 32,
+          "text": "public String getClassName() {"
+        },
+        {
+          "line": 36,
+          "text": "public Boolean getIsConfigParam() {"
+        },
+        {
+          "line": 40,
+          "text": "public void setOutputName(String outputName) {"
+        },
+        {
+          "line": 44,
+          "text": "public void setClassName(String className) {"
+        },
+        {
+          "line": 48,
+          "text": "public void setIsConfigParam(Boolean isConfigParam) {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "20a7dfde96d46ce4f122c62337d848544f892807256dad9cc47f1b9a7cea8bac",
+      "lines": 39,
+      "classes": [
+        "GroupDtcBo"
+      ],
+      "method_count": 6,
+      "method_samples": [
+        {
+          "line": 15,
+          "text": "public String getToTry() {"
+        },
+        {
+          "line": 19,
+          "text": "public String getConfirm() {"
+        },
+        {
+          "line": 23,
+          "text": "public String getCancel() {"
+        },
+        {
+          "line": 27,
+          "text": "public void setToTry(String toTry) {"
+        },
+        {
+          "line": 31,
+          "text": "public void setConfirm(String confirm) {"
+        },
+        {
+          "line": 35,
+          "text": "public void setCancel(String cancel) {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "12e9bcbb83f6c62d744184b57786c939495e2d14db3e9d44416587d84857def6",
+      "lines": 34,
+      "classes": [
+        "LocalTransactional"
+      ],
+      "method_count": 4,
+      "method_samples": [
+        {
+          "line": 18,
+          "text": "public String getPropagation() {"
+        },
+        {
+          "line": 22,
+          "text": "public boolean isReadOnly() {"
+        },
+        {
+          "line": 26,
+          "text": "public void setPropagation(String propagation) {"
+        },
+        {
+          "line": 30,
+          "text": "public void setReadOnly(boolean readOnly) {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "3276efe0fd0407fa2168f069f8ed234abdbb58d2756a2d1dce538c5739df5121",
+      "lines": 36,
+      "classes": [
+        "MapEntry"
+      ],
+      "method_count": 5,
+      "method_samples": [
+        {
+          "line": 15,
+          "text": "public AttrValue getKey() {"
+        },
+        {
+          "line": 19,
+          "text": "public AttrValue getValue() {"
+        },
+        {
+          "line": 23,
+          "text": "public void setKey(AttrValue key) {"
+        },
+        {
+          "line": 27,
+          "text": "public void setValue(AttrValue value) {"
+        },
+        {
+          "line": 31,
+          "text": "public MapEntry(AttrValue key, AttrValue value) {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "784b0941c6dc0222c914d6a0fbb194ccfd804fa8a79bfddd1a4b0f9fca7c8ab5",
+      "lines": 69,
+      "classes": [
+        "MappingRule"
+      ],
+      "method_count": 12,
+      "method_samples": [
+        {
+          "line": 21,
+          "text": "public String getUuid() {"
+        },
+        {
+          "line": 25,
+          "text": "public String getName() {"
+        },
+        {
+          "line": 29,
+          "text": "public String getType() {"
+        },
+        {
+          "line": 33,
+          "text": "public String getJavaType() {"
+        },
+        {
+          "line": 37,
+          "text": "public List<DataMappingRow> getMappingRows() {"
+        },
+        {
+          "line": 41,
+          "text": "public List<MappingRule> getSubobjects() {"
+        },
+        {
+          "line": 45,
+          "text": "public void setUuid(String uuid) {"
+        },
+        {
+          "line": 49,
+          "text": "public void setName(String name) {"
+        },
+        {
+          "line": 53,
+          "text": "public void setType(String type) {"
+        },
+        {
+          "line": 57,
+          "text": "public void setJavaType(String javaType) {"
+        },
+        {
+          "line": 61,
+          "text": "public void setMappingRows(List<DataMappingRow> mappingRows) {"
+        },
+        {
+          "line": 65,
+          "text": "public void setSubobjects(List<MappingRule> subobjects) {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "475a95b2494fdf6b599a121a1a276d2680f1b1f90682fb94c75a4512da145b4e",
+      "lines": 86,
+      "classes": [
+        "MessageInfo"
+      ],
+      "method_count": 16,
+      "method_samples": [
+        {
+          "line": 22,
+          "text": "public void setMessageSource(MessageSourceEnum messageSource) {"
+        },
+        {
+          "line": 26,
+          "text": "public void setCaption(String caption) {"
+        },
+        {
+          "line": 30,
+          "text": "public void setEventDataFullName(String eventDataFullName) {"
+        },
+        {
+          "line": 34,
+          "text": "public void setEventName(String eventName) {"
+        },
+        {
+          "line": 38,
+          "text": "public void setEventFullName(String eventFullName) {"
+        },
+        {
+          "line": 42,
+          "text": "public void setEventMfCustomDtoName(String eventMfCustomDtoName) {"
+        },
+        {
+          "line": 46,
+          "text": "public void setTopic(String topic) {"
+        },
+        {
+          "line": 50,
+          "text": "public void setConnectorMessageInfo(Map<String, Object> connectorMessageInfo) {"
+        },
+        {
+          "line": 54,
+          "text": "public MessageSourceEnum getMessageSource() {"
+        },
+        {
+          "line": 58,
+          "text": "public String getCaption() {"
+        },
+        {
+          "line": 62,
+          "text": "public String getEventDataFullName() {"
+        },
+        {
+          "line": 66,
+          "text": "public String getEventName() {"
+        },
+        {
+          "line": 70,
+          "text": "public String getEventFullName() {"
+        },
+        {
+          "line": 74,
+          "text": "public String getEventMfCustomDtoName() {"
+        },
+        {
+          "line": 78,
+          "text": "public String getTopic() {"
+        },
+        {
+          "line": 82,
+          "text": "public Map<String, Object> getConnectorMessageInfo() {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "fa8837cb1769744f4dadd563abeb97d9316d8322feda3fc61fd75892e7fe88c2",
+      "lines": 64,
+      "classes": [
+        "MetadataValue"
+      ],
+      "method_count": 12,
+      "method_samples": [
+        {
+          "line": 16,
+          "text": "public MetaDataTypeEnum getType() {"
+        },
+        {
+          "line": 20,
+          "text": "public String getId() {"
+        },
+        {
+          "line": 24,
+          "text": "public String getEntityFullName() {"
+        },
+        {
+          "line": 28,
+          "text": "public String getEntityDtoFullName() {"
+        },
+        {
+          "line": 32,
+          "text": "public String getGuid() {"
+        },
+        {
+          "line": 36,
+          "text": "public String getValue() {"
+        },
+        {
+          "line": 40,
+          "text": "public void setType(MetaDataTypeEnum type) {"
+        },
+        {
+          "line": 44,
+          "text": "public void setId(String id) {"
+        },
+        {
+          "line": 48,
+          "text": "public void setEntityFullName(String entityFullName) {"
+        },
+        {
+          "line": 52,
+          "text": "public void setEntityDtoFullName(String entityDtoFullName) {"
+        },
+        {
+          "line": 56,
+          "text": "public void setGuid(String guid) {"
+        },
+        {
+          "line": 60,
+          "text": "public void setValue(String value) {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "160bb12d77a306e23f6430ca6414d1e0e9f593a49a16a6db1dfa26d4c56768e6",
+      "lines": 67,
+      "classes": [
+        "MethodLegalDto"
+      ],
+      "method_count": 10,
+      "method_samples": [
+        {
+          "line": 27,
+          "text": "public Boolean getAvailable() {"
+        },
+        {
+          "line": 31,
+          "text": "public Boolean getComplexCondition() {"
+        },
+        {
+          "line": 35,
+          "text": "public Boolean getSeniorMethod() {"
+        },
+        {
+          "line": 39,
+          "text": "public AppServiceTypeEnum getServiceType() {"
+        },
+        {
+          "line": 43,
+          "text": "public String getInterfaceClassFullName() {"
+        },
+        {
+          "line": 47,
+          "text": "public void setAvailable(Boolean available) {"
+        },
+        {
+          "line": 51,
+          "text": "public void setComplexCondition(Boolean complexCondition) {"
+        },
+        {
+          "line": 55,
+          "text": "public void setSeniorMethod(Boolean seniorMethod) {"
+        },
+        {
+          "line": 59,
+          "text": "public void setServiceType(AppServiceTypeEnum serviceType) {"
+        },
+        {
+          "line": 63,
+          "text": "public void setInterfaceClassFullName(String interfaceClassFullName) {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "b9dd095d7dfba5e869876365bd42f9ad420c9928a1a66b02726238006b3ebcab",
+      "lines": 67,
+      "classes": [
+        "MicroFlowInOutDto"
+      ],
+      "method_count": 10,
+      "method_samples": [
+        {
+          "line": 25,
+          "text": "public MicroFlowInOutDto() {"
+        },
+        {
+          "line": 28,
+          "text": "public MicroFlowInOutDto(MicroFlowParameterDefDto input, MicroFlowParameterDefDto output, Map<String, DataTransferObject4CodeDto> microFlowDtoMap, Map<String, Entity4CodeDto> entityDtoMap) {"
+        },
+        {
+          "line": 35,
+          "text": "public MicroFlowParameterDefDto getInput() {"
+        },
+        {
+          "line": 39,
+          "text": "public MicroFlowParameterDefDto getOutput() {"
+        },
+        {
+          "line": 43,
+          "text": "public Map<String, DataTransferObject4CodeDto> getMicroFlowDtoMap() {"
+        },
+        {
+          "line": 47,
+          "text": "public Map<String, Entity4CodeDto> getEntityDtoMap() {"
+        },
+        {
+          "line": 51,
+          "text": "public void setInput(MicroFlowParameterDefDto input) {"
+        },
+        {
+          "line": 55,
+          "text": "public void setOutput(MicroFlowParameterDefDto output) {"
+        },
+        {
+          "line": 59,
+          "text": "public void setMicroFlowDtoMap(Map<String, DataTransferObject4CodeDto> microFlowDtoMap) {"
+        },
+        {
+          "line": 63,
+          "text": "public void setEntityDtoMap(Map<String, Entity4CodeDto> entityDtoMap) {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "f76455ad9adfae564a09713510d2812a8b72a471a4b5c3b3f1de78024891b87b",
+      "lines": 220,
+      "classes": [
+        "MicroFlowInOutParamDto"
+      ],
+      "method_count": 28,
+      "method_samples": [
+        {
+          "line": 44,
+          "text": "public MicroFlowInOutParamDto(MicroFlowInOutDto microFlowInOutDto) {"
+        },
+        {
+          "line": 59,
+          "text": "private void build(MicroFlowParameterDefDto def, Map<String, DataTransferObject4CodeDto> microFlowDtoMap, Map<String, Entity4CodeDto> entityDtoMap, boolean isIn) {"
+        },
+        {
+          "line": 116,
+          "text": "public Map<String, String> getPackageMap() {"
+        },
+        {
+          "line": 120,
+          "text": "public String getReq() {"
+        },
+        {
+          "line": 124,
+          "text": "public String getInputType() {"
+        },
+        {
+          "line": 128,
+          "text": "public String getInputName() {"
+        },
+        {
+          "line": 132,
+          "text": "public String getOutputType() {"
+        },
+        {
+          "line": 136,
+          "text": "public String getRespOutputType() {"
+        },
+        {
+          "line": 140,
+          "text": "public String getResp() {"
+        },
+        {
+          "line": 144,
+          "text": "public String getWebParamAnnotation() {"
+        },
+        {
+          "line": 148,
+          "text": "public boolean isCommandFlag() {"
+        },
+        {
+          "line": 152,
+          "text": "public boolean isHasInput() {"
+        },
+        {
+          "line": 156,
+          "text": "public boolean isHasOutput() {"
+        },
+        {
+          "line": 160,
+          "text": "public boolean isHasPagination() {"
+        },
+        {
+          "line": 164,
+          "text": "public boolean isHasOutputPagination() {"
+        },
+        {
+          "line": 168,
+          "text": "public void setPackageMap(Map<String, String> packageMap) {"
+        },
+        {
+          "line": 172,
+          "text": "public void setReq(String req) {"
+        },
+        {
+          "line": 176,
+          "text": "public void setInputType(String inputType) {"
+        },
+        {
+          "line": 180,
+          "text": "public void setInputName(String inputName) {"
+        },
+        {
+          "line": 184,
+          "text": "public void setOutputType(String outputType) {"
+        },
+        {
+          "line": 188,
+          "text": "public void setRespOutputType(String respOutputType) {"
+        },
+        {
+          "line": 192,
+          "text": "public void setResp(String resp) {"
+        },
+        {
+          "line": 196,
+          "text": "public void setWebParamAnnotation(String webParamAnnotation) {"
+        },
+        {
+          "line": 200,
+          "text": "public void setCommandFlag(boolean commandFlag) {"
+        },
+        {
+          "line": 204,
+          "text": "public void setHasInput(boolean hasInput) {"
+        },
+        {
+          "line": 208,
+          "text": "public void setHasOutput(boolean hasOutput) {"
+        },
+        {
+          "line": 212,
+          "text": "public void setHasPagination(boolean hasPagination) {"
+        },
+        {
+          "line": 216,
+          "text": "public void setHasOutputPagination(boolean hasOutputPagination) {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "148eb011740d39e5151a049e684b7ed2a9d5619d06d1c58f58c95f6f07718849",
+      "lines": 39,
+      "classes": [
+        "OpenApiBo"
+      ],
+      "method_count": 6,
+      "method_samples": [
+        {
+          "line": 15,
+          "text": "public boolean isEnable() {"
+        },
+        {
+          "line": 19,
+          "text": "public boolean isAsync() {"
+        },
+        {
+          "line": 23,
+          "text": "public String getOpenApiType() {"
+        },
+        {
+          "line": 27,
+          "text": "public void setEnable(boolean enable) {"
+        },
+        {
+          "line": 31,
+          "text": "public void setAsync(boolean async) {"
+        },
+        {
+          "line": 35,
+          "text": "public void setOpenApiType(String openApiType) {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "cd42d9db14a66df1090311f69f4255744a8ef3e307727c108b12c6f2dc5fae0a",
+      "lines": 76,
+      "classes": [
+        "RestMfServiceBo"
+      ],
+      "method_count": 14,
+      "method_samples": [
+        {
+          "line": 20,
+          "text": "public String getId() {"
+        },
+        {
+          "line": 24,
+          "text": "public String getPath() {"
+        },
+        {
+          "line": 28,
+          "text": "public String getRestType() {"
+        },
+        {
+          "line": 32,
+          "text": "public Boolean getHasInput() {"
+        },
+        {
+          "line": 36,
+          "text": "public Boolean getHasOutput() {"
+        },
+        {
+          "line": 40,
+          "text": "public MicroFlowParameterDefDto getInput() {"
+        },
+        {
+          "line": 44,
+          "text": "public MicroFlowParameterDefDto getOutput() {"
+        },
+        {
+          "line": 48,
+          "text": "public void setId(String id) {"
+        },
+        {
+          "line": 52,
+          "text": "public void setPath(String path) {"
+        },
+        {
+          "line": 56,
+          "text": "public void setRestType(String restType) {"
+        },
+        {
+          "line": 60,
+          "text": "public void setHasInput(Boolean hasInput) {"
+        },
+        {
+          "line": 64,
+          "text": "public void setHasOutput(Boolean hasOutput) {"
+        },
+        {
+          "line": 68,
+          "text": "public void setInput(MicroFlowParameterDefDto input) {"
+        },
+        {
+          "line": 72,
+          "text": "public void setOutput(MicroFlowParameterDefDto output) {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "dde59808895ad137c9045942b4b1f98d135bc564081f1b84530f0033efa72b5d",
+      "lines": 44,
+      "classes": [
+        "SelectApp"
+      ],
+      "method_count": 8,
+      "method_samples": [
+        {
+          "line": 12,
+          "text": "public String getAppId() {"
+        },
+        {
+          "line": 16,
+          "text": "public String getAppName() {"
+        },
+        {
+          "line": 20,
+          "text": "public Boolean getInApp() {"
+        },
+        {
+          "line": 24,
+          "text": "public Boolean getUdcApp() {"
+        },
+        {
+          "line": 28,
+          "text": "public void setAppId(String appId) {"
+        },
+        {
+          "line": 32,
+          "text": "public void setAppName(String appName) {"
+        },
+        {
+          "line": 36,
+          "text": "public void setInApp(Boolean inApp) {"
+        },
+        {
+          "line": 40,
+          "text": "public void setUdcApp(Boolean udcApp) {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "e5d3903c980cec2d5ab0441d770ea03f64043307b92c28437e1d9297a3c826f5",
+      "lines": 39,
+      "classes": [
+        "SelectEvent"
+      ],
+      "method_count": 6,
+      "method_samples": [
+        {
+          "line": 15,
+          "text": "public String getFullName() {"
+        },
+        {
+          "line": 19,
+          "text": "public String getCaption() {"
+        },
+        {
+          "line": 23,
+          "text": "public String getName() {"
+        },
+        {
+          "line": 27,
+          "text": "public void setFullName(String fullName) {"
+        },
+        {
+          "line": 31,
+          "text": "public void setCaption(String caption) {"
+        },
+        {
+          "line": 35,
+          "text": "public void setName(String name) {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "001485ee2d80f33a8bf0c65e731e5722763531629ae027126e8d69e8bae6569e",
+      "lines": 107,
+      "classes": [
+        "SelectMethod"
+      ],
+      "method_count": 20,
+      "method_samples": [
+        {
+          "line": 27,
+          "text": "public String getFullName() {"
+        },
+        {
+          "line": 31,
+          "text": "public String getImplClass() {"
+        },
+        {
+          "line": 35,
+          "text": "public String getInterfaceClass() {"
+        },
+        {
+          "line": 39,
+          "text": "public Boolean getDubbo() {"
+        },
+        {
+          "line": 43,
+          "text": "public String getOperationType() {"
+        },
+        {
+          "line": 47,
+          "text": "public AttrType getInputParam() {"
+        },
+        {
+          "line": 51,
+          "text": "public boolean isPage() {"
+        },
+        {
+          "line": 55,
+          "text": "public boolean isCondition() {"
+        },
+        {
+          "line": 59,
+          "text": "public Map<String, Object> getParameter() {"
+        },
+        {
+          "line": 63,
+          "text": "public Map<String, Object> getReturnValue() {"
+        },
+        {
+          "line": 67,
+          "text": "public void setFullName(String fullName) {"
+        },
+        {
+          "line": 71,
+          "text": "public void setImplClass(String implClass) {"
+        },
+        {
+          "line": 75,
+          "text": "public void setInterfaceClass(String interfaceClass) {"
+        },
+        {
+          "line": 79,
+          "text": "public void setDubbo(Boolean dubbo) {"
+        },
+        {
+          "line": 83,
+          "text": "public void setOperationType(String operationType) {"
+        },
+        {
+          "line": 87,
+          "text": "public void setInputParam(AttrType inputParam) {"
+        },
+        {
+          "line": 91,
+          "text": "public void setPage(boolean page) {"
+        },
+        {
+          "line": 95,
+          "text": "public void setCondition(boolean condition) {"
+        },
+        {
+          "line": 99,
+          "text": "public void setParameter(Map<String, Object> parameter) {"
+        },
+        {
+          "line": 103,
+          "text": "public void setReturnValue(Map<String, Object> returnValue) {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "e4832b7f8147dce4773032614fbea45a0af32fb261f0cdf6607dda3dfd690066",
+      "lines": 52,
+      "classes": [
+        "SelectMq"
+      ],
+      "method_count": 8,
+      "method_samples": [
+        {
+          "line": 20,
+          "text": "public String getFullName() {"
+        },
+        {
+          "line": 24,
+          "text": "public String getTopic() {"
+        },
+        {
+          "line": 28,
+          "text": "public Structure getContentDto() {"
+        },
+        {
+          "line": 32,
+          "text": "public String getMsgClassName() {"
+        },
+        {
+          "line": 36,
+          "text": "public void setFullName(String fullName) {"
+        },
+        {
+          "line": 40,
+          "text": "public void setTopic(String topic) {"
+        },
+        {
+          "line": 44,
+          "text": "public void setContentDto(Structure contentDto) {"
+        },
+        {
+          "line": 48,
+          "text": "public void setMsgClassName(String msgClassName) {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "6e0f8d5b1d6f97a31c45e30dc92f10aafc5cc49f3f97748f22da81287264c44c",
+      "lines": 35,
+      "classes": [
+        "SelectObjectAttr"
+      ],
+      "method_count": 4,
+      "method_samples": [
+        {
+          "line": 19,
+          "text": "public AttrType getAttrType() {"
+        },
+        {
+          "line": 23,
+          "text": "public AttrValue getValue() {"
+        },
+        {
+          "line": 27,
+          "text": "public void setAttrType(AttrType attrType) {"
+        },
+        {
+          "line": 31,
+          "text": "public void setValue(AttrValue value) {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "6a805a9c5ef04ff46273280a9070e607a7cc18e33f20c70a5c1f18e17ea63e5f",
+      "lines": 187,
+      "classes": [
+        "SelectParam"
+      ],
+      "method_count": 38,
+      "method_samples": [
+        {
+          "line": 35,
+          "text": "public boolean isUdcApp() {"
+        },
+        {
+          "line": 39,
+          "text": "public Boolean getInApp() {"
+        },
+        {
+          "line": 43,
+          "text": "public String getPath() {"
+        },
+        {
+          "line": 47,
+          "text": "public String getPosition() {"
+        },
+        {
+          "line": 51,
+          "text": "public String getOutputName() {"
+        },
+        {
+          "line": 55,
+          "text": "public String getRelationApp() {"
+        },
+        {
+          "line": 59,
+          "text": "public String getRelationEntity() {"
+        },
+        {
+          "line": 63,
+          "text": "public String getDtoType() {"
+        },
+        {
+          "line": 67,
+          "text": "public String getDescription() {"
+        },
+        {
+          "line": 71,
+          "text": "public Map<String, String> getGenerics() {"
+        },
+        {
+          "line": 75,
+          "text": "public Map<String, Object> getCustoms() {"
+        },
+        {
+          "line": 79,
+          "text": "public SelectParam getSource() {"
+        },
+        {
+          "line": 83,
+          "text": "public Map<String, MethodLegalDto> getMethodLegals() {"
+        },
+        {
+          "line": 87,
+          "text": "public Boolean getIsFromUiModel() {"
+        },
+        {
+          "line": 91,
+          "text": "public String getComponentId() {"
+        },
+        {
+          "line": 95,
+          "text": "public String getDataTarget() {"
+        },
+        {
+          "line": 99,
+          "text": "public boolean isHiddenFields() {"
+        },
+        {
+          "line": 103,
+          "text": "public String getUiModelFrom() {"
+        },
+        {
+          "line": 107,
+          "text": "public String getAppName() {"
+        },
+        {
+          "line": 111,
+          "text": "public void setUdcApp(boolean udcApp) {"
+        },
+        {
+          "line": 115,
+          "text": "public void setInApp(Boolean inApp) {"
+        },
+        {
+          "line": 119,
+          "text": "public void setPath(String path) {"
+        },
+        {
+          "line": 123,
+          "text": "public void setPosition(String position) {"
+        },
+        {
+          "line": 127,
+          "text": "public void setOutputName(String outputName) {"
+        },
+        {
+          "line": 131,
+          "text": "public void setRelationApp(String relationApp) {"
+        },
+        {
+          "line": 135,
+          "text": "public void setRelationEntity(String relationEntity) {"
+        },
+        {
+          "line": 139,
+          "text": "public void setDtoType(String dtoType) {"
+        },
+        {
+          "line": 143,
+          "text": "public void setDescription(String description) {"
+        },
+        {
+          "line": 147,
+          "text": "public void setGenerics(Map<String, String> generics) {"
+        },
+        {
+          "line": 151,
+          "text": "public void setCustoms(Map<String, Object> customs) {"
+        },
+        {
+          "line": 155,
+          "text": "public void setSource(SelectParam source) {"
+        },
+        {
+          "line": 159,
+          "text": "public void setMethodLegals(Map<String, MethodLegalDto> methodLegals) {"
+        },
+        {
+          "line": 163,
+          "text": "public void setIsFromUiModel(Boolean isFromUiModel) {"
+        },
+        {
+          "line": 167,
+          "text": "public void setComponentId(String componentId) {"
+        },
+        {
+          "line": 171,
+          "text": "public void setDataTarget(String dataTarget) {"
+        },
+        {
+          "line": 175,
+          "text": "public void setHiddenFields(boolean isHiddenFields) {"
+        },
+        {
+          "line": 179,
+          "text": "public void setUiModelFrom(String uiModelFrom) {"
+        },
+        {
+          "line": 183,
+          "text": "public void setAppName(String appName) {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "3e83405fdada8081bdae98b0108f7d362683a4c92173329c8a5e60d3d59dc0b1",
+      "lines": 106,
+      "classes": [
+        "SelectPeopleDataParam"
+      ],
+      "method_count": 18,
+      "method_samples": [
+        {
+          "line": 34,
+          "text": "public String getT() {"
+        },
+        {
+          "line": 38,
+          "text": "public String getI() {"
+        },
+        {
+          "line": 42,
+          "text": "public String getN() {"
+        },
+        {
+          "line": 46,
+          "text": "public String getO() {"
+        },
+        {
+          "line": 50,
+          "text": "public String getP() {"
+        },
+        {
+          "line": 54,
+          "text": "public Boolean getC() {"
+        },
+        {
+          "line": 58,
+          "text": "public String getSt() {"
+        },
+        {
+          "line": 62,
+          "text": "public String getSi() {"
+        },
+        {
+          "line": 66,
+          "text": "public String getSn() {"
+        },
+        {
+          "line": 70,
+          "text": "public void setT(String t) {"
+        },
+        {
+          "line": 74,
+          "text": "public void setI(String i) {"
+        },
+        {
+          "line": 78,
+          "text": "public void setN(String n) {"
+        },
+        {
+          "line": 82,
+          "text": "public void setO(String o) {"
+        },
+        {
+          "line": 86,
+          "text": "public void setP(String p) {"
+        },
+        {
+          "line": 90,
+          "text": "public void setC(Boolean c) {"
+        },
+        {
+          "line": 94,
+          "text": "public void setSt(String st) {"
+        },
+        {
+          "line": 98,
+          "text": "public void setSi(String si) {"
+        },
+        {
+          "line": 102,
+          "text": "public void setSn(String sn) {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "5ef2d2c1e3cf54a7a29e38ae49accc790c6ce80bb4a88b39223f45299018e7ff",
+      "lines": 102,
+      "classes": [
+        "Structure"
+      ],
+      "method_count": 20,
+      "method_samples": [
+        {
+          "line": 22,
+          "text": "public boolean isUdcApp() {"
+        },
+        {
+          "line": 26,
+          "text": "public String getDtoType() {"
+        },
+        {
+          "line": 30,
+          "text": "public String getDataType() {"
+        },
+        {
+          "line": 34,
+          "text": "public String getEntity() {"
+        },
+        {
+          "line": 38,
+          "text": "public String getEntityId() {"
+        },
+        {
+          "line": 42,
+          "text": "public String getFullName() {"
+        },
+        {
+          "line": 46,
+          "text": "public String getId() {"
+        },
+        {
+          "line": 50,
+          "text": "public String getService() {"
+        },
+        {
+          "line": 54,
+          "text": "public String getUncapClassName() {"
+        },
+        {
+          "line": 58,
+          "text": "public String getType() {"
+        },
+        {
+          "line": 62,
+          "text": "public void setUdcApp(boolean udcApp) {"
+        },
+        {
+          "line": 66,
+          "text": "public void setDtoType(String dtoType) {"
+        },
+        {
+          "line": 70,
+          "text": "public void setDataType(String dataType) {"
+        },
+        {
+          "line": 74,
+          "text": "public void setEntity(String entity) {"
+        },
+        {
+          "line": 78,
+          "text": "public void setEntityId(String entityId) {"
+        },
+        {
+          "line": 82,
+          "text": "public void setFullName(String fullName) {"
+        },
+        {
+          "line": 86,
+          "text": "public void setId(String id) {"
+        },
+        {
+          "line": 90,
+          "text": "public void setService(String service) {"
+        },
+        {
+          "line": 94,
+          "text": "public void setUncapClassName(String uncapClassName) {"
+        },
+        {
+          "line": 98,
+          "text": "public void setType(String type) {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "3d10c95b86f365097fa9fca7e5eaeb5f0f03133f135c17d0324fd8c496aa87f2",
+      "lines": 35,
+      "classes": [
+        "SystemValue"
+      ],
+      "method_count": 6,
+      "method_samples": [
+        {
+          "line": 11,
+          "text": "public String getDataType() {"
+        },
+        {
+          "line": 15,
+          "text": "public String getJavaType() {"
+        },
+        {
+          "line": 19,
+          "text": "public String getValue() {"
+        },
+        {
+          "line": 23,
+          "text": "public void setDataType(String dataType) {"
+        },
+        {
+          "line": 27,
+          "text": "public void setJavaType(String javaType) {"
+        },
+        {
+          "line": 31,
+          "text": "public void setValue(String value) {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "a1fb8bb7cae24bcdbb4c115467e4c83f5ea1bdaa75090563f30808e34ded827b",
+      "lines": 57,
+      "classes": [
+        "TypeInfo"
+      ],
+      "method_count": 10,
+      "method_samples": [
+        {
+          "line": 16,
+          "text": "public TypeInfo(String name, String dataType, String javaType) {"
+        },
+        {
+          "line": 22,
+          "text": "public String getDataType() {"
+        },
+        {
+          "line": 26,
+          "text": "public String getJavaType() {"
+        },
+        {
+          "line": 30,
+          "text": "public String getName() {"
+        },
+        {
+          "line": 34,
+          "text": "public String getId() {"
+        },
+        {
+          "line": 38,
+          "text": "public void setDataType(String dataType) {"
+        },
+        {
+          "line": 42,
+          "text": "public void setJavaType(String javaType) {"
+        },
+        {
+          "line": 46,
+          "text": "public void setName(String name) {"
+        },
+        {
+          "line": 50,
+          "text": "public void setId(String id) {"
+        },
+        {
+          "line": 54,
+          "text": "public TypeInfo() {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "06b3da435a32b12ced56ff628b3b4de6f86a7f06f732e849b78b6787d40d2a19",
+      "lines": 39,
+      "classes": [
+        "WebFtlParam"
+      ],
+      "method_count": 6,
+      "method_samples": [
+        {
+          "line": 15,
+          "text": "public Map<String, Object> getMicroFlowInfo() {"
+        },
+        {
+          "line": 19,
+          "text": "public MicroFlowInOutParamDto getMicroFlowInOutParamDto() {"
+        },
+        {
+          "line": 23,
+          "text": "public List<String> getUrls() {"
+        },
+        {
+          "line": 27,
+          "text": "public void setMicroFlowInfo(Map<String, Object> microFlowInfo) {"
+        },
+        {
+          "line": 31,
+          "text": "public void setMicroFlowInOutParamDto(MicroFlowInOutParamDto microFlowInOutParamDto) {"
+        },
+        {
+          "line": 35,
+          "text": "public void setUrls(List<String> urls) {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "4e77b7e5adf72ef864c118ee119ef4cf74a7995c9233e41c0a4bd747583ca874",
+      "lines": 98,
+      "classes": [
+        "MicroFlowScheduleBo"
+      ],
+      "method_count": 19,
+      "method_samples": [
+        {
+          "line": 22,
+          "text": "public ScheduleTypeEnum getScheduleType() {"
+        },
+        {
+          "line": 26,
+          "text": "public String getJobName() {"
+        },
+        {
+          "line": 30,
+          "text": "public String getVersion() {"
+        },
+        {
+          "line": 34,
+          "text": "public String getCron() {"
+        },
+        {
+          "line": 38,
+          "text": "public String getDescription() {"
+        },
+        {
+          "line": 42,
+          "text": "public String getStartTime() {"
+        },
+        {
+          "line": 46,
+          "text": "public String getEndTime() {"
+        },
+        {
+          "line": 50,
+          "text": "public MicroFlowBo getMicroFlowBo() {"
+        },
+        {
+          "line": 54,
+          "text": "public boolean isCustom() {"
+        },
+        {
+          "line": 58,
+          "text": "public void setScheduleType(ScheduleTypeEnum scheduleType) {"
+        },
+        {
+          "line": 62,
+          "text": "public void setJobName(String jobName) {"
+        },
+        {
+          "line": 66,
+          "text": "public void setVersion(String version) {"
+        },
+        {
+          "line": 70,
+          "text": "public void setCron(String cron) {"
+        },
+        {
+          "line": 74,
+          "text": "public void setDescription(String description) {"
+        },
+        {
+          "line": 78,
+          "text": "public void setStartTime(String startTime) {"
+        },
+        {
+          "line": 82,
+          "text": "public void setEndTime(String endTime) {"
+        },
+        {
+          "line": 86,
+          "text": "public void setMicroFlowBo(MicroFlowBo microFlowBo) {"
+        },
+        {
+          "line": 90,
+          "text": "public void setCustom(boolean custom) {"
+        },
+        {
+          "line": 94,
+          "text": "public String toString() {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "e6907f0dba177898694e22c9a11f0b93137dc1397ecfcabe59f5335231a2fe73",
+      "lines": 86,
+      "classes": [
+        "ScheduleCron"
+      ],
+      "method_count": 15,
+      "method_samples": [
+        {
+          "line": 19,
+          "text": "public String toString() {"
+        },
+        {
+          "line": 30,
+          "text": "public String getYear() {"
+        },
+        {
+          "line": 34,
+          "text": "public String getMonth() {"
+        },
+        {
+          "line": 38,
+          "text": "public String getDay() {"
+        },
+        {
+          "line": 42,
+          "text": "public String getHour() {"
+        },
+        {
+          "line": 46,
+          "text": "public String getMinute() {"
+        },
+        {
+          "line": 50,
+          "text": "public String getSecond() {"
+        },
+        {
+          "line": 54,
+          "text": "public String getWeek() {"
+        },
+        {
+          "line": 58,
+          "text": "public void setYear(String year) {"
+        },
+        {
+          "line": 62,
+          "text": "public void setMonth(String month) {"
+        },
+        {
+          "line": 66,
+          "text": "public void setDay(String day) {"
+        },
+        {
+          "line": 70,
+          "text": "public void setHour(String hour) {"
+        },
+        {
+          "line": 74,
+          "text": "public void setMinute(String minute) {"
+        },
+        {
+          "line": 78,
+          "text": "public void setSecond(String second) {"
+        },
+        {
+          "line": 82,
+          "text": "public void setWeek(String week) {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "a930920ffe06af4d997d99e5a61a1375c64cf29b45bd273bd3f6d29c648fb0a6",
+      "lines": 42,
+      "classes": [
+        "ScheduleInterval"
+      ],
+      "method_count": 7,
+      "method_samples": [
+        {
+          "line": 14,
+          "text": "public int getInterval() {"
+        },
+        {
+          "line": 18,
+          "text": "public int getDay() {"
+        },
+        {
+          "line": 22,
+          "text": "public int getHour() {"
+        },
+        {
+          "line": 26,
+          "text": "public int getMinute() {"
+        },
+        {
+          "line": 30,
+          "text": "public void setDay(int day) {"
+        },
+        {
+          "line": 34,
+          "text": "public void setHour(int hour) {"
+        },
+        {
+          "line": 38,
+          "text": "public void setMinute(int minute) {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "eb4939b587d7f94ea5637dcc5285a63def10f03ef1903bb097984aafc737c1af",
+      "lines": 96,
+      "classes": [
+        "ScheduleRule"
+      ],
+      "method_count": 18,
+      "method_samples": [
+        {
+          "line": 24,
+          "text": "public String getJobCaption() {"
+        },
+        {
+          "line": 28,
+          "text": "public String getJobCode() {"
+        },
+        {
+          "line": 32,
+          "text": "public String getScheduleName() {"
+        },
+        {
+          "line": 36,
+          "text": "public ScheduleTypeEnum getScheduleType() {"
+        },
+        {
+          "line": 40,
+          "text": "public ScheduleTiming getScheduleTiming() {"
+        },
+        {
+          "line": 44,
+          "text": "public ScheduleInterval getScheduleInterval() {"
+        },
+        {
+          "line": 48,
+          "text": "public Date getStartTime() {"
+        },
+        {
+          "line": 52,
+          "text": "public Date getEndTime() {"
+        },
+        {
+          "line": 56,
+          "text": "public String getId() {"
+        },
+        {
+          "line": 60,
+          "text": "public void setJobCaption(String jobCaption) {"
+        },
+        {
+          "line": 64,
+          "text": "public void setJobCode(String jobCode) {"
+        },
+        {
+          "line": 68,
+          "text": "public void setScheduleName(String scheduleName) {"
+        },
+        {
+          "line": 72,
+          "text": "public void setScheduleType(ScheduleTypeEnum scheduleType) {"
+        },
+        {
+          "line": 76,
+          "text": "public void setScheduleTiming(ScheduleTiming scheduleTiming) {"
+        },
+        {
+          "line": 80,
+          "text": "public void setScheduleInterval(ScheduleInterval scheduleInterval) {"
+        },
+        {
+          "line": 84,
+          "text": "public void setStartTime(Date startTime) {"
+        },
+        {
+          "line": 88,
+          "text": "public void setEndTime(Date endTime) {"
+        },
+        {
+          "line": 92,
+          "text": "public void setId(String id) {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "82336cb60a955caf1855e686f9d0d9f794597cc9b8ccd6de8b581733a14487be",
+      "lines": 67,
+      "classes": [
+        "ScheduleTiming"
+      ],
+      "method_count": 12,
+      "method_samples": [
+        {
+          "line": 19,
+          "text": "public ScheduleUnitEnum getTimingUnit() {"
+        },
+        {
+          "line": 23,
+          "text": "public Integer getTimingInterval() {"
+        },
+        {
+          "line": 27,
+          "text": "public Boolean getWeekendRun() {"
+        },
+        {
+          "line": 31,
+          "text": "public List<String> getExecutionTime() {"
+        },
+        {
+          "line": 35,
+          "text": "public List<Integer> getExecutionWeek() {"
+        },
+        {
+          "line": 39,
+          "text": "public List<Integer> getExecutionDay() {"
+        },
+        {
+          "line": 43,
+          "text": "public void setTimingUnit(ScheduleUnitEnum timingUnit) {"
+        },
+        {
+          "line": 47,
+          "text": "public void setTimingInterval(Integer timingInterval) {"
+        },
+        {
+          "line": 51,
+          "text": "public void setWeekendRun(Boolean weekendRun) {"
+        },
+        {
+          "line": 55,
+          "text": "public void setExecutionTime(List<String> executionTime) {"
+        },
+        {
+          "line": 59,
+          "text": "public void setExecutionWeek(List<Integer> executionWeek) {"
+        },
+        {
+          "line": 63,
+          "text": "public void setExecutionDay(List<Integer> executionDay) {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "3ba67e9dec842585bd10ee62d5d506464f62a311bc56307c5a337669944aaa99",
+      "lines": 39,
+      "classes": [
+        "ScheduleTrigger"
+      ],
+      "method_count": 5,
+      "method_samples": [
+        {
+          "line": 19,
+          "text": "public ScheduleTrigger() {"
+        },
+        {
+          "line": 23,
+          "text": "public ScheduleRule getScheduleRule() {"
+        },
+        {
+          "line": 27,
+          "text": "public String getCron() {"
+        },
+        {
+          "line": 31,
+          "text": "public void setScheduleRule(ScheduleRule scheduleRule) {"
+        },
+        {
+          "line": 35,
+          "text": "public void setCron(String cron) {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "7abf3a2c8a4ef3362f585d5be5fbc1873acbcd5ee17d70c0f995e7badcff5fe8",
+      "lines": 42,
+      "classes": [
+        "BusinessEventTrigger"
+      ],
+      "method_count": 5,
+      "method_samples": [
+        {
+          "line": 21,
+          "text": "public BusinessEventTrigger() {"
+        },
+        {
+          "line": 26,
+          "text": "public MessageInfo getMessageInfo() {"
+        },
+        {
+          "line": 30,
+          "text": "public ExpressionNode getExpression() {"
+        },
+        {
+          "line": 34,
+          "text": "public void setMessageInfo(MessageInfo messageInfo) {"
+        },
+        {
+          "line": 38,
+          "text": "public void setExpression(ExpressionNode expression) {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "a8dec60877458879905cf734b829347d3ee7653178f5c53f91ca5a3715378a3d",
+      "lines": 168,
+      "classes": [
+        "MicroFlowBusinessEventBo",
+        "MicroFlowBusinessEventBoBuilder"
+      ],
+      "method_count": 27,
+      "method_samples": [
+        {
+          "line": 38,
+          "text": "public static MicroFlowBusinessEventBoBuilder builder() {"
+        },
+        {
+          "line": 42,
+          "text": "public MicroFlowBo getMicroFlowBo() {"
+        },
+        {
+          "line": 46,
+          "text": "public EventDto getMessage() {"
+        },
+        {
+          "line": 50,
+          "text": "public String getMessageSource() {"
+        },
+        {
+          "line": 54,
+          "text": "public Map<String, Object> getConnectorMessageInfo() {"
+        },
+        {
+          "line": 58,
+          "text": "public String getEventFullName() {"
+        },
+        {
+          "line": 62,
+          "text": "public ExpressionNode getExpression() {"
+        },
+        {
+          "line": 66,
+          "text": "public String getListenMethodParamName() {"
+        },
+        {
+          "line": 70,
+          "text": "public boolean isCustom() {"
+        },
+        {
+          "line": 74,
+          "text": "public void setMicroFlowBo(MicroFlowBo microFlowBo) {"
+        },
+        {
+          "line": 78,
+          "text": "public void setMessage(EventDto message) {"
+        },
+        {
+          "line": 82,
+          "text": "public void setMessageSource(String messageSource) {"
+        },
+        {
+          "line": 86,
+          "text": "public void setConnectorMessageInfo(Map<String, Object> connectorMessageInfo) {"
+        },
+        {
+          "line": 90,
+          "text": "public void setEventFullName(String eventFullName) {"
+        },
+        {
+          "line": 94,
+          "text": "public void setExpression(ExpressionNode expression) {"
+        },
+        {
+          "line": 98,
+          "text": "public void setListenMethodParamName(String listenMethodParamName) {"
+        },
+        {
+          "line": 102,
+          "text": "public void setCustom(boolean custom) {"
+        },
+        {
+          "line": 119,
+          "text": "public MicroFlowBusinessEventBoBuilder microFlowBo(MicroFlowBo microFlowBo) {"
+        },
+        {
+          "line": 124,
+          "text": "public MicroFlowBusinessEventBoBuilder message(EventDto message) {"
+        },
+        {
+          "line": 129,
+          "text": "public MicroFlowBusinessEventBoBuilder messageSource(String messageSource) {"
+        },
+        {
+          "line": 134,
+          "text": "public MicroFlowBusinessEventBoBuilder connectorMessageInfo(Map<String, Object> connectorMessageInfo) {"
+        },
+        {
+          "line": 139,
+          "text": "public MicroFlowBusinessEventBoBuilder eventFullName(String eventFullName) {"
+        },
+        {
+          "line": 144,
+          "text": "public MicroFlowBusinessEventBoBuilder expression(ExpressionNode expression) {"
+        },
+        {
+          "line": 149,
+          "text": "public MicroFlowBusinessEventBoBuilder listenMethodParamName(String listenMethodParamName) {"
+        },
+        {
+          "line": 154,
+          "text": "public MicroFlowBusinessEventBoBuilder custom(boolean custom) {"
+        },
+        {
+          "line": 159,
+          "text": "public MicroFlowBusinessEventBo build() {"
+        },
+        {
+          "line": 163,
+          "text": "public String toString() {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "c8123af07d00dd276edab674d4bc73e9d78cd599a4fb41480509105d2b403987",
+      "lines": 47,
+      "classes": [
+        "BackendMicroFlowCallServiceResolver"
+      ],
+      "method_count": 5,
+      "method_samples": [
+        {
+          "line": 20,
+          "text": "protected BackendMicroFlowCallServiceResolver(Collection<MicroFlowNodeFindSupport> supports) {"
+        },
+        {
+          "line": 24,
+          "text": "public static BackendMicroFlowCallServiceResolver from(Collection<MicroFlowNodeFindSupport> supports) {"
+        },
+        {
+          "line": 31,
+          "text": "protected boolean resolveOthers(MicroFlowNodeFindSupport support) {"
+        },
+        {
+          "line": 38,
+          "text": "private Set<Long> extractDataFlowId(List<CallDataFlowActivity> activities) {"
+        },
+        {
+          "line": 43,
+          "text": "public Map<Long, Collection<Long>> getDependenciesForDataFlowMap() {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "9076075a7615a7cbc666d55ec5d6aa52a9592ed58ce9f5eab301fa311f2535ab",
+      "lines": 59,
+      "classes": [
+        "MultiTypeMicroFlowContainer"
+      ],
+      "method_count": 5,
+      "method_samples": [
+        {
+          "line": 30,
+          "text": "private MultiTypeMicroFlowContainer(Map<Long, MicroFlowDefinitionDto> microFlowDtoMap, Predicate<MicroFlowDefinitionDto> predicate) {"
+        },
+        {
+          "line": 43,
+          "text": "public static MultiTypeMicroFlowContainer from(Map<Long, MicroFlowDefinitionDto> microFlowDtoMap, Predicate<MicroFlowDefinitionDto> predicate) {"
+        },
+        {
+          "line": 47,
+          "text": "public Map<Long, MicroFlowDefinitionDto> fetchMap(MicroFlowTypeEnum type) {"
+        },
+        {
+          "line": 51,
+          "text": "public Map<Long, MicroFlowDefinitionDto> getMicroFlowMap() {"
+        },
+        {
+          "line": 55,
+          "text": "public Map<String, Set<Long>> getSourceIdPageRuleMap() {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "4794b43f3ecd1dce7fde450e15ee4344e9f2294d81348902825c621ac26a541f",
+      "lines": 139,
+      "classes": [
+        "PageRuleCallServiceParser"
+      ],
+      "method_count": 11,
+      "method_samples": [
+        {
+          "line": 48,
+          "text": "private PageRuleCallServiceParser(Map<Long, MicroFlowDefinitionDto> microFlowMap) {"
+        },
+        {
+          "line": 52,
+          "text": "public static PageRuleCallServiceParser from(Map<Long, MicroFlowDefinitionDto> pageRules) {"
+        },
+        {
+          "line": 58,
+          "text": "private void parse() {"
+        },
+        {
+          "line": 68,
+          "text": "private void parseBackEnd(Map<MicroFlowTypeEnum, List<MicroFlowDefinitionDto>> groupedListMap) {"
+        },
+        {
+          "line": 77,
+          "text": "private void parseFrontEnd(Map<MicroFlowTypeEnum, List<MicroFlowDefinitionDto>> groupedListMap) {"
+        },
+        {
+          "line": 83,
+          "text": "private void parseEachFrontEnd(MicroFlowDefinitionDto dto) {"
+        },
+        {
+          "line": 106,
+          "text": "private void deeplyParse() {"
+        },
+        {
+          "line": 114,
+          "text": "private void deeplyParseSingle(Long rootId, Long currentId, Set<Long> visited) {"
+        },
+        {
+          "line": 127,
+          "text": "public Map<String, Set<String>> getEntityActions() {"
+        },
+        {
+          "line": 131,
+          "text": "public Map<Long, Set<Long>> getPageRuleCallMicroFlowChain() {"
+        },
+        {
+          "line": 135,
+          "text": "public Map<Long, Set<Long>> getCallDataFlow() {"
+        }
+      ],
+      "domain": "page"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "c67b2c25090a7e74e0eceb91750921cb509ef971740d17a6162aebd872ca2119",
+      "lines": 134,
+      "classes": [
+        "PageRuleFrontDetectionResolver"
+      ],
+      "method_count": 9,
+      "method_samples": [
+        {
+          "line": 42,
+          "text": "private PageRuleFrontDetectionResolver(MultiTypeMicroFlowContainer originalContainer, MultiTypeMicroFlowContainer currentContainer) {"
+        },
+        {
+          "line": 48,
+          "text": "public static PageRuleFrontDetectionResolver from(MultiTypeMicroFlowContainer originalContainer, MultiTypeMicroFlowContainer currentContainer) {"
+        },
+        {
+          "line": 54,
+          "text": "private void refresh() {"
+        },
+        {
+          "line": 59,
+          "text": "public boolean resolve() {"
+        },
+        {
+          "line": 80,
+          "text": "private boolean checkEntityAction(String pageId) {"
+        },
+        {
+          "line": 86,
+          "text": "private boolean checkDataFlow(Map.Entry<String, List<Long>> entry) {"
+        },
+        {
+          "line": 92,
+          "text": "private boolean checkPageRuleChain(Map.Entry<String, List<Long>> entry) {"
+        },
+        {
+          "line": 114,
+          "text": "private <T> boolean checkCollectionDiff(Collection<T> original, Collection<T> current) {"
+        },
+        {
+          "line": 118,
+          "text": "private <T> boolean checkCollectionDiff(Collection<T> original, Collection<T> current, Predicate<T> extendPredicate) {"
+        }
+      ],
+      "domain": "page"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "78b3a923c8440e712bbb061c7b37a363b683a1d178a034f1538707d290fa7420",
+      "lines": 90,
+      "classes": [
+        "MicroFlowCascadeComponent"
+      ],
+      "method_count": 6,
+      "method_samples": [
+        {
+          "line": 30,
+          "text": "public void init() {"
+        },
+        {
+          "line": 34,
+          "text": "private void initCallOtherMfDispatcher() {"
+        },
+        {
+          "line": 49,
+          "text": "public void modifyCallOtherMfActivityInfo(String actionType, ObjectNode node, Map<String, String> replacedMap, Map<Long, Map<String, Pair<Object, Object>>> cascadeMap) {"
+        },
+        {
+          "line": 56,
+          "text": "private void replaceMfServiceInfo(ObjectNode serviceObjectNode, Map<String, String> replacedMap, Map<Long, Map<String, Pair<Object, Object>>> cascadeMap) {"
+        },
+        {
+          "line": 64,
+          "text": "private void replaceMfNameAndCaption(ObjectNode node, Map<String, String> replacedMap, Map<String, Pair<Object, Object>> pairMap) {"
+        },
+        {
+          "line": 86,
+          "text": "private String buildNewPath(Map<String, Pair<Object, Object>> pairMap) {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "b80d795a3d04741d7d87197bb9f70a6731892695366ea602aa5d90cba1a6d1b6",
+      "lines": 29,
+      "classes": [
+        "CaptionChangeCheckFilter"
+      ],
+      "method_count": 1,
+      "method_samples": [
+        {
+          "line": 25,
+          "text": "public void doFilter(ConsistencyFilterContext consistencyFilterContext, ExprConsistencyFilterChain filterChain) {"
+        }
+      ],
+      "domain": "generation"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "7a8e8e603a516103fd2f00955f5cc7daa8b884e4bfefa25471fd66aaa3afa989",
+      "lines": 188,
+      "classes": [
+        "ConsistencyFilterContext",
+        "ConsistencyFilterContextBuilder"
+      ],
+      "method_count": 24,
+      "method_samples": [
+        {
+          "line": 29,
+          "text": "public static ConsistencyFilterContextBuilder builder() {"
+        },
+        {
+          "line": 33,
+          "text": "public ExpressionDefinitionDto getExpressionDefinitionDto() {"
+        },
+        {
+          "line": 37,
+          "text": "public ConsistencyValidateResult getResult() {"
+        },
+        {
+          "line": 41,
+          "text": "public String getNewResultType() {"
+        },
+        {
+          "line": 45,
+          "text": "public Map<String, SchemaStructureDto> getNewRootSchemaMap() {"
+        },
+        {
+          "line": 49,
+          "text": "public DetectionContext getDetectionContext() {"
+        },
+        {
+          "line": 53,
+          "text": "public void setExpressionDefinitionDto(ExpressionDefinitionDto expressionDefinitionDto) {"
+        },
+        {
+          "line": 57,
+          "text": "public void setResult(ConsistencyValidateResult result) {"
+        },
+        {
+          "line": 61,
+          "text": "public void setNewResultType(String newResultType) {"
+        },
+        {
+          "line": 65,
+          "text": "public void setNewRootSchemaMap(Map<String, SchemaStructureDto> newRootSchemaMap) {"
+        },
+        {
+          "line": 69,
+          "text": "public void setDetectionContext(DetectionContext detectionContext) {"
+        },
+        {
+          "line": 73,
+          "text": "public boolean equals(Object o) {"
+        },
+        {
+          "line": 109,
+          "text": "protected boolean canEqual(Object other) {"
+        },
+        {
+          "line": 113,
+          "text": "public int hashCode() {"
+        },
+        {
+          "line": 129,
+          "text": "public String toString() {"
+        },
+        {
+          "line": 133,
+          "text": "public ConsistencyFilterContext(ExpressionDefinitionDto expressionDefinitionDto, ConsistencyValidateResult result, String newResultType, Map<String, SchemaStructureDto> newRootSchemaMap, DetectionContext detectionContext) {"
+        },
+        {
+          "line": 141,
+          "text": "public ConsistencyFilterContext() {"
+        },
+        {
+          "line": 154,
+          "text": "public ConsistencyFilterContextBuilder expressionDefinitionDto(ExpressionDefinitionDto expressionDefinitionDto) {"
+        },
+        {
+          "line": 159,
+          "text": "public ConsistencyFilterContextBuilder result(ConsistencyValidateResult result) {"
+        },
+        {
+          "line": 164,
+          "text": "public ConsistencyFilterContextBuilder newResultType(String newResultType) {"
+        },
+        {
+          "line": 169,
+          "text": "public ConsistencyFilterContextBuilder newRootSchemaMap(Map<String, SchemaStructureDto> newRootSchemaMap) {"
+        },
+        {
+          "line": 174,
+          "text": "public ConsistencyFilterContextBuilder detectionContext(DetectionContext detectionContext) {"
+        },
+        {
+          "line": 179,
+          "text": "public ConsistencyFilterContext build() {"
+        },
+        {
+          "line": 183,
+          "text": "public String toString() {"
+        }
+      ],
+      "domain": "generation"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "819182a5ed907cf68987acc81bf62b15cd81f725a338768efb9d577de8567b5f",
+      "lines": 134,
+      "classes": [
+        "DeleteOrRenameCheckFilter"
+      ],
+      "method_count": 4,
+      "method_samples": [
+        {
+          "line": 50,
+          "text": "public void doFilter(ConsistencyFilterContext consistencyFilterContext, ExprConsistencyFilterChain filterChain) {"
+        },
+        {
+          "line": 69,
+          "text": "private void check(ExpressionToken expressionToken, Map<String, SchemaStructureDto> oldSchemaMap, Map<String, SchemaStructureDto> newRootSchemaMap, ConsistencyValidateResult result) {"
+        },
+        {
+          "line": 78,
+          "text": "private void checkAppParam(ExpressionToken expressionToken, Map<String, SchemaStructureDto> oldSchemaMap, Map<String, SchemaStructureDto> newRootSchemaMap, ConsistencyValidateResult result) {"
+        },
+        {
+          "line": 99,
+          "text": "private void checkAttribute(ExpressionToken expressionToken, Map<String, SchemaStructureDto> oldSchemaMap, Map<String, SchemaStructureDto> newRootSchemaMap, ConsistencyValidateResult result) {"
+        }
+      ],
+      "domain": "generation"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "3223659f3fff566844d6c194e6712fbaa52579c37d6a424d3d1de9d7aee61e33",
+      "lines": 88,
+      "classes": [
+        "EnumItemDeleteCheckFilter"
+      ],
+      "method_count": 1,
+      "method_samples": [
+        {
+          "line": 49,
+          "text": "public void doFilter(ConsistencyFilterContext consistencyFilterContext, ExprConsistencyFilterChain filterChain) {"
+        }
+      ],
+      "domain": "generation"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "96f685d3b77431a2d2d95c89aa6b29938d1c3d59823f2b6ce3262d56ea252b02",
+      "lines": 20,
+      "classes": [
+        "ExprConsistency"
+      ],
+      "method_count": 0,
+      "method_samples": [],
+      "domain": "generation"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "fa3aa2e547a54c32904890ef677c308823b13c7cb457dbd3cc861cd80155fa75",
+      "lines": 12,
+      "classes": [
+        "ExprConsistencyFilter"
+      ],
+      "method_count": 0,
+      "method_samples": [],
+      "domain": "generation"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "e5db60827afab8232be378084fca06c0a9b9559ecd84352fa61d265237fbee77",
+      "lines": 43,
+      "classes": [
+        "ExprConsistencyFilterChain"
+      ],
+      "method_count": 3,
+      "method_samples": [
+        {
+          "line": 24,
+          "text": "public void doFilter(ConsistencyFilterContext consistencyFilterContext, ExprConsistencyFilterChain filterChain) {"
+        },
+        {
+          "line": 30,
+          "text": "protected ValidationMessage messageBuild(String messageTemplate, ConsistencyMessageLevelEnum levelEnum, String ... param) {"
+        },
+        {
+          "line": 36,
+          "text": "public void addFilter(ExprConsistencyFilter consistencyFilter) {"
+        }
+      ],
+      "domain": "generation"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "c0f794c26cc13f132bf8b9672a1d63ca7b190d9ad49392eea73b90b82a618205",
+      "lines": 73,
+      "classes": [
+        "ResultTypeChangedCheckFilter"
+      ],
+      "method_count": 1,
+      "method_samples": [
+        {
+          "line": 48,
+          "text": "public void doFilter(ConsistencyFilterContext consistencyFilterContext, ExprConsistencyFilterChain filterChain) {"
+        }
+      ],
+      "domain": "generation"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "06bbcee0c7a2b50692f34a1296df4f8f0bcb48b5afcb38006f3aeb9cc2ac7860",
+      "lines": 122,
+      "classes": [
+        "TypeChangedCheckFilter"
+      ],
+      "method_count": 2,
+      "method_samples": [
+        {
+          "line": 58,
+          "text": "public void doFilter(ConsistencyFilterContext consistencyFilterContext, ExprConsistencyFilterChain filterChain) {"
+        },
+        {
+          "line": 83,
+          "text": "private void check(ExpressionToken variableToken, Map<String, SchemaStructureDto> oldRootSchemaMap, Map<String, SchemaStructureDto> newRootSchemaMap, ConsistencyValidateResult result, ExpressionSaveDto expressionSaveDto) {"
+        }
+      ],
+      "domain": "generation"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "acd0696e94b4d13fa3b2f21ff3e35ec835f07e397c866298d75f3c8d81d2e26b",
+      "lines": 27,
+      "classes": [
+        "ConditionsCascadeHandler"
+      ],
+      "method_count": 2,
+      "method_samples": [
+        {
+          "line": 18,
+          "text": "public boolean loadSubComponentLocators() {"
+        },
+        {
+          "line": 23,
+          "text": "protected Class<? extends MicroFlowSimpleComponentCascadeHandler> elementComponent() {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "56d56b3ba81de15d4646720a94dd938338c4a7912a75ac818a871a0599064dce",
+      "lines": 40,
+      "classes": [
+        "LeftParamCascadeHandler"
+      ],
+      "method_count": 1,
+      "method_samples": [
+        {
+          "line": 32,
+          "text": "public void handleComponent(MicroFlowCascadeContext context, @NonNull JsonNode component) {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "89c868f3f914a91b8cbbd79b514ca97dc95abc28c8e1f3b3e0e7e2bcd404d931",
+      "lines": 41,
+      "classes": [
+        "MapConditionCascadeHandler"
+      ],
+      "method_count": 2,
+      "method_samples": [
+        {
+          "line": 29,
+          "text": "public void initSubComponentLocators() {"
+        },
+        {
+          "line": 34,
+          "text": "public void handleComponent(MicroFlowCascadeContext context, @NonNull JsonNode component) {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "4d025a927d41ce2d1c073b4a279338d87cec3a966501753966909ab9381969fe",
+      "lines": 105,
+      "classes": [
+        "RightParamCascadeHandler"
+      ],
+      "method_count": 6,
+      "method_samples": [
+        {
+          "line": 52,
+          "text": "public void initSubComponentLocators() {"
+        },
+        {
+          "line": 61,
+          "text": "private Optional<String> getRightParamType(JsonNode rightParam) {"
+        },
+        {
+          "line": 65,
+          "text": "private Optional<String> getRightParamValue(JsonNode rightParam) {"
+        },
+        {
+          "line": 69,
+          "text": "private Function<JsonNode, List<Optional<JsonNode>>> buildSubLocatorFunction(ParamTypeEnum paramType, Function<JsonNode, JsonNode> convertStringValueFunction) {"
+        },
+        {
+          "line": 74,
+          "text": "public void handleComponent(MicroFlowCascadeContext context, @NonNull JsonNode component) {"
+        },
+        {
+          "line": 94,
+          "text": "private void replaceEnumConstant(MicroFlowCascadeContext context, ObjectNode objectNode) {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "f49da6b40cd087808a60e4e575057ff27ee6b75b02bd9f5154c7975fb6286fd4",
+      "lines": 27,
+      "classes": [
+        "RightParamsCascadeHandler"
+      ],
+      "method_count": 2,
+      "method_samples": [
+        {
+          "line": 18,
+          "text": "public boolean loadSubComponentLocators() {"
+        },
+        {
+          "line": 23,
+          "text": "protected Class<? extends MicroFlowSimpleComponentCascadeHandler> elementComponent() {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "9726c39709e488bab4bb8c4f1f9f3982651e09331a28f7b51fbfee7e8a5203b5",
+      "lines": 70,
+      "classes": [
+        "SingleConditionCascadeHandler"
+      ],
+      "method_count": 5,
+      "method_samples": [
+        {
+          "line": 37,
+          "text": "public void initSubComponentLocators() {"
+        },
+        {
+          "line": 43,
+          "text": "public void initRecursiveComponentLocators() {"
+        },
+        {
+          "line": 48,
+          "text": "public void handleComponent(MicroFlowCascadeContext context, @NonNull JsonNode component) {"
+        },
+        {
+          "line": 59,
+          "text": "private void handleEntityAttribute(MicroFlowCascadeContext context, JsonNode left, JsonNode right) {"
+        },
+        {
+          "line": 64,
+          "text": "private void handleUdcEnum(MicroFlowCascadeContext context, JsonNode left, JsonNode right) {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "b70cf06272281cdad8d9add41622889a56c44ccadedb4466f10be53ae8a58526",
+      "lines": 354,
+      "classes": [
+        "BusinessEventActivity"
+      ],
+      "method_count": 35,
+      "method_samples": [
+        {
+          "line": 72,
+          "text": "public BusinessEventActivity() {"
+        },
+        {
+          "line": 78,
+          "text": "public ActivityNode parseActivityNode(MicroFlowNodeParseContext nodeParseContext, ObjectNode node) {"
+        },
+        {
+          "line": 97,
+          "text": "private void buildEventAmongApp(BusinessEventActivity activity, ObjectNode node, String location, ParseResult result) {"
+        },
+        {
+          "line": 110,
+          "text": "private void parseSelectMq(BusinessEventActivity activity, String parsedMessageType, ObjectNode node, String location, ParseResult result) {"
+        },
+        {
+          "line": 132,
+          "text": "private void parseMappingType(BusinessEventActivity activity, ObjectNode node, String location, ParseResult result) {"
+        },
+        {
+          "line": 143,
+          "text": "public void activityNodeLogicCheck(NodeContext nodeContext) {"
+        },
+        {
+          "line": 161,
+          "text": "private void checkSelectMq(NodeContext nodeContext, NodeInfo nodeInfo) {"
+        },
+        {
+          "line": 183,
+          "text": "private void checkIntegrationMq(NodeContext nodeContext, NodeInfo nodeInfo) {"
+        },
+        {
+          "line": 198,
+          "text": "private void checkSelectEvent(NodeContext nodeContext, NodeInfo nodeInfo) {"
+        },
+        {
+          "line": 220,
+          "text": "private void checkMqContentInApp(NodeContext nodeContext, NodeInfo nodeInfo, Predicate<EventDto> predicate) {"
+        },
+        {
+          "line": 236,
+          "text": "private void checkMessageBody(NodeContext nodeContext, NodeInfo nodeInfo, String dtoFullName) {"
+        },
+        {
+          "line": 250,
+          "text": "public VirtualFullNameTable extractFullName() {"
+        },
+        {
+          "line": 258,
+          "text": "public void extractUdcAppDtoFullName(VirtualFullNameTable fullNameTable) {"
+        },
+        {
+          "line": 264,
+          "text": "public void setEventType(MicroFlowEventTypeEnum eventType) {"
+        },
+        {
+          "line": 268,
+          "text": "public void setSelectEvent(SelectEvent selectEvent) {"
+        },
+        {
+          "line": 272,
+          "text": "public void setApp(SelectApp app) {"
+        },
+        {
+          "line": 276,
+          "text": "public void setInApp(Boolean inApp) {"
+        },
+        {
+          "line": 280,
+          "text": "public void setSelectMq(SelectMq selectMq) {"
+        },
+        {
+          "line": 284,
+          "text": "public void setMessageType(String messageType) {"
+        },
+        {
+          "line": 288,
+          "text": "public void setExecuteTime(AttrValue executeTime) {"
+        },
+        {
+          "line": 292,
+          "text": "public void setMappingType(String mappingType) {"
+        },
+        {
+          "line": 296,
+          "text": "public void setAttrs(List<SelectObjectAttr> attrs) {"
+        },
+        {
+          "line": 300,
+          "text": "public void setValue(AttrValue value) {"
+        },
+        {
+          "line": 305,
+          "text": "public void setEventId(String eventId) {"
+        },
+        {
+          "line": 309,
+          "text": "public MicroFlowEventTypeEnum getEventType() {"
+        },
+        {
+          "line": 313,
+          "text": "public SelectEvent getSelectEvent() {"
+        },
+        {
+          "line": 317,
+          "text": "public SelectApp getApp() {"
+        },
+        {
+          "line": 321,
+          "text": "public Boolean getInApp() {"
+        },
+        {
+          "line": 325,
+          "text": "public SelectMq getSelectMq() {"
+        },
+        {
+          "line": 329,
+          "text": "public String getMessageType() {"
+        },
+        {
+          "line": 333,
+          "text": "public AttrValue getExecuteTime() {"
+        },
+        {
+          "line": 337,
+          "text": "public String getMappingType() {"
+        },
+        {
+          "line": 341,
+          "text": "public List<SelectObjectAttr> getAttrs() {"
+        },
+        {
+          "line": 345,
+          "text": "public AttrValue getValue() {"
+        },
+        {
+          "line": 350,
+          "text": "public String getEventId() {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "1a168f204be9e223c9cce5b66a6bc27446150549f65e267e654a00ccec53b994",
+      "lines": 383,
+      "classes": [
+        "CallAppServiceActivity"
+      ],
+      "method_count": 26,
+      "method_samples": [
+        {
+          "line": 99,
+          "text": "public CallAppServiceActivity() {"
+        },
+        {
+          "line": 105,
+          "text": "public ActivityNode parseActivityNode(MicroFlowNodeParseContext nodeParseContext, ObjectNode node) {"
+        },
+        {
+          "line": 173,
+          "text": "private boolean needCheckDubbo(CallAppServiceActivity callAppServiceActivity) {"
+        },
+        {
+          "line": 178,
+          "text": "public void activityNodeLogicCheck(NodeContext nodeContext) {"
+        },
+        {
+          "line": 234,
+          "text": "private boolean isInApp(CallAppServiceActivity activity) {"
+        },
+        {
+          "line": 238,
+          "text": "private boolean outputIsInApp(CallAppServiceActivity activity, Map<String, Object> output) {"
+        },
+        {
+          "line": 247,
+          "text": "private void appServiceMethodDeleted(NodeContext nodeContext, NodeInfo nodeInfo) {"
+        },
+        {
+          "line": 251,
+          "text": "private CallMethod buildCallMethod(SelectApp selectApp, SelectMethod selectMethod, CallMethodParam callMethodParam, ParseResult result, String nodeId, AttrValue pageInfo) {"
+        },
+        {
+          "line": 284,
+          "text": "private void buildInputGenericType(Map<String, Object> parameter, CallMethod callMethod) {"
+        },
+        {
+          "line": 299,
+          "text": "public void rebuildCallMethod() {"
+        },
+        {
+          "line": 305,
+          "text": "public void extractDynamicDependencyFullName(VirtualFullNameTable fullNameTable, DynamicDependencyFullNameChecker checker) {"
+        },
+        {
+          "line": 312,
+          "text": "public void modifyFullNameInGeneration(VirtualFullNameTransformer transformer) {"
+        },
+        {
+          "line": 320,
+          "text": "public Optional<Pair<String, String>> getDependencyAppServiceApi(VirtualFullNameTransformer transformer) {"
+        },
+        {
+          "line": 329,
+          "text": "private boolean needServiceCtpMessageSend() {"
+        },
+        {
+          "line": 333,
+          "text": "public ApplicationService getApplicationService() {"
+        },
+        {
+          "line": 337,
+          "text": "public Boolean getInApp() {"
+        },
+        {
+          "line": 341,
+          "text": "public SelectMethod getSelectMethod() {"
+        },
+        {
+          "line": 345,
+          "text": "public CallMethodParam getCallMethodParam() {"
+        },
+        {
+          "line": 350,
+          "text": "public CallMethod getCallMethod() {"
+        },
+        {
+          "line": 354,
+          "text": "public SelectApp getApp() {"
+        },
+        {
+          "line": 358,
+          "text": "public void setApplicationService(ApplicationService applicationService) {"
+        },
+        {
+          "line": 362,
+          "text": "public void setInApp(Boolean inApp) {"
+        },
+        {
+          "line": 366,
+          "text": "public void setSelectMethod(SelectMethod selectMethod) {"
+        },
+        {
+          "line": 370,
+          "text": "public void setCallMethodParam(CallMethodParam callMethodParam) {"
+        },
+        {
+          "line": 375,
+          "text": "public void setCallMethod(CallMethod callMethod) {"
+        },
+        {
+          "line": 379,
+          "text": "public void setApp(SelectApp app) {"
+        }
+      ],
+      "domain": "application"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "f2bd21e49310b8796add2e7499cb9c2143d2326bea0f5e900e127c2f3592001a",
+      "lines": 139,
+      "classes": [
+        "CallDataFlowActivity",
+        "DataSourceTypeEnum"
+      ],
+      "method_count": 15,
+      "method_samples": [
+        {
+          "line": 40,
+          "text": "public CallDataFlowActivity() {"
+        },
+        {
+          "line": 46,
+          "text": "public ActivityNode parseActivityNode(MicroFlowNodeParseContext nodeParseContext, ObjectNode node) {"
+        },
+        {
+          "line": 69,
+          "text": "public void activityNodeLogicCheck(NodeContext nodeContext) {"
+        },
+        {
+          "line": 83,
+          "text": "public String getDataFlowMappingId() {"
+        },
+        {
+          "line": 87,
+          "text": "public Structure getStructure() {"
+        },
+        {
+          "line": 91,
+          "text": "public DataSourceTypeEnum getDataSourceType() {"
+        },
+        {
+          "line": 95,
+          "text": "public SelectParam getSelectParam() {"
+        },
+        {
+          "line": 99,
+          "text": "public ConditionInfo getCondition() {"
+        },
+        {
+          "line": 103,
+          "text": "public void setDataFlowMappingId(String dataFlowMappingId) {"
+        },
+        {
+          "line": 107,
+          "text": "public void setStructure(Structure structure) {"
+        },
+        {
+          "line": 111,
+          "text": "public void setDataSourceType(DataSourceTypeEnum dataSourceType) {"
+        },
+        {
+          "line": 115,
+          "text": "public void setSelectParam(SelectParam selectParam) {"
+        },
+        {
+          "line": 119,
+          "text": "public void setCondition(ConditionInfo condition) {"
+        },
+        {
+          "line": 130,
+          "text": "private DataSourceTypeEnum(int code) {"
+        },
+        {
+          "line": 134,
+          "text": "public int code() {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "1fe8f4107b008c3ef50edbc2a02ac51ed06560c96a2f6b56d8463b04453375aa",
+      "lines": 145,
+      "classes": [
+        "ChangeListActivity"
+      ],
+      "method_count": 12,
+      "method_samples": [
+        {
+          "line": 46,
+          "text": "public ChangeListActivity() {"
+        },
+        {
+          "line": 52,
+          "text": "public ActivityNode parseActivityNode(MicroFlowNodeParseContext nodeParseContext, ObjectNode node) {"
+        },
+        {
+          "line": 75,
+          "text": "public void activityNodeLogicCheck(NodeContext nodeContext) {"
+        },
+        {
+          "line": 106,
+          "text": "private void checkForComodification(NodeInfo nodeInfo, NodeContext nodeContext) {"
+        },
+        {
+          "line": 113,
+          "text": "public ChangeListActionTypeEnum getAction() {"
+        },
+        {
+          "line": 117,
+          "text": "public SelectParam getDataSource() {"
+        },
+        {
+          "line": 121,
+          "text": "public SelectParam getSelectParam() {"
+        },
+        {
+          "line": 125,
+          "text": "public List<AttrType> getCountAttrs() {"
+        },
+        {
+          "line": 129,
+          "text": "public void setAction(ChangeListActionTypeEnum action) {"
+        },
+        {
+          "line": 133,
+          "text": "public void setDataSource(SelectParam dataSource) {"
+        },
+        {
+          "line": 137,
+          "text": "public void setSelectParam(SelectParam selectParam) {"
+        },
+        {
+          "line": 141,
+          "text": "public void setCountAttrs(List<AttrType> countAttrs) {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "910bee450791dc4acc17d53a73c287199e208103b82a56c28a3626a4e7780a7c",
+      "lines": 217,
+      "classes": [
+        "ChangeVariableActivity"
+      ],
+      "method_count": 19,
+      "method_samples": [
+        {
+          "line": 57,
+          "text": "public ChangeVariableActivity() {"
+        },
+        {
+          "line": 63,
+          "text": "public String getActionType() {"
+        },
+        {
+          "line": 68,
+          "text": "public String getCreateType() {"
+        },
+        {
+          "line": 73,
+          "text": "public ActivityNode parseActivityNode(MicroFlowNodeParseContext nodeParseContext, ObjectNode node) {"
+        },
+        {
+          "line": 111,
+          "text": "public void activityNodeLogicCheck(NodeContext nodeContext) {"
+        },
+        {
+          "line": 153,
+          "text": "private boolean isMultiSelectUdcEnumAttribute() {"
+        },
+        {
+          "line": 157,
+          "text": "private boolean checkUnsupportedOperation(NodeContext nodeContext) {"
+        },
+        {
+          "line": 169,
+          "text": "public void modifyFullNameInGeneration(VirtualFullNameTransformer transformer) {"
+        },
+        {
+          "line": 174,
+          "text": "public void extractDynamicDependencyFullName(VirtualFullNameTable fullNameTable, DynamicDependencyFullNameChecker checker) {"
+        },
+        {
+          "line": 177,
+          "text": "public SelectParam getSelectParam() {"
+        },
+        {
+          "line": 181,
+          "text": "public SelectParam getSelectMappingParam() {"
+        },
+        {
+          "line": 185,
+          "text": "public String getMappingType() {"
+        },
+        {
+          "line": 189,
+          "text": "public List<SelectObjectAttr> getAttrs() {"
+        },
+        {
+          "line": 193,
+          "text": "public AttrValue getValue() {"
+        },
+        {
+          "line": 197,
+          "text": "public void setSelectParam(SelectParam selectParam) {"
+        },
+        {
+          "line": 201,
+          "text": "public void setSelectMappingParam(SelectParam selectMappingParam) {"
+        },
+        {
+          "line": 205,
+          "text": "public void setMappingType(String mappingType) {"
+        },
+        {
+          "line": 209,
+          "text": "public void setAttrs(List<SelectObjectAttr> attrs) {"
+        },
+        {
+          "line": 213,
+          "text": "public void setValue(AttrValue value) {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "ab8d40da2c843776905d22e190a74b65ada106d55a3e079510650cc2e13dda00",
+      "lines": 187,
+      "classes": [
+        "ConnectorActivity"
+      ],
+      "method_count": 8,
+      "method_samples": [
+        {
+          "line": 64,
+          "text": "public ConnectorActivity() {"
+        },
+        {
+          "line": 70,
+          "text": "public ActivityNode parseActivityNode(MicroFlowNodeParseContext nodeParseContext, ObjectNode node) {"
+        },
+        {
+          "line": 113,
+          "text": "public void activityNodeLogicCheck(NodeContext nodeContext) {"
+        },
+        {
+          "line": 167,
+          "text": "private CallMethod buildCallMethod(SelectMethod selectMethod, CallMethodParam callMethodParam, ParseResult result, String nodeId) {"
+        },
+        {
+          "line": 171,
+          "text": "public SelectMethod getSelectMethod() {"
+        },
+        {
+          "line": 175,
+          "text": "public CallMethodParam getCallMethodParam() {"
+        },
+        {
+          "line": 179,
+          "text": "public void setSelectMethod(SelectMethod selectMethod) {"
+        },
+        {
+          "line": 183,
+          "text": "public void setCallMethodParam(CallMethodParam callMethodParam) {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "f07bbf562517a6e7b95c0ae32fc36c936e35ec7db380063d9f2248a119a2f2f0",
+      "lines": 200,
+      "classes": [
+        "ConvertDataActivity"
+      ],
+      "method_count": 22,
+      "method_samples": [
+        {
+          "line": 49,
+          "text": "public ConvertDataActivity() {"
+        },
+        {
+          "line": 54,
+          "text": "public String getActionType() {"
+        },
+        {
+          "line": 59,
+          "text": "public String getCreateType() {"
+        },
+        {
+          "line": 64,
+          "text": "public ActivityNode parseActivityNode(MicroFlowNodeParseContext nodeParseContext, ObjectNode node) {"
+        },
+        {
+          "line": 98,
+          "text": "public void activityNodeLogicCheck(NodeContext nodeContext) {"
+        },
+        {
+          "line": 132,
+          "text": "private boolean needList(String type) {"
+        },
+        {
+          "line": 136,
+          "text": "private boolean needAssociation(String type) {"
+        },
+        {
+          "line": 140,
+          "text": "private boolean needEnum(String type) {"
+        },
+        {
+          "line": 144,
+          "text": "private boolean needStr(String type) {"
+        },
+        {
+          "line": 148,
+          "text": "private boolean onlyObject(String type) {"
+        },
+        {
+          "line": 152,
+          "text": "private boolean isEnum(SelectParam selectParam) {"
+        },
+        {
+          "line": 156,
+          "text": "private boolean isIdList(SelectParam selectParam) {"
+        },
+        {
+          "line": 160,
+          "text": "private boolean isMultiEntity(SelectParam selectParam) {"
+        },
+        {
+          "line": 164,
+          "text": "private boolean isString(SelectParam selectParam) {"
+        },
+        {
+          "line": 168,
+          "text": "public SelectParam getSelectParam() {"
+        },
+        {
+          "line": 172,
+          "text": "public ConvertType getConvertType() {"
+        },
+        {
+          "line": 176,
+          "text": "public SplitRegexEnum getRegex() {"
+        },
+        {
+          "line": 180,
+          "text": "public String getRegexChar() {"
+        },
+        {
+          "line": 184,
+          "text": "public void setSelectParam(SelectParam selectParam) {"
+        },
+        {
+          "line": 188,
+          "text": "public void setConvertType(ConvertType convertType) {"
+        },
+        {
+          "line": 192,
+          "text": "public void setRegex(SplitRegexEnum regex) {"
+        },
+        {
+          "line": 196,
+          "text": "public void setRegexChar(String regexChar) {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "c037be32c6e907add4666cbc197841738514fdcef119528c4bf8b8a6b1504574",
+      "lines": 121,
+      "classes": [
+        "CreateListActivity"
+      ],
+      "method_count": 6,
+      "method_samples": [
+        {
+          "line": 42,
+          "text": "public CreateListActivity() {"
+        },
+        {
+          "line": 48,
+          "text": "public ActivityNode parseActivityNode(MicroFlowNodeParseContext nodeParseContext, ObjectNode node) {"
+        },
+        {
+          "line": 82,
+          "text": "public void activityNodeLogicCheck(NodeContext nodeContext) {"
+        },
+        {
+          "line": 106,
+          "text": "private boolean isNotEmptyValue(AttrValue value) {"
+        },
+        {
+          "line": 113,
+          "text": "public List<AttrValue> getValues() {"
+        },
+        {
+          "line": 117,
+          "text": "public void setValues(List<AttrValue> values) {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "a6cc4d43396c67e41624b295cc783dd551a15774bc6958ad3c19103877977666",
+      "lines": 53,
+      "classes": [
+        "CreateMapActivity"
+      ],
+      "method_count": 5,
+      "method_samples": [
+        {
+          "line": 28,
+          "text": "public CreateMapActivity() {"
+        },
+        {
+          "line": 34,
+          "text": "public AbstractGenericsActivity parseGenericsActivityNode(ObjectNode node, ParseResult result, String location) {"
+        },
+        {
+          "line": 41,
+          "text": "public void activityNodeLogicCheck(NodeContext nodeContext) {"
+        },
+        {
+          "line": 45,
+          "text": "public List<MapEntry> getEntries() {"
+        },
+        {
+          "line": 49,
+          "text": "public void setEntries(List<MapEntry> entries) {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "f5d102c7feb29b662fb622a60ada6988b137f0f0dd066cc85d8ef1b4bbbd9a3f",
+      "lines": 364,
+      "classes": [
+        "CreateVariableActivity"
+      ],
+      "method_count": 29,
+      "method_samples": [
+        {
+          "line": 79,
+          "text": "public CreateVariableActivity() {"
+        },
+        {
+          "line": 85,
+          "text": "public String getActionType() {"
+        },
+        {
+          "line": 90,
+          "text": "public String getCreateType() {"
+        },
+        {
+          "line": 95,
+          "text": "public ActivityNode parseActivityNode(MicroFlowNodeParseContext nodeParseContext, ObjectNode node) {"
+        },
+        {
+          "line": 113,
+          "text": "private void buildActivityByDataType(ObjectNode node, ParseResult result, String location, CreateVariableActivity createVariable, String dataType) {"
+        },
+        {
+          "line": 179,
+          "text": "private void buildOtherTypeVariable(ObjectNode node, ParseResult result, String location, CreateVariableActivity createVariable) {"
+        },
+        {
+          "line": 195,
+          "text": "public void activityNodeLogicCheck(NodeContext nodeContext) {"
+        },
+        {
+          "line": 255,
+          "text": "public void modifyDynamicDependencyDtoFullNameFromLast(VirtualFullNameTransformer transformer) {"
+        },
+        {
+          "line": 260,
+          "text": "public Optional<Pair<String, String>> getDependencyAppServiceApi(VirtualFullNameTransformer transformer) {"
+        },
+        {
+          "line": 284,
+          "text": "public ParamTypeEnum getParamType() {"
+        },
+        {
+          "line": 288,
+          "text": "public OtherTypeEnum getOtherType() {"
+        },
+        {
+          "line": 292,
+          "text": "public String getJavaType() {"
+        },
+        {
+          "line": 296,
+          "text": "public List<SelectObjectAttr> getAttrs() {"
+        },
+        {
+          "line": 300,
+          "text": "public String getMappingType() {"
+        },
+        {
+          "line": 304,
+          "text": "public AttrValue getValue() {"
+        },
+        {
+          "line": 308,
+          "text": "public SelectParam getSelectParam() {"
+        },
+        {
+          "line": 312,
+          "text": "public MetaDataTypeEnum getMetaDataType() {"
+        },
+        {
+          "line": 316,
+          "text": "public MetadataValue getMetadataValue() {"
+        },
+        {
+          "line": 320,
+          "text": "public List<RetrieveSortParam> getSortParams() {"
+        },
+        {
+          "line": 324,
+          "text": "public void setParamType(ParamTypeEnum paramType) {"
+        },
+        {
+          "line": 328,
+          "text": "public void setOtherType(OtherTypeEnum otherType) {"
+        },
+        {
+          "line": 332,
+          "text": "public void setJavaType(String javaType) {"
+        },
+        {
+          "line": 336,
+          "text": "public void setAttrs(List<SelectObjectAttr> attrs) {"
+        },
+        {
+          "line": 340,
+          "text": "public void setMappingType(String mappingType) {"
+        },
+        {
+          "line": 344,
+          "text": "public void setValue(AttrValue value) {"
+        },
+        {
+          "line": 348,
+          "text": "public void setSelectParam(SelectParam selectParam) {"
+        },
+        {
+          "line": 352,
+          "text": "public void setMetaDataType(MetaDataTypeEnum metaDataType) {"
+        },
+        {
+          "line": 356,
+          "text": "public void setMetadataValue(MetadataValue metadataValue) {"
+        },
+        {
+          "line": 360,
+          "text": "public void setSortParams(List<RetrieveSortParam> sortParams) {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "1f581d241b2f8055750ab9365b43b09ab79b06d0b96b15772828e18cc23f248d",
+      "lines": 458,
+      "classes": [
+        "DataMappingActivity",
+        "DataMappingTargetTypeEnum"
+      ],
+      "method_count": 36,
+      "method_samples": [
+        {
+          "line": 82,
+          "text": "public DataMappingActivity() {"
+        },
+        {
+          "line": 88,
+          "text": "public ActivityNode parseActivityNode(MicroFlowNodeParseContext nodeParseContext, ObjectNode node) {"
+        },
+        {
+          "line": 103,
+          "text": "private MappingRule parseMappingRule(ObjectNode node, ParseResult result, String location, boolean notRootDto) {"
+        },
+        {
+          "line": 145,
+          "text": "protected void activityNodeLogicCheck(NodeContext nodeContext) {"
+        },
+        {
+          "line": 156,
+          "text": "private void checkMappingRule(NodeContext nodeContext) {"
+        },
+        {
+          "line": 171,
+          "text": "private void checkMappingRule(NodeContext nodeContext, MfFullAggDtoMetadataDto targetData, Map<String, Pair<List<MfFullAggDtoMetadataDto>, MfFullAggDtoAttributeMetadataDto>> sourceDataAttrPairMap, MappingRule mappingRule, List<Set<String>> dataSystem, boolean isChild) {"
+        },
+        {
+          "line": 199,
+          "text": "private void checkDataMappingValue(NodeContext nodeContext, MappingRule rule, Map<String, Pair<List<MfFullAggDtoMetadataDto>, MfFullAggDtoAttributeMetadataDto>> sourceDataAttrPairMap, Map<String, MfFullAggDtoAttributeMetadataDto> targetAttrsMap) {"
+        },
+        {
+          "line": 211,
+          "text": "private void checkConstantValue(NodeContext nodeContext, MappingRule rule, DataMappingRow row, Map<String, MfFullAggDtoAttributeMetadataDto> targetAttrsMap) {"
+        },
+        {
+          "line": 252,
+          "text": "private void checkReferenceValue(NodeContext nodeContext, MappingRule rule, DataMappingRow row, Map<String, Pair<List<MfFullAggDtoMetadataDto>, MfFullAggDtoAttributeMetadataDto>> sourceDataAttrPairMap) {"
+        },
+        {
+          "line": 283,
+          "text": "private boolean checkLeftAndRightValue(DataMappingRow.DataMappingField left, DataMappingRow.DataMappingField right) {"
+        },
+        {
+          "line": 293,
+          "text": "private boolean unmatchedFieldType(DataMappingFieldTypeDeterminer target, DataMappingFieldTypeDeterminer source) {"
+        },
+        {
+          "line": 299,
+          "text": "private boolean simpleCheckReference(MfFullAggDtoAttributeMetadataDto attrValue, DataMappingRow.DataMappingField reference) {"
+        },
+        {
+          "line": 313,
+          "text": "private boolean checkPath(BaseMicroFlowComponent singlePath, MfFullAggDtoMetadataDto parentDto) {"
+        },
+        {
+          "line": 320,
+          "text": "private void checkTargetFieldList(NodeContext context, MappingRule rule, List<MfFullAggDtoAttributeMetadataDto> attributes) {"
+        },
+        {
+          "line": 334,
+          "text": "private boolean checkNotSameType(DataMappingFieldTypeDeterminer currentData, DataMappingFieldTypeDeterminer realData) {"
+        },
+        {
+          "line": 344,
+          "text": "private void checkSystemData(NodeContext nodeContext, MappingRule rule, List<Set<String>> dataSystem) {"
+        },
+        {
+          "line": 358,
+          "text": "private List<String> buildUncheckedDataSystem(List<DataMappingRow> referenceDtoRows) {"
+        },
+        {
+          "line": 367,
+          "text": "private Map<String, Pair<List<MfFullAggDtoMetadataDto>, MfFullAggDtoAttributeMetadataDto>> getFullAggDtoAttrPairMap(MfFullAggDtoMetadataDto sourceData) {"
+        },
+        {
+          "line": 373,
+          "text": "private String buildAttrId(String aggDtoId, MfFullAggDtoAttributeMetadataDto attrDto) {"
+        },
+        {
+          "line": 378,
+          "text": "private String buildAttrIdByParentJavaType(String javaTypeInfo, String attrName) {"
+        },
+        {
+          "line": 385,
+          "text": "private List<MfFullAggDtoMetadataDto> buildPathObjList(String aggDtoId, Map<String, MfFullAggDtoMetadataDto> aggDtoMap) {"
+        },
+        {
+          "line": 390,
+          "text": "private String buildMappingRuleLocation(MappingRule rule) {"
+        },
+        {
+          "line": 394,
+          "text": "private String buildRuleLocation(MappingRule rule) {"
+        },
+        {
+          "line": 398,
+          "text": "private String buildMappingRowLocation(MappingRule rule, DataMappingRow row) {"
+        },
+        {
+          "line": 402,
+          "text": "private String buildTargetFieldLocation(MappingRule rule, DataMappingRow row) {"
+        },
+        {
+          "line": 406,
+          "text": "private String buildDataMappingValue(MappingRule rule, DataMappingRow row) {"
+        },
+        {
+          "line": 410,
+          "text": "private void error(NodeContext context, String propertyKey, MicroFlowParseErrorEnum errorCode) {"
+        },
+        {
+          "line": 414,
+          "text": "public SelectParam getDataSource() {"
+        },
+        {
+          "line": 418,
+          "text": "public void setDataSource(SelectParam dataSource) {"
+        },
+        {
+          "line": 422,
+          "text": "public DataMappingTargetTypeEnum getTargetType() {"
+        },
+        {
+          "line": 426,
+          "text": "public void setTargetType(DataMappingTargetTypeEnum targetType) {"
+        },
+        {
+          "line": 430,
+          "text": "public MappingRule getMappingRule() {"
+        },
+        {
+          "line": 434,
+          "text": "public void setMappingRule(MappingRule mappingRule) {"
+        },
+        {
+          "line": 438,
+          "text": "private static /* synthetic */ boolean lambda$null$0(List enableUdcJavaEnumItemFullNameList, String j) {"
+        },
+        {
+          "line": 449,
+          "text": "private DataMappingTargetTypeEnum(int code) {"
+        },
+        {
+          "line": 453,
+          "text": "public int code() {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "2ad5423609dd852423bca196d8c3faa87b6539e7cd988e80c1ab087315248552",
+      "lines": 429,
+      "classes": [
+        "ListOperationActivity"
+      ],
+      "method_count": 44,
+      "method_samples": [
+        {
+          "line": 68,
+          "text": "public ListOperationActivity() {"
+        },
+        {
+          "line": 74,
+          "text": "public ActivityNode parseActivityNode(MicroFlowNodeParseContext nodeParseContext, ObjectNode node) {"
+        },
+        {
+          "line": 165,
+          "text": "public void activityNodeLogicCheck(NodeContext nodeContext) {"
+        },
+        {
+          "line": 238,
+          "text": "private void checkCalculationType(NodeContext nodeContext, Predicate<String> guardClause, List<String> supportType) {"
+        },
+        {
+          "line": 249,
+          "text": "private void checkMapType(NodeContext nodeContext) {"
+        },
+        {
+          "line": 258,
+          "text": "private boolean requiredCountAttr(String operationType) {"
+        },
+        {
+          "line": 262,
+          "text": "private boolean requiredGroupAttr(String operationType) {"
+        },
+        {
+          "line": 266,
+          "text": "private boolean allowMultipleAttrType(String operationType) {"
+        },
+        {
+          "line": 270,
+          "text": "private boolean requiredExpression(String operationType) {"
+        },
+        {
+          "line": 274,
+          "text": "private boolean requiredSort(String operationType) {"
+        },
+        {
+          "line": 278,
+          "text": "private boolean requiredIndex(String operationType) {"
+        },
+        {
+          "line": 282,
+          "text": "private boolean requiredStartAndEndIndex(String operationType) {"
+        },
+        {
+          "line": 286,
+          "text": "private boolean requiredOperationParam(String operationType) {"
+        },
+        {
+          "line": 290,
+          "text": "private boolean isLegalSubIndex(int startIndex, int endIndex, ParseResult result, String location) {"
+        },
+        {
+          "line": 306,
+          "text": "private void dealFilterSelectParam(SelectParam selectParam, ListOperationActivity activity) {"
+        },
+        {
+          "line": 313,
+          "text": "private boolean isInAppSelectParam(NodeContext nodeContext) {"
+        },
+        {
+          "line": 317,
+          "text": "public SelectParam getSelectParam() {"
+        },
+        {
+          "line": 321,
+          "text": "public String getOperationType() {"
+        },
+        {
+          "line": 325,
+          "text": "public List<AttrType> getGroupByAttrs() {"
+        },
+        {
+          "line": 329,
+          "text": "public List<AttrType> getCountAttrs() {"
+        },
+        {
+          "line": 333,
+          "text": "public SelectParam getOperationParam() {"
+        },
+        {
+          "line": 337,
+          "text": "public List<ObjectSortParam> getSortParams() {"
+        },
+        {
+          "line": 341,
+          "text": "public ExpressionNode getExpression() {"
+        },
+        {
+          "line": 345,
+          "text": "public String getIndex() {"
+        },
+        {
+          "line": 349,
+          "text": "public AttrValue getIndexValue() {"
+        },
+        {
+          "line": 353,
+          "text": "public AttrValue getSubStartIndex() {"
+        },
+        {
+          "line": 357,
+          "text": "public AttrValue getSubEndIndex() {"
+        },
+        {
+          "line": 361,
+          "text": "public AttrType getOperationAttr() {"
+        },
+        {
+          "line": 365,
+          "text": "public String getFilterSelectParamName() {"
+        },
+        {
+          "line": 369,
+          "text": "public String getSortType() {"
+        },
+        {
+          "line": 373,
+          "text": "public void setSelectParam(SelectParam selectParam) {"
+        },
+        {
+          "line": 377,
+          "text": "public void setOperationType(String operationType) {"
+        },
+        {
+          "line": 381,
+          "text": "public void setGroupByAttrs(List<AttrType> groupByAttrs) {"
+        },
+        {
+          "line": 385,
+          "text": "public void setCountAttrs(List<AttrType> countAttrs) {"
+        },
+        {
+          "line": 389,
+          "text": "public void setOperationParam(SelectParam operationParam) {"
+        },
+        {
+          "line": 393,
+          "text": "public void setSortParams(List<ObjectSortParam> sortParams) {"
+        },
+        {
+          "line": 397,
+          "text": "public void setExpression(ExpressionNode expression) {"
+        },
+        {
+          "line": 401,
+          "text": "public void setIndex(String index) {"
+        },
+        {
+          "line": 405,
+          "text": "public void setIndexValue(AttrValue indexValue) {"
+        },
+        {
+          "line": 409,
+          "text": "public void setSubStartIndex(AttrValue subStartIndex) {"
+        },
+        {
+          "line": 413,
+          "text": "public void setSubEndIndex(AttrValue subEndIndex) {"
+        },
+        {
+          "line": 417,
+          "text": "public void setOperationAttr(AttrType operationAttr) {"
+        },
+        {
+          "line": 421,
+          "text": "public void setFilterSelectParamName(String filterSelectParamName) {"
+        },
+        {
+          "line": 425,
+          "text": "public void setSortType(String sortType) {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "afb2e1ebdf132017568e7ca46aecdaee4ed1c170c23015b3d7e8c31d65198acc",
+      "lines": 274,
+      "classes": [
+        "MapOperationActivity"
+      ],
+      "method_count": 28,
+      "method_samples": [
+        {
+          "line": 69,
+          "text": "public MapOperationActivity() {"
+        },
+        {
+          "line": 75,
+          "text": "public boolean genericsRequired(AbstractGenericsActivity activity) {"
+        },
+        {
+          "line": 80,
+          "text": "public AbstractGenericsActivity parseGenericsActivityNode(ObjectNode node, ParseResult result, String location) {"
+        },
+        {
+          "line": 142,
+          "text": "public void activityNodeLogicCheck(NodeContext nodeContext) {"
+        },
+        {
+          "line": 171,
+          "text": "public VirtualFullNameTable extractFullName() {"
+        },
+        {
+          "line": 176,
+          "text": "public void extractUdcAppDtoFullName(VirtualFullNameTable fullNameTable) {"
+        },
+        {
+          "line": 182,
+          "text": "public SelectParam getSelectMap() {"
+        },
+        {
+          "line": 186,
+          "text": "public MapOperationTypeEnum getOperationType() {"
+        },
+        {
+          "line": 190,
+          "text": "public List<MapEntry> getEntries() {"
+        },
+        {
+          "line": 194,
+          "text": "public List<AttrValue> getRemoveKeys() {"
+        },
+        {
+          "line": 198,
+          "text": "public AttrValue getTheKey() {"
+        },
+        {
+          "line": 202,
+          "text": "public ParamTypeEnum getParamType() {"
+        },
+        {
+          "line": 206,
+          "text": "public Structure getStructure() {"
+        },
+        {
+          "line": 210,
+          "text": "public SelectApp getApp() {"
+        },
+        {
+          "line": 214,
+          "text": "public Boolean getInApp() {"
+        },
+        {
+          "line": 219,
+          "text": "public NullHandlingEnum getNullHandling() {"
+        },
+        {
+          "line": 224,
+          "text": "public String getNullPromptMessage() {"
+        },
+        {
+          "line": 228,
+          "text": "public void setSelectMap(SelectParam selectMap) {"
+        },
+        {
+          "line": 232,
+          "text": "public void setOperationType(MapOperationTypeEnum operationType) {"
+        },
+        {
+          "line": 236,
+          "text": "public void setEntries(List<MapEntry> entries) {"
+        },
+        {
+          "line": 240,
+          "text": "public void setRemoveKeys(List<AttrValue> removeKeys) {"
+        },
+        {
+          "line": 244,
+          "text": "public void setTheKey(AttrValue theKey) {"
+        },
+        {
+          "line": 248,
+          "text": "public void setParamType(ParamTypeEnum paramType) {"
+        },
+        {
+          "line": 252,
+          "text": "public void setStructure(Structure structure) {"
+        },
+        {
+          "line": 256,
+          "text": "public void setApp(SelectApp app) {"
+        },
+        {
+          "line": 260,
+          "text": "public void setInApp(Boolean inApp) {"
+        },
+        {
+          "line": 265,
+          "text": "public void setNullHandling(NullHandlingEnum nullHandling) {"
+        },
+        {
+          "line": 270,
+          "text": "public void setNullPromptMessage(String nullPromptMessage) {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "882a7f2a837cec7ee2968165d0731befa0c688f3ff031720b101f40ad4fafef1",
+      "lines": 63,
+      "classes": [
+        "AbstractForNode"
+      ],
+      "method_count": 4,
+      "method_samples": [
+        {
+          "line": 29,
+          "text": "public boolean isShouldGenerateCode() {"
+        },
+        {
+          "line": 40,
+          "text": "public final BaseNode parse(MicroFlowNodeParseContext nodeParseContext, ObjectNode node) {"
+        },
+        {
+          "line": 55,
+          "text": "public List<BaseNode> getNodes() {"
+        },
+        {
+          "line": 59,
+          "text": "public void setNodes(List<BaseNode> nodes) {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "d42297444b14d042752c90207718d492295f762e1adcdf61e9be09c64ac13bcc",
+      "lines": 121,
+      "classes": [
+        "BranchNode"
+      ],
+      "method_count": 9,
+      "method_samples": [
+        {
+          "line": 44,
+          "text": "public BranchNode() {"
+        },
+        {
+          "line": 49,
+          "text": "public boolean isShouldGenerateCode() {"
+        },
+        {
+          "line": 60,
+          "text": "public AbstractBaseNode parse(MicroFlowNodeParseContext nodeParseContext, ObjectNode node) {"
+        },
+        {
+          "line": 85,
+          "text": "public void nodeLogicCheck(MicroFlowDetectionContext context, NodeContext nodeContext) {"
+        },
+        {
+          "line": 101,
+          "text": "public String getBOOLEAN() {"
+        },
+        {
+          "line": 105,
+          "text": "public boolean isAllConditionEndWithError() {"
+        },
+        {
+          "line": 109,
+          "text": "public List<ConditionNode> getConditions() {"
+        },
+        {
+          "line": 113,
+          "text": "public void setAllConditionEndWithError(boolean allConditionEndWithError) {"
+        },
+        {
+          "line": 117,
+          "text": "public void setConditions(List<ConditionNode> conditions) {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "ed548cd7ff21c5bd50950b543eb27b31111d1a34ef28b3b74ecadd48a9bad4aa",
+      "lines": 50,
+      "classes": [
+        "BreakNode"
+      ],
+      "method_count": 5,
+      "method_samples": [
+        {
+          "line": 26,
+          "text": "public BreakNode() {"
+        },
+        {
+          "line": 31,
+          "text": "public AbstractBaseNode parse(MicroFlowNodeParseContext nodeParseContext, ObjectNode node) {"
+        },
+        {
+          "line": 36,
+          "text": "public void nodeLogicCheck(MicroFlowDetectionContext context, NodeContext nodeContext) {"
+        },
+        {
+          "line": 42,
+          "text": "public boolean isUse() {"
+        },
+        {
+          "line": 46,
+          "text": "public void setUse(boolean use) {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "004a8d98dd6676e1944ad47b4f7b3c2209e39d9b8a1ab635fda6682036ffbc23",
+      "lines": 103,
+      "classes": [
+        "ConditionNode"
+      ],
+      "method_count": 10,
+      "method_samples": [
+        {
+          "line": 46,
+          "text": "public ConditionNode() {"
+        },
+        {
+          "line": 51,
+          "text": "public boolean isShouldGenerateCode() {"
+        },
+        {
+          "line": 56,
+          "text": "public AbstractBaseNode parse(MicroFlowNodeParseContext nodeParseContext, ObjectNode node) {"
+        },
+        {
+          "line": 76,
+          "text": "public void nodeLogicCheck(MicroFlowDetectionContext context, NodeContext nodeContext) {"
+        },
+        {
+          "line": 79,
+          "text": "public boolean isEndWithError() {"
+        },
+        {
+          "line": 83,
+          "text": "public ExpressionNode getExpression() {"
+        },
+        {
+          "line": 87,
+          "text": "public List<BaseNode> getNodes() {"
+        },
+        {
+          "line": 91,
+          "text": "public void setEndWithError(boolean EndWithError) {"
+        },
+        {
+          "line": 95,
+          "text": "public void setExpression(ExpressionNode expression) {"
+        },
+        {
+          "line": 99,
+          "text": "public void setNodes(List<BaseNode> nodes) {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "c707eab81f4043dde5b74a9345cc5db2d5611710e64e5902bb049d719112c172",
+      "lines": 167,
+      "classes": [
+        "CustomErrorNode",
+        "CustomErrorTypeEnum"
+      ],
+      "method_count": 17,
+      "method_samples": [
+        {
+          "line": 50,
+          "text": "public CustomErrorNode() {"
+        },
+        {
+          "line": 55,
+          "text": "public AbstractBaseNode parse(MicroFlowNodeParseContext nodeParseContext, ObjectNode node) {"
+        },
+        {
+          "line": 78,
+          "text": "public void nodeLogicCheck(MicroFlowDetectionContext context, NodeContext nodeContext) {"
+        },
+        {
+          "line": 103,
+          "text": "public CustomErrorTypeEnum getErrorType() {"
+        },
+        {
+          "line": 107,
+          "text": "public AttrValue getError() {"
+        },
+        {
+          "line": 111,
+          "text": "public SelectParam getSourceData() {"
+        },
+        {
+          "line": 115,
+          "text": "public SelectParam getSelectParam() {"
+        },
+        {
+          "line": 119,
+          "text": "public List<AttrType> getAttrTypes() {"
+        },
+        {
+          "line": 123,
+          "text": "public AttrValue getAttrError() {"
+        },
+        {
+          "line": 127,
+          "text": "public void setErrorType(CustomErrorTypeEnum errorType) {"
+        },
+        {
+          "line": 131,
+          "text": "public void setError(AttrValue error) {"
+        },
+        {
+          "line": 135,
+          "text": "public void setSourceData(SelectParam sourceData) {"
+        },
+        {
+          "line": 139,
+          "text": "public void setSelectParam(SelectParam selectParam) {"
+        },
+        {
+          "line": 143,
+          "text": "public void setAttrTypes(List<AttrType> attrTypes) {"
+        },
+        {
+          "line": 147,
+          "text": "public void setAttrError(AttrValue attrError) {"
+        },
+        {
+          "line": 158,
+          "text": "private CustomErrorTypeEnum(int code) {"
+        },
+        {
+          "line": 162,
+          "text": "public int code() {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "bcf4b0114de696276e969d536aa2f4caf96db18d86558915e2bd3a91e58491a7",
+      "lines": 46,
+      "classes": [
+        "EndNode"
+      ],
+      "method_count": 5,
+      "method_samples": [
+        {
+          "line": 25,
+          "text": "public EndNode() {"
+        },
+        {
+          "line": 30,
+          "text": "public AbstractBaseNode parse(MicroFlowNodeParseContext nodeParseContext, ObjectNode node) {"
+        },
+        {
+          "line": 35,
+          "text": "public void nodeLogicCheck(MicroFlowDetectionContext context, NodeContext nodeContext) {"
+        },
+        {
+          "line": 38,
+          "text": "public SelectParam getSelectParam() {"
+        },
+        {
+          "line": 42,
+          "text": "public void setSelectParam(SelectParam selectParam) {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "0e7b29dc8fa859e669d8a389cf457bca8e4c40ef7ae0789c5ae667952647aed8",
+      "lines": 57,
+      "classes": [
+        "ForEachNode"
+      ],
+      "method_count": 5,
+      "method_samples": [
+        {
+          "line": 30,
+          "text": "public ForEachNode() {"
+        },
+        {
+          "line": 35,
+          "text": "protected AbstractForNode parseForNode(MicroFlowNodeParseContext nodeParseContext, ObjectNode node) {"
+        },
+        {
+          "line": 42,
+          "text": "public void nodeLogicCheck(MicroFlowDetectionContext context, NodeContext nodeContext) {"
+        },
+        {
+          "line": 49,
+          "text": "public SelectParam getSelectParam() {"
+        },
+        {
+          "line": 53,
+          "text": "public void setSelectParam(SelectParam selectParam) {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "df6280b9314a89fcea3fa71a4907164a06fd89f1eff89aa06a4d2414244f7f7d",
+      "lines": 115,
+      "classes": [
+        "ForNode"
+      ],
+      "method_count": 15,
+      "method_samples": [
+        {
+          "line": 39,
+          "text": "public ForNode() {"
+        },
+        {
+          "line": 44,
+          "text": "protected AbstractForNode parseForNode(MicroFlowNodeParseContext nodeParseContext, ObjectNode node) {"
+        },
+        {
+          "line": 57,
+          "text": "public void nodeLogicCheck(MicroFlowDetectionContext context, NodeContext nodeContext) {"
+        },
+        {
+          "line": 67,
+          "text": "public AttrValue getForStart() {"
+        },
+        {
+          "line": 71,
+          "text": "public AttrValue getForEnd() {"
+        },
+        {
+          "line": 75,
+          "text": "public String getOperator() {"
+        },
+        {
+          "line": 79,
+          "text": "public Integer getMaxLoop() {"
+        },
+        {
+          "line": 83,
+          "text": "public Integer getForStep() {"
+        },
+        {
+          "line": 87,
+          "text": "public String getErrorMsg() {"
+        },
+        {
+          "line": 91,
+          "text": "public void setForStart(AttrValue forStart) {"
+        },
+        {
+          "line": 95,
+          "text": "public void setForEnd(AttrValue forEnd) {"
+        },
+        {
+          "line": 99,
+          "text": "public void setOperator(String operator) {"
+        },
+        {
+          "line": 103,
+          "text": "public void setMaxLoop(Integer maxLoop) {"
+        },
+        {
+          "line": 107,
+          "text": "public void setForStep(Integer forStep) {"
+        },
+        {
+          "line": 111,
+          "text": "public void setErrorMsg(String errorMsg) {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "75cf7738cd96f2a6a4fa954ce74a37f61ff57d33a007c470d5cc2972089e3fc3",
+      "lines": 214,
+      "classes": [
+        "AbstractCallMethodActivity"
+      ],
+      "method_count": 15,
+      "method_samples": [
+        {
+          "line": 70,
+          "text": "public VirtualFullNameTable extractFullName() {"
+        },
+        {
+          "line": 86,
+          "text": "public void extractUdcAppDtoFullName(VirtualFullNameTable fullNameTable) {"
+        },
+        {
+          "line": 92,
+          "text": "protected CallMethod buildCallMethodForGenericInvoke(SelectMethod selectMethod, CallMethodParam callMethodParam, AttrValue pageInfo, ParseResult result, String nodeId) {"
+        },
+        {
+          "line": 121,
+          "text": "protected CallMethod buildOutputOfCallMethod(SelectMethod selectMethod, CallMethod callMethod, AttrValue pageInfo, ParseResult result, String nodeId) {"
+        },
+        {
+          "line": 153,
+          "text": "protected boolean checkRefApp(String refAppName, NodeContext nodeContext, NodeInfo nodeInfo, String propertyKey) {"
+        },
+        {
+          "line": 157,
+          "text": "protected void checkSelectPreambleNode(AttrValue value, CallMethod callMethod, NodeInfo nodeInfo, NodeContext nodeContext) {"
+        },
+        {
+          "line": 163,
+          "text": "private void checkSelectParamOfValue(SelectParam selectParam, CallMethod callMethod, NodeInfo nodeInfo, NodeContext nodeContext) {"
+        },
+        {
+          "line": 170,
+          "text": "protected boolean checkParamInfo(ParameterDto parameter, Map<String, Object> paramMap) {"
+        },
+        {
+          "line": 178,
+          "text": "protected boolean checkReturnInfo(ReturnValueDto returnValueDto, Map<String, Object> returnMap) {"
+        },
+        {
+          "line": 184,
+          "text": "protected Map<String, String> getParamOrReturnValueInfo(Map<String, Object> map) {"
+        },
+        {
+          "line": 194,
+          "text": "private boolean checkTypeAndItemType(String type, String itemType, Map<String, String> map) {"
+        },
+        {
+          "line": 198,
+          "text": "public CallMethod getCallMethod() {"
+        },
+        {
+          "line": 202,
+          "text": "public AttrValue getPageInfo() {"
+        },
+        {
+          "line": 206,
+          "text": "public void setCallMethod(CallMethod callMethod) {"
+        },
+        {
+          "line": 210,
+          "text": "public void setPageInfo(AttrValue pageInfo) {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "e69a383dcc5169d4a60152b89357b87b844ce176fa7211da8aa34f4d9f6c48bb",
+      "lines": 194,
+      "classes": [
+        "AbstractCreateActivity"
+      ],
+      "method_count": 24,
+      "method_samples": [
+        {
+          "line": 55,
+          "text": "public void extractDynamicDependencyFullName(VirtualFullNameTable fullNameTable, DynamicDependencyFullNameChecker checker) {"
+        },
+        {
+          "line": 66,
+          "text": "public final void modifyFullNameInGeneration(VirtualFullNameTransformer transformer) {"
+        },
+        {
+          "line": 74,
+          "text": "public VirtualFullNameTable extractFullName() {"
+        },
+        {
+          "line": 79,
+          "text": "public void extractUdcAppDtoFullName(VirtualFullNameTable fullNameTable) {"
+        },
+        {
+          "line": 85,
+          "text": "protected void modifyDynamicDependencyDtoFullNameFromLast(VirtualFullNameTransformer transformer) {"
+        },
+        {
+          "line": 88,
+          "text": "protected void modifyDynamicDependencyEnumFullNameFromLast(VirtualFullNameTransformer transformer) {"
+        },
+        {
+          "line": 91,
+          "text": "private boolean hasDynamicDependencyDtoSelected(DynamicDependencyFullNameChecker checker) {"
+        },
+        {
+          "line": 95,
+          "text": "private boolean hasDynamicDependencyEnumSelected(DynamicDependencyFullNameChecker checker) {"
+        },
+        {
+          "line": 99,
+          "text": "private boolean checkDynamicDependencyFullName(DynamicDependencyFullNameChecker checker) {"
+        },
+        {
+          "line": 107,
+          "text": "protected void parseStructureAndApp(AbstractCreateActivity activity, ObjectNode node, String location, ParseResult result) {"
+        },
+        {
+          "line": 118,
+          "text": "protected void parseAppInfo(AbstractCreateActivity activity, ObjectNode node, String location, ParseResult result) {"
+        },
+        {
+          "line": 125,
+          "text": "protected void parseOutput(AbstractCreateActivity activity, ObjectNode node, String location, ParseResult result, boolean requiredJavaType) {"
+        },
+        {
+          "line": 133,
+          "text": "protected void checkConnectorEnumExist(NodeContext nodeContext, NodeInfo nodeInfo, BiConsumer<String, Map<String, UdcEnumDto>> otherCheck) {"
+        },
+        {
+          "line": 142,
+          "text": "protected Map<String, UdcEnumDto> checkUdcEnumOutsideAppExist(NodeContext context, NodeInfo nodeInfo, String enumFullName) {"
+        },
+        {
+          "line": 151,
+          "text": "private boolean checkConnectorEnumCondition(NodeContext nodeContext) {"
+        },
+        {
+          "line": 155,
+          "text": "private boolean checkConnectorObjectCondition(NodeContext nodeContext, Predicate<String> fullNamePredicate) {"
+        },
+        {
+          "line": 162,
+          "text": "public String getDataType() {"
+        },
+        {
+          "line": 166,
+          "text": "public Boolean getInApp() {"
+        },
+        {
+          "line": 170,
+          "text": "public Structure getStructure() {"
+        },
+        {
+          "line": 174,
+          "text": "public SelectApp getApp() {"
+        },
+        {
+          "line": 178,
+          "text": "public void setDataType(String dataType) {"
+        },
+        {
+          "line": 182,
+          "text": "public void setInApp(Boolean inApp) {"
+        },
+        {
+          "line": 186,
+          "text": "public void setStructure(Structure structure) {"
+        },
+        {
+          "line": 190,
+          "text": "public void setApp(SelectApp app) {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "afbd33042f5112eee7b223bc89333f5c94ca7d289b9cfc15109b7f01262bc0bd",
+      "lines": 47,
+      "classes": [
+        "AbstractGenericsActivity"
+      ],
+      "method_count": 4,
+      "method_samples": [
+        {
+          "line": 26,
+          "text": "public boolean genericsRequired(AbstractGenericsActivity activity) {"
+        },
+        {
+          "line": 31,
+          "text": "public ActivityNode parseActivityNode(MicroFlowNodeParseContext nodeParseContext, ObjectNode node) {"
+        },
+        {
+          "line": 39,
+          "text": "public Map<String, String> getGenerics() {"
+        },
+        {
+          "line": 43,
+          "text": "public void setGenerics(Map<String, String> generics) {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "196f8da2f2e2280a4c9bf7fa24e94f88d216aa73bc15f9dc526203f1cbf931ec",
+      "lines": 18,
+      "classes": [
+        "AbstractMapGenericsActivity"
+      ],
+      "method_count": 1,
+      "method_samples": [
+        {
+          "line": 14,
+          "text": "public String[] genericsNames() {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "c7cfc850a3115cd59be305928d4f0f991941063ea0540b307a05397164e6d3f7",
+      "lines": 50,
+      "classes": [
+        "ConnectorFullNameExtractor"
+      ],
+      "method_count": 3,
+      "method_samples": [
+        {
+          "line": 27,
+          "text": "default public void extractConnectorFullName(VirtualFullNameTable fullNameTable) {"
+        },
+        {
+          "line": 34,
+          "text": "default public VirtualFullNameTable extractFromOutput(Map<String, Object> output, SelectApp app) {"
+        },
+        {
+          "line": 46,
+          "text": "default public boolean checkUdcApp(SelectApp app) {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "7123f0229ae03e629bb59ba3b6e39dc89dca23729517ec717c1f8b22cd4dee3e",
+      "lines": 19,
+      "classes": [
+        "DependencyAppServiceApiActivity"
+      ],
+      "method_count": 0,
+      "method_samples": [],
+      "domain": "application"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "61e6be8cddfee01d6db6cb49b7c07d1b0529ce322e65e2950f96fd026ef4b13e",
+      "lines": 17,
+      "classes": [
+        "DynamicDependencyFullNameModifier"
+      ],
+      "method_count": 0,
+      "method_samples": [],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "1b23e13cc757982db4362e5da5970f9dfc2435a2734028510421e7a3a572063e",
+      "lines": 13,
+      "classes": [
+        "FullNameExtractor"
+      ],
+      "method_count": 0,
+      "method_samples": [],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "7fcd0543f345de52945664b7a0e14c61046e19f4a20d78707070b1dc4157a9a1",
+      "lines": 21,
+      "classes": [
+        "HandleNull"
+      ],
+      "method_count": 0,
+      "method_samples": [],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "cb34e5022868feb82c197e32c86818c3dfcc1e523d8d3de34af5dd06893f6e11",
+      "lines": 64,
+      "classes": [
+        "AbstractEntityActivity"
+      ],
+      "method_count": 4,
+      "method_samples": [
+        {
+          "line": 39,
+          "text": "public final Optional<Pair<String, String>> getDependencyAppServiceApi(VirtualFullNameTransformer transformer) {"
+        },
+        {
+          "line": 48,
+          "text": "public void extractDynamicDependencyFullName(VirtualFullNameTable fullNameTable, DynamicDependencyFullNameChecker checker) {"
+        },
+        {
+          "line": 56,
+          "text": "public String getService() {"
+        },
+        {
+          "line": 60,
+          "text": "public void setService(String service) {"
+        }
+      ],
+      "domain": "entity"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "e055988cd8a332f36dff8870bd3600c23a1ef386d11f6d4957f427d1cf8c276e",
+      "lines": 32,
+      "classes": [
+        "AbstractSelectEntityActivity"
+      ],
+      "method_count": 3,
+      "method_samples": [
+        {
+          "line": 20,
+          "text": "public final String getAppName(ApplicationDto currentApp) {"
+        },
+        {
+          "line": 24,
+          "text": "public SelectParam getSelectParam() {"
+        },
+        {
+          "line": 28,
+          "text": "public void setSelectParam(SelectParam selectParam) {"
+        }
+      ],
+      "domain": "entity"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "7fc0c78d83dbb7fee725c57e26f62d36000b266bf62911e629ec880037b532a7",
+      "lines": 89,
+      "classes": [
+        "BaseEntityStructureActivity"
+      ],
+      "method_count": 10,
+      "method_samples": [
+        {
+          "line": 31,
+          "text": "public String getAppName(ApplicationDto currentApp) {"
+        },
+        {
+          "line": 35,
+          "text": "protected void parseSelectAppAndStructure(BaseEntityStructureActivity activity, ObjectNode node, ParseResult result) {"
+        },
+        {
+          "line": 57,
+          "text": "public Structure getStructure() {"
+        },
+        {
+          "line": 61,
+          "text": "public SelectApp getApp() {"
+        },
+        {
+          "line": 65,
+          "text": "public boolean isInApp() {"
+        },
+        {
+          "line": 69,
+          "text": "public MethodLegalDto getMethodLegal() {"
+        },
+        {
+          "line": 73,
+          "text": "public void setStructure(Structure structure) {"
+        },
+        {
+          "line": 77,
+          "text": "public void setApp(SelectApp app) {"
+        },
+        {
+          "line": 81,
+          "text": "public void setInApp(boolean inApp) {"
+        },
+        {
+          "line": 85,
+          "text": "public void setMethodLegal(MethodLegalDto methodLegal) {"
+        }
+      ],
+      "domain": "entity"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "9654758c5af3fc33a6ea885436762f045c33a79333bc9cdca2c86770f6f8ba6c",
+      "lines": 99,
+      "classes": [
+        "ChangeBatchEntityActivity"
+      ],
+      "method_count": 7,
+      "method_samples": [
+        {
+          "line": 42,
+          "text": "public ChangeBatchEntityActivity() {"
+        },
+        {
+          "line": 48,
+          "text": "public ActivityNode parseActivityNode(MicroFlowNodeParseContext nodeParseContext, ObjectNode node) {"
+        },
+        {
+          "line": 61,
+          "text": "public void activityNodeLogicCheck(NodeContext nodeContext) {"
+        },
+        {
+          "line": 80,
+          "text": "public String getEntityDtoFullName() {"
+        },
+        {
+          "line": 85,
+          "text": "public void modifyFullNameInGeneration(VirtualFullNameTransformer transformer) {"
+        },
+        {
+          "line": 91,
+          "text": "public boolean isUdcApp() {"
+        },
+        {
+          "line": 95,
+          "text": "public void setUdcApp(boolean isUdcApp) {"
+        }
+      ],
+      "domain": "entity"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "b5680b1034e7f2075a1dfdd1dbddd012da1d5954b2698e905205b2b534f8c8d2",
+      "lines": 125,
+      "classes": [
+        "ChangeEntityActivity"
+      ],
+      "method_count": 9,
+      "method_samples": [
+        {
+          "line": 49,
+          "text": "public ChangeEntityActivity() {"
+        },
+        {
+          "line": 55,
+          "text": "public ActivityNode parseActivityNode(MicroFlowNodeParseContext nodeParseContext, ObjectNode node) {"
+        },
+        {
+          "line": 69,
+          "text": "public void activityNodeLogicCheck(NodeContext nodeContext) {"
+        },
+        {
+          "line": 97,
+          "text": "public String getEntityDtoFullName() {"
+        },
+        {
+          "line": 102,
+          "text": "public void modifyFullNameInGeneration(VirtualFullNameTransformer transformer) {"
+        },
+        {
+          "line": 109,
+          "text": "public List<SelectObjectAttr> getAttrs() {"
+        },
+        {
+          "line": 113,
+          "text": "public boolean isUdcApp() {"
+        },
+        {
+          "line": 117,
+          "text": "public void setAttrs(List<SelectObjectAttr> attrs) {"
+        },
+        {
+          "line": 121,
+          "text": "public void setUdcApp(boolean isUdcApp) {"
+        }
+      ],
+      "domain": "entity"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "a1db73fe35762cc051c97bdb1268bd19c1df632078afeb867e640325187377cd",
+      "lines": 99,
+      "classes": [
+        "CreateBatchEntityActivity"
+      ],
+      "method_count": 7,
+      "method_samples": [
+        {
+          "line": 42,
+          "text": "public CreateBatchEntityActivity() {"
+        },
+        {
+          "line": 48,
+          "text": "public ActivityNode parseActivityNode(MicroFlowNodeParseContext nodeParseContext, ObjectNode node) {"
+        },
+        {
+          "line": 61,
+          "text": "public void activityNodeLogicCheck(NodeContext nodeContext) {"
+        },
+        {
+          "line": 80,
+          "text": "public String getEntityDtoFullName() {"
+        },
+        {
+          "line": 85,
+          "text": "public void modifyFullNameInGeneration(VirtualFullNameTransformer transformer) {"
+        },
+        {
+          "line": 91,
+          "text": "public boolean isUdcApp() {"
+        },
+        {
+          "line": 95,
+          "text": "public void setUdcApp(boolean isUdcApp) {"
+        }
+      ],
+      "domain": "entity"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "3f4c552c9600ae355933271c5d7dcc31c2524a82cf689aaae7f4ac3935ca4457",
+      "lines": 136,
+      "classes": [
+        "CreateEntityActivity"
+      ],
+      "method_count": 11,
+      "method_samples": [
+        {
+          "line": 49,
+          "text": "public CreateEntityActivity() {"
+        },
+        {
+          "line": 55,
+          "text": "public ActivityNode parseActivityNode(MicroFlowNodeParseContext nodeParseContext, ObjectNode node) {"
+        },
+        {
+          "line": 74,
+          "text": "public void activityNodeLogicCheck(NodeContext nodeContext) {"
+        },
+        {
+          "line": 103,
+          "text": "public String getEntityDtoFullName() {"
+        },
+        {
+          "line": 108,
+          "text": "public void modifyFullNameInGeneration(VirtualFullNameTransformer transformer) {"
+        },
+        {
+          "line": 112,
+          "text": "public String getMappingType() {"
+        },
+        {
+          "line": 116,
+          "text": "public List<SelectObjectAttr> getAttrs() {"
+        },
+        {
+          "line": 120,
+          "text": "public AttrValue getValue() {"
+        },
+        {
+          "line": 124,
+          "text": "public void setMappingType(String mappingType) {"
+        },
+        {
+          "line": 128,
+          "text": "public void setAttrs(List<SelectObjectAttr> attrs) {"
+        },
+        {
+          "line": 132,
+          "text": "public void setValue(AttrValue value) {"
+        }
+      ],
+      "domain": "entity"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "70445fab3b37188b6508189bece2320681fa575c7bf5a34976aec619ecb0e5e5",
+      "lines": 195,
+      "classes": [
+        "DeleteEntityActivity"
+      ],
+      "method_count": 16,
+      "method_samples": [
+        {
+          "line": 57,
+          "text": "public DeleteEntityActivity() {"
+        },
+        {
+          "line": 63,
+          "text": "public ActivityNode parseActivityNode(MicroFlowNodeParseContext nodeParseContext, ObjectNode node) {"
+        },
+        {
+          "line": 86,
+          "text": "public void activityNodeLogicCheck(NodeContext nodeContext) {"
+        },
+        {
+          "line": 135,
+          "text": "public String getEntityDtoFullName() {"
+        },
+        {
+          "line": 143,
+          "text": "public String getAppName(ApplicationDto currentApp) {"
+        },
+        {
+          "line": 151,
+          "text": "public void modifyFullNameInGeneration(VirtualFullNameTransformer transformer) {"
+        },
+        {
+          "line": 155,
+          "text": "public SelectParam getSelectParam() {"
+        },
+        {
+          "line": 159,
+          "text": "public ConditionInfo getCondition() {"
+        },
+        {
+          "line": 163,
+          "text": "public String getDeleteType() {"
+        },
+        {
+          "line": 167,
+          "text": "public AttrValue getValue() {"
+        },
+        {
+          "line": 171,
+          "text": "public boolean isUdcApp() {"
+        },
+        {
+          "line": 175,
+          "text": "public void setSelectParam(SelectParam selectParam) {"
+        },
+        {
+          "line": 179,
+          "text": "public void setCondition(ConditionInfo condition) {"
+        },
+        {
+          "line": 183,
+          "text": "public void setDeleteType(String deleteType) {"
+        },
+        {
+          "line": 187,
+          "text": "public void setValue(AttrValue value) {"
+        },
+        {
+          "line": 191,
+          "text": "public void setUdcApp(boolean isUdcApp) {"
+        }
+      ],
+      "domain": "entity"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "5e165a8436537ccca15e009af865ff4bc8e4392e7a5efffa29e56eb841c8219a",
+      "lines": 210,
+      "classes": [
+        "RetrieveEntityActivity"
+      ],
+      "method_count": 23,
+      "method_samples": [
+        {
+          "line": 54,
+          "text": "public RetrieveEntityActivity() {"
+        },
+        {
+          "line": 60,
+          "text": "public ActivityNode parseActivityNode(MicroFlowNodeParseContext nodeParseContext, ObjectNode node) {"
+        },
+        {
+          "line": 99,
+          "text": "public void activityNodeLogicCheck(NodeContext nodeContext) {"
+        },
+        {
+          "line": 125,
+          "text": "public String getEntityDtoFullName() {"
+        },
+        {
+          "line": 130,
+          "text": "public void modifyFullNameInGeneration(VirtualFullNameTransformer transformer) {"
+        },
+        {
+          "line": 134,
+          "text": "public ConditionInfo getCondition() {"
+        },
+        {
+          "line": 138,
+          "text": "public List<RetrieveSortParam> getSortParams() {"
+        },
+        {
+          "line": 143,
+          "text": "public NullHandlingEnum getNullHandling() {"
+        },
+        {
+          "line": 148,
+          "text": "public String getNullPromptMessage() {"
+        },
+        {
+          "line": 152,
+          "text": "public String getFetchType() {"
+        },
+        {
+          "line": 156,
+          "text": "public boolean isNeedCascade() {"
+        },
+        {
+          "line": 160,
+          "text": "public AttrValue getValue() {"
+        },
+        {
+          "line": 164,
+          "text": "public AttrValue getSortObject() {"
+        },
+        {
+          "line": 168,
+          "text": "public String getMappingType() {"
+        },
+        {
+          "line": 172,
+          "text": "public void setCondition(ConditionInfo condition) {"
+        },
+        {
+          "line": 176,
+          "text": "public void setSortParams(List<RetrieveSortParam> sortParams) {"
+        },
+        {
+          "line": 181,
+          "text": "public void setNullHandling(NullHandlingEnum nullHandling) {"
+        },
+        {
+          "line": 186,
+          "text": "public void setNullPromptMessage(String nullPromptMessage) {"
+        },
+        {
+          "line": 190,
+          "text": "public void setFetchType(String fetchType) {"
+        },
+        {
+          "line": 194,
+          "text": "public void setNeedCascade(boolean needCascade) {"
+        },
+        {
+          "line": 198,
+          "text": "public void setValue(AttrValue value) {"
+        },
+        {
+          "line": 202,
+          "text": "public void setSortObject(AttrValue sortObject) {"
+        },
+        {
+          "line": 206,
+          "text": "public void setMappingType(String mappingType) {"
+        }
+      ],
+      "domain": "entity"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "ce3f7acfc6a0861a3178324783d42c3e526e14906e5071fbebe4f88d983c76be",
+      "lines": 279,
+      "classes": [
+        "RetrieveEntityArrayActivity",
+        "FetchType"
+      ],
+      "method_count": 30,
+      "method_samples": [
+        {
+          "line": 60,
+          "text": "public RetrieveEntityArrayActivity() {"
+        },
+        {
+          "line": 66,
+          "text": "public ActivityNode parseActivityNode(MicroFlowNodeParseContext nodeParseContext, ObjectNode node) {"
+        },
+        {
+          "line": 116,
+          "text": "public void activityNodeLogicCheck(NodeContext nodeContext) {"
+        },
+        {
+          "line": 160,
+          "text": "public String getEntityDtoFullName() {"
+        },
+        {
+          "line": 165,
+          "text": "public void modifyFullNameInGeneration(VirtualFullNameTransformer transformer) {"
+        },
+        {
+          "line": 169,
+          "text": "public boolean isPageSearch() {"
+        },
+        {
+          "line": 173,
+          "text": "public AttrValue getPageInfo() {"
+        },
+        {
+          "line": 177,
+          "text": "public String getSize() {"
+        },
+        {
+          "line": 181,
+          "text": "public ConditionInfo getCondition() {"
+        },
+        {
+          "line": 185,
+          "text": "public List<RetrieveSortParam> getSortParams() {"
+        },
+        {
+          "line": 189,
+          "text": "public FetchType getFetchType() {"
+        },
+        {
+          "line": 193,
+          "text": "public AttrValue getValue() {"
+        },
+        {
+          "line": 197,
+          "text": "public AggSelectParamDto.AggFunctionType getAggFunction() {"
+        },
+        {
+          "line": 201,
+          "text": "public List<AttrType> getCountAttrs() {"
+        },
+        {
+          "line": 205,
+          "text": "public AttrValue getSortObject() {"
+        },
+        {
+          "line": 209,
+          "text": "public String getMappingType() {"
+        },
+        {
+          "line": 213,
+          "text": "public void setPageSearch(boolean pageSearch) {"
+        },
+        {
+          "line": 217,
+          "text": "public void setPageInfo(AttrValue pageInfo) {"
+        },
+        {
+          "line": 221,
+          "text": "public void setSize(String size) {"
+        },
+        {
+          "line": 225,
+          "text": "public void setCondition(ConditionInfo condition) {"
+        },
+        {
+          "line": 229,
+          "text": "public void setSortParams(List<RetrieveSortParam> sortParams) {"
+        },
+        {
+          "line": 233,
+          "text": "public void setFetchType(FetchType fetchType) {"
+        },
+        {
+          "line": 237,
+          "text": "public void setValue(AttrValue value) {"
+        },
+        {
+          "line": 241,
+          "text": "public void setAggFunction(AggSelectParamDto.AggFunctionType aggFunction) {"
+        },
+        {
+          "line": 245,
+          "text": "public void setCountAttrs(List<AttrType> countAttrs) {"
+        },
+        {
+          "line": 249,
+          "text": "public void setSortObject(AttrValue sortObject) {"
+        },
+        {
+          "line": 253,
+          "text": "public void setMappingType(String mappingType) {"
+        },
+        {
+          "line": 266,
+          "text": "private FetchType(int code) {"
+        },
+        {
+          "line": 270,
+          "text": "public int getCode() {"
+        },
+        {
+          "line": 274,
+          "text": "public int code() {"
+        }
+      ],
+      "domain": "entity"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "2286343633e49a6aa7e94ea38d2fa1977fce471fddca17fff8659f753e71051f",
+      "lines": 78,
+      "classes": [
+        "CronRule"
+      ],
+      "method_count": 14,
+      "method_samples": [
+        {
+          "line": 22,
+          "text": "public ScheduleUnitEnum getCycleType() {"
+        },
+        {
+          "line": 26,
+          "text": "public CronTypeEnum getType() {"
+        },
+        {
+          "line": 30,
+          "text": "public String getValue() {"
+        },
+        {
+          "line": 34,
+          "text": "public RotationTypeEnum getRotationType() {"
+        },
+        {
+          "line": 38,
+          "text": "public Date getStartTime() {"
+        },
+        {
+          "line": 42,
+          "text": "public Date getEndTime() {"
+        },
+        {
+          "line": 46,
+          "text": "public String getCronExpression() {"
+        },
+        {
+          "line": 50,
+          "text": "public void setCycleType(ScheduleUnitEnum cycleType) {"
+        },
+        {
+          "line": 54,
+          "text": "public void setType(CronTypeEnum type) {"
+        },
+        {
+          "line": 58,
+          "text": "public void setValue(String value) {"
+        },
+        {
+          "line": 62,
+          "text": "public void setRotationType(RotationTypeEnum rotationType) {"
+        },
+        {
+          "line": 66,
+          "text": "public void setStartTime(Date startTime) {"
+        },
+        {
+          "line": 70,
+          "text": "public void setEndTime(Date endTime) {"
+        },
+        {
+          "line": 74,
+          "text": "public void setCronExpression(String cronExpression) {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "59dce3a52a2214117a58acd72578fca9470d3f51b0cd3d020e1fd179593caf3c",
+      "lines": 22,
+      "classes": [
+        "ScheduleCronRule"
+      ],
+      "method_count": 2,
+      "method_samples": [
+        {
+          "line": 14,
+          "text": "public List<CronRule> getCronRules() {"
+        },
+        {
+          "line": 18,
+          "text": "public void setCronRules(List<CronRule> cronRules) {"
+        }
+      ],
+      "domain": "microflow"
+    },
+    {
+      "path": "<PATH>",
+      "sha256": "6e3caf9fb67faae51770c7963d3422e295f0a2d6da5422122b659b8de3bcc7fb",
+      "lines": 218,
+      "classes": [
+        "MicroFlowDependencyAnalyser"
+      ],
+      "method_count": 19,
+      "method_samples": [
+        {
+          "line": 64,
+          "text": "public static MicroFlowDependencyAnalyser from(AppContext appContext) {"
+        },
+        {
+          "line": 70,
+          "text": "public static MicroFlowDependencyAnalyser from(SplitContext splitContext) {"
+        },
+        {
+          "line": 76,
+          "text": "private MicroFlowDependencyAnalyser(AppContext appContext) {"
+        },
+        {
+          "line": 83,
+          "text": "private MicroFlowDependencyAnalyser(SplitContext splitContext) {"
+        },
+        {
+          "line": 90,
+          "text": "private void analyse() {"
+        },
+        {
+          "line": 98,
+          "text": "private void analyseEntityRule(Collection<MicroFlowDefinitionDto> entityRules) {"
+        },
+        {
+          "line": 105,
+          "text": "private void analyseMicroFlow(Collection<MicroFlowDefinitionDto> microFlows) {"
+        },
+        {
+          "line": 118,
+          "text": "private void analysePageRule(Collection<MicroFlowDefinitionDto> microFlows) {"
+        },
+        {
+          "line": 135,
+          "text": "private Optional<Long> analyseMicroFlowEntityTrigger(ObjectNode schemaObjectNode) {"
+        },
+        {
+          "line": 139,
+          "text": "private void analyseMicroFlowDependencyDetails(Long microFlowId, ObjectNode schemaObjectNode) {"
+        },
+        {
+          "line": 148,
+          "text": "private void addEntityActivityDependency(Long currentMicroFlowId, ObjectNode node, String actionType) {"
+        },
+        {
+          "line": 156,
+          "text": "private void addSubMicroFlowDependency(Long currentMicroFlowId, ObjectNode node, String actionType) {"
+        },
+        {
+          "line": 163,
+          "text": "private void addCommonDependency(Long currentMicroFlowId, ObjectNode node) {"
+        },
+        {
+          "line": 168,
+          "text": "private void addDependentAppDependency(Long currentMicroFlowId, ObjectNode node) {"
+        },
+        {
+          "line": 172,
+          "text": "private void addMicroFlowDtoDependencyFromNode(Long currentMicroFlowId, ObjectNode node) {"
+        },
+        {
+          "line": 181,
+          "text": "private void analyseMicroFlowInputOutput(Long currentMicroFlowId, ObjectNode schemaObjectNode) {"
+        },
+        {
+          "line": 194,
+          "text": "private void addMicroFlowDtoDependencyFromInputOutput(Long currentMicroFlowId, ObjectNode inputObjectNode) {"
+        },
+        {
+          "line": 198,
+          "text": "private void addMicroFlowDtoDependency(Long currentMicroFlowId, Supplier<Optional<String>> dtoTypeSupplier, Supplier<Optional<String>> javaTypeSupplier) {"
+        },
+        {
+          "line": 215,
+          "text": "public ModuleDependency getDependency() {"
+        }
+      ],
+      "domain": "microflow"
+    }
+  ],
+  "interpretation": [
+    "Each construction rule must be established by joined evidence across frontend artifact/resource, DTO/schema, Controller/Service, metadata persistence and runtime consumer.",
+    "Path/class naming is an index signal only and is not itself a construction rule.",
+    "Repeated decompiler outputs were content-deduplicated."
+  ]
+}

@@ -1,0 +1,411 @@
+# 前端 op ↔ 后端 REST 端点对账（focused，5.3.517）
+
+> ⚠️ **本文已部分作废（2026-10-14）**：下方的「精确对齐 / 仅前端」是由 **op 名模糊匹配**得出的，
+> 非规则推导。经字节码实证（`GraphQLProvider#pathToCamel`），op 名 = `pathToCamel(restPath + "/" + httpMethod)`，
+> 据此复算：**164/173** 真阳保留，**9 个"精确对齐"实为假阳性**，**60 个"仅前端"其实能精确归位**。
+> 权威规则与完整对照见 **`GRAPHQL-OP-NAMING-RULE.md`**；本文仅作历史记录保留。
+
+
+**证据**：前端 `components/udc/frontend_runtime_ops.py`（RUNTIME，145 语义函数/147 op）
+× 后端 udc-web 54 Controller / 299 REST 端点（反编译）。
+
+**结论**：
+- **70 个前端 op 与后端端点精确对齐**（命名规范 `udc<Resource><Action>Post` 双向证实）。
+- 77 个"仅前端" op 未在 udc-web 命中：多为 **GraphQL AppService**（元数据/实体/DTO 域，
+  见 PLATFORM-GRAPHQL-OPERATIONS.md）或经**父类 Controller** 暴露，需按 op 名反查 Resolver/TypedQuery。
+- 229 个"仅后端"端点前端 runtime 样本未覆盖：低频操作 / 父类继承 / 应用检测与拆分等管理域。
+
+**用法**：这是"页面按钮 → 请求 → 后端处理"的**可执行映射骨架**；补齐 77+229 即完成全量映射。
+
+---
+
+# 前端 op ↔ 后端 REST 端点对账（focused）
+
+- 前端 runtime op：147（来自 components/udc/frontend_runtime_ops.py，RUNTIME 证据）
+- 后端 REST 端点：299（udc-web 54 Controller）
+- **精确对齐：70**  仅后端：229  仅前端（需 GraphQL/父类解析）：77
+
+## 已对齐（前端 op = 后端端点，双向证实）
+
+- `udcApplicationDoDetectionPost` → `POST /service/application/do/detection`  （执行应用一致性检测）  调用方: reCheckUniformity
+- `udcApplicationDoDetectionStatePost` → `POST /service/application/do/detection-state`  （应用一致性检测运行状态）  调用方: getDetectionState
+- `udcApplicationSearchDetectionPost` → `POST /service/application/search/detection`  （根据应用ID查询检测结果列表）  调用方: getSearchDetection
+- `udcAttributeSetSelectByAppidPost` → `POST /service/attributeSet/select-by-appid`  （根据应用id获取应用下所有字段集列表）  调用方: fetchAppFieldSetList
+- `udcAttributeSetSelectByNameAttributesPost` → `POST /service/attributeSet/select-by-name/attributes`  （根据字段集/特性名称获取对应字段(如果是特性,则appId不传)）  调用方: getFieldListByFeatureNameOrFieldSetName
+- `udcDataFlowEntityNotExistIdsPost` → `POST /service/data-flow/entity-not-exist-ids`  （1.12 判断指定实体是否存在）  调用方: findEntityNotExistIds
+- `udcDataFlowMappingUpdatePost` → `POST /service/data-flow/mapping/update`  （2.02 更新映射规则）  调用方: handleSubmitMapping
+- `udcDataTypeSelectByParamsPost` → `POST /service/data-type/select-by-params`  （根据条件查询数据类型列表）  调用方: fetchDataTypeSelect
+- `udcDeductionEntityNotExistIdsPost` → `POST /service/deduction/entity-not-exist-ids`  （返回不存在的实体id）  调用方: findEntityNotExistIds
+- `udcEntityAssociationGroupSerialPost` → `POST /service/entity/association/group/serial`  （查询实体可以选择的流水号(包含依赖应用)）  调用方: fetchUdcEntityAssociationGroupSerial
+- `udcEntityAssociationSerialPost` → `POST /service/entity/association/serial`  （查询实体可以选择的流水号）  调用方: fetchUdcEntityAssociationSerial
+- `udcEntityAttributeBatchDeletePost` → `POST /service/entity/attribute/batch-delete`  （批量删除属性）  调用方: deleteEntityField
+- `udcEntityAttributeBatchUpdatePost` → `POST /service/entity/attribute/batch-update`  （修改属性信息(批量)）  调用方: updateBatchField
+- `udcEntityAttributeGroupBathUpdatePost` → `POST /service/entity/attribute-group/bath-update`  （实体定义，字段排序（全量保存））  调用方: fetchEntityAttributeGroupBathUpdate
+- `udcEntityAttributeGroupCanceGroupPost` → `POST /service/entity/attribute-group/cance-group`  （取消分组）  调用方: fetchEntityAttributeGroupCancel
+- `udcEntityAttributeGroupCreateUpdatePost` → `POST /service/entity/attribute-group/create-update`  （创建分组）  调用方: fetchEntityAttributeGroupCreate
+- `udcEntityAttributeSelectParentEnumAttrsPost` → `POST /service/entity/attribute/select-parent-enum-attrs`  （查询枚举的上级枚举字段列表）  调用方: fetchParentEnumAttrs
+- `udcEntityAttributeTransferPost` → `POST /service/entity/attribute-transfer`  （6.2 字段转移）  调用方: fetchTransferField
+- `udcEntityAttributeUpdatePost` → `POST /service/entity/attribute/update`  （修改属性信息）  调用方: postEntityAttribute
+- `udcEntityBatchUpdateEntityGroupIdAndOrdernoPost` → `POST /service/entity/batch-update-entity-group-id-and-orderno`  （2.2:批量更新实体的分组号和排序号,仅仅是为了升级老数据和可能存在的性能问题使）  调用方: fetchUpdateBatchEntityGroupIdAndOrderno
+- `udcEntityConstraintEntityPost` → `POST /service/entity/constraint/entity`  （查询实体可以选择的约束实体（平铺返回，只返回根实体与子实体，孙实体暂不支持））  调用方: getConstraintEntity
+- `udcEntityEntityCopyPost` → `POST /service/entity/entity-copy`  （6.1 实体复制）  调用方: copyEntity
+- `udcEntityGroupCreatePost` → `POST /service/entity-group/create`  （1.1:新建分组）  调用方: fetchEntityGroupCreate
+- `udcEntityGroupUpdateBatchPost` → `POST /service/entity-group/update-batch`  （1.3:批量修改分组）  调用方: fetchEntityGroupUpdateBatch
+- `udcEntityGroupUpdatePost` → `POST /service/entity-group/update`  （1.2:修改分组）  调用方: fetchEntityGroupUpdate
+- `udcEntityOpenApiSelectGet` → `GET /service/entity-open-api/select`  （1.1:获取openApi展示）  调用方: fetchEntityOpenApi
+- `udcEntityUpdateExtensionLinkagePost` → `POST /service/entity/update-extension-linkage`  （2.3:修改扩展字段联动）  调用方: fetchExtensionLinkage
+- `udcEventDeletePost` → `POST /service/event/delete`  （3.1 根据id删除事件）  调用方: deleteEvent
+- `udcFeatureListGet` → `GET /service/feature/list`  （获取特性清单）  调用方: fetchAllSystemFeatureList
+- `udcMetaDataSelectCtpEnumByApp1Post` → `POST /service/meta-data/select-ctp-enum-by-app1`  （4.2【数据库枚举】通过应用Id，查询应用下可使用的枚举元数据）  调用方: fetchEnumInfoByApp
+- `udcMetaDataSelectEntityPost` → `POST /service/meta-data/select-entity`  （2.1:【实体】通过实体 id/fullName 查询实体元数据信息(查询当前实）  调用方: getEntityFieldListByIdOrFullName
+- `udcMetaDataSelectPageInfoListPost` → `POST /service/meta-data/select-page-info-list`  （【页面】根据条件查询应用下面的页面信息（不包含页面schema））  调用方: getPageUrl
+- `udcMicroFlowGroupBatchMovePost` → `POST /service/micro-flow-group/batch-move`  （批量移动微流程分组）  调用方: batchMoveMicroflowGroups
+- `udcMicroFlowGroupCreatePost` → `POST /service/micro-flow-group/create`  （新建微流程分组）  调用方: createMicroflowGroups
+- `udcMicroFlowGroupDeleteBatchPost` → `POST /service/micro-flow-group/delete-batch`  （批量删除微流程分组与微流程）  调用方: batchDeleteMicroflows
+- `udcMicroFlowGroupDeletePost` → `POST /service/micro-flow-group/delete`  （根据ID删除分组）  调用方: deleteMicroflowGroups
+- `udcMicroFlowGroupSelectByTypePost` → `POST /service/micro-flow-group/select-by-type`  （获取应用下所有分组信息）  调用方: fetchMicroflowGroups
+- `udcMicroFlowGroupUpdatePost` → `POST /service/micro-flow-group/update`  （更新微流程分组）  调用方: updateMicroflowGroups
+- `udcMicroflowBatchFindAggDtoPost` → `POST /service/microflow/batch-find/agg-dto`  （3.12根据聚合DTO的fullName批量查询聚合DTO信息）  调用方: fetchUdcMicroflowBatchFindAggDto
+- `udcMicroflowBatchMovePost` → `POST /service/microflow/batch-move`  （1.9批量移动微流程）  调用方: batchMoveMicroflows
+- `udcMicroflowCheckMicroFlowCaptionPost` → `POST /service/microflow/check/micro-flow/caption`  （2.7检查微流程显示名称是否已存在）  调用方: checkMicroFlowCaption
+- `udcMicroflowCheckSchemaUpdatePost` → `POST /service/microflow/checkSchema/update`  （1.5校验并更新微流程）  调用方: checkAndUpdateMicroflowSchema
+- `udcMicroflowCreateMessagePost` → `POST /service/microflow/create-message`  （4.10创建消息对象）  调用方: createMessageDtoWithAttrs
+- `udcMicroflowCreatePost` → `POST /service/microflow/create`  （1.6新建微流程（强制草稿态））  调用方: saveMicroflowSchema
+- `udcMicroflowDeletePost` → `POST /service/microflow/delete`  （2.2根据id删除微流程）  调用方: deleteRule
+- `udcMicroflowDisableNodePost` → `POST /service/microflow/disable-node`  （4.6不可用节点）  调用方: fetchUdcMicroflowDisableNode
+- `udcMicroflowFilterNotVirtualPost` → `POST /service/microflow/filter/not-virtual`  （5.10过滤非虚拟DTO）  调用方: fetchMicroflowFilterNotVirtual
+- `udcMicroflowFindCallInfoDownstreamPost` → `POST /service/microflow/find/call-info/downstream`  （6.2获取某一微流程的下游调用信息）  调用方: fetchMicroflowFindCallInfoDownstream
+- `udcMicroflowFindCallInfoUpstreamPost` → `POST /service/microflow/find/call-info/upstream`  （6.1获取某一微流程的上游调用信息）  调用方: fetchMicroflowFindCallInfoUpstream
+- `udcMicroflowFindCustomDtoPost` → `POST /service/microflow/find/customDto`  （3.05根据元数据DtoFullName查询封装DTO元数据）  调用方: getCustomDtoInfoFormMicroflowByFullName
+- `udcMicroflowFindDataSystemPost` → `POST /service/microflow/find/data-system`  （5.9获取某个DTO对象的数据体系）  调用方: fetchDataSystem
+- `udcMicroflowFindFullAggDtoPost` → `POST /service/microflow/find/full-agg-dto`  （5.8根据DTO的fullName查询全量聚合DTO信息）  调用方: fetchFullAggDto
+- `udcMicroflowMessageDtoDeletePost` → `POST /service/microflow/message-dto/delete`  （5.3根据id删除消息对象）  调用方: deleteMessageDtoWithAttrs
+- `udcMicroflowRefactorRefactoredPost` → `POST /service/microflow-refactor/refactored`  （2. 重构）  调用方: sendRefactorSchema
+- `udcMicroflowRefactorResolveNodesReferenceRelationshipsPost` → `POST /service/microflow-refactor/resolve-nodes-reference-relationships`  （1. 解析节点引用关系）  调用方: postRefactorData
+- `udcMicroflowSearchAppsPost` → `POST /service/microflow/search/apps`  （4.5应用列表查询(包含扩展)）  调用方: searchUdcApplication
+- `udcMicroflowSearchEntityRulePost` → `POST /service/microflow/search/entityRule`  （2.0根据实体id查询实体业务规则）  调用方: fetchRuleList
+- `udcMicroflowSearchEventListPost` → `POST /service/microflow/search/event-list`  （4.9获取微流程事件列表）  调用方: fetchMicroFlowEventDtoList
+- `udcMicroflowSearchRestExcludeBootPost` → `POST /service/microflow/search/rest-exclude-boot`  （4.0查询指定服务Rest信息(排除组件)）  调用方: searchUdcApplicationRest
+- `udcMicroflowSearchSendMqListPost` → `POST /service/microflow/search/send-mq-list`  （4.8可消息投递的mq列表）  调用方: fetchSendMqList
+- `udcMicroflowServiceDetailsDynamicPost` → `POST /service/microflow/service/details/dynamic`  （2.6.1获取服务定义微流程详情(个性化应用)）  调用方: fetchMicroflowServiceDetailsV2
+- `udcMicroflowServiceFrontendListPost` → `POST /service/microflow/service/frontend/list`  （5.6获取前端页面规则子流程下拉列表）  调用方: getMicrlFlowWithParamByPage
+- `udcMicroflowServiceListPost` → `POST /service/microflow/service/list`  （2.5分页获取后台已发布服务定义微流程）  调用方: fetchMicroflowServiceList
+- `udcMicroflowServiceListSubMfPost` → `POST /service/microflow/service/list/sub-mf`  （2.5.1分页获取后台已发布服务定义微流程(后端子微流程)）  调用方: fetchMicroflowServiceListSubMf
+- `udcMicroflowTreeEntityDtoPost` → `POST /service/microflow/tree-entity-dto`  （4.7查询当前应用的实体DTO树）  调用方: fetchUdcMicroflowTreeEntityDto
+- `udcMicroflowUpdateMessagePost` → `POST /service/microflow/update-message`  （5.0修改消息对象）  调用方: updateMessageDtoWithAttrs
+- `udcMicroflowUpdateOrderNoAndGroupPost` → `POST /service/microflow/update/order-no-and-group`  （1.8更新微流程排序号和分组）  调用方: updateMicroflowOrderOrGroup
+- `udcMicroflowUpdatePost` → `POST /service/microflow/update`  （1.7更新微流程（强制草稿态））  调用方: updateMicroflowSchema
+- `udcScalabilityOptionSelectAllOptionNamePost` → `POST /service/scalability-option/select-all-optionName`  （获取所有扩展方案信息）  调用方: fetchUdcScalabilityAllOption
+- `udcStereotypeListGet` → `GET /service/stereotype/list`  （获取版型清单）  调用方: fetchStereotypeList
+
+## 仅前端（未在 udc-web 命中，需 GraphQL AppService 或父类 Controller 解析）
+
+- `appApprovalMenuListGet`  调用方: getApprovalFeatures
+- `appApprovalTemplatePublishTemplateGet`  调用方: publishByTemplateId
+- `appApprovalTemplateSaveAsNewVersionPost`  调用方: templateSaveAsNewVersion
+- `appApprovalTemplateSaveAsPost`  调用方: templateSaveAs
+- `appCommonThemeSelectDefaultBrandPost`  调用方: fetchThemeSelectDefaultBrand
+- `dataFlowListEventDataPost`  调用方: fetchAttrByEventByFullName
+- `udcAffairListPost`  调用方: fetchAffairList
+- `udcApplicationAppFeatureAppGet`  调用方: getCurrAppFeatures
+- `udcApplicationFetchLastVersionMetadataPost`  调用方: fetchLastVersionMetadata
+- `udcApplicationRenewalAppEditingTimeGet`  调用方: renewalAppEditingTime
+- `udcAttributeGroupEntityGet`  调用方: fetchEntityFieldListNewService
+- `udcAttributeGroupOperateBatchPost`  调用方: saveEntityFieldListNewService
+- `udcConditionCheckPost`  调用方: checkConditionSchema
+- `udcDataFlowDeleteContentPost`  调用方: graphDeleteContent
+- `udcDataFlowListApplicationAppGet`  调用方: getDataFlowListApp
+- `udcDataFlowListEntityPost`  调用方: fetchEntityList
+- `udcDataFlowListEventEntityPost`  调用方: getDataFlowListEntity
+- `udcDataFlowListEventsPost`  调用方: getDataFlowListEvents
+- `udcDataFlowListManuallyMappingPost`  调用方: getDataFlowList
+- `udcDataFlowMappingGet`  调用方: fetchMappingDetailById
+- `udcDataFlowMappingInitDataPost`  调用方: fetchMappingInitData
+- `udcDataTransferObjectCreateDtoPost`  调用方: createDtoWithAttrs
+- `udcDataTransferObjectDeletePost`  调用方: deleteDtoWithAttrs
+- `udcDataTransferObjectGet`  调用方: getDataTransferObjectById
+- `udcDataTransferObjectSearchByMicroFlowIdMicroFlowGet`  调用方: fetchDataTransferObjectByMicroFlowId
+- `udcDataTransferObjectSearchBySourceIdSourceGet`  调用方: getUdcDataTransferObjectSearchBySourceIdService
+- `udcDataTransferObjectSearchListPost`  调用方: fetchDataTransferObjectSearchList
+- `udcDataTransferObjectSearchMicroFlowCustomDtoAppGet`  调用方: getMicroFlowCustomDto
+- `udcDataTransferObjectSelectDtoGet`  调用方: fetchDtoWithAttrs
+- `udcDataTransferObjectUpdateDtoPost`  调用方: updateDtoWithAttrs
+- `udcDataTypeDataTypesByAppIdAppGet`  调用方: fetchEntityDataType
+- `udcDeductionMapDeleteContentPost`  调用方: deductDeleteContent
+- `udcDeductionMapDeletePost`  调用方: delDeduct
+- `udcDeductionMapGet`  调用方: getDeductDetail
+- `udcDeductionRuleCountPost`  调用方: deductRuleCount
+- `udcDeductionRuleDeletePost`  调用方: delDeductRule
+- `udcEntityAssociationEntityAppGet`  调用方: fetchAssociationEntityByAppId
+- `udcEntityAttributeGet`  调用方: fetchEntityFieldDetailService
+- `udcEntityAttributeGroupSearch`  调用方: fetchEntityFieldListService
+- `udcEntityAttributePresetAttributeCapacityAllAppGet`  调用方: fetchPresetAttributeCapacity
+- `udcEntityAttributeSelectByPrimaryGet`  调用方: entityattributelist
+- `udcEntityBatchDeletePost`  调用方: fetchDeleteBatchEntity
+- `udcEntityDeletePost`  调用方: deleteEntity
+- `udcEntityGet`  调用方: fetchEntityById
+- `udcEntityGroupBatchDeletePost`  调用方: fetchEntityOrGroupBatchDelete
+- `udcEntityGroupDeletePost`  调用方: fetchEntityGroupDelete
+- `udcEntityGroupSelectByAppidAppGet`  调用方: fetchAllEntityGroup
+- `udcEntityPrimarySelectRootGet`  调用方: entityaggregateroot
+- `udcEntitySelectAllByAppidAppGet`  调用方: fetchEntityList
+- `udcEntitySelectMasterEntityCountAppGet`  调用方: fetchEntityCount
+- `udcEnumItemGet`  调用方: fetchEnumItemById
+- `udcEventCreateWithDataPost`  调用方: createEventWithData
+- `udcEventListPost`  调用方: fetchEventList
+- `udcEventPost`  调用方: createEvent
+- `udcEventSelectWithDataGet`  调用方: selectEventDataWithData
+- `udcFunctionSelectFunctionTreePost`  调用方: fetchUdcFunctionSelectFunctionTree
+- `udcIndexAttributeEntityGet`  调用方: fetchEntityAttributeListByEntityId
+- `udcIndexDeleteBatchPost`  调用方: deleteBatchIndexes
+- `udcIndexDeletePost`  调用方: deleteIndexes
+- `udcIndexEntityListPost`  调用方: fetchIndexesListByEntityId
+- `udcIndexPost`  调用方: createIndexes
+- `udcIndexUpdatePost`  调用方: updateIndexes
+- `udcMetaDataSelectAggregationEntityEntityGet`  调用方: getMetaAppIdAppVersionEntitiesEntity
+- `udcMetaDataSelectEntityByAppIdAppGet`  调用方: getAllEntityByAppId
+- `udcMicroflowFindNodesGet`  调用方: getMicroFlowNodeDefinition
+- `udcMicroflowSearch`  调用方: fetchMicroflowList
+- `udcMicroflowSearchMicroFlowEventAppGet`  调用方: getMicroFlowEventDto
+- `udcMicroflowSearchMicroFlowMessageAppGet`  调用方: getMicroFlowMessageDto
+- `udcMicroflowSelectMessageGet`  调用方: fetchMessageDtoWithAttrs
+- `udcMicroflowServiceCommonInputListPost`  调用方: getMicroflowServiceCommonInputListPost
+- `udcMicroflowServiceDetailsGet`  调用方: fetchMicroflowSerivceDetails
+- `udcOperationLogSearchStorageKeyPost`  调用方: getMicroFlowSchemaByStorageKey
+- `udcReferConfigDeleteByGroupIdPost`  调用方: deleteReferenceById
+- `udcReferConfigGroupListPost`  调用方: fetchReferenceList
+- `udcReferConfigListPost`  调用方: fetchReferenceById
+- `udcScalabilityOptionSelectByAppidWithDetailAppGet`  调用方: fetchUdcScalabilityOptionTreeByAppId
+- `udcSerialSchemeSearchNoPagePost`  调用方: getCodingSchemesList
+
+## 仅后端（前端 runtime 样本未覆盖，可能为低频/父类继承/新端点）
+
+- `udcAppSplitColiAppDeletePost` → `POST /service/app-split/coli/app/delete`
+- `udcAppSplitColiEntityMapPost` → `POST /service/app-split/coli/entity/map`
+- `udcAppSplitColiRecordDeletePost` → `POST /service/app-split/coli/record/delete`
+- `udcAppSplitColiSplitResultPost` → `POST /service/app-split/coli/split/result`
+- `udcApplicationCopyPost` → `POST /service/application/copy`
+- `udcApplicationCreateFromTemplatePost` → `POST /service/application/create-from-template`
+- `udcApplicationDeleteRenamePost` → `POST /service/application/delete-rename`
+- `udcApplicationDesignDataChangePost` → `POST /service/application/design-data-change`
+- `udcApplicationDoFrontDetectionPost` → `POST /service/application/do/front-detection`
+- `udcApplicationPushDataPost` → `POST /service/application/push-data`
+- `udcApplicationRoleResourceGet` → `GET /service/application/role-resource`
+- `udcApplicationSaveAsNewDesignPost` → `POST /service/application/save-as-newDesign`
+- `udcApplicationSaveNormalNewDesignPost` → `POST /service/application/save/normal/newDesign`
+- `udcApplicationSchemaDownloadTemplatesPost` → `POST /service/application/schema/download/templates`
+- `udcApplicationSchemaFormDownloadByAppIdsPost` → `POST /service/application/schema/form/download/by-app-ids`
+- `udcApplicationSearchDetectionAllFormAppGet` → `GET /service/application/search/detection/all-form-app`
+- `udcApplicationSearchFrontDetectionPost` → `POST /service/application/search/front-detection`
+- `udcApplicationSummaryDetectionPost` → `POST /service/application/summary/detection`
+- `udcApplicationTransferBatchPost` → `POST /service/application/transfer/batch/`
+- `udcApplicationUserRoleGet` → `GET /service/application/user-role`
+- `udcAttachmentTemplateCreateBatchPost` → `POST /service/attachment-template/create-batch`
+- `udcAttachmentTemplateCreatePost` → `POST /service/attachment-template/create`
+- `udcAttachmentTemplateDeleteByGuidsPost` → `POST /service/attachment-template/delete-by-guids`
+- `udcAttachmentTemplateSelectByGuidsPost` → `POST /service/attachment-template/select-by-guids`
+- `udcAttributeGroupCancelPost` → `POST /service/attribute-group/cancel`
+- `udcAttributeGroupCreatePost` → `POST /service/attribute-group/create`
+- `udcAttributeGroupRemovePost` → `POST /service/attribute-group/remove`
+- `udcAttributeGroupSwapPost` → `POST /service/attribute-group/swap`
+- `udcAttributeGroupUpdatePost` → `POST /service/attribute-group/update`
+- `udcAttributeSetBatchDeletePost` → `POST /service/attributeSet/batch-delete`
+- `udcAttributeSetDeletePost` → `POST /service/attributeSet/delete`
+- `udcAttributeSetSearchListPost` → `POST /service/attributeSet/search-list`
+- `udcAttributeSetSearchTermPost` → `POST /service/attributeSet/search/term`
+- `udcAttributeSetSelectAttributeListPost` → `POST /service/attributeSet/select-attribute-list`
+- `udcAttributeSetUpdatePost` → `POST /service/attributeSet/update`
+- `udcBackendComponentImportPost` → `POST /service/backend-component/import`
+- `udcBackendComponentRefreshGet` → `GET /service/backend-component/refresh`
+- `udcBackendComponentRefreshVersionGet` → `GET /service/backend-component/refresh-version`
+- `udcBackendComponentSearchAppPost` → `POST /service/backend-component/search/app`
+- `udcBackendComponentSearchPost` → `POST /service/backend-component/search`
+- `udcBackendComponentUpdatePost` → `POST /service/backend-component/update`
+- `udcCollaborationCreatePost` → `POST /service/collaboration/create`
+- `udcCollaborationHandoverPost` → `POST /service/collaboration/handover`
+- `udcCollaborationMembersPost` → `POST /service/collaboration/members`
+- `udcDataFlowMappingPost` → `POST /service/data-flow/mapping`
+- `udcDataTypeDataTypesBaseGet` → `GET /service/data-type/data-types/base`
+- `udcDataTypeDataTypesGet` → `GET /service/data-type/data-types`
+- `udcDataTypeDataTypesParamGet` → `GET /service/data-type/data-types/param`
+- `udcDesignMetadataAggByNamePost` → `POST /service/design-metadata/agg-by-name`
+- `udcDesignMetadataAggByNamesPost` → `POST /service/design-metadata/agg-by-names`
+- `udcDesignMetadataAggEntityByNamePost` → `POST /service/design-metadata/agg-entity-by-name`
+- `udcDesignMetadataAggEntityByNamesPost` → `POST /service/design-metadata/agg-entity-by-names`
+- `udcDesignMetadataAggEntityExcludeBootGet` → `GET /service/design-metadata/agg-entity-exclude-boot`
+- `udcDesignMetadataAggEntityGet` → `GET /service/design-metadata/agg-entity`
+- `udcDesignMetadataAggExcludeBootGet` → `GET /service/design-metadata/agg-exclude-boot`
+- `udcDesignMetadataAggGet` → `GET /service/design-metadata/agg`
+- `udcDesignMetadataAppServiceByNamePost` → `POST /service/design-metadata/app-service-by-name`
+- `udcDesignMetadataAppServiceByNamesPost` → `POST /service/design-metadata/app-service-by-names`
+- `udcDesignMetadataAppServiceDtoPost` → `POST /service/design-metadata/app-service-dto`
+- `udcDesignMetadataAppServiceExcludeBootGet` → `GET /service/design-metadata/app-service-exclude-boot`
+- `udcDesignMetadataAppServiceGet` → `GET /service/design-metadata/app-service`
+- `udcDesignMetadataBasicEntityByNamePost` → `POST /service/design-metadata/basic-entity-by-name`
+- `udcDesignMetadataBasicEntityByNamesPost` → `POST /service/design-metadata/basic-entity-by-names`
+- `udcDesignMetadataBasicEntityGet` → `GET /service/design-metadata/basic-entity`
+- `udcDesignMetadataDtoByEntityPost` → `POST /service/design-metadata/dto-by-entity`
+- `udcDesignMetadataDtoByEntitysPost` → `POST /service/design-metadata/dto-by-entitys`
+- `udcDesignMetadataDtoByNamePost` → `POST /service/design-metadata/dto-by-name`
+- `udcDesignMetadataDtoByNamesPost` → `POST /service/design-metadata/dto-by-names`
+- `udcDesignMetadataDtoExcludeBootGet` → `GET /service/design-metadata/dto-exclude-boot`
+- `udcDesignMetadataDtoGet` → `GET /service/design-metadata/dto`
+- `udcDesignMetadataEntityByAggPost` → `POST /service/design-metadata/entity-by-agg`
+- `udcDesignMetadataEntityByNamePost` → `POST /service/design-metadata/entity-by-name`
+- `udcDesignMetadataEntityByNamesPost` → `POST /service/design-metadata/entity-by-names`
+- `udcDesignMetadataEntityExcludeBootGet` → `GET /service/design-metadata/entity-exclude-boot`
+- `udcDesignMetadataEntityGet` → `GET /service/design-metadata/entity`
+- `udcDesignMetadataEntityRelationDtoExcludeBootGet` → `GET /service/design-metadata/entity-relation-dto-exclude-boot`
+- `udcDesignMetadataEntityRelationDtoGet` → `GET /service/design-metadata/entity-relation-dto`
+- `udcDesignMetadataEnumByNamePost` → `POST /service/design-metadata/enum-by-name`
+- `udcDesignMetadataEnumByNamesPost` → `POST /service/design-metadata/enum-by-names`
+- `udcDesignMetadataEnumGet` → `GET /service/design-metadata/enum`
+- `udcDesignMetadataMqByNamePost` → `POST /service/design-metadata/mq-by-name`
+- `udcDesignMetadataMqByNamesPost` → `POST /service/design-metadata/mq-by-names`
+- `udcDesignMetadataMqExcludeBootGet` → `GET /service/design-metadata/mq-exclude-boot`
+- `udcDesignMetadataMqGet` → `GET /service/design-metadata/mq`
+- `udcDesignMetadataOpenApiByNamePost` → `POST /service/design-metadata/open-api-by-name`
+- `udcDesignMetadataOpenApiByNamesPost` → `POST /service/design-metadata/open-api-by-names`
+- `udcDesignMetadataOpenApiGet` → `GET /service/design-metadata/open-api`
+- `udcDesignMetadataPagePost` → `POST /service/design-metadata/page`
+- `udcDesignMetadataReferAndAppPost` → `POST /service/design-metadata/refer-and-app`
+- `udcDesignMetadataReferPost` → `POST /service/design-metadata/refer`
+- `udcDesignMetadataRestByNamePost` → `POST /service/design-metadata/rest-by-name`
+- `udcDesignMetadataRestByNamesPost` → `POST /service/design-metadata/rest-by-names`
+- `udcDesignMetadataRestExcludeBootGet` → `GET /service/design-metadata/rest-exclude-boot`
+- `udcDesignMetadataRestGet` → `GET /service/design-metadata/rest`
+- `udcDesignMetadataServiceGet` → `GET /service/design-metadata/service`
+- `udcEntityAttributeBatchPost` → `POST /service/entity/attribute-batch`
+- `udcEntityAttributeDeletePost` → `POST /service/entity/attribute/delete`
+- `udcEntityAttributeGroupSearchPost` → `POST /service/entity/attribute-group/search`
+- `udcEntityAttributePost` → `POST /service/entity/attribute`
+- `udcEntityAttributeSearchListPost` → `POST /service/entity/attribute/search-list`
+- `udcEntityAttributeSearchTermPost` → `POST /service/entity/attribute/search/term`
+- `udcEntityChildrenSearchPost` → `POST /service/entity/children/search`
+- `udcEntityExtRemoveLinkageGet` → `GET /service/entity/ext/remove-linkage`
+- `udcEntityPresetCreateDefaultExcelTemplatePost` → `POST /service/entity/preset/create-default-excel-template`
+- `udcEntityPresetCreatePost` → `POST /service/entity/preset/create`
+- `udcEntityPresetUpdatePost` → `POST /service/entity/preset/update`
+- `udcEntitySearchListPost` → `POST /service/entity/search-list`
+- `udcEntitySearchPost` → `POST /service/entity/search`
+- `udcEntitySearchTermPost` → `POST /service/entity/search/term`
+- `udcEntitySqlDeployRecordReplacePost` → `POST /service/entity/sql/deploy-record/replace`
+- `udcEntitySqlDeployRecordTotalPost` → `POST /service/entity/sql/deploy-record/total`
+- `udcEntitySqlNotNullRepairGet` → `GET /service/entity/sql/not-null-repair`
+- `udcEntityUpdatePost` → `POST /service/entity/update`
+- `udcEventDeleteBatchPost` → `POST /service/event/delete-batch`
+- `udcEventSearchTermPost` → `POST /service/event/search/term`
+- `udcFeatureSysAttributesGet` → `GET /service/feature/sys-attributes`
+- `udcFunctionBatchDeletePost` → `POST /service/function/batch-delete`
+- `udcFunctionFindTreeAndGroupPost` → `POST /service/function/find/tree-and-group`
+- `udcFunctionUpdateRootHandleFunctionPost` → `POST /service/function/update/root/handle-function`
+- `udcFunctionUpdateRootToUserCenterPost` → `POST /service/function/update/root/to-user-center`
+- `udcManagerComponentLogPost` → `POST /service/manager/component/log`
+- `udcMetaDataMergeReferByMapPost` → `POST /service/meta-data/merge-refer-by-map`
+- `udcMetaDataMergeReferPost` → `POST /service/meta-data/merge-refer`
+- `udcMetaDataReferAndAppPost` → `POST /service/meta-data/refer-and-app`
+- `udcMetaDataSearchAvailableAppMultiVersionPost` → `POST /service/meta-data/search-available-app-multi-version`
+- `udcMetaDataSearchAvailableAppPost` → `POST /service/meta-data/search-available-app`
+- `udcMetaDataSelectAggregationEntityPost` → `POST /service/meta-data/select-aggregation-entity`
+- `udcMetaDataSelectAggregationEntityWithoutAssociationPost` → `POST /service/meta-data/select-aggregation-entity-without-association`
+- `udcMetaDataSelectAllLayoutByAppPost` → `POST /service/meta-data/select-all-layout-by-app`
+- `udcMetaDataSelectAllPageByAppPost` → `POST /service/meta-data/select-all-page-by-app`
+- `udcMetaDataSelectAppByIdPost` → `POST /service/meta-data/select-app-by-id`
+- `udcMetaDataSelectByFileNamePost` → `POST /service/meta-data/select-by-file-name`
+- `udcMetaDataSelectCtpEnumByAppPost` → `POST /service/meta-data/select-ctp-enum-by-app`
+- `udcMetaDataSelectCtpEnumItemPost` → `POST /service/meta-data/select-ctp-enum-item`
+- `udcMetaDataSelectFunctionNodeWithPageTreePost` → `POST /service/meta-data/select-function-node-with-page-tree`
+- `udcMetaDataSelectJavaEnumByAppPost` → `POST /service/meta-data/select-java-enum-by-app`
+- `udcMetaDataSelectJavaEnumItemPost` → `POST /service/meta-data/select-java-enum-item`
+- `udcMetaDataSelectPageLayoutInfoPost` → `POST /service/meta-data/select-page-layout-info`
+- `udcMetaDataSelectPageLayoutListPost` → `POST /service/meta-data/select-page-layout-list`
+- `udcMetaDataSelectPageLayoutPost` → `POST /service/meta-data/select-page-layout`
+- `udcMetaDataSelectPageListPost` → `POST /service/meta-data/select-page-list`
+- `udcMetaDataSelectPagePost` → `POST /service/meta-data/select-page`
+- `udcMetaDataSelectReferByEntityPost` → `POST /service/meta-data/select-refer-by-entity`
+- `udcMetaDataSelectSimpleEntityPost` → `POST /service/meta-data/select-simple-entity`
+- `udcMicroFlowFunctionalCheckCalculateMicroFlowUsagePercentagePost` → `POST /service/micro-flow-functional-check/calculate-micro-flow-usage-percentage`
+- `udcMicroFlowFunctionalCheckCalculateNodesNumberPercentagePost` → `POST /service/micro-flow-functional-check/calculate-nodes-number-percentage`
+- `udcMicroFlowFunctionalCheckCheckCallTimesPost` → `POST /service/micro-flow-functional-check/check-call-times`
+- `udcMicroFlowFunctionalCheckFindEventBoundPageRulePost` → `POST /service/micro-flow-functional-check/find-event-bound-page-rule`
+- `udcMicroFlowFunctionalCheckFindLtSpecifiedNumNodesPageRulePost` → `POST /service/micro-flow-functional-check/find-lt-specified-num-nodes-page-rule`
+- `udcMicroFlowFunctionalCheckFindPageRuleIncludeSpecifiedNodeTypePost` → `POST /service/micro-flow-functional-check/find-page-rule-include-specified-node-type`
+- `udcMicroFlowUpgradeBatchThirdEntityGet` → `GET /service/micro-flow-upgrade/batch/thirdEntity`
+- `udcMicroflowBatchFindJavaEnumPost` → `POST /service/microflow/batch-find/java-enum`
+- `udcMicroflowCheckDtoMetadataExistPost` → `POST /service/microflow/check/dto-metadata/exist`
+- `udcMicroflowCheckMicroFlowNamePost` → `POST /service/microflow/check/micro-flow/name`
+- `udcMicroflowCheckSchemaPost` → `POST /service/microflow/checkSchema`
+- `udcMicroflowCopyBySourceIdPost` → `POST /service/microflow/copyBySourceId`
+- `udcMicroflowCopyPageRuleBoundControlPost` → `POST /service/microflow/copy/page-rule-bound-control`
+- `udcMicroflowCopyPost` → `POST /service/microflow/copy`
+- `udcMicroflowDeleteByIdsPost` → `POST /service/microflow/delete-by-ids`
+- `udcMicroflowDeleteBySourceIdPost` → `POST /service/microflow/delete-by-source-id`
+- `udcMicroflowDisableLastVersionMetadataPost` → `POST /service/microflow/disable-last-version-metadata`
+- `udcMicroflowFilterEventPost` → `POST /service/microflow/filter/event`
+- `udcMicroflowFilterMqPost` → `POST /service/microflow/filter/mq`
+- `udcMicroflowFindDtoByEntityPost` → `POST /service/microflow/find/dto-by-entity`
+- `udcMicroflowFindEnumByNamePost` → `POST /service/microflow/find/enum-by-name`
+- `udcMicroflowFindNodeSchemaPost` → `POST /service/microflow/find/node-schema`
+- `udcMicroflowListOperationTypeGet` → `GET /service/microflow/listOperationType`
+- `udcMicroflowSearchAppServiceByAppNamePost` → `POST /service/microflow/search/appService-by-appName`
+- `udcMicroflowSearchAppServiceByNamePost` → `POST /service/microflow/search/appService-by-name`
+- `udcMicroflowSearchAppServicePost` → `POST /service/microflow/search/appService`
+- `udcMicroflowSearchEnumByAppNamePost` → `POST /service/microflow/search/enum-by-appName`
+- `udcMicroflowSearchMessageDtoPost` → `POST /service/microflow/search/message-dto`
+- `udcMicroflowSearchMethodByNamePost` → `POST /service/microflow/search/method-by-name`
+- `udcMicroflowSearchNoPagePost` → `POST /service/microflow/search-no-page`
+- `udcMicroflowSearchNonEntityDtoPost` → `POST /service/microflow/search/nonEntityDto`
+- `udcMicroflowSearchPost` → `POST /service/microflow/search`
+- `udcMicroflowSearchTermPost` → `POST /service/microflow/search/term`
+- `udcMicroflowSearchTreeEntityPost` → `POST /service/microflow/search/treeEntity`
+- `udcMicroflowSelectByConditionForDeployPost` → `POST /service/microflow/select-by-condition-for-deploy`
+- `udcMultiEditCurrentLockPost` → `POST /service/multi-edit/current-lock`
+- `udcMultiEditForceUnlockPost` → `POST /service/multi-edit/force-unlock`
+- `udcMultiEditLockPost` → `POST /service/multi-edit/lock`
+- `udcMultiEditRenewalPost` → `POST /service/multi-edit/renewal`
+- `udcMultiEditUnlockPost` → `POST /service/multi-edit/unlock`
+- `udcOperationLogDeleteAllPost` → `POST /service/operation-log/delete-all`
+- `udcPageInfoSelectListByConditionsPost` → `POST /service/page-info/select-list/by-conditions`
+- `udcPageInfoSelectListWithDraftSchemaByConditionsPost` → `POST /service/page-info/select-list-with-draft-schema/by-conditions`
+- `udcPageLayoutSearchNoPageAvailablePost` → `POST /service/page-layout/search-no-page-available`
+- `udcPageLayoutSelectListByConditionsPost` → `POST /service/page-layout/select-list/by-conditions`
+- `udcPageLayoutSelectListWithDraftSchemaByConditionsPost` → `POST /service/page-layout/select-list-with-draft-schema/by-conditions`
+- `udcPageTemplateCheckNamePost` → `POST /service/page-template/check-name`
+- `udcPageTemplateClassDeletePost` → `POST /service/page-template-class/delete`
+- `udcPageTemplateClassSearchPost` → `POST /service/page-template-class/search`
+- `udcPageTemplateClassSelectTreeGet` → `GET /service/page-template-class/select-tree`
+- `udcPageTemplateDeleteByIdPost` → `POST /service/page-template/delete-by-id`
+- `udcPageTemplateDeleteByIdsPost` → `POST /service/page-template/delete-by-ids`
+- `udcPageTemplatePublishPost` → `POST /service/page-template/publish`
+- `udcPageTemplatePublishedCheckNamePost` → `POST /service/page-template/published/check-name`
+- `udcPageTemplatePublishedDeleteByIdPost` → `POST /service/page-template/published/delete-by-id`
+- `udcPageTemplatePublishedDeleteByIdsPost` → `POST /service/page-template/published/delete-by-ids`
+- `udcPublishStateUpdatePost` → `POST /service/publish-state/update`
+- `udcReferConfigConvertToMobilePost` → `POST /service/refer-config/convert-to-mobile`
+- `udcReferConfigCreateConfigInfoPost` → `POST /service/refer-config/create-config-info`
+- `udcReferConfigCreateOrUpdatePost` → `POST /service/refer-config/create-or-update`
+- `udcReferConfigCreatePost` → `POST /service/refer-config/create`
+- `udcReferConfigDeletePost` → `POST /service/refer-config/delete`
+- `udcReferConfigSearchPost` → `POST /service/refer-config/search`
+- `udcReferConfigUpdateConfigInfoPost` → `POST /service/refer-config/update-config-info`
+- `udcReferConfigUpdatePost` → `POST /service/refer-config/update`
+- `udcScalabilityBatchDeletePost` → `POST /service/scalability/batch-delete`
+- `udcScalabilityDeletePost` → `POST /service/scalability/delete`
+- `udcScalabilityOptionDeletePost` → `POST /service/scalability-option/delete`
+- `udcScalabilityOptionUpdatePost` → `POST /service/scalability-option/update`
+- `udcScalabilityUpdatePost` → `POST /service/scalability/update`
+- `udcUdcEnumBatchDeletePost` → `POST /service/udc-enum/batch-delete`
+- `udcUdcEnumCategoryBatchDeletePost` → `POST /service/udc-enum-category/batch-delete`
+- `udcUdcEnumCategoryDeletePost` → `POST /service/udc-enum-category/delete`
+- `udcUdcEnumDeletePost` → `POST /service/udc-enum/delete`
+- `udcUdcEnumItemBatchDeletePost` → `POST /service/udc-enum-item/batch-delete`
+- `udcUdcEnumItemDeletePost` → `POST /service/udc-enum-item/delete`
+- `udcUdcEnumItemExportPost` → `POST /service/udc-enum-item/export`
+- `udcUdcEnumItemImportPost` → `POST /service/udc-enum-item/import`
+- `udcUdcEnumItemSearchByEnumCodePost` → `POST /service/udc-enum-item/search-by-enum-code`
+- `udcUdcEnumItemSearchByEnumCodesPost` → `POST /service/udc-enum-item/search-by-enum-codes`
+- `udcUdcEnumItemSearchCascadeTreeByEnumCodePost` → `POST /service/udc-enum-item/search-cascade-tree-by-enum-code`
+- `udcUdcEnumItemSearchItemByRelationAppPost` → `POST /service/udc-enum-item/search-item-by-relation-app`
+- `udcUdcEnumItemSearchTermPost` → `POST /service/udc-enum-item/search/term`
+- `udcUdcEnumItemSelectOneByIdAndAppPost` → `POST /service/udc-enum-item/select-one-by-id-and-app`
+- `udcUdcEnumSearchTermPost` → `POST /service/udc-enum/search/term`

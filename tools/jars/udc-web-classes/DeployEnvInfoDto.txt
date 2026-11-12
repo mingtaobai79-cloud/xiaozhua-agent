@@ -1,0 +1,21 @@
+Compiled from "DeployEnvInfoDto.java"
+public class com.seeyon.udc.common.dto.DeployEnvInfoDto implements java.io.Serializable {
+  private static final long serialVersionUID;
+  private java.lang.String currentEnv;
+  private java.lang.String pushEnv;
+  private java.lang.String gitBranch;
+  private boolean hasHandWrittenPage;
+  public com.seeyon.udc.common.dto.DeployEnvInfoDto();
+  public java.lang.String getCurrentEnv();
+  public java.lang.String getPushEnv();
+  public java.lang.String getGitBranch();
+  public boolean isHasHandWrittenPage();
+  public void setCurrentEnv(java.lang.String);
+  public void setPushEnv(java.lang.String);
+  public void setGitBranch(java.lang.String);
+  public void setHasHandWrittenPage(boolean);
+  public boolean equals(java.lang.Object);
+  protected boolean canEqual(java.lang.Object);
+  public int hashCode();
+  public java.lang.String toString();
+}

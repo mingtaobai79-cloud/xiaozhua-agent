@@ -1,0 +1,78 @@
+{
+  "schema_version": "standard-product-module-profile.v1",
+  "module_id": "standard-product",
+  "status": "FACT",
+  "verification_level": "STATIC",
+  "network": "disabled",
+  "artifacts": [
+    {
+      "artifact": "bpm-facade",
+      "version": "3.12.101",
+      "path": "<MAVEN_REPO>/com/seeyon/bpm-facade/3.12.101/bpm-facade-3.12.101.jar",
+      "class_count": 484,
+      "sha256": "26b312fdd40cc921a4cd8d08239f6b8d857c02a5ac8d4db271d07f6fcbd98af0"
+    },
+    {
+      "artifact": "ctp-user-api",
+      "version": "3.8.215",
+      "path": "<MAVEN_REPO>/com/seeyon/ctp-user-api/3.8.215/ctp-user-api-3.8.215.jar",
+      "class_count": 49,
+      "sha256": "5b1ec52abd87ba79abe962453776e54fa9bc27551aa171e76981d211a5950543"
+    },
+    {
+      "artifact": "cip-connector-api",
+      "version": "5.3.286",
+      "path": "<MAVEN_REPO>/com/seeyon/cip-connector-api/5.3.286/cip-connector-api-5.3.286.jar",
+      "class_count": 124,
+      "sha256": "de4767da279c6622aef95994d3c657e29b01c33eaea0db55e8fdf45537544f91"
+    }
+  ],
+  "contract_observations": [
+    "bpm-facade local artifact contains BPM contract classes.",
+    "ctp-user-api local artifact contains SSO/avoid-login SPI API classes.",
+    "cip-connector-api local artifact contains connector mobile/midorgsync API classes."
+  ],
+  "scope": "Independent Standard Product Application module; artifacts are not UDC core.",
+  "limitations": [
+    "Local Maven artifacts are static contract evidence, not proof of a running service or customer invocation.",
+    "Versions are separate evidence units and must not be merged.",
+    "Package/class presence is a contract inventory, not proof that a particular standard service is deployed or called."
+  ],
+  "contract_packages": [
+    {
+      "artifact": "bpm-facade",
+      "version": "3.12.101",
+      "packages": [
+        "com.seeyon.bpm.api.common",
+        "com.seeyon.bpm.api.udc",
+        "com.seeyon.bpm.dto.operation.openapi"
+      ],
+      "status": "FACT",
+      "verification_level": "STATIC"
+    },
+    {
+      "artifact": "ctp-user-api",
+      "version": "3.8.215",
+      "packages": [
+        "com.seeyon.ctp.user.api.sso",
+        "com.seeyon.ctp.user.api.avoidlogin",
+        "com.seeyon.ctp.user.dto"
+      ],
+      "status": "FACT",
+      "verification_level": "STATIC"
+    },
+    {
+      "artifact": "cip-connector-api",
+      "version": "5.3.286",
+      "packages": [
+        "com.seeyon.cip.connector.api.sso",
+        "com.seeyon.cip.connector.api.mobile",
+        "com.seeyon.cip.connector.api.midorgsync",
+        "com.seeyon.cip.connector.api.db",
+        "com.seeyon.cip.connector.api.authentication"
+      ],
+      "status": "FACT",
+      "verification_level": "STATIC"
+    }
+  ]
+}

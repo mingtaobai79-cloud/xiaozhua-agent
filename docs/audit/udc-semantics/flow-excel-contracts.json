@@ -1,0 +1,4174 @@
+{
+  "schema_version": "1.0",
+  "status": "STATIC_CONTRACT_PARTIAL",
+  "can_execute": false,
+  "source_location_config": "config/udc-semantics-evidence.local.json",
+  "source_snapshot": {
+    "id": "udc-source-checkout",
+    "version_binding": "UNVERIFIED",
+    "kind": "local_source_tree"
+  },
+  "artifact_evidence": [
+    {
+      "artifact": "udc-biz",
+      "version": "5.3.517",
+      "sha256": "8a1cda618cdc23d18d02e39f4f93d6fad4ff732c987fd47bbb28118dbf66ef25",
+      "live_version_binding": "UNVERIFIED",
+      "location_ref": "artifacts.udc_biz_reference",
+      "template_evidence": [
+        {
+          "entry": "autocode/JAVA/2.9/templates/microflow/plugin/calldataflow/CallDataFlowActivity.java.ftl",
+          "sha256": "7ad8102e86a2ec3a4e1fdfc99c01c2937c33f662d2ccbf1bf7c0e9ef3989e9b5",
+          "level": "STATIC_ARTIFACT_TEMPLATE",
+          "live_verified": false
+        }
+      ],
+      "absence_scope": {
+        "scope": "this jar only",
+        "deduction_dataflow_template_entries": 0
+      }
+    }
+  ],
+  "sources": {
+    "boot-extend/boot-starter-excel/src/main/java/com/seeyon/boot/starter/excel/appservice/ExcelExportAppService.java": {
+      "path": "boot-extend/boot-starter-excel/src/main/java/com/seeyon/boot/starter/excel/appservice/ExcelExportAppService.java",
+      "sha256": "96b3fa4f0d8d2a76003df98109212b95a87f54584eb24354605c2e0005268df4",
+      "line_count": 343,
+      "source_ref": "source_snapshot",
+      "level": "STATIC_SOURCE",
+      "live_verified": false
+    },
+    "boot-extend/boot-starter-excel/src/main/java/com/seeyon/boot/starter/excel/appservice/ExcelImportAppService.java": {
+      "path": "boot-extend/boot-starter-excel/src/main/java/com/seeyon/boot/starter/excel/appservice/ExcelImportAppService.java",
+      "sha256": "fcc9695ac72e17b3edf9d9c14f50bf01728122f585d098781739c98d98528949",
+      "line_count": 321,
+      "source_ref": "source_snapshot",
+      "level": "STATIC_SOURCE",
+      "live_verified": false
+    },
+    "boot-extend/boot-starter-excel/src/main/java/com/seeyon/boot/starter/excel/controller/ExcelController.java": {
+      "path": "boot-extend/boot-starter-excel/src/main/java/com/seeyon/boot/starter/excel/controller/ExcelController.java",
+      "sha256": "4437402ca52d46a33b9506230fa20a57438e7d84c4ef6b27b9770726b5075282",
+      "line_count": 197,
+      "source_ref": "source_snapshot",
+      "level": "STATIC_SOURCE",
+      "live_verified": false
+    },
+    "boot-extend/boot-starter-excel/src/main/java/com/seeyon/boot/starter/excel/domain/entity/ExcelExportTemplate.java": {
+      "path": "boot-extend/boot-starter-excel/src/main/java/com/seeyon/boot/starter/excel/domain/entity/ExcelExportTemplate.java",
+      "sha256": "00ea6a105492a24107e0aa1a60dc5fbf79224720f0947322f1b5259cb10b8186",
+      "line_count": 89,
+      "source_ref": "source_snapshot",
+      "level": "STATIC_SOURCE",
+      "live_verified": false
+    },
+    "boot-extend/boot-starter-excel/src/main/java/com/seeyon/boot/starter/excel/domain/service/ExcelConvertService.java": {
+      "path": "boot-extend/boot-starter-excel/src/main/java/com/seeyon/boot/starter/excel/domain/service/ExcelConvertService.java",
+      "sha256": "51ad57225e2a984b2a92665db22d068c7861ce46b9b32b07a7e48b9e0150bdbc",
+      "line_count": 3252,
+      "source_ref": "source_snapshot",
+      "level": "STATIC_SOURCE",
+      "live_verified": false
+    },
+    "boot-extend/boot-starter-excel/src/main/java/com/seeyon/boot/starter/excel/domain/service/ExcelExportTemplateService.java": {
+      "path": "boot-extend/boot-starter-excel/src/main/java/com/seeyon/boot/starter/excel/domain/service/ExcelExportTemplateService.java",
+      "sha256": "7107de184aee6a8a8e66b85c945999172ccefbb72a598b7502a620eaf3deb883",
+      "line_count": 781,
+      "source_ref": "source_snapshot",
+      "level": "STATIC_SOURCE",
+      "live_verified": false
+    },
+    "boot-extend/boot-starter-excel/src/main/java/com/seeyon/boot/starter/excel/dto/ExcelExportTemplate4GridDto.java": {
+      "path": "boot-extend/boot-starter-excel/src/main/java/com/seeyon/boot/starter/excel/dto/ExcelExportTemplate4GridDto.java",
+      "sha256": "1dc31e09ff39441ede20bfa84fd4e1f91416c9f153e59c2daecf875fb97ac4c5",
+      "line_count": 52,
+      "source_ref": "source_snapshot",
+      "level": "STATIC_SOURCE",
+      "live_verified": false
+    },
+    "boot-extend/boot-starter-excel/src/main/java/com/seeyon/boot/starter/excel/dto/ExcelExportTemplateDto.java": {
+      "path": "boot-extend/boot-starter-excel/src/main/java/com/seeyon/boot/starter/excel/dto/ExcelExportTemplateDto.java",
+      "sha256": "18bd2278be84861dc932cbc7703e41619663fb34ee89351d2282af0966cbc105",
+      "line_count": 88,
+      "source_ref": "source_snapshot",
+      "level": "STATIC_SOURCE",
+      "live_verified": false
+    },
+    "boot-extend/boot-starter-excel/src/main/java/com/seeyon/boot/starter/excel/dto/ExcelUploadRequestDto.java": {
+      "path": "boot-extend/boot-starter-excel/src/main/java/com/seeyon/boot/starter/excel/dto/ExcelUploadRequestDto.java",
+      "sha256": "b697f3daf28a549b9b3655857b92645754d96a68a87d6d3c8e867fb399327507",
+      "line_count": 34,
+      "source_ref": "source_snapshot",
+      "level": "STATIC_SOURCE",
+      "live_verified": false
+    },
+    "boot-extend/boot-starter-excel/src/main/java/com/seeyon/boot/starter/excel/event/listener/ExcelEventListener.java": {
+      "path": "boot-extend/boot-starter-excel/src/main/java/com/seeyon/boot/starter/excel/event/listener/ExcelEventListener.java",
+      "sha256": "5e52350fe0e1d91797f8e21885e0e3521df5d2981d7efc856e65d9ba65b15404",
+      "line_count": 252,
+      "source_ref": "source_snapshot",
+      "level": "STATIC_SOURCE",
+      "live_verified": false
+    },
+    "boot-extend/boot-starter-excel/src/main/java/com/seeyon/boot/starter/excel/utils/ExcelTemplateUtil.java": {
+      "path": "boot-extend/boot-starter-excel/src/main/java/com/seeyon/boot/starter/excel/utils/ExcelTemplateUtil.java",
+      "sha256": "5948300b88be3438c22be79a7627ae58f3daede3b0c29c693e443a13f5216320",
+      "line_count": 1726,
+      "source_ref": "source_snapshot",
+      "level": "STATIC_SOURCE",
+      "live_verified": false
+    },
+    "boot/boot-core/src/main/java/com/seeyon/boot/enums/StandardAppId.java": {
+      "path": "boot/boot-core/src/main/java/com/seeyon/boot/enums/StandardAppId.java",
+      "sha256": "e352a65e59b4f658179d6b74a2db112b6b4fc805c3b6830ff7681184e19ccb94",
+      "line_count": 114,
+      "source_ref": "source_snapshot",
+      "level": "STATIC_SOURCE",
+      "live_verified": false
+    },
+    "udc-common/src/main/java/com/seeyon/udc/common/constant/UdcCommonConstant.java": {
+      "path": "udc-common/src/main/java/com/seeyon/udc/common/constant/UdcCommonConstant.java",
+      "sha256": "8f29300e21f601f0eee0ace08e5f62b1f560c27e0101b76805cce30bd7ff56d3",
+      "line_count": 365,
+      "source_ref": "source_snapshot",
+      "level": "STATIC_SOURCE",
+      "live_verified": false
+    },
+    "udc-common/src/main/java/com/seeyon/udc/common/dto/DataFlowExecuteParamDto.java": {
+      "path": "udc-common/src/main/java/com/seeyon/udc/common/dto/DataFlowExecuteParamDto.java",
+      "sha256": "6373aa6782e885f0a656c5a032626cbe02f8732ec297e9a5c1ee855e358366ec",
+      "line_count": 40,
+      "source_ref": "source_snapshot",
+      "level": "STATIC_SOURCE",
+      "live_verified": false
+    },
+    "udc-common/src/main/java/com/seeyon/udc/common/dto/DataFlowMappingDetailDto.java": {
+      "path": "udc-common/src/main/java/com/seeyon/udc/common/dto/DataFlowMappingDetailDto.java",
+      "sha256": "43888c9632a6538d7fbe4cb4e341fc98961964a9cccc145a55d6de1e0faa6c83",
+      "line_count": 51,
+      "source_ref": "source_snapshot",
+      "level": "STATIC_SOURCE",
+      "live_verified": false
+    },
+    "udc-common/src/main/java/com/seeyon/udc/common/dto/DataFlowMappingDto.java": {
+      "path": "udc-common/src/main/java/com/seeyon/udc/common/dto/DataFlowMappingDto.java",
+      "sha256": "a915deb36fc21b0d3a4fec86f05cf055447d6588d13628862a34560fc1be9c70",
+      "line_count": 142,
+      "source_ref": "source_snapshot",
+      "level": "STATIC_SOURCE",
+      "live_verified": false
+    },
+    "udc-common/src/main/java/com/seeyon/udc/common/dto/DataFlowResultDto.java": {
+      "path": "udc-common/src/main/java/com/seeyon/udc/common/dto/DataFlowResultDto.java",
+      "sha256": "395e50076a45903d07c91b8a8608dba0919614a2af3c7489d7a561d3c575f3e3",
+      "line_count": 86,
+      "source_ref": "source_snapshot",
+      "level": "STATIC_SOURCE",
+      "live_verified": false
+    },
+    "udc-common/src/main/java/com/seeyon/udc/common/dto/DeductionAlgorithmDto.java": {
+      "path": "udc-common/src/main/java/com/seeyon/udc/common/dto/DeductionAlgorithmDto.java",
+      "sha256": "5cf5809cc9d4be082a9082a09f3d4300692a0108455c0c0882717574c31cb693",
+      "line_count": 69,
+      "source_ref": "source_snapshot",
+      "level": "STATIC_SOURCE",
+      "live_verified": false
+    },
+    "udc-common/src/main/java/com/seeyon/udc/common/dto/DeductionMapDto.java": {
+      "path": "udc-common/src/main/java/com/seeyon/udc/common/dto/DeductionMapDto.java",
+      "sha256": "c43a4319973e9571945249296c4e26099db133b901e198c8ad164b6ec780b762",
+      "line_count": 44,
+      "source_ref": "source_snapshot",
+      "level": "STATIC_SOURCE",
+      "live_verified": false
+    },
+    "udc-common/src/main/java/com/seeyon/udc/common/dto/DeductionRuleDetailDto.java": {
+      "path": "udc-common/src/main/java/com/seeyon/udc/common/dto/DeductionRuleDetailDto.java",
+      "sha256": "23dd928f22ca3e197d407305420d4271f8cc82535d8235588d68cdcb58b5e74e",
+      "line_count": 51,
+      "source_ref": "source_snapshot",
+      "level": "STATIC_SOURCE",
+      "live_verified": false
+    },
+    "udc-common/src/main/java/com/seeyon/udc/common/dto/DeductionRuleDto.java": {
+      "path": "udc-common/src/main/java/com/seeyon/udc/common/dto/DeductionRuleDto.java",
+      "sha256": "97d1550da871b856ea074b7df684f63048d2cff33e0abee779f7420e53df7a46",
+      "line_count": 124,
+      "source_ref": "source_snapshot",
+      "level": "STATIC_SOURCE",
+      "live_verified": false
+    },
+    "udc-common/src/main/java/com/seeyon/udc/common/enums/DataFlowOperationTypeEnum.java": {
+      "path": "udc-common/src/main/java/com/seeyon/udc/common/enums/DataFlowOperationTypeEnum.java",
+      "sha256": "16f46c7f133c5e2b364b80b7434fd26eb38e91c0d09e03937d9759e4fbc1f988",
+      "line_count": 36,
+      "source_ref": "source_snapshot",
+      "level": "STATIC_SOURCE",
+      "live_verified": false
+    },
+    "udc-common/src/main/java/com/seeyon/udc/common/enums/TriggerPointEnum.java": {
+      "path": "udc-common/src/main/java/com/seeyon/udc/common/enums/TriggerPointEnum.java",
+      "sha256": "da50b6c3ed827e396611a4a7fa8c66d0d6e8deed2527379d9ee1257b8d737314",
+      "line_count": 35,
+      "source_ref": "source_snapshot",
+      "level": "STATIC_SOURCE",
+      "live_verified": false
+    },
+    "udc-starters/udc-starter-dataflow/src/main/java/com/seeyon/boot/starter/deduction/controller/DeductionController.java": {
+      "path": "udc-starters/udc-starter-dataflow/src/main/java/com/seeyon/boot/starter/deduction/controller/DeductionController.java",
+      "sha256": "e2e60b0d85dcc6e703e67939ef1eb14ae02db1e2176981deabbd76e9d006e881",
+      "line_count": 115,
+      "source_ref": "source_snapshot",
+      "level": "STATIC_SOURCE",
+      "live_verified": false
+    },
+    "udc-starters/udc-starter-dataflow/src/main/java/com/seeyon/boot/starter/deduction/listener/DeductionDataInitListener.java": {
+      "path": "udc-starters/udc-starter-dataflow/src/main/java/com/seeyon/boot/starter/deduction/listener/DeductionDataInitListener.java",
+      "sha256": "e80b44aebd0ee6ff4dc67a0664d2c66dc45ecd5aba90e1508f1216486753307c",
+      "line_count": 159,
+      "source_ref": "source_snapshot",
+      "level": "STATIC_SOURCE",
+      "live_verified": false
+    },
+    "udc-starters/udc-starter-runtime/src/main/java/com/seeyon/boot/starter/udcrt/dto/CallDataFlowResultDto.java": {
+      "path": "udc-starters/udc-starter-runtime/src/main/java/com/seeyon/boot/starter/udcrt/dto/CallDataFlowResultDto.java",
+      "sha256": "029ae6a5771ddebf8f83301d325102cb5a9920cafaef9de89975f80d2da028c4",
+      "line_count": 32,
+      "source_ref": "source_snapshot",
+      "level": "STATIC_SOURCE",
+      "live_verified": false
+    },
+    "udc/udc-biz/src/main/java/com/seeyon/udc/entity/domain/service/EntityPresetService.java": {
+      "path": "udc/udc-biz/src/main/java/com/seeyon/udc/entity/domain/service/EntityPresetService.java",
+      "sha256": "ef4c46297a7a90df257b7eee14bc686946d3dfb6ecde23c0acafc95610a174a2",
+      "line_count": 437,
+      "source_ref": "source_snapshot",
+      "level": "STATIC_SOURCE",
+      "live_verified": false
+    },
+    "udc/udc-biz/src/main/java/com/seeyon/udc/microflow/domain/bo/flow/activity/CallDataFlowActivity.java": {
+      "path": "udc/udc-biz/src/main/java/com/seeyon/udc/microflow/domain/bo/flow/activity/CallDataFlowActivity.java",
+      "sha256": "fc0c7a91d2b84ee2c1062ee97656acf0377829ea9ea03e293848d69f9f9c9693",
+      "line_count": 127,
+      "source_ref": "source_snapshot",
+      "level": "STATIC_SOURCE",
+      "live_verified": false
+    },
+    "udc/udc-biz/src/main/resources/autocode/JAVA/2.9/templates/microflow/plugin/calldataflow/CallDataFlowActivity.java.ftl": {
+      "path": "udc/udc-biz/src/main/resources/autocode/JAVA/2.9/templates/microflow/plugin/calldataflow/CallDataFlowActivity.java.ftl",
+      "sha256": "9d8ff6323e61ccd0c7ab474541262715496ca2d451ea8aec191a6ab701ab9e6e",
+      "line_count": 17,
+      "source_ref": "source_snapshot",
+      "level": "STATIC_SOURCE",
+      "live_verified": false
+    },
+    "udc/udc-dataflow/src/main/java/com/seeyon/udc/dataflow/appservice/DataFlowMappingDesignAppService.java": {
+      "path": "udc/udc-dataflow/src/main/java/com/seeyon/udc/dataflow/appservice/DataFlowMappingDesignAppService.java",
+      "sha256": "c70aaec69900415a058092c1998eb1022ffb3a07de4d2935dcbd4f306f4fc972",
+      "line_count": 358,
+      "source_ref": "source_snapshot",
+      "level": "STATIC_SOURCE",
+      "live_verified": false
+    },
+    "udc/udc-dataflow/src/main/java/com/seeyon/udc/dataflow/domain/entity/DataFlow.java": {
+      "path": "udc/udc-dataflow/src/main/java/com/seeyon/udc/dataflow/domain/entity/DataFlow.java",
+      "sha256": "0c43a66635f15037a1a09f65962f82cc00f1ea5bd7e6a0df2ae808605ead3604",
+      "line_count": 78,
+      "source_ref": "source_snapshot",
+      "level": "STATIC_SOURCE",
+      "live_verified": false
+    },
+    "udc/udc-dataflow/src/main/java/com/seeyon/udc/dataflow/domain/entity/DataFlowMapping.java": {
+      "path": "udc/udc-dataflow/src/main/java/com/seeyon/udc/dataflow/domain/entity/DataFlowMapping.java",
+      "sha256": "a4044ca4eea0c861785b9c2d78f8c4157fa29e13cc02f3919899116f459af097",
+      "line_count": 153,
+      "source_ref": "source_snapshot",
+      "level": "STATIC_SOURCE",
+      "live_verified": false
+    },
+    "udc/udc-dataflow/src/main/java/com/seeyon/udc/dataflow/domain/service/DataFlowDesignService.java": {
+      "path": "udc/udc-dataflow/src/main/java/com/seeyon/udc/dataflow/domain/service/DataFlowDesignService.java",
+      "sha256": "7c56a2fb602b9e8b97f8661d2353ad4587ec542af2e9fdeabd605acd23575ce4",
+      "line_count": 816,
+      "source_ref": "source_snapshot",
+      "level": "STATIC_SOURCE",
+      "live_verified": false
+    },
+    "udc/udc-dataflow/src/main/java/com/seeyon/udc/dataflow/domain/service/DataFlowMappingDesignService.java": {
+      "path": "udc/udc-dataflow/src/main/java/com/seeyon/udc/dataflow/domain/service/DataFlowMappingDesignService.java",
+      "sha256": "283f04d289e809571f3063f4d683950dad2c5d2f56b2882c92eb0b46a102291f",
+      "line_count": 1838,
+      "source_ref": "source_snapshot",
+      "level": "STATIC_SOURCE",
+      "live_verified": false
+    },
+    "udc/udc-dataflow/src/main/java/com/seeyon/udc/dataflow/dto/DataFlowMappingSaveDto.java": {
+      "path": "udc/udc-dataflow/src/main/java/com/seeyon/udc/dataflow/dto/DataFlowMappingSaveDto.java",
+      "sha256": "568c41238a1c9fadccfa18aefe0c74a17e49ec0daf0123ad9e6e498d6eb61af0",
+      "line_count": 31,
+      "source_ref": "source_snapshot",
+      "level": "STATIC_SOURCE",
+      "live_verified": false
+    },
+    "udc/udc-dataflow/src/main/java/com/seeyon/udc/deduction/autocode/task/DeductionCodeTask.java": {
+      "path": "udc/udc-dataflow/src/main/java/com/seeyon/udc/deduction/autocode/task/DeductionCodeTask.java",
+      "sha256": "e617785e00f5dcebb3fde2af2e095d9abbe7e6c46d4c809ab1fbdc4afd61c0a9",
+      "line_count": 78,
+      "source_ref": "source_snapshot",
+      "level": "STATIC_SOURCE",
+      "live_verified": false
+    },
+    "udc/udc-dataflow/src/main/java/com/seeyon/udc/deduction/domain/entity/DeductionAlgorithm.java": {
+      "path": "udc/udc-dataflow/src/main/java/com/seeyon/udc/deduction/domain/entity/DeductionAlgorithm.java",
+      "sha256": "9038432519442bf4d4a327aaaf0d76a9108532946454374f2c4e5cbe9f5eb2b6",
+      "line_count": 72,
+      "source_ref": "source_snapshot",
+      "level": "STATIC_SOURCE",
+      "live_verified": false
+    },
+    "udc/udc-dataflow/src/main/java/com/seeyon/udc/deduction/domain/entity/DeductionMap.java": {
+      "path": "udc/udc-dataflow/src/main/java/com/seeyon/udc/deduction/domain/entity/DeductionMap.java",
+      "sha256": "e43b2e3423a7090a8edd512900f78c9be92e0653fb069caca1af43c2405dc812",
+      "line_count": 73,
+      "source_ref": "source_snapshot",
+      "level": "STATIC_SOURCE",
+      "live_verified": false
+    },
+    "udc/udc-dataflow/src/main/java/com/seeyon/udc/deduction/domain/entity/DeductionRule.java": {
+      "path": "udc/udc-dataflow/src/main/java/com/seeyon/udc/deduction/domain/entity/DeductionRule.java",
+      "sha256": "316b176ae66c52d50578403b1caf8489a7f7621803acc274ac59d1b24d0b0f32",
+      "line_count": 120,
+      "source_ref": "source_snapshot",
+      "level": "STATIC_SOURCE",
+      "live_verified": false
+    },
+    "udc/udc-dataflow/src/main/java/com/seeyon/udc/deduction/domain/entity/DeductionRuleDetail.java": {
+      "path": "udc/udc-dataflow/src/main/java/com/seeyon/udc/deduction/domain/entity/DeductionRuleDetail.java",
+      "sha256": "d0fbad43f19e49cca2b23f1badc5aea8e79f883bdc8c39c3374b6a6e05fcadf8",
+      "line_count": 65,
+      "source_ref": "source_snapshot",
+      "level": "STATIC_SOURCE",
+      "live_verified": false
+    },
+    "udc/udc-dataflow/src/main/java/com/seeyon/udc/deduction/domain/service/DeductionMapService.java": {
+      "path": "udc/udc-dataflow/src/main/java/com/seeyon/udc/deduction/domain/service/DeductionMapService.java",
+      "sha256": "98fc602bb78bafaef793fb88efd9c4f95e551bfa7c07845a2de558c04cb65eb2",
+      "line_count": 746,
+      "source_ref": "source_snapshot",
+      "level": "STATIC_SOURCE",
+      "live_verified": false
+    },
+    "udc/udc-dataflow/src/main/java/com/seeyon/udc/deduction/domain/service/DeductionRuleService.java": {
+      "path": "udc/udc-dataflow/src/main/java/com/seeyon/udc/deduction/domain/service/DeductionRuleService.java",
+      "sha256": "748361125773a5a7b6ab2f514b4516d805882238a3433c7ff826d6aadcee72cb",
+      "line_count": 1454,
+      "source_ref": "source_snapshot",
+      "level": "STATIC_SOURCE",
+      "live_verified": false
+    },
+    "udc/udc-dataflow/src/main/resources/autocode/JAVA/2.9/templates/dataflow/DataFlowRuntimeService.java.ftl": {
+      "path": "udc/udc-dataflow/src/main/resources/autocode/JAVA/2.9/templates/dataflow/DataFlowRuntimeService.java.ftl",
+      "sha256": "1428cbb420c77896fb47e6e8999cb2122c5598b9c746a4c02cec3d3e1d70ef92",
+      "line_count": 460,
+      "source_ref": "source_snapshot",
+      "level": "STATIC_SOURCE",
+      "live_verified": false
+    },
+    "udc/udc-dataflow/src/main/resources/autocode/JAVA/2.9/templates/deduction/DeductionRuntimeBeforeUpdateListener-update.ftl": {
+      "path": "udc/udc-dataflow/src/main/resources/autocode/JAVA/2.9/templates/deduction/DeductionRuntimeBeforeUpdateListener-update.ftl",
+      "sha256": "0519373fdd69ada483be2f503c3d675cb08b22ad271db36f9815dcd7cac2e6af",
+      "line_count": 336,
+      "source_ref": "source_snapshot",
+      "level": "STATIC_SOURCE",
+      "live_verified": false
+    },
+    "udc/udc-dataflow/src/main/resources/autocode/JAVA/2.9/templates/deduction/DeductionRuntimeCreateListener.ftl": {
+      "path": "udc/udc-dataflow/src/main/resources/autocode/JAVA/2.9/templates/deduction/DeductionRuntimeCreateListener.ftl",
+      "sha256": "6f4b172bc5df20dc4ba95951cd79ba0e261a661d8e4095fb11c065c9fb6af5ba",
+      "line_count": 177,
+      "source_ref": "source_snapshot",
+      "level": "STATIC_SOURCE",
+      "live_verified": false
+    },
+    "udc/udc-dataflow/src/main/resources/autocode/JAVA/2.9/templates/deduction/DeductionRuntimeDeleteListener.ftl": {
+      "path": "udc/udc-dataflow/src/main/resources/autocode/JAVA/2.9/templates/deduction/DeductionRuntimeDeleteListener.ftl",
+      "sha256": "bb170eeedff7e9809d69753aca2c7ef376a0d7c0015167f612f76c7527097cdf",
+      "line_count": 142,
+      "source_ref": "source_snapshot",
+      "level": "STATIC_SOURCE",
+      "live_verified": false
+    },
+    "udc/udc-web/src/main/java/com/seeyon/udc/controller/DataFlowDesignController.java": {
+      "path": "udc/udc-web/src/main/java/com/seeyon/udc/controller/DataFlowDesignController.java",
+      "sha256": "f5607f89c0050174ec036dea50e7e9c3f2837eec38680cc24b81033aebb07b3f",
+      "line_count": 224,
+      "source_ref": "source_snapshot",
+      "level": "STATIC_SOURCE",
+      "live_verified": false
+    },
+    "udc/udc-web/src/main/java/com/seeyon/udc/controller/DeductionRuleController.java": {
+      "path": "udc/udc-web/src/main/java/com/seeyon/udc/controller/DeductionRuleController.java",
+      "sha256": "ebf0d316b67b02a54f53b1df425ddd9a9f81401dfec5e7a932535bf96e3f6799",
+      "line_count": 165,
+      "source_ref": "source_snapshot",
+      "level": "STATIC_SOURCE",
+      "live_verified": false
+    }
+  },
+  "claims": [
+    {
+      "id": "dataflow.graph.save",
+      "summary": "Graph creation persists a design graph and may preset the DATA_FLOW menu/page.",
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": [
+        {
+          "source": "udc/udc-dataflow/src/main/java/com/seeyon/udc/dataflow/domain/service/DataFlowDesignService.java",
+          "start": 246,
+          "end": 267,
+          "range_sha256_lf": "3d588c10ceab94e1b9f5a3a889010fe935b9abf26db33df1f54585e2b34066e7",
+          "tokens": [
+            "dataFlowDao.create(dataFlow)",
+            "createPresetFunctionAndPage"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dataflow.mapping.save",
+      "summary": "Mapping save updates graph definition and persists the child mapping.",
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": [
+        {
+          "source": "udc/udc-dataflow/src/main/java/com/seeyon/udc/dataflow/domain/service/DataFlowMappingDesignService.java",
+          "start": 172,
+          "end": 186,
+          "range_sha256_lf": "26a9741f225d336f1babc5e76a8b8212e85fb984ccb60e97acb9b31e6310aea1",
+          "tokens": [
+            "handleGraphDefinition",
+            "dataFlowDesignService.update",
+            "setDataFlowId"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dataflow.mapping.detail",
+      "summary": "Mapping details are validated/processed then serialized into ruleInfo.",
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": [
+        {
+          "source": "udc/udc-dataflow/src/main/java/com/seeyon/udc/dataflow/domain/service/DataFlowMappingDesignService.java",
+          "start": 262,
+          "end": 280,
+          "range_sha256_lf": "ad8c8a5218f0dda14c093475c610f1692736ea25c90faa625e625927d169f1b4",
+          "tokens": [
+            "dataCheck",
+            "dataProcess",
+            "setRuleInfo",
+            "dataFlowMappingDao.create"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dataflow.mapping.validation",
+      "summary": "Mapping validation checks dependency/entities, trigger-specific settings, mapping areas and writeback.",
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": [
+        {
+          "source": "udc/udc-dataflow/src/main/java/com/seeyon/udc/dataflow/domain/service/DataFlowMappingDesignService.java",
+          "start": 378,
+          "end": 470,
+          "range_sha256_lf": "daba98c7d0fdd6541816b4dbf2c5eeede130f271a528f8193266563fd47af377",
+          "tokens": [
+            "EVENT_SUBSCRIBE",
+            "mappingRuleDto.getMappingArea()",
+            "dataCheck4WriteBack"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dataflow.mapping.transaction",
+      "summary": "The public mapping appservice create/update operations declare transactions.",
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": [
+        {
+          "source": "udc/udc-dataflow/src/main/java/com/seeyon/udc/dataflow/appservice/DataFlowMappingDesignAppService.java",
+          "start": 100,
+          "end": 113,
+          "range_sha256_lf": "fae3cb06e76ef2f7fac94bd8812894c7b3603b431aa224ee3292d5a8b6961c2d",
+          "tokens": [
+            "@Transactional",
+            "service.create(request.getData())"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dataflow.node.input",
+      "summary": "CallDataFlow requires mapping, structure, source and output; global checks verify mapping existence.",
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": [
+        {
+          "source": "udc/udc-biz/src/main/java/com/seeyon/udc/microflow/domain/bo/flow/activity/CallDataFlowActivity.java",
+          "start": 86,
+          "end": 123,
+          "range_sha256_lf": "ff7cea41797a01b1d7a5fc4c3459c7a62325265bed3901b8918bbc8d1a1b430e",
+          "tokens": [
+            "dataFlowMappingId",
+            "SELECT_PARAM",
+            "buildOutPut",
+            "DATA_FLOW_NOT_EXIST"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dataflow.runtime.sources",
+      "summary": "Runtime service template accepts selected IDs, conditions, selected DTOs or event data.",
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": [
+        {
+          "source": "udc/udc-dataflow/src/main/resources/autocode/JAVA/2.9/templates/dataflow/DataFlowRuntimeService.java.ftl",
+          "start": 227,
+          "end": 314,
+          "range_sha256_lf": "d5377b2627515fc8364fc3357f3621dc04f4557320f70d5edfbd0cd6c92c7084",
+          "tokens": [
+            "DataFlowResultDto",
+            "SourceDataTypeEnum.SELECT",
+            "SourceDataTypeEnum.CONDITION",
+            "SourceDataTypeEnum.SELECT_PARAM"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dataflow.node.output",
+      "summary": "Microflow calls a DataFlow runtime service and wraps its result; no direct Deduction invocation is evidenced.",
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": [
+        {
+          "source": "udc/udc-biz/src/main/resources/autocode/JAVA/2.9/templates/microflow/plugin/calldataflow/CallDataFlowActivity.java.ftl",
+          "start": 1,
+          "end": 17,
+          "range_sha256_lf": "ad311cb1bd84c8aa12c79355d2c3324a35dd85223c200b7a7e8a371da46d75c9",
+          "tokens": [
+            "DataFlowRuntimeService",
+            "new CallDataFlowResultDto"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "deduction.map.save",
+      "summary": "Deduction graph save validates and persists a separate map object.",
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": [
+        {
+          "source": "udc/udc-dataflow/src/main/java/com/seeyon/udc/deduction/domain/service/DeductionMapService.java",
+          "start": 133,
+          "end": 142,
+          "range_sha256_lf": "3a4ef7d81d8c5afa84b20f3fb73cbe81d8791b9938c30fac9b1cc73f5f0f67b7",
+          "tokens": [
+            "checkData",
+            "deductionMapDao.create"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "deduction.rule.save",
+      "summary": "Deduction rule save persists rule, graph count, algorithm/details and may preset DEDUCT menu/page.",
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": [
+        {
+          "source": "udc/udc-dataflow/src/main/java/com/seeyon/udc/deduction/domain/service/DeductionRuleService.java",
+          "start": 190,
+          "end": 217,
+          "range_sha256_lf": "5cf85d2b754c5c440ad3aababa69d77061b36a07b9274b73780db4e3f96ef3ab",
+          "tokens": [
+            "validRule(dto)",
+            "deductionRuleDao.create",
+            "createAlgorithmAndDetail",
+            "FunctionTagEnum.DEDUCT"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "deduction.rule.validation",
+      "summary": "Deduction validation checks source/target hierarchy, conditions, algorithm and status/details.",
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": [
+        {
+          "source": "udc/udc-dataflow/src/main/java/com/seeyon/udc/deduction/domain/service/DeductionRuleService.java",
+          "start": 1168,
+          "end": 1181,
+          "range_sha256_lf": "683520e90b74e70a2102291e7b4063574c1b1e32f0ee3e8a4e02135123a3a13e",
+          "tokens": [
+            "checkSearchCondition",
+            "checkAlgorithm",
+            "checkRuleDetail"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "deduction.rule.children",
+      "summary": "Algorithm and rule details are linked and persisted as distinct child records.",
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": [
+        {
+          "source": "udc/udc-dataflow/src/main/java/com/seeyon/udc/deduction/domain/service/DeductionRuleService.java",
+          "start": 320,
+          "end": 325,
+          "range_sha256_lf": "3a77b72aa11c1ad4edb092227f7e08a889655e4d7ca0f61cd142886d2755cbc7",
+          "tokens": [
+            "buildRelationBetweenAlgorithmAndDetail",
+            "deductionAlgorithmService.createBatch",
+            "deductionRuleDetailService.createBatch"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "deduction.codegen",
+      "summary": "Deduction code generation requires rule metadata and renders the dedicated template.",
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": [
+        {
+          "source": "udc/udc-dataflow/src/main/java/com/seeyon/udc/deduction/autocode/task/DeductionCodeTask.java",
+          "start": 32,
+          "end": 74,
+          "range_sha256_lf": "dc85fed3a2b4c65f010253d351bd9e404abd2410a819e2019e82aae413618cb2",
+          "tokens": [
+            "getDeductionRuleDtoList",
+            "DeductionCodeTemplate.Builder",
+            "template.writeToFile()"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "deduction.create.trigger",
+      "summary": "Generated deduction create listener subscribes synchronously to BeforeCreateEvent.",
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": [
+        {
+          "source": "udc/udc-dataflow/src/main/resources/autocode/JAVA/2.9/templates/deduction/DeductionRuntimeCreateListener.ftl",
+          "start": 18,
+          "end": 25,
+          "range_sha256_lf": "832c80279ed3c51a62dededfcbbcb3f76eb2759c85a26986d2b6d57b0c74f886",
+          "tokens": [
+            "ThreadModel.SYNC",
+            "BeforeCreateEvent"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "deduction.create.apply",
+      "summary": "Create listener applies deduction and stores the mapping in source deductionInfo.",
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": [
+        {
+          "source": "udc/udc-dataflow/src/main/resources/autocode/JAVA/2.9/templates/deduction/DeductionRuntimeCreateListener.ftl",
+          "start": 119,
+          "end": 133,
+          "range_sha256_lf": "3426ced98fe3f6276eeb55ba17a3964385a856cbcaa72a542b4519ece9f69001",
+          "tokens": [
+            "updateBudget4deduction",
+            ".undo(false)",
+            "setDeductionInfo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "deduction.update.trigger",
+      "summary": "Generated update listener subscribes to BeforeUpdateEvent.",
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": [
+        {
+          "source": "udc/udc-dataflow/src/main/resources/autocode/JAVA/2.9/templates/deduction/DeductionRuntimeBeforeUpdateListener-update.ftl",
+          "start": 13,
+          "end": 21,
+          "range_sha256_lf": "b6d915005762e059cd4fc132b62821ad3d310c42fef02ef311b66939e74cda6c",
+          "tokens": [
+            "ThreadModel.SYNC",
+            "BeforeUpdateEvent"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "deduction.update.undo_do",
+      "summary": "Update listener calculates old/new inputs and applies UNDO then DO when required.",
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": [
+        {
+          "source": "udc/udc-dataflow/src/main/resources/autocode/JAVA/2.9/templates/deduction/DeductionRuntimeBeforeUpdateListener-update.ftl",
+          "start": 100,
+          "end": 134,
+          "range_sha256_lf": "777278eeb0881ebe71ea5e170f496a67a12174aeb52aa952b289b2fe4d514581",
+          "tokens": [
+            "getUndoSqlAndDoSql",
+            ".undo(true)",
+            ".undo(false)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "deduction.delete.trigger",
+      "summary": "Generated delete listener subscribes to BeforeDeleteEvent.",
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": [
+        {
+          "source": "udc/udc-dataflow/src/main/resources/autocode/JAVA/2.9/templates/deduction/DeductionRuntimeDeleteListener.ftl",
+          "start": 19,
+          "end": 22,
+          "range_sha256_lf": "d2915d943bbccb64ab92c2d9308728c626bf310bbfbb739af3c0ed46fb2b7c3e",
+          "tokens": [
+            "ThreadModel.SYNC",
+            "BeforeDeleteEvent"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "deduction.delete.undo",
+      "summary": "Delete listener reverses deduction with saved source/rule information.",
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": [
+        {
+          "source": "udc/udc-dataflow/src/main/resources/autocode/JAVA/2.9/templates/deduction/DeductionRuntimeDeleteListener.ftl",
+          "start": 85,
+          "end": 101,
+          "range_sha256_lf": "2bf861deca6ba795888fe22445eb067538fce08f4f56e0fddc533bd5e91767ed",
+          "tokens": [
+            "updateBudget4deduction",
+            ".undo(true)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "deduction.runtime.initialization",
+      "summary": "Initialization skips FORM apps and reads versioned metadata or classpath rule/map JSON.",
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": [
+        {
+          "source": "udc-starters/udc-starter-dataflow/src/main/java/com/seeyon/boot/starter/deduction/listener/DeductionDataInitListener.java",
+          "start": 58,
+          "end": 89,
+          "range_sha256_lf": "955930b73813a9d1cd705605d42f566c4ea8d99dfe624bd30866c8715eae5536",
+          "tokens": [
+            "ApplicationSourceEnum.FORM",
+            "selectJsonMetadata",
+            "getRuleFileString",
+            "initRule"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "excel.default_template",
+      "summary": "Entity preset default template delegates to the Excel component with explicit import/default flags.",
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": [
+        {
+          "source": "udc/udc-biz/src/main/java/com/seeyon/udc/entity/domain/service/EntityPresetService.java",
+          "start": 305,
+          "end": 339,
+          "range_sha256_lf": "12980a26bb3a12c7902dac68adf7bcde962d15c7711ecb6ddb1b07f72f82c309",
+          "tokens": [
+            "setIsImport(true)",
+            "setIsCustom(false)",
+            "setIsDefault(true)",
+            "createExcelDataGridTemplate"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "excel.default_reuse_columns",
+      "summary": "Default template creation reuses an existing default and maps metadata/reference columns.",
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": [
+        {
+          "source": "boot-extend/boot-starter-excel/src/main/java/com/seeyon/boot/starter/excel/appservice/ExcelExportAppService.java",
+          "start": 246,
+          "end": 320,
+          "range_sha256_lf": "d47157acb1fd0fa2c863b609ba28f98396c9a90b6a7cf712bee28b5753b6e567",
+          "tokens": [
+            "isDefault",
+            "getExcelColumnDtoList",
+            "setNextCanzhao",
+            "createExcelTemplate"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "excel.template.persistence",
+      "summary": "Template save persists signature, hierarchical column metadata and flattened Excel headers.",
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": [
+        {
+          "source": "boot-extend/boot-starter-excel/src/main/java/com/seeyon/boot/starter/excel/domain/service/ExcelExportTemplateService.java",
+          "start": 134,
+          "end": 195,
+          "range_sha256_lf": "3edcc35e83b933b4f72ef3fd46a7135cdffd443e28b33dd49d8516d506b69f67",
+          "tokens": [
+            "setSignatureCode",
+            "setMetadataContent",
+            "setExcelHeadInfo",
+            "excelExportTemplateDao.create"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "excel.check.side_effect",
+      "summary": "Excel check runs template parsing and schedules an async check; it is not a pure read.",
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": [
+        {
+          "source": "boot-extend/boot-starter-excel/src/main/java/com/seeyon/boot/starter/excel/appservice/ExcelImportAppService.java",
+          "start": 74,
+          "end": 91,
+          "range_sha256_lf": "9bfeecf7229c4ef7072126299356a716a625b7a75e66d76c35e7db174549fdac",
+          "tokens": [
+            "checkExcelAndGetInfoData",
+            "ExcelImportCheckEvent",
+            "ExcelConstants.DOING"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "excel.check.template_creation",
+      "summary": "Imported file metadata may create a template when its signature is absent.",
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": [
+        {
+          "source": "boot-extend/boot-starter-excel/src/main/java/com/seeyon/boot/starter/excel/appservice/ExcelImportAppService.java",
+          "start": 154,
+          "end": 195,
+          "range_sha256_lf": "ecdea5e58e551fc58056ba34d5393d55e4137d289ef97fa2bbe6b01c614a4152",
+          "tokens": [
+            "fileService.download",
+            "selectTemplateByMd5",
+            "templateService.create"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "excel.import.enqueue",
+      "summary": "Import returns an async redis key after publishing an event; the key is not completion.",
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": [
+        {
+          "source": "boot-extend/boot-starter-excel/src/main/java/com/seeyon/boot/starter/excel/appservice/ExcelImportAppService.java",
+          "start": 123,
+          "end": 132,
+          "range_sha256_lf": "cb0e9ff3e52d2693b981a230885b78f3b48ebfcfc80c65b6d6077df0a9f0a89c",
+          "tokens": [
+            "checkExcelAndGetInfoData",
+            "ExcelImportEvent",
+            "ExcelConstants.DOING"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "excel.import.listener",
+      "summary": "Import event is handled asynchronously by ExcelConvertService.",
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": [
+        {
+          "source": "boot-extend/boot-starter-excel/src/main/java/com/seeyon/boot/starter/excel/event/listener/ExcelEventListener.java",
+          "start": 138,
+          "end": 147,
+          "range_sha256_lf": "6656ff919909ecc91bd7b66db29cd7814577b50fa0de279d41162c8163761796",
+          "tokens": [
+            "ThreadModel.ASYNC",
+            "onExcelImportForEvent"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "excel.import.batch_save",
+      "summary": "Converted rows are split into create/update batches with row-level result handling.",
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": [
+        {
+          "source": "boot-extend/boot-starter-excel/src/main/java/com/seeyon/boot/starter/excel/domain/service/ExcelConvertService.java",
+          "start": 1234,
+          "end": 1307,
+          "range_sha256_lf": "535570ae82af1bcc6846f7ceaf4219c8ee46cc069c308ba8761bef83f3e15773",
+          "tokens": [
+            "\"createBatch\"",
+            "\"updateBatch\"",
+            "ENTITY_CHECK_ERROR"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "excel.import.dynamic_dispatch",
+      "summary": "Batch save dispatches to an entity appservice or a DAO fallback, depending on availability.",
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": [
+        {
+          "source": "boot-extend/boot-starter-excel/src/main/java/com/seeyon/boot/starter/excel/utils/ExcelTemplateUtil.java",
+          "start": 943,
+          "end": 1013,
+          "range_sha256_lf": "0a83082388f39958f0925c485cdbc587706a82a4dcd8dd60aab4f597c69c1b5f",
+          "tokens": [
+            "getEntityAppServiceName",
+            "getMethod(methodName, List.class)",
+            "getMethod(methodName, SingleRequest.class)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "excel.import.completion",
+      "summary": "Import handler publishes completion/error-file state, sends notifications and removes temporary files.",
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": [
+        {
+          "source": "boot-extend/boot-starter-excel/src/main/java/com/seeyon/boot/starter/excel/domain/service/ExcelConvertService.java",
+          "start": 3054,
+          "end": 3104,
+          "range_sha256_lf": "57cbf2f8232122ec9a337c38837c2315e143981642dc64192b1cd1566c240daf",
+          "tokens": [
+            "EasyExcel.read",
+            "ExcelConstants.SUCCESS",
+            "generateExcel2Url",
+            "sendMessage"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "excel.export.enqueue",
+      "summary": "Export starts an async event/cache operation; returning redisKey does not mean a file exists.",
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": [
+        {
+          "source": "boot-extend/boot-starter-excel/src/main/java/com/seeyon/boot/starter/excel/appservice/ExcelExportAppService.java",
+          "start": 188,
+          "end": 197,
+          "range_sha256_lf": "999575c273128058f06c37cce00f50558fa5d2758d1210a0d10c7c1ea00048c4",
+          "tokens": [
+            "ExcelExportEvent",
+            "ExcelConstants.DOING",
+            "return redisKey"
+          ]
+        }
+      ]
+    }
+  ],
+  "operations": [
+    {
+      "id": "dataflow.design.selectByAppId",
+      "component": "UDC",
+      "method": "GET",
+      "class_path": "udc/data-flow",
+      "method_path": "app/{appId}",
+      "controller_path": "/udc/data-flow/app/{appId}",
+      "gateway_path": null,
+      "request_binding": "path_or_none",
+      "java_method": "selectByAppId",
+      "java_parameter_signature": "@PathVariable(UdcCommonConstant.APP_ID) @ParameterInfo(value = \"所属应用ID\") Long appId",
+      "response_signature": "ListResponse<DataFlowDto>",
+      "state_changing": null,
+      "side_effect_claim": null,
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "udc/udc-web/src/main/java/com/seeyon/udc/controller/DataFlowDesignController.java",
+        "class_mapping_line": 62,
+        "start": 72,
+        "end": 83
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "dataflow.design.selectById",
+      "component": "UDC",
+      "method": "GET",
+      "class_path": "udc/data-flow",
+      "method_path": "{id}",
+      "controller_path": "/udc/data-flow/{id}",
+      "gateway_path": null,
+      "request_binding": "path_or_none",
+      "java_method": "selectById",
+      "java_parameter_signature": "@PathVariable(\"id\") @ParameterInfo(value = \"生单规则ID\") Long id",
+      "response_signature": "SingleResponse<DataFlowDto>",
+      "state_changing": null,
+      "side_effect_claim": null,
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "udc/udc-web/src/main/java/com/seeyon/udc/controller/DataFlowDesignController.java",
+        "class_mapping_line": 62,
+        "start": 78,
+        "end": 89
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "dataflow.design.create",
+      "component": "UDC",
+      "method": "POST",
+      "class_path": "udc/data-flow",
+      "method_path": "",
+      "controller_path": "/udc/data-flow",
+      "gateway_path": null,
+      "request_binding": "flat",
+      "java_method": "create",
+      "java_parameter_signature": "@RequestBody DataFlowDto dto",
+      "response_signature": "SingleResponse<Long>",
+      "state_changing": true,
+      "side_effect_claim": "dataflow.graph.save",
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "udc/udc-web/src/main/java/com/seeyon/udc/controller/DataFlowDesignController.java",
+        "class_mapping_line": 62,
+        "start": 84,
+        "end": 95
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "dataflow.design.update",
+      "component": "UDC",
+      "method": "POST",
+      "class_path": "udc/data-flow",
+      "method_path": "update",
+      "controller_path": "/udc/data-flow/update",
+      "gateway_path": null,
+      "request_binding": "flat",
+      "java_method": "update",
+      "java_parameter_signature": "@RequestBody DataFlowDto dto",
+      "response_signature": "SingleResponse<Integer>",
+      "state_changing": null,
+      "side_effect_claim": null,
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "udc/udc-web/src/main/java/com/seeyon/udc/controller/DataFlowDesignController.java",
+        "class_mapping_line": 62,
+        "start": 90,
+        "end": 101
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "dataflow.design.deleteById",
+      "component": "UDC",
+      "method": "POST",
+      "class_path": "udc/data-flow",
+      "method_path": "delete",
+      "controller_path": "/udc/data-flow/delete",
+      "gateway_path": null,
+      "request_binding": "parameter_names",
+      "java_method": "deleteById",
+      "java_parameter_signature": "@MultiRequestBody Long id",
+      "response_signature": "SingleResponse<Integer>",
+      "state_changing": null,
+      "side_effect_claim": null,
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "udc/udc-web/src/main/java/com/seeyon/udc/controller/DataFlowDesignController.java",
+        "class_mapping_line": 62,
+        "start": 96,
+        "end": 107
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "dataflow.design.deleteByIds",
+      "component": "UDC",
+      "method": "POST",
+      "class_path": "udc/data-flow",
+      "method_path": "batch-delete",
+      "controller_path": "/udc/data-flow/batch-delete",
+      "gateway_path": null,
+      "request_binding": "parameter_names",
+      "java_method": "deleteByIds",
+      "java_parameter_signature": "@MultiRequestBody List<Long> ids",
+      "response_signature": "SingleResponse<Integer>",
+      "state_changing": null,
+      "side_effect_claim": null,
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "udc/udc-web/src/main/java/com/seeyon/udc/controller/DataFlowDesignController.java",
+        "class_mapping_line": 62,
+        "start": 102,
+        "end": 113
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "dataflow.design.selectPageByCondition",
+      "component": "UDC",
+      "method": "POST",
+      "class_path": "udc/data-flow",
+      "method_path": "search",
+      "controller_path": "/udc/data-flow/search",
+      "gateway_path": null,
+      "request_binding": "parameter_names",
+      "java_method": "selectPageByCondition",
+      "java_parameter_signature": "@MultiRequestBody PageInfo pageInfo,\n                                                           @MultiRequestBody Map<String, Object> params,\n                                                           @MultiRequestBody Sort sort",
+      "response_signature": "PageResponse<DataFlowDto>",
+      "state_changing": null,
+      "side_effect_claim": null,
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "udc/udc-web/src/main/java/com/seeyon/udc/controller/DataFlowDesignController.java",
+        "class_mapping_line": 62,
+        "start": 108,
+        "end": 119
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "dataflow.design.selectEntityListByCondition",
+      "component": "UDC",
+      "method": "POST",
+      "class_path": "udc/data-flow",
+      "method_path": "list/entity",
+      "controller_path": "/udc/data-flow/list/entity",
+      "gateway_path": null,
+      "request_binding": "flat",
+      "java_method": "selectEntityListByCondition",
+      "java_parameter_signature": "@RequestBody EntityQueryDto dto",
+      "response_signature": "ListResponse<EntityTreeDto>",
+      "state_changing": null,
+      "side_effect_claim": null,
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "udc/udc-web/src/main/java/com/seeyon/udc/controller/DataFlowDesignController.java",
+        "class_mapping_line": 62,
+        "start": 116,
+        "end": 127
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "dataflow.design.selectMappingCountByEntityId",
+      "component": "UDC",
+      "method": "POST",
+      "class_path": "udc/data-flow",
+      "method_path": "mapping/count",
+      "controller_path": "/udc/data-flow/mapping/count",
+      "gateway_path": null,
+      "request_binding": "flat",
+      "java_method": "selectMappingCountByEntityId",
+      "java_parameter_signature": "@RequestBody MappingQueryDto dto",
+      "response_signature": "SingleResponse<Integer>",
+      "state_changing": null,
+      "side_effect_claim": null,
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "udc/udc-web/src/main/java/com/seeyon/udc/controller/DataFlowDesignController.java",
+        "class_mapping_line": 62,
+        "start": 122,
+        "end": 133
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "dataflow.design.selectLineMappingCountByEntity",
+      "component": "UDC",
+      "method": "POST",
+      "class_path": "udc/data-flow",
+      "method_path": "mapping/line/count",
+      "controller_path": "/udc/data-flow/mapping/line/count",
+      "gateway_path": null,
+      "request_binding": "flat",
+      "java_method": "selectLineMappingCountByEntity",
+      "java_parameter_signature": "@RequestBody MappingQueryDto queryDto",
+      "response_signature": "SingleResponse<Integer>",
+      "state_changing": null,
+      "side_effect_claim": null,
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "udc/udc-web/src/main/java/com/seeyon/udc/controller/DataFlowDesignController.java",
+        "class_mapping_line": 62,
+        "start": 129,
+        "end": 140
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "dataflow.design.deleteLineOrNodeInGraph",
+      "component": "UDC",
+      "method": "POST",
+      "class_path": "udc/data-flow",
+      "method_path": "delete/content",
+      "controller_path": "/udc/data-flow/delete/content",
+      "gateway_path": null,
+      "request_binding": "flat",
+      "java_method": "deleteLineOrNodeInGraph",
+      "java_parameter_signature": "@RequestBody DataFlowDeleteContentDto request",
+      "response_signature": "SingleResponse<DataFlowDeleteResultDto>",
+      "state_changing": null,
+      "side_effect_claim": null,
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "udc/udc-web/src/main/java/com/seeyon/udc/controller/DataFlowDesignController.java",
+        "class_mapping_line": 62,
+        "start": 137,
+        "end": 148
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "dataflow.design.entity4NotExist",
+      "component": "UDC",
+      "method": "POST",
+      "class_path": "udc/data-flow",
+      "method_path": "entity-not-exist-ids",
+      "controller_path": "/udc/data-flow/entity-not-exist-ids",
+      "gateway_path": null,
+      "request_binding": "flat",
+      "java_method": "entity4NotExist",
+      "java_parameter_signature": "@RequestBody CheckEntityExistRequestDto request",
+      "response_signature": "ListResponse<Long>",
+      "state_changing": null,
+      "side_effect_claim": null,
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "udc/udc-web/src/main/java/com/seeyon/udc/controller/DataFlowDesignController.java",
+        "class_mapping_line": 62,
+        "start": 143,
+        "end": 154
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "dataflow.design.selectMappingInitData",
+      "component": "UDC",
+      "method": "POST",
+      "class_path": "udc/data-flow",
+      "method_path": "mapping/init-data",
+      "controller_path": "/udc/data-flow/mapping/init-data",
+      "gateway_path": null,
+      "request_binding": "flat",
+      "java_method": "selectMappingInitData",
+      "java_parameter_signature": "@RequestBody DataFlowMappingInitQueryDto queryDto",
+      "response_signature": "SingleResponse<DataFlowMappingInitDataDto>",
+      "state_changing": null,
+      "side_effect_claim": null,
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "udc/udc-web/src/main/java/com/seeyon/udc/controller/DataFlowDesignController.java",
+        "class_mapping_line": 62,
+        "start": 151,
+        "end": 162
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "dataflow.design.createMapping",
+      "component": "UDC",
+      "method": "POST",
+      "class_path": "udc/data-flow",
+      "method_path": "mapping",
+      "controller_path": "/udc/data-flow/mapping",
+      "gateway_path": null,
+      "request_binding": "flat",
+      "java_method": "createMapping",
+      "java_parameter_signature": "@RequestBody DataFlowMappingSaveDto dto",
+      "response_signature": "SingleResponse<DataFlowMappingResultDto>",
+      "state_changing": true,
+      "side_effect_claim": "dataflow.mapping.save",
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "udc/udc-web/src/main/java/com/seeyon/udc/controller/DataFlowDesignController.java",
+        "class_mapping_line": 62,
+        "start": 157,
+        "end": 168
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "dataflow.design.updateMapping",
+      "component": "UDC",
+      "method": "POST",
+      "class_path": "udc/data-flow",
+      "method_path": "mapping/update",
+      "controller_path": "/udc/data-flow/mapping/update",
+      "gateway_path": null,
+      "request_binding": "flat",
+      "java_method": "updateMapping",
+      "java_parameter_signature": "@RequestBody DataFlowMappingSaveDto dto",
+      "response_signature": "SingleResponse<DataFlowMappingResultDto>",
+      "state_changing": null,
+      "side_effect_claim": null,
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "udc/udc-web/src/main/java/com/seeyon/udc/controller/DataFlowDesignController.java",
+        "class_mapping_line": 62,
+        "start": 163,
+        "end": 174
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "dataflow.design.selectMappingById",
+      "component": "UDC",
+      "method": "GET",
+      "class_path": "udc/data-flow",
+      "method_path": "mapping/{id}",
+      "controller_path": "/udc/data-flow/mapping/{id}",
+      "gateway_path": null,
+      "request_binding": "path_or_none",
+      "java_method": "selectMappingById",
+      "java_parameter_signature": "@PathVariable(\"id\") @ParameterInfo(value = \"映射规则ID\") Long id",
+      "response_signature": "SingleResponse<DataFlowMappingDto>",
+      "state_changing": null,
+      "side_effect_claim": null,
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "udc/udc-web/src/main/java/com/seeyon/udc/controller/DataFlowDesignController.java",
+        "class_mapping_line": 62,
+        "start": 169,
+        "end": 180
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "dataflow.design.deleteMapping",
+      "component": "UDC",
+      "method": "POST",
+      "class_path": "udc/data-flow",
+      "method_path": "mapping/delete",
+      "controller_path": "/udc/data-flow/mapping/delete",
+      "gateway_path": null,
+      "request_binding": "parameter_names",
+      "java_method": "deleteMapping",
+      "java_parameter_signature": "@MultiRequestBody @ParameterInfo(value = \"映射规则ID\") Long id",
+      "response_signature": "SingleResponse<DataFlowMappingResultDto>",
+      "state_changing": null,
+      "side_effect_claim": null,
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "udc/udc-web/src/main/java/com/seeyon/udc/controller/DataFlowDesignController.java",
+        "class_mapping_line": 62,
+        "start": 175,
+        "end": 186
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "dataflow.design.selectByIds",
+      "component": "UDC",
+      "method": "POST",
+      "class_path": "udc/data-flow",
+      "method_path": "mapping/list",
+      "controller_path": "/udc/data-flow/mapping/list",
+      "gateway_path": null,
+      "request_binding": "flat",
+      "java_method": "selectByIds",
+      "java_parameter_signature": "@RequestBody @ParameterInfo(value = \"映射规则ID列表\") List<Long> ids",
+      "response_signature": "ListResponse<DataFlowMappingDto>",
+      "state_changing": null,
+      "side_effect_claim": null,
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "udc/udc-web/src/main/java/com/seeyon/udc/controller/DataFlowDesignController.java",
+        "class_mapping_line": 62,
+        "start": 181,
+        "end": 192
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "dataflow.design.selectMappingListByCondition",
+      "component": "UDC",
+      "method": "POST",
+      "class_path": "udc/data-flow",
+      "method_path": "mapping/search",
+      "controller_path": "/udc/data-flow/mapping/search",
+      "gateway_path": null,
+      "request_binding": "flat",
+      "java_method": "selectMappingListByCondition",
+      "java_parameter_signature": "@RequestBody DataFlowMappingQueryDto queryDto",
+      "response_signature": "ListResponse<DataFlowMappingSimpleDto>",
+      "state_changing": null,
+      "side_effect_claim": null,
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "udc/udc-web/src/main/java/com/seeyon/udc/controller/DataFlowDesignController.java",
+        "class_mapping_line": 62,
+        "start": 188,
+        "end": 199
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "dataflow.design.selectManuallyMapping",
+      "component": "UDC",
+      "method": "POST",
+      "class_path": "udc/data-flow",
+      "method_path": "list/manually/mapping",
+      "controller_path": "/udc/data-flow/list/manually/mapping",
+      "gateway_path": null,
+      "request_binding": "flat",
+      "java_method": "selectManuallyMapping",
+      "java_parameter_signature": "@RequestBody DataFlowMappingQueryDto queryDto",
+      "response_signature": "ListResponse<DataFlowPageBindParameterDto>",
+      "state_changing": null,
+      "side_effect_claim": null,
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "udc/udc-web/src/main/java/com/seeyon/udc/controller/DataFlowDesignController.java",
+        "class_mapping_line": 62,
+        "start": 194,
+        "end": 205
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "dataflow.design.selectApplicationListByAppId",
+      "component": "UDC",
+      "method": "GET",
+      "class_path": "udc/data-flow",
+      "method_path": "list/application/{appId}",
+      "controller_path": "/udc/data-flow/list/application/{appId}",
+      "gateway_path": null,
+      "request_binding": "path_or_none",
+      "java_method": "selectApplicationListByAppId",
+      "java_parameter_signature": "@PathVariable(\"appId\") @ParameterInfo(value = \"当前应用id\") Long appId",
+      "response_signature": "ListResponse<ApplicationDto>",
+      "state_changing": null,
+      "side_effect_claim": null,
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "udc/udc-web/src/main/java/com/seeyon/udc/controller/DataFlowDesignController.java",
+        "class_mapping_line": 62,
+        "start": 202,
+        "end": 213
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "dataflow.design.selectEntityListByAppId",
+      "component": "UDC",
+      "method": "POST",
+      "class_path": "udc/data-flow",
+      "method_path": "list/event/entity",
+      "controller_path": "/udc/data-flow/list/event/entity",
+      "gateway_path": null,
+      "request_binding": "flat",
+      "java_method": "selectEntityListByAppId",
+      "java_parameter_signature": "@RequestBody EntityQuery4EventDto query4EventDto",
+      "response_signature": "ListResponse<DataFlowEntityDto>",
+      "state_changing": null,
+      "side_effect_claim": null,
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "udc/udc-web/src/main/java/com/seeyon/udc/controller/DataFlowDesignController.java",
+        "class_mapping_line": 62,
+        "start": 208,
+        "end": 219
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "dataflow.design.selectEventListByCondition",
+      "component": "UDC",
+      "method": "POST",
+      "class_path": "udc/data-flow",
+      "method_path": "list/events",
+      "controller_path": "/udc/data-flow/list/events",
+      "gateway_path": null,
+      "request_binding": "flat",
+      "java_method": "selectEventListByCondition",
+      "java_parameter_signature": "@RequestBody DataFlowEventQueryDto paramDto",
+      "response_signature": "ListResponse<EventQueryResultDto>",
+      "state_changing": null,
+      "side_effect_claim": null,
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "udc/udc-web/src/main/java/com/seeyon/udc/controller/DataFlowDesignController.java",
+        "class_mapping_line": 62,
+        "start": 214,
+        "end": 224
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "dataflow.design.selectEventDataByFullName",
+      "component": "UDC",
+      "method": "POST",
+      "class_path": "udc/data-flow",
+      "method_path": "list/event-data",
+      "controller_path": "/udc/data-flow/list/event-data",
+      "gateway_path": null,
+      "request_binding": "flat",
+      "java_method": "selectEventDataByFullName",
+      "java_parameter_signature": "@RequestBody EventDetailQueryDto eventDetailQueryDto",
+      "response_signature": "ListResponse<DataFlowAttributeDto>",
+      "state_changing": null,
+      "side_effect_claim": null,
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "udc/udc-web/src/main/java/com/seeyon/udc/controller/DataFlowDesignController.java",
+        "class_mapping_line": 62,
+        "start": 220,
+        "end": 224
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "deduction.design.create",
+      "component": "UDC",
+      "method": "POST",
+      "class_path": "udc/deduction",
+      "method_path": "map",
+      "controller_path": "/udc/deduction/map",
+      "gateway_path": null,
+      "request_binding": "flat",
+      "java_method": "create",
+      "java_parameter_signature": "@RequestBody DeductionMapDto dto",
+      "response_signature": "SingleResponse<Long>",
+      "state_changing": true,
+      "side_effect_claim": "deduction.map.save",
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "udc/udc-web/src/main/java/com/seeyon/udc/controller/DeductionRuleController.java",
+        "class_mapping_line": 49,
+        "start": 69,
+        "end": 80
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "deduction.design.update",
+      "component": "UDC",
+      "method": "POST",
+      "class_path": "udc/deduction",
+      "method_path": "map/update",
+      "controller_path": "/udc/deduction/map/update",
+      "gateway_path": null,
+      "request_binding": "flat",
+      "java_method": "update",
+      "java_parameter_signature": "@RequestBody DeductionMapDto dto",
+      "response_signature": "SingleResponse<Integer>",
+      "state_changing": null,
+      "side_effect_claim": null,
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "udc/udc-web/src/main/java/com/seeyon/udc/controller/DeductionRuleController.java",
+        "class_mapping_line": 49,
+        "start": 75,
+        "end": 86
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "deduction.design.selectByAppId",
+      "component": "UDC",
+      "method": "GET",
+      "class_path": "udc/deduction",
+      "method_path": "map/app/{appId}",
+      "controller_path": "/udc/deduction/map/app/{appId}",
+      "gateway_path": null,
+      "request_binding": "path_or_none",
+      "java_method": "selectByAppId",
+      "java_parameter_signature": "@PathVariable(UdcCommonConstant.APP_ID) @ParameterInfo(value = \"应用id\") Long appId",
+      "response_signature": "ListResponse<DeductionMapDto>",
+      "state_changing": null,
+      "side_effect_claim": null,
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "udc/udc-web/src/main/java/com/seeyon/udc/controller/DeductionRuleController.java",
+        "class_mapping_line": 49,
+        "start": 81,
+        "end": 92
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "deduction.design.selectById",
+      "component": "UDC",
+      "method": "GET",
+      "class_path": "udc/deduction",
+      "method_path": "map/{id}",
+      "controller_path": "/udc/deduction/map/{id}",
+      "gateway_path": null,
+      "request_binding": "path_or_none",
+      "java_method": "selectById",
+      "java_parameter_signature": "@PathVariable(\"id\") @ParameterInfo(value = \"扣减关系图形id\") Long id",
+      "response_signature": "SingleResponse<DeductionMapDto>",
+      "state_changing": null,
+      "side_effect_claim": null,
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "udc/udc-web/src/main/java/com/seeyon/udc/controller/DeductionRuleController.java",
+        "class_mapping_line": 49,
+        "start": 87,
+        "end": 98
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "deduction.design.deleteById",
+      "component": "UDC",
+      "method": "POST",
+      "class_path": "udc/deduction",
+      "method_path": "map/delete",
+      "controller_path": "/udc/deduction/map/delete",
+      "gateway_path": null,
+      "request_binding": "parameter_names",
+      "java_method": "deleteById",
+      "java_parameter_signature": "@MultiRequestBody Long id",
+      "response_signature": "SingleResponse<Integer>",
+      "state_changing": null,
+      "side_effect_claim": null,
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "udc/udc-web/src/main/java/com/seeyon/udc/controller/DeductionRuleController.java",
+        "class_mapping_line": 49,
+        "start": 93,
+        "end": 104
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "deduction.design.deleteLineOrNode4deductionMap",
+      "component": "UDC",
+      "method": "POST",
+      "class_path": "udc/deduction",
+      "method_path": "map/delete/content",
+      "controller_path": "/udc/deduction/map/delete/content",
+      "gateway_path": null,
+      "request_binding": "flat",
+      "java_method": "deleteLineOrNode4deductionMap",
+      "java_parameter_signature": "@RequestBody DeductionMapDeleteDto dto",
+      "response_signature": "SingleResponse<DeductionDeleteResultDto>",
+      "state_changing": null,
+      "side_effect_claim": null,
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "udc/udc-web/src/main/java/com/seeyon/udc/controller/DeductionRuleController.java",
+        "class_mapping_line": 49,
+        "start": 99,
+        "end": 110
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "deduction.design.createRule",
+      "component": "UDC",
+      "method": "POST",
+      "class_path": "udc/deduction",
+      "method_path": "rule",
+      "controller_path": "/udc/deduction/rule",
+      "gateway_path": null,
+      "request_binding": "flat",
+      "java_method": "createRule",
+      "java_parameter_signature": "@RequestBody DeductionRuleDto dto",
+      "response_signature": "SingleResponse<DeductionResultDto>",
+      "state_changing": true,
+      "side_effect_claim": "deduction.rule.save",
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "udc/udc-web/src/main/java/com/seeyon/udc/controller/DeductionRuleController.java",
+        "class_mapping_line": 49,
+        "start": 107,
+        "end": 118
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "deduction.design.validRule",
+      "component": "UDC",
+      "method": "POST",
+      "class_path": "udc/deduction",
+      "method_path": "validRule",
+      "controller_path": "/udc/deduction/validRule",
+      "gateway_path": null,
+      "request_binding": "flat",
+      "java_method": "validRule",
+      "java_parameter_signature": "@RequestBody DeductionRuleDto dto",
+      "response_signature": "SingleResponse<DeductionResultDto>",
+      "state_changing": null,
+      "side_effect_claim": null,
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "udc/udc-web/src/main/java/com/seeyon/udc/controller/DeductionRuleController.java",
+        "class_mapping_line": 49,
+        "start": 113,
+        "end": 124
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "deduction.design.updateRule",
+      "component": "UDC",
+      "method": "POST",
+      "class_path": "udc/deduction",
+      "method_path": "rule/update",
+      "controller_path": "/udc/deduction/rule/update",
+      "gateway_path": null,
+      "request_binding": "flat",
+      "java_method": "updateRule",
+      "java_parameter_signature": "@RequestBody DeductionRuleDto dto",
+      "response_signature": "SingleResponse<DeductionResultDto>",
+      "state_changing": null,
+      "side_effect_claim": null,
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "udc/udc-web/src/main/java/com/seeyon/udc/controller/DeductionRuleController.java",
+        "class_mapping_line": 49,
+        "start": 119,
+        "end": 130
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "deduction.design.selectRuleListByCondition",
+      "component": "UDC",
+      "method": "POST",
+      "class_path": "udc/deduction",
+      "method_path": "rule/search",
+      "controller_path": "/udc/deduction/rule/search",
+      "gateway_path": null,
+      "request_binding": "flat",
+      "java_method": "selectRuleListByCondition",
+      "java_parameter_signature": "@RequestBody DeductionRuleQueryDto dto",
+      "response_signature": "ListResponse<DeductionRuleSimpleDto>",
+      "state_changing": null,
+      "side_effect_claim": null,
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "udc/udc-web/src/main/java/com/seeyon/udc/controller/DeductionRuleController.java",
+        "class_mapping_line": 49,
+        "start": 125,
+        "end": 136
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "deduction.design.selectRuleById",
+      "component": "UDC",
+      "method": "GET",
+      "class_path": "udc/deduction",
+      "method_path": "rule/{id}",
+      "controller_path": "/udc/deduction/rule/{id}",
+      "gateway_path": null,
+      "request_binding": "path_or_none",
+      "java_method": "selectRuleById",
+      "java_parameter_signature": "@PathVariable(\"id\") @ParameterInfo(value = \"规则id\") Long id",
+      "response_signature": "SingleResponse<DeductionRuleDto>",
+      "state_changing": null,
+      "side_effect_claim": null,
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "udc/udc-web/src/main/java/com/seeyon/udc/controller/DeductionRuleController.java",
+        "class_mapping_line": 49,
+        "start": 131,
+        "end": 142
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "deduction.design.initData",
+      "component": "UDC",
+      "method": "POST",
+      "class_path": "udc/deduction",
+      "method_path": "rule/init-data",
+      "controller_path": "/udc/deduction/rule/init-data",
+      "gateway_path": null,
+      "request_binding": "flat",
+      "java_method": "initData",
+      "java_parameter_signature": "@RequestBody DeductionInitDataQueryDto dto",
+      "response_signature": "SingleResponse<DeductionInitDataDto>",
+      "state_changing": null,
+      "side_effect_claim": null,
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "udc/udc-web/src/main/java/com/seeyon/udc/controller/DeductionRuleController.java",
+        "class_mapping_line": 49,
+        "start": 137,
+        "end": 148
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "deduction.design.deleteRuleById",
+      "component": "UDC",
+      "method": "POST",
+      "class_path": "udc/deduction",
+      "method_path": "rule/delete",
+      "controller_path": "/udc/deduction/rule/delete",
+      "gateway_path": null,
+      "request_binding": "parameter_names",
+      "java_method": "deleteRuleById",
+      "java_parameter_signature": "@MultiRequestBody Long id",
+      "response_signature": "SingleResponse<Integer>",
+      "state_changing": null,
+      "side_effect_claim": null,
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "udc/udc-web/src/main/java/com/seeyon/udc/controller/DeductionRuleController.java",
+        "class_mapping_line": 49,
+        "start": 143,
+        "end": 154
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "deduction.design.selectDeductionRuleCountByEntityId",
+      "component": "UDC",
+      "method": "POST",
+      "class_path": "udc/deduction",
+      "method_path": "rule/count",
+      "controller_path": "/udc/deduction/rule/count",
+      "gateway_path": null,
+      "request_binding": "flat",
+      "java_method": "selectDeductionRuleCountByEntityId",
+      "java_parameter_signature": "@RequestBody DeductionRuleCountQueryDto dto",
+      "response_signature": "SingleResponse<Integer>",
+      "state_changing": null,
+      "side_effect_claim": null,
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "udc/udc-web/src/main/java/com/seeyon/udc/controller/DeductionRuleController.java",
+        "class_mapping_line": 49,
+        "start": 149,
+        "end": 160
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "deduction.design.selectEntityListByCondition",
+      "component": "UDC",
+      "method": "POST",
+      "class_path": "udc/deduction",
+      "method_path": "entity/list",
+      "controller_path": "/udc/deduction/entity/list",
+      "gateway_path": null,
+      "request_binding": "flat",
+      "java_method": "selectEntityListByCondition",
+      "java_parameter_signature": "@RequestBody DeductionQueryEntityDto dto",
+      "response_signature": "ListResponse<EntityTreeDto>",
+      "state_changing": null,
+      "side_effect_claim": null,
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "udc/udc-web/src/main/java/com/seeyon/udc/controller/DeductionRuleController.java",
+        "class_mapping_line": 49,
+        "start": 155,
+        "end": 165
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "deduction.design.entity4NotExist",
+      "component": "UDC",
+      "method": "POST",
+      "class_path": "udc/deduction",
+      "method_path": "entity-not-exist-ids",
+      "controller_path": "/udc/deduction/entity-not-exist-ids",
+      "gateway_path": null,
+      "request_binding": "parameter_names",
+      "java_method": "entity4NotExist",
+      "java_parameter_signature": "@ApiParam(value = \"实体ids\") @MultiRequestBody @NotNull List<Long> ids",
+      "response_signature": "ListResponse<Long>",
+      "state_changing": null,
+      "side_effect_claim": null,
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "udc/udc-web/src/main/java/com/seeyon/udc/controller/DeductionRuleController.java",
+        "class_mapping_line": 49,
+        "start": 161,
+        "end": 165
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "deduction.runtime.management.selectSimpleDeductionMap",
+      "component": "UDC",
+      "method": "GET",
+      "class_path": "udc-runtime/deduction",
+      "method_path": "map/getAll/{appId}",
+      "controller_path": "/udc-runtime/deduction/map/getAll/{appId}",
+      "gateway_path": null,
+      "request_binding": "path_or_none",
+      "java_method": "selectSimpleDeductionMap",
+      "java_parameter_signature": "@PathVariable(\"appId\") @ParameterInfo(value = \"appId\") Long appId",
+      "response_signature": "ListResponse<DeductionRtMapSimpleDto>",
+      "state_changing": null,
+      "side_effect_claim": null,
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "udc-starters/udc-starter-dataflow/src/main/java/com/seeyon/boot/starter/deduction/controller/DeductionController.java",
+        "class_mapping_line": 39,
+        "start": 52,
+        "end": 63
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "deduction.runtime.management.selectDeductionMapById",
+      "component": "UDC",
+      "method": "GET",
+      "class_path": "udc-runtime/deduction",
+      "method_path": "map/{id}",
+      "controller_path": "/udc-runtime/deduction/map/{id}",
+      "gateway_path": null,
+      "request_binding": "path_or_none",
+      "java_method": "selectDeductionMapById",
+      "java_parameter_signature": "@PathVariable(\"id\") @ParameterInfo(value = \"id\") Long id",
+      "response_signature": "SingleResponse<DeductionRtMapDto>",
+      "state_changing": null,
+      "side_effect_claim": null,
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "udc-starters/udc-starter-dataflow/src/main/java/com/seeyon/boot/starter/deduction/controller/DeductionController.java",
+        "class_mapping_line": 39,
+        "start": 58,
+        "end": 69
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "deduction.runtime.management.selectRtRuleVersion",
+      "component": "UDC",
+      "method": "POST",
+      "class_path": "udc-runtime/deduction",
+      "method_path": "rule/getAll",
+      "controller_path": "/udc-runtime/deduction/rule/getAll",
+      "gateway_path": null,
+      "request_binding": "flat",
+      "java_method": "selectRtRuleVersion",
+      "java_parameter_signature": "@RequestBody DeductionRtRuleVersionIdQueryDto dto",
+      "response_signature": "ListResponse<DeductionRtRuleCategoryDto>",
+      "state_changing": null,
+      "side_effect_claim": null,
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "udc-starters/udc-starter-dataflow/src/main/java/com/seeyon/boot/starter/deduction/controller/DeductionController.java",
+        "class_mapping_line": 39,
+        "start": 64,
+        "end": 75
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "deduction.runtime.management.initRuleData",
+      "component": "UDC",
+      "method": "POST",
+      "class_path": "udc-runtime/deduction",
+      "method_path": "rule/initData",
+      "controller_path": "/udc-runtime/deduction/rule/initData",
+      "gateway_path": null,
+      "request_binding": "flat",
+      "java_method": "initRuleData",
+      "java_parameter_signature": "@RequestBody DeductionRtRuleVersionQueryDto dto",
+      "response_signature": "SingleResponse<DeductionRtInitDataDto>",
+      "state_changing": null,
+      "side_effect_claim": null,
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "udc-starters/udc-starter-dataflow/src/main/java/com/seeyon/boot/starter/deduction/controller/DeductionController.java",
+        "class_mapping_line": 39,
+        "start": 70,
+        "end": 81
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "deduction.runtime.management.selectDeductionRuleById",
+      "component": "UDC",
+      "method": "GET",
+      "class_path": "udc-runtime/deduction",
+      "method_path": "rule/{id}",
+      "controller_path": "/udc-runtime/deduction/rule/{id}",
+      "gateway_path": null,
+      "request_binding": "path_or_none",
+      "java_method": "selectDeductionRuleById",
+      "java_parameter_signature": "@PathVariable(\"id\") @ParameterInfo(value = \"id\") Long id",
+      "response_signature": "SingleResponse<DeductionRtRuleDto>",
+      "state_changing": null,
+      "side_effect_claim": null,
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "udc-starters/udc-starter-dataflow/src/main/java/com/seeyon/boot/starter/deduction/controller/DeductionController.java",
+        "class_mapping_line": 39,
+        "start": 76,
+        "end": 87
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "deduction.runtime.management.saveRuleNewVersion",
+      "component": "UDC",
+      "method": "POST",
+      "class_path": "udc-runtime/deduction",
+      "method_path": "rule/saveRuleNewVersion",
+      "controller_path": "/udc-runtime/deduction/rule/saveRuleNewVersion",
+      "gateway_path": null,
+      "request_binding": "flat",
+      "java_method": "saveRuleNewVersion",
+      "java_parameter_signature": "@RequestBody DeductionRtRuleDto dto",
+      "response_signature": "SingleResponse<DeductionSaveRuleNewVersionRespDto>",
+      "state_changing": null,
+      "side_effect_claim": null,
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "udc-starters/udc-starter-dataflow/src/main/java/com/seeyon/boot/starter/deduction/controller/DeductionController.java",
+        "class_mapping_line": 39,
+        "start": 82,
+        "end": 93
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "deduction.runtime.management.enableRule",
+      "component": "UDC",
+      "method": "POST",
+      "class_path": "udc-runtime/deduction",
+      "method_path": "rule/enableRule",
+      "controller_path": "/udc-runtime/deduction/rule/enableRule",
+      "gateway_path": null,
+      "request_binding": "parameter_names",
+      "java_method": "enableRule",
+      "java_parameter_signature": "@MultiRequestBody Long id",
+      "response_signature": "SingleResponse<Boolean>",
+      "state_changing": null,
+      "side_effect_claim": null,
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "udc-starters/udc-starter-dataflow/src/main/java/com/seeyon/boot/starter/deduction/controller/DeductionController.java",
+        "class_mapping_line": 39,
+        "start": 88,
+        "end": 99
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "deduction.runtime.management.selectRuleFileString",
+      "component": "UDC",
+      "method": "GET",
+      "class_path": "udc-runtime/deduction",
+      "method_path": "file/rule/{appName}",
+      "controller_path": "/udc-runtime/deduction/file/rule/{appName}",
+      "gateway_path": null,
+      "request_binding": "path_or_none",
+      "java_method": "selectRuleFileString",
+      "java_parameter_signature": "@PathVariable(\"appName\") @ParameterInfo(value = \"appName\") String appName",
+      "response_signature": "SingleResponse<String>",
+      "state_changing": null,
+      "side_effect_claim": null,
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "udc-starters/udc-starter-dataflow/src/main/java/com/seeyon/boot/starter/deduction/controller/DeductionController.java",
+        "class_mapping_line": 39,
+        "start": 94,
+        "end": 105
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "deduction.runtime.management.selectMapFileString",
+      "component": "UDC",
+      "method": "GET",
+      "class_path": "udc-runtime/deduction",
+      "method_path": "file/map/{appName}",
+      "controller_path": "/udc-runtime/deduction/file/map/{appName}",
+      "gateway_path": null,
+      "request_binding": "path_or_none",
+      "java_method": "selectMapFileString",
+      "java_parameter_signature": "@PathVariable(\"appName\") @ParameterInfo(value = \"appName\") String appName",
+      "response_signature": "SingleResponse<String>",
+      "state_changing": null,
+      "side_effect_claim": null,
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "udc-starters/udc-starter-dataflow/src/main/java/com/seeyon/boot/starter/deduction/controller/DeductionController.java",
+        "class_mapping_line": 39,
+        "start": 100,
+        "end": 111
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "excel.component.excelMetaList",
+      "component": "Excel",
+      "method": "POST",
+      "class_path": "excel",
+      "method_path": "get-entity-metadata",
+      "controller_path": "/excel/get-entity-metadata",
+      "gateway_path": null,
+      "request_binding": "flat",
+      "java_method": "excelMetaList",
+      "java_parameter_signature": "@RequestBody ExcelMetadataInfoDto dto",
+      "response_signature": "SingleResponse<String>",
+      "state_changing": null,
+      "side_effect_claim": null,
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "boot-extend/boot-starter-excel/src/main/java/com/seeyon/boot/starter/excel/controller/ExcelController.java",
+        "class_mapping_line": 36,
+        "start": 51,
+        "end": 62
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "excel.component.createExcelTemplate",
+      "component": "Excel",
+      "method": "POST",
+      "class_path": "excel",
+      "method_path": "create-template",
+      "controller_path": "/excel/create-template",
+      "gateway_path": null,
+      "request_binding": "flat",
+      "java_method": "createExcelTemplate",
+      "java_parameter_signature": "@RequestBody ExcelExportTemplateDto dto",
+      "response_signature": "SingleResponse<Long>",
+      "state_changing": true,
+      "side_effect_claim": "excel.template.persistence",
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "boot-extend/boot-starter-excel/src/main/java/com/seeyon/boot/starter/excel/controller/ExcelController.java",
+        "class_mapping_line": 36,
+        "start": 57,
+        "end": 68
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "excel.component.updateExcelTemplate",
+      "component": "Excel",
+      "method": "POST",
+      "class_path": "excel",
+      "method_path": "update-template",
+      "controller_path": "/excel/update-template",
+      "gateway_path": null,
+      "request_binding": "flat",
+      "java_method": "updateExcelTemplate",
+      "java_parameter_signature": "@RequestBody ExcelExportTemplateDto dto",
+      "response_signature": "SingleResponse<Integer>",
+      "state_changing": null,
+      "side_effect_claim": null,
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "boot-extend/boot-starter-excel/src/main/java/com/seeyon/boot/starter/excel/controller/ExcelController.java",
+        "class_mapping_line": 36,
+        "start": 66,
+        "end": 77
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "excel.component.setTemplateDefault",
+      "component": "Excel",
+      "method": "POST",
+      "class_path": "excel",
+      "method_path": "set-template-default",
+      "controller_path": "/excel/set-template-default",
+      "gateway_path": null,
+      "request_binding": "parameter_names",
+      "java_method": "setTemplateDefault",
+      "java_parameter_signature": "@MultiRequestBody Long id",
+      "response_signature": "SingleResponse<Integer>",
+      "state_changing": null,
+      "side_effect_claim": null,
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "boot-extend/boot-starter-excel/src/main/java/com/seeyon/boot/starter/excel/controller/ExcelController.java",
+        "class_mapping_line": 36,
+        "start": 75,
+        "end": 86
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "excel.component.selectById",
+      "component": "Excel",
+      "method": "POST",
+      "class_path": "excel",
+      "method_path": "select-by-id",
+      "controller_path": "/excel/select-by-id",
+      "gateway_path": null,
+      "request_binding": "parameter_names",
+      "java_method": "selectById",
+      "java_parameter_signature": "@MultiRequestBody Long id",
+      "response_signature": "SingleResponse<ExcelExportTemplateDto>",
+      "state_changing": null,
+      "side_effect_claim": null,
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "boot-extend/boot-starter-excel/src/main/java/com/seeyon/boot/starter/excel/controller/ExcelController.java",
+        "class_mapping_line": 36,
+        "start": 82,
+        "end": 93
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "excel.component.selectPageByCondition",
+      "component": "Excel",
+      "method": "POST",
+      "class_path": "excel",
+      "method_path": "search",
+      "controller_path": "/excel/search",
+      "gateway_path": null,
+      "request_binding": "flat",
+      "java_method": "selectPageByCondition",
+      "java_parameter_signature": "@RequestBody PageRequest request",
+      "response_signature": "PageResponse<ExcelExportTemplateDto>",
+      "state_changing": null,
+      "side_effect_claim": null,
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "boot-extend/boot-starter-excel/src/main/java/com/seeyon/boot/starter/excel/controller/ExcelController.java",
+        "class_mapping_line": 36,
+        "start": 88,
+        "end": 99
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "excel.component.selectListByConditions",
+      "component": "Excel",
+      "method": "POST",
+      "class_path": "excel",
+      "method_path": "search-list-by-conditions",
+      "controller_path": "/excel/search-list-by-conditions",
+      "gateway_path": null,
+      "request_binding": "parameter_names",
+      "java_method": "selectListByConditions",
+      "java_parameter_signature": "@MultiRequestBody Map<String, Object> map, @MultiRequestBody Sort sort",
+      "response_signature": "ListResponse<ExcelExportTemplateDto>",
+      "state_changing": null,
+      "side_effect_claim": null,
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "boot-extend/boot-starter-excel/src/main/java/com/seeyon/boot/starter/excel/controller/ExcelController.java",
+        "class_mapping_line": 36,
+        "start": 94,
+        "end": 105
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "excel.component.selectCustomListByConditions",
+      "component": "Excel",
+      "method": "POST",
+      "class_path": "excel",
+      "method_path": "search-custom-list-by-conditions",
+      "controller_path": "/excel/search-custom-list-by-conditions",
+      "gateway_path": null,
+      "request_binding": "parameter_names",
+      "java_method": "selectCustomListByConditions",
+      "java_parameter_signature": "@MultiRequestBody Map<String, Object> map, @MultiRequestBody Sort sort",
+      "response_signature": "ListResponse<ExcelExportTemplateDto>",
+      "state_changing": null,
+      "side_effect_claim": null,
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "boot-extend/boot-starter-excel/src/main/java/com/seeyon/boot/starter/excel/controller/ExcelController.java",
+        "class_mapping_line": 36,
+        "start": 101,
+        "end": 112
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "excel.component.getPreExcelTemplateList4Check",
+      "component": "Excel",
+      "method": "POST",
+      "class_path": "excel",
+      "method_path": "get-pre-template-list-4check",
+      "controller_path": "/excel/get-pre-template-list-4check",
+      "gateway_path": null,
+      "request_binding": "flat",
+      "java_method": "getPreExcelTemplateList4Check",
+      "java_parameter_signature": "@RequestBody ExcelTemplateCheckDto dto",
+      "response_signature": "ListResponse<ExcelExportTemplateDto>",
+      "state_changing": null,
+      "side_effect_claim": null,
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "boot-extend/boot-starter-excel/src/main/java/com/seeyon/boot/starter/excel/controller/ExcelController.java",
+        "class_mapping_line": 36,
+        "start": 108,
+        "end": 119
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "excel.component.deleteById",
+      "component": "Excel",
+      "method": "POST",
+      "class_path": "excel",
+      "method_path": "delete",
+      "controller_path": "/excel/delete",
+      "gateway_path": null,
+      "request_binding": "parameter_names",
+      "java_method": "deleteById",
+      "java_parameter_signature": "@MultiRequestBody Long id",
+      "response_signature": "SingleResponse<Integer>",
+      "state_changing": null,
+      "side_effect_claim": null,
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "boot-extend/boot-starter-excel/src/main/java/com/seeyon/boot/starter/excel/controller/ExcelController.java",
+        "class_mapping_line": 36,
+        "start": 114,
+        "end": 125
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "excel.component.exportExcelTemplateFile",
+      "component": "Excel",
+      "method": "POST",
+      "class_path": "excel",
+      "method_path": "export-excel-template",
+      "controller_path": "/excel/export-excel-template",
+      "gateway_path": null,
+      "request_binding": "flat",
+      "java_method": "exportExcelTemplateFile",
+      "java_parameter_signature": "@RequestBody ExcelExportDto dto",
+      "response_signature": "SingleResponse<String>",
+      "state_changing": null,
+      "side_effect_claim": null,
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "boot-extend/boot-starter-excel/src/main/java/com/seeyon/boot/starter/excel/controller/ExcelController.java",
+        "class_mapping_line": 36,
+        "start": 121,
+        "end": 132
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "excel.component.getExcelUrlByRedisKey",
+      "component": "Excel",
+      "method": "POST",
+      "class_path": "excel",
+      "method_path": "get-excel-url",
+      "controller_path": "/excel/get-excel-url",
+      "gateway_path": null,
+      "request_binding": "parameter_names",
+      "java_method": "getExcelUrlByRedisKey",
+      "java_parameter_signature": "@MultiRequestBody String redisKey",
+      "response_signature": "SingleResponse<String>",
+      "state_changing": null,
+      "side_effect_claim": null,
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "boot-extend/boot-starter-excel/src/main/java/com/seeyon/boot/starter/excel/controller/ExcelController.java",
+        "class_mapping_line": 36,
+        "start": 130,
+        "end": 141
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "excel.component.checkExcelDataV2",
+      "component": "Excel",
+      "method": "POST",
+      "class_path": "excel",
+      "method_path": "check-excel",
+      "controller_path": "/excel/check-excel",
+      "gateway_path": null,
+      "request_binding": "flat",
+      "java_method": "checkExcelDataV2",
+      "java_parameter_signature": "@RequestBody ExcelUploadRequestDto uploadRequestDto",
+      "response_signature": "SingleResponse<Map<String, Object>>",
+      "state_changing": true,
+      "side_effect_claim": "excel.check.side_effect",
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "boot-extend/boot-starter-excel/src/main/java/com/seeyon/boot/starter/excel/controller/ExcelController.java",
+        "class_mapping_line": 36,
+        "start": 136,
+        "end": 147
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "excel.component.checkExcelDataV1",
+      "component": "Excel",
+      "method": "POST",
+      "class_path": "excel",
+      "method_path": "check-excel-data",
+      "controller_path": "/excel/check-excel-data",
+      "gateway_path": null,
+      "request_binding": "flat",
+      "java_method": "checkExcelDataV1",
+      "java_parameter_signature": "@RequestBody ExcelUploadRequestDto uploadRequestDto",
+      "response_signature": "SingleResponse<String>",
+      "state_changing": true,
+      "side_effect_claim": "excel.check.template_creation",
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "boot-extend/boot-starter-excel/src/main/java/com/seeyon/boot/starter/excel/controller/ExcelController.java",
+        "class_mapping_line": 36,
+        "start": 142,
+        "end": 153
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "excel.component.importExcelData",
+      "component": "Excel",
+      "method": "POST",
+      "class_path": "excel",
+      "method_path": "import-excel-data",
+      "controller_path": "/excel/import-excel-data",
+      "gateway_path": null,
+      "request_binding": "flat",
+      "java_method": "importExcelData",
+      "java_parameter_signature": "@RequestBody ExcelUploadRequestDto uploadRequestDto",
+      "response_signature": "SingleResponse<String>",
+      "state_changing": true,
+      "side_effect_claim": "excel.import.enqueue",
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "boot-extend/boot-starter-excel/src/main/java/com/seeyon/boot/starter/excel/controller/ExcelController.java",
+        "class_mapping_line": 36,
+        "start": 148,
+        "end": 159
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "excel.component.importTransToGrid",
+      "component": "Excel",
+      "method": "POST",
+      "class_path": "excel",
+      "method_path": "import-trans-grid",
+      "controller_path": "/excel/import-trans-grid",
+      "gateway_path": null,
+      "request_binding": "flat",
+      "java_method": "importTransToGrid",
+      "java_parameter_signature": "@RequestBody ExcelUploadRequestDto uploadRequestDto",
+      "response_signature": "SingleResponse<String>",
+      "state_changing": null,
+      "side_effect_claim": null,
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "boot-extend/boot-starter-excel/src/main/java/com/seeyon/boot/starter/excel/controller/ExcelController.java",
+        "class_mapping_line": 36,
+        "start": 155,
+        "end": 166
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "excel.component.entityExport",
+      "component": "Excel",
+      "method": "POST",
+      "class_path": "excel",
+      "method_path": "entityExport",
+      "controller_path": "/excel/entityExport",
+      "gateway_path": null,
+      "request_binding": "flat",
+      "java_method": "entityExport",
+      "java_parameter_signature": "@RequestBody ExcelExportDataDto dto",
+      "response_signature": "SingleResponse<String>",
+      "state_changing": true,
+      "side_effect_claim": "excel.export.enqueue",
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "boot-extend/boot-starter-excel/src/main/java/com/seeyon/boot/starter/excel/controller/ExcelController.java",
+        "class_mapping_line": 36,
+        "start": 162,
+        "end": 173
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "excel.component.entityImport",
+      "component": "Excel",
+      "method": "POST",
+      "class_path": "excel",
+      "method_path": "entityImport",
+      "controller_path": "/excel/entityImport",
+      "gateway_path": null,
+      "request_binding": "flat",
+      "java_method": "entityImport",
+      "java_parameter_signature": "@RequestBody ExcelUploadRequestDto uploadRequestDto",
+      "response_signature": "SingleResponse<String>",
+      "state_changing": true,
+      "side_effect_claim": "excel.import.enqueue",
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "boot-extend/boot-starter-excel/src/main/java/com/seeyon/boot/starter/excel/controller/ExcelController.java",
+        "class_mapping_line": 36,
+        "start": 171,
+        "end": 182
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "excel.component.upgradeData",
+      "component": "Excel",
+      "method": "POST",
+      "class_path": "excel",
+      "method_path": "data-upgrade",
+      "controller_path": "/excel/data-upgrade",
+      "gateway_path": null,
+      "request_binding": "flat",
+      "java_method": "upgradeData",
+      "java_parameter_signature": "@RequestBody List<Map> maps",
+      "response_signature": "SingleResponse",
+      "state_changing": null,
+      "side_effect_claim": null,
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "boot-extend/boot-starter-excel/src/main/java/com/seeyon/boot/starter/excel/controller/ExcelController.java",
+        "class_mapping_line": 36,
+        "start": 178,
+        "end": 189
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "excel.component.getUsableTemplateList",
+      "component": "Excel",
+      "method": "POST",
+      "class_path": "excel",
+      "method_path": "search-usable-templates",
+      "controller_path": "/excel/search-usable-templates",
+      "gateway_path": null,
+      "request_binding": "flat",
+      "java_method": "getUsableTemplateList",
+      "java_parameter_signature": "@RequestBody ExcelTemplateAuthQueryDto authQueryDto",
+      "response_signature": "ListResponse<ExcelExportTemplateDto>",
+      "state_changing": null,
+      "side_effect_claim": null,
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "boot-extend/boot-starter-excel/src/main/java/com/seeyon/boot/starter/excel/controller/ExcelController.java",
+        "class_mapping_line": 36,
+        "start": 185,
+        "end": 196
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    },
+    {
+      "id": "excel.component.setExcelTemplateAuth",
+      "component": "Excel",
+      "method": "POST",
+      "class_path": "excel",
+      "method_path": "set-auth",
+      "controller_path": "/excel/set-auth",
+      "gateway_path": null,
+      "request_binding": "flat",
+      "java_method": "setExcelTemplateAuth",
+      "java_parameter_signature": "@RequestBody ExcelTemplateAuthDto dto",
+      "response_signature": "SingleResponse<Integer>",
+      "state_changing": null,
+      "side_effect_claim": null,
+      "can_execute": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false,
+      "evidence": {
+        "source": "boot-extend/boot-starter-excel/src/main/java/com/seeyon/boot/starter/excel/controller/ExcelController.java",
+        "class_mapping_line": 36,
+        "start": 192,
+        "end": 197
+      },
+      "unknowns": [
+        "live version binding",
+        "gateway/service route",
+        "live authorization",
+        "business readback"
+      ]
+    }
+  ],
+  "dto_fields": [
+    {
+      "source": "udc-common/src/main/java/com/seeyon/udc/common/dto/DataFlowMappingDto.java",
+      "fields": [
+        {
+          "name": "appId",
+          "java_type": "Long",
+          "line": 33,
+          "default_literal": null,
+          "annotations_excerpt": "    private static final long serialVersionUID = 101580288800325635L;\n\n    @NotNull\n    @DtoAttribute(value = \"目标实体应用id\", example = \"101588105640804353\",\n            description = \"目标实体应用id必需是当前应用id，垮应用的映射规则，当前应用的实体只能作为目标实体，因为生成代码的依赖关系决定了\")"
+        },
+        {
+          "name": "appName",
+          "java_type": "String",
+          "line": 37,
+          "default_literal": null,
+          "annotations_excerpt": "            description = \"目标实体应用id必需是当前应用id，垮应用的映射规则，当前应用的实体只能作为目标实体，因为生成代码的依赖关系决定了\")\n    private Long appId;\n\n    @NotNull\n    @DtoAttribute(value = \"目标实体应用name\", example = \"test\", description = \"目标实体应用name\")"
+        },
+        {
+          "name": "sourceAppId",
+          "java_type": "Long",
+          "line": 42,
+          "default_literal": null,
+          "annotations_excerpt": "    private String appName;\n\n    @NotNull\n    @DtoAttribute(value = \"来源实体应用id\", example = \"101588105640804356\",\n            description = \"映射规则来源应用（依赖的上游应用）Id\")"
+        },
+        {
+          "name": "sourceAppName",
+          "java_type": "String",
+          "line": 47,
+          "default_literal": null,
+          "annotations_excerpt": "    private Long sourceAppId;\n\n    @NotNull\n    @DtoAttribute(value = \"来源实体应用name\",\n            description = \"映射规则来源应用（依赖的上游应用）name\")"
+        },
+        {
+          "name": "dataFlowId",
+          "java_type": "Long",
+          "line": 51,
+          "default_literal": null,
+          "annotations_excerpt": "            description = \"映射规则来源应用（依赖的上游应用）name\")\n    private String sourceAppName;\n\n    @NotNull\n    @DtoAttribute(value = \"生单规则ID\", example = \"101588105640804352\")"
+        },
+        {
+          "name": "orderNo",
+          "java_type": "Integer",
+          "line": 54,
+          "default_literal": null,
+          "annotations_excerpt": "    @NotNull\n    @DtoAttribute(value = \"生单规则ID\", example = \"101588105640804352\")\n    private Long dataFlowId;\n\n    @DtoAttribute(value = \"映射规则排序号\", example = \"0\")"
+        },
+        {
+          "name": "state",
+          "java_type": "UsageStateEnum",
+          "line": 57,
+          "default_literal": "UsageStateEnum.ON",
+          "annotations_excerpt": "\n    @DtoAttribute(value = \"映射规则排序号\", example = \"0\")\n    private Integer orderNo;\n\n    @DtoAttribute(value = \"状态\", example = \"0\")"
+        },
+        {
+          "name": "caption",
+          "java_type": "String",
+          "line": 62,
+          "default_literal": null,
+          "annotations_excerpt": "    private UsageStateEnum state = UsageStateEnum.ON;\n\n    @DtoAttribute(value = \"映射规则显示名称\", example = \"人事管理\")\n    @Length(min = 1, max = 50)\n    @NotNull"
+        },
+        {
+          "name": "name",
+          "java_type": "String",
+          "line": 67,
+          "default_literal": null,
+          "annotations_excerpt": "    private String caption;\n\n    @DtoAttribute(value = \"映射规则名称\", example = \"PersonnelManagement\")\n    @Length(min = 1, max = 30)\n    @NotNull"
+        },
+        {
+          "name": "sourceEntityId",
+          "java_type": "Long",
+          "line": 71,
+          "default_literal": null,
+          "annotations_excerpt": "    @NotNull\n    private String name;\n\n    @DtoAttribute(value = \"来源实体id\", example = \"101588105640804354\")\n    @NotNull"
+        },
+        {
+          "name": "sourceEntityFullName",
+          "java_type": "String",
+          "line": 75,
+          "default_literal": null,
+          "annotations_excerpt": "    @NotNull\n    private Long sourceEntityId;\n\n    @DtoAttribute(value = \"来源实体fullName\")\n    @NotNull"
+        },
+        {
+          "name": "targetEntityId",
+          "java_type": "Long",
+          "line": 79,
+          "default_literal": null,
+          "annotations_excerpt": "    @NotNull\n    private String sourceEntityFullName;\n\n    @DtoAttribute(value = \"目标实体Id\", example = \"101588105640804355\")\n    @NotNull"
+        },
+        {
+          "name": "targetEntityFullName",
+          "java_type": "String",
+          "line": 83,
+          "default_literal": null,
+          "annotations_excerpt": "    @NotNull\n    private Long targetEntityId;\n\n    @DtoAttribute(value = \"目标实体fullName\")\n    @NotNull"
+        },
+        {
+          "name": "description",
+          "java_type": "String",
+          "line": 87,
+          "default_literal": null,
+          "annotations_excerpt": "    @NotNull\n    private String targetEntityFullName;\n\n    @DtoAttribute(value = \"简要的描述或备注\")\n    @Length(max = 255)"
+        },
+        {
+          "name": "triggerPoint",
+          "java_type": "TriggerPointEnum",
+          "line": 91,
+          "default_literal": null,
+          "annotations_excerpt": "    @Length(max = 255)\n    private String description;\n\n    @DtoAttribute(value = \"触发点\", example = \"0\")\n    @NotNull"
+        },
+        {
+          "name": "bindEvent",
+          "java_type": "String",
+          "line": 94,
+          "default_literal": null,
+          "annotations_excerpt": "    @DtoAttribute(value = \"触发点\", example = \"0\")\n    @NotNull\n    private TriggerPointEnum triggerPoint;\n\n    @DtoAttribute(value = \"绑定的事件:triggerPoint为EVENT_SUBSCRIBE时，需要传入该值，事件的fullName，多个用英文逗号分隔\")"
+        },
+        {
+          "name": "eventId",
+          "java_type": "Long",
+          "line": 97,
+          "default_literal": null,
+          "annotations_excerpt": "\n    @DtoAttribute(value = \"绑定的事件:triggerPoint为EVENT_SUBSCRIBE时，需要传入该值，事件的fullName，多个用英文逗号分隔\")\n    private String bindEvent;\n\n    @DtoAttribute(value = \"所选业务事件id\")"
+        },
+        {
+          "name": "eventEntityId",
+          "java_type": "Long",
+          "line": 100,
+          "default_literal": null,
+          "annotations_excerpt": "\n    @DtoAttribute(value = \"所选业务事件id\")\n    private Long eventId;\n\n    @DtoAttribute(value = \"所选事件所属实体Id\")"
+        },
+        {
+          "name": "eventAppName",
+          "java_type": "String",
+          "line": 103,
+          "default_literal": null,
+          "annotations_excerpt": "\n    @DtoAttribute(value = \"所选事件所属实体Id\")\n    private Long eventEntityId;\n\n    @DtoAttribute(value = \"所选业务事件所属应用name\")"
+        },
+        {
+          "name": "bindEventCaption",
+          "java_type": "String",
+          "line": 106,
+          "default_literal": null,
+          "annotations_excerpt": "\n    @DtoAttribute(value = \"所选业务事件所属应用name\")\n    private String eventAppName;\n\n    @DtoAttribute(value = \"绑定事件的显示名称\", description = \"因事件查询放到了选择事件组件里面了，所以这里的把事件名称给前端回填\")"
+        },
+        {
+          "name": "ruleInfo",
+          "java_type": "String",
+          "line": 109,
+          "default_literal": null,
+          "annotations_excerpt": "\n    @DtoAttribute(value = \"绑定事件的显示名称\", description = \"因事件查询放到了选择事件组件里面了，所以这里的把事件名称给前端回填\")\n    private String bindEventCaption;\n\n    @DtoAttribute(hidden = true, value = \"映射规则内容Json\", example = \"{}\")"
+        },
+        {
+          "name": "creator",
+          "java_type": "Long",
+          "line": 112,
+          "default_literal": null,
+          "annotations_excerpt": "\n    @DtoAttribute(hidden = true, value = \"映射规则内容Json\", example = \"{}\")\n    private String ruleInfo;\n\n    @DtoAttribute(value = \"创建人ID\", example = \"101588105640804354\")"
+        },
+        {
+          "name": "lastModifier",
+          "java_type": "Long",
+          "line": 115,
+          "default_literal": null,
+          "annotations_excerpt": "\n    @DtoAttribute(value = \"创建人ID\", example = \"101588105640804354\")\n    private Long creator;\n\n    @DtoAttribute(value = \"最后修改人\", example = \"101588105640804354\")"
+        },
+        {
+          "name": "createTime",
+          "java_type": "Date",
+          "line": 118,
+          "default_literal": null,
+          "annotations_excerpt": "\n    @DtoAttribute(value = \"最后修改人\", example = \"101588105640804354\")\n    private Long lastModifier;\n\n    @DtoAttribute(value = \"创建时间\")"
+        },
+        {
+          "name": "updateTime",
+          "java_type": "Date",
+          "line": 121,
+          "default_literal": null,
+          "annotations_excerpt": "\n    @DtoAttribute(value = \"创建时间\")\n    private Date createTime;\n\n    @DtoAttribute(value = \"最后修改时间\")"
+        },
+        {
+          "name": "mappingDetailDto",
+          "java_type": "DataFlowMappingDetailDto",
+          "line": 125,
+          "default_literal": null,
+          "annotations_excerpt": "    @DtoAttribute(value = \"最后修改时间\")\n    private Date updateTime;\n\n    @DtoAttribute(value = \"映射规则详情\")\n    @NotNull(groups = {ValidationGroup.Create.class, ValidationGroup.Update.class})"
+        }
+      ],
+      "inherited_fields_included": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false
+    },
+    {
+      "source": "udc-common/src/main/java/com/seeyon/udc/common/dto/DataFlowMappingDetailDto.java",
+      "fields": [
+        {
+          "name": "preConditionJson",
+          "java_type": "String",
+          "line": 30,
+          "default_literal": null,
+          "annotations_excerpt": "@JsonInclude(JsonInclude.Include.NON_NULL)\n@DtoInfo(value = \"映射规则详情\")\npublic class DataFlowMappingDetailDto extends BaseDto {\n\n    @DtoAttribute(value = \"手工触发类型前置条件Json字符串，表达式组件返回的内容，包括设置态数据和运行态数据\")"
+        },
+        {
+          "name": "eventFilterConditionJson",
+          "java_type": "String",
+          "line": 33,
+          "default_literal": null,
+          "annotations_excerpt": "\n    @DtoAttribute(value = \"手工触发类型前置条件Json字符串，表达式组件返回的内容，包括设置态数据和运行态数据\")\n    private String preConditionJson;\n\n    @DtoAttribute(value = \"事件订阅类型映射规则的事件过滤条件Json字符串，过滤Listener接收到的数据，满足条件的数据再执行映射规则运行态\")"
+        },
+        {
+          "name": "sourceEntitySearchConditionJson",
+          "java_type": "String",
+          "line": 36,
+          "default_literal": null,
+          "annotations_excerpt": "\n    @DtoAttribute(value = \"事件订阅类型映射规则的事件过滤条件Json字符串，过滤Listener接收到的数据，满足条件的数据再执行映射规则运行态\")\n    private String eventFilterConditionJson;\n\n    @DtoAttribute(value = \"事件订阅类型映射规则来源实体查找条件Json\", description = \"对应ConditionDto，方便前端graphQL定义，这里直接用json\")"
+        },
+        {
+          "name": "rules",
+          "java_type": "List<DataFlowMappingRuleDto>",
+          "line": 40,
+          "default_literal": null,
+          "annotations_excerpt": "    @DtoAttribute(value = \"事件订阅类型映射规则来源实体查找条件Json\", description = \"对应ConditionDto，方便前端graphQL定义，这里直接用json\")\n    private String sourceEntitySearchConditionJson;\n\n    @DtoAttribute(value = \"映射规则详情\")\n    @NotNull(groups = {ValidationGroup.Create.class, ValidationGroup.Update.class})"
+        },
+        {
+          "name": "preCondition",
+          "java_type": "ExpressionDefinitionDto",
+          "line": 46,
+          "default_literal": null,
+          "annotations_excerpt": "\n    /*****************************以下属性为生成代码时用的属性，设计态存储不需要******************************/\n\n    @JsonIgnore\n    @DtoAttribute(hidden = true, value = \"手工触发类型前置条件对象，表达式组件返回的内容，包括设置态数据和运行态数据\")"
+        },
+        {
+          "name": "eventFilterCondition",
+          "java_type": "ExpressionDefinitionDto",
+          "line": 50,
+          "default_literal": null,
+          "annotations_excerpt": "    @DtoAttribute(hidden = true, value = \"手工触发类型前置条件对象，表达式组件返回的内容，包括设置态数据和运行态数据\")\n    private ExpressionDefinitionDto preCondition;\n\n    @JsonIgnore\n    @DtoAttribute(hidden = true, value = \"事件订阅类型映射规则的事件过滤条件，过滤Listener接收到的数据，满足条件的数据再执行映射规则运行态\")"
+        }
+      ],
+      "inherited_fields_included": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false
+    },
+    {
+      "source": "udc/udc-dataflow/src/main/java/com/seeyon/udc/dataflow/dto/DataFlowMappingSaveDto.java",
+      "fields": [
+        {
+          "name": "definition",
+          "java_type": "String",
+          "line": 26,
+          "default_literal": null,
+          "annotations_excerpt": "@DtoInfo(value = \"映射规则保存的Dto\")\npublic class DataFlowMappingSaveDto extends DataFlowDto {\n\n    @DtoAttribute(value = \"生单规则图形内容\",example = \"{}\")\n    @NotNull"
+        },
+        {
+          "name": "dataFlowMappingDto",
+          "java_type": "DataFlowMappingDto",
+          "line": 30,
+          "default_literal": null,
+          "annotations_excerpt": "    @NotNull\n    private String definition;\n\n    @DtoAttribute(value = \"映射规则Dto\")\n    @NotNull"
+        }
+      ],
+      "inherited_fields_included": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false
+    },
+    {
+      "source": "udc-common/src/main/java/com/seeyon/udc/common/dto/DataFlowExecuteParamDto.java",
+      "fields": [
+        {
+          "name": "sourceDataDto",
+          "java_type": "SourceDataDto",
+          "line": 23,
+          "default_literal": null,
+          "annotations_excerpt": "@DtoInfo(value = \"生单规则运行态执行参数\")\npublic class DataFlowExecuteParamDto extends BaseDto {\n    private static final long serialVersionUID = 384767014792599552L;\n\n    @DtoAttribute(value = \"来源数据传输对象\", description = \"来源数据传输对象\")"
+        },
+        {
+          "name": "dataFlowMappingId",
+          "java_type": "Long",
+          "line": 29,
+          "default_literal": null,
+          "annotations_excerpt": "\n    /**\n     * 生单规则运行态映射方案，可以为空，为空的时候表示用设计态定义的生单规则映射执行，不为空表示用指定的方案运行生单规则\n     */\n    @DtoAttribute(value = \"运行态映射规则方案id\", description = \"运行态映射规则方案id\")"
+        },
+        {
+          "name": "logBaseDto",
+          "java_type": "UdcRuleLogBaseDto",
+          "line": 32,
+          "default_literal": null,
+          "annotations_excerpt": "     */\n    @DtoAttribute(value = \"运行态映射规则方案id\", description = \"运行态映射规则方案id\")\n    private Long dataFlowMappingId;\n\n    @DtoAttribute(value = \"运行态日志基础属性\", hidden = true)"
+        }
+      ],
+      "inherited_fields_included": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false
+    },
+    {
+      "source": "udc-common/src/main/java/com/seeyon/udc/common/dto/DataFlowResultDto.java",
+      "fields": [
+        {
+          "name": "dataFlowType",
+          "java_type": "DataFlowOperationTypeEnum",
+          "line": 28,
+          "default_literal": null,
+          "annotations_excerpt": "@Setter\n@DtoInfo(value = \"生单规则执行数据结果传输对象\")\npublic class DataFlowResultDto extends BaseDto {\n\n    @DtoAttribute(value = \"映射规则类型\", example = \"0\")"
+        },
+        {
+          "name": "targetIds",
+          "java_type": "List<Long>",
+          "line": 31,
+          "default_literal": null,
+          "annotations_excerpt": "\n    @DtoAttribute(value = \"映射规则类型\", example = \"0\")\n    private DataFlowOperationTypeEnum dataFlowType;\n\n    @DtoAttribute(value = \"生单规则新建的目标数据id结果集\")"
+        },
+        {
+          "name": "updateIds",
+          "java_type": "List<Long>",
+          "line": 34,
+          "default_literal": null,
+          "annotations_excerpt": "\n    @DtoAttribute(value = \"生单规则新建的目标数据id结果集\")\n    private List<Long> targetIds;\n\n    @DtoAttribute(value = \"生单规则更新的目标数据id结果集\")"
+        },
+        {
+          "name": "errorMsg",
+          "java_type": "String",
+          "line": 37,
+          "default_literal": null,
+          "annotations_excerpt": "\n    @DtoAttribute(value = \"生单规则更新的目标数据id结果集\")\n    private List<Long> updateIds;\n\n    @DtoAttribute(value = \"执行错误信息\")"
+        },
+        {
+          "name": "relationshipIds",
+          "java_type": "List<Long>",
+          "line": 40,
+          "default_literal": null,
+          "annotations_excerpt": "\n    @DtoAttribute(value = \"执行错误信息\")\n    private String errorMsg;\n\n    @DtoAttribute(value = \"生单规则执行完成之后所产生的映射记录id集合\")"
+        },
+        {
+          "name": "targetDtoInfo",
+          "java_type": "String",
+          "line": 43,
+          "default_literal": null,
+          "annotations_excerpt": "\n    @DtoAttribute(value = \"生单规则执行完成之后所产生的映射记录id集合\")\n    private List<Long> relationshipIds;\n\n    @DtoAttribute(value = \"第一个目标dto详情\")"
+        }
+      ],
+      "inherited_fields_included": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false
+    },
+    {
+      "source": "udc-starters/udc-starter-runtime/src/main/java/com/seeyon/boot/starter/udcrt/dto/CallDataFlowResultDto.java",
+      "fields": [
+        {
+          "name": "targetIds",
+          "java_type": "List<Long>",
+          "line": 24,
+          "default_literal": null,
+          "annotations_excerpt": "@DtoInfo(\"生单规则执行结果\")\npublic class CallDataFlowResultDto extends BaseDto {\n    private static final long serialVersionUID = 8490035744473024312L;\n\n    @DtoAttribute(\"新建数据id集合\")"
+        },
+        {
+          "name": "updateIds",
+          "java_type": "List<Long>",
+          "line": 26,
+          "default_literal": null,
+          "annotations_excerpt": "    private static final long serialVersionUID = 8490035744473024312L;\n\n    @DtoAttribute(\"新建数据id集合\")\n    private List<Long> targetIds;\n    @DtoAttribute(\"更新数据id集合\")"
+        }
+      ],
+      "inherited_fields_included": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false
+    },
+    {
+      "source": "udc-common/src/main/java/com/seeyon/udc/common/dto/DeductionMapDto.java",
+      "fields": [
+        {
+          "name": "appId",
+          "java_type": "Long",
+          "line": 25,
+          "default_literal": null,
+          "annotations_excerpt": "public class DeductionMapDto extends UdcBaseEntityDto {\n    private static final long serialVersionUID = -3471604560416332909L;\n\n    @DtoAttribute(value = \"所属应用ID\", example = \"101588105640804353\")\n    @NotNull(groups = Create.class)"
+        },
+        {
+          "name": "caption",
+          "java_type": "String",
+          "line": 29,
+          "default_literal": null,
+          "annotations_excerpt": "    @NotNull(groups = Create.class)\n    private Long appId;\n\n    @DtoAttribute(value = \"关系名称\", example = \"关系名称\")\n    @Length(min = 1, max = 50)"
+        },
+        {
+          "name": "sourceEntityId",
+          "java_type": "Long",
+          "line": 32,
+          "default_literal": null,
+          "annotations_excerpt": "    @DtoAttribute(value = \"关系名称\", example = \"关系名称\")\n    @Length(min = 1, max = 50)\n    private String caption;\n\n    @DtoAttribute(value = \"来源实体id\", example = \"101588105640804352\")"
+        },
+        {
+          "name": "sourceEntityFullName",
+          "java_type": "String",
+          "line": 35,
+          "default_literal": null,
+          "annotations_excerpt": "\n    @DtoAttribute(value = \"来源实体id\", example = \"101588105640804352\")\n    private Long sourceEntityId;\n\n    @DtoAttribute(value = \"来源实体fullName\", example = \"com.seeyon.udc.deduction.domain.entity.DeductionMap\")"
+        },
+        {
+          "name": "definition",
+          "java_type": "String",
+          "line": 38,
+          "default_literal": null,
+          "annotations_excerpt": "\n    @DtoAttribute(value = \"来源实体fullName\", example = \"com.seeyon.udc.deduction.domain.entity.DeductionMap\")\n    private String sourceEntityFullName;\n\n    @DtoAttribute(value = \"关系定义图形\")"
+        },
+        {
+          "name": "orderNum",
+          "java_type": "Integer",
+          "line": 41,
+          "default_literal": null,
+          "annotations_excerpt": "\n    @DtoAttribute(value = \"关系定义图形\")\n    private String definition;\n\n    @DtoAttribute(value = \"排序号\")"
+        }
+      ],
+      "inherited_fields_included": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false
+    },
+    {
+      "source": "udc-common/src/main/java/com/seeyon/udc/common/dto/DeductionRuleDto.java",
+      "fields": [
+        {
+          "name": "definition",
+          "java_type": "String",
+          "line": 29,
+          "default_literal": null,
+          "annotations_excerpt": "@DtoInfo(value = \"扣减规则\", entity = \"com.seeyon.udc.deduction.domain.entity.DeductionRule\")\npublic class DeductionRuleDto extends UdcBaseEntityDto {\n    private static final long serialVersionUID = -3471604560416332909L;\n\n    @DtoAttribute(value = \"扣减图的定义信息\",description = \"创建/更新规则时更新图的信息\")"
+        },
+        {
+          "name": "appId",
+          "java_type": "Long",
+          "line": 33,
+          "default_literal": null,
+          "annotations_excerpt": "    @DtoAttribute(value = \"扣减图的定义信息\",description = \"创建/更新规则时更新图的信息\")\n    private String definition;\n\n    @DtoAttribute(value = \"应用id\")\n    @NotNull"
+        },
+        {
+          "name": "deductionMapId",
+          "java_type": "Long",
+          "line": 37,
+          "default_literal": null,
+          "annotations_excerpt": "    @NotNull\n    private Long appId;\n\n    @DtoAttribute(value = \"扣减关系id\")\n    @NotNull"
+        },
+        {
+          "name": "caption",
+          "java_type": "String",
+          "line": 42,
+          "default_literal": null,
+          "annotations_excerpt": "    private Long deductionMapId;\n\n    @DtoAttribute(value = \"规则显示名称\")\n    @Length(min = 1, max = 50)\n    @NotNull(groups = {ValidationGroup.Create.class, ValidationGroup.Update.class})"
+        },
+        {
+          "name": "name",
+          "java_type": "String",
+          "line": 48,
+          "default_literal": null,
+          "annotations_excerpt": "\n    @DtoAttribute(value = \"规则编码\", example = \"PersonRule\")\n    @Length(min = 1, max = 30)\n    @NotNull(groups = {ValidationGroup.Create.class, ValidationGroup.Update.class})\n    @Pattern(regexp = \"^[a-zA-Z][0-9a-zA-Z_]*$\",message = \"规则编码不能为特殊字符\")"
+        },
+        {
+          "name": "sourceEntityId",
+          "java_type": "Long",
+          "line": 52,
+          "default_literal": null,
+          "annotations_excerpt": "    @Pattern(regexp = \"^[a-zA-Z][0-9a-zA-Z_]*$\",message = \"规则编码不能为特殊字符\")\n    private String name;\n\n    @DtoAttribute(value = \"来源实体id\")\n    @NotNull"
+        },
+        {
+          "name": "targetEntityId",
+          "java_type": "Long",
+          "line": 56,
+          "default_literal": null,
+          "annotations_excerpt": "    @NotNull\n    private Long sourceEntityId;\n\n    @DtoAttribute(value = \"目标实体id\")\n    @NotNull"
+        },
+        {
+          "name": "sourceEndEntityId",
+          "java_type": "Long",
+          "line": 60,
+          "default_literal": null,
+          "annotations_excerpt": "    @NotNull\n    private Long targetEntityId;\n\n    @DtoAttribute(value = \"来源末级实体id\")\n    @NotNull"
+        },
+        {
+          "name": "targetEndEntityId",
+          "java_type": "Long",
+          "line": 64,
+          "default_literal": null,
+          "annotations_excerpt": "    @NotNull\n    private Long sourceEndEntityId;\n\n    @DtoAttribute(value = \"目标末级实体id\")\n    @NotNull"
+        },
+        {
+          "name": "sourceEntityFullName",
+          "java_type": "String",
+          "line": 67,
+          "default_literal": null,
+          "annotations_excerpt": "    @DtoAttribute(value = \"目标末级实体id\")\n    @NotNull\n    private Long targetEndEntityId;\n\n    @DtoAttribute(value = \"来源实体fullName\")"
+        },
+        {
+          "name": "targetEntityFullName",
+          "java_type": "String",
+          "line": 70,
+          "default_literal": null,
+          "annotations_excerpt": "\n    @DtoAttribute(value = \"来源实体fullName\")\n    private String sourceEntityFullName;\n\n    @DtoAttribute(value = \"目标实体fullName\")"
+        },
+        {
+          "name": "sourceEndEntityFullName",
+          "java_type": "String",
+          "line": 73,
+          "default_literal": null,
+          "annotations_excerpt": "\n    @DtoAttribute(value = \"目标实体fullName\")\n    private String targetEntityFullName;\n\n    @DtoAttribute(value = \"来源末级实体fullName\")"
+        },
+        {
+          "name": "targetEndEntityFullName",
+          "java_type": "String",
+          "line": 76,
+          "default_literal": null,
+          "annotations_excerpt": "\n    @DtoAttribute(value = \"来源末级实体fullName\")\n    private String sourceEndEntityFullName;\n\n    @DtoAttribute(value = \"目标末级实体fullName\")"
+        },
+        {
+          "name": "searchCondition",
+          "java_type": "String",
+          "line": 79,
+          "default_literal": null,
+          "annotations_excerpt": "\n    @DtoAttribute(value = \"目标末级实体fullName\")\n    private String targetEndEntityFullName;\n\n    @DtoAttribute(value = \"查询条件\", hidden = true)"
+        },
+        {
+          "name": "extendInfo",
+          "java_type": "String",
+          "line": 82,
+          "default_literal": null,
+          "annotations_excerpt": "\n    @DtoAttribute(value = \"查询条件\", hidden = true)\n    private String searchCondition;\n\n    @DtoAttribute(value = \"扩展信息\", hidden = true)"
+        },
+        {
+          "name": "runtimeModifyState",
+          "java_type": "RuntimeModifyStateEnum",
+          "line": 85,
+          "default_literal": "RuntimeModifyStateEnum.ON",
+          "annotations_excerpt": "\n    @DtoAttribute(value = \"扩展信息\", hidden = true)\n    private String extendInfo;\n\n    @DtoAttribute(value = \"运行态调整状态\")"
+        },
+        {
+          "name": "orderNum",
+          "java_type": "Integer",
+          "line": 88,
+          "default_literal": null,
+          "annotations_excerpt": "\n    @DtoAttribute(value = \"运行态调整状态\")\n    private RuntimeModifyStateEnum runtimeModifyState = RuntimeModifyStateEnum.ON;\n\n    @DtoAttribute(value = \"规则排序号\")"
+        },
+        {
+          "name": "searchConditionDtoList",
+          "java_type": "List<DeductionRuleSearchConditionDto>",
+          "line": 93,
+          "default_literal": null,
+          "annotations_excerpt": "    private Integer orderNum;\n\n    @DtoAttribute(value = \"查询条件列表详情\")\n    @Size(min = 1, groups = {ValidationGroup.Create.class, ValidationGroup.Update.class})\n    @NotNull"
+        },
+        {
+          "name": "deductionAlgorithmDtoList",
+          "java_type": "List<DeductionAlgorithmDto>",
+          "line": 98,
+          "default_literal": null,
+          "annotations_excerpt": "    private List<DeductionRuleSearchConditionDto> searchConditionDtoList;\n\n    @DtoAttribute(value = \"扣减算法\")\n    @Size(min = 1, groups = {ValidationGroup.Create.class, ValidationGroup.Update.class}, message = \"未设置算法，请检查\")\n    @NotNull(message = \"未设置算法，请检查\")"
+        },
+        {
+          "name": "deductionRuleDetailDtoList",
+          "java_type": "List<DeductionRuleDetailDto>",
+          "line": 102,
+          "default_literal": null,
+          "annotations_excerpt": "    @NotNull(message = \"未设置算法，请检查\")\n    private List<DeductionAlgorithmDto> deductionAlgorithmDtoList;\n\n    @DtoAttribute(value = \"扣减规则详情列表\")\n    @NotNull"
+        },
+        {
+          "name": "extendInfoDto",
+          "java_type": "DeductionRuleExtendInfoDto",
+          "line": 106,
+          "default_literal": null,
+          "annotations_excerpt": "    @NotNull\n    private List<DeductionRuleDetailDto> deductionRuleDetailDtoList;\n\n    @DtoAttribute(value = \"扣减规则扩展信息\")\n    @NotNull"
+        }
+      ],
+      "inherited_fields_included": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false
+    },
+    {
+      "source": "udc-common/src/main/java/com/seeyon/udc/common/dto/DeductionAlgorithmDto.java",
+      "fields": [
+        {
+          "name": "actionType",
+          "java_type": "ActionType",
+          "line": 27,
+          "default_literal": "ActionType.NORMAL",
+          "annotations_excerpt": "@DtoInfo(value = \"扣减算法\", entity = \"com.seeyon.udc.deduction.domain.entity.DeductionAlgorithm\")\npublic class DeductionAlgorithmDto extends UdcBaseEntityDto {\n    private static final long serialVersionUID = 5898413458840805335L;\n\n    @DtoAttribute(value = \"操作类型\", example = \"NORMAL\")"
+        },
+        {
+          "name": "appId",
+          "java_type": "Long",
+          "line": 30,
+          "default_literal": null,
+          "annotations_excerpt": "\n    @DtoAttribute(value = \"操作类型\", example = \"NORMAL\")\n    private ActionType actionType = ActionType.NORMAL;\n\n    @DtoAttribute(value = \"应用id\")"
+        },
+        {
+          "name": "deductionRuleId",
+          "java_type": "Long",
+          "line": 33,
+          "default_literal": null,
+          "annotations_excerpt": "\n    @DtoAttribute(value = \"应用id\")\n    private Long appId;\n\n    @DtoAttribute(value = \"扣减规则id\")"
+        },
+        {
+          "name": "caption",
+          "java_type": "String",
+          "line": 38,
+          "default_literal": null,
+          "annotations_excerpt": "    private Long deductionRuleId;\n\n    @DtoAttribute(value = \"算法名称\")\n    @NotNull\n    @Length(min = 1, max = 50)"
+        },
+        {
+          "name": "explanation",
+          "java_type": "String",
+          "line": 43,
+          "default_literal": null,
+          "annotations_excerpt": "    private String caption;\n\n    @DtoAttribute(value = \"算法说明\")\n    @NotNull(groups = {ValidationGroup.Create.class, ValidationGroup.Update.class})\n    @Length(min = 1, max = 255, groups = {ValidationGroup.Create.class, ValidationGroup.Update.class})"
+        },
+        {
+          "name": "algorithmContent",
+          "java_type": "String",
+          "line": 46,
+          "default_literal": null,
+          "annotations_excerpt": "    @NotNull(groups = {ValidationGroup.Create.class, ValidationGroup.Update.class})\n    @Length(min = 1, max = 255, groups = {ValidationGroup.Create.class, ValidationGroup.Update.class})\n    private String explanation;\n\n    @DtoAttribute(value = \"算法内容\", hidden = true)"
+        },
+        {
+          "name": "algorithmContentList",
+          "java_type": "List<DeductionAlgorithmContentDto>",
+          "line": 51,
+          "default_literal": null,
+          "annotations_excerpt": "    private String algorithmContent;\n\n    @DtoAttribute(value = \"算法内容\")\n    @NotNull(groups = {ValidationGroup.Create.class, ValidationGroup.Update.class})\n    @Size(min = 1, groups = {ValidationGroup.Create.class, ValidationGroup.Update.class})"
+        },
+        {
+          "name": "code",
+          "java_type": "String",
+          "line": 54,
+          "default_literal": null,
+          "annotations_excerpt": "    @NotNull(groups = {ValidationGroup.Create.class, ValidationGroup.Update.class})\n    @Size(min = 1, groups = {ValidationGroup.Create.class, ValidationGroup.Update.class})\n    private List<DeductionAlgorithmContentDto> algorithmContentList;\n\n    @DtoAttribute(value = \"算法编码,用于关联详情\")"
+        },
+        {
+          "name": "checkRule",
+          "java_type": "String",
+          "line": 57,
+          "default_literal": null,
+          "annotations_excerpt": "\n    @DtoAttribute(value = \"算法编码,用于关联详情\")\n    private String code;\n\n    @DtoAttribute(value = \"检查规则\")"
+        },
+        {
+          "name": "orderNum",
+          "java_type": "Integer",
+          "line": 60,
+          "default_literal": null,
+          "annotations_excerpt": "\n    @DtoAttribute(value = \"检查规则\")\n    private String checkRule;\n\n    @DtoAttribute(value = \"排序号\")"
+        },
+        {
+          "name": "extend",
+          "java_type": "String",
+          "line": 63,
+          "default_literal": null,
+          "annotations_excerpt": "\n    @DtoAttribute(value = \"排序号\")\n    private Integer orderNum;\n\n    @DtoAttribute(value = \"扩展信息\", hidden = true)"
+        },
+        {
+          "name": "extendDto",
+          "java_type": "DeductionAlgorithmExtendDto",
+          "line": 66,
+          "default_literal": null,
+          "annotations_excerpt": "\n    @DtoAttribute(value = \"扩展信息\", hidden = true)\n    private String extend;\n\n    @DtoAttribute(value = \"扩展DTO\")"
+        }
+      ],
+      "inherited_fields_included": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false
+    },
+    {
+      "source": "udc-common/src/main/java/com/seeyon/udc/common/dto/DeductionRuleDetailDto.java",
+      "fields": [
+        {
+          "name": "appId",
+          "java_type": "Long",
+          "line": 23,
+          "default_literal": null,
+          "annotations_excerpt": "@DtoInfo(value = \"扣减规则详情\", entity = \"com.seeyon.udc.deduction.domain.entity.DeductionRuleDetail\")\npublic class DeductionRuleDetailDto extends UdcBaseEntityDto {\n    private static final long serialVersionUID = -4520102890028281589L;\n\n    @DtoAttribute(value = \"应用id\")"
+        },
+        {
+          "name": "deductionRuleId",
+          "java_type": "Long",
+          "line": 26,
+          "default_literal": null,
+          "annotations_excerpt": "\n    @DtoAttribute(value = \"应用id\")\n    private Long appId;\n\n    @DtoAttribute(value = \"扣减规则id\")"
+        },
+        {
+          "name": "deductionAlgorithmId",
+          "java_type": "Long",
+          "line": 29,
+          "default_literal": null,
+          "annotations_excerpt": "\n    @DtoAttribute(value = \"扣减规则id\")\n    private Long deductionRuleId;\n\n    @DtoAttribute(value = \"算法id\")"
+        },
+        {
+          "name": "billStatusInfo",
+          "java_type": "String",
+          "line": 32,
+          "default_literal": null,
+          "annotations_excerpt": "\n    @DtoAttribute(value = \"算法id\")\n    private Long deductionAlgorithmId;\n\n    @DtoAttribute(value = \"单据状态JSON\", hidden = true)"
+        },
+        {
+          "name": "checkRule",
+          "java_type": "String",
+          "line": 36,
+          "default_literal": null,
+          "annotations_excerpt": "    @DtoAttribute(value = \"单据状态JSON\", hidden = true)\n    private String billStatusInfo;\n\n    @Deprecated\n    @DtoAttribute(value = \"检查规则\")"
+        },
+        {
+          "name": "notice",
+          "java_type": "String",
+          "line": 41,
+          "default_literal": null,
+          "annotations_excerpt": "    private String checkRule;\n\n    @Deprecated\n    @DtoAttribute(value = \"提示信息\")\n    @Length(max = 500)"
+        },
+        {
+          "name": "deductionBillStatusInfoDtoList",
+          "java_type": "List<DeductionBillStatusInfoDto>",
+          "line": 44,
+          "default_literal": null,
+          "annotations_excerpt": "    @DtoAttribute(value = \"提示信息\")\n    @Length(max = 500)\n    private String notice;\n\n    @DtoAttribute(value = \"单据状态\")"
+        },
+        {
+          "name": "algorithmCode",
+          "java_type": "String",
+          "line": 47,
+          "default_literal": null,
+          "annotations_excerpt": "\n    @DtoAttribute(value = \"单据状态\")\n    private List<DeductionBillStatusInfoDto> deductionBillStatusInfoDtoList;\n\n    @DtoAttribute(value = \"算法编码,用于关联规则详情\")"
+        },
+        {
+          "name": "orderNum",
+          "java_type": "Integer",
+          "line": 50,
+          "default_literal": null,
+          "annotations_excerpt": "\n    @DtoAttribute(value = \"算法编码,用于关联规则详情\")\n    private String algorithmCode;\n\n    @DtoAttribute(value = \"排序号\")"
+        }
+      ],
+      "inherited_fields_included": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false
+    },
+    {
+      "source": "boot-extend/boot-starter-excel/src/main/java/com/seeyon/boot/starter/excel/dto/ExcelExportTemplateDto.java",
+      "fields": [
+        {
+          "name": "id",
+          "java_type": "Long",
+          "line": 26,
+          "default_literal": null,
+          "annotations_excerpt": "@DtoInfo(\"Excel导入导出模板DTO\")\npublic class ExcelExportTemplateDto extends BaseComponentTraceableDto {\n\n    @DtoAttribute(value = \"机构组ID,新建时不必填,修改时必填\", example = \"60828711522402304\")\n    @NotNull(groups = AppService.ValidationGroup.Update.class)"
+        },
+        {
+          "name": "name",
+          "java_type": "String",
+          "line": 31,
+          "default_literal": "\"\"",
+          "annotations_excerpt": "    private Long id;\n\n    @DtoAttribute(value = \"模板名称\", example = \"template-seeyon\")\n    @NotNull\n    @Size(max = 20)"
+        },
+        {
+          "name": "appId",
+          "java_type": "String",
+          "line": 34,
+          "default_literal": null,
+          "annotations_excerpt": "    @NotNull\n    @Size(max = 20)\n    private String name = \"\";\n\n    @DtoAttribute(value = \"应用ID\", example = \"1\")"
+        },
+        {
+          "name": "appGuid",
+          "java_type": "Long",
+          "line": 37,
+          "default_literal": "-1L",
+          "annotations_excerpt": "\n    @DtoAttribute(value = \"应用ID\", example = \"1\")\n    private String appId;\n\n    @DtoAttribute(value = \"应用Guid\", example = \"-1L\")"
+        },
+        {
+          "name": "appName",
+          "java_type": "String",
+          "line": 41,
+          "default_literal": null,
+          "annotations_excerpt": "    @DtoAttribute(value = \"应用Guid\", example = \"-1L\")\n    private Long appGuid = -1L;\n\n    @DtoAttribute(value = \"应用名称\", example = \"app-doc\")\n    @NotBlank"
+        },
+        {
+          "name": "mainFullName",
+          "java_type": "String",
+          "line": 45,
+          "default_literal": null,
+          "annotations_excerpt": "    @NotBlank\n    private String appName;\n\n    @DtoAttribute(value = \"主实体全路径\", example = \"com.seeyon.app.example.domain.entity.MainEntity\")\n    @NotBlank"
+        },
+        {
+          "name": "createUserId",
+          "java_type": "Long",
+          "line": 48,
+          "default_literal": "Constants.LONG_MINUS_ONE",
+          "annotations_excerpt": "    @DtoAttribute(value = \"主实体全路径\", example = \"com.seeyon.app.example.domain.entity.MainEntity\")\n    @NotBlank\n    private String mainFullName;\n\n    @DtoAttribute(value = \"当前人员Id\", example = \"-1\")"
+        },
+        {
+          "name": "signatureCode",
+          "java_type": "String",
+          "line": 51,
+          "default_literal": "\"\"",
+          "annotations_excerpt": "\n    @DtoAttribute(value = \"当前人员Id\", example = \"-1\")\n    private Long createUserId = Constants.LONG_MINUS_ONE;\n\n    @DtoAttribute(value = \"特征码\", example = \"-1\")"
+        },
+        {
+          "name": "metadataContent",
+          "java_type": "String",
+          "line": 54,
+          "default_literal": "\"\"",
+          "annotations_excerpt": "\n    @DtoAttribute(value = \"特征码\", example = \"-1\")\n    private String signatureCode = \"\";\n\n    @DtoAttribute(value = \"属性树选择的内容\", example = \"\")"
+        },
+        {
+          "name": "excelHeadInfo",
+          "java_type": "String",
+          "line": 58,
+          "default_literal": "\"\"",
+          "annotations_excerpt": "    @DtoAttribute(value = \"属性树选择的内容\", example = \"\")\n    private String metadataContent = \"\";\n\n    @EntityAttribute(value = \"Excel表头信息\", dataType = DataType.STRING)\n    @DtoAttribute(value = \"Excel表头信息\", example = \"\")"
+        },
+        {
+          "name": "isCustom",
+          "java_type": "Boolean",
+          "line": 61,
+          "default_literal": "true",
+          "annotations_excerpt": "    @EntityAttribute(value = \"Excel表头信息\", dataType = DataType.STRING)\n    @DtoAttribute(value = \"Excel表头信息\", example = \"\")\n    private String excelHeadInfo = \"\";\n\n    @DtoAttribute(value = \"是否是自定义模板\", example = \"true\")"
+        },
+        {
+          "name": "isImport",
+          "java_type": "Boolean",
+          "line": 64,
+          "default_literal": "true",
+          "annotations_excerpt": "\n    @DtoAttribute(value = \"是否是自定义模板\", example = \"true\")\n    private Boolean isCustom = true;\n\n    @DtoAttribute(value = \"是否是导入模板\", example = \"true\")"
+        },
+        {
+          "name": "isDefault",
+          "java_type": "Boolean",
+          "line": 67,
+          "default_literal": "false",
+          "annotations_excerpt": "\n    @DtoAttribute(value = \"是否是导入模板\", example = \"true\")\n    private Boolean isImport = true;\n\n    @DtoAttribute(value = \"是否是默认模板\", example = \"false\")"
+        },
+        {
+          "name": "deleteFlag",
+          "java_type": "Boolean",
+          "line": 70,
+          "default_literal": "false",
+          "annotations_excerpt": "\n    @DtoAttribute(value = \"是否是默认模板\", example = \"false\")\n    private Boolean isDefault = false;\n\n    @DtoAttribute(value = \"是否删除\", example = \"false\")"
+        },
+        {
+          "name": "columnList",
+          "java_type": "List<List<ExcelColumnDto>>",
+          "line": 74,
+          "default_literal": null,
+          "annotations_excerpt": "    @DtoAttribute(value = \"是否删除\", example = \"false\")\n    private Boolean deleteFlag = false;\n\n    @DtoAttribute(value = \"勾选字段属性的元数据list\")\n    @Min(1)"
+        },
+        {
+          "name": "belongGroupId",
+          "java_type": "Long",
+          "line": 78,
+          "default_literal": "Constants.LONG_MINUS_ONE",
+          "annotations_excerpt": "    @Min(1)\n    private List<List<ExcelColumnDto>> columnList;\n\n    @EntityAttribute(value = \"所属分组\", dataType = DataType.BIGINTEGER)\n    @DtoAttribute(value = \"所属分组\", example = \"-1\")"
+        },
+        {
+          "name": "originalId",
+          "java_type": "Long",
+          "line": 81,
+          "default_literal": null,
+          "annotations_excerpt": "    @EntityAttribute(value = \"所属分组\", dataType = DataType.BIGINTEGER)\n    @DtoAttribute(value = \"所属分组\", example = \"-1\")\n    private Long belongGroupId = Constants.LONG_MINUS_ONE;\n\n    @DtoAttribute(value = \"来源ID\")"
+        },
+        {
+          "name": "importReminders",
+          "java_type": "List<String>",
+          "line": 84,
+          "default_literal": null,
+          "annotations_excerpt": "\n    @DtoAttribute(value = \"来源ID\")\n    private Long originalId;\n\n    @DtoAttribute(value = \"模板头部导入提示自定义\")"
+        },
+        {
+          "name": "authInfo",
+          "java_type": "String",
+          "line": 87,
+          "default_literal": null,
+          "annotations_excerpt": "\n    @DtoAttribute(value = \"模板头部导入提示自定义\")\n    private List<String> importReminders;\n\n    @DtoAttribute(value = \"授权信息\")"
+        }
+      ],
+      "inherited_fields_included": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false
+    },
+    {
+      "source": "boot-extend/boot-starter-excel/src/main/java/com/seeyon/boot/starter/excel/dto/ExcelExportTemplate4GridDto.java",
+      "fields": [
+        {
+          "name": "name",
+          "java_type": "String",
+          "line": 21,
+          "default_literal": "\"\"",
+          "annotations_excerpt": "@DtoInfo(\"创建UDC重复表模板的Dto\")\npublic class ExcelExportTemplate4GridDto extends BaseDto {\n\n    @DtoAttribute(value = \"模板名称\", example = \"template-seeyon\")\n    @NotNull"
+        },
+        {
+          "name": "appId",
+          "java_type": "String",
+          "line": 25,
+          "default_literal": null,
+          "annotations_excerpt": "    @NotNull\n    private String name = \"\";\n\n    @DtoAttribute(value = \"应用ID\", example = \"1\")\n    @NotNull"
+        },
+        {
+          "name": "appName",
+          "java_type": "String",
+          "line": 29,
+          "default_literal": null,
+          "annotations_excerpt": "    @NotNull\n    private String appId;\n\n    @DtoAttribute(value = \"应用名称\", example = \"app-example\")\n    @NotNull"
+        },
+        {
+          "name": "mainFullName",
+          "java_type": "String",
+          "line": 33,
+          "default_literal": "\"\"",
+          "annotations_excerpt": "    @NotNull\n    private String appName;\n\n    @DtoAttribute(value = \"主实体全路径\", example = \"com.seeyon.app.example.domain.entity.MainEntity\")\n    @NotNull"
+        },
+        {
+          "name": "createUserId",
+          "java_type": "Long",
+          "line": 36,
+          "default_literal": "Constants.LONG_MINUS_ONE",
+          "annotations_excerpt": "    @DtoAttribute(value = \"主实体全路径\", example = \"com.seeyon.app.example.domain.entity.MainEntity\")\n    @NotNull\n    private String mainFullName = \"\";\n\n    @DtoAttribute(value = \"当前人员Id\", example = \"-1\", hidden = true)"
+        },
+        {
+          "name": "isCustom",
+          "java_type": "Boolean",
+          "line": 39,
+          "default_literal": "true",
+          "annotations_excerpt": "\n    @DtoAttribute(value = \"当前人员Id\", example = \"-1\", hidden = true)\n    private Long createUserId = Constants.LONG_MINUS_ONE;\n\n    @DtoAttribute(value = \"是否是自定义模板\", example = \"true\")"
+        },
+        {
+          "name": "isImport",
+          "java_type": "Boolean",
+          "line": 42,
+          "default_literal": "true",
+          "annotations_excerpt": "\n    @DtoAttribute(value = \"是否是自定义模板\", example = \"true\")\n    private Boolean isCustom = true;\n\n    @DtoAttribute(value = \"是否是导入模板\", example = \"true\")"
+        },
+        {
+          "name": "isDefault",
+          "java_type": "Boolean",
+          "line": 45,
+          "default_literal": "false",
+          "annotations_excerpt": "\n    @DtoAttribute(value = \"是否是导入模板\", example = \"true\")\n    private Boolean isImport = true;\n\n    @DtoAttribute(value = \"是否是默认模板\", example = \"false\")"
+        },
+        {
+          "name": "dataGridHeadInfos",
+          "java_type": "List<String>",
+          "line": 48,
+          "default_literal": null,
+          "annotations_excerpt": "\n    @DtoAttribute(value = \"是否是默认模板\", example = \"false\")\n    private Boolean isDefault = false;\n\n    @DtoAttribute(value = \"重复表表头字段的FullName列表集合\")"
+        }
+      ],
+      "inherited_fields_included": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false
+    },
+    {
+      "source": "boot-extend/boot-starter-excel/src/main/java/com/seeyon/boot/starter/excel/dto/ExcelUploadRequestDto.java",
+      "fields": [
+        {
+          "name": "fileStorageKey",
+          "java_type": "String",
+          "line": 20,
+          "default_literal": null,
+          "annotations_excerpt": "public class ExcelUploadRequestDto extends BaseDto {\n\n\n    @DtoAttribute(value = \"文件StorageKey\", example = \"XXXXX\")\n    @NotBlank"
+        },
+        {
+          "name": "mainFullName",
+          "java_type": "String",
+          "line": 24,
+          "default_literal": null,
+          "annotations_excerpt": "    @NotBlank\n    private String fileStorageKey;\n\n    @DtoAttribute(value = \"主实体全路径\", example = \"com.seeyon.app.example.domain.entity.MainEntity\")\n    @NotBlank"
+        },
+        {
+          "name": "appName",
+          "java_type": "String",
+          "line": 27,
+          "default_literal": null,
+          "annotations_excerpt": "    @DtoAttribute(value = \"主实体全路径\", example = \"com.seeyon.app.example.domain.entity.MainEntity\")\n    @NotBlank\n    private String mainFullName;\n\n    @DtoAttribute(value = \"应用名称\", example = \"app-example\")"
+        },
+        {
+          "name": "map",
+          "java_type": "Map",
+          "line": 30,
+          "default_literal": null,
+          "annotations_excerpt": "\n    @DtoAttribute(value = \"应用名称\", example = \"app-example\")\n    private String appName;\n\n    @DtoAttribute(value = \"映射\")"
+        }
+      ],
+      "inherited_fields_included": false,
+      "level": "STATIC_SOURCE",
+      "live_verified": false
+    }
+  ],
+  "tables": [
+    {
+      "source": "udc/udc-dataflow/src/main/java/com/seeyon/udc/dataflow/domain/entity/DataFlow.java",
+      "table_name": "udc_data_flow",
+      "line": 30,
+      "physical_database": null,
+      "level": "STATIC_SOURCE",
+      "live_verified": false
+    },
+    {
+      "source": "udc/udc-dataflow/src/main/java/com/seeyon/udc/dataflow/domain/entity/DataFlowMapping.java",
+      "table_name": "udc_data_flow_mapping",
+      "line": 33,
+      "physical_database": null,
+      "level": "STATIC_SOURCE",
+      "live_verified": false
+    },
+    {
+      "source": "udc/udc-dataflow/src/main/java/com/seeyon/udc/deduction/domain/entity/DeductionMap.java",
+      "table_name": "udc_deduction_map",
+      "line": 26,
+      "physical_database": null,
+      "level": "STATIC_SOURCE",
+      "live_verified": false
+    },
+    {
+      "source": "udc/udc-dataflow/src/main/java/com/seeyon/udc/deduction/domain/entity/DeductionRule.java",
+      "table_name": "udc_deduction_rule",
+      "line": 27,
+      "physical_database": null,
+      "level": "STATIC_SOURCE",
+      "live_verified": false
+    },
+    {
+      "source": "udc/udc-dataflow/src/main/java/com/seeyon/udc/deduction/domain/entity/DeductionAlgorithm.java",
+      "table_name": "udc_deduction_algorithm",
+      "line": 26,
+      "physical_database": null,
+      "level": "STATIC_SOURCE",
+      "live_verified": false
+    },
+    {
+      "source": "udc/udc-dataflow/src/main/java/com/seeyon/udc/deduction/domain/entity/DeductionRuleDetail.java",
+      "table_name": "udc_deduction_rule_detail",
+      "line": 26,
+      "physical_database": null,
+      "level": "STATIC_SOURCE",
+      "live_verified": false
+    },
+    {
+      "source": "boot-extend/boot-starter-excel/src/main/java/com/seeyon/boot/starter/excel/domain/entity/ExcelExportTemplate.java",
+      "table_name": "ctp_excel_export_template",
+      "line": 22,
+      "physical_database": null,
+      "level": "STATIC_SOURCE",
+      "live_verified": false
+    }
+  ],
+  "critical_boundaries": [
+    "CALL_DATA_FLOW invokes DataFlow, not an evidenced direct Deduction call.",
+    "Deduction is generated synchronous lifecycle-listener behavior with DO/UNDO.",
+    "Excel check operations may persist foreign templates and publish async events.",
+    "A redisKey is a work handle, not import/export success.",
+    "Source version, reference jar version and deployed version remain separate."
+  ],
+  "unknowns": [
+    "target application schema/results",
+    "frontend binding to these exact routes",
+    "deployed artifact identity",
+    "transaction/locking behavior in target application",
+    "current-version Excel dispatch branch",
+    "UI build-button request and runtime effects"
+  ],
+  "counts": {
+    "source_files": 48,
+    "claims": 31,
+    "operations": 70,
+    "dto_types": 13,
+    "dto_fields": 125,
+    "tables": 7,
+    "live_pass": 0
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "runtime.json": {
+    "status": "BLOCKED",
+    "live_probe": {"status": "BLOCKED", "reason": "default live runtime probe input is not configured in this checkout"},
+    "resources": {}
+  },
+  "http.json": {
+    "status": "BLOCKED",
+    "probes": [{"label": "default-live-probe-input", "classification": "BLOCKED", "note": "default live HTTP probe input is not configured in this checkout"}]
+  }
+}

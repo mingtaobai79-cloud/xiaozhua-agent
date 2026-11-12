@@ -1,0 +1,21 @@
+{
+ "traceId": "17923928666838059997",
+ "data": {
+  "data0": {
+   "code": "BOOT_0000",
+   "data": {
+    "content": {
+     "appId": null,
+     "lockId": null,
+     "resource": "4796455827714164161",
+     "holdLock": true,
+     "expireTimeStamp": "1792392926306",
+     "holdUserId___displayname": null,
+     "holdUserId": "0"
+    }
+   },
+   "message": "SUCCESS",
+   "status": 0
+  }
+ }
+}

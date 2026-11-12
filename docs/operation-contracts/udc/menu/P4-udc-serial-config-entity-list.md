@@ -1,0 +1,16 @@
+# P4 — udc.serial_config.entity_list
+
+| 要素 | 值 |
+|---|---|
+| operation_id | `udc.serial_config.entity_list` |
+| HTTP method | `GET`（javap 原值 `@GetMapping(value=["select-entity-list"])`） |
+| 控制器原路径 | 类级 `@RequestMapping(value=["udc-runtime/serial-config"])` + 方法级 `select-entity-list` → 原值拼接：`udc-runtime/serial-config/select-entity-list`（禁拼网关前缀；网关 service 前缀 UNVERIFIED） |
+| 参数形态 | `java.lang.String appName`，参数注解逐字：`@MultiRequestBody`（`com.seeyon.boot.annotation.MultiRequestBody`，javap L688-690，无 value 原值） |
+| 返回 DTO | `com.seeyon.boot.transport.SingleResponse<com.seeyon.boot.starter.udcrt.dto.EntityGroupAndItemDto>`（Signature Lcom/seeyon/boot/transport/SingleResponse<...EntityGroupAndItemDto;>，javap L172） |
+| evidence | artifact=`udc-starter-runtime-5.3.517.jar`（sha256 `74ae50bd8510414113248f0b1d400bca80d2ae2e0022c9dbbb31321a6040a66f`，<MAVEN_REPO>/com/seeyon/udc-starter-runtime/5.3.517/），class=`com.seeyon.boot.starter.udcrt.controller.UdcSerialConfigController`（classfile SHA-256 `fe1e5a72d7a25b34c566a9f49dbd47461c0abe54735dbd190b62203b07f81658`），method=`selectEntityList`，javap.txt=`docs/audit/artifacts/udc-menu-5.3.517/UdcSerialConfigController.javap.txt`，evidence_level=VERIFIED_STATIC_BYTECODE |
+| LIVE 回读条件 | **LIVE=已开火（10:03/14:51/18:17 三批 token 窗口内, 历史阻塞已解除）；本契约在线回读 status=VERIFIED_LIVE**（2026-09-20 10:35:33 开火 HTTP 200 + BOOT_0000/SUCCESS + identity_matches=true；二次开火 2026-09-20 15:04 北京（07:04:42 UTC）P1/P3/P4 3/3 PASS，证据 main/LIVE-READBACK-VERIFIED.md LIVE-19 段 + scratch/live-readback-result-LIVE19-20260920.json，权威源 main/LIVE-READBACK-VERIFIED.md + scratch/live-readback-result.json；离线字节码证据等级 VERIFIED_STATIC_BYTECODE 保持不变）。网关前缀已确证=`/service/{appId}`(test_app=`app9000000000000000001`, 源 test2-live-route-facts.json)。2026-09-19 16:19 实测：main/test2-live-credential.json remaining=-9324s 与旧共享 test2-web-credential.json remaining=-96645s，两份皆 EXPIRED；harness live-readback.py 双结构已对齐（LIVE-4/R13：新结构 cookie_header_template+sy_access_token/tk_exp/sy_uid + 旧结构 headers.Cookie 均支持，DRY_RUN 自检 0 HTTP 通过），token 落盘即 gate-check+DRY_RUN 预演开火。仅离线改文字不发 HTTP；HUMAN 后续提供新 token 后方可执行只读 GET。参数=合法 appName；@MultiRequestBody GET 传参=请求体/多体绑定语义（离线负证据：全域 52 POST 先例 0 GET，见 multi-request-body-get-binding.md），P4 为 GET+@MultiRequestBody 全域唯一法，传参形态: ① ?appName= 查询串 VERIFIED_LIVE（2026-09-20 10:35:33 实测 200+SUCCESS+entities 非空）；② 请求体形态（@MultiRequestBody 经 JSON body {appName} 包裹, 字节码 SingleRequest.from(appName) L17）VERIFIED_LIVE（LIVE-26, 2026-09-20 10:23:55 UTC / 18:23:55 北京, URL 不带 ?appName=, body=JSON {"appName":<test_app>}, 实测 HTTP 200 + BOOT_0000/SUCCESS + identity_matches=true + entities 非空, body_md5=748dfc11… 与查询串形态完全一致 → 两形态 runtime 等效确证）; 离线 LIVE-9 负证据（52 POST 先例 0 GET, 优先请求体假设）被 LIVE 部分证伪: test2 runtime 下 @MultiRequestBody+GET 经查询串与请求体两形态均可绑定。离线字节码证据等级 VERIFIED_STATIC_BYTECODE 不变，本契约在线回读 status=VERIFIED_LIVE；仅只读 GET。详见 main/NEEDS-HUMAN-live-residual2.md §LIVE-26（P1/P3/P4 已 LIVE 回读 + P4 request-body 形态确证, residual2 已撤销）+ main/LIVE-READBACK-VERIFIED.md §LIVE-26 + scratch/live-readback-result-LIVE26-20260920.json（1871B, sha256 b99604ea…c1eea462）|
+
+## 排除核查
+- 非 C1（C1 = UdcFunctionNodeController.selectFunctionNodeTreeMetaData，微流程域占用）✓
+- 语义核查：selectEntityList 为按 appName 读取流水配置实体组与项列表，纯读 ✓
+- 注：同控制器 update / refresh-historical-data / cache-evict（GET 但为刷新/清缓存写语义）已排除（见 SCAN.md 排除项清单）

@@ -1,0 +1,51 @@
+{
+ "actionType": "BRANCH",
+ "caption": "分支",
+ "captured_from": "编辑器（用户逐屏讲解，2026-10-25）",
+ "semantics": "条件分支：多个「符合条件」分支 + 一个「默认」分支；符合条件分支的「条件设置」直接打开表达式编辑器(布尔表达式)",
+ "structure": {
+  "if_branches": {
+   "count": "1..N",
+   "label": "①/②… 符合条件即进入该分支",
+   "condition": "条件设置 = 表达式(布尔)，点开即表达式编辑器"
+  },
+  "else_branch": {
+   "count": 1,
+   "label": "不符合条件即进入该分支(默认分支)",
+   "condition": "无表达式"
+  },
+  "add_branch_button": "添加分支 → 增加更多「符合条件」分支",
+  "each_branch_nodes": "每个分支内可挂子节点(nodes[])"
+ },
+ "condition_is_expression": true,
+ "expression_editor": {
+  "prompt": "分支条件设置为：在下方选择字段变量或函数，英文输入法编辑",
+  "selectable_range": [
+   "系统变量(组织机构/日期/环境变量/插件)",
+   "应用参数(附件/接口基地址/分页大小…)",
+   "微流程(前序入参/变量)"
+  ],
+  "functions": [
+   "基础/日期/数学/文本/条件/聚合/变化/枚举函数"
+  ],
+  "operators": [
+   "+ - * / mod",
+   "= != > < >= <=",
+   "and or not",
+   "true false ( )",
+   "为空 不为空 包含(全部) 属于"
+  ],
+  "buttons": [
+   "全量复制",
+   "部分复制",
+   "粘贴",
+   "清空",
+   "验证"
+  ]
+ },
+ "validation_rules": [
+  "每个「符合条件」分支必须有表达式(布尔)",
+  "默认分支无条件(expression=null)",
+  "至少1个符合条件分支+1个默认分支"
+ ]
+}

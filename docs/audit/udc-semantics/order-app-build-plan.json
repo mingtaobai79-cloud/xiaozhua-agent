@@ -1,0 +1,660 @@
+{
+  "mode": "build-plan",
+  "spec": {
+    "name": "orderapp",
+    "caption": "订单应用",
+    "entities": [
+      {
+        "name": "Order",
+        "fields": [
+          {
+            "name": "orderNo",
+            "type": "STRING",
+            "length": 64,
+            "required": true,
+            "uniqueness": true
+          },
+          {
+            "name": "amount",
+            "type": "DECIMAL",
+            "length": null,
+            "required": false
+          },
+          {
+            "name": "status",
+            "type": "ENUM",
+            "length": null,
+            "required": false,
+            "enum_name": "orderStatus"
+          },
+          {
+            "name": "buyer",
+            "type": "ENTITY",
+            "length": null,
+            "required": false,
+            "reference": {
+              "relationApp": "organization",
+              "relationEntity": "com.seeyon.organization.domain.core.entity.OrgMember"
+            },
+            "multi_select": true
+          },
+          {
+            "name": "createTime",
+            "type": "DATETIME",
+            "length": null,
+            "required": false,
+            "default_value": {
+              "defaultValueSystemVariable": "CURRENT_DATE"
+            }
+          }
+        ],
+        "stereotype": "单据",
+        "caption": "订单",
+        "data_permission": true,
+        "indexes": [
+          {
+            "caption": "idx_order_no",
+            "type": "NORMAL",
+            "fields": [
+              "orderNo"
+            ],
+            "remark": ""
+          },
+          {
+            "caption": "uk_order_no",
+            "type": "UNIQUE",
+            "fields": [
+              "orderNo",
+              "buyer"
+            ],
+            "remark": ""
+          }
+        ],
+        "events": [
+          {
+            "name": "onOrderCreate",
+            "caption": "订单创建",
+            "trigger": "BUSINESS_EVENT"
+          }
+        ],
+        "refer": [
+          {
+            "caption": "订单人员参照",
+            "entity": "Order",
+            "terminal": "PC",
+            "where": [],
+            "columns": [],
+            "id": null
+          }
+        ]
+      }
+    ],
+    "pages": [
+      {
+        "name": "OrderList",
+        "page_url": "/order/list",
+        "page_type": "LIST",
+        "bind_microflow": "BuildOrderTrace",
+        "detail": {
+          "穿透": "订单详情"
+        },
+        "columns": [
+          {
+            "field": "orderNo",
+            "width": 120
+          },
+          {
+            "field": "status",
+            "width": 80
+          }
+        ],
+        "toolbar": [
+          "新增",
+          "查询",
+          "测试1"
+        ],
+        "panels": [
+          {
+            "caption": "流转日志"
+          }
+        ],
+        "page_rules": [
+          {
+            "caption": "默认过滤"
+          }
+        ]
+      }
+    ],
+    "microflows": [
+      {
+        "name": "QueryOrderPeople",
+        "trigger": "MANUAL",
+        "nodes": []
+      },
+      {
+        "name": "BuildOrderTrace",
+        "trigger": "MANUAL",
+        "nodes": [],
+        "group_type": "VALIDATE",
+        "source_id": "Order"
+      }
+    ],
+    "enums": [
+      {
+        "name": "orderStatus",
+        "caption": "订单状态",
+        "items": [
+          {
+            "code": 10,
+            "caption": "新建",
+            "name": "NEW"
+          },
+          {
+            "code": 20,
+            "caption": "已付",
+            "name": "PAID"
+          }
+        ]
+      }
+    ],
+    "menus": [
+      {
+        "caption": "订单管理",
+        "page": "OrderList",
+        "terminal": "PC",
+        "icon": "order",
+        "order_no": 10,
+        "refer_page_id": ""
+      }
+    ],
+    "excel": [
+      {
+        "entity": "Order",
+        "direction": "export",
+        "template_id": "",
+        "data": [
+          {
+            "orderNo": "O1"
+          }
+        ]
+      }
+    ],
+    "app_stereotype": "单据"
+  },
+  "steps": [
+    {
+      "action": "create_application",
+      "target": "orderapp",
+      "channel": "graphql",
+      "op": "udcApplicationPost",
+      "evidence": "STATIC_CATALOG",
+      "executed": false,
+      "body_builder": "宿主组 body（应用名/编码/版型）",
+      "note": "paramsType=udcApplicationPostInputBody, paramsKey=body",
+      "seq": 1
+    },
+    {
+      "action": "create_enum",
+      "target": "orderStatus",
+      "channel": "graphql",
+      "op": "udcUdcEnumPost",
+      "evidence": "STATIC_CATALOG",
+      "executed": false,
+      "body_builder": "construction.metadata_artifacts.build_enum_body（appId/caption/name/orderNo）",
+      "note": "枚举本体；缺 orderNo 报 BOOT_1001（LIVE）",
+      "seq": 2
+    },
+    {
+      "action": "create_enum_items",
+      "target": "orderStatus",
+      "channel": "graphql",
+      "op": "udcUdcEnumItemOperateBatchPost",
+      "evidence": "STATIC_CATALOG",
+      "executed": false,
+      "body_builder": "construction.metadata_artifacts.build_enum_item_body（code 一律 int；name 大写字母+下划线）",
+      "note": "paramsType=[…]数组包装特例（§2.7.4）；2 项",
+      "seq": 3
+    },
+    {
+      "action": "create_entity",
+      "target": "Order",
+      "channel": "graphql",
+      "op": "udcEntityPost",
+      "evidence": "STATIC_CATALOG",
+      "executed": false,
+      "body_builder": "宿主组 body（caption/编码/版型/字段集/父实体）",
+      "note": "paramsType=udcEntityPostInputBody, appId 由 redux 注入（§2.7.1）；版型=单据",
+      "seq": 4
+    },
+    {
+      "action": "create_attribute",
+      "target": "Order.orderNo",
+      "channel": "graphql",
+      "op": "udcEntityAttributePost",
+      "evidence": "STATIC_CATALOG",
+      "executed": false,
+      "body_builder": "attribute_semantics.build_attribute_plan",
+      "note": "dataType=STRING",
+      "seq": 5
+    },
+    {
+      "action": "create_attribute",
+      "target": "Order.amount",
+      "channel": "graphql",
+      "op": "udcEntityAttributePost",
+      "evidence": "STATIC_CATALOG",
+      "executed": false,
+      "body_builder": "attribute_semantics.build_attribute_plan",
+      "note": "dataType=DECIMAL",
+      "seq": 6
+    },
+    {
+      "action": "create_attribute",
+      "target": "Order.status",
+      "channel": "graphql",
+      "op": "udcEntityAttributePost",
+      "evidence": "STATIC_CATALOG",
+      "executed": false,
+      "body_builder": "attribute_semantics.build_attribute_plan",
+      "note": "dataType=ENUM；枚举引用选项集=orderStatus",
+      "seq": 7
+    },
+    {
+      "action": "create_attribute",
+      "target": "Order.buyer",
+      "channel": "graphql",
+      "op": "udcEntityAttributePost",
+      "evidence": "STATIC_CATALOG",
+      "executed": false,
+      "body_builder": "attribute_semantics.build_attribute_plan",
+      "note": "dataType=ENTITY；多选/参照须 ENTITY+relationType+relationEntity+multiSelect",
+      "seq": 8
+    },
+    {
+      "action": "create_attribute",
+      "target": "Order.createTime",
+      "channel": "graphql",
+      "op": "udcEntityAttributePost",
+      "evidence": "STATIC_CATALOG",
+      "executed": false,
+      "body_builder": "attribute_semantics.build_attribute_plan",
+      "note": "dataType=DATETIME；默认值六件套进 plan_only（create 面受键 UNVERIFIED，不擅自进 body）",
+      "seq": 9
+    },
+    {
+      "action": "create_index",
+      "target": "Order.idx_order_no",
+      "channel": "graphql",
+      "op": "udcIndexPost",
+      "evidence": "STATIC_CATALOG",
+      "executed": false,
+      "body_builder": "construction.metadata_artifacts.build_index_body（fieldIds 逗号分隔字符串，给数组报 BOOT_3002）",
+      "note": "前缀 idx_；fields=['orderNo']",
+      "seq": 10
+    },
+    {
+      "action": "create_index",
+      "target": "Order.uk_order_no",
+      "channel": "graphql",
+      "op": "udcIndexPost",
+      "evidence": "STATIC_CATALOG",
+      "executed": false,
+      "body_builder": "construction.metadata_artifacts.build_index_body（fieldIds 逗号分隔字符串，给数组报 BOOT_3002）",
+      "note": "前缀 uk_；fields=['orderNo', 'buyer']",
+      "seq": 11
+    },
+    {
+      "action": "create_event",
+      "target": "Order.onOrderCreate",
+      "channel": "graphql",
+      "op": "udcEventCreateWithDataPost",
+      "evidence": "STATIC_CATALOG",
+      "executed": false,
+      "body_builder": "construction.metadata_artifacts.build_event_with_data_body（§2.8.2①：source=MICRO_FLOW/sourceId=实体id/eventDataList 由微流程节点输出参数构造）",
+      "note": "trigger=BUSINESS_EVENT；eventDataList.attributes 来自微流程节点输出参数（outputName/description/dataType/javaType/type），Dto/Enum 取 javaType",
+      "seq": 12
+    },
+    {
+      "action": "create_refer",
+      "target": "Order.订单人员参照",
+      "channel": "graphql",
+      "op": "udcReferConfigCreateConfigInfoPost",
+      "evidence": "STATIC_CATALOG",
+      "executed": false,
+      "body_builder": "宿主组 body（baseInfo/where/columns/terminal；§2.8.3③ 组件 53993 链）",
+      "note": "terminal=PC；有 id=None 走更新否则新建",
+      "seq": 13
+    },
+    {
+      "action": "microflow_check_schema",
+      "target": "QueryOrderPeople",
+      "channel": "rest",
+      "op": "POST /service/udc/microflow/checkSchema",
+      "evidence": "LIVE_SMOKE",
+      "executed": false,
+      "body_builder": "construction.microflow.build_microflow_create_body + check_schema_body",
+      "note": "create 前必过 checkSchema；content.check=true 且 errors=0 才创建",
+      "seq": 14
+    },
+    {
+      "action": "microflow_create",
+      "target": "QueryOrderPeople",
+      "channel": "rest",
+      "op": "POST /service/udc/microflow/create",
+      "evidence": "LIVE_SMOKE",
+      "executed": false,
+      "body_builder": "construction.microflow.build_microflow_create_body（dataSchema=json.dumps 字符串）",
+      "note": "与 create 同 body；dataSchema 是 JSON 字符串非嵌套对象",
+      "seq": 15
+    },
+    {
+      "action": "microflow_check_schema",
+      "target": "BuildOrderTrace",
+      "channel": "rest",
+      "op": "POST /service/udc/microflow/checkSchema",
+      "evidence": "LIVE_SMOKE",
+      "executed": false,
+      "body_builder": "construction.microflow.build_microflow_create_body + check_schema_body",
+      "note": "create 前必过 checkSchema；content.check=true 且 errors=0 才创建；实体规则组=VALIDATE（VALIDATE/DEFAULT_VALUE/ASSIGN_VALUE）；sourceId=Order",
+      "seq": 16
+    },
+    {
+      "action": "microflow_create",
+      "target": "BuildOrderTrace",
+      "channel": "rest",
+      "op": "POST /service/udc/microflow/create",
+      "evidence": "LIVE_SMOKE",
+      "executed": false,
+      "body_builder": "construction.microflow.build_microflow_create_body（dataSchema=json.dumps 字符串）",
+      "note": "与 create 同 body；dataSchema 是 JSON 字符串非嵌套对象",
+      "seq": 17
+    },
+    {
+      "action": "page_create_base",
+      "target": "OrderList",
+      "channel": "rest",
+      "op": "POST /udc/page-layout/base-info/create",
+      "evidence": "OBSERVED_LIVE",
+      "executed": false,
+      "body_builder": "layout_model.LAYOUT_ENDPOINTS['create_base']",
+      "note": "草稿面（write draftPageSchema+operationSteps）；page_type=LIST；列宽 2 项",
+      "seq": 18
+    },
+    {
+      "action": "page_menu_create",
+      "target": "OrderList",
+      "channel": "rest",
+      "op": "POST /udc/function",
+      "evidence": "OBSERVED_LIVE",
+      "executed": false,
+      "body_builder": "function_node_model.FUNCTION_ENDPOINTS['create']",
+      "note": "菜单节点；宿主把 spec.menus 里 refer_page 指向本页的项挂上",
+      "seq": 19
+    },
+    {
+      "action": "page_rules_create",
+      "target": "OrderList",
+      "channel": "rest",
+      "op": "POST /service/udc/udc-runtime/filter-plan/create-new（页面规则弹窗）",
+      "evidence": "OBSERVED_LIVE",
+      "executed": false,
+      "body_builder": "construction.metadata_artifacts.build_filter_plan_body（planType=2 列表可见；0=隐藏即『页面规则没建立』根因）",
+      "note": "1 条页面规则；sourceId=<{page_id}>_udcDataGridView_<{suffix}> 须宿主回填真实 id",
+      "seq": 20
+    },
+    {
+      "action": "page_panels_bind",
+      "target": "OrderList",
+      "channel": "rest",
+      "op": "POST /udc/page-layout/update（面板与打开面板动作）",
+      "evidence": "OBSERVED_LIVE",
+      "executed": false,
+      "body_builder": "layout_model.LAYOUT_ENDPOINTS['update']",
+      "note": "1 个面板；组件事件绑定在宿主构建期补齐",
+      "seq": 21
+    },
+    {
+      "action": "page_toolbar_bind",
+      "target": "OrderList",
+      "channel": "rest",
+      "op": "POST /udc/page-layout/update-draf（工具栏按钮/测试按钮位）",
+      "evidence": "OBSERVED_LIVE",
+      "executed": false,
+      "body_builder": "layout_model.LAYOUT_ENDPOINTS['update_draft']",
+      "note": "工具栏 ['新增', '查询', '测试1']；测试按钮位须在宿主页面点击验证等价",
+      "seq": 22
+    },
+    {
+      "action": "page_detail_bind",
+      "target": "OrderList",
+      "channel": "rest",
+      "op": "POST /udc/page-layout/update（编辑穿透详情/详情排版）",
+      "evidence": "OBSERVED_LIVE",
+      "executed": false,
+      "body_builder": "layout_model.LAYOUT_ENDPOINTS['update']",
+      "note": "详情面 ['穿透']；穿透详情绑定宿主补",
+      "seq": 23
+    },
+    {
+      "action": "page_bind_microflow",
+      "target": "OrderList",
+      "channel": "rest",
+      "op": "POST /udc/function/create/function-refer（页面↔微流程绑定）",
+      "evidence": "OBSERVED_LIVE",
+      "executed": false,
+      "body_builder": "function_node_model.FUNCTION_ENDPOINTS['create_page_refer']",
+      "note": "绑定微流程=BuildOrderTrace",
+      "seq": 24
+    },
+    {
+      "action": "excel_export",
+      "target": "Order",
+      "channel": "rest",
+      "op": "POST /service/udc/excel/export（check-excel 有副作用，不得进只读白名单）",
+      "evidence": "OBSERVED_LIVE",
+      "executed": false,
+      "body_builder": "excel_model.ExcelTemplateModel（app_id 是 String！双列结构 metadataContent+excelHeadInfo 缺一=列映射不完整）",
+      "note": "direction=export；异步 redisKey 只是句柄，验收须到文件/行结果层",
+      "seq": 25
+    },
+    {
+      "action": "menu_create",
+      "target": "订单管理",
+      "channel": "rest",
+      "op": "POST /udc/function（function tree 节点）",
+      "evidence": "OBSERVED_LIVE",
+      "executed": false,
+      "body_builder": "function_node_model.FUNCTION_ENDPOINTS['create']",
+      "note": "挂页面=OrderList；terminal=PC；order=10",
+      "seq": 26
+    },
+    {
+      "action": "deploy_online",
+      "target": "orderapp",
+      "channel": "rest",
+      "op": "POST /udc/deployment/...（deploy_chain_model.DEPLOY_OPS）",
+      "evidence": "STATIC_CATALOG",
+      "executed": false,
+      "body_builder": "deploy_chain_model（udcDeploymentAppOnlineNewPost deployType=ON_ONLINE）",
+      "note": "破坏性：上线后版本锁定，须宿主显式确认再执行",
+      "destructive": true,
+      "seq": 27
+    }
+  ],
+  "write_operations": [
+    {
+      "op": "udcApplicationPost",
+      "channel": "graphql",
+      "evidence": "STATIC_CATALOG",
+      "seq": 1
+    },
+    {
+      "op": "udcUdcEnumPost",
+      "channel": "graphql",
+      "evidence": "STATIC_CATALOG",
+      "seq": 2
+    },
+    {
+      "op": "udcUdcEnumItemOperateBatchPost",
+      "channel": "graphql",
+      "evidence": "STATIC_CATALOG",
+      "seq": 3
+    },
+    {
+      "op": "udcEntityPost",
+      "channel": "graphql",
+      "evidence": "STATIC_CATALOG",
+      "seq": 4
+    },
+    {
+      "op": "udcEntityAttributePost",
+      "channel": "graphql",
+      "evidence": "STATIC_CATALOG",
+      "seq": 5
+    },
+    {
+      "op": "udcEntityAttributePost",
+      "channel": "graphql",
+      "evidence": "STATIC_CATALOG",
+      "seq": 6
+    },
+    {
+      "op": "udcEntityAttributePost",
+      "channel": "graphql",
+      "evidence": "STATIC_CATALOG",
+      "seq": 7
+    },
+    {
+      "op": "udcEntityAttributePost",
+      "channel": "graphql",
+      "evidence": "STATIC_CATALOG",
+      "seq": 8
+    },
+    {
+      "op": "udcEntityAttributePost",
+      "channel": "graphql",
+      "evidence": "STATIC_CATALOG",
+      "seq": 9
+    },
+    {
+      "op": "udcIndexPost",
+      "channel": "graphql",
+      "evidence": "STATIC_CATALOG",
+      "seq": 10
+    },
+    {
+      "op": "udcIndexPost",
+      "channel": "graphql",
+      "evidence": "STATIC_CATALOG",
+      "seq": 11
+    },
+    {
+      "op": "udcEventCreateWithDataPost",
+      "channel": "graphql",
+      "evidence": "STATIC_CATALOG",
+      "seq": 12
+    },
+    {
+      "op": "udcReferConfigCreateConfigInfoPost",
+      "channel": "graphql",
+      "evidence": "STATIC_CATALOG",
+      "seq": 13
+    },
+    {
+      "op": "POST /service/udc/microflow/checkSchema",
+      "channel": "rest",
+      "evidence": "LIVE_SMOKE",
+      "seq": 14
+    },
+    {
+      "op": "POST /service/udc/microflow/create",
+      "channel": "rest",
+      "evidence": "LIVE_SMOKE",
+      "seq": 15
+    },
+    {
+      "op": "POST /service/udc/microflow/checkSchema",
+      "channel": "rest",
+      "evidence": "LIVE_SMOKE",
+      "seq": 16
+    },
+    {
+      "op": "POST /service/udc/microflow/create",
+      "channel": "rest",
+      "evidence": "LIVE_SMOKE",
+      "seq": 17
+    },
+    {
+      "op": "POST /udc/page-layout/base-info/create",
+      "channel": "rest",
+      "evidence": "OBSERVED_LIVE",
+      "seq": 18
+    },
+    {
+      "op": "POST /udc/function",
+      "channel": "rest",
+      "evidence": "OBSERVED_LIVE",
+      "seq": 19
+    },
+    {
+      "op": "POST /service/udc/udc-runtime/filter-plan/create-new（页面规则弹窗）",
+      "channel": "rest",
+      "evidence": "OBSERVED_LIVE",
+      "seq": 20
+    },
+    {
+      "op": "POST /udc/page-layout/update（面板与打开面板动作）",
+      "channel": "rest",
+      "evidence": "OBSERVED_LIVE",
+      "seq": 21
+    },
+    {
+      "op": "POST /udc/page-layout/update-draf（工具栏按钮/测试按钮位）",
+      "channel": "rest",
+      "evidence": "OBSERVED_LIVE",
+      "seq": 22
+    },
+    {
+      "op": "POST /udc/page-layout/update（编辑穿透详情/详情排版）",
+      "channel": "rest",
+      "evidence": "OBSERVED_LIVE",
+      "seq": 23
+    },
+    {
+      "op": "POST /udc/function/create/function-refer（页面↔微流程绑定）",
+      "channel": "rest",
+      "evidence": "OBSERVED_LIVE",
+      "seq": 24
+    },
+    {
+      "op": "POST /service/udc/excel/export（check-excel 有副作用，不得进只读白名单）",
+      "channel": "rest",
+      "evidence": "OBSERVED_LIVE",
+      "seq": 25
+    },
+    {
+      "op": "POST /udc/function（function tree 节点）",
+      "channel": "rest",
+      "evidence": "OBSERVED_LIVE",
+      "seq": 26
+    },
+    {
+      "op": "POST /udc/deployment/...（deploy_chain_model.DEPLOY_OPS）",
+      "channel": "rest",
+      "evidence": "STATIC_CATALOG",
+      "seq": 27
+    }
+  ],
+  "unknowns": [
+    "实体 Order: 数据权限开关（udc_entity.permission）为运行态列，设计态不单独生成，宿主建实体时随 body 置位"
+  ],
+  "evidence_levels": [
+    "STATIC_CATALOG",
+    "LIVE_SMOKE",
+    "OBSERVED_LIVE",
+    "UNVERIFIED"
+  ],
+  "executed": false,
+  "writes_performed": false,
+  "discipline": "agent 只出计划不出写；破坏性步骤(Deploy)宿主须先确认；op 解析失败/spec 未声明项落 unknowns 不臆造"
+}

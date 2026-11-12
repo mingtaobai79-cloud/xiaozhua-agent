@@ -1,0 +1,55 @@
+{
+ "actionType": "CALL_DATA_FLOW",
+ "caption": "执行生单规则",
+ "captured_from": "编辑器弹窗 + 用户贴 GraphQL body（2026-10-25）",
+ "semantics": "根据所选实体及数据过滤条件，批量执行生单规则，返回执行成功的更新/新建目标数据的ID集合",
+ "modal_fields": [
+  {
+   "label": "来源实体",
+   "required": true,
+   "placeholder": "请选择实体"
+  },
+  {
+   "label": "生单规则",
+   "required": true,
+   "placeholder": "请选择数据流"
+  },
+  {
+   "label": "数据来源方式",
+   "required": true,
+   "options": [
+    "查询数据",
+    "选择数据"
+   ],
+   "note": "查询数据=按过滤条件查实体数据；选择数据=引用来源实体数据(变量)"
+  },
+  {
+   "label": "过滤条件",
+   "required": true,
+   "note": "查询数据模式下(条件查询)"
+  },
+  {
+   "label": "来源实体数据",
+   "note": "选择数据模式下(请选择变量数据)"
+  },
+  {
+   "label": "节点出参名称",
+   "required": true,
+   "placeholder": "请输入"
+  }
+ ],
+ "mode_fields": {
+  "查询数据": [
+   "过滤条件(设置条件)"
+  ],
+  "选择数据": [
+   "来源实体数据(请选择变量数据)"
+  ]
+ },
+ "validation_rules": [
+  "来源实体/生单规则/数据来源方式必填",
+  "节点出参名称必填",
+  "查询数据→过滤条件",
+  "选择数据→来源实体数据"
+ ]
+}

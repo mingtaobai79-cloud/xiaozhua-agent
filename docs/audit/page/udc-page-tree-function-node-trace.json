@@ -1,0 +1,89 @@
+{
+  "schema_version": "seeyon-agent.udc-page-tree-trace.v1",
+  "module": "udc",
+  "parent_scope": "resource_menu",
+  "capability": "page_tree_function_node_read",
+  "operation_candidate": "udc.page_tree.read",
+  "status": "PARTIAL_STATIC_CHAIN_CANDIDATE",
+  "frontend": {
+    "loader": "a.wh.load",
+    "field_type": "udcMetaDataSelectFunctionNodeWithPageTreePost",
+    "params_type": "udcMetaDataSelectFunctionNodeWithPageTreePostInputBody",
+    "params_key": "body",
+    "params": {
+      "appId": "required",
+      "hasAssociateApp": true,
+      "params": {
+        "urlType": "optional terminal",
+        "pageType": "optional pageType"
+      },
+      "sort": {"orders": [{"direction": "ASC", "property": "createTime"}]}
+    },
+    "response_access": "content",
+    "content_fields": ["id", "name", "caption", "uniqueKey", "functionNodes", "pages"],
+    "page_fields": ["appId", "appName", "caption", "id", "pageType", "pageUrl", "sourceType", "urlType", "fullName", "relationGroupId", "inApp", "inParams", "masterEntity", "isDraftPage"]
+  },
+  "backend_candidates": {
+    "static_types": [
+      "com.seeyon.udc.api.PageMetadataQuery4SfAppService",
+      "com.seeyon.udc.api.DesignMetadataQueryAppService",
+      "com.seeyon.boot.starter.udcrt.domain.service.UdcPageInfoMetaDataEnhancedService",
+      "com.seeyon.boot.starter.udcrt.domain.service.UdcFunctionNodeService",
+      "com.seeyon.boot.starter.udcrt.domain.service.UdcDynamicResourceServiceImpl",
+      "com.seeyon.boot.starter.udcrt.domain.service.ResourcePermissionService"
+    ],
+    "confirmed_direct_mapping": false,
+    "status": "UNVERIFIED"
+  },
+  "runtime": {
+    "environment": "test2",
+    "tenant": "seeyon-test2",
+    "group": "seeyon",
+    "udc_data_id": "udc",
+    "udc_database": "udc_test2",
+    "database_type": "MySQL_CONFIG_EVIDENCE",
+    "object_storage": "OSS_CONFIG_EVIDENCE",
+    "frontend_build_uri": "udc-app-runtime/build/app",
+    "frontend_deploy_uri": "udc-app-runtime/deploy/app",
+    "page_tree_data_source": "UNKNOWN",
+    "redis_page_tree_mapping": "UNKNOWN",
+    "oss_page_tree_mapping": "UNKNOWN",
+    "database_page_tree_mapping": "UNKNOWN"
+  },
+  "edges": [
+    {"from": "frontend fieldType", "to": "GraphQL schema/resolver/handler", "status": "UNVERIFIED"},
+    {"from": "resolver/handler", "to": "Java AppService", "status": "UNVERIFIED"},
+    {"from": "AppService", "to": "domain service", "status": "UNVERIFIED"},
+    {"from": "domain service", "to": "database/OSS/Redis/remote service", "status": "UNVERIFIED"},
+    {"from": "response.content", "to": "functionNodes/pages[]", "status": "FACT_STATIC_FRONTEND_READ"}
+  ],
+  "implementation": {
+    "operation_contract": "NOT_CREATED",
+    "adapter": "NOT_CREATED",
+    "application_service": "NOT_CREATED",
+    "reason": "backend entry and source data mapping are not yet proven"
+  },
+  "resource_chunk": {
+    "file": "a49eacdd.js",
+    "status": "BLOCKED",
+    "impact": "blocks Resource UI handler recovery only; does not block this page-tree backend trace"
+  },
+  "unknowns": [
+    "GraphQL schema/resolver/handler",
+    "exact Java implementation receiving fieldType",
+    "actual functionNodes and pages source",
+    "pageType/urlType filtering semantics",
+    "sort semantics",
+    "Gateway route and service id",
+    "database table/query",
+    "OSS object key/version",
+    "Redis key/TTL/invalidation",
+    "live response and readback"
+  ],
+  "non_claims": [
+    "page-tree is not called menu",
+    "static class inventory is not a call edge",
+    "configuration is not a data-source execution proof",
+    "no mutation or write was executed"
+  ]
+}

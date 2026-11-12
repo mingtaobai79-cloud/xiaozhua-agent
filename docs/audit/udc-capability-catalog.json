@@ -1,0 +1,77 @@
+{
+  "schema_version": "seeyon-agent.udc-capability-catalog.v1",
+  "parent_component": "seeyon-agent",
+  "environment": "test2",
+  "namespace": "lowcode-test",
+  "gateway": {
+    "component": "ctp-webapi-gateway",
+    "artifact": "ctp-webapi-gateway-biz-5.3.266.jar",
+    "status": "PARTIAL_STATIC_FACT",
+    "route_resolution": "UNVERIFIED",
+    "auth": "UNVERIFIED",
+    "path_rewrite": "UNVERIFIED"
+  },
+  "capabilities": [
+    {
+      "id": "udc.entity",
+      "status": "VERIFIED_STATIC_BYTECODE",
+      "frontend_status": "STATIC_FRONTEND_CONTRACT",
+      "operation_count": 10,
+      "write_execution": "NOT_EXECUTED"
+    },
+    {
+      "id": "udc.attribute",
+      "status": "VERIFIED_STATIC_BYTECODE",
+      "frontend_status": "STATIC_FRONTEND_CONTRACT",
+      "operation_count": 10,
+      "write_execution": "NOT_EXECUTED"
+    },
+    {
+      "id": "udc.application",
+      "status": "PARTIAL",
+      "frontend_status": "STATIC_FRONTEND_DISCOVERY",
+      "operation_count": null,
+      "write_execution": "NOT_EXECUTED"
+    },
+    {
+      "id": "udc.menu",
+      "status": "NOT_STARTED",
+      "frontend_status": "NOT_EXTRACTED",
+      "operation_count": null,
+      "write_execution": "NOT_EXECUTED"
+    },
+    {
+      "id": "udc.page",
+      "status": "PARTIAL",
+      "frontend_status": "STATIC_FRONTEND_DISCOVERY",
+      "operation_count": null,
+      "write_execution": "NOT_EXECUTED"
+    },
+    {
+      "id": "udc.microflow",
+      "status": "PARTIAL",
+      "frontend_status": "STATIC_FRONTEND_DISCOVERY",
+      "backend_status": "STATIC_BACKEND_DISCOVERY",
+      "operation_count": null,
+      "write_execution": "NOT_EXECUTED"
+    },
+    {
+      "id": "udc.publish-build-runtime",
+      "status": "PARTIAL",
+      "backend_status": "STATIC_ARTIFACT_DISCOVERY",
+      "operation_count": null,
+      "write_execution": "NOT_EXECUTED"
+    }
+  ],
+  "evidence": [
+    "docs/audit/udc-gateway-and-capability-boundary-evidence.md",
+    "docs/audit/udc-entity-operation-contract-evidence.md",
+    "docs/audit/frontend/entity-api-module-64527-evidence.md",
+    "docs/audit/frontend/entity-field-api-module-evidence.md"
+  ],
+  "non_claims": [
+    "No live Gateway-routed UDC request has been executed.",
+    "No UDC mutation or publish was executed.",
+    "Menu/page/microflow design-time contracts are not closed."
+  ]
+}

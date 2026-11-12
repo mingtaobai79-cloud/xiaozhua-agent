@@ -1,0 +1,30 @@
+{
+ "caption": "文件复制",
+ "customs": null,
+ "description": "文件复制",
+ "dubbo": false,
+ "dubboVersion": null,
+ "fullName": "com.seeyon.boot.starter.file.appservice.FileAppService.copy",
+ "group": null,
+ "implClass": "com.seeyon.boot.starter.file.appservice.FileAppService",
+ "interfaceClass": null,
+ "md5": "85ad34d6f27bcd7f39580e3b941922ea",
+ "parameter": {
+  "caption": "文件StorageKey",
+  "type": "com.seeyon.boot.transport.SingleRequest",
+  "item": {
+   "enums": null,
+   "itemType": "java.lang.String",
+   "item": null
+  }
+ },
+ "returnValue": {
+  "caption": "文件StorageKey",
+  "type": "com.seeyon.boot.transport.SingleResponse",
+  "item": {
+   "enums": null,
+   "itemType": "java.lang.String",
+   "item": null
+  }
+ }
+}

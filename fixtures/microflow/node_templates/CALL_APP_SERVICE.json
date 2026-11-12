@@ -1,0 +1,132 @@
+{
+ "nodeId": "CALL_APP_SERVICE_xap2",
+ "name": null,
+ "type": "ACTIVITY",
+ "caption": "自定义服务(跨应用-organization)",
+ "description": null,
+ "runAfter": null,
+ "input": null,
+ "output": {
+  "id": null,
+  "javaType": "java.util.Map",
+  "dataType": "MAP",
+  "type": "OBJECT",
+  "desc": "CALL_APP_SERVICE_xap2",
+  "appName": "organization",
+  "name": "CALL_APP_SERVICE_xap2"
+ },
+ "isCompleted": true,
+ "actionType": "CALL_APP_SERVICE",
+ "app": {
+  "appId": null,
+  "appName": "organization",
+  "caption": "组织模型",
+  "inApp": false,
+  "udcApp": false,
+  "dynamicDependency": "NONE"
+ },
+ "selectMethod": {
+  "caption": "查询指定人员的指定扩展字段值",
+  "customs": null,
+  "description": "查询指定人员的指定扩展字段值",
+  "dubbo": true,
+  "dubboVersion": "1.0",
+  "fullName": "com.seeyon.organization.appservice.api.core.metadata.OrgMetadataCoreAppServiceImpl.selectMemberMetadataInfo",
+  "group": null,
+  "implClass": "com.seeyon.organization.appservice.api.core.metadata.OrgMetadataCoreAppServiceImpl",
+  "interfaceClass": "com.seeyon.organization.api.core.metadata.OrgMetadataCoreAppService",
+  "isCondition": false,
+  "md5": "dd06466c619106e46c944fee703152a3",
+  "parameter": {
+   "caption": null,
+   "type": "com.seeyon.boot.transport.SingleRequest",
+   "item": {
+    "enums": null,
+    "itemType": "com.seeyon.organization.dto.sync.search.SearchMemberMetadataDto",
+    "item": null
+   }
+  },
+  "returnValue": {
+   "caption": "人员扩展字段值",
+   "type": "com.seeyon.boot.transport.SingleResponse",
+   "item": {
+    "enums": null,
+    "itemType": "java.util.Map",
+    "item": {
+     "enums": null,
+     "itemType": "java.lang.Object",
+     "javaType": "java.lang.Object",
+     "dataType": "OBJECT",
+     "keyType": "java.lang.String"
+    }
+   }
+  }
+ },
+ "mappingType": "attrs",
+ "attrs": [
+  {
+   "value": {
+    "type": "Simple",
+    "simple": "zhuzhiweicode",
+    "desc": "zhuzhiweicode"
+   },
+   "attrType": {
+    "name": "metadataCode",
+    "id": "com.seeyon.organization.dto.sync.search.SearchMemberMetadataDto.metadataCode",
+    "fullName": "com.seeyon.organization.dto.sync.search.SearchMemberMetadataDto.metadataCode",
+    "javaType": "java.lang.String",
+    "dataType": "STRING",
+    "type": "OBJECT",
+    "desc": "人员扩展字段编码",
+    "relationApp": "udc",
+    "refApp": "udc",
+    "multiSelect": false,
+    "filterDataType": "STRING",
+    "filterType": "OBJECT",
+    "filterFullName": "com.seeyon.organization.dto.sync.search.SearchMemberMetadataDto.metadataCode",
+    "dataI18n": false,
+    "sort": 0,
+    "description": ""
+   }
+  },
+  {
+   "value": {
+    "type": "SelectParam",
+    "selectParam": {
+     "id": null,
+     "javaType": "java.lang.Long",
+     "dataType": "BIGINTEGER",
+     "type": "OBJECT",
+     "desc": "vNum",
+     "name": "_CREATE_VARIABLE_RDQZon",
+     "key": "_CREATE_VARIABLE_RDQZon",
+     "path": "_CREATE_VARIABLE_RDQZon",
+     "outputName": "_CREATE_VARIABLE_RDQZon",
+     "description": "vNum",
+     "position": "parent"
+    },
+    "desc": "vNum [长整数]"
+   },
+   "attrType": {
+    "name": "memberIds",
+    "id": "com.seeyon.organization.dto.sync.search.SearchMemberMetadataDto.memberIds",
+    "fullName": "com.seeyon.organization.dto.sync.search.SearchMemberMetadataDto.memberIds",
+    "javaType": "java.lang.Long",
+    "dataType": "BIGINTEGER",
+    "type": "ARRAY",
+    "desc": "人员ids",
+    "relationApp": "udc",
+    "refApp": "udc",
+    "multiSelect": false,
+    "filterDataType": "BIGINTEGER",
+    "filterType": "ARRAY",
+    "filterFullName": "com.seeyon.organization.dto.sync.search.SearchMemberMetadataDto.memberIds",
+    "dataI18n": false,
+    "sort": 0,
+    "description": ""
+   }
+  }
+ ],
+ "outPutDesc": null,
+ "outputName": "CALL_APP_SERVICE_xap2"
+}

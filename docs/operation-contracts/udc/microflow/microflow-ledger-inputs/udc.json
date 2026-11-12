@@ -1,0 +1,50 @@
+{
+  "status": "FACT",
+  "source": "local-maven-53517 / offline-decompiled udc-starter-runtime-5.3.517.jar (javap VERIFIED_STATIC_BYTECODE)",
+  "note": "微流程只读契约 C1/C2/C3 三条，registry components/platform_operations/registry.py:45-51。证据等级 VERIFIED_STATIC_BYTECODE（本地 5.3.517 静态，不升 LIVE，不混写 test2）。",
+  "facts": {
+    "udc.microflow.function_node_tree": {
+      "class": "com.seeyon.boot.starter.udcrt.controller.UdcFunctionNodeController",
+      "method": "selectFunctionNodeTreeMetaData",
+      "http_method": "GET",
+      "path": "udc-runtime/meta-data/select-function-node-tree/{appName}",
+      "request_type": "String appName(SingleRequest)",
+      "response_type": "ListResponse<UdcFunctionNodeMetadataDto>",
+      "write": false,
+      "evidence_level": "VERIFIED_STATIC_BYTECODE",
+      "artifact": "udc-starter-runtime-5.3.517.jar",
+      "version": "5.3.517",
+      "class_sha256": "efd8f9143d0fd44d4e3033a4bb4877c09e891a1049f66382df1ae1d7d08a7748",
+      "javap": "docs/audit/artifacts/udc-runtime-5.3.517/UdcFunctionNodeController.javap.txt",
+      "gateway_service_prefix": "udc (test2 live-confirmed); controller path segment live 404 (deployed routing diff, UNVERIFIED)"
+    },
+    "udc.datatype.get_all": {
+      "class": "com.seeyon.boot.starter.udcrt.controller.UdcDataTypeController",
+      "method": "getDataTypes",
+      "http_method": "GET",
+      "path": "udc-runtime/datatype/getAll",
+      "request_type": "()",
+      "response_type": "ListResponse<DataTypeDto>",
+      "write": false,
+      "evidence_level": "VERIFIED_STATIC_BYTECODE",
+      "artifact": "udc-starter-runtime-5.3.517.jar",
+      "version": "5.3.517",
+      "source": "local-maven-53517",
+      "class_sha256": "03b3977b50574208eaad2b1925a80520a4686b268a56bacd35b87a144854bc38"
+    },
+    "udc.applog.select_by_id": {
+      "class": "com.seeyon.boot.starter.udcrt.controller.UdcAppLogController",
+      "method": "selectAppDataById",
+      "http_method": "GET",
+      "path": "udc-runtime/app-log/datalog/{id}",
+      "request_type": "Long id(SingleRequest)",
+      "response_type": "SingleResponse<UdcEntityMonitorLogDto>",
+      "write": false,
+      "evidence_level": "VERIFIED_STATIC_BYTECODE",
+      "artifact": "udc-starter-runtime-5.3.517.jar",
+      "version": "5.3.517",
+      "source": "local-maven-53517",
+      "class_sha256": "f6a2111d3f5fd28b7c84d7eb1dddacd42ca38ffa0be194f2c34550faed2ee775"
+    }
+  }
+}

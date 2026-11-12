@@ -1,0 +1,632 @@
+Classfile /<SEEYON_AGENT_ROOT>/tools/jars/udc-rt-classes/com/seeyon/boot/starter/udcrt/proxy/dto/UdcRestPathParseDto.class
+  Last modified 2026年10月1日; size 5815 bytes
+  SHA-256 checksum 9645d0ced3eacf04c4f83b50c463f5939a5ee453784f199a481c271b5aa1486a
+  Compiled from "UdcRestPathParseDto.java"
+public class com.seeyon.boot.starter.udcrt.proxy.dto.UdcRestPathParseDto extends com.seeyon.boot.starter.udcrt.proxy.dto.UdcRestPathParseBaseDto
+  minor version: 0
+  major version: 52
+  flags: (0x0021) ACC_PUBLIC, ACC_SUPER
+  this_class: #41                         // com/seeyon/boot/starter/udcrt/proxy/dto/UdcRestPathParseDto
+  super_class: #42                        // com/seeyon/boot/starter/udcrt/proxy/dto/UdcRestPathParseBaseDto
+  interfaces: 0, fields: 8, methods: 16, attributes: 1
+Constant pool:
+    #1 = Methodref          #42.#116      // com/seeyon/boot/starter/udcrt/proxy/dto/UdcRestPathParseBaseDto."<init>":()V
+    #2 = Class              #117          // com/seeyon/boot/starter/udcrt/dto/ReferenceDynamicSelectDto
+    #3 = Methodref          #2.#116       // com/seeyon/boot/starter/udcrt/dto/ReferenceDynamicSelectDto."<init>":()V
+    #4 = Fieldref           #118.#119     // com/seeyon/boot/starter/extmetadata/enums/DynamicDependencyTypeEnum.FORM_NORMAL:Lcom/seeyon/boot/starter/extmetadata/enums/DynamicDependencyTypeEnum;
+    #5 = Methodref          #41.#120      // com/seeyon/boot/starter/udcrt/proxy/dto/UdcRestPathParseDto.getEntityAppMetadataDto:()Lcom/seeyon/boot/starter/extmetadata/dto/UdcApplicationMetaDataDto;
+    #6 = Methodref          #121.#122     // com/seeyon/boot/starter/extmetadata/dto/UdcApplicationMetaDataDto.getDynamicDependency:()Lcom/seeyon/boot/starter/extmetadata/enums/DynamicDependencyTypeEnum;
+    #7 = Methodref          #118.#123     // com/seeyon/boot/starter/extmetadata/enums/DynamicDependencyTypeEnum.equals:(Ljava/lang/Object;)Z
+    #8 = Methodref          #2.#124       // com/seeyon/boot/starter/udcrt/dto/ReferenceDynamicSelectDto.setFromNormalDynamicDependency:(Z)V
+    #9 = Methodref          #41.#125      // com/seeyon/boot/starter/udcrt/proxy/dto/UdcRestPathParseDto.getCurrentAppMetadataDto:()Lcom/seeyon/boot/starter/extmetadata/dto/UdcApplicationMetaDataDto;
+   #10 = Methodref          #121.#126     // com/seeyon/boot/starter/extmetadata/dto/UdcApplicationMetaDataDto.getName:()Ljava/lang/String;
+   #11 = Methodref          #41.#127      // com/seeyon/boot/starter/udcrt/proxy/dto/UdcRestPathParseDto.getRestEntityAppName:()Ljava/lang/String;
+   #12 = Methodref          #2.#128       // com/seeyon/boot/starter/udcrt/dto/ReferenceDynamicSelectDto.setAppName:(Ljava/lang/String;)V
+   #13 = Methodref          #41.#129      // com/seeyon/boot/starter/udcrt/proxy/dto/UdcRestPathParseDto.getEntityMetaDataDto:()Lcom/seeyon/boot/starter/extmetadata/dto/UdcSimpleEntityMetaDataDto;
+   #14 = Methodref          #130.#131     // com/seeyon/boot/starter/extmetadata/dto/UdcSimpleEntityMetaDataDto.getFullName:()Ljava/lang/String;
+   #15 = Methodref          #2.#132       // com/seeyon/boot/starter/udcrt/dto/ReferenceDynamicSelectDto.setEntityFullName:(Ljava/lang/String;)V
+   #16 = Methodref          #130.#133     // com/seeyon/boot/starter/extmetadata/dto/UdcSimpleEntityMetaDataDto.getDtoFullName:()Ljava/lang/String;
+   #17 = Methodref          #134.#135     // com/seeyon/udc/common/utils/FullNameCommonUtil.getBasePackage:(Lcom/seeyon/boot/starter/extmetadata/dto/UdcApplicationMetaDataDto;)Ljava/lang/String;
+   #18 = Methodref          #136.#137     // com/seeyon/udc/common/utils/DynamicDependencyUtil.convertDynamicDependencyDtoFullName:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+   #19 = Methodref          #2.#138       // com/seeyon/boot/starter/udcrt/dto/ReferenceDynamicSelectDto.setReturnValClassFullName:(Ljava/lang/String;)V
+   #20 = Methodref          #41.#139      // com/seeyon/boot/starter/udcrt/proxy/dto/UdcRestPathParseDto.getPageAppName:()Ljava/lang/String;
+   #21 = Methodref          #2.#140       // com/seeyon/boot/starter/udcrt/dto/ReferenceDynamicSelectDto.setCurrentAppName:(Ljava/lang/String;)V
+   #22 = Methodref          #121.#141     // com/seeyon/boot/starter/extmetadata/dto/UdcApplicationMetaDataDto.getHostAppName:()Ljava/lang/String;
+   #23 = Methodref          #2.#142       // com/seeyon/boot/starter/udcrt/dto/ReferenceDynamicSelectDto.setCurrentHostAppName:(Ljava/lang/String;)V
+   #24 = String             #143          // archiveTree
+   #25 = Methodref          #130.#144     // com/seeyon/boot/starter/extmetadata/dto/UdcSimpleEntityMetaDataDto.getStereotype:()Ljava/lang/String;
+   #26 = Methodref          #145.#123     // java/lang/String.equals:(Ljava/lang/Object;)Z
+   #27 = Methodref          #146.#147     // java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+   #28 = Methodref          #2.#148       // com/seeyon/boot/starter/udcrt/dto/ReferenceDynamicSelectDto.setTreeEntity:(Ljava/lang/Boolean;)V
+   #29 = Fieldref           #149.#150     // com/seeyon/boot/starter/extmetadata/enums/EntityCategoryEnum.THIRD:Lcom/seeyon/boot/starter/extmetadata/enums/EntityCategoryEnum;
+   #30 = Methodref          #130.#151     // com/seeyon/boot/starter/extmetadata/dto/UdcSimpleEntityMetaDataDto.getCategory:()Lcom/seeyon/boot/starter/extmetadata/enums/EntityCategoryEnum;
+   #31 = Methodref          #149.#123     // com/seeyon/boot/starter/extmetadata/enums/EntityCategoryEnum.equals:(Ljava/lang/Object;)Z
+   #32 = Methodref          #2.#152       // com/seeyon/boot/starter/udcrt/dto/ReferenceDynamicSelectDto.setRootEntityDtoClassFullName:(Ljava/lang/String;)V
+   #33 = Methodref          #2.#153       // com/seeyon/boot/starter/udcrt/dto/ReferenceDynamicSelectDto.setThirdParty:(Z)V
+   #34 = Fieldref           #41.#154      // com/seeyon/boot/starter/udcrt/proxy/dto/UdcRestPathParseDto.currentAppMetadataDto:Lcom/seeyon/boot/starter/extmetadata/dto/UdcApplicationMetaDataDto;
+   #35 = Fieldref           #41.#155      // com/seeyon/boot/starter/udcrt/proxy/dto/UdcRestPathParseDto.entityAppMetadataDto:Lcom/seeyon/boot/starter/extmetadata/dto/UdcApplicationMetaDataDto;
+   #36 = Fieldref           #41.#156      // com/seeyon/boot/starter/udcrt/proxy/dto/UdcRestPathParseDto.entityMetaDataDto:Lcom/seeyon/boot/starter/extmetadata/dto/UdcSimpleEntityMetaDataDto;
+   #37 = Fieldref           #41.#157      // com/seeyon/boot/starter/udcrt/proxy/dto/UdcRestPathParseDto.pageGuid:Ljava/lang/Long;
+   #38 = Fieldref           #41.#158      // com/seeyon/boot/starter/udcrt/proxy/dto/UdcRestPathParseDto.pageMetadataV2Dto:Lcom/seeyon/boot/starter/extmetadata/dto/UdcPageMetadataV2Dto;
+   #39 = Fieldref           #41.#159      // com/seeyon/boot/starter/udcrt/proxy/dto/UdcRestPathParseDto.filterPlanDto:Lcom/seeyon/boot/starter/customplan/dto/FilterPlanDto;
+   #40 = Fieldref           #41.#160      // com/seeyon/boot/starter/udcrt/proxy/dto/UdcRestPathParseDto.runtimeDataSourceKey:Ljava/lang/String;
+   #41 = Class              #161          // com/seeyon/boot/starter/udcrt/proxy/dto/UdcRestPathParseDto
+   #42 = Class              #162          // com/seeyon/boot/starter/udcrt/proxy/dto/UdcRestPathParseBaseDto
+   #43 = Utf8               serialVersionUID
+   #44 = Utf8               J
+   #45 = Utf8               ConstantValue
+   #46 = Long               -4257141124788356862l
+   #48 = Utf8               currentAppMetadataDto
+   #49 = Utf8               Lcom/seeyon/boot/starter/extmetadata/dto/UdcApplicationMetaDataDto;
+   #50 = Utf8               RuntimeVisibleAnnotations
+   #51 = Utf8               Ljavax/annotation/Nullable;
+   #52 = Utf8               entityAppMetadataDto
+   #53 = Utf8               entityMetaDataDto
+   #54 = Utf8               Lcom/seeyon/boot/starter/extmetadata/dto/UdcSimpleEntityMetaDataDto;
+   #55 = Utf8               pageGuid
+   #56 = Utf8               Ljava/lang/Long;
+   #57 = Utf8               pageMetadataV2Dto
+   #58 = Utf8               Lcom/seeyon/boot/starter/extmetadata/dto/UdcPageMetadataV2Dto;
+   #59 = Utf8               filterPlanDto
+   #60 = Utf8               Lcom/seeyon/boot/starter/customplan/dto/FilterPlanDto;
+   #61 = Utf8               runtimeDataSourceKey
+   #62 = Utf8               Ljava/lang/String;
+   #63 = Utf8               <init>
+   #64 = Utf8               ()V
+   #65 = Utf8               Code
+   #66 = Utf8               LineNumberTable
+   #67 = Utf8               LocalVariableTable
+   #68 = Utf8               this
+   #69 = Utf8               Lcom/seeyon/boot/starter/udcrt/proxy/dto/UdcRestPathParseDto;
+   #70 = Utf8               toBaseReferenceDynamicSelectDto
+   #71 = Utf8               ()Lcom/seeyon/boot/starter/udcrt/dto/ReferenceDynamicSelectDto;
+   #72 = Utf8               basePackage
+   #73 = Utf8               referenceDynamicSelectDto
+   #74 = Utf8               Lcom/seeyon/boot/starter/udcrt/dto/ReferenceDynamicSelectDto;
+   #75 = Utf8               isFormNormal
+   #76 = Utf8               Z
+   #77 = Utf8               appName
+   #78 = Utf8               returnValClassFullName
+   #79 = Utf8               currentHostAppName
+   #80 = Utf8               LocalVariableTypeTable
+   #81 = Utf8               Lcom/seeyon/boot/starter/udcrt/dto/ReferenceDynamicSelectDto<Lcom/seeyon/boot/transport/BaseDto;>;
+   #82 = Utf8               StackMapTable
+   #83 = Class              #117          // com/seeyon/boot/starter/udcrt/dto/ReferenceDynamicSelectDto
+   #84 = Class              #163          // java/lang/String
+   #85 = Utf8               Signature
+   #86 = Utf8               ()Lcom/seeyon/boot/starter/udcrt/dto/ReferenceDynamicSelectDto<Lcom/seeyon/boot/transport/BaseDto;>;
+   #87 = Utf8               getCurrentAppMetadataDto
+   #88 = Utf8               ()Lcom/seeyon/boot/starter/extmetadata/dto/UdcApplicationMetaDataDto;
+   #89 = Utf8               getEntityAppMetadataDto
+   #90 = Utf8               getEntityMetaDataDto
+   #91 = Utf8               ()Lcom/seeyon/boot/starter/extmetadata/dto/UdcSimpleEntityMetaDataDto;
+   #92 = Utf8               getPageGuid
+   #93 = Utf8               ()Ljava/lang/Long;
+   #94 = Utf8               getPageMetadataV2Dto
+   #95 = Utf8               ()Lcom/seeyon/boot/starter/extmetadata/dto/UdcPageMetadataV2Dto;
+   #96 = Utf8               getFilterPlanDto
+   #97 = Utf8               ()Lcom/seeyon/boot/starter/customplan/dto/FilterPlanDto;
+   #98 = Utf8               getRuntimeDataSourceKey
+   #99 = Utf8               ()Ljava/lang/String;
+  #100 = Utf8               setCurrentAppMetadataDto
+  #101 = Utf8               (Lcom/seeyon/boot/starter/extmetadata/dto/UdcApplicationMetaDataDto;)V
+  #102 = Utf8               RuntimeVisibleParameterAnnotations
+  #103 = Utf8               setEntityAppMetadataDto
+  #104 = Utf8               setEntityMetaDataDto
+  #105 = Utf8               (Lcom/seeyon/boot/starter/extmetadata/dto/UdcSimpleEntityMetaDataDto;)V
+  #106 = Utf8               setPageGuid
+  #107 = Utf8               (Ljava/lang/Long;)V
+  #108 = Utf8               setPageMetadataV2Dto
+  #109 = Utf8               (Lcom/seeyon/boot/starter/extmetadata/dto/UdcPageMetadataV2Dto;)V
+  #110 = Utf8               setFilterPlanDto
+  #111 = Utf8               (Lcom/seeyon/boot/starter/customplan/dto/FilterPlanDto;)V
+  #112 = Utf8               setRuntimeDataSourceKey
+  #113 = Utf8               (Ljava/lang/String;)V
+  #114 = Utf8               SourceFile
+  #115 = Utf8               UdcRestPathParseDto.java
+  #116 = NameAndType        #63:#64       // "<init>":()V
+  #117 = Utf8               com/seeyon/boot/starter/udcrt/dto/ReferenceDynamicSelectDto
+  #118 = Class              #164          // com/seeyon/boot/starter/extmetadata/enums/DynamicDependencyTypeEnum
+  #119 = NameAndType        #165:#166     // FORM_NORMAL:Lcom/seeyon/boot/starter/extmetadata/enums/DynamicDependencyTypeEnum;
+  #120 = NameAndType        #89:#88       // getEntityAppMetadataDto:()Lcom/seeyon/boot/starter/extmetadata/dto/UdcApplicationMetaDataDto;
+  #121 = Class              #167          // com/seeyon/boot/starter/extmetadata/dto/UdcApplicationMetaDataDto
+  #122 = NameAndType        #168:#169     // getDynamicDependency:()Lcom/seeyon/boot/starter/extmetadata/enums/DynamicDependencyTypeEnum;
+  #123 = NameAndType        #170:#171     // equals:(Ljava/lang/Object;)Z
+  #124 = NameAndType        #172:#173     // setFromNormalDynamicDependency:(Z)V
+  #125 = NameAndType        #87:#88       // getCurrentAppMetadataDto:()Lcom/seeyon/boot/starter/extmetadata/dto/UdcApplicationMetaDataDto;
+  #126 = NameAndType        #174:#99      // getName:()Ljava/lang/String;
+  #127 = NameAndType        #175:#99      // getRestEntityAppName:()Ljava/lang/String;
+  #128 = NameAndType        #176:#113     // setAppName:(Ljava/lang/String;)V
+  #129 = NameAndType        #90:#91       // getEntityMetaDataDto:()Lcom/seeyon/boot/starter/extmetadata/dto/UdcSimpleEntityMetaDataDto;
+  #130 = Class              #177          // com/seeyon/boot/starter/extmetadata/dto/UdcSimpleEntityMetaDataDto
+  #131 = NameAndType        #178:#99      // getFullName:()Ljava/lang/String;
+  #132 = NameAndType        #179:#113     // setEntityFullName:(Ljava/lang/String;)V
+  #133 = NameAndType        #180:#99      // getDtoFullName:()Ljava/lang/String;
+  #134 = Class              #181          // com/seeyon/udc/common/utils/FullNameCommonUtil
+  #135 = NameAndType        #182:#183     // getBasePackage:(Lcom/seeyon/boot/starter/extmetadata/dto/UdcApplicationMetaDataDto;)Ljava/lang/String;
+  #136 = Class              #184          // com/seeyon/udc/common/utils/DynamicDependencyUtil
+  #137 = NameAndType        #185:#186     // convertDynamicDependencyDtoFullName:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+  #138 = NameAndType        #187:#113     // setReturnValClassFullName:(Ljava/lang/String;)V
+  #139 = NameAndType        #188:#99      // getPageAppName:()Ljava/lang/String;
+  #140 = NameAndType        #189:#113     // setCurrentAppName:(Ljava/lang/String;)V
+  #141 = NameAndType        #190:#99      // getHostAppName:()Ljava/lang/String;
+  #142 = NameAndType        #191:#113     // setCurrentHostAppName:(Ljava/lang/String;)V
+  #143 = Utf8               archiveTree
+  #144 = NameAndType        #192:#99      // getStereotype:()Ljava/lang/String;
+  #145 = Class              #163          // java/lang/String
+  #146 = Class              #193          // java/lang/Boolean
+  #147 = NameAndType        #194:#195     // valueOf:(Z)Ljava/lang/Boolean;
+  #148 = NameAndType        #196:#197     // setTreeEntity:(Ljava/lang/Boolean;)V
+  #149 = Class              #198          // com/seeyon/boot/starter/extmetadata/enums/EntityCategoryEnum
+  #150 = NameAndType        #199:#200     // THIRD:Lcom/seeyon/boot/starter/extmetadata/enums/EntityCategoryEnum;
+  #151 = NameAndType        #201:#202     // getCategory:()Lcom/seeyon/boot/starter/extmetadata/enums/EntityCategoryEnum;
+  #152 = NameAndType        #203:#113     // setRootEntityDtoClassFullName:(Ljava/lang/String;)V
+  #153 = NameAndType        #204:#173     // setThirdParty:(Z)V
+  #154 = NameAndType        #48:#49       // currentAppMetadataDto:Lcom/seeyon/boot/starter/extmetadata/dto/UdcApplicationMetaDataDto;
+  #155 = NameAndType        #52:#49       // entityAppMetadataDto:Lcom/seeyon/boot/starter/extmetadata/dto/UdcApplicationMetaDataDto;
+  #156 = NameAndType        #53:#54       // entityMetaDataDto:Lcom/seeyon/boot/starter/extmetadata/dto/UdcSimpleEntityMetaDataDto;
+  #157 = NameAndType        #55:#56       // pageGuid:Ljava/lang/Long;
+  #158 = NameAndType        #57:#58       // pageMetadataV2Dto:Lcom/seeyon/boot/starter/extmetadata/dto/UdcPageMetadataV2Dto;
+  #159 = NameAndType        #59:#60       // filterPlanDto:Lcom/seeyon/boot/starter/customplan/dto/FilterPlanDto;
+  #160 = NameAndType        #61:#62       // runtimeDataSourceKey:Ljava/lang/String;
+  #161 = Utf8               com/seeyon/boot/starter/udcrt/proxy/dto/UdcRestPathParseDto
+  #162 = Utf8               com/seeyon/boot/starter/udcrt/proxy/dto/UdcRestPathParseBaseDto
+  #163 = Utf8               java/lang/String
+  #164 = Utf8               com/seeyon/boot/starter/extmetadata/enums/DynamicDependencyTypeEnum
+  #165 = Utf8               FORM_NORMAL
+  #166 = Utf8               Lcom/seeyon/boot/starter/extmetadata/enums/DynamicDependencyTypeEnum;
+  #167 = Utf8               com/seeyon/boot/starter/extmetadata/dto/UdcApplicationMetaDataDto
+  #168 = Utf8               getDynamicDependency
+  #169 = Utf8               ()Lcom/seeyon/boot/starter/extmetadata/enums/DynamicDependencyTypeEnum;
+  #170 = Utf8               equals
+  #171 = Utf8               (Ljava/lang/Object;)Z
+  #172 = Utf8               setFromNormalDynamicDependency
+  #173 = Utf8               (Z)V
+  #174 = Utf8               getName
+  #175 = Utf8               getRestEntityAppName
+  #176 = Utf8               setAppName
+  #177 = Utf8               com/seeyon/boot/starter/extmetadata/dto/UdcSimpleEntityMetaDataDto
+  #178 = Utf8               getFullName
+  #179 = Utf8               setEntityFullName
+  #180 = Utf8               getDtoFullName
+  #181 = Utf8               com/seeyon/udc/common/utils/FullNameCommonUtil
+  #182 = Utf8               getBasePackage
+  #183 = Utf8               (Lcom/seeyon/boot/starter/extmetadata/dto/UdcApplicationMetaDataDto;)Ljava/lang/String;
+  #184 = Utf8               com/seeyon/udc/common/utils/DynamicDependencyUtil
+  #185 = Utf8               convertDynamicDependencyDtoFullName
+  #186 = Utf8               (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+  #187 = Utf8               setReturnValClassFullName
+  #188 = Utf8               getPageAppName
+  #189 = Utf8               setCurrentAppName
+  #190 = Utf8               getHostAppName
+  #191 = Utf8               setCurrentHostAppName
+  #192 = Utf8               getStereotype
+  #193 = Utf8               java/lang/Boolean
+  #194 = Utf8               valueOf
+  #195 = Utf8               (Z)Ljava/lang/Boolean;
+  #196 = Utf8               setTreeEntity
+  #197 = Utf8               (Ljava/lang/Boolean;)V
+  #198 = Utf8               com/seeyon/boot/starter/extmetadata/enums/EntityCategoryEnum
+  #199 = Utf8               THIRD
+  #200 = Utf8               Lcom/seeyon/boot/starter/extmetadata/enums/EntityCategoryEnum;
+  #201 = Utf8               getCategory
+  #202 = Utf8               ()Lcom/seeyon/boot/starter/extmetadata/enums/EntityCategoryEnum;
+  #203 = Utf8               setRootEntityDtoClassFullName
+  #204 = Utf8               setThirdParty
+{
+  private static final long serialVersionUID;
+    descriptor: J
+    flags: (0x001a) ACC_PRIVATE, ACC_STATIC, ACC_FINAL
+    ConstantValue: long -4257141124788356862l
+
+  private com.seeyon.boot.starter.extmetadata.dto.UdcApplicationMetaDataDto currentAppMetadataDto;
+    descriptor: Lcom/seeyon/boot/starter/extmetadata/dto/UdcApplicationMetaDataDto;
+    flags: (0x0002) ACC_PRIVATE
+    RuntimeVisibleAnnotations:
+      0: #51()
+        javax.annotation.Nullable
+
+  private com.seeyon.boot.starter.extmetadata.dto.UdcApplicationMetaDataDto entityAppMetadataDto;
+    descriptor: Lcom/seeyon/boot/starter/extmetadata/dto/UdcApplicationMetaDataDto;
+    flags: (0x0002) ACC_PRIVATE
+
+  private com.seeyon.boot.starter.extmetadata.dto.UdcSimpleEntityMetaDataDto entityMetaDataDto;
+    descriptor: Lcom/seeyon/boot/starter/extmetadata/dto/UdcSimpleEntityMetaDataDto;
+    flags: (0x0002) ACC_PRIVATE
+
+  private java.lang.Long pageGuid;
+    descriptor: Ljava/lang/Long;
+    flags: (0x0002) ACC_PRIVATE
+
+  private com.seeyon.boot.starter.extmetadata.dto.UdcPageMetadataV2Dto pageMetadataV2Dto;
+    descriptor: Lcom/seeyon/boot/starter/extmetadata/dto/UdcPageMetadataV2Dto;
+    flags: (0x0002) ACC_PRIVATE
+
+  private com.seeyon.boot.starter.customplan.dto.FilterPlanDto filterPlanDto;
+    descriptor: Lcom/seeyon/boot/starter/customplan/dto/FilterPlanDto;
+    flags: (0x0002) ACC_PRIVATE
+
+  private java.lang.String runtimeDataSourceKey;
+    descriptor: Ljava/lang/String;
+    flags: (0x0002) ACC_PRIVATE
+
+  public com.seeyon.boot.starter.udcrt.proxy.dto.UdcRestPathParseDto();
+    descriptor: ()V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method com/seeyon/boot/starter/udcrt/proxy/dto/UdcRestPathParseBaseDto."<init>":()V
+         4: return
+      LineNumberTable:
+        line 20: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lcom/seeyon/boot/starter/udcrt/proxy/dto/UdcRestPathParseDto;
+
+  public com.seeyon.boot.starter.udcrt.dto.ReferenceDynamicSelectDto<com.seeyon.boot.transport.BaseDto> toBaseReferenceDynamicSelectDto();
+    descriptor: ()Lcom/seeyon/boot/starter/udcrt/dto/ReferenceDynamicSelectDto;
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=2, locals=6, args_size=1
+         0: new           #2                  // class com/seeyon/boot/starter/udcrt/dto/ReferenceDynamicSelectDto
+         3: dup
+         4: invokespecial #3                  // Method com/seeyon/boot/starter/udcrt/dto/ReferenceDynamicSelectDto."<init>":()V
+         7: astore_1
+         8: getstatic     #4                  // Field com/seeyon/boot/starter/extmetadata/enums/DynamicDependencyTypeEnum.FORM_NORMAL:Lcom/seeyon/boot/starter/extmetadata/enums/DynamicDependencyTypeEnum;
+        11: aload_0
+        12: invokevirtual #5                  // Method getEntityAppMetadataDto:()Lcom/seeyon/boot/starter/extmetadata/dto/UdcApplicationMetaDataDto;
+        15: invokevirtual #6                  // Method com/seeyon/boot/starter/extmetadata/dto/UdcApplicationMetaDataDto.getDynamicDependency:()Lcom/seeyon/boot/starter/extmetadata/enums/DynamicDependencyTypeEnum;
+        18: invokevirtual #7                  // Method com/seeyon/boot/starter/extmetadata/enums/DynamicDependencyTypeEnum.equals:(Ljava/lang/Object;)Z
+        21: istore_2
+        22: aload_1
+        23: iload_2
+        24: invokevirtual #8                  // Method com/seeyon/boot/starter/udcrt/dto/ReferenceDynamicSelectDto.setFromNormalDynamicDependency:(Z)V
+        27: iload_2
+        28: ifeq          41
+        31: aload_0
+        32: invokevirtual #9                  // Method getCurrentAppMetadataDto:()Lcom/seeyon/boot/starter/extmetadata/dto/UdcApplicationMetaDataDto;
+        35: invokevirtual #10                 // Method com/seeyon/boot/starter/extmetadata/dto/UdcApplicationMetaDataDto.getName:()Ljava/lang/String;
+        38: goto          45
+        41: aload_0
+        42: invokevirtual #11                 // Method getRestEntityAppName:()Ljava/lang/String;
+        45: astore_3
+        46: aload_1
+        47: aload_3
+        48: invokevirtual #12                 // Method com/seeyon/boot/starter/udcrt/dto/ReferenceDynamicSelectDto.setAppName:(Ljava/lang/String;)V
+        51: aload_1
+        52: aload_0
+        53: invokevirtual #13                 // Method getEntityMetaDataDto:()Lcom/seeyon/boot/starter/extmetadata/dto/UdcSimpleEntityMetaDataDto;
+        56: invokevirtual #14                 // Method com/seeyon/boot/starter/extmetadata/dto/UdcSimpleEntityMetaDataDto.getFullName:()Ljava/lang/String;
+        59: invokevirtual #15                 // Method com/seeyon/boot/starter/udcrt/dto/ReferenceDynamicSelectDto.setEntityFullName:(Ljava/lang/String;)V
+        62: aload_0
+        63: invokevirtual #13                 // Method getEntityMetaDataDto:()Lcom/seeyon/boot/starter/extmetadata/dto/UdcSimpleEntityMetaDataDto;
+        66: invokevirtual #16                 // Method com/seeyon/boot/starter/extmetadata/dto/UdcSimpleEntityMetaDataDto.getDtoFullName:()Ljava/lang/String;
+        69: astore        4
+        71: iload_2
+        72: ifeq          93
+        75: aload_0
+        76: invokevirtual #9                  // Method getCurrentAppMetadataDto:()Lcom/seeyon/boot/starter/extmetadata/dto/UdcApplicationMetaDataDto;
+        79: invokestatic  #17                 // Method com/seeyon/udc/common/utils/FullNameCommonUtil.getBasePackage:(Lcom/seeyon/boot/starter/extmetadata/dto/UdcApplicationMetaDataDto;)Ljava/lang/String;
+        82: astore        5
+        84: aload         4
+        86: aload         5
+        88: invokestatic  #18                 // Method com/seeyon/udc/common/utils/DynamicDependencyUtil.convertDynamicDependencyDtoFullName:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+        91: astore        4
+        93: aload_1
+        94: aload         4
+        96: invokevirtual #19                 // Method com/seeyon/boot/starter/udcrt/dto/ReferenceDynamicSelectDto.setReturnValClassFullName:(Ljava/lang/String;)V
+        99: aload_1
+       100: aload_0
+       101: invokevirtual #20                 // Method getPageAppName:()Ljava/lang/String;
+       104: invokevirtual #21                 // Method com/seeyon/boot/starter/udcrt/dto/ReferenceDynamicSelectDto.setCurrentAppName:(Ljava/lang/String;)V
+       107: iload_2
+       108: ifeq          121
+       111: aload_0
+       112: invokevirtual #9                  // Method getCurrentAppMetadataDto:()Lcom/seeyon/boot/starter/extmetadata/dto/UdcApplicationMetaDataDto;
+       115: invokevirtual #22                 // Method com/seeyon/boot/starter/extmetadata/dto/UdcApplicationMetaDataDto.getHostAppName:()Ljava/lang/String;
+       118: goto          128
+       121: aload_0
+       122: invokevirtual #5                  // Method getEntityAppMetadataDto:()Lcom/seeyon/boot/starter/extmetadata/dto/UdcApplicationMetaDataDto;
+       125: invokevirtual #22                 // Method com/seeyon/boot/starter/extmetadata/dto/UdcApplicationMetaDataDto.getHostAppName:()Ljava/lang/String;
+       128: astore        5
+       130: aload_1
+       131: aload         5
+       133: invokevirtual #23                 // Method com/seeyon/boot/starter/udcrt/dto/ReferenceDynamicSelectDto.setCurrentHostAppName:(Ljava/lang/String;)V
+       136: ldc           #24                 // String archiveTree
+       138: aload_0
+       139: invokevirtual #13                 // Method getEntityMetaDataDto:()Lcom/seeyon/boot/starter/extmetadata/dto/UdcSimpleEntityMetaDataDto;
+       142: invokevirtual #25                 // Method com/seeyon/boot/starter/extmetadata/dto/UdcSimpleEntityMetaDataDto.getStereotype:()Ljava/lang/String;
+       145: invokevirtual #26                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+       148: ifeq          159
+       151: aload_1
+       152: iconst_1
+       153: invokestatic  #27                 // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+       156: invokevirtual #28                 // Method com/seeyon/boot/starter/udcrt/dto/ReferenceDynamicSelectDto.setTreeEntity:(Ljava/lang/Boolean;)V
+       159: getstatic     #29                 // Field com/seeyon/boot/starter/extmetadata/enums/EntityCategoryEnum.THIRD:Lcom/seeyon/boot/starter/extmetadata/enums/EntityCategoryEnum;
+       162: aload_0
+       163: invokevirtual #13                 // Method getEntityMetaDataDto:()Lcom/seeyon/boot/starter/extmetadata/dto/UdcSimpleEntityMetaDataDto;
+       166: invokevirtual #30                 // Method com/seeyon/boot/starter/extmetadata/dto/UdcSimpleEntityMetaDataDto.getCategory:()Lcom/seeyon/boot/starter/extmetadata/enums/EntityCategoryEnum;
+       169: invokevirtual #31                 // Method com/seeyon/boot/starter/extmetadata/enums/EntityCategoryEnum.equals:(Ljava/lang/Object;)Z
+       172: ifeq          191
+       175: aload_1
+       176: aload_0
+       177: invokevirtual #13                 // Method getEntityMetaDataDto:()Lcom/seeyon/boot/starter/extmetadata/dto/UdcSimpleEntityMetaDataDto;
+       180: invokevirtual #16                 // Method com/seeyon/boot/starter/extmetadata/dto/UdcSimpleEntityMetaDataDto.getDtoFullName:()Ljava/lang/String;
+       183: invokevirtual #32                 // Method com/seeyon/boot/starter/udcrt/dto/ReferenceDynamicSelectDto.setRootEntityDtoClassFullName:(Ljava/lang/String;)V
+       186: aload_1
+       187: iconst_1
+       188: invokevirtual #33                 // Method com/seeyon/boot/starter/udcrt/dto/ReferenceDynamicSelectDto.setThirdParty:(Z)V
+       191: aload_1
+       192: areturn
+      LineNumberTable:
+        line 63: 0
+        line 64: 8
+        line 65: 22
+        line 66: 27
+        line 67: 46
+        line 69: 51
+        line 70: 62
+        line 71: 71
+        line 72: 75
+        line 73: 84
+        line 75: 93
+        line 77: 99
+        line 78: 107
+        line 79: 112
+        line 80: 122
+        line 81: 130
+        line 83: 136
+        line 84: 151
+        line 87: 159
+        line 89: 175
+        line 90: 186
+        line 92: 191
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+           84       9     5 basePackage   Ljava/lang/String;
+            0     193     0  this   Lcom/seeyon/boot/starter/udcrt/proxy/dto/UdcRestPathParseDto;
+            8     185     1 referenceDynamicSelectDto   Lcom/seeyon/boot/starter/udcrt/dto/ReferenceDynamicSelectDto;
+           22     171     2 isFormNormal   Z
+           46     147     3 appName   Ljava/lang/String;
+           71     122     4 returnValClassFullName   Ljava/lang/String;
+          130      63     5 currentHostAppName   Ljava/lang/String;
+      LocalVariableTypeTable:
+        Start  Length  Slot  Name   Signature
+            8     185     1 referenceDynamicSelectDto   Lcom/seeyon/boot/starter/udcrt/dto/ReferenceDynamicSelectDto<Lcom/seeyon/boot/transport/BaseDto;>;
+      StackMapTable: number_of_entries = 7
+        frame_type = 253 /* append */
+          offset_delta = 41
+          locals = [ class com/seeyon/boot/starter/udcrt/dto/ReferenceDynamicSelectDto, int ]
+        frame_type = 67 /* same_locals_1_stack_item */
+          stack = [ class java/lang/String ]
+        frame_type = 253 /* append */
+          offset_delta = 47
+          locals = [ class java/lang/String, class java/lang/String ]
+        frame_type = 27 /* same */
+        frame_type = 70 /* same_locals_1_stack_item */
+          stack = [ class java/lang/String ]
+        frame_type = 252 /* append */
+          offset_delta = 30
+          locals = [ class java/lang/String ]
+        frame_type = 31 /* same */
+    Signature: #86                          // ()Lcom/seeyon/boot/starter/udcrt/dto/ReferenceDynamicSelectDto<Lcom/seeyon/boot/transport/BaseDto;>;
+
+  public com.seeyon.boot.starter.extmetadata.dto.UdcApplicationMetaDataDto getCurrentAppMetadataDto();
+    descriptor: ()Lcom/seeyon/boot/starter/extmetadata/dto/UdcApplicationMetaDataDto;
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: getfield      #34                 // Field currentAppMetadataDto:Lcom/seeyon/boot/starter/extmetadata/dto/UdcApplicationMetaDataDto;
+         4: areturn
+      LineNumberTable:
+        line 28: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lcom/seeyon/boot/starter/udcrt/proxy/dto/UdcRestPathParseDto;
+    RuntimeVisibleAnnotations:
+      0: #51()
+        javax.annotation.Nullable
+
+  public com.seeyon.boot.starter.extmetadata.dto.UdcApplicationMetaDataDto getEntityAppMetadataDto();
+    descriptor: ()Lcom/seeyon/boot/starter/extmetadata/dto/UdcApplicationMetaDataDto;
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: getfield      #35                 // Field entityAppMetadataDto:Lcom/seeyon/boot/starter/extmetadata/dto/UdcApplicationMetaDataDto;
+         4: areturn
+      LineNumberTable:
+        line 33: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lcom/seeyon/boot/starter/udcrt/proxy/dto/UdcRestPathParseDto;
+
+  public com.seeyon.boot.starter.extmetadata.dto.UdcSimpleEntityMetaDataDto getEntityMetaDataDto();
+    descriptor: ()Lcom/seeyon/boot/starter/extmetadata/dto/UdcSimpleEntityMetaDataDto;
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: getfield      #36                 // Field entityMetaDataDto:Lcom/seeyon/boot/starter/extmetadata/dto/UdcSimpleEntityMetaDataDto;
+         4: areturn
+      LineNumberTable:
+        line 38: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lcom/seeyon/boot/starter/udcrt/proxy/dto/UdcRestPathParseDto;
+
+  public java.lang.Long getPageGuid();
+    descriptor: ()Ljava/lang/Long;
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: getfield      #37                 // Field pageGuid:Ljava/lang/Long;
+         4: areturn
+      LineNumberTable:
+        line 43: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lcom/seeyon/boot/starter/udcrt/proxy/dto/UdcRestPathParseDto;
+
+  public com.seeyon.boot.starter.extmetadata.dto.UdcPageMetadataV2Dto getPageMetadataV2Dto();
+    descriptor: ()Lcom/seeyon/boot/starter/extmetadata/dto/UdcPageMetadataV2Dto;
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: getfield      #38                 // Field pageMetadataV2Dto:Lcom/seeyon/boot/starter/extmetadata/dto/UdcPageMetadataV2Dto;
+         4: areturn
+      LineNumberTable:
+        line 48: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lcom/seeyon/boot/starter/udcrt/proxy/dto/UdcRestPathParseDto;
+
+  public com.seeyon.boot.starter.customplan.dto.FilterPlanDto getFilterPlanDto();
+    descriptor: ()Lcom/seeyon/boot/starter/customplan/dto/FilterPlanDto;
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: getfield      #39                 // Field filterPlanDto:Lcom/seeyon/boot/starter/customplan/dto/FilterPlanDto;
+         4: areturn
+      LineNumberTable:
+        line 54: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lcom/seeyon/boot/starter/udcrt/proxy/dto/UdcRestPathParseDto;
+
+  public java.lang.String getRuntimeDataSourceKey();
+    descriptor: ()Ljava/lang/String;
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: getfield      #40                 // Field runtimeDataSourceKey:Ljava/lang/String;
+         4: areturn
+      LineNumberTable:
+        line 60: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lcom/seeyon/boot/starter/udcrt/proxy/dto/UdcRestPathParseDto;
+
+  public void setCurrentAppMetadataDto(com.seeyon.boot.starter.extmetadata.dto.UdcApplicationMetaDataDto);
+    descriptor: (Lcom/seeyon/boot/starter/extmetadata/dto/UdcApplicationMetaDataDto;)V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0
+         1: aload_1
+         2: putfield      #34                 // Field currentAppMetadataDto:Lcom/seeyon/boot/starter/extmetadata/dto/UdcApplicationMetaDataDto;
+         5: return
+      LineNumberTable:
+        line 19: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       6     0  this   Lcom/seeyon/boot/starter/udcrt/proxy/dto/UdcRestPathParseDto;
+            0       6     1 currentAppMetadataDto   Lcom/seeyon/boot/starter/extmetadata/dto/UdcApplicationMetaDataDto;
+    RuntimeVisibleParameterAnnotations:
+      parameter 0:
+        0: #51()
+          javax.annotation.Nullable
+
+  public void setEntityAppMetadataDto(com.seeyon.boot.starter.extmetadata.dto.UdcApplicationMetaDataDto);
+    descriptor: (Lcom/seeyon/boot/starter/extmetadata/dto/UdcApplicationMetaDataDto;)V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0
+         1: aload_1
+         2: putfield      #35                 // Field entityAppMetadataDto:Lcom/seeyon/boot/starter/extmetadata/dto/UdcApplicationMetaDataDto;
+         5: return
+      LineNumberTable:
+        line 19: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       6     0  this   Lcom/seeyon/boot/starter/udcrt/proxy/dto/UdcRestPathParseDto;
+            0       6     1 entityAppMetadataDto   Lcom/seeyon/boot/starter/extmetadata/dto/UdcApplicationMetaDataDto;
+
+  public void setEntityMetaDataDto(com.seeyon.boot.starter.extmetadata.dto.UdcSimpleEntityMetaDataDto);
+    descriptor: (Lcom/seeyon/boot/starter/extmetadata/dto/UdcSimpleEntityMetaDataDto;)V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0
+         1: aload_1
+         2: putfield      #36                 // Field entityMetaDataDto:Lcom/seeyon/boot/starter/extmetadata/dto/UdcSimpleEntityMetaDataDto;
+         5: return
+      LineNumberTable:
+        line 19: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       6     0  this   Lcom/seeyon/boot/starter/udcrt/proxy/dto/UdcRestPathParseDto;
+            0       6     1 entityMetaDataDto   Lcom/seeyon/boot/starter/extmetadata/dto/UdcSimpleEntityMetaDataDto;
+
+  public void setPageGuid(java.lang.Long);
+    descriptor: (Ljava/lang/Long;)V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0
+         1: aload_1
+         2: putfield      #37                 // Field pageGuid:Ljava/lang/Long;
+         5: return
+      LineNumberTable:
+        line 19: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       6     0  this   Lcom/seeyon/boot/starter/udcrt/proxy/dto/UdcRestPathParseDto;
+            0       6     1 pageGuid   Ljava/lang/Long;
+
+  public void setPageMetadataV2Dto(com.seeyon.boot.starter.extmetadata.dto.UdcPageMetadataV2Dto);
+    descriptor: (Lcom/seeyon/boot/starter/extmetadata/dto/UdcPageMetadataV2Dto;)V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0
+         1: aload_1
+         2: putfield      #38                 // Field pageMetadataV2Dto:Lcom/seeyon/boot/starter/extmetadata/dto/UdcPageMetadataV2Dto;
+         5: return
+      LineNumberTable:
+        line 19: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       6     0  this   Lcom/seeyon/boot/starter/udcrt/proxy/dto/UdcRestPathParseDto;
+            0       6     1 pageMetadataV2Dto   Lcom/seeyon/boot/starter/extmetadata/dto/UdcPageMetadataV2Dto;
+
+  public void setFilterPlanDto(com.seeyon.boot.starter.customplan.dto.FilterPlanDto);
+    descriptor: (Lcom/seeyon/boot/starter/customplan/dto/FilterPlanDto;)V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0
+         1: aload_1
+         2: putfield      #39                 // Field filterPlanDto:Lcom/seeyon/boot/starter/customplan/dto/FilterPlanDto;
+         5: return
+      LineNumberTable:
+        line 19: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       6     0  this   Lcom/seeyon/boot/starter/udcrt/proxy/dto/UdcRestPathParseDto;
+            0       6     1 filterPlanDto   Lcom/seeyon/boot/starter/customplan/dto/FilterPlanDto;
+
+  public void setRuntimeDataSourceKey(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0
+         1: aload_1
+         2: putfield      #40                 // Field runtimeDataSourceKey:Ljava/lang/String;
+         5: return
+      LineNumberTable:
+        line 19: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       6     0  this   Lcom/seeyon/boot/starter/udcrt/proxy/dto/UdcRestPathParseDto;
+            0       6     1 runtimeDataSourceKey   Ljava/lang/String;
+}
+SourceFile: "UdcRestPathParseDto.java"

@@ -1,0 +1,87 @@
+{
+ "schema": "frontend-microflowgroup-family-ops.v1",
+ "evidence": "STATIC (原始 chunk 字符串字面量, 仓内快照, 可离线复算)",
+ "question": "设计器前端 bundle 是否调用过 /udc/micro-flow-group/search-list ？",
+ "answer": "NO —— 负证据（族内 op 全集 = 6, 无 SearchList; 且全 bundle 无任何 micro-flow-group kebab 字面量）",
+ "why_it_matters": "第九轮 LIVE 在真实 URL 面观测到 /udc/micro-flow-group/search-list 但 674 契约与部署态字节码内均无该 mapping; 候选 (vi) 要区分三种来源（设计器前端 / 客户应用页面 / 其它构件或死路径）。本件用耐久仓内证据永久排除第一支。",
+ "source_durable": {
+  "path": "docs/audit/artifacts/udc-frontend-5.3.496/chunks/src_redux_store_ts.14dc061e.js",
+  "bytes": 2530724,
+  "sha256": "6051e1df6c574df74c842f9e4c0714fae5c7ff0df6e86e5ffa5b2d4f994f387d",
+  "kind": "原始 webpack chunk（非 wakaru 解包产物）",
+  "role": "udcMutationLoader 注册表所在 chunk（设计器用 op 面真值源）"
+ },
+ "call_conventions": [
+  {
+   "id": "LOADER",
+   "shape": "udcMutationLoader.load({fieldType:\"<op>\", paramsType:\"<op>InputBody\", paramsKey:\"body\"})",
+   "carries_rest_path": false,
+   "note": "op 名即 GraphQL 字段名; 前端不携带 REST path"
+  },
+  {
+   "id": "RAW_REST",
+   "shape": "ajax.post(\"/udc/<kebab-path>\", body)",
+   "carries_rest_path": true,
+   "note": "同 chunk 内确实存在该约定（如 /udc/microflow/disable-last-version-metadata）; 故否证必须同时覆盖此约定"
+  }
+ ],
+ "family_ops": {
+  "prefix": "udcMicroFlowGroup",
+  "ops": [
+   "udcMicroFlowGroupBatchMovePost",
+   "udcMicroFlowGroupCreatePost",
+   "udcMicroFlowGroupDeleteBatchPost",
+   "udcMicroFlowGroupDeletePost",
+   "udcMicroFlowGroupSelectByTypePost",
+   "udcMicroFlowGroupUpdatePost"
+  ],
+  "params_types": [
+   "udcMicroFlowGroupBatchMovePostInputBody",
+   "udcMicroFlowGroupCreatePostInputBody",
+   "udcMicroFlowGroupDeleteBatchPostInputBody",
+   "udcMicroFlowGroupDeletePostInputBody",
+   "udcMicroFlowGroupSelectByTypePostInputBody",
+   "udcMicroFlowGroupUpdatePostInputBody"
+  ],
+  "op_count": 6,
+  "raw_literal_token_count": 12,
+  "search_list_present": false,
+  "covered_by_convention": "LOADER"
+ },
+ "kebab_path_literals": {
+  "micro-flow-group": 0,
+  "search-list": 0,
+  "note": "durable chunk 内 kebab 字面量 micro-flow-group = 0 ⇒ 按 RAW_REST 约定也不可能发出该请求; 同 chunk 内 /udc/ 前缀的 REST 字面量确实存在（约 16 处），故 0 命中不是采集缺口"
+ },
+ "counter_example_naming_habit": {
+  "claim": "「族内无 SearchList」不是命名习惯造成的假阴性",
+  "evidence_in_same_chunk": [
+   "udcDataTransferObjectSearchListPost",
+   "udcDataTransferObjectSearchListPostInputBody",
+   "fetchDataTransferObjectSearchList"
+  ],
+  "note": "同一 chunk 内 udc*SearchList* 字面量确实存在（他族）⇒ 该族缺 SearchList 是真负证据, 不是搜索模式不匹配",
+  "cross_bundle": [
+   "udcExcelSearchListByConditionsPost"
+  ]
+ },
+ "locus": {
+  "file_at_definition_site": "src_redux_store_ts.14dc061e/module-70857.js",
+  "note": "族内 6 个 op 定义在同一条 require 模块（微流程分组 service）内, 逐条带 paramsType/paramsKey=body; 逐条已复核"
+ },
+ "conclusion": {
+  "excluded": "设计器前端（LOADER 约定 + RAW_REST 约定，双轴均否）",
+  "still_open": [
+   "客户应用页面",
+   "其它构件提供",
+   "死路径"
+  ],
+  "status": "设计器前端支 = REFUTED; 其余 = UNVERIFIED",
+  "searchlist_route_status": "UNVERIFIED（不因此件升级）"
+ },
+ "limitations": [
+  "bundle 快照 = 5.3.496, 部署 udc = 5.3.517 ⇒ 结论限定在 5.3.496 设计器 bundle 的**字面量面**; 若 5.3.517 设计器新增该调用, 本件不覆盖（但该路线需 5.3.517 前端包, 本地不可得）",
+  "本件只证明「前端 bundle 未引用」, 不证明「路由从未被调用」：LIVE 面确实观测到 1 次调用（第九轮）",
+  "仓内可耐久复算面 = 该 store chunk 单文件; 158 chunk 全域扫描依赖 scratch（受 24h 清理）, 故全域结论在护栏中做「缺失即 skip」处理"
+ ]
+}

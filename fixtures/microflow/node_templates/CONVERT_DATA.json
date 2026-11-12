@@ -1,0 +1,57 @@
+{
+ "nodeId": "CONVERT_DATA_rjLrhu",
+ "name": null,
+ "type": "ACTIVITY",
+ "caption": "类型转换(文本拆分)",
+ "description": null,
+ "runAfter": null,
+ "input": null,
+ "output": {
+  "id": null,
+  "javaType": "java.lang.String",
+  "dataType": "STRING",
+  "type": "ARRAY",
+  "desc": "文本拆分",
+  "name": "_CONVERT_DATA_rjLrhu"
+ },
+ "isCompleted": true,
+ "actionType": "CONVERT_DATA",
+ "convertType": {
+  "desc": "指定符号拆分文本",
+  "value": "Split",
+  "dataType": "STRING",
+  "type": "ARRAY"
+ },
+ "selectParam": {
+  "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f01text",
+  "javaType": "java.lang.String",
+  "dataType": "STRING",
+  "type": "OBJECT",
+  "desc": "小爪验收实体全量",
+  "appName": "datamigration8704025620829192834",
+  "dtoType": "MASTER_ENTITY",
+  "udcApp": true,
+  "relationEntity": "-2537349473285092530",
+  "name": "f01text",
+  "description": "文本字段",
+  "position": "children",
+  "outputName": "_RETRIEVE_KNCEzh",
+  "path": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f01text",
+  "iconKey": "LinedSearch",
+  "parentLabel": "",
+  "disabled": false,
+  "multiSelect": false,
+  "customs": {
+   "basicType": false,
+   "mfDataI18n": false,
+   "defaultOrExpression": false,
+   "notNull": false,
+   "sourceType": "ENTITY",
+   "dataType": "STRING",
+   "name": "f01text",
+   "id": null
+  }
+ },
+ "regex": "MIDLINE",
+ "title": "文本拆分"
+}

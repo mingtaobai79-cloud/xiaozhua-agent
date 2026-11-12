@@ -1,0 +1,41 @@
+{
+ "nodeId": "CREATE_MAP_QhLDSd",
+ "name": null,
+ "type": "ACTIVITY",
+ "caption": "创建Map",
+ "description": null,
+ "runAfter": null,
+ "input": null,
+ "output": {
+  "id": null,
+  "javaType": "java.util.Map",
+  "dataType": "MAP",
+  "type": "OBJECT",
+  "desc": "vMap",
+  "name": "_CREATE_MAP_QhLDSd",
+  "generics": {
+   "keyType": {
+    "dataType": "String"
+   },
+   "valueType": {
+    "dataType": "Object",
+    "javaType": "java.lang.Object"
+   }
+  }
+ },
+ "isCompleted": true,
+ "actionType": "CREATE_MAP",
+ "paramType": null,
+ "dataType": null,
+ "title": "vMap",
+ "generics": {
+  "keyType": {
+   "dataType": "String"
+  },
+  "valueType": {
+   "dataType": "Object",
+   "javaType": "java.lang.Object"
+  }
+ },
+ "entries": []
+}

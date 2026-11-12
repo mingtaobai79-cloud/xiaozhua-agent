@@ -1,0 +1,25 @@
+Compiled from "DeployParamDto.java"
+public class com.seeyon.udc.common.dto.DeployParamDto extends com.seeyon.boot.transport.BaseDto {
+  private java.lang.Long deployId;
+  private java.lang.Long appId;
+  private com.seeyon.udc.common.enums.DeployTypeEnum deployType;
+  private com.seeyon.udc.common.enums.ProjectTypeEnum projectType;
+  private com.seeyon.udc.common.enums.TerminalTypeEnum terminalType;
+  java.lang.String pushEnv;
+  private java.util.Map<java.lang.String, java.lang.Object> extraParamMap;
+  public com.seeyon.udc.common.dto.DeployParamDto();
+  public void setDeployId(java.lang.Long);
+  public void setAppId(java.lang.Long);
+  public void setDeployType(com.seeyon.udc.common.enums.DeployTypeEnum);
+  public void setProjectType(com.seeyon.udc.common.enums.ProjectTypeEnum);
+  public void setTerminalType(com.seeyon.udc.common.enums.TerminalTypeEnum);
+  public void setPushEnv(java.lang.String);
+  public void setExtraParamMap(java.util.Map<java.lang.String, java.lang.Object>);
+  public java.lang.Long getDeployId();
+  public java.lang.Long getAppId();
+  public com.seeyon.udc.common.enums.DeployTypeEnum getDeployType();
+  public com.seeyon.udc.common.enums.ProjectTypeEnum getProjectType();
+  public com.seeyon.udc.common.enums.TerminalTypeEnum getTerminalType();
+  public java.lang.String getPushEnv();
+  public java.util.Map<java.lang.String, java.lang.Object> getExtraParamMap();
+}

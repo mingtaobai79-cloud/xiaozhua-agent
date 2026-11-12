@@ -1,0 +1,164 @@
+# S2 静态预置：栏目 / 栏目分组 写链端点、DTO、实体、枚举（全 STATIC）
+# 生成：2026-10-17 17:4x +08 ｜ 角色 implementer ｜ 切片 S2（BLOCKED 期间静态补证：零写、零网络探测）
+# 方法：Python 直接解析 class 常量池 UTF-8（避开 javap 控制台 GBK 乱码）；javap 仅用于注解/字段/枚举码
+# jar：udc-web-5.3.517 / udc-biz-5.3.517 / udc-common-5.3.517
+# 证据等级：第 1-7 段 = VERIFIED_STATIC_BYTECODE；第 8 段 = 推断（与事实分栏，不外推）
+
+=== PortletController 常量池（类级 mapping / 方法级 path / 中文语义）===
+  创建栏目分组
+  /create
+  创建栏目
+  /create-portlet
+  修改栏目分组
+  /update
+  修改栏目
+  /update-portlet
+  查询应用下栏目分组以及栏目
+  /select-by-appId/{appId}
+  应用id
+  删除指定栏目分组/栏目
+  /delete/{id}
+  栏目分组id
+  栏目拖拽排序
+  udc/portlet
+  栏目接口
+  页面
+
+=== PortletGroupController 常量池（类级 mapping / 方法级 path / 中文语义）===
+  创建栏目分类
+  /create
+  修改栏目分类信息
+  /update
+  查询应用下所有栏目分类（包含页面信息）
+  /select-by-appId/{appId}
+  应用id
+  删除指定栏目分类
+  /delete/{id}
+  栏目分类
+  udc/portlet-group
+  栏目分类接口
+  页面
+
+=== 方法签名（入参 DTO 定语义）===
+--- PortletController ---
+  (Lcom/seeyon/udc/page/dto/PortletDto;)Lcom/seeyon/boot/transport/SingleResponse;
+  (Lcom/seeyon/udc/page/dto/PortletDto;)Lcom/seeyon/boot/transport/SingleResponse<Lcom/seeyon/udc/page/dto/PortletDto;>;
+  (Lcom/seeyon/udc/page/dto/PageDefinitionDto;)Lcom/seeyon/boot/transport/SingleResponse;
+  (Lcom/seeyon/udc/page/dto/PageDefinitionDto;)Lcom/seeyon/boot/transport/SingleResponse<Lcom/seeyon/udc/page/dto/PortletDto;>;
+  (Lcom/seeyon/udc/page/dto/PortletDto;)Lcom/seeyon/boot/transport/SingleResponse<Ljava/lang/Integer;>;
+  (Lcom/seeyon/udc/page/dto/PageDefinitionDto;)Lcom/seeyon/boot/transport/SingleResponse<Ljava/lang/Integer;>;
+  (Ljava/lang/Long;)Lcom/seeyon/boot/transport/ListResponse;
+  (Ljava/lang/Long;)Lcom/seeyon/boot/transport/ListResponse<Lcom/seeyon/udc/page/dto/PortletDto;>;
+  (Ljava/lang/Long;)Lcom/seeyon/boot/transport/SingleResponse;
+  (Ljava/lang/Long;)Lcom/seeyon/boot/transport/SingleResponse<Ljava/lang/Integer;>;
+--- PortletGroupController ---
+  (Lcom/seeyon/udc/page/dto/PortletGroupDto;)Lcom/seeyon/boot/transport/SingleResponse;
+  (Lcom/seeyon/udc/page/dto/PortletGroupDto;)Lcom/seeyon/boot/transport/SingleResponse<Lcom/seeyon/udc/page/dto/PortletGroupDto;>;
+  (Lcom/seeyon/udc/page/dto/PortletGroupDto;)Lcom/seeyon/boot/transport/SingleResponse<Ljava/lang/Integer;>;
+  (Ljava/lang/Long;)Lcom/seeyon/boot/transport/SingleResponse;
+  (Ljava/lang/Long;)Lcom/seeyon/boot/transport/SingleResponse<Lcom/seeyon/udc/page/dto/PortletRootGroupDto;>;
+  (Ljava/lang/Long;)Lcom/seeyon/boot/transport/SingleResponse<Ljava/lang/Integer;>;
+
+=== 实体 @Table 与唯一键 ===
+--- com.seeyon.udc.page.domain.entity.PortletEntity ---
+  #102 = Utf8               Ljavax/persistence/Table;
+  #103 = Utf8               udc_portlet
+  #106 = Utf8               uk_udc_portlet_name
+  #107 = Utf8               columnNames
+  name="uk_udc_portlet_name"
+--- com.seeyon.udc.page.domain.entity.PortletGroupEntity ---
+  #39 = Utf8               Ljavax/persistence/Table;
+  #40 = Utf8               udc_portlet_group
+  #43 = Utf8               uk_udc_portlet_group_name
+  #44 = Utf8               columnNames
+  name="uk_udc_portlet_group_name"
+
+=== DTO 字段 ===
+--- PortletDto ---
+  public class com.seeyon.udc.page.dto.PortletDto extends com.seeyon.udc.common.dto.UdcBaseEntityDto {
+  private static final long serialVersionUID;
+  private java.lang.Long appId;
+  private java.lang.String name;
+  private com.seeyon.udc.common.enums.TerminalTypeEnum terminalType;
+  private java.lang.Long groupId;
+  private java.lang.Long pageRelationId;
+  private com.seeyon.udc.page.enums.PortletTypeEnum type;
+  private com.seeyon.udc.page.enums.PortletCategoryEnum category;
+  private java.lang.Integer orderNo;
+  private java.util.List<com.seeyon.udc.page.dto.PortletDto> portletList;
+--- PortletGroupDto ---
+  public class com.seeyon.udc.page.dto.PortletGroupDto extends com.seeyon.udc.page.dto.BasePageTreeDto {
+  private static final long serialVersionUID;
+  private java.lang.Long appId;
+  private java.lang.String name;
+  private java.util.List<com.seeyon.udc.page.dto.PageInfoGroupDto> pageList;
+--- PortletRootGroupDto ---
+  public class com.seeyon.udc.page.dto.PortletRootGroupDto extends com.seeyon.boot.transport.BaseDto {
+  private static final long serialVersionUID;
+  private java.util.List<com.seeyon.udc.page.dto.PortletGroupDto> portletGroupDtos;
+  private java.util.List<com.seeyon.udc.page.dto.PageInfoGroupDto> rootPageInfoGroupDtos;
+--- PageDefinitionDto ---
+  public class com.seeyon.udc.page.dto.PageDefinitionDto extends com.seeyon.boot.transport.BaseDto {
+  private static final long serialVersionUID;
+  private java.lang.Long appId;
+  private com.seeyon.udc.common.enums.DesignStateEnum designState;
+  private java.lang.String sourceAppName;
+  private java.lang.Long groupId;
+  private java.lang.String masterEntityIds;
+  private java.lang.String relationAppName;
+  private java.lang.Long relationGroupId;
+  private java.lang.String caption;
+  private java.lang.String description;
+  private java.lang.String pageType;
+  private java.lang.Boolean handWritten;
+  private java.lang.String defaultOpenType;
+  private java.lang.String pageUrl;
+  private com.seeyon.boot.starter.extmetadata.enums.PageSourceTypeEnum sourceType;
+  private java.util.List<com.seeyon.udc.page.dto.PageItemDefinitionDto> pageItems;
+  private com.seeyon.udc.common.enums.TerminalTypeEnum curTerminalType;
+  private com.seeyon.udc.page.enums.PortletCategoryEnum category;
+  private java.util.List<cn.hutool.core.lang.Pair<com.seeyon.boot.starter.extmetadata.dto.UdcPageMetadataV2Dto, java.lang.Long>> originNewIdPairList;
+  private java.lang.Boolean isCustomCreate;
+
+=== 枚举码（bytecode: ldc/bipush/iconst 顺序）===
+--- com.seeyon.udc.page.enums.PortletTypeEnum ---
+  4: ldc           #8                  // String GROUP | 6: iconst_0 | 7: iconst_0 | 18: ldc           #11                 // String PORTLET | 20: iconst_1 | 21: iconst_1 | 28: iconst_2 | 33: iconst_0 | 39: iconst_1
+--- com.seeyon.udc.page.enums.PortletCategoryEnum ---
+  4: ldc           #8                  // String BASIC | 6: iconst_0 | 7: iconst_0 | 18: ldc           #11                 // String ADVANCED | 20: iconst_1 | 21: iconst_1 | 32: ldc           #13                 // String HAND_WRITTEN | 34: iconst_2 | 35: bipush        13 | 43: iconst_3 | 48: iconst_0 | 54: iconst_1 | 60: iconst_2
+--- com.seeyon.udc.common.enums.TerminalTypeEnum ---
+  4: ldc           #9                  // String ALL | 6: iconst_0 | 7: iconst_0 | 8: ldc           #10                 // String ȫ�� | 20: ldc           #13                 // String PC | 22: iconst_1 | 23: iconst_1 | 24: ldc           #13                 // String PC | 36: ldc           #15                 // String MOBILE | 38: iconst_2 | 39: iconst_2 | 40: ldc           #16                 // String �ƶ� | 48: iconst_3 | 53: iconst_0 | 59: iconst_1 | 65: iconst_2
+
+=== templateType 实体映射检查（解释 S1 判定 b 的机制面）===
+  com.seeyon.udc.page.dto.PortletDto -> templateType 命中 = 0
+  com.seeyon.udc.page.dto.PageDefinitionDto -> templateType 命中 = 0
+  com.seeyon.udc.page.domain.entity.PortletEntity -> templateType 命中 = 0
+  DB 事实（S1/S2 只读）：udc_portlet.template_type 列存在，全库 157/157 = NULL。
+  => 列存在但无实体字段映射 = 平台不写该列（平台事实），不是取证失败。
+
+=== 前端 graphql op 清单（udc-frontend-5.3.496 单 chunk 扫描）===
+  udcPortletCreatePortletPost
+  udcPortletCreatePost
+  udcPortletDeleteIdPost
+  udcPortletSelectByAppIdAppGet
+  udcPortletSortPost
+  udcPortletUpdatePortletPost
+  udcPortletUpdatePost
+  portletGroup/portlet-group/PortletGroup 出现次数 = 0
+  udcPortletGroup*Post/Get op 数 = 0
+
+=== 8. 推断（明确标注，不与上述事实混排）===
+  推断 1（推断，非 LIVE）：S2 页面建「栏目分组」时，前端打的应是 udcPortletCreatePost，
+    即 REST /service/udc/portlet/create（PortletDto，type=GROUP），而不是 /udc/portlet-group/create（PortletGroupDto）。
+    依据：(a) 前端 chunk 里 portlet-group 字样 0 次、udcPortletGroup* op 0 个；
+          (b) udcPortletCreatePost 的返回体含 portletList + groupId + type，与 udc_portlet 树一致；
+          (c) PortletGroupDto 无 type/groupId/parent 语义，指向 udc_portlet_group（0 行空表）。
+    证伪方式（恢复后必做）：抓页面真实请求，看命中哪条路径。若命中 portlet-group，则本推断错误，须现场改判。
+  推断 2（推断）：S1「分组父级 = udc_portlet 自己的 type=0 行」由此得到静态支持——
+    因为分组写入走 udc_portlet（group_id 自引用），而 udc_portlet_group 是全库 0 行的另一张树表（parent_id/tree_path）。
+    但 udc_portlet_group 究竟服务于哪个 UI 面，本片不取证，保持 UNVERIFIED。
+
+=== 9. 对 S2 执行清单的影响（恢复后按此调整，不改变验收标准）===
+  - 回读预期不变：建 1 分组 + 1 栏目 => udc_portlet 157 -> 159（type=0 +1、type=1 +1）。
+  - 新增必抓项：分组创建请求须确认打到 portlet/create 还是 portlet-group/create（两条链都要判定）。
+  - udc_portlet_group 仍期望 0 行；若建分组后该表增长，说明走的是 portlet-group 链 —— 那是另一个结论，须单独判定。
+  - 栏目标识禁 '-'（前轮实测）；分组命名同样避开 '-'，用 SINAPROBE 风格纯字母数字。

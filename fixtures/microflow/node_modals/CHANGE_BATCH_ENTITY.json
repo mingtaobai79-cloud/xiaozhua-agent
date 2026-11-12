@@ -1,0 +1,31 @@
+{
+ "actionType": "CHANGE_BATCH_ENTITY",
+ "caption": "批量更新数据",
+ "captured_from": "编辑器弹窗（用户讲解，2026-10-25）",
+ "semantics": "选择聚合根实体列表数据，批量更新到数据库，更新后返回成功数量",
+ "modal_fields": [
+  {
+   "label": "选择更新的记录列表",
+   "required": true,
+   "control": "param-picker",
+   "placeholder": "请选择参数",
+   "note": "引用实体【列表/多条数据】，如 实体实验-base2列表_1[实体实验-base2][多条数据]"
+  },
+  {
+   "label": "节点出参名称",
+   "required": true,
+   "control": "input",
+   "placeholder": "请输入",
+   "note": "如 批量更新实体实验-base2成功的数量_1"
+  }
+ ],
+ "list_sources": [
+  "创建列表节点出参",
+  "前序节点出参带列表",
+  "查询多条数据(RETRIEVE_ARRAY)出参"
+ ],
+ "validation_rules": [
+  "选择更新的记录列表必填(必须是实体列表/多条数据)",
+  "节点出参名称必填"
+ ]
+}

@@ -1,0 +1,27 @@
+{
+  "schema": "udc.construction.entity.index.v1",
+  "status": "PARTIAL_STATIC_RULE",
+  "input": {
+    "EntityDto.indexes": "VERIFIED_STATIC_BYTECODE"
+  },
+  "observed_output": {
+    "generated_entity_index_annotation_or_DDL": "NOT OBSERVED IN CURRENT EVIDENCE"
+  },
+  "chain": [
+    "Index Definition",
+    "EntityDto.indexes",
+    "generated artifact / DB index"
+  ],
+  "edge_status": {
+    "EntityDto.indexes": "VERIFIED_STATIC_BYTECODE",
+    "indexes → generated Java annotation": "UNKNOWN",
+    "indexes → generated DB index": "UNKNOWN"
+  },
+  "evidence": [
+    "../audit/artifacts/udc-common-5.3.517/EntityDto.javap.txt",
+    "../audit/p0-4-generated-entity-contract-audit.md"
+  ],
+  "caveats": [
+    "No index-bearing design-time payload or generated DDL was available"
+  ]
+}

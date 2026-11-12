@@ -1,0 +1,759 @@
+# UDC 设计器前端「页面 → 功能 → 接口」地图
+
+> 日期：2026-10-13 | 来源：udc remoteEntry → chunk → wakaru 解包 → 模块导出解析
+> 每页含：UI 文案 / 按钮 / 事件 / 组件 / 拖拽 / 关联 op
+
+页面数：134
+
+## src_components_design_settings_common_style-selector_index_module_less-src_compo
+
+- **按钮**：已绑定表达式
+- **组件**：Radio.Group
+- **拖拽**：无
+- **关联接口**（190）：appCommonSystemConfigSystemConfigGet、appCommonThemeSelectDefaultBrandPost、mainFileDownloadUrlGet、portalTemplateImageDataPost、udcAffairListPost、udcApplicationAppVersionAppGuidPost、udcApplicationCopyGet、udcApplicationCopyPost、udcApplicationCreateFromTemplatePost、udcApplicationDeleteByGuidPost、udcApplicationDeletePost、udcApplicationDependentApplicationCreateBatchPost、udcApplicationDependentApplicationDeleteByIdPost、udcApplicationDependentApplicationSelectByConditionPost、udcApplicationDependentApplicationVersionUpdateBatchPost、udcApplicationDependentApplicationVersionUpdatePost、udcApplicationDetailGet、udcApplicationFeatureAppTypeGet、udcApplicationFetchLastVersionMetadataPost、udcApplicationImportNewPost、udcApplicationImportOtherAppZipPost、udcApplicationIsLastVersionAppGet、udcApplicationMultiVersionPost、udcApplicationPost、udcApplicationRenewalAppEditingTimeGet、udcApplicationSaveAsPost、udcApplicationSchemaDownloadIdPost、udcApplicationSearchNewWithVersionListPost、udcApplicationSearchPageByGuidPost、udcApplicationSearchTemplatePost、udcApplicationTransferParamPost、udcApplicationUpdatePost、udcApplicationVersionPlatformGet、udcApplicationVersionPlatformServiceGet、udcAttributeGroupEntityGet、udcAttributeGroupOperateBatchPost、udcAttributeSetSelectByAppidPost、udcAttributeSetSelectByNameAttributesPost、udcBackendComponentDependentIdDefaultLastVersionGet、udcBackendComponentSearchAppPost
+- **文案**：事件 | 只读 | 工具栏操作 | 已绑定表达式 | 必填 | 控件 | 搜索控件 | 操作列 | 正常 | 状态 | 禁用 | 节操作 | 计算值 | 隐藏 | 顶部操作 | 默认值
+
+## src_components_design_settings_common_operate-list_operateCmp_operateCmp_tsx-src
+
+- **按钮**：下载文件、不设置全局提示、个性化参数设置、事件参数必须设置、事件覆盖确认、保存、保存成功、关闭、关闭图标、关闭方式、关闭页面布局、列宽设置、列配置、删除、删除参照携带、删除参照携带容器、删除文件、参数信息保存成功、参照方案设置、取消、取消阅、取消阅处、取消阅示、复制子页面、复制成功、宽度设置、密级设置、导出方式、导航配置、已设置
+- **组件**：Checkbox.Group、Collapse.Panel、Form.Item、Form.useForm、Menu.Item、Radio.Group、Select.Option
+- **拖拽**：有
+- **关联接口**（144）：appCommonSystemConfigSystemConfigGet、portalTemplateImageDataPost、udcAffairListPost、udcApplicationCopyGet、udcApplicationCopyPost、udcApplicationCreateFromTemplatePost、udcApplicationDeleteByGuidPost、udcApplicationDeletePost、udcApplicationFetchLastVersionMetadataPost、udcApplicationGet、udcApplicationImportNewPost、udcApplicationPost、udcApplicationSaveAsPost、udcApplicationSchemaDownloadIdPost、udcApplicationSearchNewWithVersionListPost、udcApplicationSearchPageByGuidPost、udcApplicationSearchTemplatePost、udcApplicationTransferParamPost、udcApplicationVersionPlatformGet、udcApplicationVersionPlatformServiceGet、udcAttachmentTemplateCreateBatchPost、udcAttributeGroupEntityGet、udcAttributeGroupOperateBatchPost、udcConditionCheckPost、udcDataFlowListManuallyMappingPost、udcDataTransferObjectSearchByMicroFlowIdMicroFlowGet、udcDataTransferObjectSearchBySourceIdSourceGet、udcDataTransferObjectSearchListPost、udcDataTransferObjectSearchMicroFlowCustomDtoAppGet、udcDataTypeDataTypesByAppIdAppGet、udcDeploymentAppReadyStatePost、udcEntityAssociationEntityAppGet、udcEntityAssociationGroupSerialPost、udcEntityAssociationSerialPost、udcEntityAttributeBatchDeletePost、udcEntityAttributeBatchUpdatePost、udcEntityAttributeGet、udcEntityAttributeGroupBathUpdatePost、udcEntityAttributeGroupCanceGroupPost、udcEntityAttributeGroupCreateUpdatePost
+- **文案**：一对一 | 一对一实体不存在: | 一对多实体不存在: | 上午 09:40 | 上午 9:40 | 上级枚举 | 下拉字段 | 下拉样式 | 下拉框 | 下盖时拍照 | 下载文件 | 不可选范围 | 不在参照列表中显示，一般用于自定义列的计算 | 不录制 | 不支持同一个控件被多个跟随位置的面板绑定 | 不支持的节点类型 | 不能为空 | 不能大于最大值 | 不能小于最小值 | 不能输入特殊字符 | 不设置全局提示 | 与数据控件一致 | 个性化参数设置 | 个税扣缴义务人 | 中性灰 | 中间区 | 主按钮 | 主表 | 主题 | 九月十九日
+
+## src_pages_app-design_rule_index_tsx-node_modules_seeyon_biz-udc-graph_dist_index
+
+- **按钮**：删除、必须配置扣减算法、扣减规则设置、新建分组、是，前往保存、查看日志、欢迎来到规则设置、添加、添加扣减规则、编辑标题、表达式设置、设置规则、请设置提示信息、请设置来源字段
+- **组件**：Form.Item、Form.useForm、Menu.Item、Radio.Group
+- **拖拽**：有
+- **关联接口**（117）：appCommonSystemConfigSystemConfigGet、appCommonThemeSelectDefaultBrandPost、portalTemplateImageDataPost、udcAffairListPost、udcApplicationCopyGet、udcApplicationCopyPost、udcApplicationCreateFromTemplatePost、udcApplicationDeleteByGuidPost、udcApplicationDeletePost、udcApplicationImportNewPost、udcApplicationImportOtherAppZipPost、udcApplicationPost、udcApplicationRenewalAppEditingTimeGet、udcApplicationSaveAsPost、udcApplicationSchemaDownloadIdPost、udcApplicationSearchNewWithVersionListPost、udcApplicationSearchPageByGuidPost、udcApplicationSearchTemplatePost、udcApplicationTransferParamPost、udcApplicationVersionPlatformGet、udcApplicationVersionPlatformServiceGet、udcConditionCheckPost、udcDataFlowListManuallyMappingPost、udcDataTransferObjectSearchByMicroFlowIdMicroFlowGet、udcDataTransferObjectSearchBySourceIdSourceGet、udcDataTransferObjectSearchListPost、udcDataTransferObjectSearchMicroFlowCustomDtoAppGet、udcDeductionEntityListPost、udcDeductionEntityNotExistIdsPost、udcDeductionMapAppAppGet、udcDeductionMapDeleteContentPost、udcDeductionMapDeletePost、udcDeductionMapGet、udcDeductionMapPost、udcDeductionMapUpdatePost、udcDeductionRuleCountPost、udcDeductionRuleDeletePost、udcDeductionRuleGet、udcDeductionRuleInitDataPost、udcDeductionRulePost
+- **文案**：不能下划线结尾 | 不能使用连续的下划线 | 分组名称 | 删除 | 只能以字母开头，允许输入数字、字母和下划线 | 名称 | 名称不能为空 | 名称不能为重复 | 名称不能重复 | 否，放弃修改 | 在算法运行时，检查当前是否具备算法执行的必要条件 | 备注 | 已经修改完成 | 开始节点只能是单据节点 | 当前扣减规则图中没有来源，请设置来源之后再保存。 | 微流程 | 必须配置扣减算法 | 扣减算法不能为空 | 扣减算法提示 | 扣减规则 | 扣减规则设置 | 提示信息 | 提示并阻塞 | 操作 | 操作成功 | 新建分组 | 是，前往保存 | 是，前往修改 | 最长100个字符 | 有数据未能匹配时
+
+## src_pages_design_portlet_index_tsx-src_utils_getTerminalFromApi_ts-src_component
+
+- **按钮**：删除、删除分组成功、删除文件夹、删除栏目成功、删除静态栏目页面、取消、栏目分组添加成功、添加分组、添加栏目、添加栏目成功、确定、移动端、编辑
+- **组件**：Checkbox.Group、Form.Item、Form.useForm
+- **拖拽**：无
+- **关联接口**（117）：appCommonSystemConfigSystemConfigGet、appCommonThemeSelectDefaultBrandPost、portalTemplateImageDataPost、udcAffairListPost、udcApplicationCopyGet、udcApplicationCopyPost、udcApplicationCreateFromTemplatePost、udcApplicationDeleteByGuidPost、udcApplicationDeletePost、udcApplicationGet、udcApplicationImportNewPost、udcApplicationImportOtherAppZipPost、udcApplicationPost、udcApplicationRenewalAppEditingTimeGet、udcApplicationSaveAsPost、udcApplicationSchemaDownloadIdPost、udcApplicationSearchNewWithVersionListPost、udcApplicationSearchPageByGuidPost、udcApplicationSearchTemplatePost、udcApplicationTransferParamPost、udcApplicationVersionPlatformGet、udcApplicationVersionPlatformServiceGet、udcConditionCheckPost、udcDataFlowListManuallyMappingPost、udcDataTransferObjectSearchByMicroFlowIdMicroFlowGet、udcDataTransferObjectSearchBySourceIdSourceGet、udcDataTransferObjectSearchListPost、udcDataTransferObjectSearchMicroFlowCustomDtoAppGet、udcDeploymentAppReadyStatePost、udcEnumItemGet、udcEnvCurrentEnvGet、udcEventCreateWithDataPost、udcEventDeletePost、udcEventListPost、udcEventPost、udcEventSelectWithDataGet、udcFunctionSelectFunctionTreePost、udcManagerRequestStatusRequestGet、udcMessageCategoryListPost、udcMessageLinkListPost
+- **文案**：你输入的名称过长 | 修改栏目成功 | 公共页面规则 | 分组 | 分组不能拖到其他分组下面 | 分组名称 | 删除 | 删除分组成功 | 删除文件夹 | 删除栏目成功 | 删除静态栏目页面 | 单据 | 取消 | 只能包含中文、英文、数字以及下划线 | 名称不能为空 | 平铺档案 | 接入手工开发的页面时勾选 | 标准 | 栏目不能拖到其他栏目下面 | 栏目分组 | 栏目分组添加成功 | 栏目名称 | 栏目名称只能包含中文、英文、数字以及下划线 | 栏目标识 | 树形档案 | 欢迎来到栏目空间 | 添加分组 | 添加栏目 | 添加栏目成功 | 确定
+
+## src_components_app-design_app_components_nav-header_import-app_util_ts-src_hooks
+
+- **按钮**：—
+- **组件**：—
+- **拖拽**：无
+- **关联接口**（116）：appCommonSystemConfigSystemConfigGet、appCommonThemeSelectDefaultBrandPost、portalTemplateImageDataPost、udcAffairListPost、udcApplicationCopyGet、udcApplicationCopyPost、udcApplicationCreateFromTemplatePost、udcApplicationDeleteByGuidPost、udcApplicationDeletePost、udcApplicationGet、udcApplicationImportNewPost、udcApplicationImportOtherAppZipPost、udcApplicationPost、udcApplicationRenewalAppEditingTimeGet、udcApplicationSaveAsPost、udcApplicationSchemaDownloadIdPost、udcApplicationSearchNewWithVersionListPost、udcApplicationSearchPageByGuidPost、udcApplicationSearchTemplatePost、udcApplicationTransferParamPost、udcApplicationVersionPlatformGet、udcApplicationVersionPlatformServiceGet、udcConditionCheckPost、udcDataFlowListManuallyMappingPost、udcDataTransferObjectSearchByMicroFlowIdMicroFlowGet、udcDataTransferObjectSearchBySourceIdSourceGet、udcDataTransferObjectSearchListPost、udcDataTransferObjectSearchMicroFlowCustomDtoAppGet、udcDeploymentAppReadyStatePost、udcEnumItemGet、udcEnvCurrentEnvGet、udcEventCreateWithDataPost、udcEventDeletePost、udcEventListPost、udcEventPost、udcEventSelectWithDataGet、udcFunctionFindTreeAndGroupPost、udcFunctionSelectFunctionTreePost、udcManagerRequestStatusRequestGet、udcMessageCategoryListPost
+- **文案**：
+
+## src_pages_design_functions_index_tsx-src_components_page-params_components_FormI
+
+- **按钮**：上方添加菜单、上方添加页面、下方添加菜单、下方添加页面、不支持向上移动、删除成功、取消、取消首页、复制、复制成功、复制空间、复制页面、提交成功、查看属性、添加、添加分组、添加空间、添加菜单、添加页面、确定、移动、编辑、设置页面入参
+- **组件**：Form.Item、Form.useForm
+- **拖拽**：无
+- **关联接口**（97）：portalPortalSpaceGet、udcAffairListPost、udcApplicationGet、udcConditionCheckPost、udcDataFlowListManuallyMappingPost、udcDataTransferObjectSearchByMicroFlowIdMicroFlowGet、udcDataTransferObjectSearchBySourceIdSourceGet、udcDataTransferObjectSearchListPost、udcDataTransferObjectSearchMicroFlowCustomDtoAppGet、udcEnumItemGet、udcEventCreateWithDataPost、udcEventDeletePost、udcEventListPost、udcEventPost、udcEventSelectWithDataGet、udcFunctionBatchDeletePost、udcFunctionCopyPost、udcFunctionCreateFunctionReferPost、udcFunctionFindTreeAndGroupPost、udcFunctionSelectFunctionTreePost、udcMessageCategoryListPost、udcMessageLinkListPost、udcMetaDataSelectAggregationEntityEntityGet、udcMetaDataSelectAllPageByAppPost、udcMetaDataSelectCtpEnumAppGet、udcMetaDataSelectCtpEnumByApp1Post、udcMetaDataSelectEntityByAppIdAppGet、udcMetaDataSelectEntityPost、udcMetaDataSelectFunctionNodeWithPageTreePost、udcMetaDataSelectJavaEnumByAppPost、udcMetaDataSelectPageLayoutPost、udcMetaDataSelectPagePost、udcMicroFlowGroupBatchMovePost、udcMicroFlowGroupCreatePost、udcMicroFlowGroupDeleteBatchPost、udcMicroFlowGroupDeletePost、udcMicroFlowGroupSelectByTypePost、udcMicroFlowGroupUpdatePost、udcMicroflowBatchFindAggDtoPost、udcMicroflowBatchFindJavaEnumPost
+- **文案**：上方添加菜单 | 上方添加页面 | 上移 | 下方添加菜单 | 下方添加页面 | 下移 | 不支持向上移动 | 不支持该操作 | 不支持重命名 | 你输入的名称过长 | 入参 | 入参: | 公共页面规则 | 其他页面不能拖动到首页 | 分组 | 分组不能拖到其他分组下面 | 删除成功 | 升级 | 单据 | 取消 | 取消首页 | 变更记录 | 只支持同一层级下的菜单或页面批量移动 | 只能包含中文、英文、数字以及下划线 | 同时删除对应 WEB 页面 | 同时删除对应 WEB端 页面及引用页面 | 同时删除对应 移动端 页面 | 同时删除对应移动端页面 | 向上 | 向下
+
+## src_components_design_select-box_select-cmps_tsx-src_containers_design_navbar_in
+
+- **按钮**：一键展开、保存失败、删除、复制页面规则、复制页面规则失败、已设置表达式、新建分组、移动端
+- **组件**：Checkbox.Group、Form.Item、Form.useForm、Gy.Item、Menu.Item、Radio.Group、Select.Option
+- **拖拽**：有
+- **关联接口**（88）：udcAffairListPost、udcConditionCheckPost、udcDataFlowListManuallyMappingPost、udcDataTransferObjectSearchByMicroFlowIdMicroFlowGet、udcDataTransferObjectSearchBySourceIdSourceGet、udcDataTransferObjectSearchListPost、udcDataTransferObjectSearchMicroFlowCustomDtoAppGet、udcEnumItemGet、udcEventCreateWithDataPost、udcEventDeletePost、udcEventListPost、udcEventPost、udcEventSelectWithDataGet、udcFunctionSelectFunctionTreePost、udcMessageCategoryListPost、udcMessageLinkListPost、udcMetaDataSelectAggregationEntityEntityGet、udcMetaDataSelectCtpEnumAppGet、udcMetaDataSelectCtpEnumByApp1Post、udcMetaDataSelectEntityByAppIdAppGet、udcMetaDataSelectEntityPost、udcMetaDataSelectJavaEnumByAppPost、udcMetaDataSelectPageLayoutPost、udcMicroFlowGroupBatchMovePost、udcMicroFlowGroupCreatePost、udcMicroFlowGroupDeleteBatchPost、udcMicroFlowGroupDeletePost、udcMicroFlowGroupSelectByTypePost、udcMicroFlowGroupUpdatePost、udcMicroflowBatchFindAggDtoPost、udcMicroflowBatchFindJavaEnumPost、udcMicroflowBatchMovePost、udcMicroflowCheckDtoMetadataExistPost、udcMicroflowCheckMicroFlowCaptionPost、udcMicroflowCheckSchemaUpdatePost、udcMicroflowCopy、udcMicroflowCopyBySourceIdPost、udcMicroflowCopyPageRuleBoundControlPost、udcMicroflowCreatePost、udcMicroflowDeletePost
+- **文案**：一键展开 | 一键收起 | 不允许选择多个面板的控件 | 保存失败 | 公共页面规则 | 分组名称 | 删除 | 单据 | 名称 | 复制 PC 端规则 | 复制页面规则 | 复制页面规则失败 | 外框 | 大纲 | 子页面 | 已设置表达式 | 平铺档案 | 控件 | 提示 | 操作成功 | 数据 | 新建分组 | 显示 | 最长100个字符 | 未找到匹配记录 | 未找到调用方 | 查找调用控件 | 标准 | 树形档案 | 正式
+
+## src_components_page-params_index_tsx-src_utils_treeUtils_page-selector_ts.73ed8e
+
+- **按钮**：信息保存成功、参数设置、取消、添加入参、添加变量、确定、确认、设置值、页面事件保存成功、页面事件删除成功
+- **组件**：Form.Item、Form.useForm、Select.Option
+- **拖拽**：无
+- **关联接口**（83）：udcAffairListPost、udcApplicationFetchLastVersionMetadataPost、udcConditionCheckPost、udcDataFlowListManuallyMappingPost、udcDataTransferObjectSearchByMicroFlowIdMicroFlowGet、udcDataTransferObjectSearchBySourceIdSourceGet、udcDataTransferObjectSearchListPost、udcDataTransferObjectSearchMicroFlowCustomDtoAppGet、udcEnumItemGet、udcEventCreateWithDataPost、udcEventDeletePost、udcEventListPost、udcEventPost、udcEventSelectWithDataGet、udcFunctionFindTreeAndGroupPost、udcFunctionSelectFunctionTreePost、udcMessageCategoryListPost、udcMessageLinkListPost、udcMetaDataSelectAggregationEntityEntityGet、udcMetaDataSelectAggregationEntityPost、udcMetaDataSelectAllPageByAppPost、udcMetaDataSelectAppByIdPost、udcMetaDataSelectCtpEnumAppGet、udcMetaDataSelectCtpEnumByApp1Post、udcMetaDataSelectEntityByAppIdAppGet、udcMetaDataSelectEntityPost、udcMetaDataSelectFunctionNodeWithPageTreePost、udcMetaDataSelectJavaEnumByAppPost、udcMicroFlowGroupBatchMovePost、udcMicroFlowGroupCreatePost、udcMicroFlowGroupDeleteBatchPost、udcMicroFlowGroupDeletePost、udcMicroFlowGroupSelectByTypePost、udcMicroFlowGroupUpdatePost、udcMicroflowBatchFindAggDtoPost、udcMicroflowBatchFindJavaEnumPost、udcMicroflowBatchMovePost、udcMicroflowCheckDtoMetadataExistPost、udcMicroflowCheckMicroFlowCaptionPost、udcMicroflowCheckSchemaUpdatePost
+- **文案**：不能包含下划线 | 不能输入空格 | 为列表时，默认值无效 | 信息保存成功 | 列表 | 单选 | 参数类型 | 参数设置 | 取消 | 只能以字母开头，允许输入数字、字母 | 名称 | 名称不能超过10个字 | 名称必填 | 名称禁止输入空格 | 多选 | 实体 | 对象 | 提示 | 数据类型 | 日期 | 日期时间 | 时间 | 暂无数据 | 枚举 | 添加入参 | 添加变量 | 确定 | 确认 | 编码 | 编码必填
+
+## src_pages_app-design_basic-info_index_tsx-node_modules_seeyon_biz-icon-library_d
+
+- **按钮**：保存失败、保存成功、发布中、发布失败、发布成功、发布时间、发布版本、发布状态、取消、团队设置、已发布、未发布、添加成员、确定、确定删除吗、确认、移动端、移除成功、组件已停用、页面发布中、页面发布失败、页面发布开始、页面发布成功、页面发布资源不足、页面发布超时、页面未开始发布
+- **组件**：Collapse.Panel、Form.Item、Form.useForm、Menu.Item、Radio.Group
+- **拖拽**：无
+- **关联接口**（82）：appCommonSystemConfigSystemConfigGet、appCommonThemeSelectDefaultBrandPost、mainFileDownloadUrlGet、portalTemplateImageDataPost、udcApplicationAppVersionAppGuidPost、udcApplicationCopyGet、udcApplicationCopyPost、udcApplicationCreateFromTemplatePost、udcApplicationDeleteByGuidPost、udcApplicationDeletePost、udcApplicationDependentApplicationCreateBatchPost、udcApplicationDependentApplicationDeleteByIdPost、udcApplicationDependentApplicationSelectByConditionPost、udcApplicationDependentApplicationVersionUpdateBatchPost、udcApplicationDependentApplicationVersionUpdatePost、udcApplicationDetailGet、udcApplicationImportNewPost、udcApplicationImportOtherAppZipPost、udcApplicationIsLastVersionAppGet、udcApplicationMultiVersionPost、udcApplicationPost、udcApplicationRenewalAppEditingTimeGet、udcApplicationSaveAsPost、udcApplicationSchemaDownloadIdPost、udcApplicationSearchNewWithVersionListPost、udcApplicationSearchPageByGuidPost、udcApplicationSearchTemplatePost、udcApplicationTransferParamPost、udcApplicationUpdatePost、udcApplicationVersionPlatformGet、udcApplicationVersionPlatformServiceGet、udcBackendComponentDependentIdDefaultLastVersionGet、udcBackendComponentSearchAppPost、udcCollaborationMembersPost、udcCtpManagerTransferSelectGet、udcDataTransferObjectCreateDtoWithAttrsPost、udcDataTransferObjectDeleteDtoWithAttrsPost、udcDataTransferObjectSelectDtoWithAttrsGet、udcDataTransferObjectUpdateDtoWithAttrsPost、udcDeploymentAppReadyStatePost
+- **文案**：依赖应用 | 依赖版本调整 | 依赖组件 | 依赖调整成功 | 保存失败 | 保存成功 | 修改失败 | 修改应用基础信息 | 元数据中心未找到该应用数据 | 元数据地址: | 全部 | 前端安装依赖详细日志: | 前端构建详细日志: | 包名 | 升级版本 | 历史状态 | 发布中 | 发布失败 | 发布成功 | 发布时间 | 发布版本 | 发布状态 | 发布的上一次测试版本 | 取消 | 名称 | 后端构建详细日志: | 团队成员 | 团队设置 | 图标 | 失败原因
+
+## src_components_page-content_index_tsx-src_components_welcome_index_tsx-src_pages
+
+- **按钮**：删除、复制、是，前往保存、暂不支持复制分组、暂不支持批量删除、暂不支持批量复制、添加、添加分组、添加成功、确认删除、移动、要保存修改吗
+- **组件**：—
+- **拖拽**：无
+- **关联接口**（76）：udcAffairListPost、udcConditionCheckPost、udcDataFlowListManuallyMappingPost、udcDataTransferObjectSearchByMicroFlowIdMicroFlowGet、udcDataTransferObjectSearchBySourceIdSourceGet、udcDataTransferObjectSearchListPost、udcDataTransferObjectSearchMicroFlowCustomDtoAppGet、udcEnumItemGet、udcEventCreateWithDataPost、udcEventDeletePost、udcEventListPost、udcEventPost、udcEventSelectWithDataGet、udcFunctionSelectFunctionTreePost、udcMessageCategoryListPost、udcMessageLinkListPost、udcMetaDataSelectAggregationEntityEntityGet、udcMetaDataSelectCtpEnumAppGet、udcMetaDataSelectCtpEnumByApp1Post、udcMetaDataSelectEntityByAppIdAppGet、udcMetaDataSelectEntityPost、udcMetaDataSelectJavaEnumByAppPost、udcMicroFlowGroupBatchMovePost、udcMicroFlowGroupCreatePost、udcMicroFlowGroupDeleteBatchPost、udcMicroFlowGroupDeletePost、udcMicroFlowGroupSelectByTypePost、udcMicroFlowGroupUpdatePost、udcMicroflowBatchFindAggDtoPost、udcMicroflowBatchFindJavaEnumPost、udcMicroflowBatchMovePost、udcMicroflowCheckDtoMetadataExistPost、udcMicroflowCheckMicroFlowCaptionPost、udcMicroflowCheckSchemaUpdatePost、udcMicroflowCreatePost、udcMicroflowDeletePost、udcMicroflowDisableNodePost、udcMicroflowFilterNotVirtualPost、udcMicroflowFindByIdGet、udcMicroflowFindCallInfoDownstreamPost
+- **文案**：上移 | 下移 | 不支持上移 | 不支持下移 | 公共页面规则 | 分组不能移动到分组内部 | 删除 | 单据 | 变更记录 | 名称或编码 | 名称长度不能超过100 | 否，放弃修改 | 复制 | 平铺档案 | 微流程 | 微流程创建失败 | 提示 | 是，前往保存 | 暂不支持复制分组 | 暂不支持批量删除 | 暂不支持批量复制 | 更新成功 | 查找 | 标准 | 树形档案 | 正式 | 添加 | 添加分组 | 添加成功 | 确认删除
+
+## src_pages_app-design_page-rules_index_tsx-src_components_page-content_index_modu
+
+- **按钮**：取消、新建公共页面规则、新建分组、欢迎来到规则设置、确定
+- **组件**：Form.Item、Form.useForm
+- **拖拽**：无
+- **关联接口**（74）：udcAffairListPost、udcConditionCheckPost、udcDataFlowListManuallyMappingPost、udcDataTransferObjectSearchByMicroFlowIdMicroFlowGet、udcDataTransferObjectSearchBySourceIdSourceGet、udcDataTransferObjectSearchListPost、udcDataTransferObjectSearchMicroFlowCustomDtoAppGet、udcEnumItemGet、udcEventCreateWithDataPost、udcEventDeletePost、udcEventListPost、udcEventPost、udcEventSelectWithDataGet、udcFunctionSelectFunctionTreePost、udcMessageCategoryListPost、udcMessageLinkListPost、udcMetaDataSelectAggregationEntityEntityGet、udcMetaDataSelectCtpEnumAppGet、udcMetaDataSelectCtpEnumByApp1Post、udcMetaDataSelectEntityByAppIdAppGet、udcMetaDataSelectEntityPost、udcMetaDataSelectJavaEnumByAppPost、udcMicroFlowGroupBatchMovePost、udcMicroFlowGroupCreatePost、udcMicroFlowGroupDeleteBatchPost、udcMicroFlowGroupDeletePost、udcMicroFlowGroupSelectByTypePost、udcMicroFlowGroupUpdatePost、udcMicroflowBatchFindAggDtoPost、udcMicroflowBatchFindJavaEnumPost、udcMicroflowBatchMovePost、udcMicroflowCheckDtoMetadataExistPost、udcMicroflowCheckMicroFlowCaptionPost、udcMicroflowCheckSchemaUpdatePost、udcMicroflowCreatePost、udcMicroflowDeletePost、udcMicroflowDisableNodePost、udcMicroflowFilterNotVirtualPost、udcMicroflowFindByIdGet、udcMicroflowFindCallInfoDownstreamPost
+- **文案**：公共页面规则 | 分组名称 | 取消 | 所属分组 | 描述信息 | 操作成功 | 新建公共页面规则 | 新建分组 | 最长100个字符 | 欢迎来到规则设置 | 确定 | 规则名称 | 规则名称长度最长45个字符 | 重命名分组 | 默认分组
+
+## src_pages_design_page-frame_index_tsx-src_utils_getTerminalFromApi_ts-src_compon
+
+- **按钮**：—
+- **组件**：—
+- **拖拽**：无
+- **关联接口**（74）：udcAffairListPost、udcConditionCheckPost、udcDataFlowListManuallyMappingPost、udcDataTransferObjectSearchByMicroFlowIdMicroFlowGet、udcDataTransferObjectSearchBySourceIdSourceGet、udcDataTransferObjectSearchListPost、udcDataTransferObjectSearchMicroFlowCustomDtoAppGet、udcEnumItemGet、udcEventCreateWithDataPost、udcEventDeletePost、udcEventListPost、udcEventPost、udcEventSelectWithDataGet、udcFunctionSelectFunctionTreePost、udcMessageCategoryListPost、udcMessageLinkListPost、udcMetaDataSelectAggregationEntityEntityGet、udcMetaDataSelectCtpEnumAppGet、udcMetaDataSelectCtpEnumByApp1Post、udcMetaDataSelectEntityByAppIdAppGet、udcMetaDataSelectEntityPost、udcMetaDataSelectJavaEnumByAppPost、udcMicroFlowGroupBatchMovePost、udcMicroFlowGroupCreatePost、udcMicroFlowGroupDeleteBatchPost、udcMicroFlowGroupDeletePost、udcMicroFlowGroupSelectByTypePost、udcMicroFlowGroupUpdatePost、udcMicroflowBatchFindAggDtoPost、udcMicroflowBatchFindJavaEnumPost、udcMicroflowBatchMovePost、udcMicroflowCheckDtoMetadataExistPost、udcMicroflowCheckMicroFlowCaptionPost、udcMicroflowCheckSchemaUpdatePost、udcMicroflowCreatePost、udcMicroflowDeletePost、udcMicroflowDisableNodePost、udcMicroflowFilterNotVirtualPost、udcMicroflowFindByIdGet、udcMicroflowFindCallInfoDownstreamPost
+- **文案**：公共页面规则 | 单据 | 平铺档案 | 标准 | 树形档案 | 欢迎来到外框设计器 | 表单
+
+## src_pages_design_snapshot_index_tsx-src_utils_getTerminalFromApi_ts-src_componen
+
+- **按钮**：—
+- **组件**：—
+- **拖拽**：无
+- **关联接口**（74）：udcAffairListPost、udcConditionCheckPost、udcDataFlowListManuallyMappingPost、udcDataTransferObjectSearchByMicroFlowIdMicroFlowGet、udcDataTransferObjectSearchBySourceIdSourceGet、udcDataTransferObjectSearchListPost、udcDataTransferObjectSearchMicroFlowCustomDtoAppGet、udcEnumItemGet、udcEventCreateWithDataPost、udcEventDeletePost、udcEventListPost、udcEventPost、udcEventSelectWithDataGet、udcFunctionSelectFunctionTreePost、udcMessageCategoryListPost、udcMessageLinkListPost、udcMetaDataSelectAggregationEntityEntityGet、udcMetaDataSelectCtpEnumAppGet、udcMetaDataSelectCtpEnumByApp1Post、udcMetaDataSelectEntityByAppIdAppGet、udcMetaDataSelectEntityPost、udcMetaDataSelectJavaEnumByAppPost、udcMicroFlowGroupBatchMovePost、udcMicroFlowGroupCreatePost、udcMicroFlowGroupDeleteBatchPost、udcMicroFlowGroupDeletePost、udcMicroFlowGroupSelectByTypePost、udcMicroFlowGroupUpdatePost、udcMicroflowBatchFindAggDtoPost、udcMicroflowBatchFindJavaEnumPost、udcMicroflowBatchMovePost、udcMicroflowCheckDtoMetadataExistPost、udcMicroflowCheckMicroFlowCaptionPost、udcMicroflowCheckSchemaUpdatePost、udcMicroflowCreatePost、udcMicroflowDeletePost、udcMicroflowDisableNodePost、udcMicroflowFilterNotVirtualPost、udcMicroflowFindByIdGet、udcMicroflowFindCallInfoDownstreamPost
+- **文案**：
+
+## src_utils_getTerminalFromApi_ts-src_components_design_asidetool_index_less-src_c
+
+- **按钮**：—
+- **组件**：—
+- **拖拽**：无
+- **关联接口**（74）：udcAffairListPost、udcConditionCheckPost、udcDataFlowListManuallyMappingPost、udcDataTransferObjectSearchByMicroFlowIdMicroFlowGet、udcDataTransferObjectSearchBySourceIdSourceGet、udcDataTransferObjectSearchListPost、udcDataTransferObjectSearchMicroFlowCustomDtoAppGet、udcEnumItemGet、udcEventCreateWithDataPost、udcEventDeletePost、udcEventListPost、udcEventPost、udcEventSelectWithDataGet、udcFunctionSelectFunctionTreePost、udcMessageCategoryListPost、udcMessageLinkListPost、udcMetaDataSelectAggregationEntityEntityGet、udcMetaDataSelectCtpEnumAppGet、udcMetaDataSelectCtpEnumByApp1Post、udcMetaDataSelectEntityByAppIdAppGet、udcMetaDataSelectEntityPost、udcMetaDataSelectJavaEnumByAppPost、udcMicroFlowGroupBatchMovePost、udcMicroFlowGroupCreatePost、udcMicroFlowGroupDeleteBatchPost、udcMicroFlowGroupDeletePost、udcMicroFlowGroupSelectByTypePost、udcMicroFlowGroupUpdatePost、udcMicroflowBatchFindAggDtoPost、udcMicroflowBatchFindJavaEnumPost、udcMicroflowBatchMovePost、udcMicroflowCheckDtoMetadataExistPost、udcMicroflowCheckMicroFlowCaptionPost、udcMicroflowCheckSchemaUpdatePost、udcMicroflowCreatePost、udcMicroflowDeletePost、udcMicroflowDisableNodePost、udcMicroflowFilterNotVirtualPost、udcMicroflowFindByIdGet、udcMicroflowFindCallInfoDownstreamPost
+- **文案**：
+
+## src_pages_udc_application_index_tsx.a0f20272.js
+
+- **按钮**：上传文件、删除、发布、发布应用、发布版本、发布目标环境、取消、复制、复制应用、导入应用、导入应用包、导入方式、导出、导出应用、导出应用成功、应用包导入失败、应用包导入成功、应用复制失败、确定、请先上传应用包、请选择发布版本
+- **组件**：Form.Item、Form.useForm、Menu.Item、Radio.Group、Select.Option
+- **拖拽**：无
+- **关联接口**（68）：appCommonSystemConfigSystemConfigGet、appCommonThemeSelectDefaultBrandPost、mainFileDownloadUrlGet、portalTemplateImageDataPost、udcApplicationAppVersionAppGuidPost、udcApplicationCopyGet、udcApplicationCopyPost、udcApplicationCreateFromTemplatePost、udcApplicationDeleteByGuidPost、udcApplicationDeletePost、udcApplicationDependentApplicationCreateBatchPost、udcApplicationDependentApplicationDeleteByIdPost、udcApplicationDependentApplicationSelectByConditionPost、udcApplicationDependentApplicationVersionUpdateBatchPost、udcApplicationDependentApplicationVersionUpdatePost、udcApplicationDetailGet、udcApplicationImportNewPost、udcApplicationImportOtherAppZipPost、udcApplicationIsLastVersionAppGet、udcApplicationMultiVersionPost、udcApplicationPost、udcApplicationRenewalAppEditingTimeGet、udcApplicationSaveAsPost、udcApplicationSchemaDownloadIdPost、udcApplicationSearchNewWithVersionListPost、udcApplicationSearchPageByGuidPost、udcApplicationSearchTemplatePost、udcApplicationTransferParamPost、udcApplicationUpdatePost、udcApplicationVersionPlatformGet、udcApplicationVersionPlatformServiceGet、udcBackendComponentDependentIdDefaultLastVersionGet、udcBackendComponentSearchAppPost、udcCtpManagerTransferSelectGet、udcDeploymentAppReadyStatePost、udcEnvCurrentEnvGet、udcExpressionSchemaPost、udcFileDownloadUrlGet、udcFormUpgradeDeployDeletePost、udcFormUpgradeDeployExportRecordPost
+- **文案**：上传文件 | 创建时间 | 删除 | 发布 | 发布应用 | 发布版本 | 发布目标环境 | 取消 | 另存为新版本成功 | 复制 | 复制应用 | 导入应用 | 导入应用包 | 导入方式 | 导出 | 导出应用 | 导出应用成功 | 已上架 | 平台版本 | 应用包导入失败 | 应用包导入成功 | 应用名称 | 应用复制失败 | 应用所属人 | 应用编码 | 应用还未测试启动过，无法发布 | 所属机构 | 所有版本 | 操作 | 最多输入50个字符
+
+## src_pages_app-design_entity-modeling_entity-fieldset_index_tsx.fdeccdc6.js
+
+- **按钮**：设置条件、设置汇总、设置筛选条件、请设置筛选条件
+- **组件**：Form.Item、Form.useForm
+- **拖拽**：无
+- **关联接口**（54）：udcApplicationFeatureAppTypeGet、udcApplicationFetchLastVersionMetadataPost、udcAttributeSetDeletePost、udcAttributeSetPost、udcAttributeSetSearchTermPost、udcAttributeSetSelectByAppidPost、udcAttributeSetSelectByNameAttributesPost、udcAttributeSetUpdatePost、udcDataTransferObjectCreateDtoWithAttrsPost、udcDataTransferObjectDeleteDtoWithAttrsPost、udcDataTransferObjectSelectDtoWithAttrsGet、udcDataTransferObjectUpdateDtoWithAttrsPost、udcEntityAttributeSelectByPrimaryGet、udcEntityAttributeSelectParentEnumAttrsPost、udcEntityBatchDeletePost、udcEntityBatchUpdateEntityGroupIdAndOrdernoPost、udcEntityDeletePost、udcEntityEntityCopyPost、udcEntityGet、udcEntityGroupBatchDeletePost、udcEntityGroupCreatePost、udcEntityGroupDeletePost、udcEntityGroupSelectByAppidAppGet、udcEntityGroupUpdateBatchPost、udcEntityGroupUpdatePost、udcEntityOpenApiSelectGet、udcEntityPost、udcEntitySelectAllByAppidAppGet、udcEntitySelectAllByEntityIdGet、udcEntitySelectEventDataByEntityIdGet、udcEntityStereoEntityAppGet、udcEntityUpdateExtensionLinkagePost、udcEntityUpdatePost、udcEventCreateWithDataPost、udcEventDeleteBatchPost、udcEventDeletePost、udcEventGet、udcEventListPost、udcEventPost、udcEventSearchTermPost
+- **文案**：上级实体 | 汇总 | 聚合函数 | 要汇总的实体 | 设置条件 | 设置汇总 | 设置筛选条件 | 请设置筛选条件 | 请选择函数 | 请选择字段 | 请选择实体 | 选择字段
+
+## src_components_app-design_parameter-definition_index_tsx.d0a30409.js
+
+- **按钮**：—
+- **组件**：—
+- **拖拽**：无
+- **关联接口**（53）：udcApplicationFeatureAppTypeGet、udcApplicationFetchLastVersionMetadataPost、udcAttributeGroupEntityGet、udcAttributeGroupOperateBatchPost、udcAttributeSetSelectByAppidPost、udcAttributeSetSelectByNameAttributesPost、udcDataTypeDataTypesByAppIdAppGet、udcEntityAssociationEntityAppGet、udcEntityAssociationGroupSerialPost、udcEntityAssociationSerialPost、udcEntityAttributeBatchDeletePost、udcEntityAttributeBatchUpdatePost、udcEntityAttributeGet、udcEntityAttributeGroupBathUpdatePost、udcEntityAttributeGroupCanceGroupPost、udcEntityAttributeGroupCreateUpdatePost、udcEntityAttributeGroupSearch、udcEntityAttributePost、udcEntityAttributeSelectByPrimaryGet、udcEntityAttributeSelectParentEnumAttrsPost、udcEntityAttributeUpdatePost、udcEntityBatchDeletePost、udcEntityBatchUpdateEntityGroupIdAndOrdernoPost、udcEntityDeletePost、udcEntityEntityCopyPost、udcEntityGet、udcEntityGroupBatchDeletePost、udcEntityGroupCreatePost、udcEntityGroupDeletePost、udcEntityGroupSelectByAppidAppGet、udcEntityGroupUpdateBatchPost、udcEntityGroupUpdatePost、udcEntityOpenApiSelectGet、udcEntityPost、udcEntityPrimarySelectRootGet、udcEntitySelectAllByAppidAppGet、udcEntityStereoEntityAppGet、udcEntityUpdateExtensionLinkagePost、udcEntityUpdatePost、udcFeatureListGet
+- **文案**：
+
+## src_pages_app-design_extension-plan_index_tsx.c111914a.js
+
+- **按钮**：删除、取消、新建扩展实体、确定、编辑、编辑扩展实体、预览
+- **组件**：Form.Item、Form.useForm
+- **拖拽**：无
+- **关联接口**（46）：udcAttributeGroupEntityGet、udcAttributeGroupOperateBatchPost、udcDataTransferObjectCreateDtoWithAttrsPost、udcDataTransferObjectDeleteDtoWithAttrsPost、udcDataTransferObjectSelectDtoWithAttrsGet、udcDataTransferObjectUpdateDtoWithAttrsPost、udcDataTypeDataTypesByAppIdAppGet、udcEntityAssociationEntityAppGet、udcEntityAssociationGroupSerialPost、udcEntityAssociationSerialPost、udcEntityAttributeBatchDeletePost、udcEntityAttributeBatchUpdatePost、udcEntityAttributeGet、udcEntityAttributeGroupBathUpdatePost、udcEntityAttributeGroupCanceGroupPost、udcEntityAttributeGroupCreateUpdatePost、udcEntityAttributeGroupSearch、udcEntityAttributePost、udcEntityAttributeSelectByPrimaryGet、udcEntityAttributeUpdatePost、udcEntityPrimarySelectRootGet、udcEntitySelectAllByEntityIdGet、udcEntitySelectEventDataByEntityIdGet、udcEventCreateWithDataPost、udcEventDeleteBatchPost、udcEventDeletePost、udcEventGet、udcEventListPost、udcEventPost、udcEventSearchTermPost、udcEventSelectWithDataGet、udcEventUpdatePost、udcEventUpdateWithDataPost、udcMetaDataSelectPageInfoListPost、udcReferConfigGroupListPost、udcScalabilityBatchDeletePost、udcScalabilityDeletePost、udcScalabilityOptionDataTypeAppGet、udcScalabilityOptionDeletePost、udcScalabilityOptionOptionGet
+- **文案**：值范围 | 删除 | 取消 | 多选 | 字段发布之后，最大长度只能改大，最小长度只能改小 | 字段名称前缀 | 字段类型 | 小数位数 | 开启后，扩展字段数据在名称变更后，不会发生变化，仍为当时名称 | 开启快照 | 当前字段名称前缀已存在，不能重复添加 | 扩展实体名称 | 扩展实体是一组预留的空白字段，实体中关联后，可在运行态启用这些字段。 | 扩展实体编码 | 扩展方案 | 操作 | 新建扩展实体 | 最多预留 20 个 | 最大值不能小于最小值 | 最大长度不能为0 | 最大长度不能小于最小长度 | 最小值不应该超过最大值 | 最小值不能大于最大值 | 最小长度不能大于最大长度 | 确定 | 编辑 | 编辑扩展实体 | 请输入 | 请输入字段名称前缀 | 请输入小数位数
+
+## src_pages_app-design_entity-modeling_custom-extension_index_tsx.400f885f.js
+
+- **按钮**：删除、取消、启用、确定、自定义扩展配置、预览
+- **组件**：Form.Item、Form.useForm
+- **拖拽**：无
+- **关联接口**（38）：udcAttributeGroupEntityGet、udcAttributeGroupOperateBatchPost、udcDataTransferObjectCreateDtoWithAttrsPost、udcDataTransferObjectDeleteDtoWithAttrsPost、udcDataTransferObjectSelectDtoWithAttrsGet、udcDataTransferObjectUpdateDtoWithAttrsPost、udcDataTypeDataTypesByAppIdAppGet、udcEntityAssociationEntityAppGet、udcEntityAssociationGroupSerialPost、udcEntityAssociationSerialPost、udcEntityAttributeBatchDeletePost、udcEntityAttributeBatchUpdatePost、udcEntityAttributeGet、udcEntityAttributeGroupBathUpdatePost、udcEntityAttributeGroupCanceGroupPost、udcEntityAttributeGroupCreateUpdatePost、udcEntityAttributeGroupSearch、udcEntityAttributePost、udcEntityAttributeSelectByPrimaryGet、udcEntityAttributeUpdatePost、udcEntityPrimarySelectRootGet、udcEntitySelectAllByEntityIdGet、udcEntitySelectEventDataByEntityIdGet、udcEventCreateWithDataPost、udcEventDeleteBatchPost、udcEventDeletePost、udcEventGet、udcEventListPost、udcEventPost、udcEventSearchTermPost、udcEventSelectWithDataGet、udcEventUpdatePost、udcEventUpdateWithDataPost、udcMetaDataSelectPageInfoListPost、udcReferConfigGroupListPost、udcScalabilityOptionPost、udcScalabilityOptionUpdatePost、udcSerialSchemeSearchNoPagePost
+- **文案**：删除 | 取消 | 启用 | 字段名称前缀 | 操作 | 数据类型 | 数据类型已存在，请重新选择 | 状态 | 确定 | 自定义扩展配置 | 请输入 | 请输入字段名称前缀 | 请输入数据类型 | 请输入长度 | 请输入预留字段数量 | 请输入默认值 | 长度 | 预留字段数量 | 预览 | 默认值
+
+## src_components_data-type_instance_switch_tsx-src_pages_app-design_common_compone
+
+- **按钮**：—
+- **组件**：Form.Item
+- **拖拽**：无
+- **关联接口**（32）：udcApplicationFeatureAppTypeGet、udcApplicationFetchLastVersionMetadataPost、udcAttributeSetSelectByAppidPost、udcAttributeSetSelectByNameAttributesPost、udcEntityAttributeSelectParentEnumAttrsPost、udcEntityBatchDeletePost、udcEntityBatchUpdateEntityGroupIdAndOrdernoPost、udcEntityDeletePost、udcEntityEntityCopyPost、udcEntityGet、udcEntityGroupBatchDeletePost、udcEntityGroupCreatePost、udcEntityGroupDeletePost、udcEntityGroupSelectByAppidAppGet、udcEntityGroupUpdateBatchPost、udcEntityGroupUpdatePost、udcEntityOpenApiSelectGet、udcEntityPost、udcEntitySelectAllByAppidAppGet、udcEntityStereoEntityAppGet、udcEntityUpdateExtensionLinkagePost、udcEntityUpdatePost、udcFeatureListGet、udcIndexAttributeEntityGet、udcIndexDeleteBatchPost、udcIndexDeletePost、udcIndexEntityListPost、udcIndexPost、udcIndexUpdatePost、udcScalabilityOptionSelectAllOptionNamePost、udcScalabilityOptionSelectByAppidWithDetailAppGet、udcStereotypeListGet
+- **文案**：开启后，扩展字段数据在名称变更后，不会发生变化，仍为当时名称 | 选择上级枚举
+
+## src_components_app-design_app_components_nav-header_import-app_util_ts-src_compo
+
+- **按钮**：—
+- **组件**：—
+- **拖拽**：无
+- **关联接口**（27）：appCommonSystemConfigSystemConfigGet、appCommonThemeSelectDefaultBrandPost、portalTemplateImageDataPost、udcApplicationCopyGet、udcApplicationCopyPost、udcApplicationCreateFromTemplatePost、udcApplicationDeleteByGuidPost、udcApplicationDeletePost、udcApplicationImportNewPost、udcApplicationImportOtherAppZipPost、udcApplicationPost、udcApplicationRenewalAppEditingTimeGet、udcApplicationSaveAsPost、udcApplicationSchemaDownloadIdPost、udcApplicationSearchNewWithVersionListPost、udcApplicationSearchPageByGuidPost、udcApplicationSearchTemplatePost、udcApplicationTransferParamPost、udcApplicationVersionPlatformGet、udcApplicationVersionPlatformServiceGet、udcDeploymentAppReadyStatePost、udcEnvCurrentEnvGet、udcManagerRequestStatusRequestGet、udcRuntimeAuthAccessUrlPost、udcRuntimeDeployFormPost、udcRuntimeDeployNormalPost、udcRuntimeDeployPost
+- **文案**：
+
+## src_components_app-design_app_components_nav-header_import-app_util_ts-src_hooks
+
+- **按钮**：—
+- **组件**：—
+- **拖拽**：无
+- **关联接口**（27）：appCommonSystemConfigSystemConfigGet、appCommonThemeSelectDefaultBrandPost、portalTemplateImageDataPost、udcApplicationCopyGet、udcApplicationCopyPost、udcApplicationCreateFromTemplatePost、udcApplicationDeleteByGuidPost、udcApplicationDeletePost、udcApplicationImportNewPost、udcApplicationImportOtherAppZipPost、udcApplicationPost、udcApplicationRenewalAppEditingTimeGet、udcApplicationSaveAsPost、udcApplicationSchemaDownloadIdPost、udcApplicationSearchNewWithVersionListPost、udcApplicationSearchPageByGuidPost、udcApplicationSearchTemplatePost、udcApplicationTransferParamPost、udcApplicationVersionPlatformGet、udcApplicationVersionPlatformServiceGet、udcDeploymentAppReadyStatePost、udcEnvCurrentEnvGet、udcManagerRequestStatusRequestGet、udcRuntimeAuthAccessUrlPost、udcRuntimeDeployFormPost、udcRuntimeDeployNormalPost、udcRuntimeDeployPost
+- **文案**：
+
+## src_components_app-design_app_components_nav-header_import-app_util_ts-src_pages
+
+- **按钮**：—
+- **组件**：—
+- **拖拽**：无
+- **关联接口**（27）：appCommonSystemConfigSystemConfigGet、appCommonThemeSelectDefaultBrandPost、portalTemplateImageDataPost、udcApplicationCopyGet、udcApplicationCopyPost、udcApplicationCreateFromTemplatePost、udcApplicationDeleteByGuidPost、udcApplicationDeletePost、udcApplicationImportNewPost、udcApplicationImportOtherAppZipPost、udcApplicationPost、udcApplicationRenewalAppEditingTimeGet、udcApplicationSaveAsPost、udcApplicationSchemaDownloadIdPost、udcApplicationSearchNewWithVersionListPost、udcApplicationSearchPageByGuidPost、udcApplicationSearchTemplatePost、udcApplicationTransferParamPost、udcApplicationVersionPlatformGet、udcApplicationVersionPlatformServiceGet、udcDeploymentAppReadyStatePost、udcEnvCurrentEnvGet、udcManagerRequestStatusRequestGet、udcRuntimeAuthAccessUrlPost、udcRuntimeDeployFormPost、udcRuntimeDeployNormalPost、udcRuntimeDeployPost
+- **文案**：
+
+## src_components_app-design_app_components_nav-header_import-app_util_ts-src_pages
+
+- **按钮**：—
+- **组件**：—
+- **拖拽**：无
+- **关联接口**（27）：appCommonSystemConfigSystemConfigGet、appCommonThemeSelectDefaultBrandPost、portalTemplateImageDataPost、udcApplicationCopyGet、udcApplicationCopyPost、udcApplicationCreateFromTemplatePost、udcApplicationDeleteByGuidPost、udcApplicationDeletePost、udcApplicationImportNewPost、udcApplicationImportOtherAppZipPost、udcApplicationPost、udcApplicationRenewalAppEditingTimeGet、udcApplicationSaveAsPost、udcApplicationSchemaDownloadIdPost、udcApplicationSearchNewWithVersionListPost、udcApplicationSearchPageByGuidPost、udcApplicationSearchTemplatePost、udcApplicationTransferParamPost、udcApplicationVersionPlatformGet、udcApplicationVersionPlatformServiceGet、udcDeploymentAppReadyStatePost、udcEnvCurrentEnvGet、udcManagerRequestStatusRequestGet、udcRuntimeAuthAccessUrlPost、udcRuntimeDeployFormPost、udcRuntimeDeployNormalPost、udcRuntimeDeployPost
+- **文案**：
+
+## src_components_design_settings_common_style-selector_index_module_less-src_compo
+
+- **按钮**：已绑定表达式
+- **组件**：Radio.Group
+- **拖拽**：无
+- **关联接口**（27）：appCommonSystemConfigSystemConfigGet、appCommonThemeSelectDefaultBrandPost、portalTemplateImageDataPost、udcApplicationCopyGet、udcApplicationCopyPost、udcApplicationCreateFromTemplatePost、udcApplicationDeleteByGuidPost、udcApplicationDeletePost、udcApplicationImportNewPost、udcApplicationImportOtherAppZipPost、udcApplicationPost、udcApplicationRenewalAppEditingTimeGet、udcApplicationSaveAsPost、udcApplicationSchemaDownloadIdPost、udcApplicationSearchNewWithVersionListPost、udcApplicationSearchPageByGuidPost、udcApplicationSearchTemplatePost、udcApplicationTransferParamPost、udcApplicationVersionPlatformGet、udcApplicationVersionPlatformServiceGet、udcDeploymentAppReadyStatePost、udcEnvCurrentEnvGet、udcManagerRequestStatusRequestGet、udcRuntimeAuthAccessUrlPost、udcRuntimeDeployFormPost、udcRuntimeDeployNormalPost、udcRuntimeDeployPost
+- **文案**：事件 | 只读 | 工具栏操作 | 已绑定表达式 | 必填 | 控件 | 搜索控件 | 操作列 | 正常 | 状态 | 禁用 | 节操作 | 计算值 | 隐藏 | 顶部操作 | 默认值
+
+## src_components_design_settings_common_style-selector_index_module_less-src_compo
+
+- **按钮**：已绑定表达式
+- **组件**：Radio.Group
+- **拖拽**：无
+- **关联接口**（27）：appCommonSystemConfigSystemConfigGet、appCommonThemeSelectDefaultBrandPost、portalTemplateImageDataPost、udcApplicationCopyGet、udcApplicationCopyPost、udcApplicationCreateFromTemplatePost、udcApplicationDeleteByGuidPost、udcApplicationDeletePost、udcApplicationImportNewPost、udcApplicationImportOtherAppZipPost、udcApplicationPost、udcApplicationRenewalAppEditingTimeGet、udcApplicationSaveAsPost、udcApplicationSchemaDownloadIdPost、udcApplicationSearchNewWithVersionListPost、udcApplicationSearchPageByGuidPost、udcApplicationSearchTemplatePost、udcApplicationTransferParamPost、udcApplicationVersionPlatformGet、udcApplicationVersionPlatformServiceGet、udcDeploymentAppReadyStatePost、udcEnvCurrentEnvGet、udcManagerRequestStatusRequestGet、udcRuntimeAuthAccessUrlPost、udcRuntimeDeployFormPost、udcRuntimeDeployNormalPost、udcRuntimeDeployPost
+- **文案**：事件 | 只读 | 工具栏操作 | 已绑定表达式 | 必填 | 控件 | 搜索控件 | 操作列 | 正常 | 状态 | 禁用 | 节操作 | 计算值 | 隐藏 | 顶部操作 | 默认值
+
+## src_components_design_settings_common_style-selector_index_module_less-src_compo
+
+- **按钮**：已绑定表达式
+- **组件**：Radio.Group
+- **拖拽**：无
+- **关联接口**（27）：appCommonSystemConfigSystemConfigGet、appCommonThemeSelectDefaultBrandPost、portalTemplateImageDataPost、udcApplicationCopyGet、udcApplicationCopyPost、udcApplicationCreateFromTemplatePost、udcApplicationDeleteByGuidPost、udcApplicationDeletePost、udcApplicationImportNewPost、udcApplicationImportOtherAppZipPost、udcApplicationPost、udcApplicationRenewalAppEditingTimeGet、udcApplicationSaveAsPost、udcApplicationSchemaDownloadIdPost、udcApplicationSearchNewWithVersionListPost、udcApplicationSearchPageByGuidPost、udcApplicationSearchTemplatePost、udcApplicationTransferParamPost、udcApplicationVersionPlatformGet、udcApplicationVersionPlatformServiceGet、udcDeploymentAppReadyStatePost、udcEnvCurrentEnvGet、udcManagerRequestStatusRequestGet、udcRuntimeAuthAccessUrlPost、udcRuntimeDeployFormPost、udcRuntimeDeployNormalPost、udcRuntimeDeployPost
+- **文案**：事件 | 只读 | 工具栏操作 | 已绑定表达式 | 必填 | 控件 | 搜索控件 | 操作列 | 正常 | 状态 | 禁用 | 节操作 | 计算值 | 隐藏 | 顶部操作 | 默认值
+
+## src_pages_design_page-frame_sider_tsx.c4c52fcb.js
+
+- **按钮**：删除、取消、复制、确定、移动端、编辑
+- **组件**：Form.Item、Form.useForm
+- **拖拽**：无
+- **关联接口**（27）：appCommonSystemConfigSystemConfigGet、appCommonThemeSelectDefaultBrandPost、portalTemplateImageDataPost、udcApplicationCopyGet、udcApplicationCopyPost、udcApplicationCreateFromTemplatePost、udcApplicationDeleteByGuidPost、udcApplicationDeletePost、udcApplicationImportNewPost、udcApplicationImportOtherAppZipPost、udcApplicationPost、udcApplicationRenewalAppEditingTimeGet、udcApplicationSaveAsPost、udcApplicationSchemaDownloadIdPost、udcApplicationSearchNewWithVersionListPost、udcApplicationSearchPageByGuidPost、udcApplicationSearchTemplatePost、udcApplicationTransferParamPost、udcApplicationVersionPlatformGet、udcApplicationVersionPlatformServiceGet、udcDeploymentAppReadyStatePost、udcEnvCurrentEnvGet、udcManagerRequestStatusRequestGet、udcRuntimeAuthAccessUrlPost、udcRuntimeDeployFormPost、udcRuntimeDeployNormalPost、udcRuntimeDeployPost
+- **文案**：删除 | 取消 | 只能包含中文、英文、数字以及下划线 | 名称不能为空 | 复制 | 确定 | 移动端 | 编辑 | 请输入外框名称 | 请输入正确的外框名称 | 重命名 | 重命名成功
+
+## src_components_app-design_app_components_theme_app-style-designer-model_tsx-src_
+
+- **按钮**：—
+- **组件**：—
+- **拖拽**：无
+- **关联接口**（24）：appCommonThemeSelectDefaultBrandPost、udcApplicationGet、udcApplicationImportOtherAppZipPost、udcApplicationRenewalAppEditingTimeGet、udcEntityDataTypesGet、udcFunctionBatchDeletePost、udcFunctionCopyPost、udcFunctionCreateFunctionReferPost、udcMetaDataSelectPageLayoutPost、udcMetaDataSelectPagePost、udcMicroflowDeletePost、udcMicroflowFindNodeSchemaPost、udcMicroflowSearchEntityRulePost、udcPageAdminV1DeleteGet、udcPageInfoBaseInfoUpdateNamePost、udcPageInfoDesignerSelectDetailListByConditionsPost、udcPageInfoRelationInfoRelationGroupIdPost、udcPageInfoSearchNoPagePost、udcPageInfoSelectListByConditionsPost、udcScalabilityOptionPost、udcScalabilityOptionUpdatePost、udcUdcEnumItemGet、udcUdcEnumItemSearch、udcUdcEnumSearch
+- **文案**：
+
+## src_pages_udc_application_new-app_index_tsx-node_modules_seeyon_biz-icon-library
+
+- **按钮**：返回
+- **组件**：Checkbox.Group、Form.Item、Form.useForm、Menu.Item
+- **拖拽**：无
+- **关联接口**（24）：appCommonSystemConfigSystemConfigGet、portalTemplateImageDataPost、udcApplicationCopyGet、udcApplicationCopyPost、udcApplicationCreateFromTemplatePost、udcApplicationDeleteByGuidPost、udcApplicationDeletePost、udcApplicationImportNewPost、udcApplicationPost、udcApplicationSaveAsPost、udcApplicationSchemaDownloadIdPost、udcApplicationSearchNewWithVersionListPost、udcApplicationSearchPageByGuidPost、udcApplicationSearchTemplatePost、udcApplicationTransferParamPost、udcApplicationVersionPlatformGet、udcApplicationVersionPlatformServiceGet、udcDeploymentAppReadyStatePost、udcEnvCurrentEnvGet、udcManagerRequestStatusRequestGet、udcRuntimeAuthAccessUrlPost、udcRuntimeDeployFormPost、udcRuntimeDeployNormalPost、udcRuntimeDeployPost
+- **文案**：去设计 | 平台版本 | 应用名称 | 应用所属人 | 应用描述 | 应用编码 | 所属机构 | 支持终端 | 最多输入255个字符 | 请输入应用描述 | 请选择所属机构 | 返回
+
+## src_pages_app-design_entity-modeling_entity-field_components_rule-Formulas_index
+
+- **按钮**：设置条件、设置汇总、设置筛选条件、请设置筛选条件
+- **组件**：Form.Item、Form.useForm
+- **拖拽**：无
+- **关联接口**（20）：udcAttributeGroupEntityGet、udcAttributeGroupOperateBatchPost、udcDataTypeDataTypesByAppIdAppGet、udcEntityAssociationEntityAppGet、udcEntityAssociationGroupSerialPost、udcEntityAssociationSerialPost、udcEntityAttributeBatchDeletePost、udcEntityAttributeBatchUpdatePost、udcEntityAttributeGet、udcEntityAttributeGroupBathUpdatePost、udcEntityAttributeGroupCanceGroupPost、udcEntityAttributeGroupCreateUpdatePost、udcEntityAttributeGroupSearch、udcEntityAttributePost、udcEntityAttributeSelectByPrimaryGet、udcEntityAttributeUpdatePost、udcEntityPrimarySelectRootGet、udcMetaDataSelectPageInfoListPost、udcReferConfigGroupListPost、udcSerialSchemeSearchNoPagePost
+- **文案**：上级实体 | 汇总 | 聚合函数 | 要汇总的实体 | 设置条件 | 设置汇总 | 设置筛选条件 | 请设置筛选条件 | 请选择函数 | 请选择字段 | 请选择实体 | 选择字段
+
+## src_pages_app-design_entity-modeling_enum-manger_enum-field_index_tsx.9476b6a5.j
+
+- **按钮**：删除成功、取消、新建组、确定、移动至
+- **组件**：Collapse.Panel、Form.Item、Form.useForm、Select.Option
+- **拖拽**：无
+- **关联接口**（17）：udcDataTransferObjectCreateDtoWithAttrsPost、udcDataTransferObjectDeleteDtoWithAttrsPost、udcDataTransferObjectSelectDtoWithAttrsGet、udcDataTransferObjectUpdateDtoWithAttrsPost、udcEntityAttributeSelectByPrimaryGet、udcEntitySelectAllByEntityIdGet、udcEntitySelectEventDataByEntityIdGet、udcEventCreateWithDataPost、udcEventDeleteBatchPost、udcEventDeletePost、udcEventGet、udcEventListPost、udcEventPost、udcEventSearchTermPost、udcEventSelectWithDataGet、udcEventUpdatePost、udcEventUpdateWithDataPost
+- **文案**：修改成功，你可以继续下列操作： | 创建枚举 | 删除成功 | 取消 | 您确定要删除此信息吗 | 操作 | 新建组 | 显示名称 | 枚举值 | 枚举项 | 枚举项值 | 枚举项名称 | 枚举项显示名称 | 确定 | 移动至 | 组名 | 自动生成（可修改） | 请输入 | 请输入组名 | 请选择 | 选择分组
+
+## src_pages_design_sub-pages_sider_tsx.ab0f4794.js
+
+- **按钮**：删除成功、复制子页面、复制成功、新增、移动端、编辑
+- **组件**：Checkbox.Group、Form.Item、Form.useForm
+- **拖拽**：无
+- **关联接口**（16）：udcApplicationGet、udcFunctionFindTreeAndGroupPost、udcMetaDataSelectAllPageByAppPost、udcMetaDataSelectFunctionNodeWithPageTreePost、udcMetaDataSelectPageLayoutPost、udcMetaDataSelectPagePost、udcMicroflowFindNodeSchemaPost、udcPageAdminV1DeleteGet、udcPageInfoBaseInfoUpdateNamePost、udcPageInfoDesignerSelectDetailListByConditionsPost、udcPageInfoPresetListAppGet、udcPageInfoRelationInfoRelationGroupIdPost、udcPageInfoSearchNoPagePost、udcPageInfoSelectListByConditionsPost、udcPageTemplateClassSelectTreeCategoryGet、udcPageTemplateGet
+- **文案**：你输入的标识过长 | 删除成功 | 只能输入字母 | 复制子页面 | 复制成功 | 子页面名称 | 子页面标识 | 新增 | 移动端 | 终端 | 编辑 | 请勾选终端 | 请输入子页面名称 | 请输入子页面标识
+
+## src_pages_design_functions_components_page-info-edit_index_tsx.d598ef8a.js
+
+- **按钮**：添加移动端分组、移动端
+- **组件**：Form.Item、Form.useForm、Select.Option
+- **拖拽**：无
+- **关联接口**（15）：udcApplicationFetchLastVersionMetadataPost、udcFunctionBatchDeletePost、udcFunctionCopyPost、udcFunctionCreateFunctionReferPost、udcFunctionFindTreeAndGroupPost、udcMetaDataSelectAggregationEntityEntityGet、udcMetaDataSelectAggregationEntityPost、udcMetaDataSelectAllLayoutByAppPost、udcMetaDataSelectAllPageByAppPost、udcMetaDataSelectAppByIdPost、udcMetaDataSelectFunctionNodeWithPageTreePost、udcPageInfoPresetListAppGet、udcPageInfoSearchNoPagePost、udcPageTemplateClassSelectTreeCategoryGet、udcPageTemplateGet
+- **文案**：分组名称 | 归属修改成功 | 接入手工开发的页面时勾选 | 添加移动端分组 | 移动端 | 请输入页面名称 | 请输入页面标识 | 请选择web端页面归属 | 请选择实体 | 请选择移动端端页面归属 | 适配终端 | 页面名称 | 页面对应实体 | 页面标识 | 页面类型
+
+## src_pages_udc_sandbox_pages_elastic-deployment_index_tsx.b0321575.js
+
+- **按钮**：删除成功、查看应用
+- **组件**：—
+- **拖拽**：无
+- **关联接口**（15）：udcCtpManagerSandboxUsePost、udcSandboxAppCheckAlertPost、udcSandboxAppCleanRestartAppPost、udcSandboxAppReleaseAppPost、udcSandboxAppReleaseAppStatusPost、udcSandboxAppStartAppPost、udcSandboxAppStopAppPost、udcSandboxAppUnLoadAppPost、udcSandboxClientCheckAllStatusGet、udcSandboxClientCheckAllTaskGet、udcSandboxClientCreateGet、udcSandboxClientDeleteGet、udcSandboxClientRestartGet、udcSandboxClientSearch、udcSandboxSystemConfigSetReleaseConfigPost
+- **文案**：创建时间 | 删除成功 | 启动中 | 启动失败 | 已停止 | 已启动 | 应用名称 | 应用版本 | 应用编码 | 弹性容器ID | 弹性容器创建成功 | 操作 | 更新时间 | 构建时间 | 查看应用 | 查询成功 | 检测完成 | 正在启动 | 状态 | 请选择状态 | 运行中
+
+## src_pages_udc_sandbox_pages_sandbox-resource_index_tsx-src_pages_udc_sandbox_com
+
+- **按钮**：删除成功、已停用、已启用、查看应用、配置规则
+- **组件**：—
+- **拖拽**：无
+- **关联接口**（15）：udcCtpManagerSandboxUsePost、udcSandboxAppCheckAlertPost、udcSandboxAppCleanRestartAppPost、udcSandboxAppReleaseAppPost、udcSandboxAppReleaseAppStatusPost、udcSandboxAppStartAppPost、udcSandboxAppStopAppPost、udcSandboxAppUnLoadAppPost、udcSandboxClientCheckAllStatusGet、udcSandboxClientCheckAllTaskGet、udcSandboxClientCreateGet、udcSandboxClientDeleteGet、udcSandboxClientRestartGet、udcSandboxClientSearch、udcSandboxSystemConfigSetReleaseConfigPost
+- **文案**：创建失败 | 创建时间 | 删除成功 | 卸载成功 | 已停用 | 已启用 | 应用名称 | 应用版本 | 应用编码 | 操作 | 新建沙箱前请确认是否已上传沙箱镜像到镜像仓库，如未上传将会导致沙箱新建失败。 | 更新时间 | 最近活跃时间 | 构建时间 | 查看应用 | 查询成功 | 检测完成 | 正在重启 | 沙箱ID | 沙箱创建成功 | 沙箱删除后沙箱内的应用将同步删除，该操作不可撤销，请谨慎操作。 | 沙箱版本 | 状态 | 租户名称 | 请选择状态 | 配置规则 | 重启失败
+
+## src_pages_design_main_components_formAppPageInfoEdit_index_tsx.879ee137.js
+
+- **按钮**：—
+- **组件**：Checkbox.Group、Form.Item、Form.useForm、Select.Option
+- **拖拽**：无
+- **关联接口**（14）：udcApplicationFetchLastVersionMetadataPost、udcFunctionBatchDeletePost、udcFunctionCopyPost、udcFunctionCreateFunctionReferPost、udcFunctionFindTreeAndGroupPost、udcMetaDataSelectAggregationEntityEntityGet、udcMetaDataSelectAggregationEntityPost、udcMetaDataSelectAllPageByAppPost、udcMetaDataSelectAppByIdPost、udcMetaDataSelectFunctionNodeWithPageTreePost、udcPageInfoPresetListAppGet、udcPageInfoSearchNoPagePost、udcPageTemplateClassSelectTreeCategoryGet、udcPageTemplateGet
+- **文案**：请输入页面名称 | 请选择实体 | 请选择页面类型 | 适配终端 | 页面信息修改成功 | 页面名称 | 页面对应实体 | 页面标识 | 页面类型
+
+## src_pages_design_functions_components_edit-preset-page_index_tsx.0e18a55b.js
+
+- **按钮**：—
+- **组件**：Form.Item、Form.useForm
+- **拖拽**：无
+- **关联接口**（13）：udcApplicationGet、udcFunctionBatchDeletePost、udcFunctionCopyPost、udcFunctionCreateFunctionReferPost、udcMetaDataSelectPageLayoutPost、udcMetaDataSelectPagePost、udcMicroflowFindNodeSchemaPost、udcPageAdminV1DeleteGet、udcPageInfoBaseInfoUpdateNamePost、udcPageInfoDesignerSelectDetailListByConditionsPost、udcPageInfoRelationInfoRelationGroupIdPost、udcPageInfoSearchNoPagePost、udcPageInfoSelectListByConditionsPost
+- **文案**：页面名称
+
+## src_pages_udc_sandbox-manage_index_tsx.12c8fe7e.js
+
+- **按钮**：—
+- **组件**：—
+- **拖拽**：无
+- **关联接口**（13）：udcSandboxAppCleanRestartByAppPost、udcSandboxAppStartByAppPost、udcSandboxBatchCleanStopPost、udcSandboxBatchStopPost、udcSandboxBuildInfoAppGet、udcSandboxClearDataPost、udcSandboxClientSandboxLogUrlPost、udcSandboxResourcesGet、udcSandboxRestartPost、udcSandboxSandboxAppsByConditionPost、udcSandboxSelectAppGet、udcSandboxSelectRolesPost、udcSandboxStopPost
+- **文案**：停止 | 停止应用 | 停止运行 | 创建人 | 可在此查看测试发布的应用，并可操作应用的启停、数据清除。 | 启动 | 已停止 | 应用名称 | 应用版本 | 应用编码 | 操作 | 构造时间 | 清除并重启 | 清除数据 | 清除数据应用 | 请输入关键字搜索 | 运行中 | 重启
+
+## src_components_design_settings_common_style-selector_index_module_less-src_conta
+
+- **按钮**：已绑定表达式
+- **组件**：Radio.Group
+- **拖拽**：无
+- **关联接口**（10）：udcApplicationGet、udcMetaDataSelectPageLayoutPost、udcMetaDataSelectPagePost、udcMicroflowFindNodeSchemaPost、udcPageAdminV1DeleteGet、udcPageInfoBaseInfoUpdateNamePost、udcPageInfoDesignerSelectDetailListByConditionsPost、udcPageInfoRelationInfoRelationGroupIdPost、udcPageInfoSearchNoPagePost、udcPageInfoSelectListByConditionsPost
+- **文案**：事件 | 只读 | 工具栏操作 | 已绑定表达式 | 必填 | 控件 | 搜索控件 | 操作列 | 正常 | 状态 | 禁用 | 节操作 | 计算值 | 隐藏 | 顶部操作 | 默认值
+
+## src_pages_design_main_components_add-page_index_tsx.c6d3edce.js
+
+- **按钮**：添加移动端分组、移动端
+- **组件**：Checkbox.Group、Form.Item、Form.useForm、Select.Option
+- **拖拽**：无
+- **关联接口**（10）：udcFunctionBatchDeletePost、udcFunctionCopyPost、udcFunctionCreateFunctionReferPost、udcFunctionFindTreeAndGroupPost、udcMetaDataSelectAllPageByAppPost、udcMetaDataSelectFunctionNodeWithPageTreePost、udcPageInfoPresetListAppGet、udcPageInfoSearchNoPagePost、udcPageTemplateClassSelectTreeCategoryGet、udcPageTemplateGet
+- **文案**：分组名称 | 归属 | 接入手工开发的页面时勾选 | 添加移动端分组 | 移动端 | 菜单名称 | 请输入页面名称 | 请选择实体 | 请选择适配终端 | 请选择页面对应实体 | 请选择页面类型 | 适配终端 | 页面名称 | 页面对应实体 | 页面标识 | 页面类型
+
+## src_pages_udc_upgrade-deploy_index_tsx.0c901b15.js
+
+- **按钮**：删除成功、发布中、发布失败、发布成功、发布状态、发布类型、启用状态、已启用、未发布、未启用、移动端、自动生成不可编辑
+- **组件**：Checkbox.Group、Form.Item、Form.useForm
+- **拖拽**：无
+- **关联接口**（10）：udcFileDownloadUrlGet、udcFormUpgradeDeployDeletePost、udcFormUpgradeDeployExportRecordPost、udcFormUpgradeDeployListInfoPost、udcFormUpgradeDeployListRecordPost、udcFormUpgradeDeployNodeLastUpgradeResultGet、udcFormUpgradeDeployOneClickUpgradePost、udcFormUpgradeDeploySilentUpdatePost、udcRuntimeUpgradeAppListPost、udcRuntimeUpgradeHostAppNameListPost
+- **文案**：上次更新时间 | 全部应用 | 删除成功 | 前端 | 前端组件名称 | 发布中 | 发布失败 | 发布成功 | 发布状态 | 发布类型 | 后端 | 启用状态 | 失败原因 | 失败数 | 宿主应用 | 已启用 | 应用名称 | 应用更新中 | 应用类型 | 应用编码 | 成功数 | 批次号 | 指定前端组件 | 指定应用 | 按照下面的查询条件更新应用 | 操作 | 更新日期 | 更新条件 | 更新记录 | 更新说明
+
+## src_pages_app-design_basic-setting_index_tsx-node_modules_seeyon_biz-basic-data_
+
+- **按钮**：保存成功、停用、删除、删除成功、取消、启用、导入导出模板、已设置、排序号、新建分类、新建选项集、未设置、确定、编辑、编辑分类、编辑成功、编辑选项集、选项集导入模板、重置
+- **组件**：Form.Item、Form.useForm、Menu.Item、Select.Option
+- **拖拽**：无
+- **关联接口**（9）：udcUdcEnumCategoryDeletePost、udcUdcEnumCategoryPost、udcUdcEnumCategorySelectCategoryAndEnumPost、udcUdcEnumCategoryUpdatePost、udcUdcEnumDeletePost、udcUdcEnumItemListPost、udcUdcEnumItemOperateBatchPost、udcUdcEnumPost、udcUdcEnumUpdatePost
+- **文案**：中性灰 | 主题 | 二维码 | 你输入的分类名称过长 | 你输入的选项集名称过长 | 保存成功 | 信息 | 停用 | 其他 | 内置 | 创建成功 | 删除 | 删除成功 | 功能 | 参数 | 取消 | 只能是大写字母开头，允许输入数字和字母 | 名称 | 名称为必填项 | 启用 | 固定选项的合集，仅在设计态定义，仅支持一级，不支持运行态扩展。 | 图标 | 图片 | 基础 | 基础资料 | 填充 | 外框模板 | 字段集 | 导入导出模板 | 已经上架的选项集不能删除
+
+## src_constants_design_page-type_ts-src_services_app-design_template_ts-src_servic
+
+- **按钮**：全表编辑页、移动端
+- **组件**：—
+- **拖拽**：无
+- **关联接口**（8）：udcFunctionFindTreeAndGroupPost、udcMetaDataSelectAllPageByAppPost、udcMetaDataSelectFunctionNodeWithPageTreePost、udcPageInfoPresetListAppGet、udcPageInfoSearchNoPagePost、udcPageTemplateClassSelectTreeCategoryGet、udcPageTemplateGet、udcPageTemplateSearchWithRightsPost
+- **文案**：全表编辑页 | 其它 | 列表页 | 外框 | 子页面 | 栏目页 | 移动端 | 详情页
+
+## src_pages_app-design_template-manage_index_tsx.7ebad08d.js
+
+- **按钮**：删除成功、排序号、编辑、请上传模板缩略图
+- **组件**：Form.Item
+- **拖拽**：无
+- **关联接口**（8）：udcFunctionFindTreeAndGroupPost、udcMetaDataSelectAllPageByAppPost、udcMetaDataSelectFunctionNodeWithPageTreePost、udcPageInfoPresetListAppGet、udcPageInfoSearchNoPagePost、udcPageTemplateClassSelectTreeCategoryGet、udcPageTemplateGet、udcPageTemplateSearchWithRightsPost
+- **文案**：主子实体 | 修改成功 | 公开模板 | 公开模板成功 | 分类 | 创建人 | 创建时间 | 删除后应用中将不能再使用该模板 | 删除成功 | 单据 | 只能包含中文、英文、数字以及下划线 | 名称 | 名称不能超过255个字符 | 名称不能超过50个字符 | 外框 | 已存在重名的页面模版，请重新命名 | 平铺档案 | 所属应用 | 排序号 | 推荐标签 | 描述 | 操作 | 无实体 | 标准 | 树形档案 | 模板名称 | 状态 | 独立实体 | 类型 | 终端
+
+## src_pages_app-design_rule_dataflow_relation-graph_index_tsx.0ffd5e24.js
+
+- **按钮**：保存、删除提示、取消、已设置、提交、提示设置、新建或更新数据、新建数据、映射规则设置、是，前往保存、未设置、条件设置不正确、查看日志、点击设置内容、确定删除此数据、确认、编辑、编辑标题、要保存修改吗、设置、详情入参配置、请设置显示字段、请输入提示设置
+- **组件**：Checkbox.Group、Form.Item、Form.useForm、Radio.Group
+- **拖拽**：有
+- **关联接口**（7）：udcDataFlowDeleteContentPost、udcDataFlowEntityNotExistIdsPost、udcDataFlowListApplicationAppGet、udcDataFlowListEventEntityPost、udcDataFlowListEventsPost、udcMetaDataMergeReferPost、udcMetaDataReferAndAppPost
+- **文案**：事件名称 | 事件属性 | 事件描述 | 事件过滤条件 | 仅文本、多行文本类型字段支持快捷搜索。仅在移动端生效 | 保存 | 保留已有映射组 | 像素 | 删除提示 | 升序 | 取消 | 可选字段 | 否，放弃修改 | 回写前置条件 | 回写时机 | 回写规则 | 基础信息 | 字段映射规则 | 实体映射规则 | 实体映射规则未配置 | 已设置 | 已选字段 | 当同一条来源数据允许多次推单时，可在此配置依据哪个字段进行拆单。 | 提交 | 提示设置 | 操作成功 | 新建或更新数据 | 新建数据 | 映射条件 | 映射来源实体
+
+## src_pages_udc_sandbox_pages_application-test_index_tsx.ed62315f.js
+
+- **按钮**：设置、设置成功
+- **组件**：Radio.Group
+- **拖拽**：无
+- **关联接口**（7）：udcSandboxAppCleanRestartAppPost、udcSandboxAppReleaseAppPost、udcSandboxAppReleaseAppStatusPost、udcSandboxAppStartAppPost、udcSandboxAppStopAppPost、udcSandboxAppUnLoadAppPost、udcSandboxSystemConfigSetReleaseConfigPost
+- **文案**：应用上架失败 | 应用名称 | 应用所属人 | 应用版本 | 应用编码 | 所属弹性容器 | 操作 | 最近活跃时间 | 构建时间 | 知道了 | 租户名称 | 设置 | 设置成功
+
+## src_pages_udc_cmps_index_tsx-node_modules_seeyon_biz-icon-library_dist_index_css
+
+- **按钮**：停用、前端组件同步日志、前端组件导入、启用、组件导入成功
+- **组件**：Form.Item、Form.useForm、Menu.Item、Radio.Group
+- **拖拽**：无
+- **关联接口**（6）：udcPageComponentAnalysisPackageGet、udcPageComponentRefreshGet、udcPageComponentSelectAllListByConditionsPost、udcPageComponentSelectByGet、udcPageComponentUpdatePost、udcPageComponentUploadGet
+- **文案**：停用 | 全部状态 | 其他 | 前端组件同步日志 | 前端组件导入 | 包名 | 历史版本信息 | 名称 | 启用 | 基础信息 | 描述 | 操作成功 | 时间 | 是否要进行版本同步 | 版本号 | 版本时间 | 状态 | 类型 | 组件中文名 | 组件信息 | 组件名称 | 组件图标 | 组件导入成功 | 组件描述 | 自定义 | 请输入 | 请输入名称或编码搜索 | 请输入完整包名 | 输入的顺序超出限制 | 顺序
+
+## src_components_design_top-tool-bar_index_tsx.bf7936ab.js
+
+- **按钮**：保存失败、保存并提交、保存模板成功、移动端页面、请上传缩略图、转移动
+- **组件**：Checkbox.Group、Form.Item、Radio.Group
+- **拖拽**：无
+- **关联接口**（5）：udcApplicationFetchLastVersionMetadataPost、udcMetaDataSelectAggregationEntityEntityGet、udcMetaDataSelectAggregationEntityPost、udcMetaDataSelectAppByIdPost、udcPageTemplateSearchWithRightsPost
+- **文案**：不开启时，web端网格控件不转换，网格中控件转换后会顺序排列 | 保存失败 | 保存并提交 | 保存模板成功 | 全屏 | 另存为模板 | 只能包含中文、英文、数字以及下划线 | 名称 | 名称不能超过50个字符 | 存模版 | 已存在重名的页面模版，请重新命名 | 当前页面是草稿态，可能导致应用检查无法定位问题，请注意保存页面。 | 描述 | 检测到已存在控件 | 概览 | 状态由条件控制 | 移动端和web端页面都 | 移动端页面 | 继续转换将为其创建为副本 (唯一标识将重新生成) | 请上传WEB端缩略图 | 请上传移动端缩略图 | 请上传缩略图 | 请输入名称 | 请输入描述 | 转换成功 | 转换范围 | 转移动 | 退出全屏
+
+## src_components_page-content_index_tsx-src_pages_design_constants_ts-src_pages_de
+
+- **按钮**：删除、复制、是，前往保存、暂不支持复制分组、暂不支持批量删除、暂不支持批量复制、添加、添加分组、添加成功、确认删除、移动、要保存修改吗
+- **组件**：—
+- **拖拽**：无
+- **关联接口**（5）：udcApplicationFetchLastVersionMetadataPost、udcMetaDataSelectAggregationEntityEntityGet、udcMetaDataSelectAggregationEntityPost、udcMetaDataSelectAllLayoutByAppPost、udcMetaDataSelectAppByIdPost
+- **文案**：上移 | 下移 | 不支持上移 | 不支持下移 | 公共页面规则 | 分组不能移动到分组内部 | 删除 | 单据 | 变更记录 | 名称或编码 | 名称长度不能超过100 | 否，放弃修改 | 复制 | 平铺档案 | 微流程 | 微流程创建失败 | 提示 | 是，前往保存 | 暂不支持复制分组 | 暂不支持批量删除 | 暂不支持批量复制 | 更新成功 | 查找 | 标准 | 树形档案 | 正式 | 添加 | 添加分组 | 添加成功 | 确认删除
+
+## src_components_unify-console_items_operation-log_index_tsx.f29f0868.js
+
+- **按钮**：删除
+- **组件**：Form.Item、Form.useForm
+- **拖拽**：无
+- **关联接口**（5）：udcMicroflowRecoverPost、udcOperationLogElementIsExistPost、udcOperationLogGet、udcPageInfoRecoverPost、udcPageLayoutRecoverPost
+- **文案**：修改 | 元素 | 公共页面规则 | 创建 | 删除 | 外框 | 子页面 | 字段集 | 定位 | 属性 | 属性值（操作前） | 属性值（操作后） | 应用 | 应用版本 | 微流程 | 快照 | 扣减规则 | 操作 | 操作人 | 操作元素 | 操作时间 | 未知的微流程类型 | 栏目 | 模块 | 生单规则 | 自定义对象 | 获取初始化数据失败 | 菜单 | 该模块元素已不存在，无法定位。 | 请输入
+
+## src_pages_design_functions_components_add-space_index_tsx-node_modules_seeyon_bi
+
+- **按钮**：—
+- **组件**：Form.Item、Form.useForm
+- **拖拽**：无
+- **关联接口**（5）：portalPortalSpaceGet、udcPortalPortalSpaceCreatePost、udcPortalPortalSpaceDeletePost、udcPortalPortalSpaceSpaceSaveCopyPost、udcPortalPortalSpaceUpdatePost
+- **文案**：分组名称 | 菜单名称
+
+## node_modules_seeyon_biz-serial-scheme_dist_index-63bbd6cd_js.14fc2408.js
+
+- **按钮**：—
+- **组件**：Form.Item、Form.useForm
+- **拖拽**：无
+- **关联接口**（3）：udcDesignMetadataAggEntityExcludeBootGet、udcDesignMetadataEntityByNamePost、udcUdcSerialSelectPost
+- **文案**：实体 | 实体名称 | 无条件 | 暂无数据 | 流水号类型字段 | 生成/释放条件配置 | 生成条件 | 被以下实体字段绑定 | 释放条件
+
+## node_modules_seeyon_biz-serial-scheme_dist_index-a9cbbe00_js.c3e8b8dd.js
+
+- **按钮**：—
+- **组件**：Form.Item、Form.useForm
+- **拖拽**：无
+- **关联接口**（3）：udcDesignMetadataAggEntityExcludeBootGet、udcDesignMetadataEntityByNamePost、udcUdcSerialSelectPost
+- **文案**：实体 | 实体名称 | 无条件 | 暂无数据 | 流水号类型字段 | 生成/释放条件配置 | 生成条件 | 被以下实体字段绑定 | 释放条件
+
+## node_modules_seeyon_biz-serial-scheme_dist_index-aa2d4add_js.0de18369.js
+
+- **按钮**：—
+- **组件**：Form.Item、Form.useForm
+- **拖拽**：无
+- **关联接口**（3）：udcDesignMetadataAggEntityExcludeBootGet、udcDesignMetadataEntityByNamePost、udcUdcSerialSelectPost
+- **文案**：实体 | 实体名称 | 无条件 | 暂无数据 | 流水号类型字段 | 生成/释放条件配置 | 生成条件 | 被以下实体字段绑定 | 释放条件
+
+## node_modules_seeyon_biz-serial-scheme_dist_index-f62267af_js.f827461e.js
+
+- **按钮**：—
+- **组件**：Form.Item、Form.useForm
+- **拖拽**：无
+- **关联接口**（3）：udcDesignMetadataAggEntityExcludeBootGet、udcDesignMetadataEntityByNamePost、udcUdcSerialSelectPost
+- **文案**：实体 | 实体名称 | 无条件 | 暂无数据 | 流水号类型字段 | 生成/释放条件配置 | 生成条件 | 被以下实体字段绑定 | 释放条件
+
+## src_pages_design_functions_components_add-function_index_tsx.75a19ca0.js
+
+- **按钮**：—
+- **组件**：Form.Item、Form.useForm
+- **拖拽**：无
+- **关联接口**（3）：udcFunctionBatchDeletePost、udcFunctionCopyPost、udcFunctionCreateFunctionReferPost
+- **文案**：分组名称 | 菜单名称
+
+## node_modules_seeyon_biz-where_dist_conditionRight_js.76ceea66.js
+
+- **按钮**：—
+- **组件**：—
+- **拖拽**：无
+- **关联接口**（2）：udcMetadataDtoByEntitysPost、udcMetadataEnumByNamePost
+- **文案**：
+
+## node_modules_seeyon_biz-where_dist_condition_js.37098cf6.js
+
+- **按钮**：—
+- **组件**：—
+- **拖拽**：无
+- **关联接口**（2）：udcMetadataDtoByEntitysPost、udcMetadataEnumByNamePost
+- **文案**：
+
+## node_modules_seeyon_biz-where_dist_modalWhere_js.aac960a8.js
+
+- **按钮**：删除、取消分组、复制、添加、添加条件、添加条件组、确认
+- **组件**：Menu.Item
+- **拖拽**：无
+- **关联接口**（2）：udcMetadataDtoByEntitysPost、udcMetadataEnumByNamePost
+- **文案**：删除 | 取消分组 | 复制 | 条件 | 添加 | 添加条件 | 添加条件组 | 确认 | 继续分组 | 转为条件 | 转为条件组
+
+## node_modules_seeyon_biz-where_dist_where_js.b3912f02.js
+
+- **按钮**：删除、取消分组、复制、添加、添加条件、添加条件组、确认
+- **组件**：Menu.Item
+- **拖拽**：无
+- **关联接口**（2）：udcMetadataDtoByEntitysPost、udcMetadataEnumByNamePost
+- **文案**：删除 | 取消分组 | 复制 | 条件 | 添加 | 添加条件 | 添加条件组 | 确认 | 继续分组 | 转为条件 | 转为条件组
+
+## src_components_design_stage_index_tsx.d0430eab.js
+
+- **按钮**：关闭上侧区域、关闭下侧区域、关闭右侧区域、关闭左侧区域、删除控件、复制控件
+- **组件**：Breadcrumb.Item、Menu.Item
+- **拖拽**：无
+- **关联接口**（2）：udcMultiEditLockPost、udcMultiEditUnlockPost
+- **文案**：上侧 | 下侧 | 个字段 | 中间区 | 关闭上侧区域 | 关闭下侧区域 | 关闭右侧区域 | 关闭左侧区域 | 其他用户 | 删除控件 | 右侧 | 复制控件 | 左侧 | 开启上侧区域 | 开启下侧区域 | 开启右侧区域 | 开启左侧区域 | 拖拽组件 | 自适应宽度 | 隐藏控件（可通过大纲重新显示）
+
+## src_pages_udc_sandbox_pages_app-environment_index_tsx.c5de5775.js
+
+- **按钮**：删除、删除成功、新增、查看、编辑
+- **组件**：Form.Item、Form.useForm、Radio.Group、Select.Option
+- **拖拽**：无
+- **关联接口**（2）：udcCtpManagerTransferSavePost、udcCtpManagerTransferSelectGet
+- **文案**：修改成功 | 删除 | 删除成功 | 实施 | 应用定制 | 开发 | 新增 | 无环境编码 | 查看 | 测试 | 测试环境 | 测试运行 | 环境名称 | 环境数量 | 环境标识 | 环境编码 | 生产 | 生产环境 | 生产运行 | 禁止输入空格 | 编辑 | 请输入环境名称
+
+## src_pages_app-design_app-home_space-manage_SpaceManger_tsx.e54d3ae5.js
+
+- **按钮**：关闭、删除成功、请输入整数排序号
+- **组件**：Form.Item、Form.useForm、Radio.Group
+- **拖拽**：无
+- **关联接口**（1）：udcPortalPortalSpaceDeletePost
+- **文案**：修改成功 | 关闭 | 删除后不可恢复，确定删除指定空间 | 删除成功 | 只能删除停用的空间 | 空间名称 | 请输入整数排序号
+
+## src_pages_design_functions_components_page-info_index_tsx.bca6ec6a.js
+
+- **按钮**：添加移动端分组、移动端
+- **组件**：Form.Item、Form.useForm、Select.Option
+- **拖拽**：无
+- **关联接口**（1）：udcPageInfoDetailGet
+- **文案**：分组名称 | 归属修改成功 | 接入手工开发的页面时勾选 | 添加移动端分组 | 移动端 | 请输入页面名称 | 请输入页面标识 | 请选择web端页面归属 | 请选择实体 | 请选择移动端端页面归属 | 适配终端 | 页面名称 | 页面对应实体 | 页面标识 | 页面类型
+
+## src_pages_design_page-frame_actions_copy-page-frame_index_tsx-src_pages_design_p
+
+- **按钮**：复制外框、复制成功、新增外框、移动端、编辑外框
+- **组件**：Checkbox.Group、Form.Item、Form.useForm
+- **拖拽**：无
+- **关联接口**（1）：udcMetaDataSelectAllLayoutByAppPost
+- **文案**：你输入的名称过长 | 修改外框成功 | 只能包含中文、英文、数字以及下划线 | 复制外框 | 复制成功 | 外框名称 | 外框标识 | 新增外框 | 移动端 | 编辑外框 | 请输入外框名称 | 请输入外框标识 | 请选择适配终端 | 适配终端
+
+## node_modules_seeyon_biz-enums_dist_index-7189faa2_js.4340c5f3.js
+
+- **按钮**：停用、取消、启用、排序号、排序号为必填项、新建、确定、编辑、编辑成功、请上传图片、连续新建
+- **组件**：Form.useForm
+- **拖拽**：无
+- **关联接口**（0）：—
+- **文案**：停用 | 创建成功 | 取消 | 启用 | 排序号 | 排序号不能大于1000000 | 排序号为必填项 | 新建 | 枚举项值 | 枚举项值为必填项 | 枚举项名称 | 枚举项名称为必填项 | 父节点 | 状态 | 状态为必填项 | 确定 | 编辑 | 编辑成功 | 请上传图片 | 请输入 | 连续新建 | 首尾不能输入空格 | 默认语言的值下不能为空
+
+## node_modules_seeyon_biz-enums_dist_index-7e03e02d_js.a52b8615.js
+
+- **按钮**：停用、取消、启用、排序号、排序号为必填项、新建、确定、编辑、编辑成功、请上传图片、连续新建
+- **组件**：Form.useForm
+- **拖拽**：无
+- **关联接口**（0）：—
+- **文案**：停用 | 创建成功 | 取消 | 启用 | 排序号 | 排序号不能大于1000000 | 排序号为必填项 | 新建 | 枚举项值 | 枚举项值为必填项 | 枚举项名称 | 枚举项名称为必填项 | 父节点 | 状态 | 状态为必填项 | 确定 | 编辑 | 编辑成功 | 请上传图片 | 请输入 | 连续新建 | 首尾不能输入空格 | 默认语言的值下不能为空
+
+## node_modules_seeyon_biz-enums_dist_index-9365ba29_js.e2c68411.js
+
+- **按钮**：停用、取消、启用、排序号、排序号为必填项、新建、确定、编辑、编辑成功、请上传图片、连续新建
+- **组件**：Form.useForm
+- **拖拽**：无
+- **关联接口**（0）：—
+- **文案**：停用 | 创建成功 | 取消 | 启用 | 排序号 | 排序号不能大于1000000 | 排序号为必填项 | 新建 | 枚举项值 | 枚举项值为必填项 | 枚举项名称 | 枚举项名称为必填项 | 父节点 | 状态 | 状态为必填项 | 确定 | 编辑 | 编辑成功 | 请上传图片 | 请输入 | 连续新建 | 首尾不能输入空格 | 默认语言的值下不能为空
+
+## node_modules_seeyon_biz-enums_dist_index-d16a4f98_js.a84d1636.js
+
+- **按钮**：停用、取消、启用、排序号、排序号为必填项、新建、确定、编辑、编辑成功、请上传图片、连续新建
+- **组件**：Form.useForm
+- **拖拽**：无
+- **关联接口**（0）：—
+- **文案**：停用 | 创建成功 | 取消 | 启用 | 排序号 | 排序号不能大于1000000 | 排序号为必填项 | 新建 | 枚举项值 | 枚举项值为必填项 | 枚举项名称 | 枚举项名称为必填项 | 父节点 | 状态 | 状态为必填项 | 确定 | 编辑 | 编辑成功 | 请上传图片 | 请输入 | 连续新建 | 首尾不能输入空格 | 默认语言的值下不能为空
+
+## node_modules_seeyon_biz-enums_dist_index-dfa7dac0_js.4ccc658d.js
+
+- **按钮**：停用、取消、启用、排序号、排序号为必填项、新建、确定、编辑、编辑成功、请上传图片、连续新建
+- **组件**：Form.useForm
+- **拖拽**：无
+- **关联接口**（0）：—
+- **文案**：停用 | 创建成功 | 取消 | 启用 | 排序号 | 排序号不能大于1000000 | 排序号为必填项 | 新建 | 枚举项值 | 枚举项值为必填项 | 枚举项名称 | 枚举项名称为必填项 | 父节点 | 状态 | 状态为必填项 | 确定 | 编辑 | 编辑成功 | 请上传图片 | 请输入 | 连续新建 | 首尾不能输入空格 | 默认语言的值下不能为空
+
+## src_components_common_component-select_useComponentsTree_ts-src_components_desig
+
+- **按钮**：已设置表达式、新建页面规则、新建页面规则失败
+- **组件**：Form.Item、Form.useForm
+- **拖拽**：无
+- **关联接口**（0）：—
+- **文案**：上侧 | 下侧 | 区域 | 单元格 | 右侧 | 外框 | 左侧 | 已设置表达式 | 所属分组 | 新建页面规则 | 新建页面规则失败 | 规则描述 | 请输入规则描述 | 请输入页面规则名称 | 页面 | 页面规则名称 | 页面规则名称不能为空 | 默认分组
+
+## src_components_design_asidetool_trans-wrapper_tsx-src_components_design_shortcut
+
+- **按钮**：向上添加、新建方案、移除
+- **组件**：Form.Item、Form.useForm
+- **拖拽**：无
+- **关联接口**（0）：—
+- **文案**：分组 | 列数 | 向上添加 | 容器 | 数据 | 新建方案 | 方案名称 | 移除 | 网格 | 请输入 | 请输入列数 | 请输入方案名称 | 转为 | 页签
+
+## src_components_design_asidetool_trans-wrapper_tsx-src_components_design_shortcut
+
+- **按钮**：向上添加、新建方案、移除
+- **组件**：Form.Item、Form.useForm
+- **拖拽**：无
+- **关联接口**（0）：—
+- **文案**：分组 | 列数 | 向上添加 | 容器 | 数据 | 新建方案 | 方案名称 | 移除 | 网格 | 请输入 | 请输入列数 | 请输入方案名称 | 转为 | 页签
+
+## src_components_design_data-source_index_tsx.ecc90bb0.js
+
+- **按钮**：展开、拖拽数据操作取消
+- **组件**：—
+- **拖拽**：无
+- **关联接口**（0）：—
+- **文案**：一对一 | 一对多 | 分组 | 可拖拽字段到页面中 | 可用的关系数据源为空 | 大数据类型字段不允许拖到重复表中 | 实体 | 实体不允许拖到重复表中 | 实体关系 | 实体列表 | 展开 | 拖入字段与当前数据控件的数据源不符 | 拖拽数据操作取消 | 数据控件请先绑定数据源，再拖动字段 | 无法拖拽一对一实体到设计器，但可拖拽其下级字段 | 请将字段拖到合法的控件中 | 请将字段拖到数据控件中 | 请输入搜索关键字 | 选择多个实体下字段，对应实体必须选中
+
+## src_components_design_navbar_controls_cmps_tsx.e95e5a6f.js
+
+- **按钮**：添加依赖组件
+- **组件**：—
+- **拖拽**：无
+- **关联接口**（0）：—
+- **文案**：其他 | 添加依赖组件 | 请输入关键字
+
+## src_components_design_outline_components_utils_ts.b77eaf66.js
+
+- **按钮**：已设置表达式
+- **组件**：Gy.Item
+- **拖拽**：无
+- **关联接口**（0）：—
+- **文案**：上侧区域 | 下侧区域 | 不能拖入到页签根部，请拖入指定页签 | 单元格 | 右侧区域 | 大纲拖拽:PC端 绑定了列表数据的控件，不支持拖拽 到树表录入内部 | 大纲拖拽:PC端 绑定了列表数据的控件，不支持拖拽 到重复节内部 | 大纲拖拽:PC端 绑定了列表数据的控件，不支持拖拽 到重复表录入内部 | 左侧区域 | 已设置表达式 | 树表录入内部控件不能移动位置 | 重复节 | 重复表录入
+
+## src_containers_design_page-design_index_tsx.6e093388.js
+
+- **按钮**：不保存、保存、全选、删除、取消、复制
+- **组件**：—
+- **拖拽**：无
+- **关联接口**（0）：—
+- **文案**：不保存 | 保存 | 全选 | 删除 | 剪切 | 取消 | 复制 | 已知晓 | 当前页面是草稿态，可能导致应用检查无法定位问题，请先保存页面。 | 恢复 | 撤销 | 离开实体设计器时 | 离开页面设计器时 | 粘贴 | 退出
+
+## src_containers_design_settings_index_tsx.d00dcd9e.js
+
+- **按钮**：分辨率设置、参数设置、可编辑列表页、页面入参设置、页面变量设置
+- **组件**：—
+- **拖拽**：无
+- **关联接口**（0）：—
+- **文案**：上图标下文字 | 上文字下图标 | 业务首页 | 事件 | 事件列表 | 作为标题展示在Web端页签 | 作为标题展示在移动端页面标题栏 | 公开访问 | 其它 | 分辨率设置 | 列表详情组合页 | 列表页 | 单击时 | 参数设置 | 可编辑列表页 | 名称 | 固定 | 基础 | 外框 | 外框事件 | 外框布局 | 审批页 | 导航布局 | 导航样式 | 居中 | 居右 | 居左 | 属性 | 应用门户 | 底导航
+
+## src_hooks_useGetPageLocked_ts-src_redux_design_actions_shortcuts_tsx.0f4d6eb1.js
+
+- **按钮**：向上添加、移除
+- **组件**：Form.Item
+- **拖拽**：无
+- **关联接口**（0）：—
+- **文案**：分组 | 列数 | 向上添加 | 容器 | 撤销部分数据还原失败 | 移除 | 网格 | 请输入列数 | 转为 | 页签
+
+## src_pages_app-design_entity-modeling_entity-collections_index_tsx.aa51ca21.js
+
+- **按钮**：设置条件、设置汇总、设置筛选条件、请设置筛选条件
+- **组件**：Form.Item、Form.useForm
+- **拖拽**：无
+- **关联接口**（0）：—
+- **文案**：上级实体 | 汇总 | 聚合函数 | 要汇总的实体 | 设置条件 | 设置汇总 | 设置筛选条件 | 请设置筛选条件 | 请选择函数 | 请选择字段 | 请选择实体 | 选择字段
+
+## src_pages_app-design_rule_dataflow_components_log-content_index_tsx.fa852601.js
+
+- **按钮**：新建、新建或更新、新建目标实体数据
+- **组件**：Form.Item、Form.useForm
+- **拖拽**：无
+- **关联接口**（0）：—
+- **文案**：事件订阅 | 入参 | 全部 | 出参 | 动作描述 | 发起BPM流程 | 失败 | 将来源实体数据进行分组 | 序号 | 开始 | 异步消息通知 | 成功 | 手工触发 | 执行动作 | 执行回写规则 | 执行时间 | 执行状态 | 拍平来源实体聚合数据 | 拍平目标实体聚合数据 | 操作 | 操作类型 | 新建 | 新建或更新 | 新建目标实体数据 | 更新 | 更新目标实体数据 | 来源实体 | 来源实体数据 | 来源实体过滤条件 | 来源数据行条件匹配
+
+## src_pages_app-design_rule_dataflow_relation-graph_entry_tsx-node_modules_seeyon_
+
+- **按钮**：保存、删除提示、取消、已设置、提交、提示设置、新建或更新数据、新建数据、映射规则设置、是，前往保存、未设置、条件设置不正确、查看日志、点击设置内容、确定删除此数据、确认、编辑、编辑标题、要保存修改吗、设置、详情入参配置、请设置显示字段、请输入提示设置
+- **组件**：Checkbox.Group、Form.Item、Form.useForm、Radio.Group
+- **拖拽**：有
+- **关联接口**（0）：—
+- **文案**：事件名称 | 事件属性 | 事件描述 | 事件过滤条件 | 仅文本、多行文本类型字段支持快捷搜索。仅在移动端生效 | 保存 | 保留已有映射组 | 像素 | 删除提示 | 升序 | 取消 | 可选字段 | 否，放弃修改 | 回写前置条件 | 回写时机 | 回写规则 | 基础信息 | 字段映射规则 | 实体映射规则 | 实体映射规则未配置 | 已设置 | 已选字段 | 当同一条来源数据允许多次推单时，可在此配置依据哪个字段进行拆单。 | 提交 | 提示设置 | 操作成功 | 新建或更新数据 | 新建数据 | 映射条件 | 映射来源实体
+
+## src_pages_design_functions_components_backend-default_index_tsx.63209493.js
+
+- **按钮**：导入导出模板配置
+- **组件**：—
+- **拖拽**：无
+- **关联接口**（0）：—
+- **文案**：公共页面规则 | 单据 | 单据分类 | 参数管理 | 导入导出模板配置 | 平铺档案 | 扣减规则 | 扩展方案 | 文档模板 | 枚举管理 | 标准 | 标签打印日志 | 标签模板管理 | 树形档案 | 档案分类 | 流水号规则 | 生单规则 | 表单 | 请在运行态应用管理后台使用该功能
+
+## src_pages_design_personal_schemes_index_tsx.5fd5e034.js
+
+- **按钮**：取消、确定
+- **组件**：—
+- **拖拽**：无
+- **关联接口**（0）：—
+- **文案**：取消 | 操作 | 方案名称 | 确定 | 请输入搜索关键字
+
+## src_pages_udc_app-log-config_index_tsx-src_pages_app-design_rule_dataflow_compon
+
+- **按钮**：日志设置、设置失败、设置成功
+- **组件**：Form.Item、Form.useForm、Radio.Group
+- **拖拽**：无
+- **关联接口**（0）：—
+- **文案**：业务应用 | 剩余时长 | 包括微流程、生单规则、扣减规则、页面规则日志 | 包括微流程、生单规则、页面规则日志 | 包括微流程、页面规则日志 | 名称、编码 | 审批应用 | 应用运行日志 | 微流程运行日志 | 扣减运行日志 | 日志设置 | 暂无数据，请选择左侧应用获取配置信息 | 生单运行日志 | 记录时长 | 记录运行日志 | 设置失败 | 设置成功 | 集成应用
+
+## src_pages_udc_app-log-data_config_index_tsx.3ea3e788.js
+
+- **按钮**：设置失败、设置成功
+- **组件**：Form.Item、Form.useForm
+- **拖拽**：无
+- **关联接口**（0）：—
+- **文案**：记录数据日志 | 记录时长 | 设置失败 | 设置成功
+
+## src_pages_udc_app-log-data_list_index_tsx.f4b17d52.js
+
+- **按钮**：删除、新增、新增字段明细、新增明细表行
+- **组件**：—
+- **拖拽**：无
+- **关联接口**（0）：—
+- **文案**：业务应用 | 修改 | 修改字段明细 | 全部 | 删除 | 名称、编码 | 实体ID | 审批应用 | 应用数据日志 | 操作 | 操作人员 | 操作实体 | 操作时间 | 操作类型 | 收起 | 新增 | 新增字段明细 | 新增明细表行 | 暂无数据，请选择左侧应用获取配置信息 | 更多
+
+## src_pages_udc_backend-cmp_index_tsx-node_modules_seeyon_biz-icon-library_dist_in
+
+- **按钮**：后端组件导入、导入成功、请上传第三方组件
+- **组件**：Form.Item、Form.useForm、Menu.Item、Radio.Group、Select.Option
+- **拖拽**：无
+- **关联接口**（0）：—
+- **文案**：全部版本 | 全部类型 | 历史版本信息 | 名称 | 后端组件导入 | 基础信息 | 导入成功 | 描述 | 操作成功 | 是否要进行版本同步 | 更新成功 | 版本 | 版本号 | 版本时间 | 版本类型 | 状态 | 第三方 | 第三方组件包 | 类型 | 组件信息 | 组件图标 | 自定义 | 请上传第三方组件 | 请输入 | 请输入名称、groupId、artifactId搜索 | 请选择 | 输入的顺序超出限制 | 顺序 | 顺序需要大于0 | 预置
+
+## src_pages_udc_customtype_index_tsx.21130696.js
+
+- **按钮**：取消、确定
+- **组件**：Form.Item、Form.useForm、Radio.Group
+- **拖拽**：无
+- **关联接口**（0）：—
+- **文案**：不能大于最大值 | 不能大于最大长度 | 不能小于最小值 | 不能小于最小长度 | 关联实体 | 匹配规则 | 取消 | 名称 | 基础类型 | 多选 | 小数位数 | 操作 | 显示名称 | 最大值 | 最大长度 | 最小值 | 最小值超出设定小数位数 | 最小长度 | 确定 | 类型 | 自动生成（可修改） | 请输入 | 请输入匹配正则规则 | 请输入名称 | 请输入搜索关键字 | 请输入显示名称 | 请输入类型 | 请输入错误时提示信息 | 请选择 | 请选择关联实体
+
+## src_pages_udc_page-frame-tmp-manage_index_tsx.95ba118a.js
+
+- **按钮**：删除成功、取消、新建分类、模板预览、添加分类、确定、移动端、编辑模板
+- **组件**：Form.Item、Form.useForm、Menu.Item
+- **拖拽**：无
+- **关联接口**（0）：—
+- **文案**：你输入的名称过长 | 分类名称 | 创建分类 | 删除成功 | 取消 | 只能包含中文、英文、数字以及下划线 | 名称不能超过10个字符 | 操作 | 新建分类 | 模板分类 | 模板名称 | 模板描述 | 模板描述不能为空 | 模板预览 | 添加分类 | 确定 | 移动端 | 终端 | 编辑模板 | 请上传模板预览图片 | 请输入分类名称 | 请输入模板名称 | 选择分类 | 重命名 | 页面类型
+
+## src_pages_udc_sandbox_components_common-column_index_tsx-src_pages_udc_sandbox_c
+
+- **按钮**：取消、确定、设置、配置规则
+- **组件**：Form.Item、Form.useForm、Radio.Group
+- **拖拽**：无
+- **关联接口**（0）：—
+- **文案**：修改成功 | 创建应用总数 | 创建应用总数来源于商城购买，如余量不足请联系客户经理充值。 | 取消 | 定时重启 | 操作 | 最大物理沙箱数 | 最小可用物理沙箱数 | 测试运行总数 | 确定 | 禁止输入空格 | 设置 | 配置规则
+
+## src_pages_udc_sandbox_pages_sandbox-application_index_tsx-src_pages_udc_sandbox_
+
+- **按钮**：保存成功、删除、删除成功、取消、新增、新增成功、是否确定删除、查看、确定、编辑
+- **组件**：Form.useForm、Radio.Group、Select.Option
+- **拖拽**：无
+- **关联接口**（0）：—
+- **文案**：保存成功 | 创建应用数 | 创建应用数、测试运行数不能为0 | 删除 | 删除成功 | 取消 | 新增 | 新增成功 | 是否确定删除 | 查看 | 测试运行数 | 确定 | 租户ID | 租户名称 | 编辑 | 请选择租户名称
+
+## src_pages_udc_templateManage_index_tsx.edf44d56.js
+
+- **按钮**：删除、删除成功、取消、复制成功、排序号、新建分类、添加分类、确定、移动端、编辑模板
+- **组件**：Form.Item、Form.useForm
+- **拖拽**：无
+- **关联接口**（0）：—
+- **文案**：主子实体 | 你输入的名称过长 | 修改成功 | 分类名称 | 创建人 | 创建分类 | 创建时间 | 删除 | 删除成功 | 单据 | 取消 | 只能包含中文、英文、数字以及下划线 | 名称不能超过10个字符 | 复制成功 | 平台预置 | 平铺档案 | 序号 | 应用创建 | 所属应用 | 排序号 | 推荐标签 | 操作 | 新建分类 | 无实体 | 标准 | 标准应用 | 树形档案 | 模板分类 | 模板名称 | 模板描述
+

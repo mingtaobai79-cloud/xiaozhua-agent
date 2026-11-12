@@ -1,0 +1,187 @@
+Classfile /<SEEYON_AGENT_ROOT>/tools/jars/udc-rt-classes/com/seeyon/boot/starter/udcrt/controller/UdcRtPageInfoController.class
+  Last modified 2026年10月1日; size 2872 bytes
+  SHA-256 checksum 7678734875e3c96aa463bd94084061b23ab80d846aa82e3cfe96f79db14a2e02
+  Compiled from "UdcRtPageInfoController.java"
+public class com.seeyon.boot.starter.udcrt.controller.UdcRtPageInfoController extends com.seeyon.boot.starter.web.BaseComponentController
+  minor version: 0
+  major version: 52
+  flags: (0x0021) ACC_PUBLIC, ACC_SUPER
+  this_class: #7                          // com/seeyon/boot/starter/udcrt/controller/UdcRtPageInfoController
+  super_class: #8                         // com/seeyon/boot/starter/web/BaseComponentController
+  interfaces: 0, fields: 2, methods: 3, attributes: 2
+Constant pool:
+   #1 = Methodref          #8.#51         // com/seeyon/boot/starter/web/BaseComponentController."<init>":()V
+   #2 = Fieldref           #7.#52         // com/seeyon/boot/starter/udcrt/controller/UdcRtPageInfoController.udcPageProxyAppService:Lcom/seeyon/boot/starter/udcrt/appservice/UdcPageProxyAppService;
+   #3 = Methodref          #53.#54        // com/seeyon/boot/transport/SingleRequest.from:(Ljava/lang/Object;)Lcom/seeyon/boot/transport/SingleRequest;
+   #4 = Methodref          #55.#56        // com/seeyon/boot/starter/udcrt/appservice/UdcPageProxyAppService.checkPageExistsByConditions:(Lcom/seeyon/boot/transport/SingleRequest;)Lcom/seeyon/boot/transport/ListResponse;
+   #5 = Fieldref           #7.#57         // com/seeyon/boot/starter/udcrt/controller/UdcRtPageInfoController.udcRuntimeMetadataAppService:Lcom/seeyon/boot/starter/udcrt/appservice/UdcRuntimeMetadataEnhancedAppService;
+   #6 = Methodref          #58.#59        // com/seeyon/boot/starter/udcrt/appservice/UdcRuntimeMetadataEnhancedAppService.selectHostAppAndOnlyPageAppPages:(Lcom/seeyon/boot/transport/SingleRequest;)Lcom/seeyon/boot/transport/ListResponse;
+   #7 = Class              #60            // com/seeyon/boot/starter/udcrt/controller/UdcRtPageInfoController
+   #8 = Class              #61            // com/seeyon/boot/starter/web/BaseComponentController
+   #9 = Utf8               udcPageProxyAppService
+  #10 = Utf8               Lcom/seeyon/boot/starter/udcrt/appservice/UdcPageProxyAppService;
+  #11 = Utf8               RuntimeVisibleAnnotations
+  #12 = Utf8               Lorg/springframework/beans/factory/annotation/Autowired;
+  #13 = Utf8               udcRuntimeMetadataAppService
+  #14 = Utf8               Lcom/seeyon/boot/starter/udcrt/appservice/UdcRuntimeMetadataEnhancedAppService;
+  #15 = Utf8               <init>
+  #16 = Utf8               ()V
+  #17 = Utf8               Code
+  #18 = Utf8               LineNumberTable
+  #19 = Utf8               LocalVariableTable
+  #20 = Utf8               this
+  #21 = Utf8               Lcom/seeyon/boot/starter/udcrt/controller/UdcRtPageInfoController;
+  #22 = Utf8               checkPageExistsByConditions
+  #23 = Utf8               (Ljava/util/List;)Lcom/seeyon/boot/transport/ListResponse;
+  #24 = Utf8               pageExistsDtoList
+  #25 = Utf8               Ljava/util/List;
+  #26 = Utf8               LocalVariableTypeTable
+  #27 = Utf8               Ljava/util/List<Lcom/seeyon/boot/starter/udcrt/dto/UdcRtPageExistsDto;>;
+  #28 = Utf8               Signature
+  #29 = Utf8               (Ljava/util/List<Lcom/seeyon/boot/starter/udcrt/dto/UdcRtPageExistsDto;>;)Lcom/seeyon/boot/transport/ListResponse<Ljava/lang/Boolean;>;
+  #30 = Utf8               Lcom/seeyon/boot/annotation/RestApiOperation;
+  #31 = Utf8               value
+  #32 = Utf8               根据给定条件查询页面是否存在
+  #33 = Utf8               Lorg/springframework/web/bind/annotation/PostMapping;
+  #34 = Utf8               check-page-exists
+  #35 = Utf8               RuntimeVisibleParameterAnnotations
+  #36 = Utf8               Lorg/springframework/web/bind/annotation/RequestBody;
+  #37 = Utf8               selectHostAppAndOnlyPageAppPages
+  #38 = Utf8               (Lcom/seeyon/boot/starter/extmetadata/dto/request/UdcPagesMetaDataSearchDto;)Lcom/seeyon/boot/transport/ListResponse;
+  #39 = Utf8               request
+  #40 = Utf8               Lcom/seeyon/boot/starter/extmetadata/dto/request/UdcPagesMetaDataSearchDto;
+  #41 = Utf8               (Lcom/seeyon/boot/starter/extmetadata/dto/request/UdcPagesMetaDataSearchDto;)Lcom/seeyon/boot/transport/ListResponse<Lcom/seeyon/boot/starter/extmetadata/dto/UdcMainPageMetadataDto;>;
+  #42 = Utf8               【页面】根据实体信息查询宿主应用及其个性化应用下的页面信息
+  #43 = Utf8               select-host-and-only-page-pages
+  #44 = Utf8               SourceFile
+  #45 = Utf8               UdcRtPageInfoController.java
+  #46 = Utf8               Lorg/springframework/web/bind/annotation/RestController;
+  #47 = Utf8               Lorg/springframework/web/bind/annotation/RequestMapping;
+  #48 = Utf8               udc-runtime/meta-data
+  #49 = Utf8               Lcom/seeyon/boot/annotation/RestApi;
+  #50 = Utf8               UDC运行态页面查询接口
+  #51 = NameAndType        #15:#16        // "<init>":()V
+  #52 = NameAndType        #9:#10         // udcPageProxyAppService:Lcom/seeyon/boot/starter/udcrt/appservice/UdcPageProxyAppService;
+  #53 = Class              #62            // com/seeyon/boot/transport/SingleRequest
+  #54 = NameAndType        #63:#64        // from:(Ljava/lang/Object;)Lcom/seeyon/boot/transport/SingleRequest;
+  #55 = Class              #65            // com/seeyon/boot/starter/udcrt/appservice/UdcPageProxyAppService
+  #56 = NameAndType        #22:#66        // checkPageExistsByConditions:(Lcom/seeyon/boot/transport/SingleRequest;)Lcom/seeyon/boot/transport/ListResponse;
+  #57 = NameAndType        #13:#14        // udcRuntimeMetadataAppService:Lcom/seeyon/boot/starter/udcrt/appservice/UdcRuntimeMetadataEnhancedAppService;
+  #58 = Class              #67            // com/seeyon/boot/starter/udcrt/appservice/UdcRuntimeMetadataEnhancedAppService
+  #59 = NameAndType        #37:#66        // selectHostAppAndOnlyPageAppPages:(Lcom/seeyon/boot/transport/SingleRequest;)Lcom/seeyon/boot/transport/ListResponse;
+  #60 = Utf8               com/seeyon/boot/starter/udcrt/controller/UdcRtPageInfoController
+  #61 = Utf8               com/seeyon/boot/starter/web/BaseComponentController
+  #62 = Utf8               com/seeyon/boot/transport/SingleRequest
+  #63 = Utf8               from
+  #64 = Utf8               (Ljava/lang/Object;)Lcom/seeyon/boot/transport/SingleRequest;
+  #65 = Utf8               com/seeyon/boot/starter/udcrt/appservice/UdcPageProxyAppService
+  #66 = Utf8               (Lcom/seeyon/boot/transport/SingleRequest;)Lcom/seeyon/boot/transport/ListResponse;
+  #67 = Utf8               com/seeyon/boot/starter/udcrt/appservice/UdcRuntimeMetadataEnhancedAppService
+{
+  private com.seeyon.boot.starter.udcrt.appservice.UdcPageProxyAppService udcPageProxyAppService;
+    descriptor: Lcom/seeyon/boot/starter/udcrt/appservice/UdcPageProxyAppService;
+    flags: (0x0002) ACC_PRIVATE
+    RuntimeVisibleAnnotations:
+      0: #12()
+        org.springframework.beans.factory.annotation.Autowired
+
+  private com.seeyon.boot.starter.udcrt.appservice.UdcRuntimeMetadataEnhancedAppService udcRuntimeMetadataAppService;
+    descriptor: Lcom/seeyon/boot/starter/udcrt/appservice/UdcRuntimeMetadataEnhancedAppService;
+    flags: (0x0002) ACC_PRIVATE
+    RuntimeVisibleAnnotations:
+      0: #12()
+        org.springframework.beans.factory.annotation.Autowired
+
+  public com.seeyon.boot.starter.udcrt.controller.UdcRtPageInfoController();
+    descriptor: ()V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method com/seeyon/boot/starter/web/BaseComponentController."<init>":()V
+         4: return
+      LineNumberTable:
+        line 34: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lcom/seeyon/boot/starter/udcrt/controller/UdcRtPageInfoController;
+
+  public com.seeyon.boot.transport.ListResponse<java.lang.Boolean> checkPageExistsByConditions(java.util.List<com.seeyon.boot.starter.udcrt.dto.UdcRtPageExistsDto>);
+    descriptor: (Ljava/util/List;)Lcom/seeyon/boot/transport/ListResponse;
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0
+         1: getfield      #2                  // Field udcPageProxyAppService:Lcom/seeyon/boot/starter/udcrt/appservice/UdcPageProxyAppService;
+         4: aload_1
+         5: invokestatic  #3                  // Method com/seeyon/boot/transport/SingleRequest.from:(Ljava/lang/Object;)Lcom/seeyon/boot/transport/SingleRequest;
+         8: invokevirtual #4                  // Method com/seeyon/boot/starter/udcrt/appservice/UdcPageProxyAppService.checkPageExistsByConditions:(Lcom/seeyon/boot/transport/SingleRequest;)Lcom/seeyon/boot/transport/ListResponse;
+        11: areturn
+      LineNumberTable:
+        line 45: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      12     0  this   Lcom/seeyon/boot/starter/udcrt/controller/UdcRtPageInfoController;
+            0      12     1 pageExistsDtoList   Ljava/util/List;
+      LocalVariableTypeTable:
+        Start  Length  Slot  Name   Signature
+            0      12     1 pageExistsDtoList   Ljava/util/List<Lcom/seeyon/boot/starter/udcrt/dto/UdcRtPageExistsDto;>;
+    Signature: #29                          // (Ljava/util/List<Lcom/seeyon/boot/starter/udcrt/dto/UdcRtPageExistsDto;>;)Lcom/seeyon/boot/transport/ListResponse<Ljava/lang/Boolean;>;
+    RuntimeVisibleAnnotations:
+      0: #30(#31=s#32)
+        com.seeyon.boot.annotation.RestApiOperation(
+          value="根据给定条件查询页面是否存在"
+        )
+      1: #33(#31=[s#34])
+        org.springframework.web.bind.annotation.PostMapping(
+          value=["check-page-exists"]
+        )
+    RuntimeVisibleParameterAnnotations:
+      parameter 0:
+        0: #36()
+          org.springframework.web.bind.annotation.RequestBody
+
+  public com.seeyon.boot.transport.ListResponse<com.seeyon.boot.starter.extmetadata.dto.UdcMainPageMetadataDto> selectHostAppAndOnlyPageAppPages(com.seeyon.boot.starter.extmetadata.dto.request.UdcPagesMetaDataSearchDto);
+    descriptor: (Lcom/seeyon/boot/starter/extmetadata/dto/request/UdcPagesMetaDataSearchDto;)Lcom/seeyon/boot/transport/ListResponse;
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0
+         1: getfield      #5                  // Field udcRuntimeMetadataAppService:Lcom/seeyon/boot/starter/udcrt/appservice/UdcRuntimeMetadataEnhancedAppService;
+         4: aload_1
+         5: invokestatic  #3                  // Method com/seeyon/boot/transport/SingleRequest.from:(Ljava/lang/Object;)Lcom/seeyon/boot/transport/SingleRequest;
+         8: invokevirtual #6                  // Method com/seeyon/boot/starter/udcrt/appservice/UdcRuntimeMetadataEnhancedAppService.selectHostAppAndOnlyPageAppPages:(Lcom/seeyon/boot/transport/SingleRequest;)Lcom/seeyon/boot/transport/ListResponse;
+        11: areturn
+      LineNumberTable:
+        line 51: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      12     0  this   Lcom/seeyon/boot/starter/udcrt/controller/UdcRtPageInfoController;
+            0      12     1 request   Lcom/seeyon/boot/starter/extmetadata/dto/request/UdcPagesMetaDataSearchDto;
+    Signature: #41                          // (Lcom/seeyon/boot/starter/extmetadata/dto/request/UdcPagesMetaDataSearchDto;)Lcom/seeyon/boot/transport/ListResponse<Lcom/seeyon/boot/starter/extmetadata/dto/UdcMainPageMetadataDto;>;
+    RuntimeVisibleAnnotations:
+      0: #30(#31=s#42)
+        com.seeyon.boot.annotation.RestApiOperation(
+          value="【页面】根据实体信息查询宿主应用及其个性化应用下的页面信息"
+        )
+      1: #33(#31=[s#43])
+        org.springframework.web.bind.annotation.PostMapping(
+          value=["select-host-and-only-page-pages"]
+        )
+    RuntimeVisibleParameterAnnotations:
+      parameter 0:
+        0: #36()
+          org.springframework.web.bind.annotation.RequestBody
+}
+SourceFile: "UdcRtPageInfoController.java"
+RuntimeVisibleAnnotations:
+  0: #46()
+    org.springframework.web.bind.annotation.RestController
+  1: #47(#31=[s#48])
+    org.springframework.web.bind.annotation.RequestMapping(
+      value=["udc-runtime/meta-data"]
+    )
+  2: #49(#31=s#50)
+    com.seeyon.boot.annotation.RestApi(
+      value="UDC运行态页面查询接口"
+    )

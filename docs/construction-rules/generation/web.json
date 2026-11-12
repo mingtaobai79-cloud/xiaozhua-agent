@@ -1,0 +1,31 @@
+{
+  "schema": "udc.construction.entity.generation-contract.v1",
+  "status": "STATIC_RULE_CROSS_SAMPLE_OBSERVED",
+  "parameters": {
+    "application": "A",
+    "entity": "X"
+  },
+  "evidence": [
+    "../audit/p0-4-generated-contract-cross-sample.json",
+    "../audit/p0-4-generated-entity-contract-audit.md"
+  ],
+  "caveats": [
+    "Observed output contract only; generator causality UNKNOWN",
+    "Optional controllers and custom services are not core outputs"
+  ],
+  "module": "web",
+  "outputs": [
+    {
+      "type": "abstract_controller",
+      "class": "AbstractXController",
+      "package": "<package>.controller.AbstractXController",
+      "required": false
+    },
+    {
+      "type": "controller",
+      "class": "XController",
+      "package": "<package>.controller.XController",
+      "required": false
+    }
+  ]
+}

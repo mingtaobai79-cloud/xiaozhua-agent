@@ -1,0 +1,163 @@
+{
+  "schema_version": "customer-extension-boundary-audit.v1",
+  "status": "FACT",
+  "verification_level": "STATIC",
+  "network": "disabled",
+  "read_only": true,
+  "scope": "Boundary-only scan of customer/generated application repositories; business inventories intentionally excluded.",
+  "projects": [
+    {
+      "repository": "<PATH>",
+      "project_id": "datamigration543622798725236252",
+      "exists": true,
+      "text_file_count": 97,
+      "signal_file_counts": {
+        "udc_boot_app": 1,
+        "udc_import": 0,
+        "bpm_reference": 0,
+        "spi_contract_reference": 0,
+        "integration_reference": 5
+      },
+      "architecture_evidence": [
+        {
+          "path": ".flattened-pom.xml",
+          "signals": [
+            "integration_reference"
+          ]
+        },
+        {
+          "path": "pom.xml",
+          "signals": [
+            "integration_reference"
+          ]
+        },
+        {
+          "path": "src/main/java/com/seeyon/datamigration543622798725236252/App.java",
+          "signals": [
+            "udc_boot_app"
+          ]
+        }
+      ]
+    },
+    {
+      "repository": "<PATH>",
+      "project_id": "datamigration8699613100046762578",
+      "exists": true,
+      "text_file_count": 80,
+      "signal_file_counts": {
+        "udc_boot_app": 2,
+        "udc_import": 0,
+        "bpm_reference": 0,
+        "spi_contract_reference": 0,
+        "integration_reference": 5
+      },
+      "architecture_evidence": [
+        {
+          "path": ".flattened-pom.xml",
+          "signals": [
+            "integration_reference"
+          ]
+        },
+        {
+          "path": "pom.xml",
+          "signals": [
+            "integration_reference"
+          ]
+        },
+        {
+          "path": "src/main/java/com/seeyon/datamigration8699613100046762578/App.java",
+          "signals": [
+            "udc_boot_app"
+          ]
+        }
+      ]
+    },
+    {
+      "repository": "<PATH>",
+      "project_id": "sanfangricheng7417152852034669760",
+      "exists": true,
+      "text_file_count": 64,
+      "signal_file_counts": {
+        "udc_boot_app": 2,
+        "udc_import": 0,
+        "bpm_reference": 0,
+        "spi_contract_reference": 0,
+        "integration_reference": 5
+      },
+      "architecture_evidence": [
+        {
+          "path": "pom.xml",
+          "signals": [
+            "integration_reference"
+          ]
+        },
+        {
+          "path": "src/main/java/com/seeyon/sanfangricheng7417152852034669760/App.java",
+          "signals": [
+            "udc_boot_app"
+          ]
+        }
+      ]
+    },
+    {
+      "repository": "<PATH>",
+      "project_id": "xiangmuguanli1656355078954763084",
+      "exists": true,
+      "text_file_count": 109,
+      "signal_file_counts": {
+        "udc_boot_app": 2,
+        "udc_import": 3,
+        "bpm_reference": 2,
+        "spi_contract_reference": 0,
+        "integration_reference": 11
+      },
+      "architecture_evidence": [
+        {
+          "path": "pom.xml",
+          "signals": [
+            "integration_reference"
+          ]
+        },
+        {
+          "path": "src/main/java/com/seeyon/xiangmuguanli1656355078954763084/App.java",
+          "signals": [
+            "udc_boot_app"
+          ]
+        }
+      ]
+    },
+    {
+      "repository": "<PATH>",
+      "project_id": "yuexin-cat",
+      "exists": true,
+      "text_file_count": 6,
+      "signal_file_counts": {
+        "udc_boot_app": 0,
+        "udc_import": 0,
+        "bpm_reference": 0,
+        "spi_contract_reference": 0,
+        "integration_reference": 0
+      },
+      "architecture_evidence": []
+    }
+  ],
+  "cross_project_findings": [
+    "All existing generated application projects with @BootApp(... udcApp=true) are classified as customer UDC application/extension samples, not UDC Platform Core.",
+    "UDC references in customer projects are static imports/configuration evidence; they do not prove runtime loading or invocation.",
+    "BPM references found in one customer project are customer-to-standard-product candidate evidence; concrete call contracts and runtime execution remain unverified.",
+    "No SPI relation is advanced from these scans without an exact SPI dependency, FQCN, call site, and runtime loading evidence.",
+    "The scan retains architectural signals only and excludes customer entity/page/microflow/table/business inventories from durable evidence."
+  ],
+  "unverified": [
+    "customer extension runtime loading",
+    "UDC-to-customer runtime invocation",
+    "customer-to-BPM live invocation",
+    "customer-to-SPI dependency and runtime loading",
+    "customer frontend source and Network contract"
+  ],
+  "limitations": [
+    "Static source scan only",
+    "No test2/Kubernetes/database/Redis/Nacos/network operation performed",
+    "Heuristic signal counts are not call counts or runtime proof"
+  ]
+}

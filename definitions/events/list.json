@@ -1,0 +1,10 @@
+[
+ {
+  "fullName": "com.seeyon.datamigration8704025620829192834.dto.microflow.event.XzhVerifyEvent",
+  "caption": "小爪验收事件",
+  "source": "MICRO_FLOW",
+  "dtoType": "CUSTOM",
+  "udcApp": true,
+  "g_l_index": "1"
+ }
+]

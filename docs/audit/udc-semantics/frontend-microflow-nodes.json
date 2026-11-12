@@ -1,0 +1,320 @@
+{
+ "meta": {
+  "source": "udc store chunk 内置",
+  "evidence": "STATIC",
+  "note": "微流程设计器节点面板的权威定义（拖拽面板数据源）"
+ },
+ "total": 31,
+ "nodes": [
+  {
+   "caption": "分支",
+   "description": null,
+   "type": "BRANCH",
+   "actionType": "BRANCH",
+   "tag": "LOGIC",
+   "icon": "LinedDocumentProcess",
+   "order": 1001,
+   "bgColor": "#00A0B4"
+  },
+  {
+   "caption": "列表循环",
+   "description": null,
+   "type": "FOR_EACH",
+   "actionType": "FOR_EACH",
+   "tag": "LOGIC",
+   "icon": "LinedCirculation",
+   "order": 1002,
+   "bgColor": "#F27C41"
+  },
+  {
+   "caption": "计数循环",
+   "description": "遍历循环",
+   "type": "FOR",
+   "actionType": "FOR",
+   "tag": "LOGIC",
+   "icon": "LinedCirculation",
+   "order": 1004,
+   "bgColor": "#F27C41"
+  },
+  {
+   "caption": "自定义错误",
+   "description": null,
+   "type": "CUSTOM_ERROR",
+   "actionType": "CUSTOM_ERROR",
+   "tag": "LOGIC",
+   "icon": "LinedWarningCircle",
+   "order": 1003,
+   "bgColor": "#D44C5E"
+  },
+  {
+   "caption": "跳出循环",
+   "description": null,
+   "type": "BREAK",
+   "actionType": "BREAK",
+   "tag": "LOGIC",
+   "icon": "LinedWarningCircle",
+   "order": 1005,
+   "bgColor": "#D44C5E"
+  },
+  {
+   "caption": "创建变量",
+   "description": null,
+   "type": "ACTIVITY",
+   "actionType": "CREATE_VARIABLE",
+   "tag": "VARIABLE",
+   "icon": "LinedModifyVariable",
+   "order": 2001,
+   "bgColor": "#3B82F6"
+  },
+  {
+   "caption": "修改变量",
+   "description": null,
+   "type": "ACTIVITY",
+   "actionType": "CHANGE_VARIABLE",
+   "tag": "VARIABLE",
+   "icon": "LinedRevamp",
+   "order": 2002,
+   "bgColor": "#3B82F6"
+  },
+  {
+   "caption": "创建映射组",
+   "description": null,
+   "type": "ACTIVITY",
+   "actionType": "CREATE_MAP",
+   "tag": "MAP",
+   "icon": "LinedCreateBar",
+   "order": 2011,
+   "bgColor": "#3DB2ff"
+  },
+  {
+   "caption": "映射操作",
+   "description": null,
+   "type": "ACTIVITY",
+   "actionType": "MAP_OPERATION",
+   "tag": "MAP",
+   "icon": "LineddPortalcp",
+   "order": 2012,
+   "bgColor": "#3DB2ff"
+  },
+  {
+   "caption": "创建列表",
+   "description": null,
+   "type": "ACTIVITY",
+   "actionType": "CREATE_LIST",
+   "tag": "LIST",
+   "icon": "LinedCreateBar",
+   "order": 3001,
+   "bgColor": "#3DB273"
+  },
+  {
+   "caption": "修改列表",
+   "description": null,
+   "type": "ACTIVITY",
+   "actionType": "CHANGE_LIST",
+   "tag": "LIST",
+   "icon": "LinedEditCreateBar",
+   "order": 3002,
+   "bgColor": "#3DB273"
+  },
+  {
+   "caption": "列表操作",
+   "description": null,
+   "type": "ACTIVITY",
+   "actionType": "LIST_OPERATION",
+   "tag": "LIST",
+   "icon": "LineddPortalcp",
+   "order": 3003,
+   "bgColor": "#3DB273"
+  },
+  {
+   "caption": "查询单条数据",
+   "description": null,
+   "type": "ACTIVITY",
+   "actionType": "RETRIEVE",
+   "tag": "ENTITY",
+   "icon": "LinedSearch",
+   "order": 4001,
+   "bgColor": "#F0BA3C"
+  },
+  {
+   "caption": "查询多条数据",
+   "description": null,
+   "type": "ACTIVITY",
+   "actionType": "RETRIEVE_ARRAY",
+   "tag": "ENTITY",
+   "icon": "LinedEnquiryForm",
+   "order": 4002,
+   "bgColor": "#F0BA3C"
+  },
+  {
+   "caption": "插入数据",
+   "description": null,
+   "type": "ACTIVITY",
+   "actionType": "CREATE_ENTITY",
+   "tag": "ENTITY",
+   "icon": "Formconfiguration",
+   "order": 4003,
+   "bgColor": "#F0BA3C"
+  },
+  {
+   "caption": "批量插入数据",
+   "description": null,
+   "type": "ACTIVITY",
+   "actionType": "CREATE_BATCH_ENTITY",
+   "tag": "ENTITY",
+   "icon": "Formconfiguration",
+   "order": 4003,
+   "bgColor": "#F0BA3C"
+  },
+  {
+   "caption": "更新数据",
+   "description": null,
+   "type": "ACTIVITY",
+   "actionType": "CHANGE_ENTITY",
+   "tag": "ENTITY",
+   "icon": "LinedFormEditing",
+   "order": 4004,
+   "bgColor": "#F0BA3C"
+  },
+  {
+   "caption": "批量更新数据",
+   "description": null,
+   "type": "ACTIVITY",
+   "actionType": "CHANGE_BATCH_ENTITY",
+   "tag": "ENTITY",
+   "icon": "LinedFormEditing",
+   "order": 4004,
+   "bgColor": "#F0BA3C"
+  },
+  {
+   "caption": "删除数据",
+   "description": null,
+   "type": "ACTIVITY",
+   "actionType": "DELETE_ENTITY",
+   "tag": "ENTITY",
+   "icon": "LinedDelete",
+   "order": 4006,
+   "bgColor": "#D44C5E"
+  },
+  {
+   "caption": "自定义服务",
+   "description": null,
+   "type": "ACTIVITY",
+   "actionType": "CALL_APP_SERVICE",
+   "tag": "TRANSFER",
+   "icon": "LinedCustomApplication",
+   "order": 5004,
+   "bgColor": "#00A0B4"
+  },
+  {
+   "caption": "事件投递",
+   "description": null,
+   "type": "ACTIVITY",
+   "actionType": "PUBLISH_BUSINESS_EVENT",
+   "tag": "TRANSFER",
+   "icon": "LinedDiscuss",
+   "order": 5001,
+   "bgColor": "#00A0B4"
+  },
+  {
+   "caption": "连接器",
+   "description": null,
+   "type": "ACTIVITY",
+   "actionType": "CONNECTOR",
+   "tag": "TRANSFER",
+   "icon": "LinedLinker",
+   "order": 5000,
+   "bgColor": "#00A0B4"
+  },
+  {
+   "caption": "子微流程",
+   "description": null,
+   "type": "ACTIVITY",
+   "actionType": "SUB_MICROFLOW",
+   "tag": "TRANSFER",
+   "icon": "LinedSystem",
+   "order": 7050,
+   "bgColor": "#00A0B4"
+  },
+  {
+   "caption": "执行生单规则",
+   "description": null,
+   "type": "ACTIVITY",
+   "actionType": "CALL_DATA_FLOW",
+   "tag": "TRANSFER",
+   "icon": "LinedExecuteDataFlow",
+   "order": 5001,
+   "bgColor": "#00A0B4"
+  },
+  {
+   "caption": "类型转换",
+   "description": null,
+   "type": "ACTIVITY",
+   "actionType": "CONVERT_DATA",
+   "tag": "DATA_FACTORY",
+   "icon": "LinedCut",
+   "order": 12000,
+   "bgColor": "#2F9CDB"
+  },
+  {
+   "caption": "数据转换",
+   "description": null,
+   "type": "ACTIVITY",
+   "actionType": "DATA_MAPPING",
+   "tag": "DATA_FACTORY",
+   "icon": "LineddPortalcp",
+   "order": 2013,
+   "bgColor": "#3DB2ff"
+  },
+  {
+   "caption": "唯一",
+   "description": null,
+   "type": "ACTIVITY",
+   "actionType": "ATTRIBUTE_UNIQUE",
+   "tag": "CHECK",
+   "icon": "LinedSystemManagement",
+   "order": 11000,
+   "bgColor": "#006471"
+  },
+  {
+   "caption": "设置值",
+   "description": null,
+   "type": "ACTIVITY",
+   "actionType": "ASSIGN_VALUE",
+   "tag": "ATTRIBUTE",
+   "icon": "LinedTextEditor",
+   "order": 11001,
+   "bgColor": "#006471"
+  },
+  {
+   "caption": "必填",
+   "description": null,
+   "type": "ACTIVITY",
+   "actionType": "ATTRIBUTE_REQUIRED",
+   "tag": "CHECK",
+   "icon": "LinedRequired",
+   "order": 11004,
+   "bgColor": "#006471"
+  },
+  {
+   "caption": "显示信息",
+   "description": null,
+   "type": "ACTIVITY",
+   "actionType": "SHOW_MESSAGE",
+   "tag": "ATTRIBUTE",
+   "icon": "LinedInfoCircle",
+   "order": 11005,
+   "bgColor": "#006471"
+  },
+  {
+   "caption": "默认值",
+   "description": null,
+   "type": "ACTIVITY",
+   "actionType": "DEFAULT_VALUE",
+   "tag": "ATTRIBUTE",
+   "icon": "LinedTextEditor",
+   "order": 11001,
+   "bgColor": "#006471"
+  }
+ ]
+}

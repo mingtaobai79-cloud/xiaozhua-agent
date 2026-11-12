@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>三方门户模拟页（父页面）</title>
+<style>
+  body{font-family:"Microsoft YaHei",sans-serif;margin:0;background:#eef1f5}
+  header{background:#1677ff;color:#fff;padding:14px 24px;font-size:18px;font-weight:bold}
+  .wrap{padding:24px;display:flex;gap:24px;flex-wrap:wrap}
+  .card{background:#fff;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.08);padding:20px;width:420px}
+  .card h3{margin:0 0 12px;font-size:15px;color:#333}
+  label{display:block;font-size:13px;color:#666;margin:10px 0 4px}
+  input,textarea{width:100%;box-sizing:border-box;padding:6px 10px;border:1px solid #d9d9d9;border-radius:4px;font-size:13px;font-family:monospace}
+  textarea{height:90px;resize:vertical}
+  .btn{display:inline-block;margin-top:14px;padding:8px 22px;background:#1677ff;color:#fff;border:none;border-radius:4px;font-size:14px;cursor:pointer}
+  .btn.gray{background:#888}
+  .log{background:#0d1117;color:#7ee787;font-family:Consolas,monospace;font-size:12px;padding:12px;border-radius:6px;height:260px;overflow-y:auto;white-space:pre-wrap;margin-top:10px}
+  .tip{font-size:12px;color:#999;margin-top:8px;line-height:1.7}
+  iframe{width:100%;height:340px;border:1px solid #d9d9d9;border-radius:6px;background:#fff}
+</style>
+</head>
+<body>
+<header>三方门户模拟页 · 模拟 iframe 容器 + reqAuthCode 授权码下发</header>
+<div class="wrap">
+  <div class="card">
+    <h3>1. 配置被嵌入的跳板页地址（iframe src）</h3>
+    <label>iframe 地址（跳板页 URL，可带参数）</label>
+    <textarea id="bridgeUrl">http://10.37.124.173:8090/sso-bridge/index.html?webUrl=%2Fmain%2Fportal&debug=1</textarea>
+    <button class="btn" id="btnLoad">加载 / 重载 iframe</button>
+    <div class="tip">钉钉里配置时：把上面这个地址填到 iframe 配置处即可。<br>
+    注意 webUrl 参数值要 encodeURIComponent（/ → %2F）。</div>
+
+    <h3 style="margin-top:20px">2. 授权码下发配置（父页面角色）</h3>
+    <label>authCode（模拟钉钉/三方下发的授权码）</label>
+    <input id="authCode" value="sim_authcode_" placeholder="留空则每次自动生成随机码">
+    <label>回包 delay（毫秒，模拟网络延迟）</label>
+    <input id="delay" value="0">
+    <label>回复的 origin（留空 = 自动用 iframe 的 origin；测试期 * 通用）</label>
+    <input id="postTarget" placeholder="如 https://xxx.v8.com，联调本地留空即可">
+    <label>下发模式</label>
+    <select id="mode" style="width:100%;padding:6px 10px;border:1px solid #d9d9d9;border-radius:4px;font-size:13px">
+      <option value="message">postMessage 回包（主链路）</option>
+      <option value="localStorage">写 localStorage（备用链路，key=seeyon_sso_authcode）</option>
+      <option value="both">两者都做</option>
+    </select>
+    <button class="btn" id="btnAuto">自动回复开启</button>
+    <button class="btn gray" id="btnAutoOff">停止自动回复</button>
+    <div class="tip">自动回复：监听 iframe 的 reqAuthCode，收到即回 authCode。<br>
+    localStorage 备用 key：<b>seeyon_sso_authcode</b>（跳板页 CONFIG.lsKey 目前留空，如需测试备用链路，把跳板页 lsKey 填成 seeyon_sso_authcode）。</div>
+  </div>
+
+  <div class="card" style="flex:1;min-width:460px">
+    <h3>iframe 容器（三方门户内嵌 V8 跳板页）</h3>
+    <iframe id="frame" sandbox="allow-scripts allow-same-origin allow-forms allow-top-navigation"></iframe>
+    <h3 style="margin-top:16px">通信日志</h3>
+    <div class="log" id="log">（等待 iframe 加载…）</div>
+  </div>
+</div>
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var autoReply = false;
+  var frame = $('frame');
+
+  function log(msg, color) {
+    var el = $('log');
+    var line = document.createElement('div');
+    if (color) line.style.color = color;
+    line.textContent = new Date().toLocaleTimeString() + ' ' + msg;
+    el.appendChild(line);
+    el.scrollTop = el.scrollHeight;
+  }
+
+  function genCode() {
+    return 'sim_' + Date.now().toString(36) + Math.random().toString(36).slice(2, 10);
+  }
+
+  function getTargetOrigin() {
+    return $('postTarget').value || '*';
+  }
+
+  // —— 监听子页面消息 ——
+  window.addEventListener('message', function (e) {
+    var d = e.data || {};
+    log('收到消息: origin=' + e.origin + ' data=' + JSON.stringify(d));
+    if (!autoReply) { log('（自动回复未开启，忽略）', '#e3b341'); return; }
+    if (d.channel !== 'seeyon' || d.type !== 'reqAuthCode') { log('非 reqAuthCode，忽略'); return; }
+
+    var reply = function () {
+      var code = $('authCode').value || genCode();
+      if ($('authCode').value) $('authCode').value = code;   // 回显实际使用的码
+      var resp = {
+        id: d.id,                    // 对应请求 id
+        data: { authCode: code },
+        code: 200,
+        channel: 'seeyon'
+      };
+      var mode = $('mode').value;
+      if (mode === 'message' || mode === 'both') {
+        e.source.postMessage(resp, getTargetOrigin());
+        log('已 postMessage 回包 → ' + JSON.stringify(resp), '#79c0ff');
+      }
+      if (mode === 'localStorage' || mode === 'both') {
+        try {
+          // 注意：localStorage 是父页面域的；跳板页只有同域时才读得到。
+          // 这里是模拟三方把码写到「跳板页可读的位置」，真实场景由三方约定 key
+          localStorage.setItem('seeyon_sso_authcode', code);
+          log('已写 localStorage[seeyon_sso_authcode]=' + code, '#79c0ff');
+        } catch (err) { log('localStorage 写入失败: ' + err.message, '#f85149'); }
+      }
+    };
+    var delay = parseInt($('delay').value, 10) || 0;
+    if (delay > 0) { log(delay + 'ms 后回包…'); setTimeout(reply, delay); } else { reply(); }
+  });
+
+  // —— iframe 加载 ——
+  $('btnLoad').onclick = function () {
+    var url = $('bridgeUrl').value.trim();
+    if (!url) { log('地址为空', '#f85149'); return; }
+    log('加载 iframe: ' + url, '#d2a8ff');
+    frame.src = url;
+  };
+
+  $('btnAuto').onclick = function () { autoReply = true; log('✅ 自动回复已开启', '#3fb950'); };
+  $('btnAutoOff').onclick = function () { autoReply = false; log('⛔ 自动回复已关闭', '#f85149'); };
+
+  // 默认开启自动回复
+  autoReply = true;
+  $('btnLoad').click();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+{
+ "schema": "live-route-implementation-control-group.v1",
+ "evidence": "LIVE (pods/log AppContextFilter:50) + 同 traceId 行数差分的对照分组",
+ "source": {
+  "channel": "tools/core/k8s_pod_log_surface.py 同源通道（只读 GET pods/log）",
+  "window": "udc pod 单容器 tailLines=250000",
+  "lines": 213073,
+  "request_url_lines": 1095,
+  "distinct_url_templates": 18,
+  "cross_check_with_RUNTIME_URL_SURFACE": {
+   "request_url_lines_in_source_window": 1095,
+   "matches_this_computation": true
+  }
+ },
+ "method": "AppContextFilter 打印 request url 后，同一 traceId 若被后续过滤器行复用（SecurityService / AppServiceLogFilter / DubboContextFilter / MetadataService 等），说明该请求进入了处理链 ⇒ 路由有实现；若该 traceId 全窗口只出现 1 行（仅 AppContextFilter 自己），说明请求被前置拦下且无 handler 跟进 ⇒ 无实现。",
+ "control_group_mapped_routes": {
+  "rule": "契约在案（674 端点）或字节码可证存在，且同 traceId 行数 ≥ 2",
+  "count": 16,
+  "min_trace_lines": 2,
+  "templates": [
+   "/udc/application/role-resource",
+   "/udc/application/search/front-detection",
+   "/udc/application/user-role",
+   "/udc/data-transfer-object/search-micro-flow-custom-dto/{arg}",
+   "/udc/data-transfer-object/select-dto/{arg}",
+   "/udc/deployment/latest-test-info",
+   "/udc/graphql",
+   "/udc/metadata/app-service-by-name",
+   "/udc/micro-flow-group/select-by-type",
+   "/udc/microflow/create",
+   "/udc/microflow/findById/{arg}",
+   "/udc/microflow/search",
+   "/udc/microflow/search-no-page",
+   "/udc/runtime/expect-deploy-time",
+   "/udc/sandbox/delta-build-info/{arg}",
+   "/udc/udc-enum-item/search-by-enum-code"
+  ]
+ },
+ "test_group_unmapped_routes": {
+  "rule": "同 traceId 行数 == 1（孤行），且契约与部署态字节码均无该 mapping",
+  "count": 2,
+  "templates": [
+   "/udc/micro-flow-group/search-list",
+   "/udc/micro-flow-group/select-by-appid/{arg}"
+  ],
+  "note": "两条都命中同一判据；其中 select-by-appid 另有第十轮独立裁定（MicroFlowGroupController 字面量为 select-by-type ⇒ 映射不存在），构成该判据的正向对照标定。"
+ },
+ "clean_separation": {
+  "statement": "全窗口 18 个 URL 模板中，同 traceId 行数 == 1 的恰好只有这 2 条，无第三种取值混入",
+  "single_count": 2,
+  "multi_count": 16,
+  "total": 18
+ },
+ "limitations": [
+  "AppContextFilter 无 HTTP 状态码：本轴判「有无 handler 跟进」，不是判「返回 200/404」。",
+  "单窗证据（tailLines=250000），窗口外不覆盖。",
+  "原始日志在 scratch（24h 清理）⇒ 本件只留计数与模板，供再采集时对账；不含 userId/traceId 实参。"
+ ],
+ "contract_cross_check": {
+  "rule": "对照/试验分组必须与 udc-web 5.3.517 契约（674 端点）逐字（{arg} 归一）对账：试验组在契约里必须 0 命中；对照组应整体可得独立契约背书。",
+  "contract_distinct_full_paths": 674,
+  "control_templates_in_contract": 14,
+  "test_templates_in_contract": 0,
+  "control_templates_not_in_udc_web_contract": [
+   {
+    "template": "/udc/graphql",
+    "backing": "GraphQL 操作面为另档契约（非 REST 674），见 PLATFORM-GRAPHQL-OPERATIONS.md"
+   },
+   {
+    "template": "/udc/metadata/app-service-by-name",
+    "backing": "ctp MetadataController 面（/udc/metadata/ 105 映射），见 METADATA-PLANES.json"
+   }
+  ],
+  "conclusion": "试验组 2/2 在 udc-web 契约中 0 命中 ⇒ 与轴 2（字节码注册面完整）独立一致；对照组 14/16 逐字落在建契约内，余 2 条各有另档契约背书 ⇒ 分组结论不依赖单一契约口径。"
+ }
+}

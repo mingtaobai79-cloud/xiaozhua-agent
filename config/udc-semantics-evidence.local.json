@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "purpose": "Local-only source locations for offline UDC semantics audit; contains no credentials or target application data.",
+  "source_snapshot": {
+    "id": "udc-source-checkout",
+    "root": "<PATH>",
+    "version_binding": "UNVERIFIED",
+    "kind": "local_source_tree"
+  },
+  "artifacts": {
+    "udc_biz_reference": {
+      "artifact": "udc-biz",
+      "version": "5.3.517",
+      "path": "<HERMES_HOME>/cache/scratch/md561/udc-biz-5.3.517.jar",
+      "sha256": "8a1cda618cdc23d18d02e39f4f93d6fad4ff732c987fd47bbb28118dbf66ef25",
+      "live_version_binding": "UNVERIFIED"
+    }
+  },
+  "controller_bytecode": {
+    "root": "docs/audit/artifacts/udc-web-5.3.517-javap",
+    "artifact": "udc-web",
+    "version": "5.3.517",
+    "live_version_binding": "UNVERIFIED"
+  }
+}

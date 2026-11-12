@@ -1,0 +1,22 @@
+# 标配应用配置示例 —— 每个应用(客户/标品)一份 <app_id>.yaml
+# 命名: apps/<app_id>.yaml; app_id 是平台分配的数字串, 从不手写, 从页面/DB/Nacos 取证得来
+app_id: app9000000000000000001
+name: 智能项目管理平台(示例, 按实际填)
+family: "5.3"            # 对应 artifact-versions.yaml 的 families 键
+environments:
+  test2:
+    entry: https://lowcode-test2.example.com   # 可省, 继承 environments.yaml
+    nacos:
+      tenant: app9000000000000000001
+      group: DEFAULT_GROUP
+      note: 曾实测 dataId=app_id 全组合 20004 不存在(见 nacos-v2-probe.md), 该应用配置不在 Nacos 暴露
+    databases: []          # 应用库引用(若与平台共库则留空, 取证后补)
+    storage: []            # 应用专属 bucket/object 存储
+modules:                   # 应用内启用哪些域(按需裁剪 agent 能力面)
+  - entity
+  - microflow
+  - page
+  - menu
+  - flow
+  - bi
+evidence_root: docs/audit/apps/app9000000000000000001/   # 客户业务明细按任务临时查询, 不进长期事实库

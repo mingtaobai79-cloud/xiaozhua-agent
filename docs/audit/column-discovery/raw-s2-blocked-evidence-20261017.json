@@ -1,0 +1,133 @@
+{
+  "at_gmt8": "2026-10-17 17:23:13",
+  "scope": "S2 建栏目→落表取证：blocking diagnosis only (zero write)",
+  "appId": "8704025620829192834",
+  "credential": {
+    "path": "<COLLAB_ROOT>/agent-collaboration/shared-credentials/test2-web-credential.json",
+    "secret_printed": false,
+    "cookie_names": [
+      "SY_ACCESS_TOKEN",
+      "TK_EXP",
+      "SY_UID"
+    ],
+    "tk_exp_gmt8": "2026-10-18 17:00",
+    "refreshed_at_gmt8": "2026-10-17 17:00:13"
+  },
+  "tests": [
+    {
+      "test": "static designer HTML",
+      "url": "https://lowcode-test2.example.com/main/child-frame/udc/app-design/page-manage/portlet",
+      "http": "200",
+      "bytes": "12054",
+      "content_type": "text/html"
+    },
+    {
+      "test": "site root",
+      "url": "https://lowcode-test2.example.com/main/",
+      "http": "200",
+      "bytes": "12054",
+      "content_type": "text/html"
+    },
+    {
+      "test": "GET datadictionary WITH valid cookie",
+      "url": "https://lowcode-test2.example.com/service/udc/application/datadictionary/8704025620829192834",
+      "http": "403",
+      "bytes": "548",
+      "content_type": "text/html",
+      "served_by": "nginx (edge/ingress, not application)"
+    },
+    {
+      "test": "GET portlet select-by-appId WITH valid cookie",
+      "url": "https://lowcode-test2.example.com/service/udc/portlet/select-by-appId/8704025620829192834",
+      "http": "403",
+      "bytes": "548",
+      "content_type": "text/html",
+      "served_by": "nginx (edge/ingress, not application)"
+    },
+    {
+      "test": "POST graphql portlet (cookie only)",
+      "url": "https://lowcode-test2.example.com/service/udc/graphql?udcPortletSelectByAppIdAppGet",
+      "http": "403",
+      "bytes": "548",
+      "content_type": "text/html",
+      "served_by": "nginx (edge/ingress, not application)"
+    },
+    {
+      "test": "POST graphql portlet (cookie + Authorization Bearer)",
+      "url": "https://lowcode-test2.example.com/service/udc/graphql?udcPortletSelectByAppIdAppGet",
+      "http": "403",
+      "bytes": "548",
+      "content_type": "text/html",
+      "served_by": "nginx (edge/ingress, not application)"
+    },
+    {
+      "test": "bogus path under /service/ (expect 404 if app-routed)",
+      "url": "https://lowcode-test2.example.com/service/__definitely_not_a_route__/x",
+      "http": "403",
+      "bytes": "548",
+      "content_type": "text/html",
+      "served_by": "nginx (edge/ingress, not application)"
+    },
+    {
+      "test": "/service (no trailing slash)",
+      "url": "https://lowcode-test2.example.com/service",
+      "http": "404",
+      "bytes": "393",
+      "content_type": "application/xml"
+    },
+    {
+      "test": "OPTIONS /service/udc/graphql",
+      "url": "https://lowcode-test2.example.com/service/udc/graphql",
+      "http": "200",
+      "bytes": "0",
+      "content_type": "text/html"
+    },
+    {
+      "test": "GET /service/udc/graphql",
+      "url": "https://lowcode-test2.example.com/service/udc/graphql",
+      "http": "403",
+      "bytes": "548",
+      "content_type": "text/html",
+      "served_by": "nginx (edge/ingress, not application)"
+    }
+  ],
+  "login_endpoint_probe": {
+    "endpoint": "https://lowcode-test2.example.com/service/ctp-user/auth/token",
+    "http": "403",
+    "served_by": "nginx",
+    "password_printed": false
+  },
+  "cross_browser_check": {
+    "note": "port 9230 = 设置域独立 profile/cookie，17:00 该实例曾取到 200（udc9-08-setting-s2/live-fetch-result.json）",
+    "observed_at_1718": "403 text/html 548 bytes (fresh tab, cookies SY_ACCESS_TOKEN,TK_EXP,SY_UID present)",
+    "prior_success_evidence": "<HERMES_HOME>/cache/scratch/udc9-08-setting-s2/live-fetch-result.json (ts 17:00:32, status 200, 49112 bytes)"
+  },
+  "jump_host": {
+    "host": "10.0.0.1:22",
+    "result": "Connection timed out (2 attempts)",
+    "meaning": "egress to 172.26.x blocked too; cannot cross-check from inside cluster"
+  },
+  "dns": {
+    "resolved": [
+      "10.0.0.1"
+    ],
+    "cname": "lowcode-test2.example.com",
+    "note": "only one live ingress IP; 10.0.0.1 did not answer TLS (000)"
+  },
+  "db_readonly_baseline": {
+    "tool": "<HERMES_HOME>/skills/seeyon/01-platform/seeyon-low-code-environment/scripts/conn.py",
+    "note": "SELECT only; proves zero write happened during blocked S2",
+    "target_app_portlet_total": "[{\"total\": 0}]",
+    "global_portlet_total": "[{\"c\": 157}]",
+    "type_split": "[{\"type0\": \"26\", \"type1\": \"131\"}]",
+    "template_type_nonnull": "[{\"c\": 0}]",
+    "portlet_group_rows": "[{\"c\": 0}]"
+  },
+  "group_dependency_probe": {
+    "question": "HANDOFF 边界『不建分组』vs 创建表单强制『栏目分组』",
+    "type1_with_null_group_id": "[{\"c\": 0}]",
+    "type1_resolving_to_type0": "[{\"c\": 131}]",
+    "apps_having_portlet_but_no_group_row": "[{\"offending\": 0}]",
+    "per_app_group_counts": "[{\"app_id\": 2378987216360786643, \"g\": \"1\", \"p\": \"8\"}, {\"app_id\": 1656355078954763084, \"g\": \"1\", \"p\": \"3\"}, {\"app_id\": 6570299241515796755, \"g\": \"3\", \"p\": \"36\"}, {\"app_id\": 3289082814923688017, \"g\": \"6\", \"p\": \"84\"}]"
+  }
+}

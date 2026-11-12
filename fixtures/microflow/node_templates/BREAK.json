@@ -1,0 +1,12 @@
+{
+  "nodeId": "BREAK_N6QS9Y",
+  "name": null,
+  "type": "BREAK",
+  "caption": "跳出循环(1)",
+  "description": null,
+  "runAfter": null,
+  "input": null,
+  "output": null,
+  "isCompleted": true,
+  "actionType": "BREAK"
+}

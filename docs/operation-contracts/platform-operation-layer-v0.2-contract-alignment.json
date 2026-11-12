@@ -1,0 +1,13 @@
+{
+  "schema_version": "seeyon-agent.operation-contracts.v0.2",
+  "status": "ALIGNED",
+  "capabilities": [
+    {"operation": "udc.entity.get", "contract_status": "VERIFIED_STATIC_BYTECODE", "method": "GET", "write": false, "live": "PASS", "verification": "PASS", "evidence": "PASS"},
+    {"operation": "udc.application.get", "contract_status": "VERIFIED_STATIC_BYTECODE", "method": "GET", "write": false, "live": "PASS", "verification": "PASS", "evidence": "PASS"},
+    {"operation": "udc.entity.list", "contract_status": "VERIFIED_STATIC_BYTECODE", "method": "GET", "write": false, "live": "PASS", "verification": "PASS", "evidence": "PASS"},
+    {"operation": "udc.attribute.list", "contract_status": "VERIFIED_STATIC_BYTECODE", "method": "GET", "write": false, "live": "PASS", "verification": "PASS", "evidence": "PASS"}
+  ],
+  "counts": {"readonly_capabilities": 4, "live_evidence_files": 4, "tests_collected": 303, "tests_passed": 303},
+  "unknowns": ["GraphQL authenticated transport", "pagination/filter/sort contract", "full Gateway filter contract", "write operation contract", "human-path CLI/Web/API integration"],
+  "frozen_non_goals": ["Entity Create", "Attribute Create", "POST/PUT/PATCH/DELETE", "Page", "MicroFlow", "BPM", "SPI", "Connector", "Source Generator", "Agent Planner"]
+}

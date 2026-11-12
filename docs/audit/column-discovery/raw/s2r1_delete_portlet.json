@@ -1,0 +1,26 @@
+{
+ "at": "2026-10-17T23:18:45+0800",
+ "stage": "delete-portlet",
+ "calls": [
+  {
+   "kind": "fetch",
+   "url": "/service/udc/graphql?udcPortletDeleteIdPost",
+   "method": "POST",
+   "body": "{\"query\":\"mutation udcPortletDeleteIdPost($path: udcPortletDeleteIdPostInputPath) {\\n  udcPortletDeleteIdPost(path: $path) {\\n    code\\n    data {\\n      content\\n    }\\n    message\\n    status\\n  }\\n}\",\"variables\":{\"path\":{\"id\":\"5810462779490574369\"}}}",
+   "status": 200,
+   "resp": "{\"traceId\":\"17922503199724992371\",\"data\":{\"udcPortletDeleteIdPost\":{\"code\":\"BOOT_0000\",\"data\":{\"content\":1},\"message\":\"SUCCESS\",\"status\":0}}}",
+   "ms": 347,
+   "at": 1792250320320
+  },
+  {
+   "kind": "fetch",
+   "url": "/service/udc/graphql?udcPortletSelectByAppIdAppGet",
+   "method": "POST",
+   "body": "{\"query\":\"query udcPortletSelectByAppIdAppGet(\\n  $path: udcPortletSelectByAppIdAppGetInputPath\\n) {\\n  udcPortletSelectByAppIdAppGet(path: $path) {\\n    code\\n    data {\\n      content {\\n        appId\\n        groupId\\n        guid\\n        id\\n        name\\n        orderNo\\n        category\\n        portletList{\\n          appId\\n          groupId\\n          guid\\n          id\\n          name\\n          orderNo\\n          pageRelationId\\n          publishState\\n          terminalType\\n          type\\n          category\\n          originalId\\n        }\\n        pageRelationId\\n        publishState\\n        terminalType\\n        type\\n        originalId\\n      }\\n    }\\n    message\\n    status\\n  }\\n}\",\"variables\":{\"path\":{\"appId\":\"8704025620829192834\"}}}",
+   "status": 200,
+   "resp": "{\"traceId\":\"17922503203206453998\",\"data\":{\"udcPortletSelectByAppIdAppGet\":{\"code\":\"BOOT_0000\",\"data\":{\"content\":[{\"appId\":\"8704025620829192834\",\"groupId\":null,\"guid\":\"-4399224624179689670\",\"id\":\"-2821989384273517473\",\"name\":\"S2GROUP20261017\",\"orderNo\":1,\"category\":\"ADVANCED\",\"portletList\":null,\"pageRelationId\":null,\"publishState\":\"UNPUBLISH\",\"terminalType\":\"PC\",\"type\":\"GROUP\",\"originalId\":\"0\",\"g_l_index\":\"1\"}]},\"message\":\"SUCCESS\",\"status\":0}}}",
+   "ms": 51,
+   "at": 1792250320372
+  }
+ ]
+}

@@ -1,0 +1,75 @@
+/*
+ * Decompiled with CFR 0.152.
+ */
+package com.seeyon.bpm.constant;
+
+public class LogActionDetailOperationConstants {
+    public static final String SEPARATOR = "#";
+    public static final String SENT = "bpm.processLog.action.operation.sent#";
+    public static final String STEP_BACK = "bpm.processLog.action.operation.stepBack#";
+    public static final String STEP_BACK_GO_BACK = "bpm.processLog.action.operation.stepBackGoBack#";
+    public static final String STEP_BACK_TO_ME = "bpm.processLog.action.operation.stepBackToMe#";
+    public static final String STEP_BACK_TO_ME_SUPERVISE = "bpm.processLog.action.operation.stepBackToMeSupervise#";
+    public static final String STEP_BACK_TO_ME_SUBMIT_TO_ALL = "bpm.processLog.action.operation.stepBackToMeSubmitToAll#";
+    public static final String STEP_BACK_TO_ME_SUBMIT_TO_ALL_SUPERVISE = "bpm.processLog.action.operation.stepBackToMeSubmitToAllSupervise#";
+    public static final String CANCEL_BY_REVOKE_GO_BACK = "bpm.processLog.action.operation.cancelByRevokedGoBack#";
+    public static final String CANCEL_BY_REVOKE_TO_ME = "bpm.processLog.action.operation.cancelByRevokedToMe#";
+    public static final String BACK_TO_MAIN = "bpm.processLog.action.operation.backToMain#";
+    public static final String SENIOR_STEP_BACK = "bpm.processLog.action.operation.seniorStepBack#";
+    public static final String ADD_NODE = "bpm.processLog.action.operation.addNode#";
+    public static final String ASSIGN = "bpm.processLog.action.operation.assign#";
+    public static final String ADD_INFORM = "bpm.processLog.action.operation.addInform#";
+    public static final String DELETE_NODE = "bpm.processLog.action.operation.deleteNode#";
+    public static final String REPLACE_NODE = "bpm.processLog.action.operation.replaceNode#";
+    public static final String TRANSFER = "bpm.processLog.action.operation.transfer#";
+    public static final String CANCEL = "bpm.processLog.action.operation.cancel#";
+    public static final String STOP = "bpm.processLog.action.operation.stop#";
+    public static final String END = "bpm.processLog.action.operation.end#";
+    public static final String SELECT_PEOPLE_OR_BRANCH = "bpm.processLog.action.operation.selectPeopleOrBranch#";
+    public static final String EVENT_NODE_READY = "bpm.processLog.action.operation.eventNodeReady#";
+    public static final String EVENT_NODE_CANCEL = "bpm.processLog.action.operation.eventNodeCancel#";
+    public static final String MERGE_ITEM_DEAL = "bpm.processLog.action.operation.mergeItemDeal#";
+    public static final String MERGE_ITEM_DEAL_FAIL = "bpm.processLog.action.operation.mergeItemDeal.fail#";
+    public static final String MERGE_ITEM_DEAL_FAIL_IS_MUST_SUBMIT_NODE = "bpm.processLog.action.operation.mergeItemDeal.fail.isMustSubmitNode#";
+    public static final String AUTO_DEAL_FAIL_IS_MUST_SUBMIT_NODE = "bpm.processLog.action.operation.autoDeal.fail.isMustSubmitNode#";
+    public static final String MERGE_ITEM_DEAL_CIRCLE = "bpm.processLog.action.operation.mergeItemDeal.circle#";
+    public static final String OVERTIME_SKIP_FAIL = "bpm.processLog.action.operation.overtimeSkip.fail#";
+    public static final String SUPERVISOR_SELECT_MEMBER = "bpm.processLog.action.operation.supervisorSelectMember#";
+    public static final String SUPERVISOR_ALLOCATION_MEMBER = "bpm.processLog.action.operation.supervisorAllocationMember#";
+    public static final String DELETE_EXECUTE_MEMBER = "bpm.processLog.action.operation.deleteExecuteMember#";
+    public static final String HASTEN_TRANSFER = "bpm.processLog.action.operation.hastenTransfer#";
+    public static final String HASTEN_HASTEN = "bpm.processLog.action.operation.hastenHasten#";
+    public static final String HASTEN_SKIP = "bpm.processLog.action.operation.hastenSkip#";
+    public static final String HASTEN = "bpm.processLog.action.operation.hasten#";
+    public static final String AFFAIR_CONSULT = "bpm.processLog.action.affair_consult#";
+    public static final String COUNTERSIGN = "bpm.processLog.action.operation.assign#";
+    public static final String READ = "bpm.processLog.action.operation.read#";
+    public static final String OVER_TIME_REPEAL = "bpm.processLog.action.operation.overTimeRepeal#";
+    public static final String OVER_TIME_STOP = "bpm.processLog.action.operation.overTimeStop#";
+    public static final String PAUSE = "bpm.processLog.action.operation.pause#";
+    public static final String CANCEL_PAUSE = "bpm.processLog.action.operation.cancelPause#";
+    public static final String DEAL_USER = "#bpm.processLog.action.operation.dealUser#";
+    public static final String INFORM_USER = "#bpm.processLog.action.operation.informUser#";
+    public static final String MULTI_WRITE_TRANSFER = "bpm.processLog.action.operation.multiWriteTransfer#";
+    public static final String MULTI_WRITE = "#bpm.processLog.action.operation.multiWrite";
+    public static final String INFORM_TO = "#bpm.processLog.action.operation.informTo#";
+    public static final String ADD_HANDLER = "bpm.processLog.action.operation.addHandler#";
+    public static final String DELETE_HANDLER = "bpm.processLog.action.operation.deleteHandler#";
+    public static final String HANDLER = "#bpm.processLog.action.operation.theHandler#";
+    public static final String HANDLER_INFORM = "#bpm.processLog.action.operation.theHandlerInform#";
+    public static final String POST_APPROVAL_ITEM_DEAL = "bpm.processLog.action.operation.postApprovalItemDeal#";
+    public static final String POST_APPROVAL_ITEM_DEAL_FAIL = "bpm.processLog.action.operation.postApprovalItemDeal.fail#";
+    public static final String POST_SCRIPT = "#bpm.processLog.action.operation.postScript#";
+    public static final String RESET_PROCESS_DELETE_NODE = "#bpm.processLog.action.operation.resetProcessDeleteNode#";
+    public static final String TAKE_BACK_NOTICE = "bpm.processLog.action.operation.takeBackNotice#";
+    public static final String TAKE_BACK_CONSULT = "bpm.processLog.action.operation.takeBackConsult#";
+    public static final String RETRIEVE_BACK_NOTICE = "bpm.processLog.action.operation.retrieveBackNotice#";
+    public static final String RETRIEVE_BACK_CONSULT = "bpm.processLog.action.operation.retrieveBackConsult#";
+    public static final String TAKE_BACK_DONE = "bpm.processLog.action.operation.takeBackDone#";
+    public static final String TAKE_BACK_DONE_AND_ADD_NODE = "bpm.processLog.action.operation.takeBackDoneAndAddNode#";
+    public static final String TAKE_BACK_ADD_NODE = "bpm.processLog.action.operation.takeBackAddNode#";
+    public static final String NO_MATCHING_SUB_PROCESS = "bpm.processLog.action.operation.noMatchingSubProcess#";
+    public static final String DELETE_TODO_ACTIVITY = "bpm.processLog.action.deleteTodoActivity";
+    public static final String TAKE_BACK_TRANSFER = "bpm.processLog.action.operation.takeBackTransfer#";
+    public static final String TAKE_BACK_BACK = "bpm.processLog.action.operation.takeBackBack#";
+}

@@ -1,0 +1,125 @@
+{
+ "paramType": "OTHER",
+ "mappingType": "attrs",
+ "attrs": [
+  {
+   "value": {
+    "type": "Simple",
+    "simple": 1,
+    "desc": 1
+   },
+   "attrType": {
+    "name": "pageNumber",
+    "id": "com.seeyon.boot.transport.PageInfo.pageNumber",
+    "fullName": "com.seeyon.boot.transport.PageInfo.pageNumber",
+    "javaType": "java.lang.Integer",
+    "dataType": "INTEGER",
+    "type": "OBJECT",
+    "desc": "当前页数",
+    "jsr303": {
+     "Min": {
+      "groups": "",
+      "value": "1",
+      "description": "检查约束元素不能小于Value值"
+     }
+    },
+    "relationApp": "udc",
+    "refApp": "udc",
+    "multiSelect": false,
+    "filterDataType": "INTEGER",
+    "filterType": "OBJECT",
+    "filterFullName": "com.seeyon.boot.transport.PageInfo.pageNumber",
+    "dataI18n": false,
+    "sort": 0,
+    "description": ""
+   }
+  },
+  {
+   "value": {
+    "type": "Simple",
+    "simple": 20,
+    "desc": 20
+   },
+   "attrType": {
+    "name": "pageSize",
+    "id": "com.seeyon.boot.transport.PageInfo.pageSize",
+    "fullName": "com.seeyon.boot.transport.PageInfo.pageSize",
+    "javaType": "java.lang.Integer",
+    "dataType": "INTEGER",
+    "type": "OBJECT",
+    "desc": "每页记录数",
+    "jsr303": {
+     "Min": {
+      "groups": "",
+      "value": "1",
+      "description": "检查约束元素不能小于Value值"
+     }
+    },
+    "relationApp": "udc",
+    "refApp": "udc",
+    "multiSelect": false,
+    "filterDataType": "INTEGER",
+    "filterType": "OBJECT",
+    "filterFullName": "com.seeyon.boot.transport.PageInfo.pageSize",
+    "dataI18n": false,
+    "sort": 0,
+    "description": ""
+   }
+  },
+  {
+   "value": {
+    "type": "Simple",
+    "simple": true,
+    "desc": true
+   },
+   "attrType": {
+    "name": "needTotal",
+    "id": "com.seeyon.boot.transport.PageInfo.needTotal",
+    "fullName": "com.seeyon.boot.transport.PageInfo.needTotal",
+    "javaType": "java.lang.Boolean",
+    "dataType": "BOOLEAN",
+    "type": "OBJECT",
+    "desc": "是否需要查询总记录数",
+    "relationApp": "udc",
+    "refApp": "udc",
+    "multiSelect": false,
+    "filterDataType": "BOOLEAN",
+    "filterType": "OBJECT",
+    "filterFullName": "com.seeyon.boot.transport.PageInfo.needTotal",
+    "dataI18n": false,
+    "sort": 0,
+    "description": ""
+   }
+  }
+ ],
+ "title": "分页参数对象",
+ "dataType": "DTO",
+ "structure": {
+  "dataType": "DTO",
+  "dtoId": null,
+  "dtoType": "CUSTOM",
+  "fullName": "com.seeyon.boot.transport.PageInfo",
+  "id": "com.seeyon.boot.transport.PageInfo",
+  "key": "com.seeyon.boot.transport.PageInfo",
+  "value": "com.seeyon.boot.transport.PageInfo",
+  "label": "分页对象",
+  "udcApp": true
+ },
+ "nodeId": "CREATE_VARIABLE_GgKlpn",
+ "actionType": "CREATE_VARIABLE",
+ "caption": "系统分页查询对象",
+ "description": null,
+ "type": "ACTIVITY",
+ "output": {
+  "id": "com.seeyon.boot.transport.PageInfo",
+  "javaType": "com.seeyon.boot.transport.PageInfo",
+  "dataType": "DTO",
+  "type": "OBJECT",
+  "desc": "分页参数对象",
+  "appName": "datamigration8704025620829192834",
+  "dtoType": "CUSTOM",
+  "udcApp": true,
+  "name": "CREATE_VARIABLE_tcTEfM"
+ },
+ "isCompleted": true
+}

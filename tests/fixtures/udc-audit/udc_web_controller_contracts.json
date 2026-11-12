@@ -1,0 +1,14 @@
+{
+  "schema_version": "fixture.v1",
+  "artifact_version": "5.3.517",
+  "endpoint_count": 672,
+  "domains": {
+    "Application": 3,
+    "Entity": 16,
+    "Page": 8,
+    "MicroFlow": 9
+  },
+  "limitations": [
+    "Static contract counts only; not endpoint execution proof."
+  ]
+}

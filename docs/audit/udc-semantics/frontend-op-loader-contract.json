@@ -1,0 +1,801 @@
+{
+ "schema": "frontend-op-loader-contract.v1",
+ "evidence": "BUNDLE_LITERAL (udc-frontend/unpacked, 1474 js modules) — fieldType/paramsType/paramsKey 直读",
+ "source_bundle": "<HERMES_HOME>/cache/scratch/udc-frontend/unpacked/ (13MB, 1474 js)",
+ "scope": "frontend-udc-unlocated.json corrected 口径的 60 条余量 op（raw 62 已作废：见 reference_kind_correction）",
+ "remaining_total": 60,
+ "with_loader_contract": 32,
+ "without_loader_contract": 28,
+ "naming_deviations": 4,
+ "note": "前端**不携带 path**：一律走 udcMutationLoader/udcQueryLoader + fieldType(op) + paramsType + paramsKey。故 path 无法从 bundle 得到，只能从 path→op 规则反推。paramsType 为前端声明的请求体/路径/查询类型（GraphQL 变量型）。",
+ "records": [
+  {
+   "op": "udcAffairDeletePost",
+   "has_loader_contract": true,
+   "paramsType": [
+    "udcAffairDeletePostInputBody"
+   ],
+   "paramsKey": [
+    "body"
+   ],
+   "loader": [
+    "udcMutationLoader"
+   ],
+   "sites": 1,
+   "expected_if_standard": "udcAffairDeletePostInputBody",
+   "standard_naming": true
+  },
+  {
+   "op": "udcAffairGet",
+   "has_loader_contract": true,
+   "paramsType": [
+    "udcAffairGetInputPath"
+   ],
+   "paramsKey": [
+    "path"
+   ],
+   "loader": [
+    "udcQueryLoader"
+   ],
+   "sites": 1,
+   "expected_if_standard": "udcAffairGetInputPath",
+   "standard_naming": true
+  },
+  {
+   "op": "udcAffairListPost",
+   "has_loader_contract": true,
+   "paramsType": [
+    "udcAffairListPostInputBody"
+   ],
+   "paramsKey": [
+    "body"
+   ],
+   "loader": [
+    "udcMutationLoader"
+   ],
+   "sites": 4,
+   "expected_if_standard": "udcAffairListPostInputBody",
+   "standard_naming": true
+  },
+  {
+   "op": "udcAffairPost",
+   "has_loader_contract": true,
+   "paramsType": [
+    "udcAffairPostInputBody"
+   ],
+   "paramsKey": [
+    "body"
+   ],
+   "loader": [
+    "udcMutationLoader"
+   ],
+   "sites": 1,
+   "expected_if_standard": "udcAffairPostInputBody",
+   "standard_naming": true
+  },
+  {
+   "op": "udcAffairUpdatePost",
+   "has_loader_contract": true,
+   "paramsType": [
+    "udcAffairUpdatePostInputBody"
+   ],
+   "paramsKey": [
+    "body"
+   ],
+   "loader": [
+    "udcMutationLoader"
+   ],
+   "sites": 1,
+   "expected_if_standard": "udcAffairUpdatePostInputBody",
+   "standard_naming": true
+  },
+  {
+   "op": "udcApplicationCopyGet",
+   "has_loader_contract": true,
+   "paramsType": [
+    "udcApplicationCopyGetInputPath"
+   ],
+   "paramsKey": [
+    "path"
+   ],
+   "loader": [
+    "udcQueryLoader"
+   ],
+   "sites": 1,
+   "expected_if_standard": "udcApplicationCopyGetInputPath",
+   "standard_naming": true
+  },
+  {
+   "op": "udcApplicationSaveAsPost",
+   "has_loader_contract": true,
+   "paramsType": [
+    "udcApplicationSaveAsPostInputBody"
+   ],
+   "paramsKey": [
+    "body"
+   ],
+   "loader": [
+    "udcMutationLoader"
+   ],
+   "sites": 1,
+   "expected_if_standard": "udcApplicationSaveAsPostInputBody",
+   "standard_naming": true
+  },
+  {
+   "op": "udcCtpManagerSandboxUsePost",
+   "has_loader_contract": false,
+   "paramsType": [],
+   "paramsKey": [],
+   "loader": [],
+   "sites": 0,
+   "standard_naming": false,
+   "expected_if_standard": null
+  },
+  {
+   "op": "udcCtpManagerTransferSavePost",
+   "has_loader_contract": false,
+   "paramsType": [],
+   "paramsKey": [],
+   "loader": [],
+   "sites": 0,
+   "standard_naming": false,
+   "expected_if_standard": null
+  },
+  {
+   "op": "udcCtpManagerTransferSelectGet",
+   "has_loader_contract": true,
+   "paramsType": [
+    "udcBackendComponentSearchAppPostInputBody"
+   ],
+   "paramsKey": [],
+   "loader": [
+    "udcQueryLoader"
+   ],
+   "sites": 1,
+   "expected_if_standard": "udcCtpManagerTransferSelectGetInputBody",
+   "standard_naming": false
+  },
+  {
+   "op": "udcCustomDataTypeCreatePost",
+   "has_loader_contract": false,
+   "paramsType": [],
+   "paramsKey": [],
+   "loader": [],
+   "sites": 0,
+   "standard_naming": false,
+   "expected_if_standard": null
+  },
+  {
+   "op": "udcCustomDataTypeCustomDataTypePost",
+   "has_loader_contract": false,
+   "paramsType": [],
+   "paramsKey": [],
+   "loader": [],
+   "sites": 0,
+   "standard_naming": false,
+   "expected_if_standard": null
+  },
+  {
+   "op": "udcCustomDataTypeDeleteByIdPost",
+   "has_loader_contract": false,
+   "paramsType": [],
+   "paramsKey": [],
+   "loader": [],
+   "sites": 0,
+   "standard_naming": false,
+   "expected_if_standard": null
+  },
+  {
+   "op": "udcCustomDataTypeDeleteByIdsPost",
+   "has_loader_contract": false,
+   "paramsType": [],
+   "paramsKey": [],
+   "loader": [],
+   "sites": 0,
+   "standard_naming": false,
+   "expected_if_standard": null
+  },
+  {
+   "op": "udcCustomDataTypeSearch",
+   "has_loader_contract": true,
+   "paramsType": [
+    "udcCustomDataTypeSearchInputBody"
+   ],
+   "paramsKey": [
+    "body"
+   ],
+   "loader": [
+    "udcMutationLoader"
+   ],
+   "sites": 1,
+   "expected_if_standard": "udcCustomDataTypeSearchInputBody",
+   "standard_naming": true
+  },
+  {
+   "op": "udcCustomDataTypeUpdatePost",
+   "has_loader_contract": false,
+   "paramsType": [],
+   "paramsKey": [],
+   "loader": [],
+   "sites": 0,
+   "standard_naming": false,
+   "expected_if_standard": null
+  },
+  {
+   "op": "udcEntityDataTypesGet",
+   "has_loader_contract": false,
+   "paramsType": [],
+   "paramsKey": [],
+   "loader": [],
+   "sites": 0,
+   "standard_naming": false,
+   "expected_if_standard": null
+  },
+  {
+   "op": "udcEntityStereoEntityAppGet",
+   "has_loader_contract": false,
+   "paramsType": [],
+   "paramsKey": [],
+   "loader": [],
+   "sites": 0,
+   "standard_naming": false,
+   "expected_if_standard": null
+  },
+  {
+   "op": "udcEnvCurrentEnvGet",
+   "has_loader_contract": true,
+   "paramsType": [
+    "udcApplicationSearchNewWithVersionListPostInputBody"
+   ],
+   "paramsKey": [],
+   "loader": [
+    "udcApolloQuery"
+   ],
+   "sites": 1,
+   "expected_if_standard": "udcEnvCurrentEnvGetInputBody",
+   "standard_naming": false
+  },
+  {
+   "op": "udcFormUpgradeDeployDeletePost",
+   "has_loader_contract": false,
+   "paramsType": [],
+   "paramsKey": [],
+   "loader": [],
+   "sites": 0,
+   "standard_naming": false,
+   "expected_if_standard": null
+  },
+  {
+   "op": "udcFormUpgradeDeployExportRecordPost",
+   "has_loader_contract": false,
+   "paramsType": [],
+   "paramsKey": [],
+   "loader": [],
+   "sites": 0,
+   "standard_naming": false,
+   "expected_if_standard": null
+  },
+  {
+   "op": "udcFormUpgradeDeployListInfoPost",
+   "has_loader_contract": false,
+   "paramsType": [],
+   "paramsKey": [],
+   "loader": [],
+   "sites": 0,
+   "standard_naming": false,
+   "expected_if_standard": null
+  },
+  {
+   "op": "udcFormUpgradeDeployListRecordPost",
+   "has_loader_contract": false,
+   "paramsType": [],
+   "paramsKey": [],
+   "loader": [],
+   "sites": 0,
+   "standard_naming": false,
+   "expected_if_standard": null
+  },
+  {
+   "op": "udcFormUpgradeDeployNodeLastUpgradeResultGet",
+   "has_loader_contract": false,
+   "paramsType": [],
+   "paramsKey": [],
+   "loader": [],
+   "sites": 0,
+   "standard_naming": false,
+   "expected_if_standard": null
+  },
+  {
+   "op": "udcFormUpgradeDeployOneClickUpgradePost",
+   "has_loader_contract": false,
+   "paramsType": [],
+   "paramsKey": [],
+   "loader": [],
+   "sites": 0,
+   "standard_naming": false,
+   "expected_if_standard": null
+  },
+  {
+   "op": "udcFormUpgradeDeploySilentUpdatePost",
+   "has_loader_contract": false,
+   "paramsType": [],
+   "paramsKey": [],
+   "loader": [],
+   "sites": 0,
+   "standard_naming": false,
+   "expected_if_standard": null
+  },
+  {
+   "op": "udcMessageCategoryCreatePost",
+   "has_loader_contract": true,
+   "paramsType": [
+    "udcMessageCategoryCreatePostInputBody"
+   ],
+   "paramsKey": [
+    "body"
+   ],
+   "loader": [
+    "udcMutationLoader"
+   ],
+   "sites": 1,
+   "expected_if_standard": "udcMessageCategoryCreatePostInputBody",
+   "standard_naming": true
+  },
+  {
+   "op": "udcMessageCategoryDeletePost",
+   "has_loader_contract": true,
+   "paramsType": [
+    "udcMessageCategoryDeletePostInputBody"
+   ],
+   "paramsKey": [
+    "body"
+   ],
+   "loader": [
+    "udcMutationLoader"
+   ],
+   "sites": 1,
+   "expected_if_standard": "udcMessageCategoryDeletePostInputBody",
+   "standard_naming": true
+  },
+  {
+   "op": "udcMessageCategoryListPost",
+   "has_loader_contract": true,
+   "paramsType": [
+    "udcMessageCategoryListPostInputBody"
+   ],
+   "paramsKey": [
+    "body"
+   ],
+   "loader": [
+    "udcMutationLoader"
+   ],
+   "sites": 2,
+   "expected_if_standard": "udcMessageCategoryListPostInputBody",
+   "standard_naming": true
+  },
+  {
+   "op": "udcMessageCategoryUpdatePost",
+   "has_loader_contract": true,
+   "paramsType": [
+    "udcMessageCategoryUpdatePostInputBody"
+   ],
+   "paramsKey": [
+    "body"
+   ],
+   "loader": [
+    "udcMutationLoader"
+   ],
+   "sites": 1,
+   "expected_if_standard": "udcMessageCategoryUpdatePostInputBody",
+   "standard_naming": true
+  },
+  {
+   "op": "udcMessageLinkCreatePost",
+   "has_loader_contract": true,
+   "paramsType": [
+    "udcMessageLinkCreatePostInputBody"
+   ],
+   "paramsKey": [
+    "body"
+   ],
+   "loader": [
+    "udcMutationLoader"
+   ],
+   "sites": 1,
+   "expected_if_standard": "udcMessageLinkCreatePostInputBody",
+   "standard_naming": true
+  },
+  {
+   "op": "udcMessageLinkDeletePost",
+   "has_loader_contract": true,
+   "paramsType": [
+    "udcMessageLinkDeletePostInputBody"
+   ],
+   "paramsKey": [
+    "body"
+   ],
+   "loader": [
+    "udcMutationLoader"
+   ],
+   "sites": 1,
+   "expected_if_standard": "udcMessageLinkDeletePostInputBody",
+   "standard_naming": true
+  },
+  {
+   "op": "udcMessageLinkListPost",
+   "has_loader_contract": true,
+   "paramsType": [
+    "udcMessageLinkListPostInputBody"
+   ],
+   "paramsKey": [
+    "body"
+   ],
+   "loader": [
+    "udcMutationLoader"
+   ],
+   "sites": 2,
+   "expected_if_standard": "udcMessageLinkListPostInputBody",
+   "standard_naming": true
+  },
+  {
+   "op": "udcMessageLinkUpdatePost",
+   "has_loader_contract": true,
+   "paramsType": [
+    "udcMessageLinkUpdatePostInputBody"
+   ],
+   "paramsKey": [
+    "body"
+   ],
+   "loader": [
+    "udcMutationLoader"
+   ],
+   "sites": 1,
+   "expected_if_standard": "udcMessageLinkUpdatePostInputBody",
+   "standard_naming": true
+  },
+  {
+   "op": "udcMetaDataSelectAppListGet",
+   "has_loader_contract": false,
+   "paramsType": [],
+   "paramsKey": [],
+   "loader": [],
+   "sites": 0,
+   "standard_naming": false,
+   "expected_if_standard": null
+  },
+  {
+   "op": "udcMetaDataSelectEntityByAppNameAppNameGet",
+   "has_loader_contract": false,
+   "paramsType": [],
+   "paramsKey": [],
+   "loader": [],
+   "sites": 0,
+   "standard_naming": false,
+   "expected_if_standard": null
+  },
+  {
+   "op": "udcPageAdminV1DeleteGet",
+   "has_loader_contract": false,
+   "paramsType": [],
+   "paramsKey": [],
+   "loader": [],
+   "sites": 0,
+   "standard_naming": false,
+   "expected_if_standard": null
+  },
+  {
+   "op": "udcPageComponentAnalysisPackageGet",
+   "has_loader_contract": true,
+   "paramsType": [
+    "udcPageComponentAnalysisPackageGetInputQuery"
+   ],
+   "paramsKey": [
+    "query"
+   ],
+   "loader": [
+    "udcQueryLoader"
+   ],
+   "sites": 2,
+   "expected_if_standard": "udcPageComponentAnalysisPackageGetInputQuery",
+   "standard_naming": true
+  },
+  {
+   "op": "udcPageComponentRefreshGet",
+   "has_loader_contract": true,
+   "paramsType": [
+    "udcPageComponentRefreshGetInputQuery"
+   ],
+   "paramsKey": [
+    "query"
+   ],
+   "loader": [
+    "udcQueryLoader"
+   ],
+   "sites": 2,
+   "expected_if_standard": "udcPageComponentRefreshGetInputQuery",
+   "standard_naming": true
+  },
+  {
+   "op": "udcPageComponentSelectAllListByConditionsPost",
+   "has_loader_contract": true,
+   "paramsType": [
+    "udcPageComponentSelectAllListByConditionsPostInputBody"
+   ],
+   "paramsKey": [
+    "body"
+   ],
+   "loader": [
+    "udcQueryLoader"
+   ],
+   "sites": 2,
+   "expected_if_standard": "udcPageComponentSelectAllListByConditionsPostInputBody",
+   "standard_naming": true
+  },
+  {
+   "op": "udcPageComponentSelectByGet",
+   "has_loader_contract": true,
+   "paramsType": [
+    "udcPageComponentSelectByGetInputQuery"
+   ],
+   "paramsKey": [
+    "query"
+   ],
+   "loader": [
+    "udcQueryLoader"
+   ],
+   "sites": 2,
+   "expected_if_standard": "udcPageComponentSelectByGetInputQuery",
+   "standard_naming": true
+  },
+  {
+   "op": "udcPageComponentUpdatePost",
+   "has_loader_contract": true,
+   "paramsType": [
+    "udcPageComponentUpdatePostInputBody"
+   ],
+   "paramsKey": [
+    "body"
+   ],
+   "loader": [
+    "udcMutationLoader"
+   ],
+   "sites": 2,
+   "expected_if_standard": "udcPageComponentUpdatePostInputBody",
+   "standard_naming": true
+  },
+  {
+   "op": "udcPageComponentUploadGet",
+   "has_loader_contract": true,
+   "paramsType": [
+    "udcPageComponentUploadGetInputQuery"
+   ],
+   "paramsKey": [
+    "query"
+   ],
+   "loader": [
+    "udcQueryLoader"
+   ],
+   "sites": 2,
+   "expected_if_standard": "udcPageComponentUploadGetInputQuery",
+   "standard_naming": true
+  },
+  {
+   "op": "udcPageInfoFunctionBaseInfoCreatePost",
+   "has_loader_contract": false,
+   "paramsType": [],
+   "paramsKey": [],
+   "loader": [],
+   "sites": 0,
+   "standard_naming": false,
+   "expected_if_standard": null
+  },
+  {
+   "op": "udcPortalPortalSpaceSearch",
+   "has_loader_contract": false,
+   "paramsType": [],
+   "paramsKey": [],
+   "loader": [],
+   "sites": 0,
+   "standard_naming": false,
+   "expected_if_standard": null
+  },
+  {
+   "op": "udcPortalPortalSpaceSelectMaxSortNoGet",
+   "has_loader_contract": false,
+   "paramsType": [],
+   "paramsKey": [],
+   "loader": [],
+   "sites": 0,
+   "standard_naming": false,
+   "expected_if_standard": null
+  },
+  {
+   "op": "udcRuntimeDeployPost",
+   "has_loader_contract": true,
+   "paramsType": [
+    "udcRuntimeDeployPostInputBody"
+   ],
+   "paramsKey": [
+    "body"
+   ],
+   "loader": [
+    "udcMutationLoader"
+   ],
+   "sites": 1,
+   "expected_if_standard": "udcRuntimeDeployPostInputBody",
+   "standard_naming": true
+  },
+  {
+   "op": "udcRuntimeUpgradeAppListPost",
+   "has_loader_contract": false,
+   "paramsType": [],
+   "paramsKey": [],
+   "loader": [],
+   "sites": 0,
+   "standard_naming": false,
+   "expected_if_standard": null
+  },
+  {
+   "op": "udcRuntimeUpgradeHostAppNameListPost",
+   "has_loader_contract": false,
+   "paramsType": [],
+   "paramsKey": [],
+   "loader": [],
+   "sites": 0,
+   "standard_naming": false,
+   "expected_if_standard": null
+  },
+  {
+   "op": "udcSandboxAppCheckAlertPost",
+   "has_loader_contract": false,
+   "paramsType": [],
+   "paramsKey": [],
+   "loader": [],
+   "sites": 0,
+   "standard_naming": false,
+   "expected_if_standard": null
+  },
+  {
+   "op": "udcSandboxAppReleaseAppPost",
+   "has_loader_contract": false,
+   "paramsType": [],
+   "paramsKey": [],
+   "loader": [],
+   "sites": 0,
+   "standard_naming": false,
+   "expected_if_standard": null
+  },
+  {
+   "op": "udcSandboxAppReleaseAppStatusPost",
+   "has_loader_contract": false,
+   "paramsType": [],
+   "paramsKey": [],
+   "loader": [],
+   "sites": 0,
+   "standard_naming": false,
+   "expected_if_standard": null
+  },
+  {
+   "op": "udcSandboxBatchCleanStopPost",
+   "has_loader_contract": true,
+   "paramsType": [
+    "udcSandboxBatchCleanStopPostInputBody"
+   ],
+   "paramsKey": [
+    "body"
+   ],
+   "loader": [
+    "udcQueryLoader"
+   ],
+   "sites": 1,
+   "expected_if_standard": "udcSandboxBatchCleanStopPostInputBody",
+   "standard_naming": true
+  },
+  {
+   "op": "udcSandboxBatchStopPost",
+   "has_loader_contract": true,
+   "paramsType": [
+    "udcSandboxBatchStopPostInputBody"
+   ],
+   "paramsKey": [
+    "body"
+   ],
+   "loader": [
+    "udcQueryLoader"
+   ],
+   "sites": 1,
+   "expected_if_standard": "udcSandboxBatchStopPostInputBody",
+   "standard_naming": true
+  },
+  {
+   "op": "udcSandboxClearDataPost",
+   "has_loader_contract": true,
+   "paramsType": [
+    "String"
+   ],
+   "paramsKey": [
+    "body"
+   ],
+   "loader": [
+    "udcQueryLoader"
+   ],
+   "sites": 2,
+   "expected_if_standard": "udcSandboxClearDataPostInputBody",
+   "standard_naming": false
+  },
+  {
+   "op": "udcSandboxResourcesGet",
+   "has_loader_contract": true,
+   "paramsType": [
+    "udcSandboxBatchCleanStopPostInputBody"
+   ],
+   "paramsKey": [
+    "body"
+   ],
+   "loader": [
+    "udcQueryLoader"
+   ],
+   "sites": 1,
+   "expected_if_standard": "udcSandboxResourcesGetInputBody",
+   "standard_naming": false
+  },
+  {
+   "op": "udcSandboxRestartPost",
+   "has_loader_contract": true,
+   "paramsType": [
+    "udcSandboxRestartPostInputBody"
+   ],
+   "paramsKey": [
+    "body"
+   ],
+   "loader": [
+    "udcQueryLoader"
+   ],
+   "sites": 1,
+   "expected_if_standard": "udcSandboxRestartPostInputBody",
+   "standard_naming": true
+  },
+  {
+   "op": "udcSandboxSandboxAppsByConditionPost",
+   "has_loader_contract": true,
+   "paramsType": [
+    "udcSandboxSandboxAppsByConditionPostInputBody"
+   ],
+   "paramsKey": [
+    "body"
+   ],
+   "loader": [
+    "udcQueryLoader"
+   ],
+   "sites": 1,
+   "expected_if_standard": "udcSandboxSandboxAppsByConditionPostInputBody",
+   "standard_naming": true
+  },
+  {
+   "op": "udcSandboxStopPost",
+   "has_loader_contract": true,
+   "paramsType": [
+    "udcSandboxStopPostInputBody"
+   ],
+   "paramsKey": [
+    "body"
+   ],
+   "loader": [
+    "udcQueryLoader"
+   ],
+   "sites": 1,
+   "expected_if_standard": "udcSandboxStopPostInputBody",
+   "standard_naming": true
+  },
+  {
+   "op": "udcSandboxSystemConfigSetReleaseConfigPost",
+   "has_loader_contract": false,
+   "paramsType": [],
+   "paramsKey": [],
+   "loader": [],
+   "sites": 0,
+   "standard_naming": false,
+   "expected_if_standard": null
+  }
+ ]
+}

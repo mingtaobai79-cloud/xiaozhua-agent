@@ -1,0 +1,1 @@
+T={[a.String]:{min:0,max:4e3},[a.MultilineString]:{min:0,max:1e4},[a.Integer]:{min:-2147483648,max:2147483647},[a.BigInteger]:{min:"-9007199254740991",max:"9007199254740991"},[a.Decimal]:{min:"-9007199254740991",max:"9007199254740991"},[a.Currency]:{min:"-9007199254740991",max:"9007199254740991"}}

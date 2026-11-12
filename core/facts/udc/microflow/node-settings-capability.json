@@ -1,0 +1,2100 @@
+{
+ "_meta": {
+  "desc": "全节点配置项能力矩阵：每个配置项的 UI 标签/控件/选项/子模式联动/必填时机/取值能力/编译实证。",
+  "sources": [
+   "fixtures/microflow/node_modals/*.json",
+   "scratch/variant-evidence/VARIANTS.json",
+   "scratch/node-full-evidence/SUMMARY.json",
+   "pmp_schemas.json 语料",
+   "backBuild.log 构建实证"
+  ],
+  "value_capability_universal": "值槽三态通用：常量=Simple{simple,desc} / 引用=SelectParam{outputName,key,customs,path} / 表达式=Expression{title,schema}（经 /expression/check + /expression/transform，executableExpr 不能手拼）；条件右值仅 CONTEXT_VARIABLE(337)/CONSTANT(90)/EXPRESSION(65)",
+  "generated": "2026-10-31"
+ },
+ "nodes": {
+  "BRANCH": {
+   "caption": "分支",
+   "actionType": "BRANCH",
+   "settings": [
+    {
+     "ui_label": "条件分支",
+     "key": "conditions",
+     "when": "恒有；name 只能 ifBranch/elseIfBranch/elseBranch（build-chain.md）",
+     "required": true,
+     "control": "branch-editor",
+     "options": null,
+     "default": null
+    },
+    {
+     "ui_label": "条件表达式",
+     "key": "conditions[].expression",
+     "when": "ifBranch/elseIfBranch 必带；elseBranch 恒无（941/941）",
+     "required": true,
+     "control": "expression-editor",
+     "value_capability": "表达式（tokens 顺序=[左值,算子,右值]）",
+     "options": null,
+     "default": null
+    }
+   ],
+   "submodes": [],
+   "compile_or_ui_facts": [
+    "BRANCH 无 actionType（type=BRANCH）；conditions[].nodes 装分支体",
+    "elseBranch isCompleted=None 是常态，红点判据要排除"
+   ],
+   "evidence_files": [
+    "build-chain.md",
+    "node-field-shape-contract.md",
+    "node-full-evidence/SUMMARY.json",
+    "node_modals/BRANCH.json",
+    "variant-evidence/VARIANTS.json"
+   ]
+  },
+  "FOR_EACH": {
+   "caption": "列表循环",
+   "actionType": "FOR_EACH",
+   "settings": [
+    {
+     "ui_label": "选择列表",
+     "key": "selectParam",
+     "when": "恒有；filter: type=='ARRAY'；实体列表必带 dtoType",
+     "required": true,
+     "control": "param-picker",
+     "value_capability": "前序引用（列表型出参）",
+     "options": null,
+     "default": null
+    },
+    {
+     "ui_label": "循环对象名称",
+     "key": "targetName",
+     "when": "恒有",
+     "required": true,
+     "control": "input",
+     "options": null,
+     "default": null
+    }
+   ],
+   "submodes": [],
+   "compile_or_ui_facts": [
+    "selectParam 才是保存校验认的字段，foreach.sourceItemes 是前端容器用；实体列表 selectParam 必带 dtoType",
+    "type=FOR_EACH、无 actionType；foreach.sourceItemes 是前端容器用，保存校验只认 selectParam",
+    "画布卡片文本是「循环列表：」"
+   ],
+   "evidence_files": [
+    "build-chain.md",
+    "node-field-shape-contract.md",
+    "node-full-evidence/SUMMARY.json",
+    "node_modals/FOR_EACH.json",
+    "variant-evidence/VARIANTS.json"
+   ]
+  },
+  "FOR": {
+   "caption": "计数循环",
+   "actionType": "FOR",
+   "settings": [
+    {
+     "ui_label": "开始/结束/步长",
+     "key": "forStart/forEnd/forStep",
+     "when": "恒有（forStep=数字模板 1）",
+     "required": true,
+     "control": "value-slot",
+     "value_capability": "常量/表达式（forEnd 可用 roundOffFloor 等函数表达式）",
+     "options": null,
+     "default": null
+    },
+    {
+     "ui_label": "循环变量名",
+     "key": "targetName",
+     "when": "恒有（计数循环变量_1）",
+     "required": true,
+     "control": "input",
+     "options": null,
+     "default": null
+    },
+    {
+     "ui_label": "比较符",
+     "key": "operator",
+     "when": "恒有（模板 <=）",
+     "required": true,
+     "control": "select",
+     "options": [
+      "<=",
+      "<",
+      ">=",
+      ">",
+      "=="
+     ],
+     "default": "<="
+    }
+   ],
+   "submodes": [],
+   "compile_or_ui_facts": [
+    "FOR 的 foreach=null（FOR_EACH 才有 foreach 对象）；type=FOR + actionType=FOR",
+    "缺 forEnd → C-FOR 契约闸门拦"
+   ],
+   "evidence_files": [
+    "build-chain.md",
+    "node-field-shape-contract.md",
+    "node-full-evidence/SUMMARY.json",
+    "node_modals/FOR.json",
+    "variant-evidence/VARIANTS.json"
+   ]
+  },
+  "CUSTOM_ERROR": {
+   "caption": "自定义错误",
+   "actionType": "CUSTOM_ERROR",
+   "settings": [
+    {
+     "key": null,
+     "ui_label": "错误提示方式",
+     "control": null,
+     "options": [
+      "全局提示",
+      "定位到页面元素"
+     ],
+     "default": null,
+     "required": null,
+     "when": "",
+     "source": "node_modals"
+    },
+    {
+     "key": null,
+     "ui_label": "填写错误",
+     "control": null,
+     "options": null,
+     "default": null,
+     "required": true,
+     "when": "全局提示模式下：抛出错误信息(必填)",
+     "source": "node_modals"
+    },
+    {
+     "key": null,
+     "ui_label": "原始数据",
+     "control": null,
+     "options": null,
+     "default": null,
+     "required": true,
+     "when": "定位模式：原始数据",
+     "source": "node_modals"
+    },
+    {
+     "key": null,
+     "ui_label": "错误数据",
+     "control": null,
+     "options": null,
+     "default": null,
+     "required": true,
+     "when": "定位模式：错误数据",
+     "source": "node_modals"
+    },
+    {
+     "key": null,
+     "ui_label": "定位字段",
+     "control": null,
+     "options": null,
+     "default": null,
+     "required": true,
+     "when": "定位模式：定位字段",
+     "source": "node_modals"
+    }
+   ],
+   "submodes": [
+    {
+     "mode_field": "错误提示方式",
+     "mode": "全局提示",
+     "fields_added": [],
+     "fields_removed": [],
+     "required": [
+      "填写错误"
+     ]
+    },
+    {
+     "mode_field": "错误提示方式",
+     "mode": "定位到页面元素",
+     "fields_added": [
+      "原始数据",
+      "定位字段",
+      "错误数据"
+     ],
+     "fields_removed": [],
+     "required": [
+      "原始数据",
+      "错误数据",
+      "定位字段",
+      "填写错误"
+     ]
+    }
+   ],
+   "compile_or_ui_facts": [],
+   "evidence_files": [
+    "node_modals/CUSTOM_ERROR.json",
+    "variant-evidence/VARIANTS.json",
+    "node-full-evidence/SUMMARY.json"
+   ]
+  },
+  "CREATE_VARIABLE": {
+   "caption": "创建变量",
+   "actionType": "CREATE_VARIABLE",
+   "settings": [
+    {
+     "key": "paramType",
+     "ui_label": "变量类型",
+     "control": null,
+     "options": null,
+     "default": null,
+     "required": true,
+     "when": "",
+     "source": "VARIANTS.default"
+    },
+    {
+     "key": "dataType",
+     "ui_label": "数据类型",
+     "control": null,
+     "options": null,
+     "default": null,
+     "required": true,
+     "when": "",
+     "source": "VARIANTS.default"
+    },
+    {
+     "key": null,
+     "ui_label": "默认值",
+     "control": null,
+     "options": null,
+     "default": null,
+     "required": false,
+     "when": "",
+     "source": "VARIANTS.default"
+    },
+    {
+     "key": null,
+     "ui_label": "节点出参名称",
+     "control": null,
+     "options": null,
+     "default": null,
+     "required": true,
+     "when": "",
+     "source": "VARIANTS.default"
+    }
+   ],
+   "submodes": [
+    {
+     "mode_field": "变量类型",
+     "mode": "基本类型",
+     "fields_added": [],
+     "fields_removed": [],
+     "required": [
+      "变量类型",
+      "数据类型",
+      "节点出参名称"
+     ]
+    },
+    {
+     "mode_field": "变量类型",
+     "mode": "实体对象",
+     "fields_added": [
+      "实体对象",
+      "选择应用"
+     ],
+     "fields_removed": [
+      "数据类型",
+      "默认值"
+     ],
+     "required": [
+      "变量类型",
+      "选择应用",
+      "实体对象",
+      "节点出参名称"
+     ]
+    },
+    {
+     "mode_field": "变量类型",
+     "mode": "自定义对象",
+     "fields_added": [
+      "自定义对象",
+      "选择应用"
+     ],
+     "fields_removed": [
+      "数据类型",
+      "默认值"
+     ],
+     "required": [
+      "变量类型",
+      "选择应用",
+      "自定义对象",
+      "节点出参名称"
+     ]
+    },
+    {
+     "mode_field": "变量类型",
+     "mode": "选项集",
+     "fields_added": [
+      "选择应用",
+      "选项集"
+     ],
+     "fields_removed": [
+      "数据类型"
+     ],
+     "required": [
+      "变量类型",
+      "选择应用",
+      "选项集",
+      "节点出参名称"
+     ]
+    },
+    {
+     "mode_field": "变量类型",
+     "mode": "元数据",
+     "fields_added": [
+      "元数据类型",
+      "选择元数据",
+      "选择应用"
+     ],
+     "fields_removed": [
+      "数据类型",
+      "默认值"
+     ],
+     "required": [
+      "变量类型",
+      "选择应用",
+      "元数据类型",
+      "选择元数据",
+      "节点出参名称"
+     ]
+    },
+    {
+     "mode_field": "变量类型",
+     "mode": "事件对象",
+     "fields_added": [
+      "事件对象",
+      "选择应用"
+     ],
+     "fields_removed": [
+      "数据类型",
+      "默认值"
+     ],
+     "required": [
+      "变量类型",
+      "选择应用",
+      "事件对象",
+      "节点出参名称"
+     ]
+    },
+    {
+     "mode_field": "变量类型",
+     "mode": "其他",
+     "fields_added": [
+      "其他类型",
+      "排序规则",
+      "自定义对象",
+      "选择应用"
+     ],
+     "fields_removed": [
+      "数据类型",
+      "默认值"
+     ],
+     "required": [
+      "变量类型",
+      "其他类型",
+      "选择应用",
+      "自定义对象",
+      "排序规则",
+      "节点出参名称"
+     ]
+    }
+   ],
+   "compile_or_ui_facts": [
+    "BASIC 引用前序 BASIC 出参：selectParam.id/dtoType 必须空串（G17，PageInfo 模板残留）",
+    "语料 1644 条：mappingType 仅实体型必带（attrs=字段映射/value=对象引用/mapping=自动映射）；BASIC 无此键，模式由 value 形态表达",
+    "BASIC+SelectParam 引用 25/25 带 selectParam.path、23/25 带 customs 块（sourceType=ENTITY/SYSTEM）",
+    "attrType 引用四键 refId/relationEntity/relationEntityId/filterRelationEntity 缺一即红字（G25）",
+    "实体对象下「赋值方式」三形态：mappingType=attrs(字段映射)/value(对象引用)/mapping(自动映射)，必须显式二选一显带；BASIC 无 mappingType。",
+    "value 形态（36 条语料）：value={type:SelectParam,selectParam:{...}}，节点上恒无 attrs 键（None 也不行）；selectParam 位置 parent 时键集=description/dataType/outputName/position/udcApp/dtoType/appName/path/id/name/type/javaType/relationEntity/relationEntityFullName/nodeInfo{nodeId,type,actionType,entityCaption}/key=<outputName><Dto全名>/iconKey/parentLabel/disabled。",
+    "mapping 形态（35 条语料）：payload 是 mapping[] 行 {attrType:16键字段元数据, value:{type:SelectParam(2374/2374), desc, selectParam}}，且节点必须带 selectParam(源对象引用) 与 attrs=null。",
+    "★模板陷阱：node_templates/CREATE_VARIABLE.json 基座曾带 otherType=SYSTEM_PAGE_INFO/nodeRemark，校验器见 otherType 走 OTHER 分支，value/mapping 形态全被 DATA_INVALID 误杀（错误路径=创建变量.mapping.value.type）。",
+    "平台实证 2026-10-31：两形态最小流 checkSchema check=True + UI 检查按钮 errors=[]，验后即删（归档 _attic_pending/cv-forms-probes）。"
+   ],
+   "evidence_files": [
+    "node_modals/CREATE_VARIABLE.json",
+    "variant-evidence/VARIANTS.json",
+    "node-full-evidence/SUMMARY.json"
+   ]
+  },
+  "CHANGE_VARIABLE": {
+   "caption": "修改变量",
+   "actionType": "CHANGE_VARIABLE",
+   "settings": [
+    {
+     "key": null,
+     "ui_label": "变量",
+     "control": "select",
+     "options": null,
+     "default": null,
+     "required": true,
+     "when": "下拉列出前序节点已创建的变量（= selectParam 引用源）",
+     "source": "node_modals"
+    },
+    {
+     "key": null,
+     "ui_label": "变量值",
+     "control": "value-editor",
+     "options": null,
+     "default": null,
+     "required": true,
+     "when": "值编辑器三态：Simple 常量 / SelectParam 引用 / Expression 表达式",
+     "source": "node_modals"
+    }
+   ],
+   "submodes": [],
+   "compile_or_ui_facts": [
+    "mappingType=attrs 时 attrType 同四键（G27，原闸门只查 CREATE_VARIABLE 漏修改变量）",
+    "赋值方式不选/缺失 → 前端不知道生成什么类型代码，依赖配置不出现（用户实测 2026-10-31）"
+   ],
+   "evidence_files": [
+    "node_modals/CHANGE_VARIABLE.json",
+    "variant-evidence/VARIANTS.json",
+    "node-full-evidence/SUMMARY.json"
+   ]
+  },
+  "CREATE_MAP": {
+   "caption": "创建映射组",
+   "actionType": "CREATE_MAP",
+   "settings": [
+    {
+     "key": null,
+     "ui_label": "添加映射",
+     "control": null,
+     "options": null,
+     "default": null,
+     "required": null,
+     "when": "键(请输入映射的键key) + 值(请选择键对应的值)，多组键值对，+添加键值对",
+     "source": "node_modals"
+    },
+    {
+     "key": null,
+     "ui_label": "节点出参名称",
+     "control": null,
+     "options": null,
+     "default": "映射组_1",
+     "required": true,
+     "when": "",
+     "source": "node_modals"
+    }
+   ],
+   "submodes": [],
+   "compile_or_ui_facts": [],
+   "evidence_files": [
+    "node_modals/CREATE_MAPPING_GROUP.json",
+    "variant-evidence/VARIANTS.json",
+    "node-full-evidence/SUMMARY.json"
+   ]
+  },
+  "MAP_OPERATION": {
+   "caption": "映射操作",
+   "actionType": "MAP_OPERATION",
+   "settings": [
+    {
+     "key": "rc_select_309",
+     "ui_label": "选择映射",
+     "control": null,
+     "options": null,
+     "default": null,
+     "required": true,
+     "when": "",
+     "source": "VARIANTS.default"
+    },
+    {
+     "key": "operationType",
+     "ui_label": "操作类型",
+     "control": null,
+     "options": null,
+     "default": null,
+     "required": true,
+     "when": "",
+     "source": "VARIANTS.default"
+    },
+    {
+     "key": null,
+     "ui_label": "该值的映射键",
+     "control": null,
+     "options": null,
+     "default": null,
+     "required": true,
+     "when": "",
+     "source": "VARIANTS.default"
+    },
+    {
+     "key": "paramType",
+     "ui_label": "映射值类型",
+     "control": null,
+     "options": null,
+     "default": null,
+     "required": true,
+     "when": "",
+     "source": "VARIANTS.default"
+    },
+    {
+     "key": "basic",
+     "ui_label": "数据类型",
+     "control": null,
+     "options": null,
+     "default": null,
+     "required": true,
+     "when": "",
+     "source": "VARIANTS.default"
+    },
+    {
+     "key": "arrayOrObject",
+     "ui_label": "是否列表",
+     "control": null,
+     "options": null,
+     "default": null,
+     "required": true,
+     "when": "",
+     "source": "VARIANTS.default"
+    },
+    {
+     "key": null,
+     "ui_label": "节点出参名称",
+     "control": null,
+     "options": null,
+     "default": null,
+     "required": true,
+     "when": "",
+     "source": "VARIANTS.default"
+    },
+    {
+     "key": "nullHandling",
+     "ui_label": "未获取到数据时",
+     "control": null,
+     "options": null,
+     "default": null,
+     "required": false,
+     "when": "",
+     "source": "VARIANTS.default"
+    },
+    {
+     "key": "nullPromptMessage",
+     "ui_label": "提示内容",
+     "control": null,
+     "options": null,
+     "default": null,
+     "required": true,
+     "when": "",
+     "source": "VARIANTS.default"
+    }
+   ],
+   "submodes": [
+    {
+     "mode_field": "操作类型",
+     "mode": "获取",
+     "fields_added": [],
+     "fields_removed": [],
+     "required": [
+      "选择映射",
+      "操作类型",
+      "该值的映射键",
+      "映射值类型",
+      "数据类型",
+      "是否列表",
+      "节点出参名称",
+      "提示内容"
+     ]
+    },
+    {
+     "mode_field": "操作类型",
+     "mode": "赋值",
+     "fields_added": [
+      "添加映射"
+     ],
+     "fields_removed": [
+      "提示内容",
+      "数据类型",
+      "映射值类型",
+      "是否列表",
+      "未获取到数据时",
+      "节点出参名称",
+      "该值的映射键"
+     ],
+     "required": [
+      "选择映射",
+      "操作类型",
+      "添加映射"
+     ]
+    },
+    {
+     "mode_field": "操作类型",
+     "mode": "删除",
+     "fields_added": [
+      "要删除的键"
+     ],
+     "fields_removed": [
+      "提示内容",
+      "数据类型",
+      "映射值类型",
+      "是否列表",
+      "未获取到数据时",
+      "节点出参名称",
+      "该值的映射键"
+     ],
+     "required": [
+      "选择映射",
+      "操作类型",
+      "要删除的键"
+     ]
+    },
+    {
+     "mode_field": "操作类型",
+     "mode": "获取键列表",
+     "fields_added": [],
+     "fields_removed": [
+      "提示内容",
+      "数据类型",
+      "映射值类型",
+      "是否列表",
+      "未获取到数据时",
+      "该值的映射键"
+     ],
+     "required": [
+      "选择映射",
+      "操作类型",
+      "节点出参名称"
+     ]
+    }
+   ],
+   "compile_or_ui_facts": [
+    "basic 必须是选项对象 {label,value,key,dataType}，裸字符串 → 抽屉空占位 + structure 展开成字符下标垃圾（G9）",
+    "GET 必填 selectMap/operationType/theKey/basic/arrayOrObject；entries 只对 PUT，GET 必须删；GET nullHandling 语料全 CONTINUE",
+    "真实下拉选项：获取/赋值/删除/获取键列表（分组标题不是选项，node-variants §2.2）"
+   ],
+   "evidence_files": [
+    "node_modals/MAPPING_OPERATION.json",
+    "variant-evidence/VARIANTS.json",
+    "node-full-evidence/SUMMARY.json"
+   ]
+  },
+  "CREATE_LIST": {
+   "caption": "创建列表",
+   "actionType": "CREATE_LIST",
+   "settings": [
+    {
+     "ui_label": "数据类型",
+     "key": "dataType",
+     "when": "恒有",
+     "required": true,
+     "control": "select",
+     "options": [
+      "STRING",
+      "INTEGER",
+      "DTO"
+     ],
+     "default": null
+    },
+    {
+     "ui_label": "默认值",
+     "key": "value",
+     "when": "可选（母版无 value 也发布；BASIC 分支 valueComponent 三态）",
+     "required": false,
+     "control": "value-slot",
+     "value_capability": "常量/引用/表达式",
+     "options": null,
+     "default": null
+    },
+    {
+     "ui_label": "structure",
+     "key": "structure",
+     "when": "DTO 列表必带（C- 契约闸门）",
+     "required": true,
+     "control": null,
+     "options": null,
+     "default": null
+    }
+   ],
+   "submodes": [],
+   "compile_or_ui_facts": [
+    "value 缺键也会被 C- 闸门要求「可为空但不能没有」"
+   ],
+   "evidence_files": [
+    "build-chain.md",
+    "node-field-shape-contract.md",
+    "node-full-evidence/SUMMARY.json",
+    "node_modals/CREATE_LIST.json",
+    "variant-evidence/VARIANTS.json"
+   ]
+  },
+  "CHANGE_LIST": {
+   "caption": "修改列表",
+   "actionType": "CHANGE_LIST",
+   "settings": [
+    {
+     "key": null,
+     "ui_label": "选择列表",
+     "control": null,
+     "options": null,
+     "default": null,
+     "required": true,
+     "when": "引用列表变量，如 列表_1[小爪实验实体950795V2][多条数据]",
+     "source": "node_modals"
+    },
+    {
+     "key": null,
+     "ui_label": "操作类型",
+     "control": null,
+     "options": [
+      "增加",
+      "全量替换",
+      "删除",
+      "清空"
+     ],
+     "default": null,
+     "required": true,
+     "when": "",
+     "source": "node_modals"
+    },
+    {
+     "key": "rc_select_291",
+     "ui_label": "列表/对象",
+     "control": null,
+     "options": null,
+     "default": null,
+     "required": true,
+     "when": "",
+     "source": "VARIANTS.default"
+    }
+   ],
+   "submodes": [
+    {
+     "mode_field": "操作类型",
+     "mode": "增加",
+     "fields_added": [],
+     "fields_removed": [],
+     "required": [
+      "选择列表",
+      "操作类型",
+      "列表/对象"
+     ]
+    },
+    {
+     "mode_field": "操作类型",
+     "mode": "全量替换",
+     "fields_added": [],
+     "fields_removed": [],
+     "required": [
+      "选择列表",
+      "操作类型",
+      "列表/对象"
+     ]
+    },
+    {
+     "mode_field": "操作类型",
+     "mode": "删除",
+     "fields_added": [],
+     "fields_removed": [],
+     "required": [
+      "选择列表",
+      "操作类型",
+      "列表/对象"
+     ]
+    },
+    {
+     "mode_field": "操作类型",
+     "mode": "清空",
+     "fields_added": [],
+     "fields_removed": [
+      "列表/对象"
+     ],
+     "required": [
+      "选择列表",
+      "操作类型"
+     ]
+    }
+   ],
+   "compile_or_ui_facts": [
+    "action 必填；dataSource 不能留模板值（指向模板兄弟节点 → 「引用的参数已失效」红框）"
+   ],
+   "evidence_files": [
+    "node_modals/MODIFY_LIST.json",
+    "variant-evidence/VARIANTS.json",
+    "node-full-evidence/SUMMARY.json"
+   ]
+  },
+  "LIST_OPERATION": {
+   "caption": "列表操作",
+   "actionType": "LIST_OPERATION",
+   "settings": [
+    {
+     "key": null,
+     "ui_label": "选择列表",
+     "control": null,
+     "options": null,
+     "default": null,
+     "required": true,
+     "when": "引用列表变量",
+     "source": "node_modals"
+    },
+    {
+     "key": null,
+     "ui_label": "操作类型",
+     "control": null,
+     "options": null,
+     "default": null,
+     "required": true,
+     "when": "",
+     "source": "node_modals"
+    },
+    {
+     "key": null,
+     "ui_label": "节点出参名称",
+     "control": null,
+     "options": null,
+     "default": "列表处理后结果_1",
+     "required": true,
+     "when": "",
+     "source": "node_modals"
+    },
+    {
+     "key": "rc_select_301",
+     "ui_label": "操作数据",
+     "control": null,
+     "options": null,
+     "default": null,
+     "required": true,
+     "when": "",
+     "source": "VARIANTS.default"
+    }
+   ],
+   "submodes": [
+    {
+     "mode_field": "操作类型",
+     "mode": "计数",
+     "fields_added": [],
+     "fields_removed": [
+      "操作数据"
+     ],
+     "required": [
+      "选择列表",
+      "操作类型",
+      "节点出参名称"
+     ]
+    },
+    {
+     "mode_field": "操作类型",
+     "mode": "过滤",
+     "fields_added": [
+      "过滤条件"
+     ],
+     "fields_removed": [
+      "操作数据"
+     ],
+     "required": [
+      "选择列表",
+      "操作类型",
+      "过滤条件",
+      "节点出参名称"
+     ]
+    },
+    {
+     "mode_field": "操作类型",
+     "mode": "去重",
+     "fields_added": [],
+     "fields_removed": [
+      "操作数据"
+     ],
+     "required": [
+      "选择列表",
+      "操作类型",
+      "节点出参名称"
+     ]
+    },
+    {
+     "mode_field": "操作类型",
+     "mode": "第一条",
+     "fields_added": [],
+     "fields_removed": [
+      "操作数据"
+     ],
+     "required": [
+      "选择列表",
+      "操作类型",
+      "节点出参名称"
+     ]
+    },
+    {
+     "mode_field": "操作类型",
+     "mode": "最后一条",
+     "fields_added": [],
+     "fields_removed": [
+      "操作数据"
+     ],
+     "required": [
+      "选择列表",
+      "操作类型",
+      "节点出参名称"
+     ]
+    },
+    {
+     "mode_field": "操作类型",
+     "mode": "第N条",
+     "fields_added": [
+      "第几条"
+     ],
+     "fields_removed": [
+      "操作数据"
+     ],
+     "required": [
+      "选择列表",
+      "操作类型",
+      "第几条",
+      "节点出参名称"
+     ]
+    }
+   ],
+   "compile_or_ui_facts": [
+    "真实操作选项：计数/过滤/去重/第一条/最后一条/第N条（分组标题非选项）"
+   ],
+   "evidence_files": [
+    "node_modals/LIST_OPERATION.json",
+    "variant-evidence/VARIANTS.json",
+    "node-full-evidence/SUMMARY.json"
+   ]
+  },
+  "RETRIEVE": {
+   "caption": "查询单条数据",
+   "actionType": "RETRIEVE",
+   "settings": [
+    {
+     "key": null,
+     "ui_label": "查询方式",
+     "control": "toggle",
+     "options": [
+      "条件查询",
+      "ID查询"
+     ],
+     "default": "条件查询",
+     "required": true,
+     "when": "",
+     "source": "node_modals"
+    },
+    {
+     "key": null,
+     "ui_label": "选择应用",
+     "control": "select",
+     "options": null,
+     "default": "数据迁移 (当前应用)",
+     "required": true,
+     "when": "",
+     "source": "node_modals"
+    },
+    {
+     "key": null,
+     "ui_label": "选择实体",
+     "control": "select",
+     "options": null,
+     "default": null,
+     "required": true,
+     "when": "",
+     "source": "node_modals"
+    },
+    {
+     "key": null,
+     "ui_label": "过滤条件",
+     "control": "condition-editor",
+     "options": null,
+     "default": null,
+     "required": false,
+     "when": "",
+     "source": "node_modals"
+    },
+    {
+     "key": null,
+     "ui_label": "排序规则",
+     "control": "sort-editor",
+     "options": null,
+     "default": null,
+     "required": false,
+     "when": "",
+     "source": "node_modals"
+    },
+    {
+     "key": null,
+     "ui_label": "查询聚合对象",
+     "control": "radio",
+     "options": [
+      "关闭",
+      "开启"
+     ],
+     "default": "关闭",
+     "required": false,
+     "when": "",
+     "source": "node_modals"
+    },
+    {
+     "key": null,
+     "ui_label": "选择该记录的ID",
+     "control": "param-picker",
+     "options": null,
+     "default": null,
+     "required": true,
+     "when": "仅 ID查询 模式，引用变量/字段",
+     "source": "node_modals"
+    },
+    {
+     "key": null,
+     "ui_label": "节点出参名称",
+     "control": "input",
+     "options": null,
+     "default": null,
+     "required": true,
+     "when": "",
+     "source": "node_modals"
+    },
+    {
+     "key": null,
+     "ui_label": "未查到数据时",
+     "control": "radio",
+     "options": [
+      "终止流程，并显示提示(TERMINATION)",
+      "继续执行，自行处理空值判断(CONTINUE)"
+     ],
+     "default": "TERMINATION",
+     "required": false,
+     "when": "",
+     "source": "node_modals"
+    },
+    {
+     "key": null,
+     "ui_label": "提示内容",
+     "control": "input",
+     "options": null,
+     "default": null,
+     "required": true,
+     "when": "仅当未查到数据时=终止流程 才出现，必填",
+     "source": "node_modals"
+    }
+   ],
+   "submodes": [
+    {
+     "mode_field": "查询方式",
+     "mode": "条件查询",
+     "fields_added": [],
+     "fields_removed": [],
+     "required": [
+      "选择应用",
+      "选择实体",
+      "节点出参名称",
+      "提示内容"
+     ]
+    },
+    {
+     "mode_field": "查询方式",
+     "mode": "ID查询",
+     "fields_added": [
+      "选择该记录的ID"
+     ],
+     "fields_removed": [
+      "排序规则",
+      "查询聚合对象",
+      "过滤条件"
+     ],
+     "required": [
+      "选择应用",
+      "选择实体",
+      "选择该记录的ID",
+      "节点出参名称",
+      "提示内容"
+     ]
+    }
+   ],
+   "compile_or_ui_facts": [
+    "条件右值只有 CONTEXT_VARIABLE/CONSTANT/EXPRESSION 三形态，Simple → BOOT_1001 Parameter Error（condition_group 归一）"
+   ],
+   "evidence_files": [
+    "node_modals/RETRIEVE.json",
+    "variant-evidence/VARIANTS.json",
+    "node-full-evidence/SUMMARY.json"
+   ]
+  },
+  "RETRIEVE_ARRAY": {
+   "caption": "查询多条数据",
+   "actionType": "RETRIEVE_ARRAY",
+   "settings": [
+    {
+     "key": null,
+     "ui_label": "选择应用",
+     "control": null,
+     "options": null,
+     "default": null,
+     "required": null,
+     "when": "仅「条件查询」模式",
+     "source": "node_modals"
+    },
+    {
+     "key": null,
+     "ui_label": "选择实体",
+     "control": null,
+     "options": null,
+     "default": null,
+     "required": null,
+     "when": "仅「条件查询」模式",
+     "source": "node_modals"
+    },
+    {
+     "key": null,
+     "ui_label": "筛选条件",
+     "control": null,
+     "options": null,
+     "default": null,
+     "required": null,
+     "when": "仅「条件查询」模式",
+     "source": "node_modals"
+    },
+    {
+     "key": null,
+     "ui_label": "排序规则",
+     "control": null,
+     "options": null,
+     "default": null,
+     "required": null,
+     "when": "仅「条件查询」模式",
+     "source": "node_modals"
+    },
+    {
+     "key": null,
+     "ui_label": "分页查询",
+     "control": null,
+     "options": null,
+     "default": null,
+     "required": null,
+     "when": "仅「条件查询」模式",
+     "source": "node_modals"
+    },
+    {
+     "key": null,
+     "ui_label": "分页数据",
+     "control": null,
+     "options": null,
+     "default": null,
+     "required": null,
+     "when": "仅「条件查询」模式",
+     "source": "node_modals"
+    },
+    {
+     "key": null,
+     "ui_label": "节点出参名称",
+     "control": null,
+     "options": null,
+     "default": null,
+     "required": null,
+     "when": "仅「条件查询」模式",
+     "source": "node_modals"
+    },
+    {
+     "key": null,
+     "ui_label": "选择该记录的ID集合",
+     "control": null,
+     "options": null,
+     "default": null,
+     "required": null,
+     "when": "仅「ID集合查询」模式",
+     "source": "node_modals"
+    },
+    {
+     "key": null,
+     "ui_label": "聚合方法",
+     "control": null,
+     "options": null,
+     "default": null,
+     "required": null,
+     "when": "仅「其他聚合查询」模式",
+     "source": "node_modals"
+    },
+    {
+     "key": null,
+     "ui_label": "计算字段",
+     "control": null,
+     "options": null,
+     "default": null,
+     "required": null,
+     "when": "仅「其他聚合查询」模式",
+     "source": "node_modals"
+    },
+    {
+     "key": "fetchType",
+     "ui_label": "查询方式",
+     "control": null,
+     "options": null,
+     "default": null,
+     "required": false,
+     "when": "",
+     "source": "VARIANTS.default"
+    }
+   ],
+   "submodes": [
+    {
+     "mode_field": "查询方式",
+     "mode": "条件查询",
+     "fields_added": [],
+     "fields_removed": [],
+     "required": [
+      "选择应用",
+      "选择实体",
+      "分页数据",
+      "节点出参名称"
+     ]
+    },
+    {
+     "mode_field": "查询方式",
+     "mode": "ID集合查询",
+     "fields_added": [
+      "选择该记录的ID集合"
+     ],
+     "fields_removed": [
+      "分页数据",
+      "分页查询",
+      "排序规则",
+      "筛选条件"
+     ],
+     "required": [
+      "选择应用",
+      "选择实体",
+      "选择该记录的ID集合",
+      "节点出参名称"
+     ]
+    },
+    {
+     "mode_field": "查询方式",
+     "mode": "查询总数",
+     "fields_added": [],
+     "fields_removed": [
+      "分页数据",
+      "分页查询",
+      "排序规则"
+     ],
+     "required": [
+      "选择应用",
+      "选择实体",
+      "节点出参名称"
+     ]
+    },
+    {
+     "mode_field": "查询方式",
+     "mode": "其他聚合查询",
+     "fields_added": [
+      "聚合方法",
+      "计算字段"
+     ],
+     "fields_removed": [
+      "分页数据",
+      "分页查询",
+      "排序规则"
+     ],
+     "required": [
+      "选择应用",
+      "选择实体",
+      "聚合方法",
+      "计算字段",
+      "节点出参名称"
+     ]
+    }
+   ],
+   "compile_or_ui_facts": [
+    "pageSearch 是字符串 \"false\"（默认 \"true\" 会把 pageInfo 变必填阻塞保存，node-variants §2.4）"
+   ],
+   "evidence_files": [
+    "node_modals/RETRIEVE_ARRAY.json",
+    "variant-evidence/VARIANTS.json",
+    "node-full-evidence/SUMMARY.json"
+   ]
+  },
+  "CREATE_ENTITY": {
+   "caption": "插入数据",
+   "actionType": "CREATE_ENTITY",
+   "settings": [
+    {
+     "key": null,
+     "ui_label": "选择应用",
+     "control": "select",
+     "options": null,
+     "default": "数据迁移 (当前应用)",
+     "required": true,
+     "when": "",
+     "source": "node_modals"
+    },
+    {
+     "key": null,
+     "ui_label": "选择实体",
+     "control": "select",
+     "options": null,
+     "default": null,
+     "required": true,
+     "when": "选实体后触发字段回填(attributes)",
+     "source": "node_modals"
+    },
+    {
+     "key": null,
+     "ui_label": "赋值方式",
+     "control": "tabs",
+     "options": [
+      "字段映射(attrs)",
+      "对象引用(value)"
+     ],
+     "default": null,
+     "required": true,
+     "when": "",
+     "source": "node_modals"
+    },
+    {
+     "key": null,
+     "ui_label": "字段赋值",
+     "control": "mapping-rows",
+     "options": null,
+     "default": null,
+     "required": false,
+     "when": "仅当选择实体后渲染：字段下拉 + 值编辑器 + 添加字段",
+     "source": "node_modals"
+    },
+    {
+     "key": null,
+     "ui_label": "节点出参名称",
+     "control": "input",
+     "options": null,
+     "default": null,
+     "required": true,
+     "when": "",
+     "source": "node_modals"
+    }
+   ],
+   "submodes": [
+    {
+     "mode_field": "赋值方式",
+     "mode": "字段映射",
+     "fields_added": [],
+     "fields_removed": [],
+     "required": [
+      "选择应用",
+      "选择实体",
+      "赋值方式",
+      "节点出参名称"
+     ]
+    },
+    {
+     "mode_field": "赋值方式",
+     "mode": "对象引用",
+     "fields_added": [],
+     "fields_removed": [],
+     "required": [
+      "选择应用",
+      "选择实体",
+      "赋值方式",
+      "节点出参名称"
+     ]
+    }
+   ],
+   "compile_or_ui_facts": [
+    "G19：出参必须是影响行数（dataType=BIGINTEGER/INTEGER、dtoType 空），DTO 出参 → SingleResponse<Integer> 无法赋给 Dto 编译失败",
+    "value 应为 null，赋值走 attrs（node-field-shape-contract §6）"
+   ],
+   "evidence_files": [
+    "node_modals/CREATE_ENTITY.json",
+    "variant-evidence/VARIANTS.json",
+    "node-full-evidence/SUMMARY.json"
+   ]
+  },
+  "CREATE_BATCH_ENTITY": {
+   "caption": "批量插入数据",
+   "actionType": "CREATE_BATCH_ENTITY",
+   "settings": [
+    {
+     "key": null,
+     "ui_label": "选择插入的记录列表",
+     "control": "param-picker",
+     "options": null,
+     "default": null,
+     "required": true,
+     "when": "引用实体【列表/多条数据】，如 实体实验-base2列表_2[多条数据]",
+     "source": "node_modals"
+    },
+    {
+     "key": null,
+     "ui_label": "节点出参名称",
+     "control": "input",
+     "options": null,
+     "default": null,
+     "required": true,
+     "when": "如 批量插入实体实验-base2的数量_1",
+     "source": "node_modals"
+    }
+   ],
+   "submodes": [],
+   "compile_or_ui_facts": [
+    "G19：出参=影响行数；吃列表（创建列表/前序列表出参/RETRIEVE_ARRAY）"
+   ],
+   "evidence_files": [
+    "node_modals/CREATE_BATCH_ENTITY.json",
+    "variant-evidence/VARIANTS.json",
+    "node-full-evidence/SUMMARY.json"
+   ]
+  },
+  "CHANGE_ENTITY": {
+   "caption": "更新数据",
+   "actionType": "CHANGE_ENTITY",
+   "settings": [
+    {
+     "key": null,
+     "ui_label": "选择更新的数据",
+     "control": "param-picker",
+     "options": null,
+     "default": null,
+     "required": true,
+     "when": "引用实体变量(如 vKey[小爪实验实体950795V2])",
+     "source": "node_modals"
+    },
+    {
+     "key": null,
+     "ui_label": "字段赋值",
+     "control": "mapping-rows",
+     "options": null,
+     "default": null,
+     "required": false,
+     "when": "字段行(字段下拉+值编辑器) + 添加字段 + 批量添加(checkbox多选)；值=引用/高级模式(表达式)/空值[系统预制]",
+     "source": "node_modals"
+    },
+    {
+     "key": null,
+     "ui_label": "节点出参名称",
+     "control": "input",
+     "options": null,
+     "default": null,
+     "required": true,
+     "when": "如 更新XX成功的数量_1",
+     "source": "node_modals"
+    }
+   ],
+   "submodes": [],
+   "compile_or_ui_facts": [
+    "G19：出参=影响行数；赋值方式是级联字段，未选「选择更新的数据」前不渲染（node-variants §2.3）"
+   ],
+   "evidence_files": [
+    "node_modals/CHANGE_ENTITY.json",
+    "variant-evidence/VARIANTS.json",
+    "node-full-evidence/SUMMARY.json"
+   ]
+  },
+  "CHANGE_BATCH_ENTITY": {
+   "caption": "批量更新数据",
+   "actionType": "CHANGE_BATCH_ENTITY",
+   "settings": [
+    {
+     "key": null,
+     "ui_label": "选择更新的记录列表",
+     "control": "param-picker",
+     "options": null,
+     "default": null,
+     "required": true,
+     "when": "引用实体【列表/多条数据】，如 实体实验-base2列表_1[实体实验-base2][多条数据]",
+     "source": "node_modals"
+    },
+    {
+     "key": null,
+     "ui_label": "节点出参名称",
+     "control": "input",
+     "options": null,
+     "default": null,
+     "required": true,
+     "when": "如 批量更新实体实验-base2成功的数量_1",
+     "source": "node_modals"
+    }
+   ],
+   "submodes": [],
+   "compile_or_ui_facts": [
+    "G19：出参=影响行数；G24：selectParam 必带 key"
+   ],
+   "evidence_files": [
+    "node_modals/CHANGE_BATCH_ENTITY.json",
+    "variant-evidence/VARIANTS.json",
+    "node-full-evidence/SUMMARY.json"
+   ]
+  },
+  "DELETE_ENTITY": {
+   "caption": "删除数据",
+   "actionType": "DELETE_ENTITY",
+   "settings": [
+    {
+     "key": "deleteType",
+     "ui_label": "删除规则",
+     "control": null,
+     "options": null,
+     "default": null,
+     "required": true,
+     "when": "",
+     "source": "VARIANTS.default"
+    },
+    {
+     "key": "rc_select_257",
+     "ui_label": "选择节点",
+     "control": null,
+     "options": null,
+     "default": null,
+     "required": true,
+     "when": "",
+     "source": "VARIANTS.default"
+    },
+    {
+     "key": null,
+     "ui_label": "节点出参名称",
+     "control": null,
+     "options": null,
+     "default": null,
+     "required": true,
+     "when": "",
+     "source": "VARIANTS.default"
+    }
+   ],
+   "submodes": [
+    {
+     "mode_field": "删除规则",
+     "mode": "指定删除",
+     "fields_added": [],
+     "fields_removed": [],
+     "required": [
+      "删除规则",
+      "选择节点",
+      "节点出参名称"
+     ]
+    },
+    {
+     "mode_field": "删除规则",
+     "mode": "过滤条件删除",
+     "fields_added": [
+      "过滤条件",
+      "选择实体",
+      "选择应用"
+     ],
+     "fields_removed": [
+      "选择节点"
+     ],
+     "required": [
+      "删除规则",
+      "选择应用",
+      "选择实体",
+      "过滤条件",
+      "节点出参名称"
+     ]
+    },
+    {
+     "mode_field": "删除规则",
+     "mode": "ID集合删除",
+     "fields_added": [
+      "选择实体",
+      "选择应用",
+      "选择该记录的ID集合"
+     ],
+     "fields_removed": [
+      "选择节点"
+     ],
+     "required": [
+      "删除规则",
+      "选择应用",
+      "选择实体",
+      "选择该记录的ID集合",
+      "节点出参名称"
+     ]
+    }
+   ],
+   "compile_or_ui_facts": [
+    "三种删除规则（指定/过滤条件/ID集合）字段集不同（VARIANTS 实测）"
+   ],
+   "evidence_files": [
+    "node_modals/DELETE_ENTITY.json",
+    "variant-evidence/VARIANTS.json",
+    "node-full-evidence/SUMMARY.json"
+   ]
+  },
+  "CALL_APP_SERVICE": {
+   "caption": "自定义服务",
+   "actionType": "CALL_APP_SERVICE",
+   "settings": [
+    {
+     "key": null,
+     "ui_label": "选择应用",
+     "control": null,
+     "options": null,
+     "default": null,
+     "required": true,
+     "when": "当前应用或依赖应用(helper:可选择当前应用或者依赖应用)",
+     "source": "node_modals"
+    },
+    {
+     "key": null,
+     "ui_label": "选择服务",
+     "control": null,
+     "options": null,
+     "default": null,
+     "required": true,
+     "when": "对外暴露的服务接口+方法",
+     "source": "node_modals"
+    },
+    {
+     "key": null,
+     "ui_label": "赋值方式",
+     "control": null,
+     "options": [
+      "字段映射",
+      "对象引用",
+      "自动映射"
+     ],
+     "default": null,
+     "required": true,
+     "when": "字段映射=逐个入参字段填值；对象引用=选来源参数(对象)；自动映射=选来源参数+参数映射",
+     "source": "node_modals"
+    },
+    {
+     "key": null,
+     "ui_label": "参数(参数映射)",
+     "control": null,
+     "options": null,
+     "default": null,
+     "required": null,
+     "when": "按所选服务的入参定义逐个配值(文本/长整数/整数等)",
+     "source": "node_modals"
+    },
+    {
+     "key": null,
+     "ui_label": "出参描述",
+     "control": null,
+     "options": null,
+     "default": null,
+     "required": null,
+     "when": "显示所选服务出参(名称/数据类型/类型/标识)",
+     "source": "node_modals"
+    },
+    {
+     "key": null,
+     "ui_label": "节点出参名称",
+     "control": null,
+     "options": null,
+     "default": null,
+     "required": true,
+     "when": "",
+     "source": "node_modals"
+    }
+   ],
+   "submodes": [],
+   "compile_or_ui_facts": [
+    "G26：selectMethod 必带 md5/parameter/returnValue/fullName（缺 md5 原 G1-G25 全绿，设计器参数页签取不到出入参）",
+    "parameter/returnValue 收最小形态 {caption,type,item:{enums,itemType,item}}，builder 模板 attrs 死引用必须清空 node.attrs=[]"
+   ],
+   "evidence_files": [
+    "node_modals/CUSTOM_SERVICE.json",
+    "variant-evidence/VARIANTS.json",
+    "node-full-evidence/SUMMARY.json"
+   ]
+  },
+  "PUBLISH_BUSINESS_EVENT": {
+   "caption": "事件投递",
+   "actionType": "PUBLISH_BUSINESS_EVENT",
+   "settings": [
+    {
+     "key": null,
+     "ui_label": "事件类型",
+     "control": null,
+     "options": [
+      "应用间(异步)",
+      "应用内(同步)"
+     ],
+     "default": null,
+     "required": null,
+     "when": "",
+     "source": "node_modals"
+    },
+    {
+     "key": null,
+     "ui_label": "选择应用",
+     "control": null,
+     "options": null,
+     "default": null,
+     "required": true,
+     "when": "数据迁移(当前应用)",
+     "source": "node_modals"
+    },
+    {
+     "key": null,
+     "ui_label": "可投递的事件",
+     "control": null,
+     "options": null,
+     "default": null,
+     "required": true,
+     "when": "如 小爪验收事件",
+     "source": "node_modals"
+    },
+    {
+     "key": null,
+     "ui_label": "事件类型",
+     "control": null,
+     "options": [
+      "普通事件",
+      "延迟事件"
+     ],
+     "default": null,
+     "required": null,
+     "when": "延迟事件按配置时间发布(日历选时间)；延时事件无法保证按顺序执行",
+     "source": "node_modals"
+    }
+   ],
+   "submodes": [
+    {
+     "mode_field": "事件类型",
+     "mode": "应用间(异步)",
+     "fields_added": [],
+     "fields_removed": [],
+     "required": [
+      "选择应用",
+      "可投递的事件"
+     ]
+    },
+    {
+     "mode_field": "事件类型",
+     "mode": "应用内(同步)",
+     "fields_added": [],
+     "fields_removed": [
+      "选择应用"
+     ],
+     "required": [
+      "可投递的事件"
+     ]
+    }
+   ],
+   "compile_or_ui_facts": [
+    "IN_APP（应用内同步）用 selectEvent 非 selectMq；事件类型 radio 两态字段集不同"
+   ],
+   "evidence_files": [
+    "node_modals/EVENT_DELIVERY.json",
+    "variant-evidence/VARIANTS.json",
+    "node-full-evidence/SUMMARY.json"
+   ]
+  },
+  "SUB_MICROFLOW": {
+   "caption": "子微流程",
+   "actionType": "SUB_MICROFLOW",
+   "settings": [
+    {
+     "key": null,
+     "ui_label": "选择微流程服务",
+     "control": null,
+     "options": null,
+     "default": null,
+     "required": true,
+     "when": "下拉列子微流程(接口 udcMicroflowServiceListSubMfPost)",
+     "source": "node_modals"
+    },
+    {
+     "key": null,
+     "ui_label": "参数",
+     "control": null,
+     "options": null,
+     "default": null,
+     "required": true,
+     "when": "按所选子微流程的【入参】配置(如 方案编码，文本/单条数据)",
+     "source": "node_modals"
+    },
+    {
+     "key": null,
+     "ui_label": "出参描述",
+     "control": null,
+     "options": null,
+     "default": null,
+     "required": null,
+     "when": "显示所选子微流程的【出参】(名称/数据类型/类型)",
+     "source": "node_modals"
+    },
+    {
+     "key": null,
+     "ui_label": "节点出参名称",
+     "control": null,
+     "options": null,
+     "default": null,
+     "required": true,
+     "when": "如 迁移json数据_1",
+     "source": "node_modals"
+    }
+   ],
+   "submodes": [],
+   "compile_or_ui_facts": [],
+   "evidence_files": [
+    "node_modals/SUB_MICROFLOW.json",
+    "variant-evidence/VARIANTS.json",
+    "node-full-evidence/SUMMARY.json"
+   ]
+  },
+  "CALL_DATA_FLOW": {
+   "caption": "执行生单规则",
+   "actionType": "CALL_DATA_FLOW",
+   "settings": [
+    {
+     "key": null,
+     "ui_label": "来源实体",
+     "control": null,
+     "options": null,
+     "default": null,
+     "required": true,
+     "when": "",
+     "source": "node_modals"
+    },
+    {
+     "key": null,
+     "ui_label": "生单规则",
+     "control": null,
+     "options": null,
+     "default": null,
+     "required": true,
+     "when": "",
+     "source": "node_modals"
+    },
+    {
+     "key": null,
+     "ui_label": "数据来源方式",
+     "control": null,
+     "options": [
+      "查询数据",
+      "选择数据"
+     ],
+     "default": null,
+     "required": true,
+     "when": "查询数据=按过滤条件查实体数据；选择数据=引用来源实体数据(变量)",
+     "source": "node_modals"
+    },
+    {
+     "key": null,
+     "ui_label": "过滤条件",
+     "control": null,
+     "options": null,
+     "default": null,
+     "required": true,
+     "when": "查询数据模式下(条件查询)",
+     "source": "node_modals"
+    },
+    {
+     "key": null,
+     "ui_label": "来源实体数据",
+     "control": null,
+     "options": null,
+     "default": null,
+     "required": null,
+     "when": "选择数据模式下(请选择变量数据)",
+     "source": "node_modals"
+    },
+    {
+     "key": null,
+     "ui_label": "节点出参名称",
+     "control": null,
+     "options": null,
+     "default": null,
+     "required": true,
+     "when": "",
+     "source": "node_modals"
+    }
+   ],
+   "submodes": [
+    {
+     "mode_field": "数据来源方式",
+     "mode": "查询数据",
+     "fields_added": [],
+     "fields_removed": [],
+     "required": [
+      "来源实体",
+      "生单规则",
+      "数据来源方式",
+      "过滤条件",
+      "节点出参名称"
+     ]
+    },
+    {
+     "mode_field": "数据来源方式",
+     "mode": "选择数据",
+     "fields_added": [],
+     "fields_removed": [
+      "过滤条件"
+     ],
+     "required": [
+      "来源实体",
+      "生单规则",
+      "数据来源方式",
+      "节点出参名称"
+     ]
+    }
+   ],
+   "compile_or_ui_facts": [
+    "dataFlowMappingId=规则列表行 id；dataFlow.id=dataFlowId（用列表行 id 报「生单规则已被删除」）；dataSourceType 只许 CONDITION/SELECT_PARAM；outputName 服务端必填位置未定（UNVERIFIED O1）",
+    "语料 1 条 + dataflow-api.md 链路：dataFlow={id,key,value,title,appId,appUrl,caption,name,sourceEntityId,g_l_index}（id 同 dataFlowMappingId；接口行 udcDataFlowListManuallyMappingPost 无 title 用 caption）；dataSourceType=CONDITION（选择数据形态无样本）；condition 与 RETRIEVE 同构。",
+    "★output 恒平台固定 CallDataFlowResultDto；outputName 就是标准 output.name（无单独字段——历史疑问关闭）。",
+    "平台实证 2026-10-31：真实规则 5304545611384242198（小爪验收实体全量）最小流 checkSchema check=True + RELEASE，验后即删。"
+   ],
+   "evidence_files": [
+    "node_modals/CALL_DATA_FLOW.json",
+    "variant-evidence/VARIANTS.json",
+    "node-full-evidence/SUMMARY.json"
+   ]
+  },
+  "CONVERT_DATA": {
+   "caption": "类型转换",
+   "actionType": "CONVERT_DATA",
+   "settings": [
+    {
+     "key": null,
+     "ui_label": "变量类型",
+     "control": null,
+     "options": null,
+     "default": null,
+     "required": true,
+     "when": "写死的8种转换类型(前端硬编码，非后端接口)",
+     "source": "node_modals"
+    },
+    {
+     "key": null,
+     "ui_label": "选择数据",
+     "control": null,
+     "options": null,
+     "default": null,
+     "required": true,
+     "when": "",
+     "source": "node_modals"
+    },
+    {
+     "key": null,
+     "ui_label": "节点出参名称",
+     "control": null,
+     "options": null,
+     "default": "类型转换的结果_1",
+     "required": true,
+     "when": "",
+     "source": "node_modals"
+    }
+   ],
+   "submodes": [],
+   "compile_or_ui_facts": [
+    "5 子模式（语料 214 条）：Split(53,源 OBJECT/STRING→ARRAY/STRING,regex 必带)/multiAssociation2List(42,OBJECT/ENTITY→ARRAY/BIGINTEGER)/List2multiAssociation(13,ARRAY/BIGINTEGER→OBJECT/STRING)/String2Long(1)/BasicData2String(5)。convertType 本身编码目标形态 {desc,value,dataType,type}。",
+    "regex 仅 Split 有，枚举 COMMA/DIVLINE/SLASH/PERIOD/MIDLINE（语料 4 值，前端下拉 10 值含 UNDERSCORE/QUSMARK/AND/START/BACKSLASH）。",
+    "★casing 差异：保存态 output.dataType 恒大写（643 条发布语料），后端回读态首字母大写（convert_data-evidence/04-backend.json 'String'）——平台自身转换，校验按 .upper() 归一；旧约束「恒 String」是拿回读态当保存态的误归纳。",
+    "G32：convertType.value 枚举+源形态+目标形态 convertType/output 三处一致+regex 规则；G31 字段级引用（position=children）dataType 不与出参 DTO 声明比对。",
+    "平台实证 2026-10-31：Split 最小流 checkSchema check=True + state=RELEASE，验后即删。"
+   ],
+   "evidence_files": [
+    "node_modals/TYPE_CONVERT.json",
+    "variant-evidence/VARIANTS.json",
+    "node-full-evidence/SUMMARY.json"
+   ]
+  },
+  "DATA_MAPPING": {
+   "caption": "数据转换",
+   "actionType": "DATA_MAPPING",
+   "settings": [
+    {
+     "key": null,
+     "ui_label": "来源数据",
+     "control": null,
+     "options": null,
+     "default": null,
+     "required": true,
+     "when": "",
+     "source": "node_modals"
+    },
+    {
+     "key": null,
+     "ui_label": "目标数据对象类型",
+     "control": null,
+     "options": [
+      "实体对象",
+      "自定义对象"
+     ],
+     "default": null,
+     "required": true,
+     "when": "",
+     "source": "node_modals"
+    },
+    {
+     "key": null,
+     "ui_label": "目标数据对象所属应用",
+     "control": null,
+     "options": null,
+     "default": null,
+     "required": true,
+     "when": "",
+     "source": "node_modals"
+    },
+    {
+     "key": null,
+     "ui_label": "实体对象",
+     "control": null,
+     "options": null,
+     "default": null,
+     "required": true,
+     "when": "",
+     "source": "node_modals"
+    },
+    {
+     "key": null,
+     "ui_label": "映射关系",
+     "control": null,
+     "options": null,
+     "default": null,
+     "required": true,
+     "when": "映射关系配置：目标对象 + 映射方式(值拷贝/常量) + 值",
+     "source": "node_modals"
+    },
+    {
+     "key": null,
+     "ui_label": "节点出参名称",
+     "control": null,
+     "options": null,
+     "default": null,
+     "required": true,
+     "when": "",
+     "source": "node_modals"
+    }
+   ],
+   "submodes": [
+    {
+     "mode_field": "目标数据对象类型",
+     "mode": "实体对象",
+     "fields_added": [],
+     "fields_removed": [],
+     "required": [
+      "来源数据",
+      "目标数据对象类型",
+      "目标数据对象所属应用",
+      "实体对象",
+      "映射关系",
+      "节点出参名称"
+     ]
+    },
+    {
+     "mode_field": "目标数据对象类型",
+     "mode": "自定义对象",
+     "fields_added": [
+      "自定义对象"
+     ],
+     "fields_removed": [
+      "实体对象"
+     ],
+     "required": [
+      "来源数据",
+      "目标数据对象类型",
+      "目标数据对象所属应用",
+      "自定义对象",
+      "映射关系",
+      "节点出参名称"
+     ]
+    }
+   ],
+   "compile_or_ui_facts": [
+    "G29：上游必须列表（selectParam.type=ARRAY）；单对象主实体 → 生成器按 List 处理编译失败（backBuild.log 20261031185114）",
+    "structure.key 恒两段 <源实体>_<目标实体>（同实体自映射也要拼）；上游列表时 output.type=ARRAY",
+    "列表出参不能直接接 END basic（List<Dto> 无法转换为 Dto [161,140]），需 LIST_OPERATION 等承接"
+   ],
+   "evidence_files": [
+    "node_modals/DATA_CONVERSION.json",
+    "variant-evidence/VARIANTS.json",
+    "node-full-evidence/SUMMARY.json"
+   ]
+  }
+ }
+}

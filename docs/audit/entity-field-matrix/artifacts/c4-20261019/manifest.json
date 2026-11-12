@@ -1,0 +1,62 @@
+{
+ "slice": "C-4",
+ "captured_at": "2026-10-19T06:20:16Z",
+ "env": "test2",
+ "app_id": "8704025620829192834",
+ "entity_id": "4796455827714164161",
+ "field": "zzprobeDecimal01",
+ "capture_method": "CDP Network.requestWillBeSent + Network.getResponseBody",
+ "source_script": "c11save.js (CDP 9223)",
+ "target_url": "https://lowcode-test2.example.com/main/child-frame/udc/app-design/entity?appId=8704025620829192834",
+ "note": "原始抓包为 CDP 事件序列，未导出标准 HAR；本目录保存逐条请求/响应 JSON 原件，可完整复核 body 层。",
+ "files": [
+  {
+   "file": "edit-lock.request.json",
+   "kind": "request",
+   "bytes": 462,
+   "sha256": "89d8df8f72410a439a50d55ae1b91a72f51504817e5c4e2f03212bcbf0126639"
+  },
+  {
+   "file": "edit-lock.response.json",
+   "kind": "response",
+   "bytes": 383,
+   "sha256": "ecea0d939e48e268af7e1a7ec30645dafb1dce1fadd9ea3b26701cf56ee8deca"
+  },
+  {
+   "file": "save-batch.request.json",
+   "kind": "request",
+   "bytes": 99008,
+   "sha256": "30f5ba537684a5865f6ffba4652cf3d51d58077cfa1292f4ec974e16853eafe3"
+  },
+  {
+   "file": "save-batch.response.json",
+   "kind": "response",
+   "bytes": 107084,
+   "sha256": "1321c450eeb99fc993e19a16b81049f05984627cc21f9eac8600f13b2afa03a4"
+  },
+  {
+   "file": "preset-capacity.request.json",
+   "kind": "request",
+   "bytes": 303,
+   "sha256": "8bf99013521c735e280ce91376c75822cc8daf32b5badfbed96d172d4ee84b90"
+  },
+  {
+   "file": "preset-capacity.response.json",
+   "kind": "response",
+   "bytes": 71086,
+   "sha256": "9029ce7fb7b3c653499f0625882c3101227597fcd5f6f35cb00ccc8889250c9c"
+  },
+  {
+   "file": "get-entity.request.json",
+   "kind": "request",
+   "bytes": 2127,
+   "sha256": "8d06a97362ce1869b1738a2bf594ac9eabf820c3fb2d6beeea7412fec61289d9"
+  },
+  {
+   "file": "get-entity.response.json",
+   "kind": "response",
+   "bytes": 99784,
+   "sha256": "ac887079d31ac8d1b46cac6d74f7231cb6bcfca5408cc4501382136d5d56610d"
+  }
+ ]
+}

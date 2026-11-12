@@ -1,0 +1,150 @@
+{
+ "nodeId": "CHANGE_VARIABLE_sqv49j",
+ "name": null,
+ "type": "ACTIVITY",
+ "caption": "修改变量(实体字段)",
+ "description": null,
+ "runAfter": null,
+ "input": null,
+ "output": null,
+ "isCompleted": true,
+ "actionType": "CHANGE_VARIABLE",
+ "selectParam": {
+  "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+  "javaType": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+  "dataType": "DTO",
+  "type": "OBJECT",
+  "desc": "vEntity",
+  "appName": "datamigration8704025620829192834",
+  "dtoType": "MASTER_ENTITY",
+  "udcApp": true,
+  "relationEntity": "-2537349473285092530",
+  "name": "vEntity",
+  "position": "parent",
+  "outputName": "_CREATE_VARIABLE_uX6yCl",
+  "description": "vEntity",
+  "nodeInfo": {
+   "nodeId": "CREATE_VARIABLE_uX6yCl",
+   "type": "ACTIVITY",
+   "actionType": "CREATE_VARIABLE"
+  },
+  "key": "_CREATE_VARIABLE_uX6yCl",
+  "path": "_CREATE_VARIABLE_uX6yCl"
+ },
+ "mappingType": "attrs",
+ "attrs": [
+  {
+   "attrType": {
+    "validate": true,
+    "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f01text",
+    "name": "f01text",
+    "fullName": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f01text",
+    "md5": "",
+    "javaType": "java.lang.String",
+    "dataType": "STRING",
+    "type": "OBJECT",
+    "caption": "文本字段",
+    "desc": "文本字段",
+    "description": "",
+    "refId": "",
+    "refApp": "datamigration8704025620829192834",
+    "refType": "NONE",
+    "multiSelect": false,
+    "dataI18n": false,
+    "sort": 6,
+    "customs": {
+     "basicType": false,
+     "mfDataI18n": false,
+     "defaultOrExpression": false,
+     "notNull": false,
+     "sourceType": "ENTITY",
+     "dataType": "STRING",
+     "name": "f01text",
+     "id": "-4144494497326241617"
+    }
+   },
+   "value": {
+    "type": "Expression",
+    "expression": {
+     "title": "{查询单条数据(1).文本字段+当前时间}",
+     "schema": "{\"designData\": {\"expressionTranslation\": \"查询单条数据(1).文本字段+当前时间\", \"resultTypeInfo\": \"STRING\", \"resultTypeFullName\": null, \"terminalType\": \"BACKEND\", \"isMultiSelect\": false, \"context\": [{\"name\": \"_RETRIEVE_KNCEzh\", \"description\": \"查询单条数据(1)\", \"type\": \"OBJECT\", \"selectable\": false, \"enableDataI18n\": false, \"properties\": [{\"name\": \"_RETRIEVE_KNCEzh\", \"description\": \"查询单条数据(1)\", \"type\": \"OBJECT\", \"selectable\": true, \"enableDataI18n\": false, \"properties\": [{\"name\": \"f01text\", \"description\": \"文本字段\", \"type\": \"STRING\", \"selectable\": true, \"enableDataI18n\": false, \"uniformityParams\": {\"paramId\": \"com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f01text\", \"paramCategory\": \"STRING\", \"extensionProperties\": \"{\\\"id\\\":\\\"com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f01text\\\",\\\"relationType\\\":\\\"NONE\\\",\\\"javaType\\\":\\\"java.lang.String\\\"}\", \"pageNodeExtension\": null}}], \"uniformityParams\": {\"paramId\": \"com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto\", \"paramCategory\": \"OBJECT\", \"extensionProperties\": \"{\\\"id\\\":\\\"com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto\\\"}\", \"pageNodeExtension\": null}}], \"uniformityParams\": {\"paramId\": \"com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto\", \"paramCategory\": \"DTO\", \"extensionProperties\": \"{\\\"id\\\":\\\"com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto\\\",\\\"javaType\\\":\\\"com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto\\\"}\", \"pageNodeExtension\": null}}], \"tokens\": [{\"uid\": \"033f4e24-81af-41b1-ba35-814756ac5c8e\", \"type\": \"VARIABLE\", \"value\": \"_RETRIEVE_KNCEzh._RETRIEVE_KNCEzh.f01text\", \"desc\": \"查询单条数据(1).文本字段\"}, {\"uid\": \"c0d2e70e-f34d-4f66-911f-874049d715e7\", \"type\": \"OPERATOR\", \"value\": \"+\", \"desc\": \"+\"}, {\"uid\": \"a7b15265-7c09-4958-b524-256498da7ffa\", \"type\": \"SYSTEM\", \"value\": \"system.currentDateTime\", \"desc\": \"当前时间\"}], \"sourceAppName\": null}, \"runtimeData\": {\"executableExpr\": \"93gDaq3/nXB1+C8j4AjYNEVRRY+GX/DRejGmES20GvQ=_RETRIEVE_KNCEzh._RETRIEVE_KNCEzh.f01text+system.currentDateTime\"}}"
+    }
+   },
+   "desc": "文本字段"
+  },
+  {
+   "attrType": {
+    "validate": true,
+    "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f03int",
+    "name": "f03int",
+    "fullName": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f03int",
+    "md5": "",
+    "javaType": "java.lang.Integer",
+    "dataType": "INTEGER",
+    "type": "OBJECT",
+    "caption": "整数字段",
+    "desc": "整数字段",
+    "description": "",
+    "refId": "",
+    "refApp": "datamigration8704025620829192834",
+    "refType": "NONE",
+    "multiSelect": false,
+    "dataI18n": false,
+    "sort": 8,
+    "customs": {
+     "basicType": false,
+     "mfDataI18n": false,
+     "defaultOrExpression": false,
+     "notNull": false,
+     "sourceType": "ENTITY",
+     "dataType": "INTEGER",
+     "name": "f03int",
+     "id": "-6040618203145140416"
+    }
+   },
+   "value": {
+    "type": "Simple",
+    "simple": 100,
+    "desc": "100"
+   },
+   "desc": "整数字段"
+  },
+  {
+   "attrType": {
+    "validate": true,
+    "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f10bool",
+    "name": "f10bool",
+    "fullName": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f10bool",
+    "md5": "",
+    "javaType": "java.lang.Boolean",
+    "dataType": "BOOLEAN",
+    "type": "OBJECT",
+    "caption": "布尔字段",
+    "desc": "布尔字段",
+    "description": "",
+    "refId": "",
+    "refApp": "datamigration8704025620829192834",
+    "refType": "NONE",
+    "multiSelect": false,
+    "dataI18n": false,
+    "sort": 15,
+    "customs": {
+     "basicType": false,
+     "mfDataI18n": false,
+     "defaultOrExpression": false,
+     "notNull": false,
+     "sourceType": "ENTITY",
+     "dataType": "BOOLEAN",
+     "name": "f10bool",
+     "id": "-6349194120059174012"
+    }
+   },
+   "value": {
+    "type": "Simple",
+    "simple": true,
+    "desc": "true"
+   },
+   "desc": "布尔字段"
+  }
+ ]
+}

@@ -1,0 +1,89 @@
+{
+ "nodeId": "MAP_OPERATION_8sf0yn",
+ "name": null,
+ "type": "ACTIVITY",
+ "caption": "Map操作(PUT)",
+ "description": null,
+ "runAfter": null,
+ "input": null,
+ "output": null,
+ "isCompleted": true,
+ "actionType": "MAP_OPERATION",
+ "selectMap": {
+  "id": null,
+  "javaType": "java.util.Map",
+  "dataType": "MAP",
+  "type": "OBJECT",
+  "desc": "vMap",
+  "name": "_CREATE_MAP_QhLDSd",
+  "generics": {
+   "keyType": {
+    "dataType": "String"
+   },
+   "valueType": {
+    "dataType": "Object",
+    "javaType": "java.lang.Object"
+   }
+  },
+  "position": "parent",
+  "outputName": "_CREATE_MAP_QhLDSd",
+  "description": "vMap",
+  "nodeInfo": {
+   "nodeId": "CREATE_MAP_QhLDSd",
+   "type": "ACTIVITY",
+   "actionType": "CREATE_MAP"
+  }
+ },
+ "operationType": "PUT",
+ "generics": {
+  "keyType": {
+   "dataType": "String"
+  },
+  "valueType": {
+   "dataType": "Object",
+   "javaType": "java.lang.Object"
+  }
+ },
+ "entries": [
+  {
+   "key": {
+    "type": "SelectParam",
+    "selectParam": {
+     "id": null,
+     "javaType": "java.lang.String",
+     "dataType": "STRING",
+     "type": "OBJECT",
+     "desc": "vText",
+     "name": "_CREATE_VARIABLE_3eLmAb",
+     "position": "parent",
+     "outputName": "_CREATE_VARIABLE_3eLmAb",
+     "description": "vText",
+     "nodeInfo": {
+      "nodeId": "CREATE_VARIABLE_3eLmAb",
+      "type": "ACTIVITY",
+      "actionType": "CREATE_VARIABLE"
+     }
+    }
+   },
+   "value": {
+    "type": "SelectParam",
+    "selectParam": {
+     "id": null,
+     "javaType": "java.lang.Long",
+     "dataType": "BIGINTEGER",
+     "type": "OBJECT",
+     "desc": "vNum",
+     "name": "_CREATE_VARIABLE_RDQZon",
+     "position": "parent",
+     "outputName": "_CREATE_VARIABLE_RDQZon",
+     "description": "vNum",
+     "nodeInfo": {
+      "nodeId": "CREATE_VARIABLE_RDQZon",
+      "type": "ACTIVITY",
+      "actionType": "CREATE_VARIABLE"
+     }
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,139 @@
+{
+  "schema_version": "runtime-read-only-evidence.v1",
+  "environment": "test2",
+  "application_id": "app9000000000000000001",
+  "namespace": "low-code",
+  "network": "live-read-only",
+  "generated_at": "2026-09-03T12:00:00Z",
+  "checks": [
+    {
+      "target": "Nacos",
+      "status": "FACT",
+      "verification_level": "LIVE_READ_ONLY",
+      "health_readiness": "Server Ready",
+      "operator_metrics": "UP",
+      "data_ids_http_200": [
+        "public",
+        "public-common",
+        "public-system",
+        "app9000000000000000001",
+        "app9000000000000000001-yaml",
+        "udc",
+        "udc-app-yaml"
+      ],
+      "snapshot_hashes_unchanged": true
+    },
+    {
+      "target": "Kubernetes context",
+      "status": "FACT",
+      "verification_level": "LIVE_READ_ONLY",
+      "active_context": "low-code",
+      "namespace": "low-code"
+    },
+    {
+      "target": "Customer UDC Application deployment",
+      "status": "FACT",
+      "verification_level": "LIVE_READ_ONLY",
+      "name": "app9000000000000000001",
+      "classification": "CustomerUdcApplicationProfile",
+      "desired_replicas": 0,
+      "ready_replicas": 0,
+      "image": "lowcode-test2.example.com/chjh-external/seeyonv8test/app9000000000000000001:app9000000000000000001-1.0.1884",
+      "image_digest": "UNVERIFIED",
+      "endpoints": 0,
+      "logs": "UNAVAILABLE_NO_RUNNING_POD"
+    },
+    {
+      "target": "UDC Platform deployment",
+      "status": "FACT",
+      "verification_level": "LIVE_READ_ONLY",
+      "name": "udc",
+      "classification": "UdcPlatformProfile",
+      "desired_replicas": 0,
+      "ready_replicas": 0,
+      "image": "lowcode-test2.example.com/chjh-external/udc:5.3.477",
+      "image_digest": "UNVERIFIED"
+    },
+    {
+      "target": "Runtime route",
+      "status": "FACT",
+      "verification_level": "LIVE_READ_ONLY",
+      "host": "lowcode-test2.example.com",
+      "path": "/service/(.*)",
+      "backend_service": "ctp-webapi-gateway",
+      "limitation": "Ingress route exists, but target application has zero endpoints so application request success is not proven."
+    },
+    {
+      "target": "MySQL",
+      "status": "FACT",
+      "verification_level": "LIVE_READ_ONLY",
+      "server_version": "5.7.28-log",
+      "schemas": {
+        "udc_test2": {
+          "exists": true,
+          "table_inventory_scope": "platform_metadata_only"
+        },
+        "organization_test2": {
+          "exists": true,
+          "classification": "StandardProductApplicationProfile"
+        },
+        "9000000000000000001_test2": {
+          "exists": true,
+          "classification": "CustomerUdcApplicationProfile",
+          "details_retained": false
+        }
+      },
+      "udc_metadata_tables": [
+        "udc_application",
+        "udc_app_version",
+        "udc_entity",
+        "udc_page_info",
+        "udc_page_schema",
+        "udc_microflow_info",
+        "udc_last_version_metadata"
+      ],
+      "queries": "SELECT_ONLY"
+    },
+    {
+      "target": "Redis",
+      "status": "BLOCKED",
+      "verification_level": "UNAVAILABLE",
+      "reason": "redis-py AUTH/PING timed out; no key or cache claim made."
+    },
+    {
+      "target": "Customer application binding",
+      "status": "FACT",
+      "verification_level": "LIVE_READ_ONLY",
+      "retention_policy": "BOUNDARY_ONLY",
+      "application_id": "app9000000000000000001",
+      "udc_database": "udc_test2",
+      "customer_database": "9000000000000000001_test2",
+      "details_retained": false,
+      "reason": "Customer business inventories are query-on-demand and excluded from reusable facts."
+    }
+  ],
+  "safety": {
+    "writes_performed": false,
+    "nacos_writes": false,
+    "kubernetes_writes": false,
+    "database_writes": false,
+    "redis_writes": false,
+    "deployments": false,
+    "restarts": false
+  },
+  "next_actions": [
+    "Resolve image digest/artifact SHA-256 without starting or execing a Pod.",
+    "Retry Redis from a reachable network path with read-only PING/SCAN.",
+    "Do not claim runtime route success while deployment desired replicas and endpoints remain zero."
+  ],
+  "retention_policy": {
+    "customer_business_detail": "QUERY_ON_DEMAND_NOT_DURABLE",
+    "durable_focus": [
+      "UDC platform mechanisms",
+      "standard product contracts",
+      "artifact/version/digest",
+      "runtime architecture",
+      "evidence rules"
+    ]
+  }
+}

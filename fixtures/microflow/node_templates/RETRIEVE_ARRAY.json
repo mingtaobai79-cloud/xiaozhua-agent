@@ -1,0 +1,133 @@
+{
+ "nodeId": "RETRIEVE_ARRAY_YNzIUA",
+ "name": null,
+ "type": "ACTIVITY",
+ "caption": "查询多条数据",
+ "description": null,
+ "runAfter": null,
+ "input": null,
+ "output": {
+  "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+  "javaType": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+  "dataType": "DTO",
+  "type": "ARRAY",
+  "desc": "小爪验收实体全量列表",
+  "appName": "datamigration8704025620829192834",
+  "dtoType": "MASTER_ENTITY",
+  "udcApp": true,
+  "relationEntity": "-2537349473285092530",
+  "name": "_RETRIEVE_ARRAY_YNzIUA"
+ },
+ "isCompleted": true,
+ "actionType": "RETRIEVE_ARRAY",
+ "app": {
+  "appId": "8704025620829192834",
+  "appName": "datamigration8704025620829192834",
+  "caption": "",
+  "inApp": true,
+  "udcApp": true,
+  "dynamicDependency": false
+ },
+ "structure": {
+  "key": "com.seeyon.datamigration8704025620829192834.domain.entity.YsFull6956",
+  "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+  "label": "小爪验收实体全量",
+  "dataType": "DTO",
+  "entity": "com.seeyon.datamigration8704025620829192834.domain.entity.YsFull6956",
+  "dtoType": "MASTER_ENTITY",
+  "udcApp": true,
+  "fullName": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+  "relationEntity": "-2537349473285092530",
+  "entityId": "-2537349473285092530",
+  "methodLegal": {
+   "available": true,
+   "complexCondition": true,
+   "seniorMethod": true,
+   "serviceType": "NONE",
+   "interfaceClassFullName": null
+  }
+ },
+ "selectType": "DTO",
+ "scope": "OBJECT",
+ "methodLegal": {
+  "available": true,
+  "complexCondition": true,
+  "seniorMethod": true,
+  "serviceType": "NONE",
+  "interfaceClassFullName": null
+ },
+ "fetchType": "CONDITION",
+ "nullHandling": "CONTINUE",
+ "variableTitle": "小爪验收实体全量列表",
+ "condition": [
+  {
+   "type": "GROUP",
+   "uuid": "cda655fb-1fcd-4941-a4dc-ea2a80ccf640",
+   "conditions": [
+    {
+     "type": "CONDITION",
+     "leftParam": {
+      "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f01text",
+      "type": "OBJECT",
+      "javaType": "java.lang.String",
+      "dto": "_f01text",
+      "field": "f01text",
+      "desc": "文本字段",
+      "dataType": "STRING",
+      "multiSelect": false
+     },
+     "operator": {
+      "value": "EQ",
+      "desc": "="
+     },
+     "rightParams": [
+      {
+       "type": "CONSTANT",
+       "value": "XZH",
+       "desc": "XZH"
+      }
+     ],
+     "uuid": "0b34b0fd-91e4-42c1-b912-e817c8847da1",
+     "logicalOperator": "AND"
+    }
+   ]
+  }
+ ],
+ "sortParams": [
+  {
+   "sortType": "DESC",
+   "attrType": {
+    "validate": true,
+    "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f03int",
+    "name": "f03int",
+    "fullName": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f03int",
+    "md5": "",
+    "javaType": "java.lang.Integer",
+    "dataType": "INTEGER",
+    "type": "OBJECT",
+    "caption": "整数字段",
+    "desc": "整数字段",
+    "description": "",
+    "refId": "",
+    "refApp": "datamigration8704025620829192834",
+    "refType": "NONE",
+    "multiSelect": false,
+    "dataI18n": false,
+    "sort": 8,
+    "customs": {
+     "basicType": false,
+     "mfDataI18n": false,
+     "defaultOrExpression": false,
+     "notNull": false,
+     "sourceType": "ENTITY",
+     "dataType": "INTEGER",
+     "name": "f03int",
+     "id": "-6040618203145140416"
+    }
+   }
+  }
+ ],
+ "size": 999,
+ "pageSearch": "false",
+ "pageInfo": null
+}

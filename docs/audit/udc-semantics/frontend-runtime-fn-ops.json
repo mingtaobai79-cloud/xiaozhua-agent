@@ -1,0 +1,2595 @@
+{
+ "meta": {
+  "source": "Node webpack runtime 执行 + loader 拦截",
+  "evidence": "RUNTIME (真函数调用)",
+  "fn_paths": 463,
+  "resolved": 323,
+  "unique_ops": 322
+ },
+ "fn_ops": [
+  {
+   "module": "819",
+   "symbol": "$q",
+   "exports": [],
+   "ops": [
+    "udcApplicationSearchNewWithVersionListPost"
+   ]
+  },
+  {
+   "module": "819",
+   "symbol": "Ap",
+   "exports": [],
+   "ops": [
+    "udcApplicationImportNewPost"
+   ]
+  },
+  {
+   "module": "819",
+   "symbol": "GW",
+   "exports": [],
+   "ops": [
+    "udcApplicationVersionPlatformServiceGet"
+   ]
+  },
+  {
+   "module": "819",
+   "symbol": "JW",
+   "exports": [],
+   "ops": [
+    "udcApplicationVersionPlatformGet"
+   ]
+  },
+  {
+   "module": "819",
+   "symbol": "KN",
+   "exports": [],
+   "ops": [
+    "udcManagerRequestStatusRequestGet"
+   ]
+  },
+  {
+   "module": "819",
+   "symbol": "OF",
+   "exports": [],
+   "ops": [
+    "udcRuntimeDeployPost"
+   ]
+  },
+  {
+   "module": "819",
+   "symbol": "P4",
+   "exports": [],
+   "ops": [
+    "appCommonSystemConfigSystemConfigGet"
+   ]
+  },
+  {
+   "module": "819",
+   "symbol": "Pv",
+   "exports": [],
+   "ops": [
+    "udcApplicationCopyPost"
+   ]
+  },
+  {
+   "module": "819",
+   "symbol": "Rf",
+   "exports": [],
+   "ops": [
+    "udcDeploymentAppReadyStatePost"
+   ]
+  },
+  {
+   "module": "819",
+   "symbol": "TG",
+   "exports": [],
+   "ops": [
+    "udcEnvCurrentEnvGet"
+   ]
+  },
+  {
+   "module": "819",
+   "symbol": "WS",
+   "exports": [],
+   "ops": [
+    "udcApplicationDeletePost"
+   ]
+  },
+  {
+   "module": "819",
+   "symbol": "ZU",
+   "exports": [],
+   "ops": [
+    "udcApplicationSchemaDownloadIdPost"
+   ]
+  },
+  {
+   "module": "819",
+   "symbol": "b8",
+   "exports": [],
+   "ops": [
+    "portalTemplateImageDataPost"
+   ]
+  },
+  {
+   "module": "819",
+   "symbol": "cO",
+   "exports": [],
+   "ops": [
+    "udcApplicationPost"
+   ]
+  },
+  {
+   "module": "819",
+   "symbol": "dy",
+   "exports": [],
+   "ops": [
+    "udcApplicationTransferParamPost"
+   ]
+  },
+  {
+   "module": "819",
+   "symbol": "eq",
+   "exports": [],
+   "ops": [
+    "udcApplicationDeleteByGuidPost"
+   ]
+  },
+  {
+   "module": "819",
+   "symbol": "fR",
+   "exports": [],
+   "ops": [
+    "udcRuntimeAuthAccessUrlPost"
+   ]
+  },
+  {
+   "module": "819",
+   "symbol": "fd",
+   "exports": [],
+   "ops": [
+    "udcDeploymentLatestTestInfoPost"
+   ]
+  },
+  {
+   "module": "819",
+   "symbol": "i4",
+   "exports": [],
+   "ops": [
+    "udcApplicationSearchTemplatePost"
+   ]
+  },
+  {
+   "module": "819",
+   "symbol": "k6",
+   "exports": [],
+   "ops": [
+    "udcApplicationSaveAsPost"
+   ]
+  },
+  {
+   "module": "819",
+   "symbol": "ng",
+   "exports": [],
+   "ops": [
+    "udcApplicationSaveNormalNewDesignPost"
+   ]
+  },
+  {
+   "module": "819",
+   "symbol": "oB",
+   "exports": [],
+   "ops": [
+    "udcRuntimeDeployNormalPost"
+   ]
+  },
+  {
+   "module": "819",
+   "symbol": "oi",
+   "exports": [],
+   "ops": [
+    "udcApplicationCreateFromTemplatePost"
+   ]
+  },
+  {
+   "module": "819",
+   "symbol": "ou",
+   "exports": [],
+   "ops": [
+    "udcDeploymentAppOnlineNewPost"
+   ]
+  },
+  {
+   "module": "819",
+   "symbol": "qs",
+   "exports": [],
+   "ops": [
+    "udcRuntimeDeployFormPost"
+   ]
+  },
+  {
+   "module": "819",
+   "symbol": "sq",
+   "exports": [],
+   "ops": [
+    "udcApplicationSearchPageByGuidPost"
+   ]
+  },
+  {
+   "module": "819",
+   "symbol": "uI",
+   "exports": [],
+   "ops": [
+    "udcMetaDataSelectAppListGet"
+   ]
+  },
+  {
+   "module": "819",
+   "symbol": "yH",
+   "exports": [],
+   "ops": [
+    "udcApplicationCopyGet"
+   ]
+  },
+  {
+   "module": "3733",
+   "symbol": "$w",
+   "exports": [],
+   "ops": [
+    "udcMultiEditLockPost"
+   ]
+  },
+  {
+   "module": "3733",
+   "symbol": "UE",
+   "exports": [],
+   "ops": [
+    "udcMultiEditUnlockPost"
+   ]
+  },
+  {
+   "module": "12673",
+   "symbol": "CX",
+   "exports": [],
+   "ops": [
+    "udcFormUpgradeDeployDeletePost"
+   ]
+  },
+  {
+   "module": "12673",
+   "symbol": "Q9",
+   "exports": [],
+   "ops": [
+    "udcFormUpgradeDeployNodeLastUpgradeResultGet"
+   ]
+  },
+  {
+   "module": "12673",
+   "symbol": "Uc",
+   "exports": [],
+   "ops": [
+    "udcFormUpgradeDeployExportRecordPost"
+   ]
+  },
+  {
+   "module": "12673",
+   "symbol": "Xk",
+   "exports": [],
+   "ops": [
+    "udcFormUpgradeDeployListInfoPost"
+   ]
+  },
+  {
+   "module": "12673",
+   "symbol": "gJ",
+   "exports": [],
+   "ops": [
+    "udcFormUpgradeDeployListRecordPost"
+   ]
+  },
+  {
+   "module": "12673",
+   "symbol": "p3",
+   "exports": [],
+   "ops": [
+    "udcFormUpgradeDeployOneClickUpgradePost"
+   ]
+  },
+  {
+   "module": "12673",
+   "symbol": "rG",
+   "exports": [],
+   "ops": [
+    "udcFormUpgradeDeploySilentUpdatePost"
+   ]
+  },
+  {
+   "module": "12673",
+   "symbol": "ui",
+   "exports": [],
+   "ops": [
+    "udcFileDownloadUrlGet"
+   ]
+  },
+  {
+   "module": "12673",
+   "symbol": "wh",
+   "exports": [],
+   "ops": [
+    "udcRuntimeUpgradeHostAppNameListPost"
+   ]
+  },
+  {
+   "module": "13139",
+   "symbol": "Bp",
+   "exports": [],
+   "ops": [
+    "udcPortletCreatePost"
+   ]
+  },
+  {
+   "module": "13139",
+   "symbol": "EN",
+   "exports": [],
+   "ops": [
+    "udcPortletUpdatePost"
+   ]
+  },
+  {
+   "module": "13139",
+   "symbol": "IS",
+   "exports": [],
+   "ops": [
+    "udcPortletUpdatePortletPost"
+   ]
+  },
+  {
+   "module": "13139",
+   "symbol": "Om",
+   "exports": [],
+   "ops": [
+    "udcPortletCreatePortletPost"
+   ]
+  },
+  {
+   "module": "13139",
+   "symbol": "_",
+   "exports": [],
+   "ops": [
+    "udcPortletDeleteIdPost"
+   ]
+  },
+  {
+   "module": "13139",
+   "symbol": "p5",
+   "exports": [],
+   "ops": [
+    "udcPortletSortPost"
+   ]
+  },
+  {
+   "module": "13139",
+   "symbol": "t$",
+   "exports": [],
+   "ops": [
+    "udcPageInfoRelationInfoRelationGroupIdPost"
+   ]
+  },
+  {
+   "module": "13926",
+   "symbol": "cu",
+   "exports": [],
+   "ops": [
+    "udcPageTemplateSaveAsPost"
+   ]
+  },
+  {
+   "module": "13926",
+   "symbol": "h0",
+   "exports": [],
+   "ops": [
+    "udcPageTemplateClassCreatePost"
+   ]
+  },
+  {
+   "module": "13926",
+   "symbol": "I7",
+   "exports": [],
+   "ops": [
+    "udcPageTemplatePublishedDeleteByIdsPost"
+   ]
+  },
+  {
+   "module": "13926",
+   "symbol": "IF",
+   "exports": [],
+   "ops": [
+    "udcPageTemplateClassDeletePost"
+   ]
+  },
+  {
+   "module": "13926",
+   "symbol": "X_",
+   "exports": [],
+   "ops": [
+    "udcPageTemplatePublishedCreateOrUpdatePost"
+   ]
+  },
+  {
+   "module": "13926",
+   "symbol": "Np",
+   "exports": [],
+   "ops": [
+    "udcPageTemplateClassSelectTreeCategoryGet"
+   ]
+  },
+  {
+   "module": "13926",
+   "symbol": "n5",
+   "exports": [],
+   "ops": [
+    "udcPageTemplatePublishedSearch"
+   ]
+  },
+  {
+   "module": "13926",
+   "symbol": "HW",
+   "exports": [],
+   "ops": [
+    "udcPageTemplateClassUpdatePost"
+   ]
+  },
+  {
+   "module": "16269",
+   "symbol": "CW",
+   "exports": [],
+   "ops": [
+    "portalPortalSpaceSpaceDesignEditSpaceGet"
+   ]
+  },
+  {
+   "module": "16269",
+   "symbol": "NJ",
+   "exports": [],
+   "ops": [
+    "portalPortalSpaceGet"
+   ]
+  },
+  {
+   "module": "16269",
+   "symbol": "Tu",
+   "exports": [],
+   "ops": [
+    "udcPortalPortalSpaceUpdatePost"
+   ]
+  },
+  {
+   "module": "16269",
+   "symbol": "V6",
+   "exports": [],
+   "ops": [
+    "udcPortalPortalSpaceDeletePost"
+   ]
+  },
+  {
+   "module": "16269",
+   "symbol": "Ve",
+   "exports": [],
+   "ops": [
+    "udcPortalPortalSpaceCreatePost"
+   ]
+  },
+  {
+   "module": "16269",
+   "symbol": "qR",
+   "exports": [],
+   "ops": [
+    "portalPortalSpaceCheckSameNameGet"
+   ]
+  },
+  {
+   "module": "16269",
+   "symbol": "uH",
+   "exports": [],
+   "ops": [
+    "udcPortalPortalSpaceSpaceSaveCopyPost"
+   ]
+  },
+  {
+   "module": "17244",
+   "symbol": "CJ",
+   "exports": [],
+   "ops": [
+    "udcFunctionCreateFunctionReferPost"
+   ]
+  },
+  {
+   "module": "17244",
+   "symbol": "PS",
+   "exports": [],
+   "ops": [
+    "udcPageInfoFunctionBaseInfoCreatePost"
+   ]
+  },
+  {
+   "module": "17244",
+   "symbol": "v8",
+   "exports": [],
+   "ops": [
+    "udcFunctionCopyPost"
+   ]
+  },
+  {
+   "module": "17244",
+   "symbol": "$H",
+   "exports": [],
+   "ops": [
+    "udcFunctionBatchDeletePost"
+   ]
+  },
+  {
+   "module": "17244",
+   "symbol": "vU",
+   "exports": [],
+   "ops": [
+    "setHomePage"
+   ]
+  },
+  {
+   "module": "17244",
+   "symbol": "qq",
+   "exports": [],
+   "ops": [
+    "udcFunctionDeletePost"
+   ]
+  },
+  {
+   "module": "17244",
+   "symbol": "z$",
+   "exports": [],
+   "ops": [
+    "udcFunctionDeleteReferPagePost"
+   ]
+  },
+  {
+   "module": "17244",
+   "symbol": "hj",
+   "exports": [],
+   "ops": [
+    "udcFunctionGet"
+   ]
+  },
+  {
+   "module": "17244",
+   "symbol": "Uz",
+   "exports": [],
+   "ops": [
+    "nctionSelectFunctionTreePost"
+   ]
+  },
+  {
+   "module": "17244",
+   "symbol": "eF",
+   "exports": [],
+   "ops": [
+    "udcPageInfoParamsPageGet"
+   ]
+  },
+  {
+   "module": "17244",
+   "symbol": "Wk",
+   "exports": [],
+   "ops": [
+    "udcPageInfoSelectListByConditionsPost"
+   ]
+  },
+  {
+   "module": "17244",
+   "symbol": "mJ",
+   "exports": [],
+   "ops": [
+    "cdpDataUdcPortletReportAppListPost"
+   ]
+  },
+  {
+   "module": "17244",
+   "symbol": "wy",
+   "exports": [],
+   "ops": [
+    "udcFunctionPost"
+   ]
+  },
+  {
+   "module": "17244",
+   "symbol": "g5",
+   "exports": [],
+   "ops": [
+    "udcFunctionDefaultPagePost"
+   ]
+  },
+  {
+   "module": "17244",
+   "symbol": "ui",
+   "exports": [],
+   "ops": [
+    "udcFunctionPageInParamsReferGet"
+   ]
+  },
+  {
+   "module": "17244",
+   "symbol": "qM",
+   "exports": [],
+   "ops": [
+    "udcFunctionUpdateNameFunctionReferPost"
+   ]
+  },
+  {
+   "module": "17244",
+   "symbol": "CC",
+   "exports": [],
+   "ops": [
+    "udcFunctionUpdatePost"
+   ]
+  },
+  {
+   "module": "17244",
+   "symbol": "IQ",
+   "exports": [],
+   "ops": [
+    "udcFunctionUpdateFunctionReferPost"
+   ]
+  },
+  {
+   "module": "17244",
+   "symbol": "Hi",
+   "exports": [],
+   "ops": [
+    "udcFunctionSortPost"
+   ]
+  },
+  {
+   "module": "19372",
+   "symbol": "MP",
+   "exports": [],
+   "ops": [
+    "udcMetaDataMergeReferPost"
+   ]
+  },
+  {
+   "module": "25648",
+   "symbol": "$e",
+   "exports": [],
+   "ops": [
+    "udcScalabilityDeletePost"
+   ]
+  },
+  {
+   "module": "25648",
+   "symbol": "At",
+   "exports": [],
+   "ops": [
+    "udcScalabilityOptionDeletePost"
+   ]
+  },
+  {
+   "module": "25648",
+   "symbol": "FE",
+   "exports": [],
+   "ops": [
+    "udcScalabilityOptionOptionGet"
+   ]
+  },
+  {
+   "module": "25648",
+   "symbol": "G4",
+   "exports": [],
+   "ops": [
+    "udcScalabilityUpdatePost"
+   ]
+  },
+  {
+   "module": "25648",
+   "symbol": "IB",
+   "exports": [],
+   "ops": [
+    "udcScalabilityOptionSelectByAppidTreeAppGet"
+   ]
+  },
+  {
+   "module": "25648",
+   "symbol": "Kt",
+   "exports": [],
+   "ops": [
+    "udcScalabilityPost"
+   ]
+  },
+  {
+   "module": "25648",
+   "symbol": "ii",
+   "exports": [],
+   "ops": [
+    "udcScalabilityOptionUpdatePost"
+   ]
+  },
+  {
+   "module": "25648",
+   "symbol": "nO",
+   "exports": [],
+   "ops": [
+    "udcScalabilityOptionDataTypeAppGet"
+   ]
+  },
+  {
+   "module": "25648",
+   "symbol": "pq",
+   "exports": [],
+   "ops": [
+    "udcScalabilityBatchDeletePost"
+   ]
+  },
+  {
+   "module": "25648",
+   "symbol": "zz",
+   "exports": [],
+   "ops": [
+    "udcScalabilityOptionPost"
+   ]
+  },
+  {
+   "module": "28498",
+   "symbol": "IN",
+   "exports": [],
+   "ops": [
+    "udcSandboxClientCheckAllTaskGet"
+   ]
+  },
+  {
+   "module": "28498",
+   "symbol": "JI",
+   "exports": [],
+   "ops": [
+    "udcSandboxClientDeleteGet"
+   ]
+  },
+  {
+   "module": "28498",
+   "symbol": "_K",
+   "exports": [],
+   "ops": [
+    "udcSandboxClientCreateGet"
+   ]
+  },
+  {
+   "module": "28498",
+   "symbol": "i4",
+   "exports": [],
+   "ops": [
+    "udcSandboxAppCheckAlertPost"
+   ]
+  },
+  {
+   "module": "28498",
+   "symbol": "lN",
+   "exports": [],
+   "ops": [
+    "udcSandboxClientSearch"
+   ]
+  },
+  {
+   "module": "28498",
+   "symbol": "lb",
+   "exports": [],
+   "ops": [
+    "udcSandboxClientRestartGet"
+   ]
+  },
+  {
+   "module": "28498",
+   "symbol": "ro",
+   "exports": [],
+   "ops": [
+    "udcCtpManagerSandboxUsePost"
+   ]
+  },
+  {
+   "module": "28498",
+   "symbol": "tx",
+   "exports": [],
+   "ops": [
+    "udcSandboxClientCheckAllStatusGet"
+   ]
+  },
+  {
+   "module": "28716",
+   "symbol": "I8",
+   "exports": [],
+   "ops": [
+    "udcPageInfoDetailGet"
+   ]
+  },
+  {
+   "module": "31232",
+   "symbol": "Cl",
+   "exports": [],
+   "ops": [
+    "udcSandboxClearDataPost"
+   ]
+  },
+  {
+   "module": "31232",
+   "symbol": "Dt",
+   "exports": [],
+   "ops": [
+    "udcSandboxAppCleanRestartByAppPost"
+   ]
+  },
+  {
+   "module": "31232",
+   "symbol": "MS",
+   "exports": [],
+   "ops": [
+    "udcSandboxBatchStopPost"
+   ]
+  },
+  {
+   "module": "31232",
+   "symbol": "Vz",
+   "exports": [],
+   "ops": [
+    "udcSandboxBatchCleanStopPost"
+   ]
+  },
+  {
+   "module": "31232",
+   "symbol": "ZB",
+   "exports": [],
+   "ops": [
+    "udcSandboxResourcesGet"
+   ]
+  },
+  {
+   "module": "31232",
+   "symbol": "_l",
+   "exports": [],
+   "ops": [
+    "checkDeployState"
+   ]
+  },
+  {
+   "module": "31232",
+   "symbol": "gr",
+   "exports": [],
+   "ops": [
+    "udcSandboxRestartPost"
+   ]
+  },
+  {
+   "module": "31232",
+   "symbol": "j6",
+   "exports": [],
+   "ops": [
+    "udcSandboxClientSandboxLogUrlPost"
+   ]
+  },
+  {
+   "module": "31232",
+   "symbol": "l_",
+   "exports": [],
+   "ops": [
+    "udcSandboxSelectAppGet"
+   ]
+  },
+  {
+   "module": "31232",
+   "symbol": "li",
+   "exports": [],
+   "ops": [
+    "udcSandboxSandboxAppsByConditionPost"
+   ]
+  },
+  {
+   "module": "31232",
+   "symbol": "rR",
+   "exports": [],
+   "ops": [
+    "udcSandboxSelectRolesPost"
+   ]
+  },
+  {
+   "module": "31232",
+   "symbol": "rc",
+   "exports": [],
+   "ops": [
+    "udcSandboxBuildInfoAppGet"
+   ]
+  },
+  {
+   "module": "31232",
+   "symbol": "rl",
+   "exports": [],
+   "ops": [
+    "udcSandboxAppStartByAppPost"
+   ]
+  },
+  {
+   "module": "31232",
+   "symbol": "xG",
+   "exports": [],
+   "ops": [
+    "udcSandboxStopPost"
+   ]
+  },
+  {
+   "module": "32016",
+   "symbol": "Bv",
+   "exports": [],
+   "ops": [
+    "example"
+   ]
+  },
+  {
+   "module": "32016",
+   "symbol": "Ec",
+   "exports": [],
+   "ops": [
+    "udcMetaDataSelectPageLayoutPost"
+   ]
+  },
+  {
+   "module": "32016",
+   "symbol": "Hv",
+   "exports": [],
+   "ops": [
+    "udcPageInfoSearchNoPagePost"
+   ]
+  },
+  {
+   "module": "32016",
+   "symbol": "O3",
+   "exports": [],
+   "ops": [
+    "udcMicroflowFindNodeSchemaPost"
+   ]
+  },
+  {
+   "module": "32016",
+   "symbol": "Q2",
+   "exports": [],
+   "ops": [
+    "udcPageInfoBaseInfoUpdateNamePost"
+   ]
+  },
+  {
+   "module": "32016",
+   "symbol": "RN",
+   "exports": [],
+   "ops": [
+    "udcMetaDataSelectPagePost"
+   ]
+  },
+  {
+   "module": "32016",
+   "symbol": "Y6",
+   "exports": [],
+   "ops": [
+    "udcApplicationGet"
+   ]
+  },
+  {
+   "module": "32016",
+   "symbol": "x6",
+   "exports": [],
+   "ops": [
+    "udcPageAdminV1DeleteGet"
+   ]
+  },
+  {
+   "module": "34928",
+   "symbol": "fetchAttrByEventByFullName",
+   "exports": [],
+   "ops": [
+    "dataFlowListEventDataPost"
+   ]
+  },
+  {
+   "module": "34928",
+   "symbol": "fetchEntityList",
+   "exports": [],
+   "ops": [
+    "udcDataFlowListEntityPost"
+   ]
+  },
+  {
+   "module": "34928",
+   "symbol": "fetchMappingDetailById",
+   "exports": [],
+   "ops": [
+    "udcDataFlowMappingGet"
+   ]
+  },
+  {
+   "module": "34928",
+   "symbol": "fetchMappingInitData",
+   "exports": [],
+   "ops": [
+    "udcDataFlowMappingInitDataPost"
+   ]
+  },
+  {
+   "module": "34928",
+   "symbol": "findEntityNotExistIds",
+   "exports": [],
+   "ops": [
+    "udcDataFlowEntityNotExistIdsPost"
+   ]
+  },
+  {
+   "module": "34928",
+   "symbol": "getDataFlowListApp",
+   "exports": [],
+   "ops": [
+    "udcDataFlowListApplicationAppGet"
+   ]
+  },
+  {
+   "module": "34928",
+   "symbol": "getDataFlowListEntity",
+   "exports": [],
+   "ops": [
+    "udcDataFlowListEventEntityPost"
+   ]
+  },
+  {
+   "module": "34928",
+   "symbol": "getDataFlowListEvents",
+   "exports": [],
+   "ops": [
+    "udcDataFlowListEventsPost"
+   ]
+  },
+  {
+   "module": "34928",
+   "symbol": "graphDeleteContent",
+   "exports": [],
+   "ops": [
+    "udcDataFlowDeleteContentPost"
+   ]
+  },
+  {
+   "module": "34928",
+   "symbol": "handleSubmitMapping",
+   "exports": [],
+   "ops": [
+    "udcDataFlowMappingUpdatePost"
+   ]
+  },
+  {
+   "module": "35530",
+   "symbol": "deductDeleteContent",
+   "exports": [],
+   "ops": [
+    "udcDeductionMapDeleteContentPost"
+   ]
+  },
+  {
+   "module": "35530",
+   "symbol": "deductRuleCount",
+   "exports": [],
+   "ops": [
+    "udcDeductionRuleCountPost"
+   ]
+  },
+  {
+   "module": "35530",
+   "symbol": "delDeduct",
+   "exports": [],
+   "ops": [
+    "udcDeductionMapDeletePost"
+   ]
+  },
+  {
+   "module": "35530",
+   "symbol": "delDeductRule",
+   "exports": [],
+   "ops": [
+    "udcDeductionRuleDeletePost"
+   ]
+  },
+  {
+   "module": "35530",
+   "symbol": "findEntityNotExistIds",
+   "exports": [],
+   "ops": [
+    "udcDeductionEntityNotExistIdsPost"
+   ]
+  },
+  {
+   "module": "35530",
+   "symbol": "getDeductDetail",
+   "exports": [],
+   "ops": [
+    "udcDeductionMapGet"
+   ]
+  },
+  {
+   "module": "43079",
+   "symbol": "BU",
+   "exports": [],
+   "ops": [
+    "udcMessageLinkDeletePost"
+   ]
+  },
+  {
+   "module": "43079",
+   "symbol": "Il",
+   "exports": [],
+   "ops": [
+    "udcMessageLinkCreatePost"
+   ]
+  },
+  {
+   "module": "43079",
+   "symbol": "dd",
+   "exports": [],
+   "ops": [
+    "udcMessageLinkUpdatePost"
+   ]
+  },
+  {
+   "module": "43079",
+   "symbol": "gj",
+   "exports": [],
+   "ops": [
+    "udcMessageCategoryCreatePost"
+   ]
+  },
+  {
+   "module": "43079",
+   "symbol": "ir",
+   "exports": [],
+   "ops": [
+    "udcMessageCategoryListPost"
+   ]
+  },
+  {
+   "module": "43079",
+   "symbol": "uV",
+   "exports": [],
+   "ops": [
+    "udcMessageLinkListPost"
+   ]
+  },
+  {
+   "module": "43079",
+   "symbol": "xf",
+   "exports": [],
+   "ops": [
+    "udcMessageCategoryUpdatePost"
+   ]
+  },
+  {
+   "module": "43079",
+   "symbol": "xi",
+   "exports": [],
+   "ops": [
+    "udcMessageCategoryDeletePost"
+   ]
+  },
+  {
+   "module": "43520",
+   "symbol": "$Q",
+   "exports": [],
+   "ops": [
+    "udcMetaDataSelectCtpEnumAppGet"
+   ]
+  },
+  {
+   "module": "43520",
+   "symbol": "t0",
+   "exports": [],
+   "ops": [
+    "udcMetaDataSelectJavaEnumByAppPost"
+   ]
+  },
+  {
+   "module": "48175",
+   "symbol": "Oc",
+   "exports": [],
+   "ops": [
+    "udcPageTemplateDeleteByIdsPost"
+   ]
+  },
+  {
+   "module": "48175",
+   "symbol": "X_",
+   "exports": [],
+   "ops": [
+    "udcPageTemplateCreateOrUpdatePost"
+   ]
+  },
+  {
+   "module": "48175",
+   "symbol": "g4",
+   "exports": [],
+   "ops": [
+    "udcPageTemplatePublishPost"
+   ]
+  },
+  {
+   "module": "48175",
+   "symbol": "gG",
+   "exports": [],
+   "ops": [
+    "udcPageTemplateSearchNoPagePost"
+   ]
+  },
+  {
+   "module": "48175",
+   "symbol": "hc",
+   "exports": [],
+   "ops": [
+    "udcPageTemplatePublishedSearchNoPagePost"
+   ]
+  },
+  {
+   "module": "48175",
+   "symbol": "y$",
+   "exports": [],
+   "ops": [
+    "udcPageTemplateCheckNamePost"
+   ]
+  },
+  {
+   "module": "48659",
+   "symbol": "deleteEntityField",
+   "exports": [],
+   "ops": [
+    "udcEntityAttributeBatchDeletePost"
+   ]
+  },
+  {
+   "module": "48659",
+   "symbol": "deleteReferenceById",
+   "exports": [],
+   "ops": [
+    "udcReferConfigDeleteByGroupIdPost"
+   ]
+  },
+  {
+   "module": "48659",
+   "symbol": "entityaggregateroot",
+   "exports": [],
+   "ops": [
+    "udcEntityPrimarySelectRootGet"
+   ]
+  },
+  {
+   "module": "48659",
+   "symbol": "entityattributelist",
+   "exports": [],
+   "ops": [
+    "udcEntityAttributeSelectByPrimaryGet"
+   ]
+  },
+  {
+   "module": "48659",
+   "symbol": "fetchAssociationEntityByAppId",
+   "exports": [],
+   "ops": [
+    "udcEntityAssociationEntityAppGet"
+   ]
+  },
+  {
+   "module": "48659",
+   "symbol": "fetchEntityAttributeGroupBathUpdate",
+   "exports": [],
+   "ops": [
+    "udcEntityAttributeGroupBathUpdatePost"
+   ]
+  },
+  {
+   "module": "48659",
+   "symbol": "fetchEntityAttributeGroupCancel",
+   "exports": [],
+   "ops": [
+    "udcEntityAttributeGroupCanceGroupPost"
+   ]
+  },
+  {
+   "module": "48659",
+   "symbol": "fetchEntityAttributeGroupCreate",
+   "exports": [],
+   "ops": [
+    "udcEntityAttributeGroupCreateUpdatePost"
+   ]
+  },
+  {
+   "module": "48659",
+   "symbol": "fetchEntityDataType",
+   "exports": [],
+   "ops": [
+    "udcDataTypeDataTypesByAppIdAppGet"
+   ]
+  },
+  {
+   "module": "48659",
+   "symbol": "fetchEntityFieldDetailService",
+   "exports": [],
+   "ops": [
+    "udcEntityAttributeGet"
+   ]
+  },
+  {
+   "module": "48659",
+   "symbol": "fetchEntityFieldListNewService",
+   "exports": [],
+   "ops": [
+    "udcAttributeGroupEntityGet"
+   ]
+  },
+  {
+   "module": "48659",
+   "symbol": "fetchEntityFieldListService",
+   "exports": [],
+   "ops": [
+    "udcEntityAttributeGroupSearch"
+   ]
+  },
+  {
+   "module": "48659",
+   "symbol": "fetchPresetAttributeCapacity",
+   "exports": [],
+   "ops": [
+    "udcEntityAttributePresetAttributeCapacityAllAppGet"
+   ]
+  },
+  {
+   "module": "48659",
+   "symbol": "fetchReferenceById",
+   "exports": [],
+   "ops": [
+    "udcReferConfigListPost"
+   ]
+  },
+  {
+   "module": "48659",
+   "symbol": "fetchReferenceList",
+   "exports": [],
+   "ops": [
+    "udcReferConfigGroupListPost"
+   ]
+  },
+  {
+   "module": "48659",
+   "symbol": "fetchTransferField",
+   "exports": [],
+   "ops": [
+    "udcEntityAttributeTransferPost"
+   ]
+  },
+  {
+   "module": "48659",
+   "symbol": "fetchUdcEntityAssociationGroupSerial",
+   "exports": [],
+   "ops": [
+    "udcEntityAssociationGroupSerialPost"
+   ]
+  },
+  {
+   "module": "48659",
+   "symbol": "fetchUdcEntityAssociationSerial",
+   "exports": [],
+   "ops": [
+    "udcEntityAssociationSerialPost"
+   ]
+  },
+  {
+   "module": "48659",
+   "symbol": "getCodingSchemesList",
+   "exports": [],
+   "ops": [
+    "udcSerialSchemeSearchNoPagePost"
+   ]
+  },
+  {
+   "module": "48659",
+   "symbol": "getConstraintEntity",
+   "exports": [],
+   "ops": [
+    "udcEntityConstraintEntityPost"
+   ]
+  },
+  {
+   "module": "48659",
+   "symbol": "getPageUrl",
+   "exports": [],
+   "ops": [
+    "udcMetaDataSelectPageInfoListPost"
+   ]
+  },
+  {
+   "module": "48659",
+   "symbol": "postEntityAttribute",
+   "exports": [],
+   "ops": [
+    "udcEntityAttributeUpdatePost"
+   ]
+  },
+  {
+   "module": "48659",
+   "symbol": "saveEntityFieldListNewService",
+   "exports": [],
+   "ops": [
+    "udcAttributeGroupOperateBatchPost"
+   ]
+  },
+  {
+   "module": "48659",
+   "symbol": "updateBatchField",
+   "exports": [],
+   "ops": [
+    "udcEntityAttributeBatchUpdatePost"
+   ]
+  },
+  {
+   "module": "51796",
+   "symbol": "Iz",
+   "exports": [],
+   "ops": [
+    "udcUdcRuntimeFilterPlanPost"
+   ]
+  },
+  {
+   "module": "51796",
+   "symbol": "J_",
+   "exports": [],
+   "ops": [
+    "udcUdcRuntimeFilterPlanUpdatePost"
+   ]
+  },
+  {
+   "module": "51796",
+   "symbol": "Qz",
+   "exports": [],
+   "ops": [
+    "udcExpressionSystemVariableListGet"
+   ]
+  },
+  {
+   "module": "51796",
+   "symbol": "Xp",
+   "exports": [],
+   "ops": [
+    "udcUdcRuntimeFilterPlanBatchDeletePost"
+   ]
+  },
+  {
+   "module": "51796",
+   "symbol": "hn",
+   "exports": [],
+   "ops": [
+    "udcUdcRuntimeFilterPlanDeletePost"
+   ]
+  },
+  {
+   "module": "52745",
+   "symbol": "deleteRule",
+   "exports": [],
+   "ops": [
+    "udcMicroflowDeletePost"
+   ]
+  },
+  {
+   "module": "52745",
+   "symbol": "fetchRuleList",
+   "exports": [],
+   "ops": [
+    "udcMicroflowSearchEntityRulePost"
+   ]
+  },
+  {
+   "module": "55238",
+   "symbol": "Te",
+   "exports": [],
+   "ops": [
+    "udcReferConfigCreateOrUpdatePost"
+   ]
+  },
+  {
+   "module": "55238",
+   "symbol": "nW",
+   "exports": [],
+   "ops": [
+    "udcMetaDataSelectCustomReferPageGet"
+   ]
+  },
+  {
+   "module": "55374",
+   "symbol": "createDtoWithAttrs",
+   "exports": [],
+   "ops": [
+    "udcDataTransferObjectCreateDtoPost"
+   ]
+  },
+  {
+   "module": "55374",
+   "symbol": "createMessageDtoWithAttrs",
+   "exports": [],
+   "ops": [
+    "udcMicroflowCreateMessagePost"
+   ]
+  },
+  {
+   "module": "55374",
+   "symbol": "deleteDtoWithAttrs",
+   "exports": [],
+   "ops": [
+    "udcDataTransferObjectDeletePost"
+   ]
+  },
+  {
+   "module": "55374",
+   "symbol": "deleteMessageDtoWithAttrs",
+   "exports": [],
+   "ops": [
+    "udcMicroflowMessageDtoDeletePost"
+   ]
+  },
+  {
+   "module": "55374",
+   "symbol": "fetchDataTypeSelect",
+   "exports": [],
+   "ops": [
+    "udcDataTypeSelectByParamsPost"
+   ]
+  },
+  {
+   "module": "55374",
+   "symbol": "fetchDtoWithAttrs",
+   "exports": [],
+   "ops": [
+    "udcDataTransferObjectSelectDtoGet"
+   ]
+  },
+  {
+   "module": "55374",
+   "symbol": "fetchMessageDtoWithAttrs",
+   "exports": [],
+   "ops": [
+    "udcMicroflowSelectMessageGet"
+   ]
+  },
+  {
+   "module": "55374",
+   "symbol": "fetchUdcMicroflowTreeEntityDto",
+   "exports": [],
+   "ops": [
+    "udcMicroflowTreeEntityDtoPost"
+   ]
+  },
+  {
+   "module": "55374",
+   "symbol": "getDataTransferObjectById",
+   "exports": [],
+   "ops": [
+    "udcDataTransferObjectGet"
+   ]
+  },
+  {
+   "module": "55374",
+   "symbol": "updateDtoWithAttrs",
+   "exports": [],
+   "ops": [
+    "udcDataTransferObjectUpdateDtoPost"
+   ]
+  },
+  {
+   "module": "55374",
+   "symbol": "updateMessageDtoWithAttrs",
+   "exports": [],
+   "ops": [
+    "udcMicroflowUpdateMessagePost"
+   ]
+  },
+  {
+   "module": "62914",
+   "symbol": "fetchThemeSelectDefaultBrand",
+   "exports": [],
+   "ops": [
+    "appCommonThemeSelectDefaultBrandPost"
+   ]
+  },
+  {
+   "module": "62914",
+   "symbol": "getApprovalFeatures",
+   "exports": [],
+   "ops": [
+    "appApprovalMenuListGet"
+   ]
+  },
+  {
+   "module": "62914",
+   "symbol": "getCurrAppFeatures",
+   "exports": [],
+   "ops": [
+    "udcApplicationAppFeatureAppGet"
+   ]
+  },
+  {
+   "module": "62914",
+   "symbol": "getDetectionState",
+   "exports": [],
+   "ops": [
+    "udcApplicationDoDetectionStatePost"
+   ]
+  },
+  {
+   "module": "62914",
+   "symbol": "getSearchDetection",
+   "exports": [],
+   "ops": [
+    "udcApplicationSearchDetectionPost"
+   ]
+  },
+  {
+   "module": "62914",
+   "symbol": "publishByTemplateId",
+   "exports": [],
+   "ops": [
+    "appApprovalTemplatePublishTemplateGet"
+   ]
+  },
+  {
+   "module": "62914",
+   "symbol": "reCheckUniformity",
+   "exports": [],
+   "ops": [
+    "udcApplicationDoDetectionPost"
+   ]
+  },
+  {
+   "module": "62914",
+   "symbol": "renewalAppEditingTime",
+   "exports": [],
+   "ops": [
+    "udcApplicationRenewalAppEditingTimeGet"
+   ]
+  },
+  {
+   "module": "62914",
+   "symbol": "templateSaveAs",
+   "exports": [],
+   "ops": [
+    "appApprovalTemplateSaveAsPost"
+   ]
+  },
+  {
+   "module": "62914",
+   "symbol": "templateSaveAsNewVersion",
+   "exports": [],
+   "ops": [
+    "appApprovalTemplateSaveAsNewVersionPost"
+   ]
+  },
+  {
+   "module": "64527",
+   "symbol": "copyEntity",
+   "exports": [],
+   "ops": [
+    "udcEntityEntityCopyPost"
+   ]
+  },
+  {
+   "module": "64527",
+   "symbol": "createIndexes",
+   "exports": [],
+   "ops": [
+    "udcIndexPost"
+   ]
+  },
+  {
+   "module": "64527",
+   "symbol": "deleteBatchIndexes",
+   "exports": [],
+   "ops": [
+    "udcIndexDeleteBatchPost"
+   ]
+  },
+  {
+   "module": "64527",
+   "symbol": "deleteEntity",
+   "exports": [],
+   "ops": [
+    "udcEntityDeletePost"
+   ]
+  },
+  {
+   "module": "64527",
+   "symbol": "deleteIndexes",
+   "exports": [],
+   "ops": [
+    "udcIndexDeletePost"
+   ]
+  },
+  {
+   "module": "64527",
+   "symbol": "fetchAllEntityGroup",
+   "exports": [],
+   "ops": [
+    "udcEntityGroupSelectByAppidAppGet"
+   ]
+  },
+  {
+   "module": "64527",
+   "symbol": "fetchAllSystemFeatureList",
+   "exports": [],
+   "ops": [
+    "udcFeatureListGet"
+   ]
+  },
+  {
+   "module": "64527",
+   "symbol": "fetchAppFieldSetList",
+   "exports": [],
+   "ops": [
+    "udcAttributeSetSelectByAppidPost"
+   ]
+  },
+  {
+   "module": "64527",
+   "symbol": "fetchDeleteBatchEntity",
+   "exports": [],
+   "ops": [
+    "udcEntityBatchDeletePost"
+   ]
+  },
+  {
+   "module": "64527",
+   "symbol": "fetchEntityAttributeListByEntityId",
+   "exports": [],
+   "ops": [
+    "udcIndexAttributeEntityGet"
+   ]
+  },
+  {
+   "module": "64527",
+   "symbol": "fetchEntityById",
+   "exports": [],
+   "ops": [
+    "udcEntityGet"
+   ]
+  },
+  {
+   "module": "64527",
+   "symbol": "fetchEntityCount",
+   "exports": [],
+   "ops": [
+    "udcEntitySelectMasterEntityCountAppGet"
+   ]
+  },
+  {
+   "module": "64527",
+   "symbol": "fetchEntityGroupCreate",
+   "exports": [],
+   "ops": [
+    "udcEntityGroupCreatePost"
+   ]
+  },
+  {
+   "module": "64527",
+   "symbol": "fetchEntityGroupDelete",
+   "exports": [],
+   "ops": [
+    "udcEntityGroupDeletePost"
+   ]
+  },
+  {
+   "module": "64527",
+   "symbol": "fetchEntityGroupUpdate",
+   "exports": [],
+   "ops": [
+    "udcEntityGroupUpdatePost"
+   ]
+  },
+  {
+   "module": "64527",
+   "symbol": "fetchEntityGroupUpdateBatch",
+   "exports": [],
+   "ops": [
+    "udcEntityGroupUpdateBatchPost"
+   ]
+  },
+  {
+   "module": "64527",
+   "symbol": "fetchEntityList",
+   "exports": [],
+   "ops": [
+    "udcEntitySelectAllByAppidAppGet"
+   ]
+  },
+  {
+   "module": "64527",
+   "symbol": "fetchEntityOpenApi",
+   "exports": [],
+   "ops": [
+    "udcEntityOpenApiSelectGet"
+   ]
+  },
+  {
+   "module": "64527",
+   "symbol": "fetchEntityOrGroupBatchDelete",
+   "exports": [],
+   "ops": [
+    "udcEntityGroupBatchDeletePost"
+   ]
+  },
+  {
+   "module": "64527",
+   "symbol": "fetchExtensionLinkage",
+   "exports": [],
+   "ops": [
+    "udcEntityUpdateExtensionLinkagePost"
+   ]
+  },
+  {
+   "module": "64527",
+   "symbol": "fetchIndexesListByEntityId",
+   "exports": [],
+   "ops": [
+    "udcIndexEntityListPost"
+   ]
+  },
+  {
+   "module": "64527",
+   "symbol": "fetchLastVersionMetadata",
+   "exports": [],
+   "ops": [
+    "udcApplicationFetchLastVersionMetadataPost"
+   ]
+  },
+  {
+   "module": "64527",
+   "symbol": "fetchParentEnumAttrs",
+   "exports": [],
+   "ops": [
+    "udcEntityAttributeSelectParentEnumAttrsPost"
+   ]
+  },
+  {
+   "module": "64527",
+   "symbol": "fetchStereotypeList",
+   "exports": [],
+   "ops": [
+    "udcStereotypeListGet"
+   ]
+  },
+  {
+   "module": "64527",
+   "symbol": "fetchUdcScalabilityAllOption",
+   "exports": [],
+   "ops": [
+    "udcScalabilityOptionSelectAllOptionNamePost"
+   ]
+  },
+  {
+   "module": "64527",
+   "symbol": "fetchUdcScalabilityOptionTreeByAppId",
+   "exports": [],
+   "ops": [
+    "udcScalabilityOptionSelectByAppidWithDetailAppGet"
+   ]
+  },
+  {
+   "module": "64527",
+   "symbol": "fetchUpdateBatchEntityGroupIdAndOrderno",
+   "exports": [],
+   "ops": [
+    "udcEntityBatchUpdateEntityGroupIdAndOrdernoPost"
+   ]
+  },
+  {
+   "module": "64527",
+   "symbol": "getFieldListByFeatureNameOrFieldSetName",
+   "exports": [],
+   "ops": [
+    "udcAttributeSetSelectByNameAttributesPost"
+   ]
+  },
+  {
+   "module": "64527",
+   "symbol": "updateIndexes",
+   "exports": [],
+   "ops": [
+    "udcIndexUpdatePost"
+   ]
+  },
+  {
+   "module": "67214",
+   "symbol": "$5",
+   "exports": [],
+   "ops": [
+    "ctpUserCtpManagerTenantPageListPost"
+   ]
+  },
+  {
+   "module": "67214",
+   "symbol": "DQ",
+   "exports": [],
+   "ops": [
+    "udcSandboxTenantConfigUpdatePost"
+   ]
+  },
+  {
+   "module": "67214",
+   "symbol": "dK",
+   "exports": [],
+   "ops": [
+    "udcSandboxTenantConfigSearch"
+   ]
+  },
+  {
+   "module": "67214",
+   "symbol": "gf",
+   "exports": [],
+   "ops": [
+    "udcSandboxSystemConfigGetGet"
+   ]
+  },
+  {
+   "module": "67214",
+   "symbol": "hB",
+   "exports": [],
+   "ops": [
+    "udcSandboxSystemConfigUpdatePost"
+   ]
+  },
+  {
+   "module": "67214",
+   "symbol": "jR",
+   "exports": [],
+   "ops": [
+    "udcSandboxTenantConfigDeleteGet"
+   ]
+  },
+  {
+   "module": "67214",
+   "symbol": "nE",
+   "exports": [],
+   "ops": [
+    "udcSandboxTenantConfigConfigAllTenantGet"
+   ]
+  },
+  {
+   "module": "67214",
+   "symbol": "sH",
+   "exports": [],
+   "ops": [
+    "udcSandboxTenantConfigCreatePost"
+   ]
+  },
+  {
+   "module": "67214",
+   "symbol": "xP",
+   "exports": [],
+   "ops": [
+    "udcSandboxSystemConfigGetAppLimitGet"
+   ]
+  },
+  {
+   "module": "70857",
+   "symbol": "batchDeleteMicroflows",
+   "exports": [],
+   "ops": [
+    "udcMicroFlowGroupDeleteBatchPost"
+   ]
+  },
+  {
+   "module": "70857",
+   "symbol": "batchMoveMicroflowGroups",
+   "exports": [],
+   "ops": [
+    "udcMicroFlowGroupBatchMovePost"
+   ]
+  },
+  {
+   "module": "70857",
+   "symbol": "batchMoveMicroflows",
+   "exports": [],
+   "ops": [
+    "udcMicroflowBatchMovePost"
+   ]
+  },
+  {
+   "module": "70857",
+   "symbol": "checkAndUpdateMicroflowSchema",
+   "exports": [],
+   "ops": [
+    "udcMicroflowCheckSchemaUpdatePost"
+   ]
+  },
+  {
+   "module": "70857",
+   "symbol": "checkConditionSchema",
+   "exports": [],
+   "ops": [
+    "udcConditionCheckPost"
+   ]
+  },
+  {
+   "module": "70857",
+   "symbol": "checkMicroFlowCaption",
+   "exports": [],
+   "ops": [
+    "udcMicroflowCheckMicroFlowCaptionPost"
+   ]
+  },
+  {
+   "module": "70857",
+   "symbol": "createEvent",
+   "exports": [],
+   "ops": [
+    "udcEventPost"
+   ]
+  },
+  {
+   "module": "70857",
+   "symbol": "createEventWithData",
+   "exports": [],
+   "ops": [
+    "udcEventCreateWithDataPost"
+   ]
+  },
+  {
+   "module": "70857",
+   "symbol": "createMicroflowGroups",
+   "exports": [],
+   "ops": [
+    "udcMicroFlowGroupCreatePost"
+   ]
+  },
+  {
+   "module": "70857",
+   "symbol": "deleteEvent",
+   "exports": [],
+   "ops": [
+    "udcEventDeletePost"
+   ]
+  },
+  {
+   "module": "70857",
+   "symbol": "deleteMicroflowGroups",
+   "exports": [],
+   "ops": [
+    "udcMicroFlowGroupDeletePost"
+   ]
+  },
+  {
+   "module": "70857",
+   "symbol": "fetchAffairList",
+   "exports": [],
+   "ops": [
+    "udcAffairListPost"
+   ]
+  },
+  {
+   "module": "70857",
+   "symbol": "fetchDataSystem",
+   "exports": [],
+   "ops": [
+    "udcMicroflowFindDataSystemPost"
+   ]
+  },
+  {
+   "module": "70857",
+   "symbol": "fetchDataTransferObjectByMicroFlowId",
+   "exports": [],
+   "ops": [
+    "udcDataTransferObjectSearchByMicroFlowIdMicroFlowGet"
+   ]
+  },
+  {
+   "module": "70857",
+   "symbol": "fetchDataTransferObjectSearchList",
+   "exports": [],
+   "ops": [
+    "udcDataTransferObjectSearchListPost"
+   ]
+  },
+  {
+   "module": "70857",
+   "symbol": "fetchEnumInfoByApp",
+   "exports": [],
+   "ops": [
+    "udcMetaDataSelectCtpEnumByApp1Post"
+   ]
+  },
+  {
+   "module": "70857",
+   "symbol": "fetchEnumItemById",
+   "exports": [],
+   "ops": [
+    "udcEnumItemGet"
+   ]
+  },
+  {
+   "module": "70857",
+   "symbol": "fetchEventList",
+   "exports": [],
+   "ops": [
+    "udcEventListPost"
+   ]
+  },
+  {
+   "module": "70857",
+   "symbol": "fetchFullAggDto",
+   "exports": [],
+   "ops": [
+    "udcMicroflowFindFullAggDtoPost"
+   ]
+  },
+  {
+   "module": "70857",
+   "symbol": "fetchMicroFlowEventDtoList",
+   "exports": [],
+   "ops": [
+    "udcMicroflowSearchEventListPost"
+   ]
+  },
+  {
+   "module": "70857",
+   "symbol": "fetchMicroflowFilterNotVirtual",
+   "exports": [],
+   "ops": [
+    "udcMicroflowFilterNotVirtualPost"
+   ]
+  },
+  {
+   "module": "70857",
+   "symbol": "fetchMicroflowFindCallInfoDownstream",
+   "exports": [],
+   "ops": [
+    "udcMicroflowFindCallInfoDownstreamPost"
+   ]
+  },
+  {
+   "module": "70857",
+   "symbol": "fetchMicroflowFindCallInfoUpstream",
+   "exports": [],
+   "ops": [
+    "udcMicroflowFindCallInfoUpstreamPost"
+   ]
+  },
+  {
+   "module": "70857",
+   "symbol": "fetchMicroflowGroups",
+   "exports": [],
+   "ops": [
+    "udcMicroFlowGroupSelectByTypePost"
+   ]
+  },
+  {
+   "module": "70857",
+   "symbol": "fetchMicroflowList",
+   "exports": [],
+   "ops": [
+    "udcMicroflowSearch"
+   ]
+  },
+  {
+   "module": "70857",
+   "symbol": "fetchMicroflowSerivceDetails",
+   "exports": [],
+   "ops": [
+    "udcMicroflowServiceDetailsGet"
+   ]
+  },
+  {
+   "module": "70857",
+   "symbol": "fetchMicroflowServiceDetailsV2",
+   "exports": [],
+   "ops": [
+    "udcMicroflowServiceDetailsDynamicPost"
+   ]
+  },
+  {
+   "module": "70857",
+   "symbol": "fetchMicroflowServiceList",
+   "exports": [],
+   "ops": [
+    "udcMicroflowServiceListPost"
+   ]
+  },
+  {
+   "module": "70857",
+   "symbol": "fetchMicroflowServiceListSubMf",
+   "exports": [],
+   "ops": [
+    "udcMicroflowServiceListSubMfPost"
+   ]
+  },
+  {
+   "module": "70857",
+   "symbol": "fetchSendMqList",
+   "exports": [],
+   "ops": [
+    "udcMicroflowSearchSendMqListPost"
+   ]
+  },
+  {
+   "module": "70857",
+   "symbol": "fetchUdcFunctionSelectFunctionTree",
+   "exports": [],
+   "ops": [
+    "udcFunctionSelectFunctionTreePost"
+   ]
+  },
+  {
+   "module": "70857",
+   "symbol": "fetchUdcMicroflowBatchFindAggDto",
+   "exports": [],
+   "ops": [
+    "udcMicroflowBatchFindAggDtoPost"
+   ]
+  },
+  {
+   "module": "70857",
+   "symbol": "fetchUdcMicroflowDisableNode",
+   "exports": [],
+   "ops": [
+    "udcMicroflowDisableNodePost"
+   ]
+  },
+  {
+   "module": "70857",
+   "symbol": "getAllEntityByAppId",
+   "exports": [],
+   "ops": [
+    "udcMetaDataSelectEntityByAppIdAppGet"
+   ]
+  },
+  {
+   "module": "70857",
+   "symbol": "getCustomDtoInfoFormMicroflowByFullName",
+   "exports": [],
+   "ops": [
+    "udcMicroflowFindCustomDtoPost"
+   ]
+  },
+  {
+   "module": "70857",
+   "symbol": "getDataFlowList",
+   "exports": [],
+   "ops": [
+    "udcDataFlowListManuallyMappingPost"
+   ]
+  },
+  {
+   "module": "70857",
+   "symbol": "getEntityFieldListByIdOrFullName",
+   "exports": [],
+   "ops": [
+    "udcMetaDataSelectEntityPost"
+   ]
+  },
+  {
+   "module": "70857",
+   "symbol": "getMetaAppIdAppVersionEntitiesEntity",
+   "exports": [],
+   "ops": [
+    "udcMetaDataSelectAggregationEntityEntityGet"
+   ]
+  },
+  {
+   "module": "70857",
+   "symbol": "getMicrlFlowWithParamByPage",
+   "exports": [],
+   "ops": [
+    "udcMicroflowServiceFrontendListPost"
+   ]
+  },
+  {
+   "module": "70857",
+   "symbol": "getMicroFlowCustomDto",
+   "exports": [],
+   "ops": [
+    "udcDataTransferObjectSearchMicroFlowCustomDtoAppGet"
+   ]
+  },
+  {
+   "module": "70857",
+   "symbol": "getMicroFlowEventDto",
+   "exports": [],
+   "ops": [
+    "udcMicroflowSearchMicroFlowEventAppGet"
+   ]
+  },
+  {
+   "module": "70857",
+   "symbol": "getMicroFlowMessageDto",
+   "exports": [],
+   "ops": [
+    "udcMicroflowSearchMicroFlowMessageAppGet"
+   ]
+  },
+  {
+   "module": "70857",
+   "symbol": "getMicroFlowNodeDefinition",
+   "exports": [],
+   "ops": [
+    "udcMicroflowFindNodesGet"
+   ]
+  },
+  {
+   "module": "70857",
+   "symbol": "getMicroFlowSchemaByStorageKey",
+   "exports": [],
+   "ops": [
+    "udcOperationLogSearchStorageKeyPost"
+   ]
+  },
+  {
+   "module": "70857",
+   "symbol": "getMicroflowServiceCommonInputListPost",
+   "exports": [],
+   "ops": [
+    "udcMicroflowServiceCommonInputListPost"
+   ]
+  },
+  {
+   "module": "70857",
+   "symbol": "getUdcDataTransferObjectSearchBySourceIdService",
+   "exports": [],
+   "ops": [
+    "udcDataTransferObjectSearchBySourceIdSourceGet"
+   ]
+  },
+  {
+   "module": "70857",
+   "symbol": "postRefactorData",
+   "exports": [],
+   "ops": [
+    "udcMicroflowRefactorResolveNodesReferenceRelationshipsPost"
+   ]
+  },
+  {
+   "module": "70857",
+   "symbol": "saveMicroflowSchema",
+   "exports": [],
+   "ops": [
+    "udcMicroflowCreatePost"
+   ]
+  },
+  {
+   "module": "70857",
+   "symbol": "searchUdcApplication",
+   "exports": [],
+   "ops": [
+    "udcMicroflowSearchAppsPost"
+   ]
+  },
+  {
+   "module": "70857",
+   "symbol": "searchUdcApplicationRest",
+   "exports": [],
+   "ops": [
+    "udcMicroflowSearchRestExcludeBootPost"
+   ]
+  },
+  {
+   "module": "70857",
+   "symbol": "selectEventDataWithData",
+   "exports": [],
+   "ops": [
+    "udcEventSelectWithDataGet"
+   ]
+  },
+  {
+   "module": "70857",
+   "symbol": "sendRefactorSchema",
+   "exports": [],
+   "ops": [
+    "udcMicroflowRefactorRefactoredPost"
+   ]
+  },
+  {
+   "module": "70857",
+   "symbol": "updateMicroflowGroups",
+   "exports": [],
+   "ops": [
+    "udcMicroFlowGroupUpdatePost"
+   ]
+  },
+  {
+   "module": "70857",
+   "symbol": "updateMicroflowOrderOrGroup",
+   "exports": [],
+   "ops": [
+    "udcMicroflowUpdateOrderNoAndGroupPost"
+   ]
+  },
+  {
+   "module": "70857",
+   "symbol": "updateMicroflowSchema",
+   "exports": [],
+   "ops": [
+    "udcMicroflowUpdatePost"
+   ]
+  },
+  {
+   "module": "71476",
+   "symbol": "y",
+   "exports": [],
+   "ops": [
+    "udcAttachmentTemplateCreateBatchPost"
+   ]
+  },
+  {
+   "module": "71830",
+   "symbol": "KZ",
+   "exports": [],
+   "ops": [
+    "example"
+   ]
+  },
+  {
+   "module": "71830",
+   "symbol": "bb",
+   "exports": [],
+   "ops": [
+    "bpmPermissionOperationByUseNodeTypeGet"
+   ]
+  },
+  {
+   "module": "71830",
+   "symbol": "lT",
+   "exports": [],
+   "ops": [
+    "bpmNodePermissionOperationSelectAssembleListPost"
+   ]
+  },
+  {
+   "module": "71830",
+   "symbol": "tK",
+   "exports": [],
+   "ops": [
+    "bpmNodePermissionSearch"
+   ]
+  },
+  {
+   "module": "71830",
+   "symbol": "wF",
+   "exports": [],
+   "ops": [
+    "bpmNodePermissionGet"
+   ]
+  },
+  {
+   "module": "72147",
+   "symbol": "FQ",
+   "exports": [],
+   "ops": [
+    "udcOperationLogGet"
+   ]
+  },
+  {
+   "module": "72147",
+   "symbol": "Fz",
+   "exports": [],
+   "ops": [
+    "udcMicroflowRecoverPost"
+   ]
+  },
+  {
+   "module": "72147",
+   "symbol": "RS",
+   "exports": [],
+   "ops": [
+    "udcPageLayoutRecoverPost"
+   ]
+  },
+  {
+   "module": "72147",
+   "symbol": "gx",
+   "exports": [],
+   "ops": [
+    "udcPageInfoRecoverPost"
+   ]
+  },
+  {
+   "module": "72147",
+   "symbol": "w2",
+   "exports": [],
+   "ops": [
+    "udcOperationLogElementIsExistPost"
+   ]
+  },
+  {
+   "module": "73476",
+   "symbol": "UK",
+   "exports": [],
+   "ops": [
+    "udcPageComponentUpdatePost"
+   ]
+  },
+  {
+   "module": "73476",
+   "symbol": "ed",
+   "exports": [],
+   "ops": [
+    "udcPageComponentAnalysisPackageGet"
+   ]
+  },
+  {
+   "module": "73476",
+   "symbol": "hv",
+   "exports": [],
+   "ops": [
+    "udcPageComponentSelectAllListByConditionsPost"
+   ]
+  },
+  {
+   "module": "73476",
+   "symbol": "m3",
+   "exports": [],
+   "ops": [
+    "udcPageComponentUploadGet"
+   ]
+  },
+  {
+   "module": "73476",
+   "symbol": "wO",
+   "exports": [],
+   "ops": [
+    "udcPageComponentRefreshGet"
+   ]
+  },
+  {
+   "module": "73476",
+   "symbol": "xU",
+   "exports": [],
+   "ops": [
+    "udcPageComponentSelectByGet"
+   ]
+  },
+  {
+   "module": "73587",
+   "symbol": "fo",
+   "exports": [],
+   "ops": [
+    "udcAttributeSetSearchTermPost"
+   ]
+  },
+  {
+   "module": "73587",
+   "symbol": "gw",
+   "exports": [],
+   "ops": [
+    "udcAttributeSetUpdatePost"
+   ]
+  },
+  {
+   "module": "73587",
+   "symbol": "hF",
+   "exports": [],
+   "ops": [
+    "udcAttributeSetPost"
+   ]
+  },
+  {
+   "module": "73587",
+   "symbol": "mi",
+   "exports": [],
+   "ops": [
+    "udcAttributeSetDeletePost"
+   ]
+  },
+  {
+   "module": "77499",
+   "symbol": "m",
+   "exports": [],
+   "ops": [
+    "udcMetaDataSelectJavaEnumItemPost"
+   ]
+  }
+ ]
+}

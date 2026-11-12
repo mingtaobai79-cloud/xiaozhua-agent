@@ -1,0 +1,63 @@
+{
+  "schema": "udc.construction.entity.naming.v1",
+  "status": "STATIC_RULE_CROSS_SAMPLE_OBSERVED",
+  "parameter": "X",
+  "application_parameter": "A",
+  "support": {
+    "application_count": 10,
+    "complete_core_entity_count": 1215
+  },
+  "outputs": [
+    {
+      "artifact": "entity",
+      "class": "X",
+      "package": "A.domain.entity.X"
+    },
+    {
+      "artifact": "dto",
+      "class": "XDto",
+      "package": "A.dto.XDto"
+    },
+    {
+      "artifact": "app_service",
+      "class": "XAppService",
+      "package": "A.api.XAppService"
+    },
+    {
+      "artifact": "app_service_impl",
+      "class": "XAppServiceImpl",
+      "package": "A.appservice.XAppServiceImpl"
+    },
+    {
+      "artifact": "domain_service",
+      "class": "XService",
+      "package": "A.domain.service.XService"
+    },
+    {
+      "artifact": "dao",
+      "class": "<ApplicationStem>XDao",
+      "package": "A.domain.dao.<ApplicationStem>XDao"
+    },
+    {
+      "artifact": "abstract_controller",
+      "class": "AbstractXController",
+      "package": "A.controller.AbstractXController",
+      "condition": "when present"
+    },
+    {
+      "artifact": "controller",
+      "class": "XController",
+      "package": "A.controller.XController",
+      "condition": "when present"
+    }
+  ],
+  "evidence": [
+    "p0-4-generated-contract-cross-sample.json",
+    "p0-4-generated-entity-contract-audit.md"
+  ],
+  "caveats": [
+    "Output structure does not prove generator causality",
+    "Additional Refer/MicroFlow/Custom controllers are extensions",
+    "X must be a valid generated Java stem; normalization rule not proven"
+  ]
+}

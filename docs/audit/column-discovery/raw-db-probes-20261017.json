@@ -1,0 +1,90 @@
+{
+  "slice": "S1-column-domain-locating",
+  "ts_gmt8": "2026-10-17T15:15:00+08:00",
+  "env": "test2",
+  "db": "udc_test2",
+  "conn_tool": "<HERMES_HOME>/skills/seeyon/01-platform/seeyon-low-code-environment/scripts/conn.py",
+  "credential_ref": "<COLLAB_ROOT>/agent-collaboration/shared-credentials/test2-web-credential.json (referenced only, not printed)",
+  "evidence_level": "LIVE",
+  "note": "All queries are read-only (SELECT / SHOW). No writes performed in this slice.",
+  "probes": [
+    {
+      "id": "P1-portlet-tables",
+      "sql": "SHOW TABLES LIKE '%portlet%'",
+      "result": ["udc_portlet", "udc_portlet_group"],
+      "conclusion": "栏目表族真实名称是 portlet，不是 column/portal。历史审计用 column|portal 关键词扫描导致 0 命中被误判为 VACUUM。"
+    },
+    {
+      "id": "P2-no-portal-tables",
+      "sql": "SHOW TABLES LIKE '%portal%'",
+      "result": [],
+      "conclusion": "门户侧在 udc 库无独立表；门户对象存在于平台侧（ctp），不在本库。"
+    },
+    {
+      "id": "P3-portlet-create-table",
+      "sql": "SHOW CREATE TABLE udc_portlet",
+      "columns": ["id", "create_time", "tenant_id", "update_time", "version", "guid", "backup_code", "owner_code", "publish_state", "app_id", "group_id", "name", "order_no", "page_relation_id", "terminal_type", "type", "category", "template_type", "original_id"],
+      "unique_key": "uk_udc_portlet_name (app_id,name,type)",
+      "header": "id bigint PK; app_id bigint NOT NULL; group_id bigint NULL '栏目分组id'; page_relation_id bigint NULL '页面关联id'; terminal_type smallint NOT NULL '端类型'; type smallint NOT NULL '类型'; category smallint NOT NULL '分类'; template_type smallint NULL '栏目模板类型'; original_id bigint '原始id'"
+    },
+    {
+      "id": "P4-portlet-group-create-table",
+      "sql": "SHOW CREATE TABLE udc_portlet_group",
+      "columns": ["id", "create_time", "tenant_id", "update_time", "version", "guid", "publish_state", "parent_id", "tree_path", "app_id", "name", "owner_code", "backup_code", "original_id"],
+      "unique_key": "uk_udc_portlet_group_name (app_id,name)",
+      "header": "parent_id bigint NOT NULL '父ID'; tree_path varchar(512) 'treePath' — 树形分组"
+    },
+    {
+      "id": "P5-counts",
+      "sql": "SELECT COUNT(*) c FROM udc_portlet / udc_portlet_group / WHERE app_id=8704025620829192834",
+      "result": {"udc_portlet_total": 157, "udc_portlet_group_total": 0, "udc_portlet_this_app": 0},
+      "conclusion": "本应用栏目 0 行 → 首屏空态可解释；分组表全库 0 行 → 未分组是常态。"
+    },
+    {
+      "id": "P6-type-distribution",
+      "sql": "SELECT type,category,terminal_type,COUNT(*) c FROM udc_portlet GROUP BY type,category,terminal_type",
+      "result": [
+        {"type": 0, "category": 1, "terminal_type": 1, "c": 26},
+        {"type": 1, "category": 1, "terminal_type": 0, "c": 6},
+        {"type": 1, "category": 1, "terminal_type": 1, "c": 119},
+        {"type": 1, "category": 1, "terminal_type": 2, "c": 6}
+      ],
+      "conclusion": "type=0 为分组占位行(26)，type=1 为栏目本体(131)；terminal_type 0/1/2 三值。"
+    },
+    {
+      "id": "P7-page-relation-id-target",
+      "sql_attempts": [
+        "LEFT JOIN udc_page_info p ON p.id=t.page_relation_id       → hit 0/131",
+        "LEFT JOIN udc_page_layout l ON l.id=t.page_relation_id     → hit 0/131",
+        "LEFT JOIN udc_page_schema s ON s.id=t.page_relation_id     → hit 0/131",
+        "LEFT JOIN udc_page_info p ON p.relation_group_id=t.page_relation_id → hit 136/136"
+      ],
+      "result": {"winner": "udc_page_info.relation_group_id", "hit": 136, "total": 131},
+      "conclusion": "page_relation_id 指向 page_info.relation_group_id（关联组），不是 page_info.id。这是本片最关键的负证据排除。"
+    },
+    {
+      "id": "P8-relation-group-cardinality",
+      "sql": "SELECT COUNT(*) rows_, COUNT(DISTINCT relation_group_id) distinct_ FROM udc_page_info WHERE relation_group_id IS NOT NULL AND relation_group_id<>0",
+      "result": {"rows": 1568, "distinct": 1498},
+      "conclusion": "relation_group_id 一对多（一个关联组可挂多端 page_info），不能当唯一键用。"
+    },
+    {
+      "id": "P9-portlet-page-sample",
+      "sql": "SELECT t.id,t.name,t.page_relation_id,p.id,p.caption,p.page_type FROM udc_portlet t LEFT JOIN udc_page_info p ON p.relation_group_id=t.page_relation_id WHERE t.app_id=3289082814923688017 AND t.page_relation_id IS NOT NULL LIMIT 5",
+      "result": [
+        {"portlet_id": 4962856294174186123, "portlet_name": "本部总营销考核排名", "page_relation_id": -1545141838521587058, "page_info_id": -9039204883171751078, "caption": "本部总营销考核排名", "page_type": "PORTLET"},
+        {"portlet_id": -6037818281043065252, "portlet_name": "本部总预计返利", "page_relation_id": -1226256414574720694, "page_info_id": -8702169246276887970, "caption": "本部总预计返利", "page_type": "PORTLET"},
+        {"portlet_id": 5799413136675657574, "portlet_name": "事总项目应收", "page_relation_id": 4713444726883338438, "page_info_id": -8638826171417097393, "caption": "事总项目应收", "page_type": "PORTLET"},
+        {"portlet_id": 8757789508219940878, "portlet_name": "事总超长期库存", "page_relation_id": -450899668414979512, "page_info_id": -8614603182714750709, "caption": "事总超长期库存", "page_type": "PORTLET"},
+        {"portlet_id": -8182365102651823306, "portlet_name": "平台项目库存", "page_relation_id": -1935285280853217506, "page_info_id": -8325243624542712067, "caption": "平台项目库存", "page_type": "PORTLET"}
+      ],
+      "conclusion": "栏目名与页面 caption 同名，page_type 恒为 PORTLET（5/5）。栏目内容 = page_type='PORTLET' 的 udc_page_info。"
+    },
+    {
+      "id": "P10-related-table-counts",
+      "sql": "SELECT (SELECT COUNT(*) FROM udc_page_info) page_info, (SELECT COUNT(*) FROM udc_page_layout) layout, (SELECT COUNT(*) FROM udc_page_schema) schema_t",
+      "result": {"page_info": 1568, "layout": 65, "schema_t": 1555},
+      "conclusion": "外框表仅 65 行，与栏目 131 条量级不符，进一步排除 layout=栏目落点。"
+    }
+  ]
+}

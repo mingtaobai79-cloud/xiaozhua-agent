@@ -1,0 +1,21 @@
+{
+ "actionType": "CREATE_MAPPING_GROUP",
+ "caption": "创建映射组",
+ "captured_from": "编辑器（用户讲解，2026-10-25）",
+ "semantics": "创建包含多个映射键值对的映射组(Map)；键仅文本，值支持任意类型",
+ "modal_fields": [
+  {
+   "label": "添加映射",
+   "note": "键(请输入映射的键key) + 值(请选择键对应的值)，多组键值对，+添加键值对"
+  },
+  {
+   "label": "节点出参名称",
+   "required": true,
+   "default": "映射组_1"
+  }
+ ],
+ "validation_rules": [
+  "至少一组键值对(键+值)",
+  "节点出参名称必填"
+ ]
+}

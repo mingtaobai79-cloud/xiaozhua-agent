@@ -1,0 +1,105 @@
+{
+  "argument_for_the_60": {
+    "boundary": "不消除的部分：BCC 是平台公开类，运行期加载的域外模块（客户 ext 组件）同样可以继承它，而这类类不在磁盘构件内、静态扫描不可见。故「60 条不存在」仍不可断言。",
+    "claim": "余 60 条 op 的 op 名均以 udc 开头。op 名由路径导出（graphql_op_naming），故其路由必带 /udc 前缀段；而 /udc 前缀只由 WebAutoConfiguration 的谓词（BaseComponentController 后代）施加。若某路由由动态通道暴露且 op 名仍以 udc开头，则该控制器必为 BaseComponentController 后代。又因为 前缀谓词集合 是 闸门集合(BaseController 后代) 的子集 —— 闸门比前缀更宽，故动态通道不会把「本该带 /udc 前缀」的类漏出前缀规则之外。",
+    "what_this_closes": "把限制从「动态通道存在，边界无界」收窄为：动态通道暴露的udc 前缀路由，其控制器必属 BaseComponentController 后代这一已知类别。"
+  },
+  "caller": {
+    "class": "com.seeyon.boot.loader.BootAppLoader",
+    "invocation_literal_present": true,
+    "method": "enhanceComponents(moduleName, beanNameList)",
+    "reading": "BootAppLoader 以 ModuleClassLoader.getRegisteredBean() 为入参调用 enhanceComponents，逐个 ComponentDynamicRegister.register(module, beans)。getRegisteredBean() = 运行期动态加载的模块 bean（可为客户 ext 组件）。"
+  },
+  "containment": {
+    "base_component_controller": "com.seeyon.boot.starter.web.BaseComponentController",
+    "base_component_super": "com.seeyon.boot.starter.web.BaseController",
+    "base_controller_super": "java.lang.Object",
+    "claim": "前缀谓词集合 是 动态注册闸门集合 的子集，凡能取到 /udc 前缀的控制器必然也被动态闸门放行（反之不然）。",
+    "verified": true
+  },
+  "contract": {
+    "fqcn": "com.seeyon.boot.loader.ComponentDynamicRegister",
+    "methods": [
+      "register",
+      "unregister"
+    ],
+    "reading": "动态通道的唯一出口：register(module, beans) / unregister(module)。"
+  },
+  "domain_containment_scan": {
+    "base_controller_only_examples": [
+      "com.seeyon.boot.starter.dynamicsql.controller.AbstractDynamicOnEntitySelectController",
+      "com.seeyon.boot.starter.dynamicsql.controller.AbstractDynamicSelectController",
+      "com.seeyon.boot.starter.monitor.controller.HealthController",
+      "com.seeyon.boot.starter.monitor.controller.MonitorCollectorController",
+      "com.seeyon.boot.starter.udcrt.proxy.controller.FormAppInfoController",
+      "com.seeyon.boot.starter.udcrt.proxy.controller.NormalAppInfoController",
+      "com.seeyon.boot.starter.udcrt.proxy.controller.UdcBaseAppInfoController",
+      "com.seeyon.boot.starter.web.SysOpsController",
+      "com.seeyon.cdp.am.controller.ModelAuthController",
+      "com.seeyon.cdp.am.controller.udc.UdcModelAuthController"
+    ],
+    "class_files": 1170,
+    "descends_base_component_controller": 90,
+    "descends_base_controller_only": 60,
+    "descends_neither": 88,
+    "neither_examples": [
+      "com.seeyon.boot.starter.dataflow.controller.DataFlowForBpmController",
+      "com.seeyon.boot.starter.prometheus.controller.PrometheusLocalController",
+      "com.seeyon.boot.starter.tomcat.controller.TomcatMonitorController",
+      "com.seeyon.cdp.am.controller.ModelController",
+      "com.seeyon.cdp.am.controller.indicator.IndicatorController",
+      "com.seeyon.cdp.am.controller.indicator.IndicatorTableController",
+      "com.seeyon.cdp.am.controller.udc.UdcIndicatorController",
+      "com.seeyon.cdp.am.controller.udc.UdcIndicatorTableController",
+      "com.seeyon.cdp.am.controller.udc.UdcModelController",
+      "com.seeyon.cdp.bi.controller.BigScreenAuthController"
+    ],
+    "reading": "prefix predicate set (BaseComponentController 后代) 是 gate set (BaseController 后代) 的子集；本扫描给出两侧实测规模。第三支 descends_neither = 既不继承 BaseController 也带路由的类，它们既拿不到 /udc 前缀、也不能被动态闸门放行。",
+    "route_classes": 238
+  },
+  "evidence": "VERIFIED_STATIC_BYTECODE (直读 .class 常量池)",
+  "gate": {
+    "class": "com.seeyon.boot.starter.web.loader.ControllerDynamicRegister",
+    "condition": "controllerBean instanceof BaseController",
+    "literals_present": [
+      "beanNameCache",
+      "com/seeyon/boot/starter/web/BaseController",
+      "detectHandlerMethods",
+      "getSelfBean",
+      "unregister",
+      "wrapController"
+    ],
+    "reading": "beanName -> SeeyonBeanFactory.getSelfBean；非 BaseController 直接 continue；放行者经 wrapController 后反射调用 RequestMappingHandlerMapping.detectHandlerMethods 注册。"
+  },
+  "implementations": {
+    "impls": [
+      "com.seeyon.boot.starter.web.loader.ControllerDynamicRegister",
+      "com.seeyon.boot.starter.web.loader.MaskableScannerDynamicRegister",
+      "com.seeyon.boot.starter.web.loader.EncryptionScannerDynamicRegister"
+    ],
+    "key": "com.seeyon.boot.loader.ComponentDynamicRegister",
+    "route_relevant": [
+      "com.seeyon.boot.starter.web.loader.ControllerDynamicRegister"
+    ],
+    "source": "boot-starter-web :: META-INF/spring.factories"
+  },
+  "limitations": [
+    "LIVE 启动段不可观测：pod 日志仅保留约 2 小时，容器 startTime 在前一日，register() 是否在启动/加载期被调用于本窗口不可证。",
+    "LIVE HTTP 探针不可用：/udc/** 未带会话一律返回 BOOT_1006，且负控（明显不存在的路由）返回完全相同响应，故 BOOT_1006 不是路由存在性/可用性判据。",
+    "本件只把 域内类经动态通道暴露 一支排除；运行期加载的域外 ext 组件 支仍开放。"
+  ],
+  "prefix_predicate": {
+    "class": "com.seeyon.boot.starter.web.WebAutoConfiguration.configurePathMatch",
+    "literals_present": [
+      "addPathPrefix"
+    ],
+    "reading": "前缀谓词 = BaseComponentController.class.isAssignableFrom(aClass)。"
+  },
+  "schema": "dynamic-register-channel.v1",
+  "sources": {
+    "boot_core_jar": "boot-core-5.3.358.jar",
+    "boot_core_sha256_16": "4e6675e58d5538e8",
+    "boot_starter_web_jar": "boot-starter-web-5.3.358.jar",
+    "boot_starter_web_sha256_16": "598d4019faa79da3"
+  }
+}

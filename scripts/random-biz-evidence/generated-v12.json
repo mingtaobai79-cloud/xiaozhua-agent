@@ -1,0 +1,915 @@
+{
+ "mid": "-6537265407469723108",
+ "name": "bizXzhgCrq",
+ "caption": "项目验收流程-bTg",
+ "schema": {
+  "input": null,
+  "output": null,
+  "sourceType": "PAGE",
+  "trigger": {
+   "id": "",
+   "nodeId": "MFStartNode",
+   "caption": "开始",
+   "description": "",
+   "type": "MANUAL",
+   "input": null,
+   "output": null
+  },
+  "nodes": [
+   {
+    "nodeId": "RETRIEVE_pEuv8n",
+    "name": null,
+    "type": "ACTIVITY",
+    "caption": "查询源单据",
+    "description": null,
+    "runAfter": null,
+    "input": null,
+    "isCompleted": true,
+    "actionType": "RETRIEVE",
+    "fetchType": "CONDITION",
+    "app": {
+     "appId": "8704025620829192834",
+     "appName": "datamigration8704025620829192834",
+     "caption": "",
+     "inApp": true,
+     "udcApp": true,
+     "dynamicDependency": false
+    },
+    "structure": {
+     "key": "com.seeyon.datamigration8704025620829192834.domain.entity.XzhExp950795",
+     "id": "com.seeyon.datamigration8704025620829192834.dto.XzhExp950795Dto",
+     "label": "小爪实验实体950795V2",
+     "dataType": "DTO",
+     "entity": "com.seeyon.datamigration8704025620829192834.domain.entity.XzhExp950795",
+     "dtoType": "MASTER_ENTITY",
+     "udcApp": true,
+     "fullName": "com.seeyon.datamigration8704025620829192834.dto.XzhExp950795Dto",
+     "relationEntity": "474806313816300867",
+     "entityId": "474806313816300867",
+     "methodLegal": {
+      "available": true,
+      "complexCondition": true,
+      "seniorMethod": true,
+      "serviceType": "NONE",
+      "interfaceClassFullName": null
+     }
+    },
+    "output": {
+     "id": "com.seeyon.datamigration8704025620829192834.dto.XzhExp950795Dto",
+     "javaType": "com.seeyon.datamigration8704025620829192834.dto.XzhExp950795Dto",
+     "dataType": "DTO",
+     "type": "OBJECT",
+     "desc": "查询源单据",
+     "dtoType": "MASTER_ENTITY",
+     "udcApp": true,
+     "name": "_RETRIEVE_pEuv8n",
+     "appName": "datamigration8704025620829192834"
+    },
+    "condition": [
+     {
+      "type": "GROUP",
+      "uuid": "db15b12f-3c4c-4d97-96ea-a2d1d3973adc",
+      "logicalOperator": "AND",
+      "conditions": [
+       {
+        "type": "CONDITION",
+        "leftParam": {
+         "id": "4308968111076641698",
+         "type": "OBJECT",
+         "javaType": "java.lang.Long",
+         "dto": "_id",
+         "field": "id",
+         "desc": "ID",
+         "dataType": "BIGINTEGER",
+         "multiSelect": false
+        },
+        "operator": {
+         "value": "EQ",
+         "desc": "="
+        },
+        "rightParams": [
+         {
+          "type": "CONTEXT_VARIABLE",
+          "value": "{\"key\": \"_FLOW_INPUT_x1W2U3_com.seeyon.datamigration8704025620829192834.dto.XzhExp950795Dto.recordId\", \"name\": \"recordId\", \"id\": \"com.seeyon.datamigration8704025620829192834.dto.XzhExp950795Dto.recordId\", \"appName\": \"datamigration8704025620829192834\", \"description\": \"\\u8bb0\\u5f55ID\", \"position\": \"children\", \"path\": \"comseeyondatamigration8704025620829192834dtoXzhExp950795DtorecordId\", \"outputName\": \"_FLOW_INPUT_x1W2U3\", \"dataType\": \"BIGINTEGER\", \"type\": \"OBJECT\", \"javaType\": \"java.lang.Long\", \"dtoType\": \"MASTER_ENTITY\", \"udcApp\": true, \"multiSelect\": false, \"customs\": {\"basicType\": false, \"inApp\": true, \"dataType\": \"BIGINTEGER\", \"name\": \"recordId\", \"id\": null}, \"parentLabel\": \"\\u5165\\u53c2\\u5bf9\\u8c61(\\u957f\\u6574\\u6570)\"}",
+          "desc": "记录ID"
+         }
+        ],
+        "uuid": "7c24009a-a507-4205-b2be-413ea2ba56a9",
+        "logicalOperator": "AND"
+       }
+      ]
+     }
+    ],
+    "sortParams": [],
+    "needCascade": false,
+    "title": "查询源单据",
+    "nullHandling": "TERMINATE",
+    "nullHandlingMessage": "未查询到对应记录，流程终止",
+    "selectType": "DTO",
+    "scope": "OBJECT",
+    "methodLegal": {
+     "available": true,
+     "complexCondition": true,
+     "seniorMethod": true,
+     "serviceType": "NONE",
+     "interfaceClassFullName": null
+    }
+   },
+   {
+    "nodeId": "RETRIEVE_ARRAY_0Uo2YY",
+    "name": null,
+    "type": "ACTIVITY",
+    "caption": "查询多条数据",
+    "description": null,
+    "runAfter": null,
+    "input": null,
+    "output": {
+     "id": "com.seeyon.datamigration8704025620829192834.dto.XzhExp950795Dto",
+     "javaType": "com.seeyon.datamigration8704025620829192834.dto.XzhExp950795Dto",
+     "dataType": "DTO",
+     "type": "ARRAY",
+     "desc": "实体列表",
+     "appName": "datamigration8704025620829192834",
+     "dtoType": "MASTER_ENTITY",
+     "udcApp": true,
+     "relationEntity": "474806313816300867",
+     "name": "_RETRIEVE_ARRAY_0Uo2YY"
+    },
+    "isCompleted": true,
+    "actionType": "RETRIEVE_ARRAY",
+    "app": {
+     "appId": "8704025620829192834",
+     "appName": "datamigration8704025620829192834",
+     "caption": "",
+     "inApp": true,
+     "udcApp": true,
+     "dynamicDependency": false
+    },
+    "structure": {
+     "key": "com.seeyon.datamigration8704025620829192834.domain.entity.XzhExp950795",
+     "id": "com.seeyon.datamigration8704025620829192834.dto.XzhExp950795Dto",
+     "label": "小爪实验实体950795V2",
+     "dataType": "DTO",
+     "entity": "com.seeyon.datamigration8704025620829192834.domain.entity.XzhExp950795",
+     "dtoType": "MASTER_ENTITY",
+     "udcApp": true,
+     "fullName": "com.seeyon.datamigration8704025620829192834.dto.XzhExp950795Dto",
+     "relationEntity": "474806313816300867",
+     "entityId": "474806313816300867",
+     "methodLegal": {
+      "available": true,
+      "complexCondition": true,
+      "seniorMethod": true,
+      "serviceType": "NONE",
+      "interfaceClassFullName": null
+     }
+    },
+    "selectType": "DTO",
+    "scope": "OBJECT",
+    "methodLegal": {
+     "available": true,
+     "complexCondition": true,
+     "seniorMethod": true,
+     "serviceType": "NONE",
+     "interfaceClassFullName": null
+    },
+    "fetchType": "CONDITION",
+    "nullHandling": "CONTINUE",
+    "variableTitle": "实体列表",
+    "condition": [
+     {
+      "type": "GROUP",
+      "uuid": "c430900d-5071-468f-9337-53a69080deb5",
+      "logicalOperator": "AND",
+      "conditions": [
+       {
+        "type": "CONDITION",
+        "leftParam": {
+         "id": "5268019261289674045",
+         "type": "OBJECT",
+         "javaType": "java.lang.Boolean",
+         "dto": "_expFlag",
+         "field": "expFlag",
+         "desc": "实验开关",
+         "dataType": "BOOLEAN",
+         "multiSelect": false
+        },
+        "operator": {
+         "value": "EQ",
+         "desc": "="
+        },
+        "rightParams": [
+         {
+          "type": "CONSTANT",
+          "value": "true",
+          "desc": "true"
+         }
+        ],
+        "uuid": "3090a69e-5e77-4c0e-b694-bb05b6759f2d",
+        "logicalOperator": "AND"
+       }
+      ]
+     }
+    ],
+    "sortParams": [],
+    "size": 999,
+    "pageSearch": "false",
+    "pageInfo": null
+   },
+   {
+    "nodeId": "CREATE_VARIABLE_QgP9w6",
+    "name": null,
+    "type": "ACTIVITY",
+    "caption": "创建变量(实体)",
+    "description": null,
+    "runAfter": null,
+    "input": null,
+    "output": {
+     "id": "com.seeyon.datamigration8704025620829192834.dto.XzhExp950795Dto",
+     "javaType": "com.seeyon.datamigration8704025620829192834.dto.XzhExp950795Dto",
+     "dataType": "DTO",
+     "type": "OBJECT",
+     "desc": "实体变量",
+     "dtoType": "MASTER_ENTITY",
+     "udcApp": true,
+     "name": "_CREATE_VARIABLE_QgP9w6",
+     "appName": "datamigration8704025620829192834"
+    },
+    "isCompleted": true,
+    "actionType": "CREATE_VARIABLE",
+    "paramType": "ENTITY",
+    "app": {
+     "appId": "8704025620829192834",
+     "appName": "datamigration8704025620829192834",
+     "caption": "",
+     "inApp": true,
+     "udcApp": true,
+     "dynamicDependency": false
+    },
+    "mappingType": "attrs",
+    "attrs": null,
+    "title": "实体变量",
+    "dataType": "DTO",
+    "structure": {
+     "key": "com.seeyon.datamigration8704025620829192834.domain.entity.XzhExp950795",
+     "id": "com.seeyon.datamigration8704025620829192834.dto.XzhExp950795Dto",
+     "label": "小爪实验实体950795V2",
+     "dataType": "DTO",
+     "entity": "com.seeyon.datamigration8704025620829192834.domain.entity.XzhExp950795",
+     "dtoType": "MASTER_ENTITY",
+     "udcApp": true,
+     "fullName": "com.seeyon.datamigration8704025620829192834.dto.XzhExp950795Dto",
+     "relationEntity": "474806313816300867",
+     "entityId": "474806313816300867",
+     "methodLegal": {
+      "available": true,
+      "complexCondition": true,
+      "seniorMethod": true,
+      "serviceType": "NONE",
+      "interfaceClassFullName": null
+     }
+    }
+   },
+   {
+    "nodeId": "CHANGE_VARIABLE_PzbSH1",
+    "name": null,
+    "type": "ACTIVITY",
+    "caption": "修改变量",
+    "description": null,
+    "runAfter": null,
+    "input": null,
+    "output": null,
+    "isCompleted": true,
+    "actionType": "CHANGE_VARIABLE",
+    "selectParam": {
+     "id": "com.seeyon.datamigration8704025620829192834.dto.XzhExp950795Dto",
+     "javaType": "com.seeyon.datamigration8704025620829192834.dto.XzhExp950795Dto",
+     "dataType": "DTO",
+     "type": "OBJECT",
+     "desc": "实体变量",
+     "appName": "datamigration8704025620829192834",
+     "dtoType": "MASTER_ENTITY",
+     "udcApp": true,
+     "relationEntity": "474806313816300867",
+     "name": "vEntity",
+     "position": "parent",
+     "outputName": "_CREATE_VARIABLE_QgP9w6",
+     "description": "实体变量",
+     "nodeInfo": {
+      "nodeId": "CREATE_VARIABLE_QgP9w6",
+      "type": "ACTIVITY",
+      "actionType": "CREATE_VARIABLE"
+     },
+     "key": "_CREATE_VARIABLE_QgP9w6",
+     "path": "_CREATE_VARIABLE_QgP9w6"
+    },
+    "mappingType": "attrs",
+    "attrs": [
+     {
+      "value": {
+       "type": "SelectParam",
+       "selectParam": {
+        "description": "实验文本(已改)",
+        "dataType": "STRING",
+        "type": "OBJECT",
+        "javaType": "java.lang.String",
+        "name": "_RETRIEVE_pEuv8n",
+        "outputName": "_RETRIEVE_pEuv8n",
+        "position": "parent",
+        "nodeInfo": {
+         "nodeId": "RETRIEVE_pEuv8n",
+         "type": "ACTIVITY",
+         "actionType": "RETRIEVE"
+        },
+        "key": "_RETRIEVE_pEuv8n_RETRIEVE.expText",
+        "path": "_RETRIEVE_pEuv8n.expText",
+        "parentLabel": "小爪实验实体950795V2"
+       }
+      },
+      "attrType": {
+       "validate": true,
+       "id": "com.seeyon.datamigration8704025620829192834.dto.XzhExp950795Dto.expText",
+       "name": "expText",
+       "fullName": "com.seeyon.datamigration8704025620829192834.dto.XzhExp950795Dto.expText",
+       "md5": "",
+       "javaType": "java.lang.String",
+       "dataType": "STRING",
+       "type": "OBJECT",
+       "caption": "实验文本(已改)",
+       "desc": "实验文本(已改)",
+       "description": "",
+       "refId": "",
+       "refApp": "datamigration8704025620829192834",
+       "refType": "NONE",
+       "multiSelect": false,
+       "dataI18n": false,
+       "sort": 0,
+       "customs": {
+        "basicType": false,
+        "mfDataI18n": false,
+        "defaultOrExpression": false,
+        "notNull": false,
+        "sourceType": "ENTITY",
+        "dataType": "STRING",
+        "name": "expText",
+        "id": "8016904624316689195"
+       }
+      }
+     }
+    ]
+   },
+   {
+    "nodeId": "BRANCH_nGQyEr",
+    "name": null,
+    "type": "BRANCH",
+    "caption": "是否通过",
+    "description": null,
+    "runAfter": null,
+    "input": null,
+    "output": null,
+    "isCompleted": true,
+    "actionType": "BRANCH",
+    "conditions": [
+     {
+      "nodeId": "CONDITION_nGQyEr",
+      "type": "CONDITION",
+      "caption": "通过",
+      "description": null,
+      "isCompleted": true,
+      "expression": {
+       "designData": {
+        "expressionTranslation": "微流程.查询源单据.expNum >= 1",
+        "resultTypeInfo": "BOOLEAN",
+        "tokens": [
+         {
+          "uid": "8e1ccdcf-858f-4300-96a1-066e1dc0c038",
+          "type": "VARIABLE",
+          "value": "_RETRIEVE_pEuv8n.expNum",
+          "desc": "查询源单据.expNum"
+         },
+         {
+          "uid": "b51e4c7c-07da-4414-8c50-026f48027986",
+          "type": "OPERATOR",
+          "value": ">=",
+          "desc": ">="
+         },
+         {
+          "uid": "e2b85429-ff01-475a-8501-78bb0274b55b",
+          "type": "CONSTANT",
+          "value": "1",
+          "desc": "1"
+         }
+        ]
+       }
+      },
+      "nodes": [
+       {
+        "nodeId": "CHANGE_ENTITY_LR5meZ",
+        "name": null,
+        "type": "ACTIVITY",
+        "caption": "标记通过",
+        "description": null,
+        "runAfter": null,
+        "input": null,
+        "output": {
+         "id": null,
+         "javaType": "java.lang.Boolean",
+         "dataType": "BOOLEAN",
+         "type": "OBJECT",
+         "desc": "更新结果",
+         "dtoType": null,
+         "udcApp": null,
+         "name": "_CHANGE_ENTITY_LR5meZ"
+        },
+        "isCompleted": true,
+        "actionType": "CHANGE_ENTITY",
+        "selectParam": {
+         "id": "com.seeyon.datamigration8704025620829192834.dto.XzhExp950795Dto",
+         "javaType": "com.seeyon.datamigration8704025620829192834.dto.XzhExp950795Dto",
+         "dataType": "DTO",
+         "type": "OBJECT",
+         "desc": "小爪实验实体950795V2",
+         "appName": "datamigration8704025620829192834",
+         "dtoType": "MASTER_ENTITY",
+         "udcApp": true,
+         "relationEntity": "474806313816300867",
+         "name": "_RETRIEVE_pEuv8n",
+         "position": "parent",
+         "outputName": "_RETRIEVE_pEuv8n",
+         "description": "小爪实验实体950795V2",
+         "nodeInfo": {
+          "nodeId": "RETRIEVE_pEuv8n",
+          "type": "ACTIVITY",
+          "actionType": "RETRIEVE"
+         },
+         "key": "_RETRIEVE_pEuv8n_RETRIEVE",
+         "path": "_RETRIEVE_pEuv8n"
+        },
+        "mappingType": "attrs",
+        "attrs": [
+         {
+          "value": {
+           "type": "Simple",
+           "simple": true,
+           "desc": true
+          },
+          "attrType": {
+           "validate": true,
+           "id": "com.seeyon.datamigration8704025620829192834.dto.XzhExp950795Dto.expFlag",
+           "name": "expFlag",
+           "fullName": "com.seeyon.datamigration8704025620829192834.dto.XzhExp950795Dto.expFlag",
+           "md5": "",
+           "javaType": "java.lang.Boolean",
+           "dataType": "BOOLEAN",
+           "type": "OBJECT",
+           "caption": "实验开关",
+           "desc": "实验开关",
+           "description": "",
+           "refId": "",
+           "refApp": "datamigration8704025620829192834",
+           "refType": "NONE",
+           "multiSelect": false,
+           "dataI18n": false,
+           "sort": 0,
+           "customs": {
+            "basicType": false,
+            "mfDataI18n": false,
+            "defaultOrExpression": false,
+            "notNull": false,
+            "sourceType": "ENTITY",
+            "dataType": "BOOLEAN",
+            "name": "expFlag",
+            "id": "5268019261289674045"
+           }
+          }
+         }
+        ],
+        "title": "小爪实验实体950795V2"
+       },
+       {
+        "nodeId": "CREATE_ENTITY_PCbjci",
+        "name": null,
+        "type": "ACTIVITY",
+        "caption": "插入验收记录",
+        "description": null,
+        "runAfter": null,
+        "input": null,
+        "output": {
+         "id": null,
+         "javaType": "com.seeyon.datamigration8704025620829192834.dto.XzhExp950795Dto",
+         "dataType": "DTO",
+         "type": "OBJECT",
+         "desc": "新增记录",
+         "dtoType": null,
+         "udcApp": null,
+         "name": "_CREATE_ENTITY_PCbjci"
+        },
+        "isCompleted": true,
+        "actionType": "CREATE_ENTITY",
+        "app": {
+         "appId": "8704025620829192834",
+         "appName": "datamigration8704025620829192834",
+         "caption": "",
+         "inApp": true,
+         "udcApp": true,
+         "dynamicDependency": false
+        },
+        "structure": {
+         "key": "com.seeyon.datamigration8704025620829192834.domain.entity.XzhExp950795",
+         "id": "com.seeyon.datamigration8704025620829192834.dto.XzhExp950795Dto",
+         "label": "小爪实验实体950795V2",
+         "dataType": "DTO",
+         "entity": "com.seeyon.datamigration8704025620829192834.domain.entity.XzhExp950795",
+         "dtoType": "MASTER_ENTITY",
+         "udcApp": true,
+         "fullName": "com.seeyon.datamigration8704025620829192834.dto.XzhExp950795Dto",
+         "relationEntity": "474806313816300867",
+         "entityId": "474806313816300867",
+         "methodLegal": {
+          "available": true,
+          "complexCondition": true,
+          "seniorMethod": true,
+          "serviceType": "NONE",
+          "interfaceClassFullName": null
+         }
+        },
+        "title": "小爪实验实体950795V2",
+        "methodLegal": {
+         "available": true,
+         "complexCondition": true,
+         "seniorMethod": true,
+         "serviceType": "NONE",
+         "interfaceClassFullName": null
+        },
+        "mappingType": "attrs",
+        "attrs": [
+         {
+          "value": {
+           "type": "SelectParam",
+           "selectParam": {
+            "description": "实验文本(已改)",
+            "dataType": "STRING",
+            "type": "OBJECT",
+            "javaType": "java.lang.String",
+            "name": "_RETRIEVE_pEuv8n",
+            "outputName": "_RETRIEVE_pEuv8n",
+            "position": "parent",
+            "nodeInfo": {
+             "nodeId": "RETRIEVE_pEuv8n",
+             "type": "ACTIVITY",
+             "actionType": "RETRIEVE"
+            },
+            "key": "_RETRIEVE_pEuv8n_RETRIEVE.expText",
+            "path": "_RETRIEVE_pEuv8n.expText",
+            "parentLabel": "小爪实验实体950795V2"
+           }
+          },
+          "attrType": {
+           "validate": true,
+           "id": "com.seeyon.datamigration8704025620829192834.dto.XzhExp950795Dto.expText",
+           "name": "expText",
+           "fullName": "com.seeyon.datamigration8704025620829192834.dto.XzhExp950795Dto.expText",
+           "md5": "",
+           "javaType": "java.lang.String",
+           "dataType": "STRING",
+           "type": "OBJECT",
+           "caption": "实验文本(已改)",
+           "desc": "实验文本(已改)",
+           "description": "",
+           "refId": "",
+           "refApp": "datamigration8704025620829192834",
+           "refType": "NONE",
+           "multiSelect": false,
+           "dataI18n": false,
+           "sort": 0,
+           "customs": {
+            "basicType": false,
+            "mfDataI18n": false,
+            "defaultOrExpression": false,
+            "notNull": false,
+            "sourceType": "ENTITY",
+            "dataType": "STRING",
+            "name": "expText",
+            "id": "8016904624316689195"
+           }
+          }
+         }
+        ],
+        "value": null
+       }
+      ]
+     },
+     {
+      "nodeId": "CONDITION_nGQyErx",
+      "type": "CONDITION",
+      "caption": "不通过",
+      "description": null,
+      "isCompleted": true,
+      "expression": null,
+      "nodes": [
+       {
+        "nodeId": "CUSTOM_ERROR_YkW4yJ",
+        "name": null,
+        "type": "CUSTOM_ERROR",
+        "caption": "验收失败告警",
+        "description": null,
+        "runAfter": null,
+        "input": null,
+        "output": null,
+        "isCompleted": true,
+        "actionType": "CUSTOM_ERROR",
+        "errorType": "GLOBAL",
+        "error": {
+         "type": "Simple",
+         "simple": "验收未通过，流程终止",
+         "desc": "验收未通过，流程终止"
+        }
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "nodeId": "CREATE_MAP_H3CHWn",
+    "name": null,
+    "type": "ACTIVITY",
+    "caption": "验收摘要",
+    "description": null,
+    "runAfter": null,
+    "input": null,
+    "output": {
+     "dataType": "MAP",
+     "javaType": "java.util.Map",
+     "id": null,
+     "type": "OBJECT",
+     "desc": "验收摘要",
+     "generics": {
+      "keyType": {
+       "dataType": "String"
+      },
+      "valueType": {
+       "dataType": "Object",
+       "javaType": "java.lang.Object"
+      }
+     },
+     "name": "_CREATE_MAP_H3CHWn"
+    },
+    "isCompleted": true,
+    "actionType": "CREATE_MAP",
+    "paramType": null,
+    "dataType": null,
+    "title": "验收摘要",
+    "generics": {
+     "keyType": {
+      "dataType": "String"
+     },
+     "valueType": {
+      "dataType": "Object",
+      "javaType": "java.lang.Object"
+     }
+    },
+    "entries": [
+     {
+      "key": {
+       "type": "Simple",
+       "simple": "expText",
+       "desc": "expText"
+      },
+      "value": {
+       "type": "Simple",
+       "simple": "验收文本",
+       "desc": "验收文本"
+      }
+     },
+     {
+      "key": {
+       "type": "Simple",
+       "simple": "expNum",
+       "desc": "expNum"
+      },
+      "value": {
+       "type": "Simple",
+       "simple": "1",
+       "desc": "1"
+      }
+     }
+    ]
+   },
+   {
+    "nodeId": "MAP_OPERATION_kfmzat",
+    "name": null,
+    "type": "ACTIVITY",
+    "caption": "写入验收结果",
+    "description": null,
+    "runAfter": null,
+    "input": null,
+    "output": null,
+    "isCompleted": true,
+    "actionType": "MAP_OPERATION",
+    "selectMap": {
+     "id": null,
+     "javaType": "java.util.Map",
+     "dataType": "MAP",
+     "type": "OBJECT",
+     "desc": "验收摘要",
+     "name": "_CREATE_MAP_H3CHWn",
+     "generics": {
+      "keyType": {
+       "dataType": "String"
+      },
+      "valueType": {
+       "dataType": "Object",
+       "javaType": "java.lang.Object"
+      }
+     },
+     "position": "parent",
+     "outputName": "_CREATE_MAP_H3CHWn",
+     "description": "验收摘要",
+     "nodeInfo": {
+      "nodeId": "CREATE_MAP_H3CHWn",
+      "type": "ACTIVITY",
+      "actionType": "CREATE_MAP"
+     }
+    },
+    "operationType": "PUT",
+    "generics": {
+     "keyType": {
+      "dataType": "String"
+     },
+     "valueType": {
+      "dataType": "Object",
+      "javaType": "java.lang.Object"
+     }
+    },
+    "entries": [
+     {
+      "key": {
+       "type": "Simple",
+       "simple": "验收结果",
+       "desc": "验收结果"
+      },
+      "value": {
+       "type": "Simple",
+       "simple": "通过",
+       "desc": "通过"
+      }
+     }
+    ]
+   },
+   {
+    "nodeId": "LIST_OPERATION_UWmw5o",
+    "name": null,
+    "type": "ACTIVITY",
+    "caption": "列表处理(SIZE)",
+    "description": null,
+    "runAfter": null,
+    "input": null,
+    "output": null,
+    "isCompleted": true,
+    "actionType": "LIST_OPERATION",
+    "selectParam": {
+     "id": null,
+     "javaType": "com.seeyon.datamigration8704025620829192834.dto.XzhExp950795Dto",
+     "dataType": "DTO",
+     "type": "ARRAY",
+     "desc": "实体列表",
+     "name": "_RETRIEVE_ARRAY_0Uo2YY",
+     "position": "parent",
+     "outputName": "_RETRIEVE_ARRAY_0Uo2YY",
+     "description": "实体列表",
+     "dtoType": "MASTER_ENTITY",
+     "appName": "datamigration8704025620829192834",
+     "udcApp": true,
+     "relationEntity": "474806313816300867",
+     "nodeInfo": {
+      "nodeId": "RETRIEVE_ARRAY_0Uo2YY",
+      "type": "ACTIVITY",
+      "actionType": "RETRIEVE_ARRAY"
+     }
+    },
+    "operationType": {
+     "type": "SIZE"
+    },
+    "title": "列表处理后结果"
+   },
+   {
+    "nodeId": "For_hQE7QW",
+    "type": "FOR",
+    "caption": "重试循环",
+    "description": null,
+    "runAfter": null,
+    "foreach": null,
+    "isCompleted": true,
+    "forStart": {
+     "type": "Simple",
+     "simple": 1,
+     "desc": 1
+    },
+    "forEnd": {
+     "type": "Simple",
+     "simple": 3,
+     "desc": 3
+    },
+    "forStep": 1,
+    "operator": "<=",
+    "targetName": "重试计数",
+    "output": {
+     "id": "",
+     "dataType": "INTEGER",
+     "type": "OBJECT",
+     "desc": "重试计数",
+     "javaType": "java.lang.Integer",
+     "name": "_FOR_hQE7QW"
+    },
+    "nodes": [
+     {
+      "nodeId": "CONVERT_DATA_6I9045",
+      "name": null,
+      "type": "ACTIVITY",
+      "caption": "文本转整数",
+      "description": null,
+      "runAfter": null,
+      "input": null,
+      "output": {
+       "id": null,
+       "javaType": "java.lang.Integer",
+       "dataType": "INTEGER",
+       "type": "OBJECT",
+       "desc": "转换结果",
+       "name": "_CONVERT_DATA_6I9045"
+      },
+      "isCompleted": true,
+      "actionType": "CONVERT_DATA",
+      "convertType": {
+       "desc": "文本转整数",
+       "value": "String2Integer",
+       "dataType": "INTEGER",
+       "type": "OBJECT"
+      },
+      "selectParam": {
+       "id": "com.seeyon.datamigration8704025620829192834.dto.XzhExp950795Dto.expText",
+       "javaType": "java.lang.String",
+       "dataType": "STRING",
+       "type": "OBJECT",
+       "desc": "小爪实验实体950795V2",
+       "appName": "datamigration8704025620829192834",
+       "dtoType": "MASTER_ENTITY",
+       "udcApp": true,
+       "relationEntity": "474806313816300867",
+       "name": "expText",
+       "description": "实验文本(已改)",
+       "position": "children",
+       "outputName": "_RETRIEVE_pEuv8n",
+       "path": "com.seeyon.datamigration8704025620829192834.dto.XzhExp950795Dto.expText",
+       "iconKey": "LinedSearch",
+       "parentLabel": "",
+       "disabled": false,
+       "multiSelect": false
+      },
+      "regex": null,
+      "title": "转换结果"
+     }
+    ]
+   }
+  ],
+  "endNode": {
+   "id": "",
+   "name": "",
+   "type": "END",
+   "actionType": "END_NODE",
+   "nodeId": "MFEndNode",
+   "caption": "结束",
+   "description": "",
+   "input": null,
+   "output": null
+  }
+ },
+ "checkSchema": {
+  "check": false,
+  "errors": 2,
+  "errorMessage": [
+   {
+    "validate": true,
+    "nodeId": "CREATE_ENTITY_PCbjci",
+    "nodeCaption": "[插入验收记录]",
+    "propertyKey": "id",
+    "path": "CREATE_ENTITY_PCbjci,插入验收记录.output.id",
+    "level": "error",
+    "errorCode": "PROPERTY_IS_REQUIRED",
+    "errorType": "PARSE",
+    "message": "[插入验收记录]:必填参数未配置，请点击该节点参数设置"
+   },
+   {
+    "validate": true,
+    "nodeId": "CONDITION_nGQyEr",
+    "nodeCaption": "[通过]",
+    "propertyKey": "CONDITION_nGQyEr,通过",
+    "path": "CONDITION_nGQyEr,通过",
+    "level": "error",
+    "errorCode": "PROPERTY_IS_REQUIRED",
+    "errorType": "PARSE",
+    "message": "[通过]:必填参数未配置，请点击该节点参数设置"
+   }
+  ]
+ }
+}

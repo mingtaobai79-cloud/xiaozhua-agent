@@ -1,0 +1,2995 @@
+{
+ "source": "znxmglpt3289082814923688017 / 643 RELEASE microflows / 7937 nodes",
+ "generated_by": "scratch/contract_mine.py",
+ "contract": {
+  "RETRIEVE": {
+   "samples": 639,
+   "keys": {
+    "nodeId": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 639
+     }
+    },
+    "name": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 639
+     }
+    },
+    "type": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 639
+     }
+    },
+    "caption": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 639
+     }
+    },
+    "description": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 639
+     }
+    },
+    "runAfter": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 639
+     }
+    },
+    "input": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 639
+     }
+    },
+    "output": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "dict": 639
+     }
+    },
+    "isCompleted": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "bool": 639
+     }
+    },
+    "actionType": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 639
+     }
+    },
+    "fetchType": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 639
+     }
+    },
+    "app": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "dict": 639
+     }
+    },
+    "structure": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "dict": 639
+     }
+    },
+    "condition": {
+     "pct": 62,
+     "level": "USUAL",
+     "shapes": {
+      "list": 377,
+      "null": 21
+     }
+    },
+    "sortParams": {
+     "pct": 62,
+     "level": "USUAL",
+     "shapes": {
+      "list": 393,
+      "null": 5
+     }
+    },
+    "title": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 639
+     }
+    },
+    "nullHandling": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 639
+     }
+    },
+    "selectType": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 639
+     }
+    },
+    "scope": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 639
+     }
+    },
+    "methodLegal": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "dict": 639
+     }
+    },
+    "value": {
+     "pct": 40,
+     "level": "OPT",
+     "shapes": {
+      "dict": 246,
+      "null": 7
+     }
+    },
+    "nullPromptMessage": {
+     "pct": 14,
+     "level": "OPT",
+     "shapes": {
+      "str": 80,
+      "null": 9
+     }
+    },
+    "needCascade": {
+     "pct": 52,
+     "level": "USUAL",
+     "shapes": {
+      "bool": 329,
+      "null": 5
+     }
+    }
+   }
+  },
+  "CREATE_VARIABLE": {
+   "samples": 712,
+   "keys": {
+    "paramType": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 712
+     }
+    },
+    "app": {
+     "pct": 36,
+     "level": "OPT",
+     "shapes": {
+      "dict": 252,
+      "null": 2
+     }
+    },
+    "mappingType": {
+     "pct": 40,
+     "level": "OPT",
+     "shapes": {
+      "str": 272,
+      "null": 13
+     }
+    },
+    "attrs": {
+     "pct": 30,
+     "level": "OPT",
+     "shapes": {
+      "list": 201,
+      "null": 12
+     }
+    },
+    "title": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 712
+     }
+    },
+    "dataType": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 712
+     }
+    },
+    "structure": {
+     "pct": 40,
+     "level": "OPT",
+     "shapes": {
+      "dict": 283
+     }
+    },
+    "nodeId": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 712
+     }
+    },
+    "actionType": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 712
+     }
+    },
+    "caption": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 712
+     }
+    },
+    "description": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 712
+     }
+    },
+    "type": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 712
+     }
+    },
+    "output": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "dict": 712
+     }
+    },
+    "isCompleted": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "bool": 712
+     }
+    },
+    "value": {
+     "pct": 66,
+     "level": "USUAL",
+     "shapes": {
+      "dict": 268,
+      "null": 199
+     }
+    },
+    "otherType": {
+     "pct": 4,
+     "level": "OPT",
+     "shapes": {
+      "str": 31
+     }
+    },
+    "mapping": {
+     "pct": 5,
+     "level": "OPT",
+     "shapes": {
+      "list": 35,
+      "null": 3
+     }
+    },
+    "selectParam": {
+     "pct": 5,
+     "level": "OPT",
+     "shapes": {
+      "dict": 35,
+      "null": 3
+     }
+    },
+    "nodeRemark": {
+     "pct": 3,
+     "level": "OPT",
+     "shapes": {
+      "null": 23,
+      "str": 1
+     }
+    }
+   }
+  },
+  "CHANGE_LIST": {
+   "samples": 317,
+   "keys": {
+    "nodeId": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 317
+     }
+    },
+    "name": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 317
+     }
+    },
+    "type": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 317
+     }
+    },
+    "caption": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 317
+     }
+    },
+    "description": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 317
+     }
+    },
+    "runAfter": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 317
+     }
+    },
+    "input": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 317
+     }
+    },
+    "output": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 317
+     }
+    },
+    "isCompleted": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "bool": 317
+     }
+    },
+    "actionType": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 317
+     }
+    },
+    "selectParam": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "dict": 317
+     }
+    },
+    "action": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 317
+     }
+    },
+    "dataSource": {
+     "pct": 95,
+     "level": "USUAL",
+     "shapes": {
+      "dict": 302
+     }
+    },
+    "countAttrs": {
+     "pct": 3,
+     "level": "OPT",
+     "shapes": {
+      "list": 8
+     }
+    }
+   }
+  },
+  "CHANGE_ENTITY": {
+   "samples": 103,
+   "keys": {
+    "nodeId": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 103
+     }
+    },
+    "name": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 103
+     }
+    },
+    "type": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 103
+     }
+    },
+    "caption": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 103
+     }
+    },
+    "description": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 103
+     }
+    },
+    "runAfter": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 103
+     }
+    },
+    "input": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 103
+     }
+    },
+    "output": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "dict": 103
+     }
+    },
+    "isCompleted": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "bool": 103
+     }
+    },
+    "actionType": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 103
+     }
+    },
+    "selectParam": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "dict": 103
+     }
+    },
+    "attrs": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "list": 102,
+      "null": 1
+     }
+    },
+    "title": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 103
+     }
+    }
+   }
+  },
+  "SUB_MICROFLOW": {
+   "samples": 251,
+   "keys": {
+    "nodeId": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 251
+     }
+    },
+    "name": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 251
+     }
+    },
+    "type": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 251
+     }
+    },
+    "caption": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 251
+     }
+    },
+    "description": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 251
+     }
+    },
+    "runAfter": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 251
+     }
+    },
+    "input": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 251
+     }
+    },
+    "output": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "dict": 215,
+      "null": 36
+     }
+    },
+    "isCompleted": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "bool": 251
+     }
+    },
+    "actionType": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 251
+     }
+    },
+    "mfService": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "dict": 251
+     }
+    },
+    "mappingType": {
+     "pct": 45,
+     "level": "OPT",
+     "shapes": {
+      "str": 112
+     }
+    },
+    "attrs": {
+     "pct": 31,
+     "level": "OPT",
+     "shapes": {
+      "list": 78,
+      "null": 1
+     }
+    },
+    "outPutDesc": {
+     "pct": 86,
+     "level": "USUAL",
+     "shapes": {
+      "null": 215
+     }
+    },
+    "outputName": {
+     "pct": 86,
+     "level": "USUAL",
+     "shapes": {
+      "str": 215
+     }
+    },
+    "value": {
+     "pct": 65,
+     "level": "USUAL",
+     "shapes": {
+      "dict": 159,
+      "null": 3
+     }
+    }
+   }
+  },
+  "BRANCH": {
+   "samples": 941,
+   "keys": {
+    "nodeId": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 941
+     }
+    },
+    "name": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 941
+     }
+    },
+    "type": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 941
+     }
+    },
+    "caption": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 941
+     }
+    },
+    "description": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 941
+     }
+    },
+    "runAfter": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 941
+     }
+    },
+    "nodeCollapse": {
+     "pct": 9,
+     "level": "OPT",
+     "shapes": {
+      "bool": 83
+     }
+    },
+    "conditions": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "list": 941
+     }
+    }
+   }
+  },
+  "CONDITION": {
+   "samples": 1981,
+   "keys": {
+    "nodeId": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 1981
+     }
+    },
+    "name": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 1981
+     }
+    },
+    "type": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 1981
+     }
+    },
+    "caption": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 1981
+     }
+    },
+    "description": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 1981
+     }
+    },
+    "runAfter": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 1981
+     }
+    },
+    "expression": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "dict": 1040,
+      "null": 941
+     }
+    },
+    "isCompleted": {
+     "pct": 52,
+     "level": "USUAL",
+     "shapes": {
+      "bool": 1040
+     }
+    },
+    "nodes": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "list": 1981
+     }
+    }
+   }
+  },
+  "CHANGE_VARIABLE": {
+   "samples": 1053,
+   "keys": {
+    "nodeId": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 1053
+     }
+    },
+    "name": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 1053
+     }
+    },
+    "type": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 1053
+     }
+    },
+    "caption": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 1053
+     }
+    },
+    "description": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 1053
+     }
+    },
+    "runAfter": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 1053
+     }
+    },
+    "input": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 1053
+     }
+    },
+    "output": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 1053
+     }
+    },
+    "isCompleted": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "bool": 1053
+     }
+    },
+    "actionType": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 1053
+     }
+    },
+    "selectParam": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "dict": 1053
+     }
+    },
+    "mappingType": {
+     "pct": 33,
+     "level": "OPT",
+     "shapes": {
+      "str": 346,
+      "null": 3
+     }
+    },
+    "attrs": {
+     "pct": 32,
+     "level": "OPT",
+     "shapes": {
+      "list": 335,
+      "null": 2
+     }
+    },
+    "value": {
+     "pct": 69,
+     "level": "USUAL",
+     "shapes": {
+      "dict": 717,
+      "null": 5
+     }
+    },
+    "selectMappingParam": {
+     "pct": 0,
+     "level": "OPT",
+     "shapes": {
+      "dict": 1
+     }
+    },
+    "mapping": {
+     "pct": 0,
+     "level": "OPT",
+     "shapes": {
+      "list": 1
+     }
+    }
+   }
+  },
+  "CALL_APP_SERVICE": {
+   "samples": 105,
+   "keys": {
+    "nodeId": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 105
+     }
+    },
+    "name": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 105
+     }
+    },
+    "type": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 105
+     }
+    },
+    "caption": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 105
+     }
+    },
+    "description": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 105
+     }
+    },
+    "runAfter": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 105
+     }
+    },
+    "input": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 105
+     }
+    },
+    "output": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "dict": 102,
+      "null": 3
+     }
+    },
+    "isCompleted": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "bool": 105
+     }
+    },
+    "actionType": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 105
+     }
+    },
+    "app": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "dict": 105
+     }
+    },
+    "selectMethod": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "dict": 105
+     }
+    },
+    "value": {
+     "pct": 35,
+     "level": "OPT",
+     "shapes": {
+      "dict": 37
+     }
+    },
+    "outPutDesc": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 105
+     }
+    },
+    "outputName": {
+     "pct": 99,
+     "level": "USUAL",
+     "shapes": {
+      "str": 102,
+      "null": 2
+     }
+    },
+    "mappingType": {
+     "pct": 65,
+     "level": "USUAL",
+     "shapes": {
+      "str": 68
+     }
+    },
+    "attrs": {
+     "pct": 65,
+     "level": "USUAL",
+     "shapes": {
+      "list": 68
+     }
+    },
+    "pageInfo": {
+     "pct": 2,
+     "level": "OPT",
+     "shapes": {
+      "dict": 2
+     }
+    }
+   }
+  },
+  "LIST_OPERATION": {
+   "samples": 654,
+   "keys": {
+    "nodeId": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 654
+     }
+    },
+    "name": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 654
+     }
+    },
+    "type": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 654
+     }
+    },
+    "caption": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 654
+     }
+    },
+    "description": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 654
+     }
+    },
+    "runAfter": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 654
+     }
+    },
+    "input": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 654
+     }
+    },
+    "output": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "dict": 654
+     }
+    },
+    "isCompleted": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "bool": 654
+     }
+    },
+    "actionType": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 654
+     }
+    },
+    "selectParam": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "dict": 654
+     }
+    },
+    "operationType": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "dict": 654
+     }
+    },
+    "title": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 654
+     }
+    },
+    "expression": {
+     "pct": 27,
+     "level": "OPT",
+     "shapes": {
+      "dict": 176,
+      "null": 3
+     }
+    },
+    "countAttrs": {
+     "pct": 41,
+     "level": "OPT",
+     "shapes": {
+      "null": 8,
+      "list": 260
+     }
+    },
+    "sortParams": {
+     "pct": 3,
+     "level": "OPT",
+     "shapes": {
+      "list": 18,
+      "null": 1
+     }
+    },
+    "indexValue": {
+     "pct": 6,
+     "level": "OPT",
+     "shapes": {
+      "dict": 38
+     }
+    },
+    "operationParam": {
+     "pct": 2,
+     "level": "OPT",
+     "shapes": {
+      "dict": 14,
+      "null": 1
+     }
+    },
+    "groupByAttrs": {
+     "pct": 0,
+     "level": "OPT",
+     "shapes": {
+      "list": 1
+     }
+    }
+   }
+  },
+  "MAP_OPERATION": {
+   "samples": 24,
+   "keys": {
+    "paramType": {
+     "pct": 42,
+     "level": "OPT",
+     "shapes": {
+      "str": 10
+     }
+    },
+    "title": {
+     "pct": 67,
+     "level": "USUAL",
+     "shapes": {
+      "str": 16
+     }
+    },
+    "basic": {
+     "pct": 42,
+     "level": "OPT",
+     "shapes": {
+      "dict": 10
+     }
+    },
+    "nodeId": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 24
+     }
+    },
+    "name": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 24
+     }
+    },
+    "type": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 24
+     }
+    },
+    "caption": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 24
+     }
+    },
+    "description": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 24
+     }
+    },
+    "runAfter": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 24
+     }
+    },
+    "input": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 24
+     }
+    },
+    "output": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "dict": 16,
+      "null": 8
+     }
+    },
+    "isCompleted": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "bool": 24
+     }
+    },
+    "actionType": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 24
+     }
+    },
+    "selectMap": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "dict": 24
+     }
+    },
+    "operationType": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 24
+     }
+    },
+    "theKey": {
+     "pct": 42,
+     "level": "OPT",
+     "shapes": {
+      "dict": 10
+     }
+    },
+    "arrayOrObject": {
+     "pct": 42,
+     "level": "OPT",
+     "shapes": {
+      "str": 10
+     }
+    },
+    "nullHandling": {
+     "pct": 42,
+     "level": "OPT",
+     "shapes": {
+      "str": 10
+     }
+    },
+    "generics": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "dict": 24
+     }
+    },
+    "dataType": {
+     "pct": 42,
+     "level": "OPT",
+     "shapes": {
+      "str": 10
+     }
+    },
+    "structure": {
+     "pct": 42,
+     "level": "OPT",
+     "shapes": {
+      "dict": 10
+     }
+    },
+    "entries": {
+     "pct": 33,
+     "level": "OPT",
+     "shapes": {
+      "list": 8
+     }
+    }
+   }
+  },
+  "CONVERT_DATA": {
+   "samples": 114,
+   "keys": {
+    "nodeId": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 114
+     }
+    },
+    "name": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 114
+     }
+    },
+    "type": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 114
+     }
+    },
+    "caption": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 114
+     }
+    },
+    "description": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 114
+     }
+    },
+    "runAfter": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 114
+     }
+    },
+    "input": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 114
+     }
+    },
+    "output": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "dict": 114
+     }
+    },
+    "isCompleted": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "bool": 114
+     }
+    },
+    "actionType": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 114
+     }
+    },
+    "convertType": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "dict": 114
+     }
+    },
+    "selectParam": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "dict": 114
+     }
+    },
+    "title": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 114
+     }
+    },
+    "regex": {
+     "pct": 46,
+     "level": "OPT",
+     "shapes": {
+      "str": 53
+     }
+    }
+   }
+  },
+  "RETRIEVE_ARRAY": {
+   "samples": 217,
+   "keys": {
+    "nodeId": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 217
+     }
+    },
+    "name": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 217
+     }
+    },
+    "type": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 217
+     }
+    },
+    "caption": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 217
+     }
+    },
+    "description": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 217
+     }
+    },
+    "runAfter": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 217
+     }
+    },
+    "input": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 217
+     }
+    },
+    "output": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "dict": 217
+     }
+    },
+    "isCompleted": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "bool": 217
+     }
+    },
+    "actionType": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 217
+     }
+    },
+    "fetchType": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 217
+     }
+    },
+    "app": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "dict": 217
+     }
+    },
+    "structure": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "dict": 217
+     }
+    },
+    "value": {
+     "pct": 9,
+     "level": "OPT",
+     "shapes": {
+      "dict": 19
+     }
+    },
+    "variableTitle": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 217
+     }
+    },
+    "selectType": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 217
+     }
+    },
+    "scope": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 217
+     }
+    },
+    "methodLegal": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "dict": 217
+     }
+    },
+    "condition": {
+     "pct": 91,
+     "level": "USUAL",
+     "shapes": {
+      "list": 173,
+      "null": 25
+     }
+    },
+    "sortParams": {
+     "pct": 87,
+     "level": "USUAL",
+     "shapes": {
+      "list": 144,
+      "null": 45
+     }
+    },
+    "pageSearch": {
+     "pct": 87,
+     "level": "USUAL",
+     "shapes": {
+      "str": 184,
+      "null": 5
+     }
+    },
+    "size": {
+     "pct": 67,
+     "level": "USUAL",
+     "shapes": {
+      "int": 140,
+      "null": 6
+     }
+    },
+    "pageInfo": {
+     "pct": 22,
+     "level": "OPT",
+     "shapes": {
+      "dict": 44,
+      "null": 4
+     }
+    },
+    "mappingType": {
+     "pct": 20,
+     "level": "OPT",
+     "shapes": {
+      "null": 44
+     }
+    },
+    "sortObject": {
+     "pct": 20,
+     "level": "OPT",
+     "shapes": {
+      "null": 44
+     }
+    },
+    "aggFunction": {
+     "pct": 0,
+     "level": "OPT",
+     "shapes": {
+      "str": 1
+     }
+    },
+    "countAttrs": {
+     "pct": 0,
+     "level": "OPT",
+     "shapes": {
+      "list": 1
+     }
+    },
+    "needCascade": {
+     "pct": 0,
+     "level": "OPT",
+     "shapes": {
+      "bool": 1
+     }
+    },
+    "nullHandling": {
+     "pct": 0,
+     "level": "OPT",
+     "shapes": {
+      "str": 1
+     }
+    },
+    "title": {
+     "pct": 0,
+     "level": "OPT",
+     "shapes": {
+      "str": 1
+     }
+    }
+   }
+  },
+  "CREATE_LIST": {
+   "samples": 239,
+   "keys": {
+    "paramType": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 239
+     }
+    },
+    "title": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 239
+     }
+    },
+    "dataType": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 239
+     }
+    },
+    "value": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "list": 223,
+      "null": 16
+     }
+    },
+    "nodeId": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 239
+     }
+    },
+    "actionType": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 239
+     }
+    },
+    "caption": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 239
+     }
+    },
+    "description": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 239
+     }
+    },
+    "type": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 239
+     }
+    },
+    "output": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "dict": 239
+     }
+    },
+    "isCompleted": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "bool": 239
+     }
+    },
+    "app": {
+     "pct": 75,
+     "level": "USUAL",
+     "shapes": {
+      "dict": 179
+     }
+    },
+    "structure": {
+     "pct": 75,
+     "level": "USUAL",
+     "shapes": {
+      "dict": 179
+     }
+    }
+   }
+  },
+  "FOR_EACH": {
+   "samples": 384,
+   "keys": {
+    "nodeId": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 384
+     }
+    },
+    "type": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 384
+     }
+    },
+    "caption": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 384
+     }
+    },
+    "description": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 384
+     }
+    },
+    "runAfter": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 384
+     }
+    },
+    "foreach": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 384
+     }
+    },
+    "isCompleted": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "bool": 384
+     }
+    },
+    "selectParam": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "dict": 384
+     }
+    },
+    "targetName": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 384
+     }
+    },
+    "output": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "dict": 384
+     }
+    },
+    "nodes": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "list": 384
+     }
+    },
+    "nodeCollapse": {
+     "pct": 14,
+     "level": "OPT",
+     "shapes": {
+      "null": 8,
+      "bool": 45
+     }
+    }
+   }
+  },
+  "PUBLISH_BUSINESS_EVENT": {
+   "samples": 24,
+   "keys": {
+    "nodeId": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 24
+     }
+    },
+    "name": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 24
+     }
+    },
+    "type": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 24
+     }
+    },
+    "caption": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 24
+     }
+    },
+    "description": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 24
+     }
+    },
+    "runAfter": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 24
+     }
+    },
+    "input": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 24
+     }
+    },
+    "output": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 24
+     }
+    },
+    "isCompleted": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "bool": 24
+     }
+    },
+    "actionType": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 24
+     }
+    },
+    "eventType": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 24
+     }
+    },
+    "selectEvent": {
+     "pct": 25,
+     "level": "OPT",
+     "shapes": {
+      "dict": 4,
+      "null": 2
+     }
+    },
+    "mappingType": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 24
+     }
+    },
+    "attrs": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "list": 24
+     }
+    },
+    "app": {
+     "pct": 83,
+     "level": "USUAL",
+     "shapes": {
+      "dict": 20
+     }
+    },
+    "selectMq": {
+     "pct": 83,
+     "level": "USUAL",
+     "shapes": {
+      "dict": 20
+     }
+    },
+    "messageType": {
+     "pct": 83,
+     "level": "USUAL",
+     "shapes": {
+      "str": 20
+     }
+    },
+    "executeTime": {
+     "pct": 21,
+     "level": "OPT",
+     "shapes": {
+      "dict": 5
+     }
+    },
+    "value": {
+     "pct": 8,
+     "level": "OPT",
+     "shapes": {
+      "null": 2
+     }
+    }
+   }
+  },
+  "CHANGE_BATCH_ENTITY": {
+   "samples": 41,
+   "keys": {
+    "nodeId": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 41
+     }
+    },
+    "name": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 41
+     }
+    },
+    "type": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 41
+     }
+    },
+    "caption": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 41
+     }
+    },
+    "description": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 41
+     }
+    },
+    "runAfter": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 41
+     }
+    },
+    "input": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 41
+     }
+    },
+    "output": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "dict": 41
+     }
+    },
+    "isCompleted": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "bool": 41
+     }
+    },
+    "actionType": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 41
+     }
+    },
+    "selectParam": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "dict": 41
+     }
+    },
+    "title": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 41
+     }
+    }
+   }
+  },
+  "FOR": {
+   "samples": 32,
+   "keys": {
+    "nodeId": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 32
+     }
+    },
+    "type": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 32
+     }
+    },
+    "caption": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 32
+     }
+    },
+    "description": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 32
+     }
+    },
+    "runAfter": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 32
+     }
+    },
+    "foreach": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 32
+     }
+    },
+    "isCompleted": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "bool": 32
+     }
+    },
+    "forStart": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "dict": 32
+     }
+    },
+    "forEnd": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "dict": 32
+     }
+    },
+    "forStep": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "int": 32
+     }
+    },
+    "operator": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 32
+     }
+    },
+    "targetName": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 32
+     }
+    },
+    "output": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "dict": 32
+     }
+    },
+    "nodes": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "list": 32
+     }
+    },
+    "nodeRemark": {
+     "pct": 69,
+     "level": "USUAL",
+     "shapes": {
+      "null": 22
+     }
+    },
+    "nodeCollapse": {
+     "pct": 19,
+     "level": "OPT",
+     "shapes": {
+      "bool": 6
+     }
+    }
+   }
+  },
+  "DELETE_ENTITY": {
+   "samples": 13,
+   "keys": {
+    "nodeId": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 13
+     }
+    },
+    "name": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 13
+     }
+    },
+    "type": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 13
+     }
+    },
+    "caption": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 13
+     }
+    },
+    "description": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 13
+     }
+    },
+    "runAfter": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 13
+     }
+    },
+    "input": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 13
+     }
+    },
+    "output": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "dict": 13
+     }
+    },
+    "isCompleted": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "bool": 13
+     }
+    },
+    "actionType": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 13
+     }
+    },
+    "deleteType": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 13
+     }
+    },
+    "selectParam": {
+     "pct": 38,
+     "level": "OPT",
+     "shapes": {
+      "dict": 5
+     }
+    },
+    "title": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 13
+     }
+    },
+    "app": {
+     "pct": 62,
+     "level": "USUAL",
+     "shapes": {
+      "dict": 8
+     }
+    },
+    "structure": {
+     "pct": 62,
+     "level": "USUAL",
+     "shapes": {
+      "dict": 8
+     }
+    },
+    "condition": {
+     "pct": 62,
+     "level": "USUAL",
+     "shapes": {
+      "list": 8
+     }
+    },
+    "methodLegal": {
+     "pct": 62,
+     "level": "USUAL",
+     "shapes": {
+      "dict": 8
+     }
+    }
+   }
+  },
+  "CREATE_MAP": {
+   "samples": 4,
+   "keys": {
+    "nodeId": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 4
+     }
+    },
+    "name": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 4
+     }
+    },
+    "type": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 4
+     }
+    },
+    "caption": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 4
+     }
+    },
+    "description": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 4
+     }
+    },
+    "runAfter": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 4
+     }
+    },
+    "input": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 4
+     }
+    },
+    "output": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "dict": 4
+     }
+    },
+    "isCompleted": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "bool": 4
+     }
+    },
+    "actionType": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 4
+     }
+    },
+    "entries": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "list": 2,
+      "null": 2
+     }
+    },
+    "title": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 4
+     }
+    },
+    "generics": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "dict": 4
+     }
+    }
+   }
+  },
+  "CREATE_ENTITY": {
+   "samples": 32,
+   "keys": {
+    "nodeId": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 32
+     }
+    },
+    "name": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 32
+     }
+    },
+    "type": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 32
+     }
+    },
+    "caption": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 32
+     }
+    },
+    "description": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 32
+     }
+    },
+    "runAfter": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 32
+     }
+    },
+    "input": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 32
+     }
+    },
+    "output": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "dict": 32
+     }
+    },
+    "isCompleted": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "bool": 32
+     }
+    },
+    "actionType": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 32
+     }
+    },
+    "app": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "dict": 32
+     }
+    },
+    "structure": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "dict": 32
+     }
+    },
+    "mappingType": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 32
+     }
+    },
+    "attrs": {
+     "pct": 50,
+     "level": "USUAL",
+     "shapes": {
+      "list": 16
+     }
+    },
+    "title": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 32
+     }
+    },
+    "methodLegal": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "dict": 32
+     }
+    },
+    "value": {
+     "pct": 53,
+     "level": "USUAL",
+     "shapes": {
+      "dict": 16,
+      "null": 1
+     }
+    }
+   }
+  },
+  "CREATE_BATCH_ENTITY": {
+   "samples": 6,
+   "keys": {
+    "nodeId": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 6
+     }
+    },
+    "name": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 6
+     }
+    },
+    "type": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 6
+     }
+    },
+    "caption": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 6
+     }
+    },
+    "description": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 6
+     }
+    },
+    "runAfter": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 6
+     }
+    },
+    "input": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 6
+     }
+    },
+    "output": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "dict": 6
+     }
+    },
+    "isCompleted": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "bool": 6
+     }
+    },
+    "actionType": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 6
+     }
+    },
+    "selectParam": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "dict": 6
+     }
+    },
+    "title": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 6
+     }
+    }
+   }
+  },
+  "CUSTOM_ERROR": {
+   "samples": 25,
+   "keys": {
+    "nodeId": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 25
+     }
+    },
+    "name": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 25
+     }
+    },
+    "type": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 25
+     }
+    },
+    "caption": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 25
+     }
+    },
+    "description": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 25
+     }
+    },
+    "runAfter": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 25
+     }
+    },
+    "input": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 25
+     }
+    },
+    "output": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 25
+     }
+    },
+    "isCompleted": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "bool": 25
+     }
+    },
+    "errorType": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 25
+     }
+    },
+    "error": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "dict": 25
+     }
+    }
+   }
+  },
+  "BREAK": {
+   "samples": 8,
+   "keys": {
+    "nodeId": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 8
+     }
+    },
+    "name": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 7,
+      "str": 1
+     }
+    },
+    "type": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 8
+     }
+    },
+    "caption": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 8
+     }
+    },
+    "description": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 8
+     }
+    },
+    "runAfter": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 8
+     }
+    },
+    "input": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 8
+     }
+    },
+    "output": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 8
+     }
+    },
+    "isCompleted": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "bool": 8
+     }
+    },
+    "actionType": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 8
+     }
+    }
+   }
+  },
+  "DATA_MAPPING": {
+   "samples": 17,
+   "keys": {
+    "targetType": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 17
+     }
+    },
+    "app": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "dict": 17
+     }
+    },
+    "title": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 17
+     }
+    },
+    "dataType": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 17
+     }
+    },
+    "structure": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "dict": 17
+     }
+    },
+    "mappingRule": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "dict": 17
+     }
+    },
+    "selectParam": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "dict": 17
+     }
+    },
+    "nodeId": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 17
+     }
+    },
+    "actionType": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 17
+     }
+    },
+    "caption": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 17
+     }
+    },
+    "description": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 17
+     }
+    },
+    "type": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 17
+     }
+    },
+    "output": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "dict": 17
+     }
+    },
+    "isCompleted": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "bool": 17
+     }
+    }
+   }
+  },
+  "CALL_DATA_FLOW": {
+   "samples": 1,
+   "keys": {
+    "nodeId": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 1
+     }
+    },
+    "name": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 1
+     }
+    },
+    "type": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 1
+     }
+    },
+    "caption": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 1
+     }
+    },
+    "description": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 1
+     }
+    },
+    "runAfter": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 1
+     }
+    },
+    "input": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "null": 1
+     }
+    },
+    "output": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "dict": 1
+     }
+    },
+    "isCompleted": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "bool": 1
+     }
+    },
+    "actionType": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 1
+     }
+    },
+    "structure": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "dict": 1
+     }
+    },
+    "dataFlow": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "dict": 1
+     }
+    },
+    "dataSourceType": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 1
+     }
+    },
+    "title": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 1
+     }
+    },
+    "condition": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "list": 1
+     }
+    },
+    "dataFlowMappingId": {
+     "pct": 100,
+     "level": "MUST",
+     "shapes": {
+      "str": 1
+     }
+    }
+   }
+  }
+ }
+}

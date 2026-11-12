@@ -1,0 +1,6995 @@
+{
+ "meta": {
+  "source": "test2 udc frontend + udc-web backend",
+  "date": "2026-10-13",
+  "evidence": "STATIC",
+  "pages": 134,
+  "note": "direct_ops=页面自身模块的 op(可靠); possible_ops_count=require闭包(洪泛,仅参考)"
+ },
+ "op_catalog": {
+  "Affair": {
+   "write": [
+    "udcAffairDeletePost",
+    "udcAffairUpdatePost"
+   ],
+   "read": [
+    "udcAffairGet",
+    "udcAffairListPost"
+   ],
+   "other": [
+    "udcAffairPost"
+   ]
+  },
+  "Application": {
+   "write": [
+    "udcApplicationCopyGet",
+    "udcApplicationCopyPost",
+    "udcApplicationCreateFromTemplatePost",
+    "udcApplicationDeleteByGuidPost",
+    "udcApplicationDeletePost",
+    "udcApplicationDependentApplicationCreateBatchPost",
+    "udcApplicationDependentApplicationDeleteByIdPost",
+    "udcApplicationDependentApplicationVersionUpdateBatchPost",
+    "udcApplicationDependentApplicationVersionUpdatePost",
+    "udcApplicationImportNewPost",
+    "udcApplicationImportOtherAppZipPost",
+    "udcApplicationRenewalAppEditingTimeGet",
+    "udcApplicationSaveAsPost",
+    "udcApplicationSaveNormalNewDesignPost",
+    "udcApplicationTransferParamPost",
+    "udcApplicationUpdatePost"
+   ],
+   "read": [
+    "ctpApplicationAppcenterSearch",
+    "udcApplicationAppFeatureAppGet",
+    "udcApplicationDependentApplicationSelectByConditionPost",
+    "udcApplicationDetailGet",
+    "udcApplicationFeatureAppTypeGet",
+    "udcApplicationFetchLastVersionMetadataPost",
+    "udcApplicationGet",
+    "udcApplicationIsLastVersionAppGet",
+    "udcApplicationSearchDetectionPost",
+    "udcApplicationSearchNewWithVersionListPost",
+    "udcApplicationSearchPageByGuidPost",
+    "udcApplicationSearchTemplatePost",
+    "udcApplicationVersionPlatformGet",
+    "udcApplicationVersionPlatformServiceGet"
+   ],
+   "other": [
+    "udcApplicationAppVersionAppGuidPost",
+    "udcApplicationDoDetectionPost",
+    "udcApplicationDoDetectionStatePost",
+    "udcApplicationMultiVersionPost",
+    "udcApplicationPost",
+    "udcApplicationSchemaDownloadIdPost"
+   ]
+  },
+  "Associate": {
+   "write": [
+    "appCommonAssociateEntityConfigSavePost",
+    "appCommonAssociateUpdatePost"
+   ],
+   "read": [
+    "appCommonAssociateEntityConfigSelectPost",
+    "appCommonAssociateSearch"
+   ],
+   "other": [
+    "appCommonAssociateCheckAppPost",
+    "appCommonAssociateConfigGeneratePost",
+    "appCommonAssociatePost"
+   ]
+  },
+  "Attachment": {
+   "write": [
+    "udcAttachmentTemplateCreateBatchPost"
+   ],
+   "read": [],
+   "other": []
+  },
+  "Attribute": {
+   "write": [
+    "udcAttributeGroupOperateBatchPost",
+    "udcAttributeSetDeletePost",
+    "udcAttributeSetPost",
+    "udcAttributeSetSearchTermPost",
+    "udcAttributeSetSelectByAppidPost",
+    "udcAttributeSetSelectByNameAttributesPost",
+    "udcAttributeSetUpdatePost"
+   ],
+   "read": [
+    "udcAttributeGroupEntityGet"
+   ],
+   "other": []
+  },
+  "Backend": {
+   "write": [
+    "udcBackendComponentImportPost",
+    "udcBackendComponentRefreshVersionGet",
+    "udcBackendComponentUpdatePost"
+   ],
+   "read": [
+    "udcBackendComponentDependentIdDefaultLastVersionGet",
+    "udcBackendComponentMultiVersionGet",
+    "udcBackendComponentSearchAppPost",
+    "udcBackendComponentSelectAllListByConditionsPost"
+   ],
+   "other": []
+  },
+  "Cdp": {
+   "write": [],
+   "read": [
+    "udcCdpDataReportGetReportListPost"
+   ],
+   "other": []
+  },
+  "Collaboration": {
+   "write": [
+    "udcCollaborationCreatePost",
+    "udcCollaborationDeleteIdPost",
+    "udcCollaborationHandoverPost"
+   ],
+   "read": [
+    "udcCollaborationAppGet"
+   ],
+   "other": [
+    "udcCollaborationMembersPost"
+   ]
+  },
+  "Condition": {
+   "write": [],
+   "read": [],
+   "other": [
+    "udcConditionCheckPost"
+   ]
+  },
+  "Ctp": {
+   "write": [
+    "udcCtpManagerTransferSavePost",
+    "udcCtpManagerTransferSelectGet"
+   ],
+   "read": [],
+   "other": [
+    "udcCtpManagerSandboxUsePost"
+   ]
+  },
+  "Custom": {
+   "write": [
+    "udcCustomDataTypeCreatePost",
+    "udcCustomDataTypeDeleteByIdPost",
+    "udcCustomDataTypeDeleteByIdsPost",
+    "udcCustomDataTypeUpdatePost"
+   ],
+   "read": [
+    "udcCustomDataTypeSearch"
+   ],
+   "other": [
+    "udcCustomDataTypeCustomDataTypePost"
+   ]
+  },
+  "Data": {
+   "write": [
+    "udcDataFlowDeleteContentPost",
+    "udcDataFlowMappingUpdatePost",
+    "udcDataTransferObjectCreateDtoPost",
+    "udcDataTransferObjectCreateDtoWithAttrsPost",
+    "udcDataTransferObjectDeleteDtoWithAttrsPost",
+    "udcDataTransferObjectDeletePost",
+    "udcDataTransferObjectGet",
+    "udcDataTransferObjectSearchByMicroFlowIdMicroFlowGet",
+    "udcDataTransferObjectSearchListPost",
+    "udcDataTransferObjectSearchMicroFlowCustomDtoAppGet",
+    "udcDataTransferObjectSelectDtoGet",
+    "udcDataTransferObjectSelectDtoWithAttrsGet",
+    "udcDataTransferObjectUpdateDtoPost",
+    "udcDataTransferObjectUpdateDtoWithAttrsPost"
+   ],
+   "read": [
+    "udcDataFlowAppAppGet",
+    "udcDataFlowListApplicationAppGet",
+    "udcDataFlowListEntityPost",
+    "udcDataFlowListEventEntityPost",
+    "udcDataFlowListEventsPost",
+    "udcDataFlowListManuallyMappingPost",
+    "udcDataFlowMappingGet",
+    "udcDataTypeDataTypesByAppIdAppGet",
+    "udcDataTypeDataTypesParamGet",
+    "udcDataTypeSelectByParamsPost"
+   ],
+   "other": [
+    "udcDataFlowEntityNotExistIdsPost",
+    "udcDataFlowMappingInitDataPost"
+   ]
+  },
+  "Deduction": {
+   "write": [
+    "udcDeductionMapDeleteContentPost",
+    "udcDeductionMapDeletePost",
+    "udcDeductionMapUpdatePost",
+    "udcDeductionRuleDeletePost",
+    "udcDeductionRuleUpdatePost"
+   ],
+   "read": [
+    "udcDeductionEntityListPost",
+    "udcDeductionMapAppAppGet",
+    "udcDeductionMapGet",
+    "udcDeductionRuleCountPost",
+    "udcDeductionRuleGet",
+    "udcDeductionRuleSearch"
+   ],
+   "other": [
+    "udcDeductionEntityNotExistIdsPost",
+    "udcDeductionMapPost",
+    "udcDeductionRuleInitDataPost",
+    "udcDeductionRulePost",
+    "udcDeductionValidRulePost"
+   ]
+  },
+  "Deployment": {
+   "write": [
+    "udcDeploymentAppOnlineNewPost",
+    "udcDeploymentAppReadyStatePost",
+    "udcDeploymentLatestTestInfoPost"
+   ],
+   "read": [],
+   "other": []
+  },
+  "Design": {
+   "write": [],
+   "read": [
+    "udcDesignMetadataAggEntityExcludeBootGet"
+   ],
+   "other": []
+  },
+  "Entity": {
+   "write": [
+    "udcEntityAttributeBatchDeletePost",
+    "udcEntityAttributeBatchUpdatePost",
+    "udcEntityAttributeGroupBathUpdatePost",
+    "udcEntityAttributeGroupCreateUpdatePost",
+    "udcEntityAttributeTransferPost",
+    "udcEntityAttributeUpdatePost",
+    "udcEntityBatchDeletePost",
+    "udcEntityBatchUpdateEntityGroupIdAndOrdernoPost",
+    "udcEntityDeletePost",
+    "udcEntityEntityCopyPost",
+    "udcEntityGroupBatchDeletePost",
+    "udcEntityGroupCreatePost",
+    "udcEntityGroupDeletePost",
+    "udcEntityGroupUpdateBatchPost",
+    "udcEntityGroupUpdatePost",
+    "udcEntityUpdateExtensionLinkagePost",
+    "udcEntityUpdatePost"
+   ],
+   "read": [
+    "udcEntityAssociationEntityAppGet",
+    "udcEntityAttributeGet",
+    "udcEntityAttributeGroupSearch",
+    "udcEntityAttributePresetAttributeCapacityAllAppGet",
+    "udcEntityAttributeSelectByPrimaryGet",
+    "udcEntityAttributeSelectParentEnumAttrsPost",
+    "udcEntityDataTypesGet",
+    "udcEntityGet",
+    "udcEntityGroupSelectByAppidAppGet",
+    "udcEntityOpenApiSelectGet",
+    "udcEntityPrimarySelectByAppidAppGet",
+    "udcEntityPrimarySelectRootGet",
+    "udcEntitySelectAllByAppidAppGet",
+    "udcEntitySelectAllByEntityIdGet",
+    "udcEntitySelectEventDataByEntityIdGet",
+    "udcEntitySelectMasterEntityCountAppGet",
+    "udcEntityStereoEntityAppGet"
+   ],
+   "other": [
+    "udcEntityAssociationGroupSerialPost",
+    "udcEntityAssociationSerialPost",
+    "udcEntityAttributeGroupCanceGroupPost",
+    "udcEntityAttributePost",
+    "udcEntityConstraintEntityPost",
+    "udcEntityPost"
+   ]
+  },
+  "Enum": {
+   "write": [],
+   "read": [
+    "udcEnumItemGet"
+   ],
+   "other": []
+  },
+  "Env": {
+   "write": [],
+   "read": [
+    "udcEnvCurrentEnvGet"
+   ],
+   "other": []
+  },
+  "Event": {
+   "write": [
+    "udcEventCreateWithDataPost",
+    "udcEventDeleteBatchPost",
+    "udcEventDeletePost",
+    "udcEventUpdatePost",
+    "udcEventUpdateWithDataPost"
+   ],
+   "read": [
+    "udcEventGet",
+    "udcEventListPost",
+    "udcEventSearchTermPost",
+    "udcEventSelectWithDataGet"
+   ],
+   "other": [
+    "udcEventPost"
+   ]
+  },
+  "Excel": {
+   "write": [],
+   "read": [
+    "udcExcelSearchListByConditionsPost"
+   ],
+   "other": []
+  },
+  "Expression": {
+   "write": [],
+   "read": [
+    "udcExpressionSystemVariableListGet"
+   ],
+   "other": [
+    "udcExpressionSchemaPost"
+   ]
+  },
+  "Feature": {
+   "write": [],
+   "read": [
+    "udcFeatureListGet"
+   ],
+   "other": []
+  },
+  "File": {
+   "write": [],
+   "read": [
+    "mainFileDownloadUrlGet",
+    "udcFileDownloadUrlGet"
+   ],
+   "other": [
+    "udcFileDownloadUrlsPost"
+   ]
+  },
+  "Form": {
+   "write": [
+    "udcFormUpgradeDeployDeletePost",
+    "udcFormUpgradeDeployExportRecordPost",
+    "udcFormUpgradeDeployListInfoPost",
+    "udcFormUpgradeDeployListRecordPost",
+    "udcFormUpgradeDeployNodeLastUpgradeResultGet",
+    "udcFormUpgradeDeployOneClickUpgradePost",
+    "udcFormUpgradeDeploySilentUpdatePost"
+   ],
+   "read": [],
+   "other": []
+  },
+  "Function": {
+   "write": [
+    "udcFunctionBatchDeletePost",
+    "udcFunctionCopyPost",
+    "udcFunctionDeletePost",
+    "udcFunctionDeleteReferPagePost",
+    "udcFunctionUpdateFunctionReferPost",
+    "udcFunctionUpdatePost"
+   ],
+   "read": [
+    "udcFunctionGet",
+    "udcFunctionSelectFunctionTreePost"
+   ],
+   "other": [
+    "udcFunctionDefaultPagePost",
+    "udcFunctionPost"
+   ]
+  },
+  "Image": {
+   "write": [],
+   "read": [
+    "appCommonImageSearch",
+    "appCommonImageStoreCategoryGet"
+   ],
+   "other": []
+  },
+  "Index": {
+   "write": [
+    "udcIndexDeleteBatchPost",
+    "udcIndexDeletePost",
+    "udcIndexUpdatePost"
+   ],
+   "read": [
+    "udcIndexAttributeEntityGet",
+    "udcIndexEntityListPost"
+   ],
+   "other": [
+    "udcIndexPost"
+   ]
+  },
+  "Manager": {
+   "write": [],
+   "read": [
+    "udcManagerRequestStatusRequestGet"
+   ],
+   "other": [
+    "udcManagerComponentLogPost"
+   ]
+  },
+  "Message": {
+   "write": [
+    "udcMessageCategoryCreatePost",
+    "udcMessageCategoryDeletePost",
+    "udcMessageCategoryUpdatePost",
+    "udcMessageLinkCreatePost",
+    "udcMessageLinkDeletePost",
+    "udcMessageLinkUpdatePost"
+   ],
+   "read": [
+    "udcMessageCategoryListPost",
+    "udcMessageLinkListPost"
+   ],
+   "other": []
+  },
+  "Meta": {
+   "write": [],
+   "read": [
+    "udcMetaDataSearchAvailableAppMultiVersionPost",
+    "udcMetaDataSearchAvailableUpgradeAppGet",
+    "udcMetaDataSelectAggregationEntityEntityGet",
+    "udcMetaDataSelectAggregationEntityPost",
+    "udcMetaDataSelectAllLayoutByAppPost",
+    "udcMetaDataSelectAppByIdPost",
+    "udcMetaDataSelectAppListGet",
+    "udcMetaDataSelectCtpEnumAppGet",
+    "udcMetaDataSelectCtpEnumByApp1Post",
+    "udcMetaDataSelectCustomReferPageGet",
+    "udcMetaDataSelectEntityByAppIdAppGet",
+    "udcMetaDataSelectEntityByAppNameAppNameGet",
+    "udcMetaDataSelectEntityPost",
+    "udcMetaDataSelectJavaEnumByAppPost",
+    "udcMetaDataSelectJavaEnumItemPost",
+    "udcMetaDataSelectPageInfoListPost",
+    "udcMetaDataSelectPageLayoutPost",
+    "udcMetaDataSelectPagePost"
+   ],
+   "other": [
+    "udcMetaDataMergeReferPost",
+    "udcMetaDataReferAndAppPost"
+   ]
+  },
+  "Micro": {
+   "write": [
+    "udcMicroFlowGroupBatchMovePost",
+    "udcMicroFlowGroupCreatePost",
+    "udcMicroFlowGroupDeleteBatchPost",
+    "udcMicroFlowGroupDeletePost",
+    "udcMicroFlowGroupUpdatePost"
+   ],
+   "read": [
+    "udcMicroFlowGroupSelectByTypePost"
+   ],
+   "other": []
+  },
+  "Microflow": {
+   "write": [
+    "udcMicroflowBatchFindAggDtoPost",
+    "udcMicroflowBatchFindJavaEnumPost",
+    "udcMicroflowBatchMovePost",
+    "udcMicroflowCheckSchemaUpdatePost",
+    "udcMicroflowCopy",
+    "udcMicroflowCopyBySourceIdPost",
+    "udcMicroflowCopyPageRuleBoundControlPost",
+    "udcMicroflowCreateMessagePost",
+    "udcMicroflowCreatePost",
+    "udcMicroflowDeletePost",
+    "udcMicroflowDisableNodePost",
+    "udcMicroflowMessageDtoDeletePost",
+    "udcMicroflowUpdateMessagePost",
+    "udcMicroflowUpdateOrderNoAndGroupPost",
+    "udcMicroflowUpdatePost"
+   ],
+   "read": [
+    "udcMicroflowFindByIdGet",
+    "udcMicroflowFindCallInfoDownstreamPost",
+    "udcMicroflowFindCallInfoUpstreamPost",
+    "udcMicroflowFindNodesGet",
+    "udcMicroflowSearch",
+    "udcMicroflowSearchAppServiceByAppNamePost",
+    "udcMicroflowSearchAppServiceByNamePost",
+    "udcMicroflowSearchAppServicePost",
+    "udcMicroflowSearchAppsPost",
+    "udcMicroflowSearchEntityRulePost",
+    "udcMicroflowSearchEnumByAppNamePost",
+    "udcMicroflowSearchEventListPost",
+    "udcMicroflowSearchMessageDtoPost",
+    "udcMicroflowSearchMethodByNamePost",
+    "udcMicroflowSearchMicroFlowEventAppGet",
+    "udcMicroflowSearchMicroFlowMessageAppGet",
+    "udcMicroflowSearchNonEntityDtoPost",
+    "udcMicroflowSearchRestExcludeBootPost",
+    "udcMicroflowSearchSendMqListPost",
+    "udcMicroflowSearchTreeEntityPost",
+    "udcMicroflowSelectMessageGet",
+    "udcMicroflowServiceCommonInputListPost",
+    "udcMicroflowServiceDetailsDynamicPost",
+    "udcMicroflowServiceDetailsGet",
+    "udcMicroflowServiceFrontendListPost",
+    "udcMicroflowServiceListPost",
+    "udcMicroflowServiceListSubMfPost",
+    "udcMicroflowTreeEntityDtoPost"
+   ],
+   "other": [
+    "udcMicroflowCheckDtoMetadataExistPost",
+    "udcMicroflowCheckMicroFlowCaptionPost",
+    "udcMicroflowFilterEventPost",
+    "udcMicroflowFilterMqPost",
+    "udcMicroflowFilterNotVirtualPost",
+    "udcMicroflowFindCustomDtoPost",
+    "udcMicroflowFindDataSystemPost",
+    "udcMicroflowFindDtoByEntityPost",
+    "udcMicroflowFindFullAggDtoPost",
+    "udcMicroflowRecoverPost",
+    "udcMicroflowRefactorRefactoredPost",
+    "udcMicroflowRefactorResolveNodesReferenceRelationshipsPost"
+   ]
+  },
+  "Multi": {
+   "write": [
+    "udcMultiEditLockPost",
+    "udcMultiEditUnlockPost"
+   ],
+   "read": [],
+   "other": []
+  },
+  "Node": {
+   "write": [],
+   "read": [
+    "bpmNodePermissionListPost"
+   ],
+   "other": []
+  },
+  "Operation": {
+   "write": [],
+   "read": [
+    "udcOperationLogGet",
+    "udcOperationLogSearchInitDataAppGet",
+    "udcOperationLogSearchStorageKeyPost"
+   ],
+   "other": [
+    "udcOperationLogElementIsExistPost"
+   ]
+  },
+  "Other": {
+   "write": [],
+   "read": [
+    "cipManagerManageSelectActivexCapabilityEnumGet",
+    "edoc335172694483814428EdocMarkDefineSelectMarkFormDesignPost"
+   ],
+   "other": [
+    "organizationOrgMemberAvatarIdsPost"
+   ]
+  },
+  "Page": {
+   "write": [
+    "udcPageAdminV1DeleteGet",
+    "udcPageComponentRefreshGet",
+    "udcPageComponentUpdatePost",
+    "udcPageComponentUploadGet",
+    "udcPageInfoBaseInfoBatchCreatePost",
+    "udcPageInfoBaseInfoUpdatePost",
+    "udcPageInfoBatchCreatePost",
+    "udcPageInfoDeleteByConditionsPost",
+    "udcPageInfoDeletePost",
+    "udcPageInfoFunctionBaseInfoCreatePost",
+    "udcPageLayoutBaseInfoCreatePost",
+    "udcPageLayoutBaseInfoUpdatePost",
+    "udcPageLayoutDeleteByConditionsPost",
+    "udcPageLayoutUpdateDrafPost",
+    "udcPageLayoutUpdatePost",
+    "udcPageTemplateBatchCreatePost",
+    "udcPageTemplateClassCreatePost",
+    "udcPageTemplateClassDeletePost",
+    "udcPageTemplateClassUpdatePost",
+    "udcPageTemplateCreateOrUpdatePost",
+    "udcPageTemplateDeleteByIdsPost",
+    "udcPageTemplatePublishPost",
+    "udcPageTemplatePublishedCreateOrUpdatePost",
+    "udcPageTemplatePublishedDeleteByIdsPost",
+    "udcPageTemplatePublishedSearch",
+    "udcPageTemplatePublishedSearchNoPagePost",
+    "udcPageTemplateSaveAsPost"
+   ],
+   "read": [
+    "udcPageComponentAnalysisPackageGet",
+    "udcPageComponentSelectAllListByConditionsPost",
+    "udcPageComponentSelectByGet",
+    "udcPageComponentSelectListByDependencyConditionsPost",
+    "udcPageInfoDesignerSelectDetailListByConditionsPost",
+    "udcPageInfoDetailGet",
+    "udcPageInfoParamsPageGet",
+    "udcPageInfoRecoverPost",
+    "udcPageInfoRelationInfoRelationGroupIdPost",
+    "udcPageInfoSearchNoPagePost",
+    "udcPageInfoSelectListByConditionsPost",
+    "udcPageLayoutDesignerSelectDetailListByConditionsPost",
+    "udcPageLayoutDetailGet",
+    "udcPageLayoutRelationInfoIdPost",
+    "udcPageLayoutSelectListByConditionsPost",
+    "udcPageTemplateClassSelectTreeCategoryGet",
+    "udcPageTemplateSearchAvailablePost",
+    "udcPageTemplateSearchNoPagePost",
+    "udcPageTemplateSearchWithRightsPost"
+   ],
+   "other": [
+    "udcPageLayoutRecoverPost",
+    "udcPageTemplateCheckNamePost"
+   ]
+  },
+  "Pinyin": {
+   "write": [],
+   "read": [
+    "udcPinyinGet"
+   ],
+   "other": []
+  },
+  "Portal": {
+   "write": [
+    "udcPortalPortalSpaceCreatePost",
+    "udcPortalPortalSpaceDeletePost",
+    "udcPortalPortalSpaceSelectMaxSortNoGet",
+    "udcPortalPortalSpaceSpaceSaveCopyPost",
+    "udcPortalPortalSpaceUpdatePost"
+   ],
+   "read": [
+    "portalPortalSpaceGet",
+    "udcPortalPortalSpaceSearch"
+   ],
+   "other": []
+  },
+  "Portlet": {
+   "write": [
+    "udcPortletCreatePortletPost",
+    "udcPortletCreatePost",
+    "udcPortletDeleteIdPost",
+    "udcPortletSortPost",
+    "udcPortletUpdatePortletPost",
+    "udcPortletUpdatePost"
+   ],
+   "read": [
+    "udcPortletSelectByAppIdAppGet"
+   ],
+   "other": []
+  },
+  "Refer": {
+   "write": [
+    "udcReferConfigCreateConfigInfoPost",
+    "udcReferConfigCreateOrUpdatePost",
+    "udcReferConfigDeleteByGroupIdPost",
+    "udcReferConfigUpdateConfigInfoPost"
+   ],
+   "read": [
+    "udcReferConfigGroupListPost",
+    "udcReferConfigListPost"
+   ],
+   "other": []
+  },
+  "Runtime": {
+   "write": [
+    "udcRuntimeDeployFormPost",
+    "udcRuntimeDeployNormalPost",
+    "udcRuntimeDeployPost"
+   ],
+   "read": [
+    "udcRuntimeUpgradeAppListPost",
+    "udcRuntimeUpgradeHostAppNameListPost"
+   ],
+   "other": [
+    "udcRuntimeAuthAccessUrlPost"
+   ]
+  },
+  "Sandbox": {
+   "write": [
+    "udcSandboxAppStopAppPost",
+    "udcSandboxBatchCleanStopPost",
+    "udcSandboxBatchStopPost",
+    "udcSandboxClearDataPost",
+    "udcSandboxClientCreateGet",
+    "udcSandboxClientDeleteGet",
+    "udcSandboxStopPost",
+    "udcSandboxSystemConfigSetReleaseConfigPost",
+    "udcSandboxSystemConfigUpdatePost",
+    "udcSandboxTenantConfigCreatePost",
+    "udcSandboxTenantConfigDeleteGet",
+    "udcSandboxTenantConfigUpdatePost"
+   ],
+   "read": [
+    "udcSandboxBuildInfoAppGet",
+    "udcSandboxClientCheckAllStatusGet",
+    "udcSandboxClientCheckAllTaskGet",
+    "udcSandboxClientRestartGet",
+    "udcSandboxClientSearch",
+    "udcSandboxResourcesGet",
+    "udcSandboxSelectAppGet",
+    "udcSandboxSelectRolesPost",
+    "udcSandboxSystemConfigGetAppLimitGet",
+    "udcSandboxSystemConfigGetGet",
+    "udcSandboxTenantConfigConfigAllTenantGet",
+    "udcSandboxTenantConfigSearch"
+   ],
+   "other": [
+    "udcSandboxAppCheckAlertPost",
+    "udcSandboxAppCleanRestartAppPost",
+    "udcSandboxAppCleanRestartByAppPost",
+    "udcSandboxAppReleaseAppPost",
+    "udcSandboxAppReleaseAppStatusPost",
+    "udcSandboxAppStartAppPost",
+    "udcSandboxAppStartByAppPost",
+    "udcSandboxAppUnLoadAppPost",
+    "udcSandboxClientSandboxLogPost",
+    "udcSandboxClientSandboxLogUrlPost",
+    "udcSandboxRestartPost",
+    "udcSandboxSandboxAppsByConditionPost"
+   ]
+  },
+  "Scalability": {
+   "write": [
+    "udcScalabilityBatchDeletePost",
+    "udcScalabilityDeletePost",
+    "udcScalabilityOptionDeletePost",
+    "udcScalabilityOptionUpdatePost",
+    "udcScalabilityUpdatePost"
+   ],
+   "read": [
+    "udcScalabilityOptionDataTypeAppGet",
+    "udcScalabilityOptionOptionGet",
+    "udcScalabilityOptionSelectAllOptionNamePost",
+    "udcScalabilityOptionSelectByAppidTreeAppGet",
+    "udcScalabilityOptionSelectByAppidWithDetailAppGet"
+   ],
+   "other": [
+    "udcScalabilityOptionPost",
+    "udcScalabilityPost"
+   ]
+  },
+  "Serial": {
+   "write": [],
+   "read": [
+    "udcSerialSchemeSearchNoPagePost"
+   ],
+   "other": []
+  },
+  "Stereotype": {
+   "write": [],
+   "read": [
+    "udcStereotypeListGet"
+   ],
+   "other": []
+  },
+  "System": {
+   "write": [
+    "bpmSystemSettingListGet"
+   ],
+   "read": [
+    "appCommonSystemConfigSystemConfigGet"
+   ],
+   "other": []
+  },
+  "Template": {
+   "write": [],
+   "read": [],
+   "other": [
+    "portalTemplateImageDataPost"
+   ]
+  },
+  "Theme": {
+   "write": [],
+   "read": [
+    "appCommonThemeSelectDefaultBrandPost"
+   ],
+   "other": []
+  },
+  "Udc": {
+   "write": [
+    "udcUdcEnumCategoryDeletePost",
+    "udcUdcEnumCategoryUpdatePost",
+    "udcUdcEnumDeletePost",
+    "udcUdcEnumItemOperateBatchPost",
+    "udcUdcEnumUpdatePost"
+   ],
+   "read": [
+    "appCommonUdcRuntimeMetaDataSelectAllEntityByAppNameAppNameGet",
+    "appCommonUdcRuntimeMetaDataSelectReferByEntityPost",
+    "cdpDataUdcPortletReportAppListPost",
+    "udcUdcEnumCategorySelectCategoryAndEnumPost",
+    "udcUdcEnumItemGet",
+    "udcUdcEnumItemListPost",
+    "udcUdcEnumItemSearch",
+    "udcUdcEnumSearch"
+   ],
+   "other": [
+    "udcUdcEnumCategoryPost",
+    "udcUdcEnumPost"
+   ]
+  },
+  "User": {
+   "write": [],
+   "read": [
+    "ctpUserCtpManagerTenantPageListPost"
+   ],
+   "other": []
+  }
+ },
+ "op_to_backend": {
+  "udcApplicationAppVersionAppGuidPost": [
+   {
+    "ctrl": "ApplicationController",
+    "method": "selectAppVersionByAppGuid",
+    "path": "/udc/application/appVersion/{appGuid}"
+   }
+  ],
+  "udcApplicationCopyGet": [
+   {
+    "ctrl": "ApplicationController",
+    "method": "copyApp",
+    "path": "/udc/application/copy"
+   }
+  ],
+  "udcApplicationCopyPost": [
+   {
+    "ctrl": "ApplicationController",
+    "method": "copyApp",
+    "path": "/udc/application/copy"
+   }
+  ],
+  "udcApplicationCreateFromTemplatePost": [
+   {
+    "ctrl": "ApplicationController",
+    "method": "createFromTemplate",
+    "path": "/udc/application/create-from-template"
+   }
+  ],
+  "udcApplicationDeleteByGuidPost": [
+   {
+    "ctrl": "ApplicationController",
+    "method": "deleteByGuid",
+    "path": "/udc/application/delete-by-guid"
+   }
+  ],
+  "udcApplicationDeletePost": [
+   {
+    "ctrl": "ApplicationController",
+    "method": "deleteById",
+    "path": "/udc/application/delete-rename"
+   },
+   {
+    "ctrl": "ApplicationController",
+    "method": "delete",
+    "path": "/udc/application/delete"
+   },
+   {
+    "ctrl": "ApplicationController",
+    "method": "deleteByGuid",
+    "path": "/udc/application/delete-by-guid"
+   }
+  ],
+  "udcApplicationDependentApplicationCreateBatchPost": [
+   {
+    "ctrl": "ApplicationController",
+    "method": "createDepAppBatch",
+    "path": "/udc/application/dependent-application/create-batch"
+   }
+  ],
+  "udcApplicationDependentApplicationDeleteByIdPost": [
+   {
+    "ctrl": "ApplicationController",
+    "method": "deleteDepAppsByAppId",
+    "path": "/udc/application/dependent-application/delete-by-app-id"
+   },
+   {
+    "ctrl": "ApplicationController",
+    "method": "deleteDepAppsById",
+    "path": "/udc/application/dependent-application/delete-by-id"
+   },
+   {
+    "ctrl": "ApplicationController",
+    "method": "deleteDepAppsByIds",
+    "path": "/udc/application/dependent-application/delete-by-ids"
+   }
+  ],
+  "udcApplicationDependentApplicationSelectByConditionPost": [
+   {
+    "ctrl": "ApplicationController",
+    "method": "selectDepByCondition",
+    "path": "/udc/application/dependent-application/select-by-condition"
+   }
+  ],
+  "udcApplicationDependentApplicationVersionUpdateBatchPost": [
+   {
+    "ctrl": "ApplicationController",
+    "method": "updateBatchDepAppVersion",
+    "path": "/udc/application/dependent-application/version/update-batch"
+   }
+  ],
+  "udcApplicationDependentApplicationVersionUpdatePost": [
+   {
+    "ctrl": "ApplicationController",
+    "method": "updateDepAppVersion",
+    "path": "/udc/application/dependent-application/version/update"
+   },
+   {
+    "ctrl": "ApplicationController",
+    "method": "updateBatchDepAppVersion",
+    "path": "/udc/application/dependent-application/version/update-batch"
+   }
+  ],
+  "udcApplicationDetailGet": [
+   {
+    "ctrl": "ApplicationController",
+    "method": "selectDetailById",
+    "path": "/udc/application/detail/{id}"
+   }
+  ],
+  "udcApplicationDoDetectionPost": [
+   {
+    "ctrl": "ApplicationController",
+    "method": "detectionByAppId",
+    "path": "/udc/application/do/detection"
+   },
+   {
+    "ctrl": "ApplicationController",
+    "method": "runDetectionState",
+    "path": "/udc/application/do/detection-state"
+   },
+   {
+    "ctrl": "ApplicationController",
+    "method": "frontDetectionByAppId",
+    "path": "/udc/application/do/front-detection"
+   }
+  ],
+  "udcApplicationDoDetectionStatePost": [
+   {
+    "ctrl": "ApplicationController",
+    "method": "runDetectionState",
+    "path": "/udc/application/do/detection-state"
+   }
+  ],
+  "udcApplicationFetchLastVersionMetadataPost": [
+   {
+    "ctrl": "ApplicationController",
+    "method": "fetchLastVersionMetadata",
+    "path": "/udc/application/fetch-last-version-metadata"
+   }
+  ],
+  "udcApplicationGet": [
+   {
+    "ctrl": "ApplicationController",
+    "method": "create",
+    "path": "/udc/application/create-layout-app"
+   },
+   {
+    "ctrl": "ApplicationController",
+    "method": "deleteById",
+    "path": "/udc/application/delete-rename"
+   },
+   {
+    "ctrl": "ApplicationController",
+    "method": "delete",
+    "path": "/udc/application/delete"
+   }
+  ],
+  "udcApplicationMultiVersionPost": [
+   {
+    "ctrl": "ApplicationController",
+    "method": "selectMultiVersion",
+    "path": "/udc/application/multi-version"
+   }
+  ],
+  "udcApplicationPost": [
+   {
+    "ctrl": "ApplicationController",
+    "method": "create",
+    "path": "/udc/application/create-layout-app"
+   },
+   {
+    "ctrl": "ApplicationController",
+    "method": "deleteById",
+    "path": "/udc/application/delete-rename"
+   },
+   {
+    "ctrl": "ApplicationController",
+    "method": "delete",
+    "path": "/udc/application/delete"
+   }
+  ],
+  "udcApplicationRenewalAppEditingTimeGet": [
+   {
+    "ctrl": "ApplicationController",
+    "method": "renewalAppEditingTime",
+    "path": "/udc/application/renewal-app-editing-time/{id}"
+   }
+  ],
+  "udcApplicationSaveAsPost": [
+   {
+    "ctrl": "ApplicationController",
+    "method": "saveAsTemplate",
+    "path": "/udc/application/saveAsTemplate"
+   },
+   {
+    "ctrl": "ApplicationController",
+    "method": "saveAsNewDesign",
+    "path": "/udc/application/save-as-newDesign"
+   }
+  ],
+  "udcApplicationSchemaDownloadIdPost": [
+   {
+    "ctrl": "ApplicationController",
+    "method": "downloadAppPackage",
+    "path": "/udc/application/schema/download/{id}"
+   },
+   {
+    "ctrl": "ApplicationController",
+    "method": "downloadFormAppPackage",
+    "path": "/udc/application/schema/form/download/by-app-ids"
+   }
+  ],
+  "udcApplicationSearchDetectionPost": [
+   {
+    "ctrl": "ApplicationController",
+    "method": "selectDetectionListByAppId",
+    "path": "/udc/application/search/detection"
+   },
+   {
+    "ctrl": "ApplicationController",
+    "method": "selectFrontDetectionByAppId",
+    "path": "/udc/application/search/front-detection"
+   },
+   {
+    "ctrl": "ApplicationController",
+    "method": "selectDetectionAllFormApp",
+    "path": "/udc/application/search/detection/all-form-app"
+   }
+  ],
+  "udcApplicationSearchNewWithVersionListPost": [
+   {
+    "ctrl": "ApplicationController",
+    "method": "selectAppPageByConditionsWithVersion",
+    "path": "/udc/application/search-new-with-version-list"
+   }
+  ],
+  "udcApplicationSearchPageByGuidPost": [
+   {
+    "ctrl": "ApplicationController",
+    "method": "selectAppPageByGuid",
+    "path": "/udc/application/search-page-by-guid"
+   }
+  ],
+  "udcApplicationSearchTemplatePost": [
+   {
+    "ctrl": "ApplicationController",
+    "method": "selectTemplateAppPageByConditions",
+    "path": "/udc/application/search-template"
+   }
+  ],
+  "udcApplicationUpdatePost": [
+   {
+    "ctrl": "ApplicationController",
+    "method": "update",
+    "path": "/udc/application/update"
+   },
+   {
+    "ctrl": "ApplicationController",
+    "method": "updateCaptionByGuid",
+    "path": "/udc/application/update-caption-for-all-version"
+   },
+   {
+    "ctrl": "ApplicationController",
+    "method": "updateDepAppVersion",
+    "path": "/udc/application/dependent-application/version/update"
+   }
+  ],
+  "udcApplicationVersionPlatformGet": [
+   {
+    "ctrl": "ApplicationController",
+    "method": "selectPlatformVersion",
+    "path": "/udc/application/version/platform"
+   },
+   {
+    "ctrl": "ApplicationController",
+    "method": "selectPlatformVersionMap",
+    "path": "/udc/application/version/platform-service"
+   }
+  ],
+  "udcApplicationVersionPlatformServiceGet": [
+   {
+    "ctrl": "ApplicationController",
+    "method": "selectPlatformVersionMap",
+    "path": "/udc/application/version/platform-service"
+   }
+  ],
+  "udcAttributeGroupEntityGet": [
+   {
+    "ctrl": "AttributeGroupController",
+    "method": "selectListByEntityId",
+    "path": "/udc/attribute-group/{entityId}"
+   },
+   {
+    "ctrl": "EntityController",
+    "method": "selectEntityAttributeGroupList",
+    "path": "/udc/entity/attribute-group/bath-update"
+   },
+   {
+    "ctrl": "EntityController",
+    "method": "createGroup",
+    "path": "/udc/entity/attribute-group/create-update"
+   }
+  ],
+  "udcAttributeGroupOperateBatchPost": [
+   {
+    "ctrl": "AttributeGroupController",
+    "method": "operateBatch",
+    "path": "/udc/attribute-group/operate-batch"
+   }
+  ],
+  "udcAttributeSetDeletePost": [
+   {
+    "ctrl": "AttributeSetController",
+    "method": "deleteById",
+    "path": "/udc/attributeSet/delete"
+   },
+   {
+    "ctrl": "AttributeSetController",
+    "method": "deleteByIds",
+    "path": "/udc/attributeSet/batch-delete"
+   }
+  ],
+  "udcAttributeSetPost": [
+   {
+    "ctrl": "AttributeSetController",
+    "method": "create",
+    "path": "/udc/attributeSet"
+   },
+   {
+    "ctrl": "AttributeSetController",
+    "method": "deleteById",
+    "path": "/udc/attributeSet/delete"
+   },
+   {
+    "ctrl": "AttributeSetController",
+    "method": "deleteByIds",
+    "path": "/udc/attributeSet/batch-delete"
+   }
+  ],
+  "udcAttributeSetSearchTermPost": [
+   {
+    "ctrl": "AttributeSetController",
+    "method": "selectListByTerm",
+    "path": "/udc/attributeSet/search/term"
+   }
+  ],
+  "udcAttributeSetUpdatePost": [
+   {
+    "ctrl": "AttributeSetController",
+    "method": "update",
+    "path": "/udc/attributeSet/update"
+   }
+  ],
+  "udcCollaborationAppGet": [
+   {
+    "ctrl": "AppCollaborationController",
+    "method": "selectCollaborationRecordsByAppId",
+    "path": "/udc/collaboration/{appId}"
+   }
+  ],
+  "udcDataFlowAppAppGet": [
+   {
+    "ctrl": "DataFlowDesignController",
+    "method": "selectByAppId",
+    "path": "/udc/data-flow/app/{appId}"
+   },
+   {
+    "ctrl": "DataFlowDesignController",
+    "method": "selectMappingCountByEntityId",
+    "path": "/udc/data-flow/mapping/count"
+   },
+   {
+    "ctrl": "DataFlowDesignController",
+    "method": "selectLineMappingCountByEntity",
+    "path": "/udc/data-flow/mapping/line/count"
+   }
+  ],
+  "udcDataFlowListEntityPost": [
+   {
+    "ctrl": "DataFlowDesignController",
+    "method": "selectEntityListByCondition",
+    "path": "/udc/data-flow/list/entity"
+   },
+   {
+    "ctrl": "DataFlowDesignController",
+    "method": "selectEntityListByAppId",
+    "path": "/udc/data-flow/list/event/entity"
+   }
+  ],
+  "udcDataFlowListManuallyMappingPost": [
+   {
+    "ctrl": "DataFlowDesignController",
+    "method": "selectManuallyMapping",
+    "path": "/udc/data-flow/list/manually/mapping"
+   }
+  ],
+  "udcDataFlowMappingGet": [
+   {
+    "ctrl": "DataFlowDesignController",
+    "method": "selectMappingCountByEntityId",
+    "path": "/udc/data-flow/mapping/count"
+   },
+   {
+    "ctrl": "DataFlowDesignController",
+    "method": "selectLineMappingCountByEntity",
+    "path": "/udc/data-flow/mapping/line/count"
+   },
+   {
+    "ctrl": "DataFlowDesignController",
+    "method": "selectMappingInitData",
+    "path": "/udc/data-flow/mapping/init-data"
+   }
+  ],
+  "udcDataFlowMappingInitDataPost": [
+   {
+    "ctrl": "DataFlowDesignController",
+    "method": "selectMappingInitData",
+    "path": "/udc/data-flow/mapping/init-data"
+   }
+  ],
+  "udcDataTransferObjectCreateDtoPost": [
+   {
+    "ctrl": "DataTransferObjectController",
+    "method": "createDtoWithAttrs",
+    "path": "/udc/data-transfer-object/create-dto"
+   },
+   {
+    "ctrl": "DataTransferObjectController",
+    "method": "createDtoWithAttrsAndRefDtos",
+    "path": "/udc/data-transfer-object/create-dto-with-attrs"
+   }
+  ],
+  "udcDataTransferObjectCreateDtoWithAttrsPost": [
+   {
+    "ctrl": "DataTransferObjectController",
+    "method": "createDtoWithAttrsAndRefDtos",
+    "path": "/udc/data-transfer-object/create-dto-with-attrs"
+   }
+  ],
+  "udcDataTransferObjectDeleteDtoWithAttrsPost": [
+   {
+    "ctrl": "DataTransferObjectController",
+    "method": "deleteDtoWithAttrsAndRefDtos",
+    "path": "/udc/data-transfer-object/delete-dto-with-attrs"
+   }
+  ],
+  "udcDataTransferObjectDeletePost": [
+   {
+    "ctrl": "DataTransferObjectController",
+    "method": "deleteById",
+    "path": "/udc/data-transfer-object/delete"
+   },
+   {
+    "ctrl": "DataTransferObjectController",
+    "method": "deleteDtoWithAttrsAndRefDtos",
+    "path": "/udc/data-transfer-object/delete-dto-with-attrs"
+   },
+   {
+    "ctrl": "DataTransferObjectController",
+    "method": "deleteAttributeById",
+    "path": "/udc/data-transfer-object/attribute/delete"
+   }
+  ],
+  "udcDataTransferObjectGet": [
+   {
+    "ctrl": "DataTransferObjectController",
+    "method": "create",
+    "path": "/udc/data-transfer-object/创建数据传输对象"
+   },
+   {
+    "ctrl": "DataTransferObjectController",
+    "method": "createDtoWithAttrs",
+    "path": "/udc/data-transfer-object/create-dto"
+   },
+   {
+    "ctrl": "DataTransferObjectController",
+    "method": "update",
+    "path": "/udc/data-transfer-object/update"
+   }
+  ],
+  "udcDataTransferObjectSelectDtoGet": [
+   {
+    "ctrl": "DataTransferObjectController",
+    "method": "selectDtoWithAttrsById",
+    "path": "/udc/data-transfer-object/select-dto/{id}"
+   },
+   {
+    "ctrl": "DataTransferObjectController",
+    "method": "selectDtoWithAttrsAndRefDtos",
+    "path": "/udc/data-transfer-object/select-dto-with-attrs/{id}"
+   }
+  ],
+  "udcDataTransferObjectSelectDtoWithAttrsGet": [
+   {
+    "ctrl": "DataTransferObjectController",
+    "method": "selectDtoWithAttrsAndRefDtos",
+    "path": "/udc/data-transfer-object/select-dto-with-attrs/{id}"
+   }
+  ],
+  "udcDataTransferObjectUpdateDtoPost": [
+   {
+    "ctrl": "DataTransferObjectController",
+    "method": "updateDtoWithAttrs",
+    "path": "/udc/data-transfer-object/update-dto"
+   },
+   {
+    "ctrl": "DataTransferObjectController",
+    "method": "updateDtoWithAttrsAndRefDtos",
+    "path": "/udc/data-transfer-object/update-dto-with-attrs"
+   }
+  ],
+  "udcDataTransferObjectUpdateDtoWithAttrsPost": [
+   {
+    "ctrl": "DataTransferObjectController",
+    "method": "updateDtoWithAttrsAndRefDtos",
+    "path": "/udc/data-transfer-object/update-dto-with-attrs"
+   }
+  ],
+  "udcDataTypeDataTypesByAppIdAppGet": [
+   {
+    "ctrl": "DataTypeController",
+    "method": "selectDataTypesByAppId",
+    "path": "/udc/data-type/data-types-by-app-id/{appId}"
+   }
+  ],
+  "udcDataTypeDataTypesParamGet": [
+   {
+    "ctrl": "DataTypeController",
+    "method": "selectParameterDataTypes",
+    "path": "/udc/data-type/data-types/param"
+   },
+   {
+    "ctrl": "DataTypeController",
+    "method": "selectDataTypeByParams",
+    "path": "/udc/data-type/select-by-params"
+   }
+  ],
+  "udcDataTypeSelectByParamsPost": [
+   {
+    "ctrl": "DataTypeController",
+    "method": "selectDataTypeByParams",
+    "path": "/udc/data-type/select-by-params"
+   }
+  ],
+  "udcDeductionEntityListPost": [
+   {
+    "ctrl": "DeductionRuleController",
+    "method": "selectEntityListByCondition",
+    "path": "/udc/deduction/entity/list"
+   }
+  ],
+  "udcDeductionMapAppAppGet": [
+   {
+    "ctrl": "DeductionRuleController",
+    "method": "selectByAppId",
+    "path": "/udc/deduction/map/app/{appId}"
+   }
+  ],
+  "udcDeductionMapDeletePost": [
+   {
+    "ctrl": "DeductionRuleController",
+    "method": "deleteById",
+    "path": "/udc/deduction/map/delete"
+   },
+   {
+    "ctrl": "DeductionRuleController",
+    "method": "deleteLineOrNode4deductionMap",
+    "path": "/udc/deduction/map/delete/content"
+   }
+  ],
+  "udcDeductionMapGet": [
+   {
+    "ctrl": "DeductionRuleController",
+    "method": "create",
+    "path": "/udc/deduction/map"
+   },
+   {
+    "ctrl": "DeductionRuleController",
+    "method": "update",
+    "path": "/udc/deduction/map/update"
+   },
+   {
+    "ctrl": "DeductionRuleController",
+    "method": "selectByAppId",
+    "path": "/udc/deduction/map/app/{appId}"
+   }
+  ],
+  "udcDeductionMapPost": [
+   {
+    "ctrl": "DeductionRuleController",
+    "method": "create",
+    "path": "/udc/deduction/map"
+   },
+   {
+    "ctrl": "DeductionRuleController",
+    "method": "update",
+    "path": "/udc/deduction/map/update"
+   },
+   {
+    "ctrl": "DeductionRuleController",
+    "method": "selectByAppId",
+    "path": "/udc/deduction/map/app/{appId}"
+   }
+  ],
+  "udcDeductionMapUpdatePost": [
+   {
+    "ctrl": "DeductionRuleController",
+    "method": "update",
+    "path": "/udc/deduction/map/update"
+   }
+  ],
+  "udcDeductionRuleDeletePost": [
+   {
+    "ctrl": "DeductionRuleController",
+    "method": "deleteRuleById",
+    "path": "/udc/deduction/rule/delete"
+   }
+  ],
+  "udcDeductionRuleGet": [
+   {
+    "ctrl": "DeductionRuleController",
+    "method": "createRule",
+    "path": "/udc/deduction/rule"
+   },
+   {
+    "ctrl": "DeductionRuleController",
+    "method": "validRule",
+    "path": "/udc/deduction/validRule"
+   },
+   {
+    "ctrl": "DeductionRuleController",
+    "method": "updateRule",
+    "path": "/udc/deduction/rule/update"
+   }
+  ],
+  "udcDeductionRuleInitDataPost": [
+   {
+    "ctrl": "DeductionRuleController",
+    "method": "initData",
+    "path": "/udc/deduction/rule/init-data"
+   }
+  ],
+  "udcDeductionRulePost": [
+   {
+    "ctrl": "DeductionRuleController",
+    "method": "createRule",
+    "path": "/udc/deduction/rule"
+   },
+   {
+    "ctrl": "DeductionRuleController",
+    "method": "validRule",
+    "path": "/udc/deduction/validRule"
+   },
+   {
+    "ctrl": "DeductionRuleController",
+    "method": "updateRule",
+    "path": "/udc/deduction/rule/update"
+   }
+  ],
+  "udcDeductionRuleSearch": [
+   {
+    "ctrl": "DeductionRuleController",
+    "method": "selectRuleListByCondition",
+    "path": "/udc/deduction/rule/search"
+   }
+  ],
+  "udcDeductionRuleUpdatePost": [
+   {
+    "ctrl": "DeductionRuleController",
+    "method": "updateRule",
+    "path": "/udc/deduction/rule/update"
+   }
+  ],
+  "udcDeductionValidRulePost": [
+   {
+    "ctrl": "DeductionRuleController",
+    "method": "validRule",
+    "path": "/udc/deduction/validRule"
+   }
+  ],
+  "udcDesignMetadataAggEntityExcludeBootGet": [
+   {
+    "ctrl": "UdcDesignMetadataController",
+    "method": "selectAggEntityMetadataExcludeBoot",
+    "path": "/udc/design-metadata/agg-entity-exclude-boot"
+   }
+  ],
+  "udcEntityAttributeBatchDeletePost": [
+   {
+    "ctrl": "EntityController",
+    "method": "deleteAttributeByIds",
+    "path": "/udc/entity/attribute/batch-delete"
+   }
+  ],
+  "udcEntityAttributeGet": [
+   {
+    "ctrl": "AttributeGroupController",
+    "method": "selectListByEntityId",
+    "path": "/udc/attribute-group/{entityId}"
+   },
+   {
+    "ctrl": "EntityController",
+    "method": "attributeTransfer",
+    "path": "/udc/entity/attribute-transfer"
+   },
+   {
+    "ctrl": "EntityController",
+    "method": "createAttribute",
+    "path": "/udc/entity/attribute"
+   }
+  ],
+  "udcEntityAttributeGroupBathUpdatePost": [
+   {
+    "ctrl": "EntityController",
+    "method": "selectEntityAttributeGroupList",
+    "path": "/udc/entity/attribute-group/bath-update"
+   }
+  ],
+  "udcEntityAttributePost": [
+   {
+    "ctrl": "AttributeGroupController",
+    "method": "selectListByEntityId",
+    "path": "/udc/attribute-group/{entityId}"
+   },
+   {
+    "ctrl": "EntityController",
+    "method": "attributeTransfer",
+    "path": "/udc/entity/attribute-transfer"
+   },
+   {
+    "ctrl": "EntityController",
+    "method": "createAttribute",
+    "path": "/udc/entity/attribute"
+   }
+  ],
+  "udcEntityAttributeSelectByPrimaryGet": [
+   {
+    "ctrl": "EntityController",
+    "method": "selectByPrimaryEntityId",
+    "path": "/udc/entity/attribute/select-by-primary/{id}"
+   }
+  ],
+  "udcEntityAttributeUpdatePost": [
+   {
+    "ctrl": "EntityController",
+    "method": "updateAttribute",
+    "path": "/udc/entity/attribute/update"
+   },
+   {
+    "ctrl": "EntityController",
+    "method": "updateAttributeBatch",
+    "path": "/udc/entity/attribute/batch-update"
+   },
+   {
+    "ctrl": "EntityController",
+    "method": "selectEntityAttributeGroupList",
+    "path": "/udc/entity/attribute-group/bath-update"
+   }
+  ],
+  "udcEntityBatchDeletePost": [
+   {
+    "ctrl": "EntityController",
+    "method": "deleteByIds",
+    "path": "/udc/entity/batch-delete"
+   },
+   {
+    "ctrl": "EntityController",
+    "method": "deleteAttributeByIds",
+    "path": "/udc/entity/attribute/batch-delete"
+   },
+   {
+    "ctrl": "EntityGroupController",
+    "method": "deleteByIds",
+    "path": "/udc/entity-group/batch-delete"
+   }
+  ],
+  "udcEntityDeletePost": [
+   {
+    "ctrl": "EntityController",
+    "method": "deleteById",
+    "path": "/udc/entity/delete"
+   },
+   {
+    "ctrl": "EntityController",
+    "method": "deleteByIds",
+    "path": "/udc/entity/batch-delete"
+   },
+   {
+    "ctrl": "EntityController",
+    "method": "deleteAttributeById",
+    "path": "/udc/entity/attribute/delete"
+   }
+  ],
+  "udcEntityPost": [
+   {
+    "ctrl": "AttributeGroupController",
+    "method": "selectListByEntityId",
+    "path": "/udc/attribute-group/{entityId}"
+   },
+   {
+    "ctrl": "COLISplitController",
+    "method": "selectEntityNameConvertMap",
+    "path": "/udc/coli/entity/map"
+   },
+   {
+    "ctrl": "DataFlowDesignController",
+    "method": "selectEntityListByCondition",
+    "path": "/udc/data-flow/list/entity"
+   }
+  ],
+  "udcEntityPrimarySelectByAppidAppGet": [
+   {
+    "ctrl": "EntityController",
+    "method": "selectPrimaryEntityByAppId",
+    "path": "/udc/entity/primary/select-by-appid/{appId}"
+   }
+  ],
+  "udcEntitySelectAllByAppidAppGet": [
+   {
+    "ctrl": "EntityController",
+    "method": "selectAllEntitiesByAppId",
+    "path": "/udc/entity/select-all-by-appid/{appId}"
+   }
+  ],
+  "udcEntitySelectAllByEntityIdGet": [
+   {
+    "ctrl": "EntityController",
+    "method": "selectAllEntitiesByAppId",
+    "path": "/udc/entity/select-all-by-appid/{appId}"
+   },
+   {
+    "ctrl": "EntityController",
+    "method": "selectAllEntitiesByEntityId",
+    "path": "/udc/entity/select-all-by-entityId/{id}"
+   },
+   {
+    "ctrl": "EntityController",
+    "method": "selectAllAttributeByEntityId",
+    "path": "/udc/entity/attribute/select-all-by-entity-id/{entityId}"
+   }
+  ],
+  "udcEntitySelectEventDataByEntityIdGet": [
+   {
+    "ctrl": "EntityController",
+    "method": "selectEventDatasByEntityId",
+    "path": "/udc/entity/select-event-data-by-entityId/{id}"
+   }
+  ],
+  "udcEntityUpdatePost": [
+   {
+    "ctrl": "EntityController",
+    "method": "update",
+    "path": "/udc/entity/update"
+   },
+   {
+    "ctrl": "EntityController",
+    "method": "updateBatch4EntityGroupIdAndOrderNo",
+    "path": "/udc/entity/batch-update-entity-group-id-and-orderno"
+   },
+   {
+    "ctrl": "EntityController",
+    "method": "updateExtensionLinkage",
+    "path": "/udc/entity/update-extension-linkage"
+   }
+  ],
+  "udcEventCreateWithDataPost": [
+   {
+    "ctrl": "EventController",
+    "method": "createWithEventData",
+    "path": "/udc/event/create-with-data"
+   }
+  ],
+  "udcEventDeleteBatchPost": [
+   {
+    "ctrl": "EventController",
+    "method": "deleteByIds",
+    "path": "/udc/event/delete-batch"
+   }
+  ],
+  "udcEventDeletePost": [
+   {
+    "ctrl": "EventController",
+    "method": "deleteById",
+    "path": "/udc/event/delete"
+   },
+   {
+    "ctrl": "EventController",
+    "method": "deleteByIds",
+    "path": "/udc/event/delete-batch"
+   }
+  ],
+  "udcEventGet": [
+   {
+    "ctrl": "DataFlowDesignController",
+    "method": "selectEntityListByAppId",
+    "path": "/udc/data-flow/list/event/entity"
+   },
+   {
+    "ctrl": "DataFlowDesignController",
+    "method": "selectEventListByCondition",
+    "path": "/udc/data-flow/list/events"
+   },
+   {
+    "ctrl": "DataFlowDesignController",
+    "method": "selectEventDataByFullName",
+    "path": "/udc/data-flow/list/event-data"
+   }
+  ],
+  "udcEventListPost": [
+   {
+    "ctrl": "DataFlowDesignController",
+    "method": "selectEntityListByAppId",
+    "path": "/udc/data-flow/list/event/entity"
+   },
+   {
+    "ctrl": "DataFlowDesignController",
+    "method": "selectEventListByCondition",
+    "path": "/udc/data-flow/list/events"
+   },
+   {
+    "ctrl": "DataFlowDesignController",
+    "method": "selectEventDataByFullName",
+    "path": "/udc/data-flow/list/event-data"
+   }
+  ],
+  "udcEventPost": [
+   {
+    "ctrl": "DataFlowDesignController",
+    "method": "selectEntityListByAppId",
+    "path": "/udc/data-flow/list/event/entity"
+   },
+   {
+    "ctrl": "DataFlowDesignController",
+    "method": "selectEventListByCondition",
+    "path": "/udc/data-flow/list/events"
+   },
+   {
+    "ctrl": "DataFlowDesignController",
+    "method": "selectEventDataByFullName",
+    "path": "/udc/data-flow/list/event-data"
+   }
+  ],
+  "udcEventSearchTermPost": [
+   {
+    "ctrl": "EventController",
+    "method": "selectListWithDataByTerm",
+    "path": "/udc/event/search/term"
+   }
+  ],
+  "udcEventSelectWithDataGet": [
+   {
+    "ctrl": "EventController",
+    "method": "selectEvents",
+    "path": "/udc/event/select-with-data/{id}"
+   }
+  ],
+  "udcEventUpdatePost": [
+   {
+    "ctrl": "EventController",
+    "method": "update",
+    "path": "/udc/event/update"
+   },
+   {
+    "ctrl": "EventController",
+    "method": "updateWithEventData",
+    "path": "/udc/event/update-with-data"
+   }
+  ],
+  "udcEventUpdateWithDataPost": [
+   {
+    "ctrl": "EventController",
+    "method": "updateWithEventData",
+    "path": "/udc/event/update-with-data"
+   }
+  ],
+  "udcFeatureListGet": [
+   {
+    "ctrl": "FeatureController",
+    "method": "list",
+    "path": "/udc/feature/list"
+   }
+  ],
+  "udcFunctionBatchDeletePost": [
+   {
+    "ctrl": "FunctionNodeController",
+    "method": "batchDeleteFunction",
+    "path": "/udc/function/batch-delete"
+   }
+  ],
+  "udcFunctionCopyPost": [
+   {
+    "ctrl": "FunctionNodeController",
+    "method": "copyFunction",
+    "path": "/udc/function/copy"
+   }
+  ],
+  "udcFunctionDeletePost": [
+   {
+    "ctrl": "FunctionNodeController",
+    "method": "deleteFunction",
+    "path": "/udc/function/delete"
+   },
+   {
+    "ctrl": "FunctionNodeController",
+    "method": "batchDeleteFunction",
+    "path": "/udc/function/batch-delete"
+   },
+   {
+    "ctrl": "FunctionNodeController",
+    "method": "deleteFunctionReferPage",
+    "path": "/udc/function/delete/refer-page"
+   }
+  ],
+  "udcFunctionDeleteReferPagePost": [
+   {
+    "ctrl": "FunctionNodeController",
+    "method": "deleteFunctionReferPage",
+    "path": "/udc/function/delete/refer-page"
+   }
+  ],
+  "udcFunctionGet": [
+   {
+    "ctrl": "FunctionNodeController",
+    "method": "createFunction",
+    "path": "/udc/function"
+   },
+   {
+    "ctrl": "FunctionNodeController",
+    "method": "updateFunction",
+    "path": "/udc/function/update"
+   },
+   {
+    "ctrl": "FunctionNodeController",
+    "method": "createFunctionRefer",
+    "path": "/udc/function/create/function-refer"
+   }
+  ],
+  "udcFunctionPost": [
+   {
+    "ctrl": "FunctionNodeController",
+    "method": "createFunction",
+    "path": "/udc/function"
+   },
+   {
+    "ctrl": "FunctionNodeController",
+    "method": "updateFunction",
+    "path": "/udc/function/update"
+   },
+   {
+    "ctrl": "FunctionNodeController",
+    "method": "createFunctionRefer",
+    "path": "/udc/function/create/function-refer"
+   }
+  ],
+  "udcFunctionUpdatePost": [
+   {
+    "ctrl": "FunctionNodeController",
+    "method": "updateFunction",
+    "path": "/udc/function/update"
+   },
+   {
+    "ctrl": "FunctionNodeController",
+    "method": "updateFunctionRefer",
+    "path": "/udc/function/update/function-refer"
+   },
+   {
+    "ctrl": "FunctionNodeController",
+    "method": "updateFunctionReferName",
+    "path": "/udc/function/update/name/function-refer"
+   }
+  ],
+  "udcManagerComponentLogPost": [
+   {
+    "ctrl": "UdcManagerController",
+    "method": "getComponentLogs",
+    "path": "/udc/manager/component/log"
+   }
+  ],
+  "udcMetaDataMergeReferPost": [
+   {
+    "ctrl": "MetaDataController",
+    "method": "mergeReferMetaData",
+    "path": "/udc/meta-data/merge-refer-by-map"
+   }
+  ],
+  "udcMetaDataReferAndAppPost": [
+   {
+    "ctrl": "MetaDataController",
+    "method": "selectReferAndAppMetadataByEntity",
+    "path": "/udc/meta-data/refer-and-app"
+   },
+   {
+    "ctrl": "UdcDesignMetadataController",
+    "method": "selectReferAndAppMetadataByEntity",
+    "path": "/udc/design-metadata/refer-and-app"
+   }
+  ],
+  "udcMetaDataSearchAvailableAppMultiVersionPost": [
+   {
+    "ctrl": "MetaDataController",
+    "method": "selectPageAvailableAppMultiVersionMetaDataByCondition",
+    "path": "/udc/meta-data/search-available-app-multi-version"
+   }
+  ],
+  "udcMetaDataSearchAvailableUpgradeAppGet": [
+   {
+    "ctrl": "MetaDataController",
+    "method": "selectAvailableUpgradeAppMetadataById",
+    "path": "/udc/meta-data/search-available-upgrade-app/{id}"
+   }
+  ],
+  "udcMetaDataSelectAggregationEntityEntityGet": [
+   {
+    "ctrl": "MetaDataController",
+    "method": "selectAggEntityIncludeAssociation",
+    "path": "/udc/meta-data/select-aggregation-entity/{entityId}"
+   },
+   {
+    "ctrl": "MetaDataController",
+    "method": "selectAggEntity",
+    "path": "/udc/meta-data/select-aggregation-entity-without-association"
+   }
+  ],
+  "udcMetaDataSelectAggregationEntityPost": [
+   {
+    "ctrl": "MetaDataController",
+    "method": "selectAggEntityIncludeAssociation",
+    "path": "/udc/meta-data/select-aggregation-entity/{entityId}"
+   },
+   {
+    "ctrl": "MetaDataController",
+    "method": "selectAggEntity",
+    "path": "/udc/meta-data/select-aggregation-entity-without-association"
+   }
+  ],
+  "udcMetaDataSelectAllLayoutByAppPost": [
+   {
+    "ctrl": "MetaDataController",
+    "method": "selectAllLayoutMetaDataByApp",
+    "path": "/udc/meta-data/select-all-layout-by-app"
+   }
+  ],
+  "udcMetaDataSelectAppByIdPost": [
+   {
+    "ctrl": "MetaDataController",
+    "method": "selectEntityMetaDataByAppId",
+    "path": "/udc/meta-data/select-entity-by-app-id/{appId}"
+   }
+  ],
+  "udcMetaDataSelectCtpEnumAppGet": [
+   {
+    "ctrl": "MetaDataController",
+    "method": "selectCtpEnumMetaDataListData",
+    "path": "/udc/meta-data/select-ctp-enum-by-app"
+   },
+   {
+    "ctrl": "MetaDataController",
+    "method": "selectCtpEnumMetaDataListData1",
+    "path": "/udc/meta-data/select-ctp-enum/{appId}"
+   }
+  ],
+  "udcMetaDataSelectCustomReferPageGet": [
+   {
+    "ctrl": "MetaDataController",
+    "method": "selectCustomReferMetaDataByPageId",
+    "path": "/udc/meta-data/select-custom-refer/{pageId}"
+   }
+  ],
+  "udcMetaDataSelectEntityByAppIdAppGet": [
+   {
+    "ctrl": "MetaDataController",
+    "method": "selectEntityMetaDataByAppId",
+    "path": "/udc/meta-data/select-entity-by-app-id/{appId}"
+   }
+  ],
+  "udcMetaDataSelectEntityPost": [
+   {
+    "ctrl": "MetaDataController",
+    "method": "selectEntityMetaDataByAppId",
+    "path": "/udc/meta-data/select-entity-by-app-id/{appId}"
+   },
+   {
+    "ctrl": "MetaDataController",
+    "method": "selectEntityMetaData",
+    "path": "/udc/meta-data/select-entity"
+   },
+   {
+    "ctrl": "MetaDataController",
+    "method": "selectAggEntityIncludeAssociation",
+    "path": "/udc/meta-data/select-aggregation-entity/{entityId}"
+   }
+  ],
+  "udcMetaDataSelectJavaEnumByAppPost": [
+   {
+    "ctrl": "MetaDataController",
+    "method": "selectJavaEnumMetaDataList",
+    "path": "/udc/meta-data/select-java-enum-by-app"
+   }
+  ],
+  "udcMetaDataSelectJavaEnumItemPost": [
+   {
+    "ctrl": "MetaDataController",
+    "method": "selectJavaEnumItemMetaDataList",
+    "path": "/udc/meta-data/select-java-enum-item"
+   }
+  ],
+  "udcMetaDataSelectPageLayoutPost": [
+   {
+    "ctrl": "MetaDataController",
+    "method": "selectPageLayoutInfoMetaData",
+    "path": "/udc/meta-data/select-page-layout-info"
+   },
+   {
+    "ctrl": "MetaDataController",
+    "method": "selectPageLayoutMetaData",
+    "path": "/udc/meta-data/select-page-layout"
+   },
+   {
+    "ctrl": "MetaDataController",
+    "method": "selectPageLayoutMetaDataList",
+    "path": "/udc/meta-data/select-page-layout-list"
+   }
+  ],
+  "udcMicroFlowGroupBatchMovePost": [
+   {
+    "ctrl": "MicroFlowGroupController",
+    "method": "batchMove",
+    "path": "/udc/micro-flow-group/batch-move"
+   }
+  ],
+  "udcMicroFlowGroupCreatePost": [
+   {
+    "ctrl": "MicroFlowGroupController",
+    "method": "create",
+    "path": "/udc/micro-flow-group/create"
+   }
+  ],
+  "udcMicroFlowGroupDeleteBatchPost": [
+   {
+    "ctrl": "MicroFlowGroupController",
+    "method": "deleteBatchGroupAndContent",
+    "path": "/udc/micro-flow-group/delete-batch"
+   }
+  ],
+  "udcMicroFlowGroupDeletePost": [
+   {
+    "ctrl": "MicroFlowGroupController",
+    "method": "deleteById",
+    "path": "/udc/micro-flow-group/delete"
+   },
+   {
+    "ctrl": "MicroFlowGroupController",
+    "method": "deleteBatchGroupAndContent",
+    "path": "/udc/micro-flow-group/delete-batch"
+   }
+  ],
+  "udcMicroFlowGroupSelectByTypePost": [
+   {
+    "ctrl": "MicroFlowGroupController",
+    "method": "selectByAppId",
+    "path": "/udc/micro-flow-group/select-by-type"
+   }
+  ],
+  "udcMicroFlowGroupUpdatePost": [
+   {
+    "ctrl": "MicroFlowController",
+    "method": "updateOrderNoAndGroup",
+    "path": "/udc/microflow/update/order-no-and-group"
+   },
+   {
+    "ctrl": "MicroFlowGroupController",
+    "method": "update",
+    "path": "/udc/micro-flow-group/update"
+   }
+  ],
+  "udcMicroflowBatchMovePost": [
+   {
+    "ctrl": "MicroFlowController",
+    "method": "batchMove",
+    "path": "/udc/microflow/batch-move"
+   },
+   {
+    "ctrl": "MicroFlowGroupController",
+    "method": "batchMove",
+    "path": "/udc/micro-flow-group/batch-move"
+   }
+  ],
+  "udcMicroflowCopy": [
+   {
+    "ctrl": "MicroFlowController",
+    "method": "copyPageRuleBoundControl",
+    "path": "/udc/microflow/copy/page-rule-bound-control"
+   }
+  ],
+  "udcMicroflowCopyPageRuleBoundControlPost": [
+   {
+    "ctrl": "MicroFlowController",
+    "method": "copyPageRuleBoundControl",
+    "path": "/udc/microflow/copy/page-rule-bound-control"
+   }
+  ],
+  "udcMicroflowCreateMessagePost": [
+   {
+    "ctrl": "MicroFlowController",
+    "method": "createMessage",
+    "path": "/udc/microflow/create-message"
+   }
+  ],
+  "udcMicroflowDeletePost": [
+   {
+    "ctrl": "MicroFlowController",
+    "method": "deleteBySourceId",
+    "path": "/udc/microflow/delete-by-source-id"
+   },
+   {
+    "ctrl": "MicroFlowController",
+    "method": "deleteById",
+    "path": "/udc/microflow/delete"
+   },
+   {
+    "ctrl": "MicroFlowController",
+    "method": "deleteByIds",
+    "path": "/udc/microflow/delete-by-ids"
+   }
+  ],
+  "udcMicroflowFindByIdGet": [
+   {
+    "ctrl": "MicroFlowController",
+    "method": "getMicroFlowDefinition",
+    "path": "/udc/microflow/findById/{id}"
+   }
+  ],
+  "udcMicroflowMessageDtoDeletePost": [
+   {
+    "ctrl": "MicroFlowController",
+    "method": "deleteMessageById",
+    "path": "/udc/microflow/message-dto/delete"
+   }
+  ],
+  "udcMicroflowSearch": [
+   {
+    "ctrl": "DataTransferObjectController",
+    "method": "selectMicroFlowCustomDtoByAppId",
+    "path": "/udc/data-transfer-object/search-micro-flow-custom-dto/{appId}"
+   },
+   {
+    "ctrl": "DataTransferObjectController",
+    "method": "selectPageMicroFlowCustomDtoByAppId",
+    "path": "/udc/data-transfer-object/search-page-micro-flow-custom-dto"
+   },
+   {
+    "ctrl": "DataTransferObjectController",
+    "method": "selectAllByMicroFlowId",
+    "path": "/udc/data-transfer-object/search-by-microFlow-id/{microFlowId}"
+   }
+  ],
+  "udcMicroflowSearchEntityRulePost": [
+   {
+    "ctrl": "MicroFlowController",
+    "method": "selectEntityRulePageByEntityId",
+    "path": "/udc/microflow/search/entityRule"
+   }
+  ],
+  "udcMicroflowSelectMessageGet": [
+   {
+    "ctrl": "MicroFlowController",
+    "method": "selectMessageDtoWithAttrsById",
+    "path": "/udc/microflow/select-message/{id}"
+   }
+  ],
+  "udcMicroflowUpdateMessagePost": [
+   {
+    "ctrl": "MicroFlowController",
+    "method": "updateMessage",
+    "path": "/udc/microflow/update-message"
+   }
+  ],
+  "udcOperationLogGet": [
+   {
+    "ctrl": "OperationLogController",
+    "method": "search",
+    "path": "/udc/operation-log/search"
+   },
+   {
+    "ctrl": "OperationLogController",
+    "method": "search4StorageKey",
+    "path": "/udc/operation-log/search-storageKey"
+   },
+   {
+    "ctrl": "OperationLogController",
+    "method": "deleteAll",
+    "path": "/udc/operation-log/delete-all"
+   }
+  ],
+  "udcPageInfoDeletePost": [
+   {
+    "ctrl": "PageInfoController",
+    "method": "deleteById",
+    "path": "/udc/page-info/delete"
+   }
+  ],
+  "udcPageInfoRelationInfoRelationGroupIdPost": [
+   {
+    "ctrl": "PageInfoController",
+    "method": "findPageByRelationId",
+    "path": "/udc/page-info/relation-info/relationGroupId"
+   }
+  ],
+  "udcPageLayoutRelationInfoIdPost": [
+   {
+    "ctrl": "PageLayoutController",
+    "method": "findPageByRelationId",
+    "path": "/udc/page-layout/relation-info/id"
+   }
+  ],
+  "udcPageTemplateDeleteByIdsPost": [
+   {
+    "ctrl": "PageTemplateController",
+    "method": "deleteById",
+    "path": "/udc/page-template/delete-by-ids"
+   },
+   {
+    "ctrl": "PageTemplatePublishedController",
+    "method": "deleteById",
+    "path": "/udc/page-template/published/delete-by-ids"
+   }
+  ],
+  "udcPageTemplatePublishPost": [
+   {
+    "ctrl": "PageTemplatePublishedController",
+    "method": "deleteById",
+    "path": "/udc/page-template/published/delete-by-ids"
+   },
+   {
+    "ctrl": "PageTemplatePublishedController",
+    "method": "selectById",
+    "path": "/udc/page-template/published/{id}"
+   }
+  ],
+  "udcPageTemplatePublishedDeleteByIdsPost": [
+   {
+    "ctrl": "PageTemplatePublishedController",
+    "method": "deleteById",
+    "path": "/udc/page-template/published/delete-by-ids"
+   }
+  ],
+  "udcPortletCreatePortletPost": [
+   {
+    "ctrl": "PortletController",
+    "method": "createPortlet",
+    "path": "/udc/create-portlet"
+   }
+  ],
+  "udcPortletCreatePost": [
+   {
+    "ctrl": "PortletController",
+    "method": "createPortlet",
+    "path": "/udc/create-portlet"
+   }
+  ],
+  "udcPortletSortPost": [
+   {
+    "ctrl": "PortletController",
+    "method": "portletSort",
+    "path": "/udc/portlet/sort"
+   }
+  ],
+  "udcPortletUpdatePortletPost": [
+   {
+    "ctrl": "PortletController",
+    "method": "updatePortlet",
+    "path": "/udc/update-portlet"
+   }
+  ],
+  "udcPortletUpdatePost": [
+   {
+    "ctrl": "PortletController",
+    "method": "updatePortlet",
+    "path": "/udc/update-portlet"
+   }
+  ],
+  "udcReferConfigCreateConfigInfoPost": [
+   {
+    "ctrl": "ReferConfigController",
+    "method": "createConfigInfo",
+    "path": "/udc/refer-config/create-config-info"
+   }
+  ],
+  "udcReferConfigCreateOrUpdatePost": [
+   {
+    "ctrl": "ReferConfigController",
+    "method": "createOrUpdate",
+    "path": "/udc/refer-config/create-or-update"
+   }
+  ],
+  "udcReferConfigDeleteByGroupIdPost": [
+   {
+    "ctrl": "ReferConfigController",
+    "method": "deleteByGroupId",
+    "path": "/udc/refer-config/delete-by-group-id"
+   }
+  ],
+  "udcReferConfigListPost": [
+   {
+    "ctrl": "ReferConfigController",
+    "method": "selectListByConditions",
+    "path": "/udc/refer-config/list"
+   },
+   {
+    "ctrl": "ReferConfigController",
+    "method": "selectGroupListByConditions",
+    "path": "/udc/refer-config/group/list"
+   }
+  ],
+  "udcReferConfigUpdateConfigInfoPost": [
+   {
+    "ctrl": "ReferConfigController",
+    "method": "updateConfigInfo",
+    "path": "/udc/refer-config/update-config-info"
+   }
+  ],
+  "udcRuntimeDeployFormPost": [
+   {
+    "ctrl": "DeployController",
+    "method": "deployForm",
+    "path": "/udc/runtime/deploy-form"
+   },
+   {
+    "ctrl": "DeployController",
+    "method": "crossDeployForm",
+    "path": "/udc/runtime/cross-deploy-form"
+   }
+  ],
+  "udcRuntimeDeployPost": [
+   {
+    "ctrl": "DeployController",
+    "method": "deployStop",
+    "path": "/udc/runtime/deploy/stop/{deployId}"
+   },
+   {
+    "ctrl": "DeployController",
+    "method": "deployNormal",
+    "path": "/udc/runtime/deploy-normal"
+   },
+   {
+    "ctrl": "DeployController",
+    "method": "deployForm",
+    "path": "/udc/runtime/deploy-form"
+   }
+  ],
+  "udcScalabilityBatchDeletePost": [
+   {
+    "ctrl": "ScalabilityController",
+    "method": "deleteByIds",
+    "path": "/udc/scalability/batch-delete"
+   }
+  ],
+  "udcScalabilityDeletePost": [
+   {
+    "ctrl": "ScalabilityController",
+    "method": "deleteById",
+    "path": "/udc/scalability/delete"
+   },
+   {
+    "ctrl": "ScalabilityController",
+    "method": "deleteByIds",
+    "path": "/udc/scalability/batch-delete"
+   },
+   {
+    "ctrl": "ScalabilityOptionController",
+    "method": "deleteById",
+    "path": "/udc/scalability-option/delete"
+   }
+  ],
+  "udcScalabilityOptionDataTypeAppGet": [
+   {
+    "ctrl": "ScalabilityOptionController",
+    "method": "selectScalabilityDataType",
+    "path": "/udc/scalability-option/data-type/{appId}"
+   }
+  ],
+  "udcScalabilityOptionDeletePost": [
+   {
+    "ctrl": "ScalabilityOptionController",
+    "method": "deleteById",
+    "path": "/udc/scalability-option/delete"
+   }
+  ],
+  "udcScalabilityOptionOptionGet": [
+   {
+    "ctrl": "ScalabilityController",
+    "method": "selectByOptionId",
+    "path": "/udc/scalability/option/{optionId}"
+   },
+   {
+    "ctrl": "ScalabilityOptionController",
+    "method": "create",
+    "path": "/udc/scalability-option"
+   },
+   {
+    "ctrl": "ScalabilityOptionController",
+    "method": "update",
+    "path": "/udc/scalability-option/update"
+   }
+  ],
+  "udcScalabilityOptionPost": [
+   {
+    "ctrl": "ScalabilityController",
+    "method": "selectByOptionId",
+    "path": "/udc/scalability/option/{optionId}"
+   },
+   {
+    "ctrl": "ScalabilityOptionController",
+    "method": "create",
+    "path": "/udc/scalability-option"
+   },
+   {
+    "ctrl": "ScalabilityOptionController",
+    "method": "update",
+    "path": "/udc/scalability-option/update"
+   }
+  ],
+  "udcScalabilityOptionSelectByAppidTreeAppGet": [
+   {
+    "ctrl": "ScalabilityOptionController",
+    "method": "selectByAppId",
+    "path": "/udc/scalability-option/select-by-appid/tree/{appId}"
+   }
+  ],
+  "udcScalabilityOptionUpdatePost": [
+   {
+    "ctrl": "ScalabilityOptionController",
+    "method": "update",
+    "path": "/udc/scalability-option/update"
+   }
+  ],
+  "udcScalabilityPost": [
+   {
+    "ctrl": "ScalabilityController",
+    "method": "create",
+    "path": "/udc/scalability"
+   },
+   {
+    "ctrl": "ScalabilityController",
+    "method": "update",
+    "path": "/udc/scalability/update"
+   },
+   {
+    "ctrl": "ScalabilityController",
+    "method": "deleteById",
+    "path": "/udc/scalability/delete"
+   }
+  ],
+  "udcScalabilityUpdatePost": [
+   {
+    "ctrl": "ScalabilityController",
+    "method": "update",
+    "path": "/udc/scalability/update"
+   },
+   {
+    "ctrl": "ScalabilityOptionController",
+    "method": "update",
+    "path": "/udc/scalability-option/update"
+   }
+  ],
+  "udcStereotypeListGet": [
+   {
+    "ctrl": "StereotypeController",
+    "method": "list",
+    "path": "/udc/stereotype/list"
+   }
+  ],
+  "udcUdcEnumCategoryDeletePost": [
+   {
+    "ctrl": "UdcEnumCategoryController",
+    "method": "deleteById",
+    "path": "/udc/udc-enum-category/delete"
+   },
+   {
+    "ctrl": "UdcEnumCategoryController",
+    "method": "deleteByIds",
+    "path": "/udc/udc-enum-category/batch-delete"
+   }
+  ],
+  "udcUdcEnumCategoryPost": [
+   {
+    "ctrl": "UdcEnumCategoryController",
+    "method": "create",
+    "path": "/udc/udc-enum-category/创建枚举分类"
+   },
+   {
+    "ctrl": "UdcEnumCategoryController",
+    "method": "update",
+    "path": "/udc/udc-enum-category/update"
+   },
+   {
+    "ctrl": "UdcEnumCategoryController",
+    "method": "deleteById",
+    "path": "/udc/udc-enum-category/delete"
+   }
+  ],
+  "udcUdcEnumCategorySelectCategoryAndEnumPost": [
+   {
+    "ctrl": "UdcEnumCategoryController",
+    "method": "selectCategoryAndEnum",
+    "path": "/udc/udc-enum-category/select-category-and-enum"
+   }
+  ],
+  "udcUdcEnumCategoryUpdatePost": [
+   {
+    "ctrl": "UdcEnumCategoryController",
+    "method": "update",
+    "path": "/udc/udc-enum-category/update"
+   }
+  ],
+  "udcUdcEnumDeletePost": [
+   {
+    "ctrl": "UdcEnumCategoryController",
+    "method": "deleteById",
+    "path": "/udc/udc-enum-category/delete"
+   },
+   {
+    "ctrl": "UdcEnumCategoryController",
+    "method": "deleteByIds",
+    "path": "/udc/udc-enum-category/batch-delete"
+   },
+   {
+    "ctrl": "UdcEnumController",
+    "method": "deleteById",
+    "path": "/udc/udc-enum/delete"
+   }
+  ],
+  "udcUdcEnumItemGet": [
+   {
+    "ctrl": "MetaDataController",
+    "method": "selectCtpEnumItemList",
+    "path": "/udc/meta-data/select-ctp-enum-item"
+   },
+   {
+    "ctrl": "MetaDataController",
+    "method": "selectJavaEnumItemMetaDataList",
+    "path": "/udc/meta-data/select-java-enum-item"
+   },
+   {
+    "ctrl": "UdcCtpEnumController",
+    "method": "selectByEnumCode",
+    "path": "/udc/udc-enum-item/search-by-enum-code"
+   }
+  ],
+  "udcUdcEnumItemListPost": [
+   {
+    "ctrl": "UdcEnumItemController",
+    "method": "selectListByConditions",
+    "path": "/udc/udc-enum-item/list"
+   }
+  ],
+  "udcUdcEnumItemOperateBatchPost": [
+   {
+    "ctrl": "UdcEnumItemController",
+    "method": "operateBatch",
+    "path": "/udc/udc-enum-item/operate-batch"
+   }
+  ],
+  "udcUdcEnumItemSearch": [
+   {
+    "ctrl": "UdcCtpEnumController",
+    "method": "selectByEnumCode",
+    "path": "/udc/udc-enum-item/search-by-enum-code"
+   },
+   {
+    "ctrl": "UdcCtpEnumController",
+    "method": "selectByEnumCodes",
+    "path": "/udc/udc-enum-item/search-by-enum-codes"
+   },
+   {
+    "ctrl": "UdcCtpEnumController",
+    "method": "selectCascadeTreeByEnumCode",
+    "path": "/udc/udc-enum-item/search-cascade-tree-by-enum-code"
+   }
+  ],
+  "udcUdcEnumPost": [
+   {
+    "ctrl": "EntityController",
+    "method": "selectParentEnumAttributes",
+    "path": "/udc/entity/attribute/select-parent-enum-attrs"
+   },
+   {
+    "ctrl": "MetaDataController",
+    "method": "selectCtpEnumMetaDataListData",
+    "path": "/udc/meta-data/select-ctp-enum-by-app"
+   },
+   {
+    "ctrl": "MetaDataController",
+    "method": "selectCtpEnumMetaDataListData1",
+    "path": "/udc/meta-data/select-ctp-enum/{appId}"
+   }
+  ],
+  "udcUdcEnumSearch": [
+   {
+    "ctrl": "MicroFlowController",
+    "method": "searchEnumByAppName",
+    "path": "/udc/search/enum-by-appName"
+   },
+   {
+    "ctrl": "UdcCtpEnumController",
+    "method": "selectByEnumCode",
+    "path": "/udc/udc-enum-item/search-by-enum-code"
+   },
+   {
+    "ctrl": "UdcCtpEnumController",
+    "method": "selectByEnumCodes",
+    "path": "/udc/udc-enum-item/search-by-enum-codes"
+   }
+  ],
+  "udcUdcEnumUpdatePost": [
+   {
+    "ctrl": "UdcEnumCategoryController",
+    "method": "update",
+    "path": "/udc/udc-enum-category/update"
+   },
+   {
+    "ctrl": "UdcEnumController",
+    "method": "update",
+    "path": "/udc/udc-enum/update"
+   },
+   {
+    "ctrl": "UdcEnumItemController",
+    "method": "update",
+    "path": "/udc/udc-enum-item/update"
+   }
+  ]
+ },
+ "pages": [
+  {
+   "chunk": "node_modules_seeyon_biz-enums_dist_index-7189faa2_js.4340c5f3.js",
+   "buttons": [
+    "停用",
+    "取消",
+    "启用",
+    "排序号",
+    "排序号为必填项",
+    "新建",
+    "确定",
+    "编辑",
+    "编辑成功",
+    "请上传图片",
+    "连续新建"
+   ],
+   "labels": [
+    "停用",
+    "创建成功",
+    "取消",
+    "启用",
+    "排序号",
+    "排序号不能大于1000000",
+    "排序号为必填项",
+    "新建",
+    "枚举项值",
+    "枚举项值为必填项",
+    "枚举项名称",
+    "枚举项名称为必填项",
+    "父节点",
+    "状态",
+    "状态为必填项",
+    "确定",
+    "编辑",
+    "编辑成功",
+    "请上传图片",
+    "请输入",
+    "连续新建",
+    "首尾不能输入空格",
+    "默认语言的值下不能为空"
+   ],
+   "components": [
+    "Form.useForm"
+   ],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 0
+  },
+  {
+   "chunk": "node_modules_seeyon_biz-enums_dist_index-7e03e02d_js.a52b8615.js",
+   "buttons": [
+    "停用",
+    "取消",
+    "启用",
+    "排序号",
+    "排序号为必填项",
+    "新建",
+    "确定",
+    "编辑",
+    "编辑成功",
+    "请上传图片",
+    "连续新建"
+   ],
+   "labels": [
+    "停用",
+    "创建成功",
+    "取消",
+    "启用",
+    "排序号",
+    "排序号不能大于1000000",
+    "排序号为必填项",
+    "新建",
+    "枚举项值",
+    "枚举项值为必填项",
+    "枚举项名称",
+    "枚举项名称为必填项",
+    "父节点",
+    "状态",
+    "状态为必填项",
+    "确定",
+    "编辑",
+    "编辑成功",
+    "请上传图片",
+    "请输入",
+    "连续新建",
+    "首尾不能输入空格",
+    "默认语言的值下不能为空"
+   ],
+   "components": [
+    "Form.useForm"
+   ],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 0
+  },
+  {
+   "chunk": "node_modules_seeyon_biz-enums_dist_index-9365ba29_js.e2c68411.js",
+   "buttons": [
+    "停用",
+    "取消",
+    "启用",
+    "排序号",
+    "排序号为必填项",
+    "新建",
+    "确定",
+    "编辑",
+    "编辑成功",
+    "请上传图片",
+    "连续新建"
+   ],
+   "labels": [
+    "停用",
+    "创建成功",
+    "取消",
+    "启用",
+    "排序号",
+    "排序号不能大于1000000",
+    "排序号为必填项",
+    "新建",
+    "枚举项值",
+    "枚举项值为必填项",
+    "枚举项名称",
+    "枚举项名称为必填项",
+    "父节点",
+    "状态",
+    "状态为必填项",
+    "确定",
+    "编辑",
+    "编辑成功",
+    "请上传图片",
+    "请输入",
+    "连续新建",
+    "首尾不能输入空格",
+    "默认语言的值下不能为空"
+   ],
+   "components": [
+    "Form.useForm"
+   ],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 0
+  },
+  {
+   "chunk": "node_modules_seeyon_biz-enums_dist_index-d16a4f98_js.a84d1636.js",
+   "buttons": [
+    "停用",
+    "取消",
+    "启用",
+    "排序号",
+    "排序号为必填项",
+    "新建",
+    "确定",
+    "编辑",
+    "编辑成功",
+    "请上传图片",
+    "连续新建"
+   ],
+   "labels": [
+    "停用",
+    "创建成功",
+    "取消",
+    "启用",
+    "排序号",
+    "排序号不能大于1000000",
+    "排序号为必填项",
+    "新建",
+    "枚举项值",
+    "枚举项值为必填项",
+    "枚举项名称",
+    "枚举项名称为必填项",
+    "父节点",
+    "状态",
+    "状态为必填项",
+    "确定",
+    "编辑",
+    "编辑成功",
+    "请上传图片",
+    "请输入",
+    "连续新建",
+    "首尾不能输入空格",
+    "默认语言的值下不能为空"
+   ],
+   "components": [
+    "Form.useForm"
+   ],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 0
+  },
+  {
+   "chunk": "node_modules_seeyon_biz-enums_dist_index-dfa7dac0_js.4ccc658d.js",
+   "buttons": [
+    "停用",
+    "取消",
+    "启用",
+    "排序号",
+    "排序号为必填项",
+    "新建",
+    "确定",
+    "编辑",
+    "编辑成功",
+    "请上传图片",
+    "连续新建"
+   ],
+   "labels": [
+    "停用",
+    "创建成功",
+    "取消",
+    "启用",
+    "排序号",
+    "排序号不能大于1000000",
+    "排序号为必填项",
+    "新建",
+    "枚举项值",
+    "枚举项值为必填项",
+    "枚举项名称",
+    "枚举项名称为必填项",
+    "父节点",
+    "状态",
+    "状态为必填项",
+    "确定",
+    "编辑",
+    "编辑成功",
+    "请上传图片",
+    "请输入",
+    "连续新建",
+    "首尾不能输入空格",
+    "默认语言的值下不能为空"
+   ],
+   "components": [
+    "Form.useForm"
+   ],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 0
+  },
+  {
+   "chunk": "node_modules_seeyon_biz-serial-scheme_dist_index-63bbd6cd_js.14fc2408.js",
+   "buttons": [
+    "绑定实体"
+   ],
+   "labels": [
+    "上下文字段",
+    "公共流水号",
+    "常量",
+    "当前应用流水号",
+    "更新成功",
+    "流水号",
+    "绑定实体",
+    "规则名称",
+    "规则组成",
+    "规则编码",
+    "选择流水号"
+   ],
+   "components": [],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 3
+  },
+  {
+   "chunk": "node_modules_seeyon_biz-serial-scheme_dist_index-a9cbbe00_js.c3e8b8dd.js",
+   "buttons": [
+    "绑定实体"
+   ],
+   "labels": [
+    "上下文字段",
+    "公共流水号",
+    "常量",
+    "当前应用流水号",
+    "更新成功",
+    "流水号",
+    "绑定实体",
+    "规则名称",
+    "规则组成",
+    "规则编码",
+    "选择流水号"
+   ],
+   "components": [],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 3
+  },
+  {
+   "chunk": "node_modules_seeyon_biz-serial-scheme_dist_index-aa2d4add_js.0de18369.js",
+   "buttons": [
+    "绑定实体"
+   ],
+   "labels": [
+    "上下文字段",
+    "公共流水号",
+    "常量",
+    "当前应用流水号",
+    "更新成功",
+    "流水号",
+    "绑定实体",
+    "规则名称",
+    "规则组成",
+    "规则编码",
+    "选择流水号"
+   ],
+   "components": [],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 3
+  },
+  {
+   "chunk": "node_modules_seeyon_biz-serial-scheme_dist_index-f62267af_js.f827461e.js",
+   "buttons": [
+    "绑定实体"
+   ],
+   "labels": [
+    "上下文字段",
+    "公共流水号",
+    "常量",
+    "当前应用流水号",
+    "更新成功",
+    "流水号",
+    "绑定实体",
+    "规则名称",
+    "规则组成",
+    "规则编码",
+    "选择流水号"
+   ],
+   "components": [],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 3
+  },
+  {
+   "chunk": "node_modules_seeyon_biz-where_dist_conditionRight_js.76ceea66.js",
+   "buttons": [],
+   "labels": [],
+   "components": [],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 2
+  },
+  {
+   "chunk": "node_modules_seeyon_biz-where_dist_condition_js.37098cf6.js",
+   "buttons": [],
+   "labels": [],
+   "components": [],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 2
+  },
+  {
+   "chunk": "node_modules_seeyon_biz-where_dist_modalWhere_js.aac960a8.js",
+   "buttons": [],
+   "labels": [],
+   "components": [],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 2
+  },
+  {
+   "chunk": "node_modules_seeyon_biz-where_dist_where_js.b3912f02.js",
+   "buttons": [],
+   "labels": [],
+   "components": [],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 2
+  },
+  {
+   "chunk": "src_app4Exposes_tsx.1714867c.js",
+   "buttons": [],
+   "labels": [
+    "低代码定制平台"
+   ],
+   "components": [],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 0
+  },
+  {
+   "chunk": "src_components_app-design_app_components_nav-header_import-app_util_ts-src_components_app-des-c1c6a6.b9e4d7dc.js",
+   "buttons": [],
+   "labels": [],
+   "components": [],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 27
+  },
+  {
+   "chunk": "src_components_app-design_app_components_nav-header_import-app_util_ts-src_hooks_usePageDesig-22d24d.08972f2b.js",
+   "buttons": [],
+   "labels": [],
+   "components": [],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 116
+  },
+  {
+   "chunk": "src_components_app-design_app_components_nav-header_import-app_util_ts-src_hooks_usePageDesig-85e544.8df07597.js",
+   "buttons": [],
+   "labels": [],
+   "components": [],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 27
+  },
+  {
+   "chunk": "src_components_app-design_app_components_nav-header_import-app_util_ts-src_pages_design_funct-767d8d.b8c89ec4.js",
+   "buttons": [],
+   "labels": [],
+   "components": [],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 27
+  },
+  {
+   "chunk": "src_components_app-design_app_components_nav-header_import-app_util_ts-src_pages_design_funct-8314c1.bd83e886.js",
+   "buttons": [],
+   "labels": [],
+   "components": [],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 27
+  },
+  {
+   "chunk": "src_components_app-design_app_components_theme_app-style-designer-model_tsx-src_components_ap-7042b6.f96d7e03.js",
+   "buttons": [],
+   "labels": [],
+   "components": [],
+   "has_drag": false,
+   "direct_ops": [
+    "udcScalabilityOptionPost",
+    "udcScalabilityOptionUpdatePost"
+   ],
+   "direct_ops_backend": {
+    "udcScalabilityOptionPost": "ScalabilityController.selectByOptionId /udc/scalability/option/{optionId}",
+    "udcScalabilityOptionUpdatePost": "ScalabilityOptionController.update /udc/scalability-option/update"
+   },
+   "possible_ops_count": 24
+  },
+  {
+   "chunk": "src_components_app-design_app_components_theme_index_ts-src_components_design_cmps_pc_common_-37bd17.61b75a70.js",
+   "buttons": [],
+   "labels": [],
+   "components": [],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 0
+  },
+  {
+   "chunk": "src_components_app-design_parameter-definition_entry_tsx-src_redux_enhancer_index_ts-src_comp-607009.a92bb6e6.js",
+   "buttons": [
+    "保存成功",
+    "取消",
+    "已设置",
+    "已设置表达式",
+    "排序号",
+    "新建参数",
+    "确定"
+   ],
+   "labels": [
+    "不能大于最大值",
+    "不能小于最小值",
+    "保存成功",
+    "分组",
+    "参数属性",
+    "取消",
+    "只能输入数字字母下划线",
+    "名称",
+    "已设置",
+    "已设置表达式",
+    "排序号",
+    "描述",
+    "操作",
+    "数据类型",
+    "新建参数",
+    "确定",
+    "编码",
+    "表达式",
+    "请输入",
+    "请输入名称",
+    "请输入字段",
+    "选择上级枚举",
+    "默认值"
+   ],
+   "components": [
+    "Form.Item",
+    "Form.useForm",
+    "Radio.Group",
+    "Select.Option"
+   ],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 0
+  },
+  {
+   "chunk": "src_components_app-design_parameter-definition_index_tsx.d0a30409.js",
+   "buttons": [
+    "保存成功",
+    "取消",
+    "已设置",
+    "已设置表达式",
+    "排序号",
+    "新建参数",
+    "确定"
+   ],
+   "labels": [
+    "不能大于最大值",
+    "不能小于最小值",
+    "保存成功",
+    "分组",
+    "参数属性",
+    "取消",
+    "只能输入数字字母下划线",
+    "名称",
+    "已设置",
+    "已设置表达式",
+    "排序号",
+    "描述",
+    "操作",
+    "数据类型",
+    "新建参数",
+    "确定",
+    "编码",
+    "表达式",
+    "请输入",
+    "请输入名称",
+    "请输入字段",
+    "选择上级枚举",
+    "默认值"
+   ],
+   "components": [
+    "Form.Item",
+    "Form.useForm",
+    "Radio.Group",
+    "Select.Option"
+   ],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 53
+  },
+  {
+   "chunk": "src_components_app-design_publish__Expose_tsx.1f12f4cd.js",
+   "buttons": [],
+   "labels": [],
+   "components": [],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 0
+  },
+  {
+   "chunk": "src_components_common_component-select_useComponentsTree_ts-src_components_design_navbar_crea-ade52b.3ca64c76.js",
+   "buttons": [
+    "已设置表达式",
+    "新建页面规则",
+    "新建页面规则失败"
+   ],
+   "labels": [
+    "上侧",
+    "下侧",
+    "区域",
+    "单元格",
+    "右侧",
+    "外框",
+    "左侧",
+    "已设置表达式",
+    "所属分组",
+    "新建页面规则",
+    "新建页面规则失败",
+    "规则描述",
+    "请输入规则描述",
+    "请输入页面规则名称",
+    "页面",
+    "页面规则名称",
+    "页面规则名称不能为空",
+    "默认分组"
+   ],
+   "components": [
+    "Form.Item",
+    "Form.useForm"
+   ],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 0
+  },
+  {
+   "chunk": "src_components_data-type_instance_switch_tsx-src_pages_app-design_common_components_parent-en-b62828.ce20207c.js",
+   "buttons": [],
+   "labels": [
+    "开启后，扩展字段数据在名称变更后，不会发生变化，仍为当时名称",
+    "选择上级枚举"
+   ],
+   "components": [
+    "Form.Item"
+   ],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 32
+  },
+  {
+   "chunk": "src_components_design_asidetool_trans-wrapper_tsx-src_components_design_shortcuts_keycodes_ts-becf84.291f32e5.js",
+   "buttons": [
+    "向上添加",
+    "新建方案",
+    "移除"
+   ],
+   "labels": [
+    "分组",
+    "列数",
+    "向上添加",
+    "容器",
+    "数据",
+    "新建方案",
+    "方案名称",
+    "移除",
+    "网格",
+    "请输入",
+    "请输入列数",
+    "请输入方案名称",
+    "转为",
+    "页签"
+   ],
+   "components": [
+    "Form.Item",
+    "Form.useForm"
+   ],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 0
+  },
+  {
+   "chunk": "src_components_design_asidetool_trans-wrapper_tsx-src_components_design_shortcuts_keycodes_ts-d511c4.45a17a71.js",
+   "buttons": [
+    "向上添加",
+    "新建方案",
+    "移除"
+   ],
+   "labels": [
+    "分组",
+    "列数",
+    "向上添加",
+    "容器",
+    "数据",
+    "新建方案",
+    "方案名称",
+    "移除",
+    "网格",
+    "请输入",
+    "请输入列数",
+    "请输入方案名称",
+    "转为",
+    "页签"
+   ],
+   "components": [
+    "Form.Item",
+    "Form.useForm"
+   ],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 0
+  },
+  {
+   "chunk": "src_components_design_data-source_index_tsx.ecc90bb0.js",
+   "buttons": [
+    "展开",
+    "拖拽数据操作取消"
+   ],
+   "labels": [
+    "一对一",
+    "一对多",
+    "分组",
+    "可拖拽字段到页面中",
+    "可用的关系数据源为空",
+    "大数据类型字段不允许拖到重复表中",
+    "实体",
+    "实体不允许拖到重复表中",
+    "实体关系",
+    "实体列表",
+    "展开",
+    "拖入字段与当前数据控件的数据源不符",
+    "拖拽数据操作取消",
+    "数据控件请先绑定数据源，再拖动字段",
+    "无法拖拽一对一实体到设计器，但可拖拽其下级字段",
+    "请将字段拖到合法的控件中",
+    "请将字段拖到数据控件中",
+    "请输入搜索关键字",
+    "选择多个实体下字段，对应实体必须选中"
+   ],
+   "components": [],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 0
+  },
+  {
+   "chunk": "src_components_design_header_index_module_less-src_hooks_usePageDesignPathParams_ts-src_compo-b0c230.c7e2c755.js",
+   "buttons": [],
+   "labels": [],
+   "components": [],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 0
+  },
+  {
+   "chunk": "src_components_design_layout_micro-flow-editor_tsx.98116a1c.js",
+   "buttons": [],
+   "labels": [],
+   "components": [],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 0
+  },
+  {
+   "chunk": "src_components_design_layout_page-editor_tsx-src_components_design_breadcrumb_index_module_le-adcdc7.09543178.js",
+   "buttons": [],
+   "labels": [],
+   "components": [],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 0
+  },
+  {
+   "chunk": "src_components_design_navbar_controls_cmps_tsx.e95e5a6f.js",
+   "buttons": [
+    "添加依赖组件"
+   ],
+   "labels": [
+    "其他",
+    "添加依赖组件",
+    "请输入关键字"
+   ],
+   "components": [],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 0
+  },
+  {
+   "chunk": "src_components_design_outline_components_utils_ts.b77eaf66.js",
+   "buttons": [
+    "已设置表达式"
+   ],
+   "labels": [
+    "上侧区域",
+    "下侧区域",
+    "不能拖入到页签根部，请拖入指定页签",
+    "单元格",
+    "右侧区域",
+    "大纲拖拽:PC端 绑定了列表数据的控件，不支持拖拽 到树表录入内部",
+    "大纲拖拽:PC端 绑定了列表数据的控件，不支持拖拽 到重复节内部",
+    "大纲拖拽:PC端 绑定了列表数据的控件，不支持拖拽 到重复表录入内部",
+    "左侧区域",
+    "已设置表达式",
+    "树表录入内部控件不能移动位置",
+    "重复节",
+    "重复表录入"
+   ],
+   "components": [
+    "Gy.Item"
+   ],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 0
+  },
+  {
+   "chunk": "src_components_design_select-box_select-cmps_tsx-src_containers_design_navbar_index_tsx-src_h-fc5e07.25b76b6c.js",
+   "buttons": [
+    "一键展开",
+    "保存失败",
+    "删除",
+    "复制页面规则",
+    "复制页面规则失败",
+    "已设置表达式",
+    "新建分组",
+    "移动端"
+   ],
+   "labels": [
+    "一键展开",
+    "一键收起",
+    "不允许选择多个面板的控件",
+    "保存失败",
+    "公共页面规则",
+    "分组名称",
+    "删除",
+    "单据",
+    "名称",
+    "复制 PC 端规则",
+    "复制页面规则",
+    "复制页面规则失败",
+    "外框",
+    "大纲",
+    "子页面",
+    "已设置表达式",
+    "平铺档案",
+    "控件",
+    "提示",
+    "操作成功",
+    "数据",
+    "新建分组",
+    "显示",
+    "最长100个字符",
+    "未找到匹配记录",
+    "未找到调用方",
+    "查找调用控件",
+    "标准",
+    "树形档案",
+    "正式",
+    "状态由条件控制",
+    "目标页面",
+    "目标页面不能为空",
+    "移动端",
+    "筛选",
+    "表单",
+    "规则",
+    "请输入搜索关键字",
+    "请输入页面规则名称",
+    "请选择目标页面",
+    "转换成功",
+    "重命名",
+    "重命名分组",
+    "隐藏",
+    "页面保存失败，请修改",
+    "页面规则",
+    "页面规则名称不能为空",
+    "页面规则名称重复，请修改",
+    "默认分组"
+   ],
+   "components": [
+    "Checkbox.Group",
+    "Form.Item",
+    "Form.useForm",
+    "Gy.Item",
+    "Menu.Item",
+    "Radio.Group",
+    "Select.Option"
+   ],
+   "has_drag": true,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 88
+  },
+  {
+   "chunk": "src_components_design_settings_common_data-source-container_entity-select_use-relation-entiti-913fa3.8a71cc4a.js",
+   "buttons": [],
+   "labels": [
+    "关联实体不存在:"
+   ],
+   "components": [],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 0
+  },
+  {
+   "chunk": "src_components_design_settings_common_operate-list_operateCmp_operateCmp_tsx-src_components_d-d9a0ac.07bec118.js",
+   "buttons": [],
+   "labels": [
+    "关联实体不存在:"
+   ],
+   "components": [],
+   "has_drag": false,
+   "direct_ops": [
+    "udcAttachmentTemplateCreateBatchPost"
+   ],
+   "direct_ops_backend": {},
+   "possible_ops_count": 144
+  },
+  {
+   "chunk": "src_components_design_settings_common_style-selector_index_module_less-src_components_app-des-12511e.17fa0964.js",
+   "buttons": [],
+   "labels": [
+    "关联实体不存在:"
+   ],
+   "components": [],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 27
+  },
+  {
+   "chunk": "src_components_design_settings_common_style-selector_index_module_less-src_components_app-des-4b8c84.9a109a20.js",
+   "buttons": [],
+   "labels": [
+    "关联实体不存在:"
+   ],
+   "components": [],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 27
+  },
+  {
+   "chunk": "src_components_design_settings_common_style-selector_index_module_less-src_components_app-des-7d6530.c3f2183f.js",
+   "buttons": [],
+   "labels": [
+    "关联实体不存在:"
+   ],
+   "components": [],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 27
+  },
+  {
+   "chunk": "src_components_design_settings_common_style-selector_index_module_less-src_components_app-des-da1efd.d0f55ffa.js",
+   "buttons": [],
+   "labels": [
+    "关联实体不存在:"
+   ],
+   "components": [],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 190
+  },
+  {
+   "chunk": "src_components_design_settings_common_style-selector_index_module_less-src_containers_design_-3d665c.f7a633be.js",
+   "buttons": [],
+   "labels": [
+    "关联实体不存在:"
+   ],
+   "components": [],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 10
+  },
+  {
+   "chunk": "src_components_design_stage_index_tsx.d0430eab.js",
+   "buttons": [
+    "关闭上侧区域",
+    "关闭下侧区域",
+    "关闭右侧区域",
+    "关闭左侧区域",
+    "删除控件",
+    "复制控件"
+   ],
+   "labels": [
+    "上侧",
+    "下侧",
+    "个字段",
+    "中间区",
+    "关闭上侧区域",
+    "关闭下侧区域",
+    "关闭右侧区域",
+    "关闭左侧区域",
+    "其他用户",
+    "删除控件",
+    "右侧",
+    "复制控件",
+    "左侧",
+    "开启上侧区域",
+    "开启下侧区域",
+    "开启右侧区域",
+    "开启左侧区域",
+    "拖拽组件",
+    "自适应宽度",
+    "隐藏控件（可通过大纲重新显示）"
+   ],
+   "components": [
+    "Breadcrumb.Item",
+    "Menu.Item"
+   ],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 2
+  },
+  {
+   "chunk": "src_components_design_top-tool-bar_index_tsx.bf7936ab.js",
+   "buttons": [
+    "保存失败",
+    "保存并提交",
+    "保存模板成功",
+    "移动端页面",
+    "请上传缩略图",
+    "转移动"
+   ],
+   "labels": [
+    "不开启时，web端网格控件不转换，网格中控件转换后会顺序排列",
+    "保存失败",
+    "保存并提交",
+    "保存模板成功",
+    "全屏",
+    "另存为模板",
+    "只能包含中文、英文、数字以及下划线",
+    "名称",
+    "名称不能超过50个字符",
+    "存模版",
+    "已存在重名的页面模版，请重新命名",
+    "当前页面是草稿态，可能导致应用检查无法定位问题，请注意保存页面。",
+    "描述",
+    "检测到已存在控件",
+    "概览",
+    "状态由条件控制",
+    "移动端和web端页面都",
+    "移动端页面",
+    "继续转换将为其创建为副本 (唯一标识将重新生成)",
+    "请上传WEB端缩略图",
+    "请上传移动端缩略图",
+    "请上传缩略图",
+    "请输入名称",
+    "请输入描述",
+    "转换成功",
+    "转换范围",
+    "转移动",
+    "退出全屏"
+   ],
+   "components": [
+    "Checkbox.Group",
+    "Form.Item",
+    "Radio.Group"
+   ],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 5
+  },
+  {
+   "chunk": "src_components_page-content_index_tsx-src_components_welcome_index_tsx-src_pages_app-design_b-8ea8e1.17deb5c2.js",
+   "buttons": [
+    "删除",
+    "复制",
+    "是，前往保存",
+    "暂不支持复制分组",
+    "暂不支持批量删除",
+    "暂不支持批量复制",
+    "添加",
+    "添加分组",
+    "添加成功",
+    "确认删除",
+    "移动",
+    "要保存修改吗"
+   ],
+   "labels": [
+    "上移",
+    "下移",
+    "不支持上移",
+    "不支持下移",
+    "公共页面规则",
+    "分组不能移动到分组内部",
+    "删除",
+    "单据",
+    "变更记录",
+    "名称或编码",
+    "名称长度不能超过100",
+    "否，放弃修改",
+    "复制",
+    "平铺档案",
+    "微流程",
+    "微流程创建失败",
+    "提示",
+    "是，前往保存",
+    "暂不支持复制分组",
+    "暂不支持批量删除",
+    "暂不支持批量复制",
+    "更新成功",
+    "查找",
+    "标准",
+    "树形档案",
+    "正式",
+    "添加",
+    "添加分组",
+    "添加成功",
+    "确认删除",
+    "移动",
+    "表单",
+    "要保存修改吗",
+    "选择的微流程或分组无法移动",
+    "重命名",
+    "默认分组"
+   ],
+   "components": [],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 76
+  },
+  {
+   "chunk": "src_components_page-content_index_tsx-src_pages_design_constants_ts-src_pages_design_main_com-98d58c.90003372.js",
+   "buttons": [
+    "删除",
+    "复制",
+    "是，前往保存",
+    "暂不支持复制分组",
+    "暂不支持批量删除",
+    "暂不支持批量复制",
+    "添加",
+    "添加分组",
+    "添加成功",
+    "确认删除",
+    "移动",
+    "要保存修改吗"
+   ],
+   "labels": [
+    "上移",
+    "下移",
+    "不支持上移",
+    "不支持下移",
+    "公共页面规则",
+    "分组不能移动到分组内部",
+    "删除",
+    "单据",
+    "变更记录",
+    "名称或编码",
+    "名称长度不能超过100",
+    "否，放弃修改",
+    "复制",
+    "平铺档案",
+    "微流程",
+    "微流程创建失败",
+    "提示",
+    "是，前往保存",
+    "暂不支持复制分组",
+    "暂不支持批量删除",
+    "暂不支持批量复制",
+    "更新成功",
+    "查找",
+    "标准",
+    "树形档案",
+    "正式",
+    "添加",
+    "添加分组",
+    "添加成功",
+    "确认删除",
+    "移动",
+    "表单",
+    "要保存修改吗",
+    "选择的微流程或分组无法移动",
+    "重命名",
+    "默认分组"
+   ],
+   "components": [],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 5
+  },
+  {
+   "chunk": "src_components_page-params_index_tsx-src_utils_treeUtils_page-selector_ts.73ed8e17.js",
+   "buttons": [
+    "信息保存成功",
+    "参数设置",
+    "取消",
+    "添加入参",
+    "添加变量",
+    "确定",
+    "确认",
+    "设置值",
+    "页面事件保存成功",
+    "页面事件删除成功"
+   ],
+   "labels": [
+    "不能包含下划线",
+    "不能输入空格",
+    "为列表时，默认值无效",
+    "信息保存成功",
+    "列表",
+    "单选",
+    "参数类型",
+    "参数设置",
+    "取消",
+    "只能以字母开头，允许输入数字、字母",
+    "名称",
+    "名称不能超过10个字",
+    "名称必填",
+    "名称禁止输入空格",
+    "多选",
+    "实体",
+    "对象",
+    "提示",
+    "数据类型",
+    "日期",
+    "日期时间",
+    "时间",
+    "暂无数据",
+    "枚举",
+    "添加入参",
+    "添加变量",
+    "确定",
+    "确认",
+    "编码",
+    "编码必填",
+    "编码禁止输入空格",
+    "至少保留一个参数",
+    "设置值",
+    "请勾选数据",
+    "请输入名称",
+    "请输入编码",
+    "请选择",
+    "请选择参数类型",
+    "请选择实体",
+    "请选择枚举",
+    "请选择自定义对象",
+    "请选择选项集",
+    "选择数据",
+    "选项集",
+    "页面事件保存成功",
+    "页面事件删除成功",
+    "页面入参提交之前的校验失败"
+   ],
+   "components": [
+    "Form.Item",
+    "Form.useForm",
+    "Select.Option"
+   ],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 83
+  },
+  {
+   "chunk": "src_components_udc_udc-wrapper_index_tsx.aaf56dab.js",
+   "buttons": [],
+   "labels": [
+    "扩展方案"
+   ],
+   "components": [],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 0
+  },
+  {
+   "chunk": "src_components_unify-console_items_dataflow-log_index_tsx-src_pages_app-design_rule_dataflow_-24d2c0.36541d93.js",
+   "buttons": [
+    "删除"
+   ],
+   "labels": [
+    "修改",
+    "元素",
+    "公共页面规则",
+    "创建",
+    "删除",
+    "外框",
+    "子页面",
+    "字段集",
+    "定位",
+    "属性",
+    "属性值（操作前）",
+    "属性值（操作后）",
+    "应用",
+    "应用版本",
+    "微流程",
+    "快照",
+    "扣减规则",
+    "操作",
+    "操作人",
+    "操作元素",
+    "操作时间",
+    "未知的微流程类型",
+    "栏目",
+    "模块",
+    "生单规则",
+    "自定义对象",
+    "获取初始化数据失败",
+    "菜单",
+    "该模块元素已不存在，无法定位。",
+    "请输入",
+    "请输入模块名称",
+    "请选择",
+    "还原",
+    "还原到",
+    "还原操作成功",
+    "选项集",
+    "门户"
+   ],
+   "components": [
+    "Form.Item",
+    "Form.useForm"
+   ],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 0
+  },
+  {
+   "chunk": "src_components_unify-console_items_deductflow-log_index_tsx-src_pages_app-design_rule_linkToH-ca7165.a46ddb1a.js",
+   "buttons": [
+    "删除"
+   ],
+   "labels": [
+    "修改",
+    "元素",
+    "公共页面规则",
+    "创建",
+    "删除",
+    "外框",
+    "子页面",
+    "字段集",
+    "定位",
+    "属性",
+    "属性值（操作前）",
+    "属性值（操作后）",
+    "应用",
+    "应用版本",
+    "微流程",
+    "快照",
+    "扣减规则",
+    "操作",
+    "操作人",
+    "操作元素",
+    "操作时间",
+    "未知的微流程类型",
+    "栏目",
+    "模块",
+    "生单规则",
+    "自定义对象",
+    "获取初始化数据失败",
+    "菜单",
+    "该模块元素已不存在，无法定位。",
+    "请输入",
+    "请输入模块名称",
+    "请选择",
+    "还原",
+    "还原到",
+    "还原操作成功",
+    "选项集",
+    "门户"
+   ],
+   "components": [
+    "Form.Item",
+    "Form.useForm"
+   ],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 0
+  },
+  {
+   "chunk": "src_components_unify-console_items_microflow-log_index_tsx.09f43ec9.js",
+   "buttons": [
+    "删除"
+   ],
+   "labels": [
+    "修改",
+    "元素",
+    "公共页面规则",
+    "创建",
+    "删除",
+    "外框",
+    "子页面",
+    "字段集",
+    "定位",
+    "属性",
+    "属性值（操作前）",
+    "属性值（操作后）",
+    "应用",
+    "应用版本",
+    "微流程",
+    "快照",
+    "扣减规则",
+    "操作",
+    "操作人",
+    "操作元素",
+    "操作时间",
+    "未知的微流程类型",
+    "栏目",
+    "模块",
+    "生单规则",
+    "自定义对象",
+    "获取初始化数据失败",
+    "菜单",
+    "该模块元素已不存在，无法定位。",
+    "请输入",
+    "请输入模块名称",
+    "请选择",
+    "还原",
+    "还原到",
+    "还原操作成功",
+    "选项集",
+    "门户"
+   ],
+   "components": [
+    "Form.Item",
+    "Form.useForm"
+   ],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 0
+  },
+  {
+   "chunk": "src_components_unify-console_items_operation-log_index_tsx.f29f0868.js",
+   "buttons": [
+    "删除"
+   ],
+   "labels": [
+    "修改",
+    "元素",
+    "公共页面规则",
+    "创建",
+    "删除",
+    "外框",
+    "子页面",
+    "字段集",
+    "定位",
+    "属性",
+    "属性值（操作前）",
+    "属性值（操作后）",
+    "应用",
+    "应用版本",
+    "微流程",
+    "快照",
+    "扣减规则",
+    "操作",
+    "操作人",
+    "操作元素",
+    "操作时间",
+    "未知的微流程类型",
+    "栏目",
+    "模块",
+    "生单规则",
+    "自定义对象",
+    "获取初始化数据失败",
+    "菜单",
+    "该模块元素已不存在，无法定位。",
+    "请输入",
+    "请输入模块名称",
+    "请选择",
+    "还原",
+    "还原到",
+    "还原操作成功",
+    "选项集",
+    "门户"
+   ],
+   "components": [
+    "Form.Item",
+    "Form.useForm"
+   ],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 5
+  },
+  {
+   "chunk": "src_constants_design_page-type_ts-src_services_app-design_template_ts-src_services_design_pag-93bb09.6494d14a.js",
+   "buttons": [
+    "全表编辑页",
+    "移动端"
+   ],
+   "labels": [
+    "全表编辑页",
+    "其它",
+    "列表页",
+    "外框",
+    "子页面",
+    "栏目页",
+    "移动端",
+    "详情页"
+   ],
+   "components": [],
+   "has_drag": false,
+   "direct_ops": [
+    "udcFunctionFindTreeAndGroupPost",
+    "udcMetaDataSelectAllPageByAppPost",
+    "udcMetaDataSelectFunctionNodeWithPageTreePost",
+    "udcPageInfoPresetListAppGet",
+    "udcPageInfoSearchNoPagePost",
+    "udcPageTemplateClassSelectTreeCategoryGet",
+    "udcPageTemplateGet",
+    "udcPageTemplateSearchWithRightsPost"
+   ],
+   "direct_ops_backend": {},
+   "possible_ops_count": 8
+  },
+  {
+   "chunk": "src_containers_design_page-design_index_tsx.6e093388.js",
+   "buttons": [
+    "不保存",
+    "保存",
+    "全选",
+    "删除",
+    "取消",
+    "复制"
+   ],
+   "labels": [
+    "不保存",
+    "保存",
+    "全选",
+    "删除",
+    "剪切",
+    "取消",
+    "复制",
+    "已知晓",
+    "当前页面是草稿态，可能导致应用检查无法定位问题，请先保存页面。",
+    "恢复",
+    "撤销",
+    "离开实体设计器时",
+    "离开页面设计器时",
+    "粘贴",
+    "退出"
+   ],
+   "components": [],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 0
+  },
+  {
+   "chunk": "src_containers_design_settings_index_tsx.d00dcd9e.js",
+   "buttons": [
+    "分辨率设置",
+    "参数设置",
+    "可编辑列表页",
+    "页面入参设置",
+    "页面变量设置"
+   ],
+   "labels": [
+    "上图标下文字",
+    "上文字下图标",
+    "业务首页",
+    "事件",
+    "事件列表",
+    "作为标题展示在Web端页签",
+    "作为标题展示在移动端页面标题栏",
+    "公开访问",
+    "其它",
+    "分辨率设置",
+    "列表详情组合页",
+    "列表页",
+    "单击时",
+    "参数设置",
+    "可编辑列表页",
+    "名称",
+    "固定",
+    "基础",
+    "外框",
+    "外框事件",
+    "外框布局",
+    "审批页",
+    "导航布局",
+    "导航样式",
+    "居中",
+    "居右",
+    "居左",
+    "属性",
+    "应用门户",
+    "底导航",
+    "悬浮",
+    "报表页",
+    "更多",
+    "标识",
+    "标题",
+    "栏目参数个性化",
+    "栏目页",
+    "类型",
+    "自定义导航",
+    "详情页",
+    "辅助信息页",
+    "通用",
+    "页面",
+    "页面ID",
+    "页面事件定义",
+    "页面入参",
+    "页面入参设置",
+    "页面出参",
+    "页面初始化",
+    "页面变量",
+    "页面变量设置",
+    "页面对齐",
+    "风格",
+    "高级"
+   ],
+   "components": [],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 0
+  },
+  {
+   "chunk": "src_hooks_useGetPageLocked_ts-src_redux_design_actions_shortcuts_tsx.0f4d6eb1.js",
+   "buttons": [
+    "向上添加",
+    "移除"
+   ],
+   "labels": [
+    "分组",
+    "列数",
+    "向上添加",
+    "容器",
+    "撤销部分数据还原失败",
+    "移除",
+    "网格",
+    "请输入列数",
+    "转为",
+    "页签"
+   ],
+   "components": [
+    "Form.Item"
+   ],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 0
+  },
+  {
+   "chunk": "src_hooks_usePageDesignPathParams_ts.2243bb5f.js",
+   "buttons": [],
+   "labels": [],
+   "components": [],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 0
+  },
+  {
+   "chunk": "src_pages_app-design_analytic-statistics_index_tsx.ac055063.js",
+   "buttons": [],
+   "labels": [],
+   "components": [],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 0
+  },
+  {
+   "chunk": "src_pages_app-design_app-home_index_tsx.46fd3080.js",
+   "buttons": [
+    "关闭",
+    "删除成功",
+    "请输入整数排序号"
+   ],
+   "labels": [
+    "修改成功",
+    "关闭",
+    "删除后不可恢复，确定删除指定空间",
+    "删除成功",
+    "只能删除停用的空间",
+    "空间名称",
+    "请输入整数排序号"
+   ],
+   "components": [
+    "Form.Item",
+    "Form.useForm",
+    "Radio.Group"
+   ],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 0
+  },
+  {
+   "chunk": "src_pages_app-design_app-home_space-manage_SpaceManger_tsx.e54d3ae5.js",
+   "buttons": [
+    "关闭",
+    "删除成功",
+    "请输入整数排序号"
+   ],
+   "labels": [
+    "修改成功",
+    "关闭",
+    "删除后不可恢复，确定删除指定空间",
+    "删除成功",
+    "只能删除停用的空间",
+    "空间名称",
+    "请输入整数排序号"
+   ],
+   "components": [
+    "Form.Item",
+    "Form.useForm",
+    "Radio.Group"
+   ],
+   "has_drag": false,
+   "direct_ops": [
+    "udcPortalPortalSpaceDeletePost"
+   ],
+   "direct_ops_backend": {},
+   "possible_ops_count": 1
+  },
+  {
+   "chunk": "src_pages_app-design_basic-info_index_tsx-node_modules_seeyon_biz-icon-library_dist_index_css.b24938e1.js",
+   "buttons": [
+    "保存失败",
+    "保存成功",
+    "发布中",
+    "发布失败",
+    "发布成功",
+    "发布时间",
+    "发布版本",
+    "发布状态",
+    "取消",
+    "团队设置",
+    "已发布",
+    "未发布",
+    "添加成员",
+    "确定",
+    "确定删除吗",
+    "确认",
+    "移动端",
+    "移除成功",
+    "组件已停用",
+    "页面发布中",
+    "页面发布失败",
+    "页面发布开始",
+    "页面发布成功",
+    "页面发布资源不足",
+    "页面发布超时",
+    "页面未开始发布"
+   ],
+   "labels": [
+    "依赖应用",
+    "依赖版本调整",
+    "依赖组件",
+    "依赖调整成功",
+    "保存失败",
+    "保存成功",
+    "修改失败",
+    "修改应用基础信息",
+    "元数据中心未找到该应用数据",
+    "元数据地址:",
+    "全部",
+    "前端安装依赖详细日志:",
+    "前端构建详细日志:",
+    "包名",
+    "升级版本",
+    "历史状态",
+    "发布中",
+    "发布失败",
+    "发布成功",
+    "发布时间",
+    "发布版本",
+    "发布状态",
+    "发布的上一次测试版本",
+    "取消",
+    "名称",
+    "后端构建详细日志:",
+    "团队成员",
+    "团队设置",
+    "图标",
+    "失败原因",
+    "已发布",
+    "平台",
+    "应用主题风格",
+    "应用名称",
+    "应用启动中",
+    "应用启动失败:",
+    "应用启动成功",
+    "应用图标",
+    "应用描述",
+    "应用数据清除成功",
+    "应用未测试",
+    "应用测试失败",
+    "应用测试超时",
+    "应用编码",
+    "当前版本",
+    "控件",
+    "描述",
+    "操作",
+    "操作人",
+    "操作时间",
+    "无法获取沙箱日志下载链接",
+    "暂无版本",
+    "更新时间",
+    "最多输入255个字符",
+    "未发布",
+    "未知",
+    "沙箱准备中",
+    "沙箱准备成功",
+    "沙箱地址:",
+    "沙箱测试",
+    "沙箱资源不足",
+    "注册组件",
+    "添加成员",
+    "版本",
+    "版本号",
+    "状态",
+    "状态获取失败",
+    "确定",
+    "确定删除吗",
+    "确认",
+    "移交人员",
+    "移交应用",
+    "移交应用成功",
+    "移动端",
+    "移除成功",
+    "类别",
+    "组件包名",
+    "组件包名不能为空",
+    "组件名称",
+    "组件已停用",
+    "终端",
+    "编码",
+    "行为",
+    "请点击链接:",
+    "请输入",
+    "请输入关键字",
+    "请输入名字",
+    "请输入名称搜索",
+    "请选择应用的移交对象",
+    "请选择要删除的前端组件",
+    "跟随系统",
+    "选择依赖的应用",
+    "选择依赖组件",
+    "页面发布中",
+    "页面发布失败",
+    "页面发布开始",
+    "页面发布成功",
+    "页面发布状态获取失败",
+    "页面发布资源不足",
+    "页面发布超时",
+    "页面未开始发布",
+    "页面测试"
+   ],
+   "components": [
+    "Collapse.Panel",
+    "Form.Item",
+    "Form.useForm",
+    "Menu.Item",
+    "Radio.Group"
+   ],
+   "has_drag": false,
+   "direct_ops": [
+    "udcPageComponentAnalysisPackageGet",
+    "udcPageComponentRefreshGet",
+    "udcPageComponentSelectAllListByConditionsPost",
+    "udcPageComponentSelectByGet",
+    "udcPageComponentUpdatePost",
+    "udcPageComponentUploadGet"
+   ],
+   "direct_ops_backend": {},
+   "possible_ops_count": 82
+  },
+  {
+   "chunk": "src_pages_app-design_basic-setting_index_tsx-node_modules_seeyon_biz-basic-data_dist_index_cs-483c13.3a08a45d.js",
+   "buttons": [
+    "保存成功",
+    "停用",
+    "删除",
+    "删除成功",
+    "取消",
+    "启用",
+    "导入导出模板",
+    "已设置",
+    "排序号",
+    "新建分类",
+    "新建选项集",
+    "未设置",
+    "确定",
+    "编辑",
+    "编辑分类",
+    "编辑成功",
+    "编辑选项集",
+    "选项集导入模板",
+    "重置"
+   ],
+   "labels": [
+    "中性灰",
+    "主题",
+    "二维码",
+    "你输入的分类名称过长",
+    "你输入的选项集名称过长",
+    "保存成功",
+    "信息",
+    "停用",
+    "其他",
+    "内置",
+    "创建成功",
+    "删除",
+    "删除成功",
+    "功能",
+    "参数",
+    "取消",
+    "只能是大写字母开头，允许输入数字和字母",
+    "名称",
+    "名称为必填项",
+    "启用",
+    "固定选项的合集，仅在设计态定义，仅支持一级，不支持运行态扩展。",
+    "图标",
+    "图片",
+    "基础",
+    "基础资料",
+    "填充",
+    "外框模板",
+    "字段集",
+    "导入导出模板",
+    "已经上架的选项集不能删除",
+    "已设置",
+    "成功",
+    "扩展实体",
+    "排序号",
+    "搜索时不支持拖动",
+    "支持自定义对象，用于微流程/页面规则之间的相互调用数据传递",
+    "文字",
+    "新建分类",
+    "新建选项集",
+    "未设置",
+    "枚举",
+    "流水号",
+    "渐变",
+    "状态",
+    "确定",
+    "编码长度不能超过50个字符",
+    "编辑",
+    "编辑分类",
+    "编辑成功",
+    "编辑选项集",
+    "缺省值",
+    "自动生成（可修改）",
+    "自定义对象",
+    "角色权限",
+    "警告",
+    "请输入",
+    "请输入分类名称",
+    "请输入选项名称",
+    "请输入选项集名称",
+    "请输入选项集编码",
+    "选项值",
+    "选项值编码",
+    "选项名称",
+    "选项集",
+    "选项集分类",
+    "选项集列表",
+    "选项集名称",
+    "选项集名称为必填项",
+    "选项集导入模板",
+    "选项集编码",
+    "选项集编码为必填项",
+    "重置",
+    "错误",
+    "页面模板",
+    "颜色"
+   ],
+   "components": [
+    "Form.Item",
+    "Form.useForm",
+    "Menu.Item",
+    "Select.Option"
+   ],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 9
+  },
+  {
+   "chunk": "src_pages_app-design_business-rules_index_tsx.fb23f705.js",
+   "buttons": [],
+   "labels": [],
+   "components": [],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 0
+  },
+  {
+   "chunk": "src_pages_app-design_cip-rpa_index_tsx.5bb1c74a.js",
+   "buttons": [],
+   "labels": [],
+   "components": [],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 0
+  },
+  {
+   "chunk": "src_pages_app-design_entity-modeling_custom-extension_index_tsx.400f885f.js",
+   "buttons": [
+    "删除",
+    "取消",
+    "启用",
+    "确定",
+    "自定义扩展配置",
+    "预览"
+   ],
+   "labels": [
+    "删除",
+    "取消",
+    "启用",
+    "字段名称前缀",
+    "操作",
+    "数据类型",
+    "数据类型已存在，请重新选择",
+    "状态",
+    "确定",
+    "自定义扩展配置",
+    "请输入",
+    "请输入字段名称前缀",
+    "请输入数据类型",
+    "请输入长度",
+    "请输入预留字段数量",
+    "请输入默认值",
+    "长度",
+    "预留字段数量",
+    "预览",
+    "默认值"
+   ],
+   "components": [
+    "Form.Item",
+    "Form.useForm"
+   ],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 38
+  },
+  {
+   "chunk": "src_pages_app-design_entity-modeling_entity-collections_index_tsx.aa51ca21.js",
+   "buttons": [
+    "删除",
+    "取消",
+    "启用",
+    "确定",
+    "自定义扩展配置",
+    "预览"
+   ],
+   "labels": [
+    "删除",
+    "取消",
+    "启用",
+    "字段名称前缀",
+    "操作",
+    "数据类型",
+    "数据类型已存在，请重新选择",
+    "状态",
+    "确定",
+    "自定义扩展配置",
+    "请输入",
+    "请输入字段名称前缀",
+    "请输入数据类型",
+    "请输入长度",
+    "请输入预留字段数量",
+    "请输入默认值",
+    "长度",
+    "预留字段数量",
+    "预览",
+    "默认值"
+   ],
+   "components": [
+    "Form.Item",
+    "Form.useForm"
+   ],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 0
+  },
+  {
+   "chunk": "src_pages_app-design_entity-modeling_entity-field_components_rule-Formulas_index_tsx.0b17fe74.js",
+   "buttons": [
+    "删除",
+    "取消",
+    "启用",
+    "确定",
+    "自定义扩展配置",
+    "预览"
+   ],
+   "labels": [
+    "删除",
+    "取消",
+    "启用",
+    "字段名称前缀",
+    "操作",
+    "数据类型",
+    "数据类型已存在，请重新选择",
+    "状态",
+    "确定",
+    "自定义扩展配置",
+    "请输入",
+    "请输入字段名称前缀",
+    "请输入数据类型",
+    "请输入长度",
+    "请输入预留字段数量",
+    "请输入默认值",
+    "长度",
+    "预留字段数量",
+    "预览",
+    "默认值"
+   ],
+   "components": [
+    "Form.Item",
+    "Form.useForm"
+   ],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 20
+  },
+  {
+   "chunk": "src_pages_app-design_entity-modeling_entity-fieldset_index_tsx.fdeccdc6.js",
+   "buttons": [
+    "删除",
+    "取消",
+    "启用",
+    "确定",
+    "自定义扩展配置",
+    "预览"
+   ],
+   "labels": [
+    "删除",
+    "取消",
+    "启用",
+    "字段名称前缀",
+    "操作",
+    "数据类型",
+    "数据类型已存在，请重新选择",
+    "状态",
+    "确定",
+    "自定义扩展配置",
+    "请输入",
+    "请输入字段名称前缀",
+    "请输入数据类型",
+    "请输入长度",
+    "请输入预留字段数量",
+    "请输入默认值",
+    "长度",
+    "预留字段数量",
+    "预览",
+    "默认值"
+   ],
+   "components": [
+    "Form.Item",
+    "Form.useForm"
+   ],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 54
+  },
+  {
+   "chunk": "src_pages_app-design_entity-modeling_enum-manger_enum-field_index_tsx.9476b6a5.js",
+   "buttons": [
+    "删除",
+    "取消",
+    "启用",
+    "确定",
+    "自定义扩展配置",
+    "预览"
+   ],
+   "labels": [
+    "删除",
+    "取消",
+    "启用",
+    "字段名称前缀",
+    "操作",
+    "数据类型",
+    "数据类型已存在，请重新选择",
+    "状态",
+    "确定",
+    "自定义扩展配置",
+    "请输入",
+    "请输入字段名称前缀",
+    "请输入数据类型",
+    "请输入长度",
+    "请输入预留字段数量",
+    "请输入默认值",
+    "长度",
+    "预留字段数量",
+    "预览",
+    "默认值"
+   ],
+   "components": [
+    "Form.Item",
+    "Form.useForm"
+   ],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 17
+  },
+  {
+   "chunk": "src_pages_app-design_excute-log_index_tsx.6141fad3.js",
+   "buttons": [],
+   "labels": [],
+   "components": [],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 0
+  },
+  {
+   "chunk": "src_pages_app-design_extension-plan_entry_tsx-src_components_data-type_index_less-src_pages_a-a91a6b.8b91fd91.js",
+   "buttons": [],
+   "labels": [
+    "扩展方案"
+   ],
+   "components": [],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 0
+  },
+  {
+   "chunk": "src_pages_app-design_extension-plan_index_tsx.c111914a.js",
+   "buttons": [],
+   "labels": [
+    "扩展方案"
+   ],
+   "components": [],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 46
+  },
+  {
+   "chunk": "src_pages_app-design_flow_FlowEntry_tsx.51d0715a.js",
+   "buttons": [],
+   "labels": [],
+   "components": [],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 0
+  },
+  {
+   "chunk": "src_pages_app-design_page-manage_main_index_tsx.0bf56211.js",
+   "buttons": [],
+   "labels": [],
+   "components": [],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 0
+  },
+  {
+   "chunk": "src_pages_app-design_page-manage_main_page-frame_tsx.37e41c83.js",
+   "buttons": [],
+   "labels": [],
+   "components": [],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 0
+  },
+  {
+   "chunk": "src_pages_app-design_page-manage_main_portlet_tsx.5f6d1e37.js",
+   "buttons": [],
+   "labels": [],
+   "components": [],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 0
+  },
+  {
+   "chunk": "src_pages_app-design_page-manage_main_snapshot_tsx.c5944839.js",
+   "buttons": [],
+   "labels": [],
+   "components": [],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 0
+  },
+  {
+   "chunk": "src_pages_app-design_page-manage_main_sub-page_tsx.f4d7b320.js",
+   "buttons": [],
+   "labels": [],
+   "components": [],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 0
+  },
+  {
+   "chunk": "src_pages_app-design_page-rules_index_tsx-src_components_page-content_index_module_less-src_c-211edb.dbe65b5c.js",
+   "buttons": [
+    "取消",
+    "新建公共页面规则",
+    "新建分组",
+    "欢迎来到规则设置",
+    "确定"
+   ],
+   "labels": [
+    "公共页面规则",
+    "分组名称",
+    "取消",
+    "所属分组",
+    "描述信息",
+    "操作成功",
+    "新建公共页面规则",
+    "新建分组",
+    "最长100个字符",
+    "欢迎来到规则设置",
+    "确定",
+    "规则名称",
+    "规则名称长度最长45个字符",
+    "重命名分组",
+    "默认分组"
+   ],
+   "components": [
+    "Form.Item",
+    "Form.useForm"
+   ],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 74
+  },
+  {
+   "chunk": "src_pages_app-design_role-permission_index_tsx.4f87e943.js",
+   "buttons": [],
+   "labels": [],
+   "components": [],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 0
+  },
+  {
+   "chunk": "src_pages_app-design_rule_dataflow_components_log-content_index_tsx.fa852601.js",
+   "buttons": [
+    "新建",
+    "新建或更新",
+    "新建目标实体数据"
+   ],
+   "labels": [
+    "事件订阅",
+    "入参",
+    "全部",
+    "出参",
+    "动作描述",
+    "发起BPM流程",
+    "失败",
+    "将来源实体数据进行分组",
+    "序号",
+    "开始",
+    "异步消息通知",
+    "成功",
+    "手工触发",
+    "执行动作",
+    "执行回写规则",
+    "执行时间",
+    "执行状态",
+    "拍平来源实体聚合数据",
+    "拍平目标实体聚合数据",
+    "操作",
+    "操作类型",
+    "新建",
+    "新建或更新",
+    "新建目标实体数据",
+    "更新",
+    "更新目标实体数据",
+    "来源实体",
+    "来源实体数据",
+    "来源实体过滤条件",
+    "来源数据行条件匹配",
+    "查找来源实体聚合数据",
+    "查找目标实体聚合数据",
+    "状态",
+    "生单规则",
+    "目标实体",
+    "目标实体数据",
+    "组装目标实体数据",
+    "结束",
+    "触发方式",
+    "请输入生单规则名称",
+    "过滤目标实体回写事件",
+    "过滤订阅事件",
+    "错误信息"
+   ],
+   "components": [
+    "Form.Item",
+    "Form.useForm"
+   ],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 0
+  },
+  {
+   "chunk": "src_pages_app-design_rule_dataflow_relation-graph_entry_tsx-node_modules_seeyon_biz-udc-graph-09b0c4.2ba8ff29.js",
+   "buttons": [
+    "新建",
+    "新建或更新",
+    "新建目标实体数据"
+   ],
+   "labels": [
+    "事件订阅",
+    "入参",
+    "全部",
+    "出参",
+    "动作描述",
+    "发起BPM流程",
+    "失败",
+    "将来源实体数据进行分组",
+    "序号",
+    "开始",
+    "异步消息通知",
+    "成功",
+    "手工触发",
+    "执行动作",
+    "执行回写规则",
+    "执行时间",
+    "执行状态",
+    "拍平来源实体聚合数据",
+    "拍平目标实体聚合数据",
+    "操作",
+    "操作类型",
+    "新建",
+    "新建或更新",
+    "新建目标实体数据",
+    "更新",
+    "更新目标实体数据",
+    "来源实体",
+    "来源实体数据",
+    "来源实体过滤条件",
+    "来源数据行条件匹配",
+    "查找来源实体聚合数据",
+    "查找目标实体聚合数据",
+    "状态",
+    "生单规则",
+    "目标实体",
+    "目标实体数据",
+    "组装目标实体数据",
+    "结束",
+    "触发方式",
+    "请输入生单规则名称",
+    "过滤目标实体回写事件",
+    "过滤订阅事件",
+    "错误信息"
+   ],
+   "components": [
+    "Form.Item",
+    "Form.useForm"
+   ],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 0
+  },
+  {
+   "chunk": "src_pages_app-design_rule_dataflow_relation-graph_index_tsx.0ffd5e24.js",
+   "buttons": [
+    "新建",
+    "新建或更新",
+    "新建目标实体数据"
+   ],
+   "labels": [
+    "事件订阅",
+    "入参",
+    "全部",
+    "出参",
+    "动作描述",
+    "发起BPM流程",
+    "失败",
+    "将来源实体数据进行分组",
+    "序号",
+    "开始",
+    "异步消息通知",
+    "成功",
+    "手工触发",
+    "执行动作",
+    "执行回写规则",
+    "执行时间",
+    "执行状态",
+    "拍平来源实体聚合数据",
+    "拍平目标实体聚合数据",
+    "操作",
+    "操作类型",
+    "新建",
+    "新建或更新",
+    "新建目标实体数据",
+    "更新",
+    "更新目标实体数据",
+    "来源实体",
+    "来源实体数据",
+    "来源实体过滤条件",
+    "来源数据行条件匹配",
+    "查找来源实体聚合数据",
+    "查找目标实体聚合数据",
+    "状态",
+    "生单规则",
+    "目标实体",
+    "目标实体数据",
+    "组装目标实体数据",
+    "结束",
+    "触发方式",
+    "请输入生单规则名称",
+    "过滤目标实体回写事件",
+    "过滤订阅事件",
+    "错误信息"
+   ],
+   "components": [
+    "Form.Item",
+    "Form.useForm"
+   ],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 7
+  },
+  {
+   "chunk": "src_pages_app-design_rule_deductflow_log-content_index_tsx.49fb832a.js",
+   "buttons": [],
+   "labels": [
+    "入参",
+    "全部",
+    "出参",
+    "判断扣减算法是否执行",
+    "动作描述",
+    "回滚（UNDO）扣减算法",
+    "失败",
+    "序号",
+    "开始",
+    "成功",
+    "扣减规则",
+    "执行动作",
+    "执行时间",
+    "执行状态",
+    "执行（DO）扣减算法",
+    "拍平来源实体聚合数据",
+    "操作",
+    "来源实体",
+    "查找扣减目标实体数据",
+    "检查扣减算法",
+    "状态",
+    "目标实体",
+    "结束",
+    "请输入扣减规则名称",
+    "错误信息"
+   ],
+   "components": [
+    "Form.Item",
+    "Form.useForm"
+   ],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 0
+  },
+  {
+   "chunk": "src_pages_app-design_rule_index_tsx-node_modules_seeyon_biz-udc-graph_dist_index_css-src_comp-646d55.b1e6b2e3.js",
+   "buttons": [
+    "删除",
+    "必须配置扣减算法",
+    "扣减规则设置",
+    "新建分组",
+    "是，前往保存",
+    "查看日志",
+    "欢迎来到规则设置",
+    "添加",
+    "添加扣减规则",
+    "编辑标题",
+    "表达式设置",
+    "设置规则",
+    "请设置提示信息",
+    "请设置来源字段"
+   ],
+   "labels": [
+    "不能下划线结尾",
+    "不能使用连续的下划线",
+    "分组名称",
+    "删除",
+    "只能以字母开头，允许输入数字、字母和下划线",
+    "名称",
+    "名称不能为空",
+    "名称不能为重复",
+    "名称不能重复",
+    "否，放弃修改",
+    "在算法运行时，检查当前是否具备算法执行的必要条件",
+    "备注",
+    "已经修改完成",
+    "开始节点只能是单据节点",
+    "当前扣减规则图中没有来源，请设置来源之后再保存。",
+    "微流程",
+    "必须配置扣减算法",
+    "扣减算法不能为空",
+    "扣减算法提示",
+    "扣减规则",
+    "扣减规则设置",
+    "提示信息",
+    "提示并阻塞",
+    "操作",
+    "操作成功",
+    "新建分组",
+    "是，前往保存",
+    "是，前往修改",
+    "最长100个字符",
+    "有数据未能匹配时",
+    "未匹配数据跳过扣减继续执行",
+    "来源字段类型和目标字段不一致",
+    "来源实体",
+    "来源实体、目标实体之间已存在扣减规则，请检查",
+    "查看日志",
+    "检查未通过提示",
+    "检查规则",
+    "欢迎来到规则设置",
+    "注: 发布后，草稿状态的微流程无法使用",
+    "添加",
+    "添加扣减规则",
+    "生单规则",
+    "目标字段不能重复设置",
+    "目标字段类型和来源字段不一致",
+    "目标实体",
+    "算法",
+    "算法不存在，请重新选择",
+    "算法填写不完整，请检查。",
+    "算法说明",
+    "编辑标题",
+    "表达式设置",
+    "规则名称",
+    "规则编码",
+    "设置规则",
+    "请设置提示信息",
+    "请设置来源字段",
+    "请设置检查未通过提示",
+    "请输入",
+    "请输入关键字",
+    "请输入搜索关键字",
+    "请输入算法说明",
+    "请输入规则名称",
+    "请选择来源字段",
+    "请选择来源实体",
+    "请选择目标字段",
+    "请选择目标实体",
+    "请选择算法",
+    "请选择运算符",
+    "请重新选择来源字段",
+    "请重新选择目标字段",
+    "起始节点不能为同一节点",
+    "重命名分组",
+    "默认分组"
+   ],
+   "components": [
+    "Form.Item",
+    "Form.useForm",
+    "Menu.Item",
+    "Radio.Group"
+   ],
+   "has_drag": true,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 117
+  },
+  {
+   "chunk": "src_pages_app-design_rule_microflow_entity-rule_tsx.175321c6.js",
+   "buttons": [],
+   "labels": [
+    "微流程创建失败"
+   ],
+   "components": [],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 0
+  },
+  {
+   "chunk": "src_pages_app-design_rule_microflow_index_tsx.d188187b.js",
+   "buttons": [],
+   "labels": [
+    "微流程创建失败"
+   ],
+   "components": [],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 0
+  },
+  {
+   "chunk": "src_pages_app-design_rule_microflow_page-rule_tsx.9fc6df85.js",
+   "buttons": [],
+   "labels": [
+    "微流程创建失败"
+   ],
+   "components": [],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 0
+  },
+  {
+   "chunk": "src_pages_app-design_template-manage_index_tsx.7ebad08d.js",
+   "buttons": [
+    "删除成功",
+    "排序号",
+    "编辑",
+    "请上传模板缩略图"
+   ],
+   "labels": [
+    "主子实体",
+    "修改成功",
+    "公开模板",
+    "公开模板成功",
+    "分类",
+    "创建人",
+    "创建时间",
+    "删除后应用中将不能再使用该模板",
+    "删除成功",
+    "单据",
+    "只能包含中文、英文、数字以及下划线",
+    "名称",
+    "名称不能超过255个字符",
+    "名称不能超过50个字符",
+    "外框",
+    "已存在重名的页面模版，请重新命名",
+    "平铺档案",
+    "所属应用",
+    "排序号",
+    "推荐标签",
+    "描述",
+    "操作",
+    "无实体",
+    "标准",
+    "树形档案",
+    "模板名称",
+    "状态",
+    "独立实体",
+    "类型",
+    "终端",
+    "编辑",
+    "表单",
+    "请上传模板缩略图",
+    "请输入模板名称",
+    "请输入模板名称搜索",
+    "请输入模板描述",
+    "请选择模板分类",
+    "页面"
+   ],
+   "components": [
+    "Form.Item"
+   ],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 8
+  },
+  {
+   "chunk": "src_pages_app-design_theme-configuration_index_tsx.b095e742.js",
+   "buttons": [],
+   "labels": [],
+   "components": [],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 0
+  },
+  {
+   "chunk": "src_pages_design_functions_components_External-link_index_tsx.7fc7ab9e.js",
+   "buttons": [],
+   "labels": [
+    "分组名称",
+    "菜单名称"
+   ],
+   "components": [
+    "Form.Item",
+    "Form.useForm"
+   ],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 0
+  },
+  {
+   "chunk": "src_pages_design_functions_components_add-function_index_tsx.75a19ca0.js",
+   "buttons": [],
+   "labels": [
+    "分组名称",
+    "菜单名称"
+   ],
+   "components": [
+    "Form.Item",
+    "Form.useForm"
+   ],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 3
+  },
+  {
+   "chunk": "src_pages_design_functions_components_add-space_index_tsx-node_modules_seeyon_biz-icon-librar-bea4ad.ec205c1d.js",
+   "buttons": [],
+   "labels": [
+    "分组名称",
+    "菜单名称"
+   ],
+   "components": [
+    "Form.Item",
+    "Form.useForm"
+   ],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 5
+  },
+  {
+   "chunk": "src_pages_design_functions_components_backend-default_index_tsx.63209493.js",
+   "buttons": [],
+   "labels": [
+    "分组名称",
+    "菜单名称"
+   ],
+   "components": [
+    "Form.Item",
+    "Form.useForm"
+   ],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 0
+  },
+  {
+   "chunk": "src_pages_design_functions_components_edit-preset-page_index_tsx.0e18a55b.js",
+   "buttons": [],
+   "labels": [
+    "分组名称",
+    "菜单名称"
+   ],
+   "components": [
+    "Form.Item",
+    "Form.useForm"
+   ],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 13
+  },
+  {
+   "chunk": "src_pages_design_functions_components_outApp-page_index_tsx.bcd09f9e.js",
+   "buttons": [],
+   "labels": [
+    "分组名称",
+    "菜单名称"
+   ],
+   "components": [
+    "Form.Item",
+    "Form.useForm"
+   ],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 0
+  },
+  {
+   "chunk": "src_pages_design_functions_components_page-info-edit_index_tsx.d598ef8a.js",
+   "buttons": [],
+   "labels": [
+    "分组名称",
+    "菜单名称"
+   ],
+   "components": [
+    "Form.Item",
+    "Form.useForm"
+   ],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 15
+  },
+  {
+   "chunk": "src_pages_design_functions_components_page-info_index_tsx.bca6ec6a.js",
+   "buttons": [],
+   "labels": [
+    "分组名称",
+    "菜单名称"
+   ],
+   "components": [
+    "Form.Item",
+    "Form.useForm"
+   ],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 1
+  },
+  {
+   "chunk": "src_pages_design_functions_components_space-desiger_index_tsx.46d104ee.js",
+   "buttons": [],
+   "labels": [
+    "分组名称",
+    "菜单名称"
+   ],
+   "components": [
+    "Form.Item",
+    "Form.useForm"
+   ],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 0
+  },
+  {
+   "chunk": "src_pages_design_functions_index_tsx-src_components_page-params_components_FormItemConditionR-82cf61.03009895.js",
+   "buttons": [
+    "上方添加菜单",
+    "上方添加页面",
+    "下方添加菜单",
+    "下方添加页面",
+    "不支持向上移动",
+    "删除成功",
+    "取消",
+    "取消首页",
+    "复制",
+    "复制成功",
+    "复制空间",
+    "复制页面",
+    "提交成功",
+    "查看属性",
+    "添加",
+    "添加分组",
+    "添加空间",
+    "添加菜单",
+    "添加页面",
+    "确定",
+    "移动",
+    "编辑",
+    "设置页面入参"
+   ],
+   "labels": [
+    "上方添加菜单",
+    "上方添加页面",
+    "上移",
+    "下方添加菜单",
+    "下方添加页面",
+    "下移",
+    "不支持向上移动",
+    "不支持该操作",
+    "不支持重命名",
+    "你输入的名称过长",
+    "入参",
+    "入参:",
+    "公共页面规则",
+    "其他页面不能拖动到首页",
+    "分组",
+    "分组不能拖到其他分组下面",
+    "删除成功",
+    "升级",
+    "单据",
+    "取消",
+    "取消首页",
+    "变更记录",
+    "只支持同一层级下的菜单或页面批量移动",
+    "只能包含中文、英文、数字以及下划线",
+    "同时删除对应 WEB 页面",
+    "同时删除对应 WEB端 页面及引用页面",
+    "同时删除对应 移动端 页面",
+    "同时删除对应移动端页面",
+    "向上",
+    "向下",
+    "基础设置不能拖到其他菜单下面",
+    "复制",
+    "复制成功",
+    "复制空间",
+    "复制页面",
+    "外链",
+    "子菜单",
+    "平铺档案",
+    "应用首页或门户不允许添加页面",
+    "引用",
+    "引用外链",
+    "引用报表页面",
+    "引用页面",
+    "引用页面-pageType is undefined",
+    "报表",
+    "提交成功",
+    "暂不支持",
+    "查找",
+    "查看属性",
+    "标准",
+    "树形档案",
+    "欢迎来到菜单空间",
+    "正式",
+    "添加",
+    "添加分组",
+    "添加空间",
+    "添加菜单",
+    "添加页面",
+    "确定",
+    "移动",
+    "空值",
+    "空间名称",
+    "空间名称不能为空",
+    "编辑",
+    "自定义",
+    "菜单",
+    "菜单最多支持5层",
+    "表单",
+    "设为首页",
+    "设为默认页",
+    "设置页面入参",
+    "请输入正确的URL",
+    "请输入空间名称",
+    "请输入页面名称",
+    "请选择报表",
+    "请选择页面",
+    "选中菜单或分组，其下面的页面都会被删除，并且会同步删除对端页面和引用页面",
+    "重命名",
+    "重命名成功",
+    "链接名称",
+    "链接地址",
+    "降级",
+    "页面",
+    "页面不能拖拽到所有菜单外",
+    "页面名称",
+    "页面标识",
+    "首页",
+    "首页下级的页面都不能拖到外面",
+    "首页不能拖动",
+    "首页内树节点不能大于二层",
+    "默认",
+    "默认分组",
+    "默认分组不可选中"
+   ],
+   "components": [
+    "Form.Item",
+    "Form.useForm"
+   ],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 97
+  },
+  {
+   "chunk": "src_pages_design_index_tsx.9330b432.js",
+   "buttons": [],
+   "labels": [],
+   "components": [],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 0
+  },
+  {
+   "chunk": "src_pages_design_main_components_add-page_index_tsx.c6d3edce.js",
+   "buttons": [
+    "添加移动端分组",
+    "移动端"
+   ],
+   "labels": [
+    "分组名称",
+    "归属",
+    "接入手工开发的页面时勾选",
+    "添加移动端分组",
+    "移动端",
+    "菜单名称",
+    "请输入页面名称",
+    "请选择实体",
+    "请选择适配终端",
+    "请选择页面对应实体",
+    "请选择页面类型",
+    "适配终端",
+    "页面名称",
+    "页面对应实体",
+    "页面标识",
+    "页面类型"
+   ],
+   "components": [
+    "Checkbox.Group",
+    "Form.Item",
+    "Form.useForm",
+    "Select.Option"
+   ],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 10
+  },
+  {
+   "chunk": "src_pages_design_main_components_formAppPageInfoEdit_index_tsx.879ee137.js",
+   "buttons": [
+    "添加移动端分组",
+    "移动端"
+   ],
+   "labels": [
+    "分组名称",
+    "归属",
+    "接入手工开发的页面时勾选",
+    "添加移动端分组",
+    "移动端",
+    "菜单名称",
+    "请输入页面名称",
+    "请选择实体",
+    "请选择适配终端",
+    "请选择页面对应实体",
+    "请选择页面类型",
+    "适配终端",
+    "页面名称",
+    "页面对应实体",
+    "页面标识",
+    "页面类型"
+   ],
+   "components": [
+    "Checkbox.Group",
+    "Form.Item",
+    "Form.useForm",
+    "Select.Option"
+   ],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 14
+  },
+  {
+   "chunk": "src_pages_design_page-frame_actions_copy-page-frame_index_tsx-src_pages_design_page-frame_act-302d4d.bc11d95b.js",
+   "buttons": [
+    "复制外框",
+    "复制成功",
+    "新增外框",
+    "移动端",
+    "编辑外框"
+   ],
+   "labels": [
+    "你输入的名称过长",
+    "修改外框成功",
+    "只能包含中文、英文、数字以及下划线",
+    "复制外框",
+    "复制成功",
+    "外框名称",
+    "外框标识",
+    "新增外框",
+    "移动端",
+    "编辑外框",
+    "请输入外框名称",
+    "请输入外框标识",
+    "请选择适配终端",
+    "适配终端"
+   ],
+   "components": [
+    "Checkbox.Group",
+    "Form.Item",
+    "Form.useForm"
+   ],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 1
+  },
+  {
+   "chunk": "src_pages_design_page-frame_index_tsx-src_utils_getTerminalFromApi_ts-src_components_design_a-c99e5e.b2116d52.js",
+   "buttons": [],
+   "labels": [
+    "公共页面规则",
+    "单据",
+    "平铺档案",
+    "标准",
+    "树形档案",
+    "欢迎来到外框设计器",
+    "表单"
+   ],
+   "components": [],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 74
+  },
+  {
+   "chunk": "src_pages_design_page-frame_sider_tsx.c4c52fcb.js",
+   "buttons": [
+    "删除",
+    "取消",
+    "复制",
+    "确定",
+    "移动端",
+    "编辑"
+   ],
+   "labels": [
+    "删除",
+    "取消",
+    "只能包含中文、英文、数字以及下划线",
+    "名称不能为空",
+    "复制",
+    "确定",
+    "移动端",
+    "编辑",
+    "请输入外框名称",
+    "请输入正确的外框名称",
+    "重命名",
+    "重命名成功"
+   ],
+   "components": [
+    "Form.Item",
+    "Form.useForm"
+   ],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 27
+  },
+  {
+   "chunk": "src_pages_design_personal_schemes_index_tsx.5fd5e034.js",
+   "buttons": [
+    "取消",
+    "确定"
+   ],
+   "labels": [
+    "取消",
+    "操作",
+    "方案名称",
+    "确定",
+    "请输入搜索关键字"
+   ],
+   "components": [],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 0
+  },
+  {
+   "chunk": "src_pages_design_portlet_index_tsx-src_utils_getTerminalFromApi_ts-src_components_design_asid-a12134.d2fe2713.js",
+   "buttons": [
+    "删除",
+    "删除分组成功",
+    "删除文件夹",
+    "删除栏目成功",
+    "删除静态栏目页面",
+    "取消",
+    "栏目分组添加成功",
+    "添加分组",
+    "添加栏目",
+    "添加栏目成功",
+    "确定",
+    "移动端",
+    "编辑"
+   ],
+   "labels": [
+    "你输入的名称过长",
+    "修改栏目成功",
+    "公共页面规则",
+    "分组",
+    "分组不能拖到其他分组下面",
+    "分组名称",
+    "删除",
+    "删除分组成功",
+    "删除文件夹",
+    "删除栏目成功",
+    "删除静态栏目页面",
+    "单据",
+    "取消",
+    "只能包含中文、英文、数字以及下划线",
+    "名称不能为空",
+    "平铺档案",
+    "接入手工开发的页面时勾选",
+    "标准",
+    "栏目不能拖到其他栏目下面",
+    "栏目分组",
+    "栏目分组添加成功",
+    "栏目名称",
+    "栏目名称只能包含中文、英文、数字以及下划线",
+    "栏目标识",
+    "树形档案",
+    "欢迎来到栏目空间",
+    "添加分组",
+    "添加栏目",
+    "添加栏目成功",
+    "确定",
+    "移动端",
+    "编辑",
+    "表单",
+    "请输入分组名称",
+    "请输入栏目名称",
+    "请输入栏目标识",
+    "请选择栏目分组",
+    "请选择适配终端",
+    "适配终端",
+    "重命名",
+    "页面"
+   ],
+   "components": [
+    "Checkbox.Group",
+    "Form.Item",
+    "Form.useForm"
+   ],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 117
+  },
+  {
+   "chunk": "src_pages_design_snapshot_index_tsx-src_utils_getTerminalFromApi_ts-src_components_design_asi-428f96.b4bb9f2e.js",
+   "buttons": [],
+   "labels": [],
+   "components": [],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 74
+  },
+  {
+   "chunk": "src_pages_design_sub-pages_index_tsx.9ad0800e.js",
+   "buttons": [],
+   "labels": [],
+   "components": [],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 0
+  },
+  {
+   "chunk": "src_pages_design_sub-pages_sider_tsx.ab0f4794.js",
+   "buttons": [
+    "删除成功",
+    "复制子页面",
+    "复制成功",
+    "新增",
+    "移动端",
+    "编辑"
+   ],
+   "labels": [
+    "你输入的标识过长",
+    "删除成功",
+    "只能输入字母",
+    "复制子页面",
+    "复制成功",
+    "子页面名称",
+    "子页面标识",
+    "新增",
+    "移动端",
+    "终端",
+    "编辑",
+    "请勾选终端",
+    "请输入子页面名称",
+    "请输入子页面标识"
+   ],
+   "components": [
+    "Checkbox.Group",
+    "Form.Item",
+    "Form.useForm"
+   ],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 16
+  },
+  {
+   "chunk": "src_pages_udc_app-log-config_index_tsx-src_pages_app-design_rule_dataflow_components_log-cont-bc01e2.034084c8.js",
+   "buttons": [
+    "日志设置",
+    "设置失败",
+    "设置成功"
+   ],
+   "labels": [
+    "业务应用",
+    "剩余时长",
+    "包括微流程、生单规则、扣减规则、页面规则日志",
+    "包括微流程、生单规则、页面规则日志",
+    "包括微流程、页面规则日志",
+    "名称、编码",
+    "审批应用",
+    "应用运行日志",
+    "微流程运行日志",
+    "扣减运行日志",
+    "日志设置",
+    "暂无数据，请选择左侧应用获取配置信息",
+    "生单运行日志",
+    "记录时长",
+    "记录运行日志",
+    "设置失败",
+    "设置成功",
+    "集成应用"
+   ],
+   "components": [
+    "Form.Item",
+    "Form.useForm",
+    "Radio.Group"
+   ],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 0
+  },
+  {
+   "chunk": "src_pages_udc_app-log-data_config_index_tsx.3ea3e788.js",
+   "buttons": [
+    "设置失败",
+    "设置成功"
+   ],
+   "labels": [
+    "记录数据日志",
+    "记录时长",
+    "设置失败",
+    "设置成功"
+   ],
+   "components": [
+    "Form.Item",
+    "Form.useForm"
+   ],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 0
+  },
+  {
+   "chunk": "src_pages_udc_app-log-data_list_index_tsx.f4b17d52.js",
+   "buttons": [
+    "删除",
+    "新增",
+    "新增字段明细",
+    "新增明细表行"
+   ],
+   "labels": [
+    "业务应用",
+    "修改",
+    "修改字段明细",
+    "全部",
+    "删除",
+    "名称、编码",
+    "实体ID",
+    "审批应用",
+    "应用数据日志",
+    "操作",
+    "操作人员",
+    "操作实体",
+    "操作时间",
+    "操作类型",
+    "收起",
+    "新增",
+    "新增字段明细",
+    "新增明细表行",
+    "暂无数据，请选择左侧应用获取配置信息",
+    "更多"
+   ],
+   "components": [],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 0
+  },
+  {
+   "chunk": "src_pages_udc_application_index_tsx.a0f20272.js",
+   "buttons": [
+    "上传文件",
+    "删除",
+    "发布",
+    "发布应用",
+    "发布版本",
+    "发布目标环境",
+    "取消",
+    "复制",
+    "复制应用",
+    "导入应用",
+    "导入应用包",
+    "导入方式",
+    "导出",
+    "导出应用",
+    "导出应用成功",
+    "应用包导入失败",
+    "应用包导入成功",
+    "应用复制失败",
+    "确定",
+    "请先上传应用包",
+    "请选择发布版本"
+   ],
+   "labels": [
+    "上传文件",
+    "创建时间",
+    "删除",
+    "发布",
+    "发布应用",
+    "发布版本",
+    "发布目标环境",
+    "取消",
+    "另存为新版本成功",
+    "复制",
+    "复制应用",
+    "导入应用",
+    "导入应用包",
+    "导入方式",
+    "导出",
+    "导出应用",
+    "导出应用成功",
+    "已上架",
+    "平台版本",
+    "应用包导入失败",
+    "应用包导入成功",
+    "应用名称",
+    "应用复制失败",
+    "应用所属人",
+    "应用编码",
+    "应用还未测试启动过，无法发布",
+    "所属机构",
+    "所有版本",
+    "操作",
+    "最多输入50个字符",
+    "版本号",
+    "版本号不得低于原版本的版本号",
+    "版本号不得高于下一个大版本号",
+    "版本号已存在",
+    "版本号整数部分和小数部分不得超过4位",
+    "版本描述",
+    "版本管理",
+    "状态",
+    "生成新版本",
+    "确定",
+    "设计中",
+    "设计版本",
+    "该应用已经存在，请选择复制导入应用",
+    "请先上传应用包",
+    "请输入",
+    "请输入关键字搜索",
+    "请输入应用名称",
+    "请输入应用编码",
+    "请选择发布版本",
+    "请选择所属机构",
+    "请选择目标环境",
+    "转后台处理",
+    "输入的名称错误",
+    "锁定",
+    "锁定应用",
+    "锁定成功"
+   ],
+   "components": [
+    "Form.Item",
+    "Form.useForm",
+    "Menu.Item",
+    "Radio.Group",
+    "Select.Option"
+   ],
+   "has_drag": false,
+   "direct_ops": [
+    "udcFileDownloadUrlGet",
+    "udcFormUpgradeDeployDeletePost",
+    "udcFormUpgradeDeployExportRecordPost",
+    "udcFormUpgradeDeployListInfoPost",
+    "udcFormUpgradeDeployListRecordPost",
+    "udcFormUpgradeDeployNodeLastUpgradeResultGet",
+    "udcFormUpgradeDeployOneClickUpgradePost",
+    "udcFormUpgradeDeploySilentUpdatePost",
+    "udcRuntimeUpgradeAppListPost",
+    "udcRuntimeUpgradeHostAppNameListPost"
+   ],
+   "direct_ops_backend": {},
+   "possible_ops_count": 68
+  },
+  {
+   "chunk": "src_pages_udc_application_new-app_index_tsx-node_modules_seeyon_biz-icon-library_dist_index_css.f1f0ad2b.js",
+   "buttons": [
+    "返回"
+   ],
+   "labels": [
+    "去设计",
+    "平台版本",
+    "应用名称",
+    "应用所属人",
+    "应用描述",
+    "应用编码",
+    "所属机构",
+    "支持终端",
+    "最多输入255个字符",
+    "请输入应用描述",
+    "请选择所属机构",
+    "返回"
+   ],
+   "components": [
+    "Checkbox.Group",
+    "Form.Item",
+    "Form.useForm",
+    "Menu.Item"
+   ],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 24
+  },
+  {
+   "chunk": "src_pages_udc_backend-cmp_index_tsx-node_modules_seeyon_biz-icon-library_dist_index_css.0b5ab107.js",
+   "buttons": [
+    "后端组件导入",
+    "导入成功",
+    "请上传第三方组件"
+   ],
+   "labels": [
+    "全部版本",
+    "全部类型",
+    "历史版本信息",
+    "名称",
+    "后端组件导入",
+    "基础信息",
+    "导入成功",
+    "描述",
+    "操作成功",
+    "是否要进行版本同步",
+    "更新成功",
+    "版本",
+    "版本号",
+    "版本时间",
+    "版本类型",
+    "状态",
+    "第三方",
+    "第三方组件包",
+    "类型",
+    "组件信息",
+    "组件图标",
+    "自定义",
+    "请上传第三方组件",
+    "请输入",
+    "请输入名称、groupId、artifactId搜索",
+    "请选择",
+    "输入的顺序超出限制",
+    "顺序",
+    "顺序需要大于0",
+    "预置"
+   ],
+   "components": [
+    "Form.Item",
+    "Form.useForm",
+    "Menu.Item",
+    "Radio.Group",
+    "Select.Option"
+   ],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 0
+  },
+  {
+   "chunk": "src_pages_udc_cmps_index_tsx-node_modules_seeyon_biz-icon-library_dist_index_css.a7b33360.js",
+   "buttons": [
+    "停用",
+    "前端组件同步日志",
+    "前端组件导入",
+    "启用",
+    "组件导入成功"
+   ],
+   "labels": [
+    "停用",
+    "全部状态",
+    "其他",
+    "前端组件同步日志",
+    "前端组件导入",
+    "包名",
+    "历史版本信息",
+    "名称",
+    "启用",
+    "基础信息",
+    "描述",
+    "操作成功",
+    "时间",
+    "是否要进行版本同步",
+    "版本号",
+    "版本时间",
+    "状态",
+    "类型",
+    "组件中文名",
+    "组件信息",
+    "组件名称",
+    "组件图标",
+    "组件导入成功",
+    "组件描述",
+    "自定义",
+    "请输入",
+    "请输入名称或编码搜索",
+    "请输入完整包名",
+    "输入的顺序超出限制",
+    "顺序",
+    "顺序需要大于0"
+   ],
+   "components": [
+    "Form.Item",
+    "Form.useForm",
+    "Menu.Item",
+    "Radio.Group"
+   ],
+   "has_drag": false,
+   "direct_ops": [
+    "udcPageComponentAnalysisPackageGet",
+    "udcPageComponentRefreshGet",
+    "udcPageComponentSelectAllListByConditionsPost",
+    "udcPageComponentSelectByGet",
+    "udcPageComponentUpdatePost",
+    "udcPageComponentUploadGet"
+   ],
+   "direct_ops_backend": {},
+   "possible_ops_count": 6
+  },
+  {
+   "chunk": "src_pages_udc_customtype_index_tsx.21130696.js",
+   "buttons": [
+    "取消",
+    "确定"
+   ],
+   "labels": [
+    "不能大于最大值",
+    "不能大于最大长度",
+    "不能小于最小值",
+    "不能小于最小长度",
+    "关联实体",
+    "匹配规则",
+    "取消",
+    "名称",
+    "基础类型",
+    "多选",
+    "小数位数",
+    "操作",
+    "显示名称",
+    "最大值",
+    "最大长度",
+    "最小值",
+    "最小值超出设定小数位数",
+    "最小长度",
+    "确定",
+    "类型",
+    "自动生成（可修改）",
+    "请输入",
+    "请输入匹配正则规则",
+    "请输入名称",
+    "请输入搜索关键字",
+    "请输入显示名称",
+    "请输入类型",
+    "请输入错误时提示信息",
+    "请选择",
+    "请选择关联实体",
+    "请选择应用",
+    "请选择需要删除的数据",
+    "选择应用",
+    "错误时提示",
+    "默认值",
+    "默认值超出设定小数位数"
+   ],
+   "components": [
+    "Form.Item",
+    "Form.useForm",
+    "Radio.Group"
+   ],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 0
+  },
+  {
+   "chunk": "src_pages_udc_no-permission_index_tsx.abfcba8a.js",
+   "buttons": [],
+   "labels": [],
+   "components": [],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 0
+  },
+  {
+   "chunk": "src_pages_udc_page-frame-tmp-manage_index_tsx.95ba118a.js",
+   "buttons": [
+    "删除成功",
+    "取消",
+    "新建分类",
+    "模板预览",
+    "添加分类",
+    "确定",
+    "移动端",
+    "编辑模板"
+   ],
+   "labels": [
+    "你输入的名称过长",
+    "分类名称",
+    "创建分类",
+    "删除成功",
+    "取消",
+    "只能包含中文、英文、数字以及下划线",
+    "名称不能超过10个字符",
+    "操作",
+    "新建分类",
+    "模板分类",
+    "模板名称",
+    "模板描述",
+    "模板描述不能为空",
+    "模板预览",
+    "添加分类",
+    "确定",
+    "移动端",
+    "终端",
+    "编辑模板",
+    "请上传模板预览图片",
+    "请输入分类名称",
+    "请输入模板名称",
+    "选择分类",
+    "重命名",
+    "页面类型"
+   ],
+   "components": [
+    "Form.Item",
+    "Form.useForm",
+    "Menu.Item"
+   ],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 0
+  },
+  {
+   "chunk": "src_pages_udc_resource_index_tsx.a49eacdd.js",
+   "buttons": [],
+   "labels": [],
+   "components": [],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 0
+  },
+  {
+   "chunk": "src_pages_udc_sandbox-manage_index_tsx.12c8fe7e.js",
+   "buttons": [],
+   "labels": [
+    "停止",
+    "停止应用",
+    "停止运行",
+    "创建人",
+    "可在此查看测试发布的应用，并可操作应用的启停、数据清除。",
+    "启动",
+    "已停止",
+    "应用名称",
+    "应用版本",
+    "应用编码",
+    "操作",
+    "构造时间",
+    "清除并重启",
+    "清除数据",
+    "清除数据应用",
+    "请输入关键字搜索",
+    "运行中",
+    "重启"
+   ],
+   "components": [],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 13
+  },
+  {
+   "chunk": "src_pages_udc_sandbox_components_common-column_index_tsx-src_pages_udc_sandbox_components_com-f770b3.b5b43e84.js",
+   "buttons": [
+    "取消",
+    "确定",
+    "设置",
+    "配置规则"
+   ],
+   "labels": [
+    "修改成功",
+    "创建应用总数",
+    "创建应用总数来源于商城购买，如余量不足请联系客户经理充值。",
+    "取消",
+    "定时重启",
+    "操作",
+    "最大物理沙箱数",
+    "最小可用物理沙箱数",
+    "测试运行总数",
+    "确定",
+    "禁止输入空格",
+    "设置",
+    "配置规则"
+   ],
+   "components": [
+    "Form.Item",
+    "Form.useForm",
+    "Radio.Group"
+   ],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 0
+  },
+  {
+   "chunk": "src_pages_udc_sandbox_pages_app-environment_index_tsx.c5de5775.js",
+   "buttons": [
+    "删除",
+    "删除成功",
+    "新增",
+    "查看",
+    "编辑"
+   ],
+   "labels": [
+    "修改成功",
+    "删除",
+    "删除成功",
+    "实施",
+    "应用定制",
+    "开发",
+    "新增",
+    "无环境编码",
+    "查看",
+    "测试",
+    "测试环境",
+    "测试运行",
+    "环境名称",
+    "环境数量",
+    "环境标识",
+    "环境编码",
+    "生产",
+    "生产环境",
+    "生产运行",
+    "禁止输入空格",
+    "编辑",
+    "请输入环境名称"
+   ],
+   "components": [
+    "Form.Item",
+    "Form.useForm",
+    "Radio.Group",
+    "Select.Option"
+   ],
+   "has_drag": false,
+   "direct_ops": [
+    "udcCtpManagerTransferSavePost",
+    "udcCtpManagerTransferSelectGet"
+   ],
+   "direct_ops_backend": {},
+   "possible_ops_count": 2
+  },
+  {
+   "chunk": "src_pages_udc_sandbox_pages_application-test_index_tsx.ed62315f.js",
+   "buttons": [
+    "删除",
+    "删除成功",
+    "新增",
+    "查看",
+    "编辑"
+   ],
+   "labels": [
+    "修改成功",
+    "删除",
+    "删除成功",
+    "实施",
+    "应用定制",
+    "开发",
+    "新增",
+    "无环境编码",
+    "查看",
+    "测试",
+    "测试环境",
+    "测试运行",
+    "环境名称",
+    "环境数量",
+    "环境标识",
+    "环境编码",
+    "生产",
+    "生产环境",
+    "生产运行",
+    "禁止输入空格",
+    "编辑",
+    "请输入环境名称"
+   ],
+   "components": [
+    "Form.Item",
+    "Form.useForm",
+    "Radio.Group",
+    "Select.Option"
+   ],
+   "has_drag": false,
+   "direct_ops": [
+    "udcSandboxAppCleanRestartAppPost",
+    "udcSandboxAppReleaseAppPost",
+    "udcSandboxAppReleaseAppStatusPost",
+    "udcSandboxAppStartAppPost",
+    "udcSandboxAppStopAppPost",
+    "udcSandboxAppUnLoadAppPost",
+    "udcSandboxSystemConfigSetReleaseConfigPost"
+   ],
+   "direct_ops_backend": {},
+   "possible_ops_count": 7
+  },
+  {
+   "chunk": "src_pages_udc_sandbox_pages_elastic-deployment_index_tsx.b0321575.js",
+   "buttons": [
+    "删除成功",
+    "查看应用"
+   ],
+   "labels": [
+    "创建时间",
+    "删除成功",
+    "启动中",
+    "启动失败",
+    "已停止",
+    "已启动",
+    "应用名称",
+    "应用版本",
+    "应用编码",
+    "弹性容器ID",
+    "弹性容器创建成功",
+    "操作",
+    "更新时间",
+    "构建时间",
+    "查看应用",
+    "查询成功",
+    "检测完成",
+    "正在启动",
+    "状态",
+    "请选择状态",
+    "运行中"
+   ],
+   "components": [],
+   "has_drag": false,
+   "direct_ops": [
+    "udcCtpManagerSandboxUsePost",
+    "udcSandboxAppCheckAlertPost",
+    "udcSandboxAppCleanRestartAppPost",
+    "udcSandboxAppReleaseAppPost",
+    "udcSandboxAppReleaseAppStatusPost",
+    "udcSandboxAppStartAppPost",
+    "udcSandboxAppStopAppPost",
+    "udcSandboxAppUnLoadAppPost",
+    "udcSandboxClientCheckAllStatusGet",
+    "udcSandboxClientCheckAllTaskGet",
+    "udcSandboxClientCreateGet",
+    "udcSandboxClientDeleteGet",
+    "udcSandboxClientRestartGet",
+    "udcSandboxClientSearch",
+    "udcSandboxSystemConfigSetReleaseConfigPost"
+   ],
+   "direct_ops_backend": {},
+   "possible_ops_count": 15
+  },
+  {
+   "chunk": "src_pages_udc_sandbox_pages_index_tsx.88b4dab5.js",
+   "buttons": [],
+   "labels": [],
+   "components": [],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 0
+  },
+  {
+   "chunk": "src_pages_udc_sandbox_pages_sandbox-application_index_tsx-src_pages_udc_sandbox_components_co-3d72bc.3f173019.js",
+   "buttons": [
+    "保存成功",
+    "删除",
+    "删除成功",
+    "取消",
+    "新增",
+    "新增成功",
+    "是否确定删除",
+    "查看",
+    "确定",
+    "编辑"
+   ],
+   "labels": [
+    "保存成功",
+    "创建应用数",
+    "创建应用数、测试运行数不能为0",
+    "删除",
+    "删除成功",
+    "取消",
+    "新增",
+    "新增成功",
+    "是否确定删除",
+    "查看",
+    "测试运行数",
+    "确定",
+    "租户ID",
+    "租户名称",
+    "编辑",
+    "请选择租户名称"
+   ],
+   "components": [
+    "Form.useForm",
+    "Radio.Group",
+    "Select.Option"
+   ],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 0
+  },
+  {
+   "chunk": "src_pages_udc_sandbox_pages_sandbox-log_index_tsx.bb68acba.js",
+   "buttons": [
+    "保存成功",
+    "删除",
+    "删除成功",
+    "取消",
+    "新增",
+    "新增成功",
+    "是否确定删除",
+    "查看",
+    "确定",
+    "编辑"
+   ],
+   "labels": [
+    "保存成功",
+    "创建应用数",
+    "创建应用数、测试运行数不能为0",
+    "删除",
+    "删除成功",
+    "取消",
+    "新增",
+    "新增成功",
+    "是否确定删除",
+    "查看",
+    "测试运行数",
+    "确定",
+    "租户ID",
+    "租户名称",
+    "编辑",
+    "请选择租户名称"
+   ],
+   "components": [
+    "Form.useForm",
+    "Radio.Group",
+    "Select.Option"
+   ],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 0
+  },
+  {
+   "chunk": "src_pages_udc_sandbox_pages_sandbox-resource_index_tsx-src_pages_udc_sandbox_components_commo-4ae252.0c0b02dc.js",
+   "buttons": [
+    "保存成功",
+    "删除",
+    "删除成功",
+    "取消",
+    "新增",
+    "新增成功",
+    "是否确定删除",
+    "查看",
+    "确定",
+    "编辑"
+   ],
+   "labels": [
+    "保存成功",
+    "创建应用数",
+    "创建应用数、测试运行数不能为0",
+    "删除",
+    "删除成功",
+    "取消",
+    "新增",
+    "新增成功",
+    "是否确定删除",
+    "查看",
+    "测试运行数",
+    "确定",
+    "租户ID",
+    "租户名称",
+    "编辑",
+    "请选择租户名称"
+   ],
+   "components": [
+    "Form.useForm",
+    "Radio.Group",
+    "Select.Option"
+   ],
+   "has_drag": false,
+   "direct_ops": [
+    "udcCtpManagerSandboxUsePost",
+    "udcSandboxAppCheckAlertPost",
+    "udcSandboxAppCleanRestartAppPost",
+    "udcSandboxAppReleaseAppPost",
+    "udcSandboxAppReleaseAppStatusPost",
+    "udcSandboxAppStartAppPost",
+    "udcSandboxAppStopAppPost",
+    "udcSandboxAppUnLoadAppPost",
+    "udcSandboxClientCheckAllStatusGet",
+    "udcSandboxClientCheckAllTaskGet",
+    "udcSandboxClientCreateGet",
+    "udcSandboxClientDeleteGet",
+    "udcSandboxClientRestartGet",
+    "udcSandboxClientSearch",
+    "udcSandboxSystemConfigSetReleaseConfigPost"
+   ],
+   "direct_ops_backend": {},
+   "possible_ops_count": 15
+  },
+  {
+   "chunk": "src_pages_udc_templateManage_index_tsx.edf44d56.js",
+   "buttons": [
+    "删除",
+    "删除成功",
+    "取消",
+    "复制成功",
+    "排序号",
+    "新建分类",
+    "添加分类",
+    "确定",
+    "移动端",
+    "编辑模板"
+   ],
+   "labels": [
+    "主子实体",
+    "你输入的名称过长",
+    "修改成功",
+    "分类名称",
+    "创建人",
+    "创建分类",
+    "创建时间",
+    "删除",
+    "删除成功",
+    "单据",
+    "取消",
+    "只能包含中文、英文、数字以及下划线",
+    "名称不能超过10个字符",
+    "复制成功",
+    "平台预置",
+    "平铺档案",
+    "序号",
+    "应用创建",
+    "所属应用",
+    "排序号",
+    "推荐标签",
+    "操作",
+    "新建分类",
+    "无实体",
+    "标准",
+    "标准应用",
+    "树形档案",
+    "模板分类",
+    "模板名称",
+    "模板描述",
+    "模板描述不能为空",
+    "模板来源",
+    "添加分类",
+    "独立实体",
+    "确定",
+    "移动端",
+    "终端",
+    "编辑模板",
+    "缩略图",
+    "表单",
+    "表单应用",
+    "请上传模板预览图片",
+    "请调整分类层级，最大不超过5级",
+    "请输入分类名称",
+    "请输入模板名称",
+    "选择分类",
+    "重命名",
+    "页面类型"
+   ],
+   "components": [
+    "Form.Item",
+    "Form.useForm"
+   ],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 0
+  },
+  {
+   "chunk": "src_pages_udc_upgrade-deploy_index_tsx.0c901b15.js",
+   "buttons": [
+    "删除成功",
+    "发布中",
+    "发布失败",
+    "发布成功",
+    "发布状态",
+    "发布类型",
+    "启用状态",
+    "已启用",
+    "未发布",
+    "未启用",
+    "移动端",
+    "自动生成不可编辑"
+   ],
+   "labels": [
+    "上次更新时间",
+    "全部应用",
+    "删除成功",
+    "前端",
+    "前端组件名称",
+    "发布中",
+    "发布失败",
+    "发布成功",
+    "发布状态",
+    "发布类型",
+    "后端",
+    "启用状态",
+    "失败原因",
+    "失败数",
+    "宿主应用",
+    "已启用",
+    "应用名称",
+    "应用更新中",
+    "应用类型",
+    "应用编码",
+    "成功数",
+    "批次号",
+    "指定前端组件",
+    "指定应用",
+    "按照下面的查询条件更新应用",
+    "操作",
+    "更新日期",
+    "更新条件",
+    "更新记录",
+    "更新说明",
+    "未发布",
+    "未启用",
+    "本环境",
+    "查询指定应用",
+    "测试环境",
+    "版本",
+    "环境",
+    "移动端",
+    "组件更新出现未知错误",
+    "终端",
+    "自动生成不可编辑",
+    "范围",
+    "请输入应用名称",
+    "请输入应用编码",
+    "请输入批次号",
+    "请输入更新条件",
+    "请输入更新说明",
+    "请输更新说明",
+    "进行中",
+    "静默更新"
+   ],
+   "components": [
+    "Checkbox.Group",
+    "Form.Item",
+    "Form.useForm"
+   ],
+   "has_drag": false,
+   "direct_ops": [
+    "udcFileDownloadUrlGet",
+    "udcFormUpgradeDeployDeletePost",
+    "udcFormUpgradeDeployExportRecordPost",
+    "udcFormUpgradeDeployListInfoPost",
+    "udcFormUpgradeDeployListRecordPost",
+    "udcFormUpgradeDeployNodeLastUpgradeResultGet",
+    "udcFormUpgradeDeployOneClickUpgradePost",
+    "udcFormUpgradeDeploySilentUpdatePost",
+    "udcRuntimeUpgradeAppListPost",
+    "udcRuntimeUpgradeHostAppNameListPost"
+   ],
+   "direct_ops_backend": {},
+   "possible_ops_count": 10
+  },
+  {
+   "chunk": "src_utils_getTerminalFromApi_ts-src_components_design_asidetool_index_less-src_components_des-a381c0.deaecfda.js",
+   "buttons": [],
+   "labels": [],
+   "components": [],
+   "has_drag": false,
+   "direct_ops": [],
+   "direct_ops_backend": {},
+   "possible_ops_count": 74
+  }
+ ]
+}

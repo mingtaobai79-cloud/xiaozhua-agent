@@ -1,0 +1,3196 @@
+{
+ "meta": {
+  "source": "test2 udc frontend",
+  "date": "2026-10-13",
+  "evidence": "STATIC",
+  "layers": "remoteEntry→chunks→wakaru unpack→module export resolution"
+ },
+ "op_total": 456,
+ "op_sources": {
+  "frontend_all_ops": 346,
+  "store_registry": 291
+ },
+ "action_namespaces": {
+  "appBasicInfoActions": {
+   "methods": 22,
+   "resolved": 0,
+   "resolved_map": {}
+  },
+  "customExtensionActions": {
+   "methods": 4,
+   "resolved": 0,
+   "resolved_map": {}
+  },
+  "entityFieldActions": {
+   "methods": 19,
+   "resolved": 2,
+   "resolved_map": {
+    "fetchEntityFieldList": [
+     "udcDataTypeDataTypesByAppIdAppGet",
+     "udcEntityAttributeGroupSearch"
+    ],
+    "setRowSelection": [
+     "udcEntityAttributeSelectByPrimaryGet"
+    ]
+   }
+  },
+  "entityRuleActions": {
+   "methods": 1,
+   "resolved": 1,
+   "resolved_map": {
+    "fetchRuleList": [
+     "udcMicroflowSearchEntityRulePost"
+    ]
+   }
+  },
+  "enumActions": {
+   "methods": 2,
+   "resolved": 0,
+   "resolved_map": {}
+  },
+  "enumldActions": {
+   "methods": 7,
+   "resolved": 0,
+   "resolved_map": {}
+  }
+ },
+ "unpacked_fn_ops": {
+  "module-84718.js": {
+   "Z": [
+    "udcScalabilityOptionPost",
+    "udcScalabilityOptionUpdatePost"
+   ]
+  },
+  "module-71476.js": {
+   "y": [
+    "udcAttachmentTemplateCreateBatchPost"
+   ]
+  },
+  "module-79807.js": {
+   "NL": [
+    "appCommonAssociateCheckAppPost",
+    "appCommonAssociateSearch",
+    "ctpApplicationAppcenterSearch"
+   ],
+   "Px": [
+    "appCommonAssociateCheckAppPost",
+    "appCommonAssociateSearch",
+    "ctpApplicationAppcenterSearch"
+   ],
+   "cn": [
+    "appCommonAssociateCheckAppPost",
+    "appCommonAssociatePost",
+    "appCommonAssociateSearch",
+    "appCommonAssociateUpdatePost"
+   ],
+   "KV": [
+    "appCommonAssociateEntityConfigSavePost",
+    "appCommonAssociatePost",
+    "appCommonAssociateSearch",
+    "appCommonAssociateUpdatePost"
+   ],
+   "qF": [
+    "appCommonAssociateEntityConfigSavePost",
+    "appCommonAssociateEntityConfigSelectPost",
+    "appCommonAssociatePost",
+    "appCommonAssociateUpdatePost"
+   ],
+   "sm": [
+    "appCommonAssociateEntityConfigSavePost",
+    "appCommonAssociateEntityConfigSelectPost",
+    "appCommonAssociateUpdatePost",
+    "appCommonUdcRuntimeMetaDataSelectAllEntityByAppNameAppNameGet"
+   ],
+   "Z9": [
+    "appCommonAssociateEntityConfigSavePost",
+    "appCommonAssociateEntityConfigSelectPost",
+    "appCommonUdcRuntimeMetaDataSelectAllEntityByAppNameAppNameGet"
+   ],
+   "mT": [
+    "appCommonAssociateEntityConfigSelectPost",
+    "appCommonUdcRuntimeMetaDataSelectAllEntityByAppNameAppNameGet",
+    "appCommonUdcRuntimeMetaDataSelectReferByEntityPost"
+   ],
+   "xL": [
+    "appCommonUdcRuntimeMetaDataSelectAllEntityByAppNameAppNameGet",
+    "appCommonUdcRuntimeMetaDataSelectReferByEntityPost",
+    "udcEntitySelectAllByAppidAppGet"
+   ],
+   "pM": [
+    "appCommonAssociateConfigGeneratePost",
+    "appCommonUdcRuntimeMetaDataSelectReferByEntityPost",
+    "udcEntitySelectAllByAppidAppGet"
+   ],
+   "$c": [
+    "appCommonAssociateConfigGeneratePost",
+    "udcEntitySelectAllByAppidAppGet"
+   ],
+   "ZL": [
+    "appCommonAssociateConfigGeneratePost"
+   ],
+   "X1": [
+    "appCommonAssociateConfigGeneratePost"
+   ]
+  },
+  "module-48175.js": {
+   "n5": [
+    "udcPageTemplateSearchWithRightsPost"
+   ],
+   "y$": [
+    "udcPageTemplateCheckNamePost",
+    "udcPageTemplateCreateOrUpdatePost",
+    "udcPageTemplateDeleteByIdsPost",
+    "udcPageTemplatePublishPost"
+   ],
+   "X_": [
+    "udcPageTemplateCreateOrUpdatePost",
+    "udcPageTemplateDeleteByIdsPost",
+    "udcPageTemplatePublishPost",
+    "udcPageTemplatePublishedSearchNoPagePost"
+   ],
+   "g4": [
+    "udcPageTemplateDeleteByIdsPost",
+    "udcPageTemplatePublishPost",
+    "udcPageTemplatePublishedSearchNoPagePost"
+   ],
+   "Oc": [
+    "udcPageTemplateDeleteByIdsPost",
+    "udcPageTemplatePublishedSearchNoPagePost"
+   ],
+   "hc": [
+    "udcPageTemplatePublishedSearchNoPagePost",
+    "udcPageTemplateSearchNoPagePost"
+   ],
+   "gG": [
+    "udcPageTemplateSearchNoPagePost"
+   ]
+  },
+  "module-67214.js": {
+   "dK": [
+    "ctpUserCtpManagerTenantPageListPost",
+    "udcSandboxTenantConfigSearch"
+   ],
+   "jR": [
+    "udcSandboxTenantConfigConfigAllTenantGet",
+    "udcSandboxTenantConfigCreatePost",
+    "udcSandboxTenantConfigDeleteGet",
+    "udcSandboxTenantConfigUpdatePost"
+   ],
+   "nE": [
+    "udcSandboxSystemConfigGetGet",
+    "udcSandboxSystemConfigUpdatePost",
+    "udcSandboxTenantConfigConfigAllTenantGet",
+    "udcSandboxTenantConfigCreatePost",
+    "udcSandboxTenantConfigUpdatePost"
+   ],
+   "sH": [
+    "udcSandboxSystemConfigGetGet",
+    "udcSandboxSystemConfigUpdatePost",
+    "udcSandboxTenantConfigCreatePost",
+    "udcSandboxTenantConfigUpdatePost"
+   ],
+   "DQ": [
+    "udcSandboxSystemConfigGetAppLimitGet",
+    "udcSandboxSystemConfigGetGet",
+    "udcSandboxSystemConfigUpdatePost",
+    "udcSandboxTenantConfigUpdatePost"
+   ],
+   "gf": [
+    "udcSandboxSystemConfigGetAppLimitGet",
+    "udcSandboxSystemConfigGetGet",
+    "udcSandboxSystemConfigUpdatePost"
+   ],
+   "hB": [
+    "udcSandboxSystemConfigGetAppLimitGet",
+    "udcSandboxSystemConfigUpdatePost"
+   ],
+   "xP": [
+    "udcSandboxSystemConfigGetAppLimitGet"
+   ]
+  },
+  "module-90129.js": {
+   "Qb": [
+    "udcSandboxAppCleanRestartAppPost",
+    "udcSandboxAppStartAppPost",
+    "udcSandboxAppUnLoadAppPost"
+   ],
+   "QZ": [
+    "udcSandboxAppStartAppPost",
+    "udcSandboxAppUnLoadAppPost"
+   ],
+   "vk": [
+    "udcSandboxAppCleanRestartAppPost",
+    "udcSandboxAppStartAppPost",
+    "udcSandboxAppUnLoadAppPost"
+   ],
+   "x4": [
+    "udcSandboxAppCleanRestartAppPost",
+    "udcSandboxAppStartAppPost",
+    "udcSandboxAppStopAppPost"
+   ],
+   "Tu": [
+    "udcSandboxAppCleanRestartAppPost",
+    "udcSandboxAppReleaseAppPost",
+    "udcSandboxAppStartAppPost",
+    "udcSandboxAppStopAppPost"
+   ],
+   "Ke": [
+    "udcSandboxAppReleaseAppPost",
+    "udcSandboxAppStartAppPost",
+    "udcSandboxAppStopAppPost",
+    "udcSandboxSystemConfigSetReleaseConfigPost"
+   ],
+   "Jl": [
+    "udcSandboxAppReleaseAppPost",
+    "udcSandboxAppReleaseAppStatusPost",
+    "udcSandboxAppStopAppPost",
+    "udcSandboxSystemConfigSetReleaseConfigPost"
+   ],
+   "QF": [
+    "udcSandboxAppReleaseAppPost",
+    "udcSandboxAppReleaseAppStatusPost",
+    "udcSandboxSystemConfigSetReleaseConfigPost"
+   ],
+   "Mx": [
+    "udcSandboxAppReleaseAppStatusPost",
+    "udcSandboxSystemConfigSetReleaseConfigPost"
+   ],
+   "Qg": [
+    "udcSandboxAppReleaseAppStatusPost"
+   ]
+  },
+  "module-28498.js": {
+   "lN": [
+    "udcCtpManagerSandboxUsePost",
+    "udcSandboxClientDeleteGet",
+    "udcSandboxClientSearch"
+   ],
+   "ro": [
+    "udcCtpManagerSandboxUsePost",
+    "udcSandboxClientCheckAllTaskGet",
+    "udcSandboxClientDeleteGet",
+    "udcSandboxClientRestartGet"
+   ],
+   "JI": [
+    "udcSandboxClientCheckAllStatusGet",
+    "udcSandboxClientCheckAllTaskGet",
+    "udcSandboxClientDeleteGet",
+    "udcSandboxClientRestartGet"
+   ],
+   "lb": [
+    "udcSandboxAppCheckAlertPost",
+    "udcSandboxClientCheckAllStatusGet",
+    "udcSandboxClientCheckAllTaskGet",
+    "udcSandboxClientRestartGet"
+   ],
+   "IN": [
+    "udcSandboxAppCheckAlertPost",
+    "udcSandboxClientCheckAllStatusGet",
+    "udcSandboxClientCheckAllTaskGet",
+    "udcSandboxClientCreateGet"
+   ],
+   "tx": [
+    "udcSandboxAppCheckAlertPost",
+    "udcSandboxClientCheckAllStatusGet",
+    "udcSandboxClientCreateGet"
+   ],
+   "i4": [
+    "udcSandboxAppCheckAlertPost",
+    "udcSandboxClientCreateGet"
+   ],
+   "_K": [
+    "udcSandboxClientCreateGet"
+   ]
+  },
+  "module-13926.js": {
+   "Np": [
+    "udcPageTemplateClassSelectTreeCategoryGet"
+   ],
+   "h0": [
+    "udcPageTemplateClassCreatePost",
+    "udcPageTemplateClassUpdatePost",
+    "udcPageTemplatePublishedCreateOrUpdatePost",
+    "udcPageTemplateSaveAsPost"
+   ],
+   "HW": [
+    "udcPageTemplateClassDeletePost",
+    "udcPageTemplateClassUpdatePost",
+    "udcPageTemplatePublishedCreateOrUpdatePost",
+    "udcPageTemplateSaveAsPost"
+   ],
+   "X_": [
+    "udcPageTemplateClassDeletePost",
+    "udcPageTemplatePublishedCreateOrUpdatePost",
+    "udcPageTemplatePublishedSearch",
+    "udcPageTemplateSaveAsPost"
+   ],
+   "cu": [
+    "udcPageTemplateClassDeletePost",
+    "udcPageTemplatePublishedSearch",
+    "udcPageTemplateSaveAsPost"
+   ],
+   "IF": [
+    "udcPageTemplateClassDeletePost",
+    "udcPageTemplatePublishedSearch"
+   ],
+   "n5": [
+    "udcPageTemplatePublishedDeleteByIdsPost",
+    "udcPageTemplatePublishedSearch"
+   ],
+   "I7": [
+    "udcPageTemplatePublishedDeleteByIdsPost"
+   ]
+  },
+  "module-16269.js": {
+   "Ve": [
+    "udcPortalPortalSpaceCreatePost",
+    "udcPortalPortalSpaceDeletePost",
+    "udcPortalPortalSpaceUpdatePost"
+   ],
+   "Tu": [
+    "portalPortalSpaceGet",
+    "udcPortalPortalSpaceDeletePost",
+    "udcPortalPortalSpaceUpdatePost"
+   ],
+   "V6": [
+    "portalPortalSpaceGet",
+    "udcPortalPortalSpaceDeletePost"
+   ],
+   "qR": [
+    "portalPortalSpaceGet"
+   ]
+  },
+  "module-17244.js": {
+   "$H": [
+    "udcFunctionBatchDeletePost",
+    "udcFunctionCopyPost",
+    "udcFunctionDefaultPagePost"
+   ],
+   "v8": [
+    "udcFunctionCopyPost",
+    "udcFunctionDefaultPagePost"
+   ],
+   "pm": [
+    "udcPageInfoSelectListByConditionsPost"
+   ]
+  },
+  "module-34928.js": {
+   "fetchDataFlow": [
+    "udcDataFlowAppAppGet",
+    "udcDataFlowListEntityPost"
+   ],
+   "deleteDataFlow": [
+    "udcDataFlowListEntityPost"
+   ],
+   "fetchEntityList": [
+    "udcDataFlowListEntityPost"
+   ],
+   "getDataFlowDetail": [
+    "udcDataFlowMappingInitDataPost"
+   ],
+   "getDataFlowRuleCount": [
+    "udcDataFlowMappingInitDataPost"
+   ],
+   "getDataFlowRuleCountByLine": [
+    "udcDataFlowMappingInitDataPost"
+   ],
+   "fetchMappingInitData": [
+    "udcDataFlowMappingInitDataPost"
+   ],
+   "fetchMappingList": [
+    "udcDataFlowMappingGet"
+   ],
+   "fetchMappingDetailById": [
+    "udcDataFlowMappingGet"
+   ],
+   "handleSubmitMapping": [
+    "udcDataFlowMappingUpdatePost"
+   ],
+   "handleMappingDelete": [
+    "udcDataFlowListApplicationAppGet"
+   ],
+   "fetchAttrByEventByFullName": [
+    "udcDataFlowListApplicationAppGet",
+    "udcDataFlowListEventEntityPost"
+   ]
+  },
+  "module-43079.js": {
+   "ir": [
+    "udcMessageCategoryCreatePost",
+    "udcMessageCategoryDeletePost",
+    "udcMessageCategoryListPost",
+    "udcMessageCategoryUpdatePost"
+   ],
+   "gj": [
+    "udcMessageCategoryCreatePost",
+    "udcMessageCategoryDeletePost",
+    "udcMessageCategoryUpdatePost",
+    "udcMessageLinkListPost"
+   ],
+   "xi": [
+    "udcMessageCategoryDeletePost",
+    "udcMessageCategoryUpdatePost",
+    "udcMessageLinkCreatePost",
+    "udcMessageLinkListPost"
+   ],
+   "xf": [
+    "udcMessageCategoryUpdatePost",
+    "udcMessageLinkCreatePost",
+    "udcMessageLinkDeletePost",
+    "udcMessageLinkListPost"
+   ],
+   "uV": [
+    "udcMessageLinkCreatePost",
+    "udcMessageLinkDeletePost",
+    "udcMessageLinkListPost",
+    "udcMessageLinkUpdatePost"
+   ],
+   "Il": [
+    "udcMessageLinkCreatePost",
+    "udcMessageLinkDeletePost",
+    "udcMessageLinkUpdatePost",
+    "udcPageInfoSearchNoPagePost"
+   ],
+   "BU": [
+    "udcMessageLinkDeletePost",
+    "udcMessageLinkUpdatePost",
+    "udcPageInfoSearchNoPagePost"
+   ],
+   "dd": [
+    "udcMessageLinkUpdatePost",
+    "udcPageInfoSearchNoPagePost"
+   ],
+   "pO": [
+    "udcPageInfoSearchNoPagePost"
+   ]
+  },
+  "module-48659.js": {
+   "fetchReferenceList": [
+    "udcEntityAssociationEntityAppGet",
+    "udcReferConfigGroupListPost"
+   ],
+   "fetchReferenceById": [
+    "udcEntityAssociationEntityAppGet"
+   ],
+   "deleteReferenceById": [
+    "udcEntityAssociationEntityAppGet",
+    "udcEntityAssociationSerialPost"
+   ],
+   "fetchFieldList": [
+    "udcEntityAttributePresetAttributeCapacityAllAppGet",
+    "udcEntityAttributeTransferPost",
+    "udcEntityConstraintEntityPost"
+   ],
+   "getConstraintEntity": [
+    "udcEntityAttributePresetAttributeCapacityAllAppGet",
+    "udcEntityAttributeTransferPost",
+    "udcEntityConstraintEntityPost"
+   ],
+   "fetchTransferField": [
+    "udcEntityAttributePresetAttributeCapacityAllAppGet",
+    "udcEntityAttributeTransferPost"
+   ],
+   "fetchPresetAttributeCapacity": [
+    "udcEntityAttributePresetAttributeCapacityAllAppGet"
+   ]
+  },
+  "module-55238.js": {
+   "Fx": [
+    "udcMetaDataSelectCustomReferPageGet",
+    "udcReferConfigCreateOrUpdatePost"
+   ],
+   "Te": [
+    "udcMetaDataSelectCustomReferPageGet",
+    "udcReferConfigCreateOrUpdatePost"
+   ],
+   "nW": [
+    "udcMetaDataSelectCustomReferPageGet"
+   ]
+  },
+  "module-62914.js": {
+   "getCurrApplication": [
+    "udcApplicationAppFeatureAppGet",
+    "udcRuntimeDeployPost"
+   ],
+   "releaseApplication": [
+    "udcApplicationAppFeatureAppGet",
+    "udcRuntimeDeployPost"
+   ],
+   "getCurrAppFeatures": [
+    "udcApplicationAppFeatureAppGet",
+    "udcApplicationSearchDetectionPost"
+   ],
+   "getCurrAppCAF": [
+    "udcApplicationDoDetectionPost",
+    "udcApplicationSearchDetectionPost"
+   ],
+   "getSearchDetection": [
+    "udcApplicationDoDetectionPost",
+    "udcApplicationDoDetectionStatePost",
+    "udcApplicationSearchDetectionPost"
+   ],
+   "reCheckUniformity": [
+    "udcApplicationDoDetectionPost",
+    "udcApplicationDoDetectionStatePost"
+   ],
+   "getDetectionState": [
+    "udcApplicationDoDetectionStatePost"
+   ],
+   "templateSaveAs": [
+    "udcApplicationSaveAsPost"
+   ],
+   "templateSaveAsNewVersion": [
+    "udcApplicationRenewalAppEditingTimeGet",
+    "udcApplicationSaveAsPost"
+   ],
+   "appSaveAs": [
+    "udcApplicationImportOtherAppZipPost",
+    "udcApplicationRenewalAppEditingTimeGet",
+    "udcApplicationSaveAsPost"
+   ],
+   "getApprovalFeatures": [
+    "udcApplicationImportOtherAppZipPost",
+    "udcApplicationRenewalAppEditingTimeGet"
+   ]
+  },
+  "module-64527.js": {
+   "fetchAllEntityGroup": [
+    "udcEntityGroupSelectByAppidAppGet",
+    "udcEntityGroupUpdatePost",
+    "udcEntitySelectMasterEntityCountAppGet"
+   ],
+   "fetchEntityCount": [
+    "udcEntityGroupBatchDeletePost",
+    "udcEntityGroupDeletePost",
+    "udcEntityGroupUpdatePost",
+    "udcEntitySelectMasterEntityCountAppGet"
+   ],
+   "deleteEntity": [
+    "udcEntityBatchDeletePost",
+    "udcEntityDeletePost",
+    "udcEntityStereoEntityAppGet"
+   ],
+   "fetchStereoEntityList": [
+    "udcEntityStereoEntityAppGet"
+   ],
+   "getAppFeatureByAppType": [
+    "udcApplicationFeatureAppTypeGet",
+    "udcAttributeSetSelectByNameAttributesPost",
+    "udcEntityAttributeSelectParentEnumAttrsPost"
+   ],
+   "fetchParentEnumAttrs": [
+    "udcEntityAttributeSelectParentEnumAttrsPost",
+    "udcScalabilityOptionSelectAllOptionNamePost"
+   ]
+  },
+  "module-70857.js": {
+   "getEntityFieldListByIdOrFullName": [
+    "udcMetaDataSelectEntityPost",
+    "udcPageInfoParamsPageGet"
+   ],
+   "batchDeleteMicroflows": [
+    "udcMicroFlowGroupBatchMovePost",
+    "udcMicroFlowGroupDeleteBatchPost",
+    "udcMicroflowBatchMovePost",
+    "udcMicroflowFindByIdGet"
+   ],
+   "batchMoveMicroflows": [
+    "udcMicroFlowGroupBatchMovePost",
+    "udcMicroflowBatchMovePost",
+    "udcMicroflowFindByIdGet"
+   ],
+   "batchMoveMicroflowGroups": [
+    "udcMicroFlowGroupBatchMovePost",
+    "udcMicroflowFindByIdGet"
+   ],
+   "deleteEvent": [
+    "udcEventCreateWithDataPost",
+    "udcEventDeletePost",
+    "udcEventListPost",
+    "udcEventPost"
+   ],
+   "createEvent": [
+    "udcEventCreateWithDataPost",
+    "udcEventListPost",
+    "udcEventPost"
+   ],
+   "createEventWithData": [
+    "udcEventCreateWithDataPost",
+    "udcEventListPost",
+    "udcEventSelectWithDataGet"
+   ],
+   "fetchEventList": [
+    "udcEventListPost",
+    "udcEventSelectWithDataGet"
+   ],
+   "selectEventDataWithData": [
+    "udcConditionCheckPost",
+    "udcEventSelectWithDataGet"
+   ],
+   "checkConditionSchema": [
+    "udcConditionCheckPost",
+    "udcMicroflowBatchFindJavaEnumPost",
+    "udcMicroflowSearchEnumByAppNamePost"
+   ],
+   "fetchEnumByAppName": [
+    "udcMicroflowBatchFindJavaEnumPost",
+    "udcMicroflowSearchEnumByAppNamePost"
+   ],
+   "fetchEnumByAggDtoFullNameList": [
+    "udcMetaDataSelectCtpEnumByApp1Post",
+    "udcMicroflowBatchFindJavaEnumPost"
+   ]
+  },
+  "module-71830.js": {
+   "KZ": [
+    "udcMetaDataSelectEntityByAppIdAppGet"
+   ],
+   "qW": [
+    "udcMetaDataSelectEntityByAppIdAppGet"
+   ],
+   "lT": [
+    "udcMetaDataSelectEntityByAppIdAppGet"
+   ],
+   "jN": [
+    "udcMetaDataSelectEntityByAppIdAppGet"
+   ]
+  },
+  "module-819.js": {
+   "ng": [
+    "udcApplicationSearchNewWithVersionListPost",
+    "udcEnvCurrentEnvGet"
+   ],
+   "uI": [
+    "portalTemplateImageDataPost",
+    "udcApplicationCopyPost",
+    "udcApplicationSearchTemplatePost"
+   ],
+   "fR": [
+    "udcDeploymentAppOnlineNewPost",
+    "udcDeploymentAppReadyStatePost",
+    "udcRuntimeAuthAccessUrlPost"
+   ],
+   "ou": [
+    "udcDeploymentAppOnlineNewPost",
+    "udcDeploymentAppReadyStatePost",
+    "udcDeploymentLatestTestInfoPost"
+   ],
+   "Rf": [
+    "udcDeploymentAppReadyStatePost",
+    "udcDeploymentLatestTestInfoPost"
+   ],
+   "fd": [
+    "udcDeploymentLatestTestInfoPost"
+   ],
+   "Pv": [
+    "udcApplicationCopyPost",
+    "udcApplicationSearchTemplatePost"
+   ],
+   "i4": [
+    "appCommonSystemConfigSystemConfigGet",
+    "udcApplicationSearchTemplatePost"
+   ]
+  },
+  "module-83931.js": {
+   "fetchEntityDataType": [
+    "udcEntityDataTypesGet",
+    "udcUdcEnumItemSearch"
+   ],
+   "postEntityAttribute": [
+    "udcUdcEnumItemGet",
+    "udcUdcEnumItemSearch"
+   ],
+   "fetchFieldList": [
+    "udcUdcEnumItemGet",
+    "udcUdcEnumItemSearch"
+   ],
+   "searchFieldList": [
+    "udcUdcEnumItemGet"
+   ],
+   "deleteField": [
+    "udcUdcEnumSearch"
+   ],
+   "postBatchField": [
+    "udcUdcEnumSearch"
+   ],
+   "updateBatchField": [
+    "udcUdcEnumSearch"
+   ],
+   "fetchEntityList": [
+    "udcUdcEnumSearch"
+   ]
+  },
+  "module-85399.js": {
+   "i9": [
+    "udcPageInfoBaseInfoBatchCreatePost"
+   ],
+   "hZ": [
+    "udcPageInfoBaseInfoBatchCreatePost"
+   ],
+   "HS": [
+    "udcPageInfoBaseInfoBatchCreatePost"
+   ]
+  },
+  "module-99060.js": {
+   "getDesignerList": [
+    "udcCollaborationAppGet",
+    "udcCollaborationCreatePost",
+    "udcCollaborationMembersPost"
+   ],
+   "getList": [
+    "udcCollaborationAppGet",
+    "udcCollaborationCreatePost",
+    "udcCollaborationDeleteIdPost",
+    "udcCollaborationHandoverPost"
+   ],
+   "addMember": [
+    "udcCollaborationCreatePost",
+    "udcCollaborationDeleteIdPost",
+    "udcCollaborationHandoverPost"
+   ],
+   "delMember": [
+    "udcCollaborationDeleteIdPost",
+    "udcCollaborationHandoverPost"
+   ],
+   "transfer": [
+    "udcCollaborationHandoverPost"
+   ]
+  }
+ },
+ "reconcile": {
+  "frontend_total": 346,
+  "matched": 173,
+  "frontend_only": [
+   "appCommonAssociateCheckAppPost",
+   "appCommonAssociateConfigGeneratePost",
+   "appCommonAssociateEntityConfigSavePost",
+   "appCommonAssociateEntityConfigSelectPost",
+   "appCommonAssociatePost",
+   "appCommonAssociateSearch",
+   "appCommonAssociateUpdatePost",
+   "appCommonImageSearch",
+   "appCommonImageStoreCategoryGet",
+   "appCommonSystemConfigSystemConfigGet",
+   "appCommonThemeSelectDefaultBrandPost",
+   "appCommonUdcRuntimeMetaDataSelectAllEntityByAppNameAppNameGet",
+   "appCommonUdcRuntimeMetaDataSelectReferByEntityPost",
+   "bpmNodePermissionListPost",
+   "bpmSystemSettingListGet",
+   "cipManagerManageSelectActivexCapabilityEnumGet",
+   "ctpApplicationAppcenterSearch",
+   "ctpUserCtpManagerTenantPageListPost",
+   "edoc335172694483814428EdocMarkDefineSelectMarkFormDesignPost",
+   "mainFileDownloadUrlGet",
+   "organizationOrgMemberAvatarIdsPost",
+   "portalPortalSpaceGet",
+   "portalTemplateImageDataPost",
+   "udcAffairDeletePost",
+   "udcAffairGet",
+   "udcAffairListPost",
+   "udcAffairPost",
+   "udcAffairUpdatePost",
+   "udcApplicationAppFeatureAppGet",
+   "udcApplicationImportNewPost",
+   "udcApplicationImportOtherAppZipPost",
+   "udcApplicationSaveNormalNewDesignPost",
+   "udcApplicationTransferParamPost",
+   "udcAttachmentTemplateCreateBatchPost",
+   "udcBackendComponentImportPost",
+   "udcBackendComponentMultiVersionGet",
+   "udcBackendComponentRefreshVersionGet",
+   "udcBackendComponentSearchAppPost",
+   "udcBackendComponentSelectAllListByConditionsPost",
+   "udcBackendComponentUpdatePost",
+   "udcCdpDataReportGetReportListPost",
+   "udcCollaborationCreatePost",
+   "udcCollaborationDeleteIdPost",
+   "udcCollaborationHandoverPost",
+   "udcCollaborationMembersPost",
+   "udcCtpManagerSandboxUsePost",
+   "udcCtpManagerTransferSavePost",
+   "udcCtpManagerTransferSelectGet",
+   "udcCustomDataTypeCreatePost",
+   "udcCustomDataTypeCustomDataTypePost",
+   "udcCustomDataTypeDeleteByIdPost",
+   "udcCustomDataTypeDeleteByIdsPost",
+   "udcCustomDataTypeSearch",
+   "udcCustomDataTypeUpdatePost",
+   "udcEntityAttributeGroupSearch",
+   "udcEntityDataTypesGet",
+   "udcEntityStereoEntityAppGet",
+   "udcEnvCurrentEnvGet",
+   "udcExcelSearchListByConditionsPost",
+   "udcExpressionSystemVariableListGet",
+   "udcFileDownloadUrlGet",
+   "udcFileDownloadUrlsPost",
+   "udcFormUpgradeDeployDeletePost",
+   "udcFormUpgradeDeployExportRecordPost",
+   "udcFormUpgradeDeployListInfoPost",
+   "udcFormUpgradeDeployListRecordPost",
+   "udcFormUpgradeDeployNodeLastUpgradeResultGet",
+   "udcFormUpgradeDeployOneClickUpgradePost",
+   "udcFormUpgradeDeploySilentUpdatePost",
+   "udcMessageCategoryCreatePost",
+   "udcMessageCategoryDeletePost",
+   "udcMessageCategoryListPost",
+   "udcMessageCategoryUpdatePost",
+   "udcMessageLinkCreatePost",
+   "udcMessageLinkDeletePost",
+   "udcMessageLinkListPost",
+   "udcMessageLinkUpdatePost",
+   "udcMetaDataSelectAppListGet",
+   "udcMetaDataSelectEntityByAppNameAppNameGet",
+   "udcMicroflowCopyBySourceIdPost",
+   "udcMicroflowFilterEventPost",
+   "udcMicroflowFilterMqPost",
+   "udcMicroflowRecoverPost",
+   "udcMicroflowTreeEntityDtoPost",
+   "udcOperationLogElementIsExistPost",
+   "udcOperationLogSearchInitDataAppGet",
+   "udcPageAdminV1DeleteGet",
+   "udcPageComponentAnalysisPackageGet",
+   "udcPageComponentRefreshGet",
+   "udcPageComponentSelectAllListByConditionsPost",
+   "udcPageComponentSelectByGet",
+   "udcPageComponentUpdatePost",
+   "udcPageComponentUploadGet",
+   "udcPageInfoBaseInfoBatchCreatePost",
+   "udcPageInfoBaseInfoUpdatePost",
+   "udcPageInfoBatchCreatePost",
+   "udcPageInfoDeleteByConditionsPost",
+   "udcPageInfoDesignerSelectDetailListByConditionsPost",
+   "udcPageInfoDetailGet",
+   "udcPageInfoFunctionBaseInfoCreatePost",
+   "udcPageInfoRecoverPost",
+   "udcPageInfoSearchNoPagePost",
+   "udcPageInfoSelectListByConditionsPost",
+   "udcPageLayoutBaseInfoCreatePost",
+   "udcPageLayoutBaseInfoUpdatePost",
+   "udcPageLayoutDeleteByConditionsPost",
+   "udcPageLayoutDesignerSelectDetailListByConditionsPost",
+   "udcPageLayoutDetailGet",
+   "udcPageLayoutRecoverPost",
+   "udcPageLayoutSelectListByConditionsPost",
+   "udcPageLayoutUpdateDrafPost",
+   "udcPageLayoutUpdatePost",
+   "udcPageTemplateBatchCreatePost",
+   "udcPageTemplateCheckNamePost",
+   "udcPageTemplateClassCreatePost",
+   "udcPageTemplateClassDeletePost",
+   "udcPageTemplateClassSelectTreeCategoryGet",
+   "udcPageTemplateClassUpdatePost",
+   "udcPageTemplateCreateOrUpdatePost",
+   "udcPageTemplatePublishedCreateOrUpdatePost",
+   "udcPageTemplatePublishedSearch",
+   "udcPageTemplatePublishedSearchNoPagePost",
+   "udcPageTemplateSaveAsPost",
+   "udcPageTemplateSearchAvailablePost",
+   "udcPageTemplateSearchNoPagePost",
+   "udcPageTemplateSearchWithRightsPost",
+   "udcPinyinGet",
+   "udcPortalPortalSpaceCreatePost",
+   "udcPortalPortalSpaceDeletePost",
+   "udcPortalPortalSpaceSearch",
+   "udcPortalPortalSpaceSelectMaxSortNoGet",
+   "udcPortalPortalSpaceSpaceSaveCopyPost",
+   "udcPortalPortalSpaceUpdatePost",
+   "udcPortletDeleteIdPost",
+   "udcPortletSelectByAppIdAppGet",
+   "udcRuntimeUpgradeAppListPost",
+   "udcRuntimeUpgradeHostAppNameListPost",
+   "udcSandboxAppCheckAlertPost",
+   "udcSandboxAppCleanRestartAppPost",
+   "udcSandboxAppCleanRestartByAppPost",
+   "udcSandboxAppReleaseAppPost",
+   "udcSandboxAppReleaseAppStatusPost",
+   "udcSandboxAppStartAppPost",
+   "udcSandboxAppStartByAppPost",
+   "udcSandboxAppStopAppPost",
+   "udcSandboxAppUnLoadAppPost",
+   "udcSandboxBatchCleanStopPost",
+   "udcSandboxBatchStopPost",
+   "udcSandboxBuildInfoAppGet",
+   "udcSandboxClearDataPost",
+   "udcSandboxClientCheckAllStatusGet",
+   "udcSandboxClientCheckAllTaskGet",
+   "udcSandboxClientCreateGet",
+   "udcSandboxClientDeleteGet",
+   "udcSandboxClientRestartGet",
+   "udcSandboxClientSandboxLogPost",
+   "udcSandboxClientSandboxLogUrlPost",
+   "udcSandboxClientSearch",
+   "udcSandboxResourcesGet",
+   "udcSandboxRestartPost",
+   "udcSandboxSandboxAppsByConditionPost",
+   "udcSandboxSelectAppGet",
+   "udcSandboxSelectRolesPost",
+   "udcSandboxStopPost",
+   "udcSandboxSystemConfigGetAppLimitGet",
+   "udcSandboxSystemConfigGetGet",
+   "udcSandboxSystemConfigSetReleaseConfigPost",
+   "udcSandboxSystemConfigUpdatePost",
+   "udcSandboxTenantConfigConfigAllTenantGet",
+   "udcSandboxTenantConfigCreatePost",
+   "udcSandboxTenantConfigDeleteGet",
+   "udcSandboxTenantConfigSearch",
+   "udcSandboxTenantConfigUpdatePost"
+  ],
+  "backend_only": [
+   {
+    "ctrl": "AppCollaborationController",
+    "method": "selectCollaborationMembersByAppGuid",
+    "path": "/udc/members/{appGuid}"
+   },
+   {
+    "ctrl": "AppCollaborationController",
+    "method": "createMember",
+    "path": "/udc/create"
+   },
+   {
+    "ctrl": "AppCollaborationController",
+    "method": "deleteMemberById",
+    "path": "/udc/delete/{id}"
+   },
+   {
+    "ctrl": "AppCollaborationController",
+    "method": "handoverApp",
+    "path": "/udc/handover"
+   },
+   {
+    "ctrl": "AppCollaborationController",
+    "method": "selectCurrentOrgMemberByCondition",
+    "path": "/udc/members"
+   },
+   {
+    "ctrl": "ApplicationController",
+    "method": "selectById",
+    "path": "/udc/application/{id}"
+   },
+   {
+    "ctrl": "ApplicationController",
+    "method": "selectHistoryById",
+    "path": "/udc/application/history/{id}"
+   },
+   {
+    "ctrl": "ApplicationController",
+    "method": "selectByAppNames",
+    "path": "/udc/application/search-names"
+   },
+   {
+    "ctrl": "ApplicationController",
+    "method": "selectAppPageByConditions",
+    "path": "/udc/application/search-new"
+   },
+   {
+    "ctrl": "ApplicationController",
+    "method": "selectHasPublishAppByAppGuid",
+    "path": "/udc/application/has-publish/{appGuid}"
+   },
+   {
+    "ctrl": "ApplicationController",
+    "method": "selectLatestDesignAppByGuid",
+    "path": "/udc/application/latest-design/{guid}"
+   },
+   {
+    "ctrl": "ApplicationController",
+    "method": "selectPublishStatus",
+    "path": "/udc/application/publish-status/{deployId}"
+   },
+   {
+    "ctrl": "ApplicationController",
+    "method": "copyDependentAppSchema",
+    "path": "/udc/copyDependent"
+   },
+   {
+    "ctrl": "ApplicationController",
+    "method": "importDependentAppSchema",
+    "path": "/udc/import/dependent"
+   },
+   {
+    "ctrl": "ApplicationController",
+    "method": "importAppSchema",
+    "path": "/udc/import/new"
+   },
+   {
+    "ctrl": "ApplicationController",
+    "method": "transferFormAppPackage",
+    "path": "/udc/application/transfer/batch/"
+   },
+   {
+    "ctrl": "ApplicationController",
+    "method": "importFormAppValidate",
+    "path": "/udc/import/form/validation"
+   },
+   {
+    "ctrl": "ApplicationController",
+    "method": "importFormApp",
+    "path": "/udc/import/form"
+   },
+   {
+    "ctrl": "ApplicationController",
+    "method": "transferAppSchema",
+    "path": "/udc/transfer"
+   },
+   {
+    "ctrl": "ApplicationController",
+    "method": "transferAppSchemaWithParams",
+    "path": "/udc/transfer/param"
+   },
+   {
+    "ctrl": "ApplicationController",
+    "method": "importOtherAppZip",
+    "path": "/udc/importOtherAppZip"
+   },
+   {
+    "ctrl": "ApplicationController",
+    "method": "importOtherAppOnLine",
+    "path": "/udc/importOtherAppOnLine"
+   },
+   {
+    "ctrl": "ApplicationController",
+    "method": "downloadAppTemplatesPackage",
+    "path": "/udc/application/schema/download/templates"
+   },
+   {
+    "ctrl": "ApplicationController",
+    "method": "saveAsNormalNewDesign",
+    "path": "/udc/save/normal/newDesign"
+   },
+   {
+    "ctrl": "ApplicationController",
+    "method": "getAppFeatureByAppType",
+    "path": "/udc/feature/{appType}"
+   },
+   {
+    "ctrl": "ApplicationController",
+    "method": "getAppFeatureByAppId",
+    "path": "/udc/appFeature/{appId}"
+   },
+   {
+    "ctrl": "ApplicationController",
+    "method": "createDepApp",
+    "path": "/udc/application/dependent-application/create"
+   },
+   {
+    "ctrl": "ApplicationController",
+    "method": "selectDepAppListByAppId",
+    "path": "/udc/application/dependent-application/select-by-app-id"
+   },
+   {
+    "ctrl": "ApplicationController",
+    "method": "selectSummaryDetectionByAppId",
+    "path": "/udc/application/summary/detection"
+   },
+   {
+    "ctrl": "ApplicationController",
+    "method": "detectionAllFormApp",
+    "path": "/udc/application/do/detection/all-form-app/{timestamp}"
+   },
+   {
+    "ctrl": "ApplicationController",
+    "method": "pushData",
+    "path": "/udc/application/push-data"
+   },
+   {
+    "ctrl": "ApplicationController",
+    "method": "isExclusive",
+    "path": "/udc/application/is-exclusive/{id}"
+   },
+   {
+    "ctrl": "ApplicationController",
+    "method": "selectDesignDataChange",
+    "path": "/udc/application/design-data-change"
+   },
+   {
+    "ctrl": "ApplicationController",
+    "method": "checkDesignModifiedAfterLastRelease",
+    "path": "/udc/application/check-design-modified-after-last-release/{appId}"
+   },
+   {
+    "ctrl": "ApplicationController",
+    "method": "registerJar",
+    "path": "/udc/application/registerJar"
+   },
+   {
+    "ctrl": "ApplicationController",
+    "method": "isLastVersionApp",
+    "path": "/udc/application/is-last-version/{appId}"
+   },
+   {
+    "ctrl": "ApplicationController",
+    "method": "compatibilityLock",
+    "path": "/udc/application/compatibility/lock"
+   },
+   {
+    "ctrl": "ApplicationController",
+    "method": "dataDictionary",
+    "path": "/udc/application/datadictionary/{id}"
+   },
+   {
+    "ctrl": "ApplicationController",
+    "method": "selectRoleResource",
+    "path": "/udc/role-resource"
+   },
+   {
+    "ctrl": "ApplicationController",
+    "method": "selectUserRole",
+    "path": "/udc/user-role"
+   },
+   {
+    "ctrl": "AttachmentTemplateController",
+    "method": "create",
+    "path": "/udc/create"
+   },
+   {
+    "ctrl": "AttachmentTemplateController",
+    "method": "createBatch",
+    "path": "/udc/create-batch"
+   },
+   {
+    "ctrl": "AttachmentTemplateController",
+    "method": "selectByGuid",
+    "path": "/udc/attachment-template/{guid}"
+   },
+   {
+    "ctrl": "AttachmentTemplateController",
+    "method": "selectByGuids",
+    "path": "/udc/select-by-guids"
+   },
+   {
+    "ctrl": "AttachmentTemplateController",
+    "method": "selectByAppId",
+    "path": "/udc/app/{appId}"
+   },
+   {
+    "ctrl": "AttachmentTemplateController",
+    "method": "delete",
+    "path": "/udc/delete-by-guids"
+   },
+   {
+    "ctrl": "AttributeGroupController",
+    "method": "create",
+    "path": "/udc/attribute-group/create"
+   },
+   {
+    "ctrl": "AttributeGroupController",
+    "method": "update",
+    "path": "/udc/attribute-group/update"
+   },
+   {
+    "ctrl": "AttributeGroupController",
+    "method": "cancel",
+    "path": "/udc/attribute-group/cancel"
+   },
+   {
+    "ctrl": "AttributeGroupController",
+    "method": "remove",
+    "path": "/udc/attribute-group/remove"
+   },
+   {
+    "ctrl": "AttributeGroupController",
+    "method": "swap",
+    "path": "/udc/attribute-group/swap"
+   },
+   {
+    "ctrl": "AttributeSetController",
+    "method": "selectById",
+    "path": "/udc/attributeSet/{id}"
+   },
+   {
+    "ctrl": "AttributeSetController",
+    "method": "selectListByConditions",
+    "path": "/udc/attributeSet/search-list"
+   },
+   {
+    "ctrl": "AttributeSetController",
+    "method": "selectListByAppId",
+    "path": "/udc/attributeSet/select-by-appid"
+   },
+   {
+    "ctrl": "AttributeSetController",
+    "method": "selectListByNameWithAttributes",
+    "path": "/udc/attributeSet/select-by-name/attributes"
+   },
+   {
+    "ctrl": "AttributeSetController",
+    "method": "selectByAttributeSetId",
+    "path": "/udc/attributeSet/select-attribute-list"
+   },
+   {
+    "ctrl": "BackendComponentController",
+    "method": "selectAllListByConditions",
+    "path": "/udc/select-all-list/by-conditions"
+   },
+   {
+    "ctrl": "BackendComponentController",
+    "method": "selectAppPageByConditions",
+    "path": "/udc/search/app"
+   },
+   {
+    "ctrl": "BackendComponentController",
+    "method": "create",
+    "path": "/udc/import"
+   },
+   {
+    "ctrl": "BackendComponentController",
+    "method": "refreshVersion",
+    "path": "/udc/refresh-version"
+   },
+   {
+    "ctrl": "BackendComponentController",
+    "method": "update",
+    "path": "/udc/update"
+   },
+   {
+    "ctrl": "BackendComponentController",
+    "method": "selectMultiVersionById",
+    "path": "/udc/multi-version/{id}"
+   },
+   {
+    "ctrl": "BackendComponentController",
+    "method": "selectById",
+    "path": "/udc/detail/{id}"
+   },
+   {
+    "ctrl": "BackendComponentController",
+    "method": "selectListByDependentId",
+    "path": "/udc/upgrade/{dependentId}/{defaultLastVersion}"
+   },
+   {
+    "ctrl": "BackendComponentController",
+    "method": "refreshComponent",
+    "path": "/udc/backend-component/refresh"
+   },
+   {
+    "ctrl": "COLISplitController",
+    "method": "upload",
+    "path": "/udc/app-split/upload"
+   },
+   {
+    "ctrl": "COLISplitController",
+    "method": "coliImportAppSchema",
+    "path": "/udc/import/coli"
+   },
+   {
+    "ctrl": "COLISplitController",
+    "method": "getRequestStatus",
+    "path": "/udc/app-split/request/status/{requestId}"
+   },
+   {
+    "ctrl": "COLISplitController",
+    "method": "selectSplitResult",
+    "path": "/udc/coli/split/result"
+   },
+   {
+    "ctrl": "COLISplitController",
+    "method": "deleteBySourceAppId",
+    "path": "/udc/coli/app/delete"
+   },
+   {
+    "ctrl": "COLISplitController",
+    "method": "deleteRecordBySourceAppId",
+    "path": "/udc/coli/record/delete"
+   },
+   {
+    "ctrl": "COLISplitController",
+    "method": "selectSplitImportRecordList",
+    "path": "/udc/app-split/coli/select-by-condition"
+   },
+   {
+    "ctrl": "DataFlowDesignController",
+    "method": "selectById",
+    "path": "/udc/data-flow/{id}"
+   },
+   {
+    "ctrl": "DataFlowDesignController",
+    "method": "create",
+    "path": "/udc/data-flow"
+   },
+   {
+    "ctrl": "DataFlowDesignController",
+    "method": "update",
+    "path": "/udc/data-flow/update"
+   },
+   {
+    "ctrl": "DataFlowDesignController",
+    "method": "deleteById",
+    "path": "/udc/data-flow/delete"
+   },
+   {
+    "ctrl": "DataFlowDesignController",
+    "method": "deleteByIds",
+    "path": "/udc/data-flow/batch-delete"
+   },
+   {
+    "ctrl": "DataFlowDesignController",
+    "method": "selectPageByCondition",
+    "path": "/udc/data-flow/search"
+   },
+   {
+    "ctrl": "DataFlowDesignController",
+    "method": "deleteLineOrNodeInGraph",
+    "path": "/udc/data-flow/delete/content"
+   },
+   {
+    "ctrl": "DataFlowDesignController",
+    "method": "entity4NotExist",
+    "path": "/udc/data-flow/entity-not-exist-ids"
+   },
+   {
+    "ctrl": "DataFlowDesignController",
+    "method": "createMapping",
+    "path": "/udc/data-flow/mapping"
+   },
+   {
+    "ctrl": "DataFlowDesignController",
+    "method": "updateMapping",
+    "path": "/udc/data-flow/mapping/update"
+   },
+   {
+    "ctrl": "DataFlowDesignController",
+    "method": "selectMappingById",
+    "path": "/udc/data-flow/mapping/{id}"
+   },
+   {
+    "ctrl": "DataFlowDesignController",
+    "method": "deleteMapping",
+    "path": "/udc/data-flow/mapping/delete"
+   },
+   {
+    "ctrl": "DataFlowDesignController",
+    "method": "selectByIds",
+    "path": "/udc/data-flow/mapping/list"
+   },
+   {
+    "ctrl": "DataFlowDesignController",
+    "method": "selectMappingListByCondition",
+    "path": "/udc/data-flow/mapping/search"
+   },
+   {
+    "ctrl": "DataFlowDesignController",
+    "method": "selectApplicationListByAppId",
+    "path": "/udc/data-flow/list/application/{appId}"
+   },
+   {
+    "ctrl": "DataTransferObjectController",
+    "method": "selectById",
+    "path": "/udc/data-transfer-object/{id}"
+   },
+   {
+    "ctrl": "DataTransferObjectController",
+    "method": "selectListByConditions",
+    "path": "/udc/data-transfer-object/search-selectable-list"
+   },
+   {
+    "ctrl": "DataTransferObjectController",
+    "method": "selectListBySourceId",
+    "path": "/udc/data-transfer-object/search-by-source-id/{sourceId}"
+   },
+   {
+    "ctrl": "DataTransferObjectController",
+    "method": "checkExists",
+    "path": "/udc/data-transfer-object/check-exists"
+   },
+   {
+    "ctrl": "DataTransferObjectController",
+    "method": "updateAttribute",
+    "path": "/udc/data-transfer-object/attribute/update"
+   },
+   {
+    "ctrl": "DataTransferObjectController",
+    "method": "selectAttributeListByConditions",
+    "path": "/udc/data-transfer-object/attribute/search-list"
+   },
+   {
+    "ctrl": "DataTypeController",
+    "method": "selectDataTypes",
+    "path": "/udc/data-type/data-types"
+   },
+   {
+    "ctrl": "DataTypeController",
+    "method": "selectBaseDataTypes",
+    "path": "/udc/data-type/data-types/base"
+   },
+   {
+    "ctrl": "DataTypeController",
+    "method": "selectDataTypeByName",
+    "path": "/udc/data-type/data-types/{name}"
+   },
+   {
+    "ctrl": "DeductionRuleController",
+    "method": "selectById",
+    "path": "/udc/deduction/map/{id}"
+   },
+   {
+    "ctrl": "DeductionRuleController",
+    "method": "selectRuleById",
+    "path": "/udc/deduction/rule/{id}"
+   },
+   {
+    "ctrl": "DeductionRuleController",
+    "method": "selectDeductionRuleCountByEntityId",
+    "path": "/udc/deduction/rule/count"
+   },
+   {
+    "ctrl": "DeductionRuleController",
+    "method": "entity4NotExist",
+    "path": "/udc/deduction/entity-not-exist-ids"
+   },
+   {
+    "ctrl": "DependencyAnalysisController",
+    "method": "dependencyAnalysis",
+    "path": "/udc/dependency/analysis/entity/{appId}"
+   },
+   {
+    "ctrl": "DependencyAnalysisController",
+    "method": "analysisAppDepRelationship",
+    "path": "/udc/dependency/analysis/relationship/{appId}"
+   },
+   {
+    "ctrl": "DeployController",
+    "method": "migrationApp",
+    "path": "/udc/runtime/deploy/ferry"
+   },
+   {
+    "ctrl": "DeployController",
+    "method": "frontendMetadata",
+    "path": "/udc/runtime/frontend/metadata/{appId}"
+   },
+   {
+    "ctrl": "DeployController",
+    "method": "searchStatus",
+    "path": "/udc/runtime/search-deploy-status/{deployId}"
+   },
+   {
+    "ctrl": "DeployController",
+    "method": "selectPageByAppName",
+    "path": "/udc/runtime/search-by-name/{appName}"
+   },
+   {
+    "ctrl": "DeployController",
+    "method": "selectPageByConditions",
+    "path": "/udc/runtime/search-deploy"
+   },
+   {
+    "ctrl": "DeployController",
+    "method": "expectDeployTime",
+    "path": "/udc/runtime/expect-deploy-time"
+   },
+   {
+    "ctrl": "DeployController",
+    "method": "statistics",
+    "path": "/udc/runtime/deploy-statistics"
+   },
+   {
+    "ctrl": "DeployController",
+    "method": "authAccessUrl",
+    "path": "/udc/auth-access-url"
+   },
+   {
+    "ctrl": "DeploymentController",
+    "method": "restartApp",
+    "path": "/udc/restart"
+   },
+   {
+    "ctrl": "DeploymentController",
+    "method": "getAppReadyStatus",
+    "path": "/udc/app-ready-state"
+   },
+   {
+    "ctrl": "DeploymentController",
+    "method": "latestTestInfo",
+    "path": "/udc/latest-test-info"
+   },
+   {
+    "ctrl": "DeploymentController",
+    "method": "appOnline",
+    "path": "/udc/app-online"
+   },
+   {
+    "ctrl": "DeploymentController",
+    "method": "appOnlineNew",
+    "path": "/udc/app-online-new"
+   },
+   {
+    "ctrl": "DeploymentController",
+    "method": "appDeltaDeploy",
+    "path": "/udc/app-delta-deploy"
+   },
+   {
+    "ctrl": "EntityController",
+    "method": "create",
+    "path": "/udc/entity"
+   },
+   {
+    "ctrl": "EntityController",
+    "method": "selectById",
+    "path": "/udc/entity/{id}"
+   },
+   {
+    "ctrl": "EntityController",
+    "method": "selectPageByCondition",
+    "path": "/udc/entity/search"
+   },
+   {
+    "ctrl": "EntityController",
+    "method": "selectListByConditions",
+    "path": "/udc/entity/search-list"
+   },
+   {
+    "ctrl": "EntityController",
+    "method": "selectListByTerm",
+    "path": "/udc/entity/search/term"
+   },
+   {
+    "ctrl": "EntityController",
+    "method": "selectParentById",
+    "path": "/udc/entity/{id}/parent"
+   },
+   {
+    "ctrl": "EntityController",
+    "method": "selectChildrenByCondition",
+    "path": "/udc/entity/children/search"
+   },
+   {
+    "ctrl": "EntityController",
+    "method": "selectEntitiesByAppId4Tree",
+    "path": "/udc/entity/select-by-appid/tree/{appId}"
+   },
+   {
+    "ctrl": "EntityController",
+    "method": "selectRootId",
+    "path": "/udc/entity/primary/select-root/{id}"
+   },
+   {
+    "ctrl": "EntityController",
+    "method": "selectMasterEntityCount",
+    "path": "/udc/entity/select-master-entity-count/{appId}"
+   },
+   {
+    "ctrl": "EntityController",
+    "method": "copyEntity",
+    "path": "/udc/entity/entity-copy"
+   },
+   {
+    "ctrl": "EntityController",
+    "method": "createAttributionBatch",
+    "path": "/udc/entity/attribute-batch"
+   },
+   {
+    "ctrl": "EntityController",
+    "method": "selectAttributeById",
+    "path": "/udc/entity/attribute/{id}"
+   },
+   {
+    "ctrl": "EntityController",
+    "method": "selectEntityAttributeListByCondition",
+    "path": "/udc/entity/attribute/search-list"
+   },
+   {
+    "ctrl": "EntityController",
+    "method": "selectAttributeListByTerm",
+    "path": "/udc/entity/attribute/search/term"
+   },
+   {
+    "ctrl": "EntityController",
+    "method": "cancelGroup",
+    "path": "/udc/entity/attribute-group/cance-group"
+   },
+   {
+    "ctrl": "EntityController",
+    "method": "selectPresetEntityListByAppId",
+    "path": "/udc/entity/preset-entity-by-appId/{appId}"
+   },
+   {
+    "ctrl": "EntityController",
+    "method": "selectPresetListByAppId",
+    "path": "/udc/entity/preset-by-appId/{appId}"
+   },
+   {
+    "ctrl": "EntityController",
+    "method": "selectPresetByEntityId",
+    "path": "/udc/entity/preset/{entityId}"
+   },
+   {
+    "ctrl": "EntityController",
+    "method": "createDefaultExcelTemplate",
+    "path": "/udc/entity/preset/create-default-excel-template"
+   },
+   {
+    "ctrl": "EntityController",
+    "method": "createPreset",
+    "path": "/udc/entity/preset/create"
+   },
+   {
+    "ctrl": "EntityController",
+    "method": "updatePreset",
+    "path": "/udc/entity/preset/update"
+   },
+   {
+    "ctrl": "EntityController",
+    "method": "selectAssociationEntityGroup",
+    "path": "/udc/entity/association/entity/{appId}"
+   },
+   {
+    "ctrl": "EntityController",
+    "method": "selectConstraintEntity",
+    "path": "/udc/entity/constraint/entity"
+   },
+   {
+    "ctrl": "EntityController",
+    "method": "selectSerialListByConditions",
+    "path": "/udc/entity/association/serial"
+   },
+   {
+    "ctrl": "EntityController",
+    "method": "selectAssociationSerialGroup",
+    "path": "/udc/entity/association/group/serial"
+   },
+   {
+    "ctrl": "EntityController",
+    "method": "selectEntityTableSqlFromDeployRecord",
+    "path": "/udc/entity/sql/deploy-record/total"
+   },
+   {
+    "ctrl": "EntityController",
+    "method": "replaceDeployRecordSqlStorageKey",
+    "path": "/udc/entity/sql/deploy-record/replace"
+   },
+   {
+    "ctrl": "EntityController",
+    "method": "repairSqlStorageKey",
+    "path": "/udc/entity/sql/deploy-record/repair-sql-storageKey"
+   },
+   {
+    "ctrl": "EntityController",
+    "method": "unlockEntity",
+    "path": "/udc/entity/sql/unlock-entity"
+   },
+   {
+    "ctrl": "EntityController",
+    "method": "unlockAttribute",
+    "path": "/udc/entity/sql/unlock-attribute"
+   },
+   {
+    "ctrl": "EntityController",
+    "method": "notNullRepair",
+    "path": "/udc/entity/sql/not-null-repair"
+   },
+   {
+    "ctrl": "EntityController",
+    "method": "removeExtEntityLinkage",
+    "path": "/udc/entity/ext/remove-linkage"
+   },
+   {
+    "ctrl": "EntityController",
+    "method": "selectAllPreSetAttributeCapacity",
+    "path": "/udc/entity/attribute/preset-attribute-capacity/all/{appId}"
+   },
+   {
+    "ctrl": "EntityGroupController",
+    "method": "create",
+    "path": "/udc/entity-group/create"
+   },
+   {
+    "ctrl": "EntityGroupController",
+    "method": "update",
+    "path": "/udc/entity-group/update"
+   },
+   {
+    "ctrl": "EntityGroupController",
+    "method": "updateBatch",
+    "path": "/udc/entity-group/update-batch"
+   },
+   {
+    "ctrl": "EntityGroupController",
+    "method": "deleteById",
+    "path": "/udc/entity-group/delete"
+   },
+   {
+    "ctrl": "EntityGroupController",
+    "method": "selectById",
+    "path": "/udc/entity-group/{id}"
+   },
+   {
+    "ctrl": "EntityGroupController",
+    "method": "selectByAppId",
+    "path": "/udc/entity-group/select-by-appid/{appId}"
+   },
+   {
+    "ctrl": "EntityOpenApiController",
+    "method": "selectOpenApiData",
+    "path": "/udc/select"
+   },
+   {
+    "ctrl": "EventController",
+    "method": "create",
+    "path": "/udc/event"
+   },
+   {
+    "ctrl": "EventController",
+    "method": "search",
+    "path": "/udc/event/search"
+   },
+   {
+    "ctrl": "EventController",
+    "method": "selectListWithDataByConditions",
+    "path": "/udc/event/list"
+   },
+   {
+    "ctrl": "EventController",
+    "method": "selectById",
+    "path": "/udc/event/{id}"
+   },
+   {
+    "ctrl": "EventController",
+    "method": "selectBusinessEvent",
+    "path": "/udc/event/list/business-event"
+   },
+   {
+    "ctrl": "FeatureController",
+    "method": "listSystemAttributeNames",
+    "path": "/udc/feature/sys-attributes"
+   },
+   {
+    "ctrl": "FunctionNodeController",
+    "method": "selectFunction",
+    "path": "/udc/function/{id}"
+   },
+   {
+    "ctrl": "FunctionNodeController",
+    "method": "setMobileBizHome",
+    "path": "/udc/app-biz-home"
+   },
+   {
+    "ctrl": "FunctionNodeController",
+    "method": "cancelBizHome",
+    "path": "/udc/cancel/app-biz-home"
+   },
+   {
+    "ctrl": "FunctionNodeController",
+    "method": "setFunctionDefaultPage",
+    "path": "/udc/function/default_page"
+   },
+   {
+    "ctrl": "FunctionNodeController",
+    "method": "selectFunctionTree",
+    "path": "/udc/function/select/function-tree"
+   },
+   {
+    "ctrl": "FunctionNodeController",
+    "method": "functionSort",
+    "path": "/udc/function/sort"
+   },
+   {
+    "ctrl": "FunctionNodeController",
+    "method": "findMenuTree",
+    "path": "/udc/function/find/tree-and-group"
+   },
+   {
+    "ctrl": "FunctionNodeController",
+    "method": "updateRootFunctionToUserCenter",
+    "path": "/udc/function/update/root/to-user-center"
+   },
+   {
+    "ctrl": "FunctionNodeController",
+    "method": "handleFunction",
+    "path": "/udc/function/update/root/handle-function"
+   },
+   {
+    "ctrl": "FunctionNodeController",
+    "method": "findPageInParams",
+    "path": "/udc/function/page/in_params/{referId}"
+   },
+   {
+    "ctrl": "IndexController",
+    "method": "create",
+    "path": "/udc/index"
+   },
+   {
+    "ctrl": "IndexController",
+    "method": "deleteById",
+    "path": "/udc/index/delete"
+   },
+   {
+    "ctrl": "IndexController",
+    "method": "deleteByIds",
+    "path": "/udc/index/delete-batch"
+   },
+   {
+    "ctrl": "IndexController",
+    "method": "update",
+    "path": "/udc/index/update"
+   },
+   {
+    "ctrl": "IndexController",
+    "method": "selectById",
+    "path": "/udc/index/{id}"
+   },
+   {
+    "ctrl": "IndexController",
+    "method": "selectByEntityId",
+    "path": "/udc/index/entity/list"
+   },
+   {
+    "ctrl": "IndexController",
+    "method": "selectMatchesAttributeByEntityId",
+    "path": "/udc/index/attribute/{entityId}"
+   },
+   {
+    "ctrl": "MetaDataController",
+    "method": "selectPageAvailableAppMetaDataByCondition",
+    "path": "/udc/meta-data/search-available-app"
+   },
+   {
+    "ctrl": "MetaDataController",
+    "method": "selectEntityMetaDataByAppName",
+    "path": "/udc/meta-data/select-simple-entity"
+   },
+   {
+    "ctrl": "MetaDataController",
+    "method": "selectReferMetaDataByEntity",
+    "path": "/udc/meta-data/select-refer-by-entity"
+   },
+   {
+    "ctrl": "MetaDataController",
+    "method": "selectPageMetaData",
+    "path": "/udc/meta-data/select-page"
+   },
+   {
+    "ctrl": "MetaDataController",
+    "method": "selectPageInfoMetaData",
+    "path": "/udc/meta-data/select-page-info-list"
+   },
+   {
+    "ctrl": "MetaDataController",
+    "method": "selectAllPageMetaDataByApp",
+    "path": "/udc/meta-data/select-all-page-by-app"
+   },
+   {
+    "ctrl": "MetaDataController",
+    "method": "selectFunctionNodeWithPageInfoDtoTreeByApp",
+    "path": "/udc/meta-data/select-function-node-with-page-tree"
+   },
+   {
+    "ctrl": "MetaDataController",
+    "method": "selectPageSchema4Bpm",
+    "path": "/udc/meta-data/select-page-list"
+   },
+   {
+    "ctrl": "MetaDataController",
+    "method": "selectMetadataByFileName",
+    "path": "/udc/meta-data/select-by-file-name"
+   },
+   {
+    "ctrl": "MetaDataController",
+    "method": "selectMetadataByAppId",
+    "path": "/udc/meta-data/test/{appId}"
+   },
+   {
+    "ctrl": "MicroFlowController",
+    "method": "selectPageByCondition",
+    "path": "/udc/microflow/search-no-page"
+   },
+   {
+    "ctrl": "MicroFlowController",
+    "method": "checkSchema",
+    "path": "/udc/microflow/checkSchema"
+   },
+   {
+    "ctrl": "MicroFlowController",
+    "method": "checkSchemaAndUpdate",
+    "path": "/udc/microflow/checkSchema/update"
+   },
+   {
+    "ctrl": "MicroFlowController",
+    "method": "create",
+    "path": "/udc/microflow/create"
+   },
+   {
+    "ctrl": "MicroFlowController",
+    "method": "update",
+    "path": "/udc/microflow/update"
+   },
+   {
+    "ctrl": "MicroFlowController",
+    "method": "searchListByCaption",
+    "path": "/udc/microflow/search/term"
+   },
+   {
+    "ctrl": "MicroFlowController",
+    "method": "selectDetailsBySourceId",
+    "path": "/udc/microflow/select-details/{sourceId}"
+   },
+   {
+    "ctrl": "MicroFlowController",
+    "method": "disableLastVersionMetadata",
+    "path": "/udc/microflow/disable-last-version-metadata"
+   },
+   {
+    "ctrl": "MicroFlowController",
+    "method": "getListOperationType",
+    "path": "/udc/microflow/listOperationType"
+   },
+   {
+    "ctrl": "MicroFlowController",
+    "method": "selectServiceMicroFlowPageByAppId",
+    "path": "/udc/microflow/service/list"
+   },
+   {
+    "ctrl": "MicroFlowController",
+    "method": "selectSubMfPageByAppId",
+    "path": "/udc/microflow/service/list/sub-mf"
+   },
+   {
+    "ctrl": "MicroFlowController",
+    "method": "getServiceById",
+    "path": "/udc/microflow/service/details/{id}"
+   },
+   {
+    "ctrl": "MicroFlowController",
+    "method": "getServiceByIdAndHostAppName",
+    "path": "/udc/microflow/service/details/dynamic"
+   },
+   {
+    "ctrl": "MicroFlowController",
+    "method": "checkMicroFlowCaptionIsExists",
+    "path": "/udc/microflow/check/micro-flow/caption"
+   },
+   {
+    "ctrl": "MicroFlowController",
+    "method": "checkMicroFlowNameIsExists",
+    "path": "/udc/microflow/check/micro-flow/name"
+   },
+   {
+    "ctrl": "MicroFlowController",
+    "method": "getMicroFlowAppServiceMetaDataBoById",
+    "path": "/udc/app-service/{id}"
+   },
+   {
+    "ctrl": "MicroFlowController",
+    "method": "copy",
+    "path": "/udc/copy"
+   },
+   {
+    "ctrl": "MicroFlowController",
+    "method": "copyBySourceId",
+    "path": "/udc/copyBySourceId"
+   },
+   {
+    "ctrl": "MicroFlowController",
+    "method": "searchNonEntityDtoByAppName",
+    "path": "/udc/search/nonEntityDto"
+   },
+   {
+    "ctrl": "MicroFlowController",
+    "method": "findCustomDto",
+    "path": "/udc/find/customDto"
+   },
+   {
+    "ctrl": "MicroFlowController",
+    "method": "searchTreeEntity",
+    "path": "/udc/search/treeEntity"
+   },
+   {
+    "ctrl": "MicroFlowController",
+    "method": "searchAppService",
+    "path": "/udc/search/appService"
+   },
+   {
+    "ctrl": "MicroFlowController",
+    "method": "searchAppServiceByAppName",
+    "path": "/udc/search/appService-by-appName"
+   },
+   {
+    "ctrl": "MicroFlowController",
+    "method": "searchAppServiceByName",
+    "path": "/udc/search/appService-by-name"
+   },
+   {
+    "ctrl": "MicroFlowController",
+    "method": "searchMethodByName",
+    "path": "/udc/search/method-by-name"
+   },
+   {
+    "ctrl": "MicroFlowController",
+    "method": "findDtoByEntity",
+    "path": "/udc/find/dto-by-entity"
+   },
+   {
+    "ctrl": "MicroFlowController",
+    "method": "selectMfAggDtoByAggDtoFullNameList",
+    "path": "/udc/batch-find/agg-dto"
+   },
+   {
+    "ctrl": "MicroFlowController",
+    "method": "searchRestExcludeBoot",
+    "path": "/udc/search/rest-exclude-boot"
+   },
+   {
+    "ctrl": "MicroFlowController",
+    "method": "filterEvent",
+    "path": "/udc/filter/event"
+   },
+   {
+    "ctrl": "MicroFlowController",
+    "method": "filterSystemMqInfo",
+    "path": "/udc/filter/mq"
+   },
+   {
+    "ctrl": "MicroFlowController",
+    "method": "findEnumByName",
+    "path": "/udc/find/enum-by-name"
+   },
+   {
+    "ctrl": "MicroFlowController",
+    "method": "searchApps",
+    "path": "/udc/search/apps"
+   },
+   {
+    "ctrl": "MicroFlowController",
+    "method": "getDisableNodes",
+    "path": "/udc/disable-node"
+   },
+   {
+    "ctrl": "MicroFlowController",
+    "method": "searchTreeEntityDto",
+    "path": "/udc/tree-entity-dto"
+   },
+   {
+    "ctrl": "MicroFlowController",
+    "method": "sendMqList",
+    "path": "/udc/search/send-mq-list"
+   },
+   {
+    "ctrl": "MicroFlowController",
+    "method": "searchMicroFlowEventList",
+    "path": "/udc/search/event-list"
+   },
+   {
+    "ctrl": "MicroFlowController",
+    "method": "selectMicroFlowMessageByAppId",
+    "path": "/udc/microflow/search-micro-flow-message/{appId}"
+   },
+   {
+    "ctrl": "MicroFlowController",
+    "method": "selectMicroFlowEventByAppId",
+    "path": "/udc/microflow/search-micro-flow-event/{appId}"
+   },
+   {
+    "ctrl": "MicroFlowController",
+    "method": "searchMessageDtoByAppName",
+    "path": "/udc/search/message-dto"
+   },
+   {
+    "ctrl": "MicroFlowController",
+    "method": "checkDtoMetadataExist",
+    "path": "/udc/microflow/check/dto-metadata/exist"
+   },
+   {
+    "ctrl": "MicroFlowController",
+    "method": "selectServiceFrontendPageBySourceId",
+    "path": "/udc/microflow/service/frontend/list"
+   },
+   {
+    "ctrl": "MicroFlowController",
+    "method": "selectMfJavaEnumByAggDtoFullNameList",
+    "path": "/udc/batch-find/java-enum"
+   },
+   {
+    "ctrl": "MicroFlowController",
+    "method": "selectMfFullAggDto",
+    "path": "/udc/find/full-agg-dto"
+   },
+   {
+    "ctrl": "MicroFlowController",
+    "method": "selectDataSystemInfo",
+    "path": "/udc/find/data-system"
+   },
+   {
+    "ctrl": "MicroFlowController",
+    "method": "filterNotVirtualDto",
+    "path": "/udc/filter/not-virtual"
+   },
+   {
+    "ctrl": "MicroFlowController",
+    "method": "findUpstreamCallInfo",
+    "path": "/udc/microflow/find/call-info/upstream"
+   },
+   {
+    "ctrl": "MicroFlowController",
+    "method": "findDownstreamCallInfo",
+    "path": "/udc/microflow/find/call-info/downstream"
+   },
+   {
+    "ctrl": "MicroFlowController",
+    "method": "findNodeSchemaByCondition",
+    "path": "/udc/microflow/find/node-schema"
+   },
+   {
+    "ctrl": "MicroFlowController",
+    "method": "selectListByCondition4Deploy",
+    "path": "/udc/microflow/select-by-condition-for-deploy"
+   },
+   {
+    "ctrl": "MicroFlowController",
+    "method": "findCallExtendAppServiceNode",
+    "path": "/udc/microflow/select-call-extend-app-service/{appId}"
+   },
+   {
+    "ctrl": "MicroFlowController",
+    "method": "findCallConnectorAppService",
+    "path": "/udc/microflow/select-call-connector-app-service/{appId}"
+   },
+   {
+    "ctrl": "MicroFlowController",
+    "method": "recover",
+    "path": "/udc/recover"
+   },
+   {
+    "ctrl": "MicroFlowController",
+    "method": "entityRef",
+    "path": "/udc/test/entityRef/{appId}"
+   },
+   {
+    "ctrl": "MicroFlowFunctionalCheckController",
+    "method": "checkPageRulePerformance",
+    "path": "/udc/micro-flow-functional-check/check-call-times"
+   },
+   {
+    "ctrl": "MicroFlowFunctionalCheckController",
+    "method": "findEventBoundPageRule",
+    "path": "/udc/micro-flow-functional-check/find-event-bound-page-rule"
+   },
+   {
+    "ctrl": "MicroFlowFunctionalCheckController",
+    "method": "findLtSpecifiedNumNodesFrontendMicroFlow",
+    "path": "/udc/micro-flow-functional-check/find-lt-specified-num-nodes-page-rule"
+   },
+   {
+    "ctrl": "MicroFlowFunctionalCheckController",
+    "method": "findPageRuleIncludeSpecifiedTypeNode",
+    "path": "/udc/micro-flow-functional-check/find-page-rule-include-specified-node-type"
+   },
+   {
+    "ctrl": "MicroFlowFunctionalCheckController",
+    "method": "findUnusedBackendMicroFlow",
+    "path": "/udc/micro-flow-functional-check/find-unused-backend-mf-info/{appId}"
+   },
+   {
+    "ctrl": "MicroFlowFunctionalCheckController",
+    "method": "calculateNodesNumberPercentage",
+    "path": "/udc/micro-flow-functional-check/calculate-nodes-number-percentage"
+   },
+   {
+    "ctrl": "MicroFlowFunctionalCheckController",
+    "method": "calculateMicroFlowUsagePercentage",
+    "path": "/udc/micro-flow-functional-check/calculate-micro-flow-usage-percentage"
+   },
+   {
+    "ctrl": "MicroFlowFunctionalCheckController",
+    "method": "searchCallAppService",
+    "path": "/udc/micro-flow-functional-check/search-call-starter-service/{regex}/{requestId}"
+   },
+   {
+    "ctrl": "MicroFlowFunctionalCheckController",
+    "method": "analyseFieldControlAttributes",
+    "path": "/udc/micro-flow-functional-check/analyse-field-control-attributes/{appId}"
+   },
+   {
+    "ctrl": "MicroFlowGroupController",
+    "method": "selectById",
+    "path": "/udc/micro-flow-group/{microFlowGroupId}"
+   },
+   {
+    "ctrl": "MicroFlowMacroController",
+    "method": "selectById",
+    "path": "/udc/micro-flow-macro/select/{id}"
+   },
+   {
+    "ctrl": "MicroFlowMacroController",
+    "method": "selectItemPageList",
+    "path": "/udc/micro-flow-macro/select-items"
+   },
+   {
+    "ctrl": "MicroFlowRefactorController",
+    "method": "collectComponentRelationships",
+    "path": "/udc/microflow-refactor/collect-component-relationships/{componentId}"
+   },
+   {
+    "ctrl": "MicroFlowRefactorController",
+    "method": "resolveNodesReferenceRelationships",
+    "path": "/udc/microflow-refactor/resolve-nodes-reference-relationships"
+   },
+   {
+    "ctrl": "MicroFlowRefactorController",
+    "method": "refactored",
+    "path": "/udc/microflow-refactor/refactored"
+   },
+   {
+    "ctrl": "MicroFlowUpgradeController",
+    "method": "thirdEntity",
+    "path": "/udc/micro-flow-upgrade/thirdEntity/{appId}/{serviceName}"
+   },
+   {
+    "ctrl": "MicroFlowUpgradeController",
+    "method": "batchThirdEntity",
+    "path": "/udc/micro-flow-upgrade/batch/thirdEntity"
+   },
+   {
+    "ctrl": "MicroFlowUpgradeController",
+    "method": "extendFullName",
+    "path": "/udc/micro-flow-upgrade/extend/fullname/{appId}"
+   },
+   {
+    "ctrl": "MicroFlowUpgradeController",
+    "method": "upgradeCallExtendAppService",
+    "path": "/udc/micro-flow-upgrade/upgrade/entity-event-full-name/{appId}"
+   },
+   {
+    "ctrl": "MultiEditController",
+    "method": "lock",
+    "path": "/udc/multi-edit/lock"
+   },
+   {
+    "ctrl": "MultiEditController",
+    "method": "renewal",
+    "path": "/udc/multi-edit/renewal"
+   },
+   {
+    "ctrl": "MultiEditController",
+    "method": "unlock",
+    "path": "/udc/multi-edit/unlock"
+   },
+   {
+    "ctrl": "MultiEditController",
+    "method": "forceUnlock",
+    "path": "/udc/multi-edit/force-unlock"
+   },
+   {
+    "ctrl": "MultiEditController",
+    "method": "getCurrentLock",
+    "path": "/udc/multi-edit/current-lock"
+   },
+   {
+    "ctrl": "OperationLogController",
+    "method": "initData",
+    "path": "/udc/search-initData/{appId}"
+   },
+   {
+    "ctrl": "OperationLogController",
+    "method": "searchOperationLogDetailsById",
+    "path": "/udc/operation-log/{id}"
+   },
+   {
+    "ctrl": "OperationLogController",
+    "method": "elementIsExist",
+    "path": "/udc/element-is-exist"
+   },
+   {
+    "ctrl": "PageInfoController",
+    "method": "createBaseInfo",
+    "path": "/udc/base-info/create"
+   },
+   {
+    "ctrl": "PageInfoController",
+    "method": "batchCreateBaseInfo",
+    "path": "/udc/base-info/batch-create"
+   },
+   {
+    "ctrl": "PageInfoController",
+    "method": "updateBaseInfo",
+    "path": "/udc/base-info/update"
+   },
+   {
+    "ctrl": "PageInfoController",
+    "method": "updatePageName",
+    "path": "/udc/base-info/update/name"
+   },
+   {
+    "ctrl": "PageInfoController",
+    "method": "updateDesignerVersion",
+    "path": "/udc/base-info/update/designer/version"
+   },
+   {
+    "ctrl": "PageInfoController",
+    "method": "batchCreate",
+    "path": "/udc/batch-create"
+   },
+   {
+    "ctrl": "PageInfoController",
+    "method": "selectById",
+    "path": "/udc/{id}"
+   },
+   {
+    "ctrl": "PageInfoController",
+    "method": "selectDetailsById",
+    "path": "/udc/detail/{id}"
+   },
+   {
+    "ctrl": "PageInfoController",
+    "method": "selectAndCreatePresetListByAppId",
+    "path": "/udc/preset/list/{appId}"
+   },
+   {
+    "ctrl": "PageInfoController",
+    "method": "selectMergeListByAppId",
+    "path": "/udc/list/relation/{appId}"
+   },
+   {
+    "ctrl": "PageInfoController",
+    "method": "selectDetailByAppId",
+    "path": "/udc/detail-app-id/{appId}"
+   },
+   {
+    "ctrl": "PageInfoController",
+    "method": "selectPageInParams",
+    "path": "/udc/params/{pageId}"
+   },
+   {
+    "ctrl": "PageInfoController",
+    "method": "update",
+    "path": "/udc/update"
+   },
+   {
+    "ctrl": "PageInfoController",
+    "method": "updateDraf",
+    "path": "/udc/update-draf"
+   },
+   {
+    "ctrl": "PageInfoController",
+    "method": "selectListByConditions",
+    "path": "/udc/search-no-page"
+   },
+   {
+    "ctrl": "PageInfoController",
+    "method": "selectDetailListByConditions",
+    "path": "/udc/select-list/by-conditions"
+   },
+   {
+    "ctrl": "PageInfoController",
+    "method": "selectDetailListWithDraftSchemaByConditions",
+    "path": "/udc/select-list-with-draft-schema/by-conditions"
+   },
+   {
+    "ctrl": "PageInfoController",
+    "method": "selectDetailListByConditions4Page",
+    "path": "/udc/designer/select-detail-list-by-conditions"
+   },
+   {
+    "ctrl": "PageInfoController",
+    "method": "deleteByConditions",
+    "path": "/udc/delete-by-conditions"
+   },
+   {
+    "ctrl": "PageInfoController",
+    "method": "copyPcFilterPlan2Mobile",
+    "path": "/udc/page-info/copy-pc-filter-plan"
+   },
+   {
+    "ctrl": "PageInfoController",
+    "method": "copyPcFilterPlan2MobileByCondition",
+    "path": "/udc/page-info/copy-pc-filter-plan-by-condition"
+   },
+   {
+    "ctrl": "PageInfoController",
+    "method": "recover",
+    "path": "/udc/recover"
+   },
+   {
+    "ctrl": "PageInfoController",
+    "method": "selectByAppIdV2",
+    "path": "/udc/select-by-appId/{appId}"
+   },
+   {
+    "ctrl": "PageLayoutController",
+    "method": "createBaseInfo",
+    "path": "/udc/base-info/create"
+   },
+   {
+    "ctrl": "PageLayoutController",
+    "method": "updateBaseInfo",
+    "path": "/udc/base-info/update"
+   },
+   {
+    "ctrl": "PageLayoutController",
+    "method": "selectById",
+    "path": "/udc/{id}"
+   },
+   {
+    "ctrl": "PageLayoutController",
+    "method": "selectDetailsById",
+    "path": "/udc/detail/{id}"
+   },
+   {
+    "ctrl": "PageLayoutController",
+    "method": "selectMergeListByAppId",
+    "path": "/udc/list/relation/{appId}"
+   },
+   {
+    "ctrl": "PageLayoutController",
+    "method": "selectDetailByAppId",
+    "path": "/udc/detail-app-id/{appId}"
+   },
+   {
+    "ctrl": "PageLayoutController",
+    "method": "selectPageInParams",
+    "path": "/udc/params/{layoutId}"
+   },
+   {
+    "ctrl": "PageLayoutController",
+    "method": "updateCaption",
+    "path": "/udc/base-info/update/caption"
+   },
+   {
+    "ctrl": "PageLayoutController",
+    "method": "update",
+    "path": "/udc/update"
+   },
+   {
+    "ctrl": "PageLayoutController",
+    "method": "updateDraf",
+    "path": "/udc/update-draf"
+   },
+   {
+    "ctrl": "PageLayoutController",
+    "method": "selectListByConditions",
+    "path": "/udc/search-no-page"
+   },
+   {
+    "ctrl": "PageLayoutController",
+    "method": "selectAvailableListByConditions",
+    "path": "/udc/search-no-page-available"
+   },
+   {
+    "ctrl": "PageLayoutController",
+    "method": "selectDetailListByConditions",
+    "path": "/udc/select-list/by-conditions"
+   },
+   {
+    "ctrl": "PageLayoutController",
+    "method": "selectDetailListWithDraftSchemaByConditions",
+    "path": "/udc/select-list-with-draft-schema/by-conditions"
+   },
+   {
+    "ctrl": "PageLayoutController",
+    "method": "selectDetailListByConditions4Page",
+    "path": "/udc/designer/select-detail-list-by-conditions"
+   },
+   {
+    "ctrl": "PageLayoutController",
+    "method": "deleteByConditions",
+    "path": "/udc/delete-by-conditions"
+   },
+   {
+    "ctrl": "PageLayoutController",
+    "method": "recover",
+    "path": "/udc/recover"
+   },
+   {
+    "ctrl": "PageRouteController",
+    "method": "selectById",
+    "path": "/udc/{id}"
+   },
+   {
+    "ctrl": "PageTemplateClassController",
+    "method": "create",
+    "path": "/udc/create"
+   },
+   {
+    "ctrl": "PageTemplateClassController",
+    "method": "delete",
+    "path": "/udc/delete"
+   },
+   {
+    "ctrl": "PageTemplateClassController",
+    "method": "update",
+    "path": "/udc/update"
+   },
+   {
+    "ctrl": "PageTemplateClassController",
+    "method": "select",
+    "path": "/udc/page-template-class/{id}"
+   },
+   {
+    "ctrl": "PageTemplateClassController",
+    "method": "selectAllListByConditions",
+    "path": "/udc/search"
+   },
+   {
+    "ctrl": "PageTemplateClassController",
+    "method": "selectClassTree",
+    "path": "/udc/select-tree"
+   },
+   {
+    "ctrl": "PageTemplateClassController",
+    "method": "selectClassTreeByCategory",
+    "path": "/udc/select-tree/{category}"
+   },
+   {
+    "ctrl": "PageTemplateController",
+    "method": "batchCreate",
+    "path": "/udc/batch-create"
+   },
+   {
+    "ctrl": "PageTemplateController",
+    "method": "createOrUpdate",
+    "path": "/udc/create-or-update"
+   },
+   {
+    "ctrl": "PageTemplateController",
+    "method": "saveAs",
+    "path": "/udc/save-as"
+   },
+   {
+    "ctrl": "PageTemplateController",
+    "method": "selectById",
+    "path": "/udc/page-template/{id}"
+   },
+   {
+    "ctrl": "PageTemplateController",
+    "method": "selectDetailById",
+    "path": "/udc/detail/{relationGroupId}"
+   },
+   {
+    "ctrl": "PageTemplateController",
+    "method": "selectAllListByConditions",
+    "path": "/udc/search-no-page"
+   },
+   {
+    "ctrl": "PageTemplateController",
+    "method": "selectListByConditions",
+    "path": "/udc/search"
+   },
+   {
+    "ctrl": "PageTemplateController",
+    "method": "selectListByConditionsWithRights",
+    "path": "/udc/search-with-rights"
+   },
+   {
+    "ctrl": "PageTemplateController",
+    "method": "selectAvailableListByConditions",
+    "path": "/udc/search-available"
+   },
+   {
+    "ctrl": "PageTemplateController",
+    "method": "exportPreset",
+    "path": "/udc/export-preset"
+   },
+   {
+    "ctrl": "PageTemplateController",
+    "method": "publish",
+    "path": "/udc/publish"
+   },
+   {
+    "ctrl": "PageTemplateController",
+    "method": "checkName",
+    "path": "/udc/check-name"
+   },
+   {
+    "ctrl": "PageTemplatePublishedController",
+    "method": "createOrUpdate",
+    "path": "/udc/create-or-update"
+   },
+   {
+    "ctrl": "PageTemplatePublishedController",
+    "method": "selectAvailableListByConditions",
+    "path": "/udc/search-available"
+   },
+   {
+    "ctrl": "PageTemplatePublishedController",
+    "method": "selectAllListByConditions",
+    "path": "/udc/search-no-page"
+   },
+   {
+    "ctrl": "PageTemplatePublishedController",
+    "method": "selectListByConditions",
+    "path": "/udc/search"
+   },
+   {
+    "ctrl": "PageTemplatePublishedController",
+    "method": "checkName",
+    "path": "/udc/check-name"
+   },
+   {
+    "ctrl": "PageTemplatePublishedController",
+    "method": "selectPageTemplatePublishedToPresetJson",
+    "path": "/udc/search-template-preset"
+   },
+   {
+    "ctrl": "ParameterController",
+    "method": "create",
+    "path": "/"
+   },
+   {
+    "ctrl": "ParameterController",
+    "method": "update",
+    "path": "/update"
+   },
+   {
+    "ctrl": "ParameterController",
+    "method": "deleteById",
+    "path": "/delete"
+   },
+   {
+    "ctrl": "ParameterController",
+    "method": "deleteByIds",
+    "path": "/batch-delete"
+   },
+   {
+    "ctrl": "ParameterController",
+    "method": "selectById",
+    "path": "/{id}"
+   },
+   {
+    "ctrl": "ParameterController",
+    "method": "selectPageByCondition",
+    "path": "/search"
+   },
+   {
+    "ctrl": "PortletController",
+    "method": "create",
+    "path": "/udc/create"
+   },
+   {
+    "ctrl": "PortletController",
+    "method": "update",
+    "path": "/udc/update"
+   },
+   {
+    "ctrl": "PortletController",
+    "method": "selectAllByAppId",
+    "path": "/udc/select-by-appId/{appId}"
+   },
+   {
+    "ctrl": "PortletController",
+    "method": "deleteById",
+    "path": "/udc/delete/{id}"
+   },
+   {
+    "ctrl": "PortletGroupController",
+    "method": "create",
+    "path": "/udc/create"
+   },
+   {
+    "ctrl": "PortletGroupController",
+    "method": "update",
+    "path": "/udc/update"
+   },
+   {
+    "ctrl": "PortletGroupController",
+    "method": "selectAllByAppId",
+    "path": "/udc/select-by-appId/{appId}"
+   },
+   {
+    "ctrl": "PortletGroupController",
+    "method": "deleteById",
+    "path": "/udc/delete/{id}"
+   },
+   {
+    "ctrl": "PublishStateController",
+    "method": "update",
+    "path": "/udc/publish-state/update"
+   },
+   {
+    "ctrl": "ReferConfigController",
+    "method": "create",
+    "path": "/udc/refer-config/create"
+   },
+   {
+    "ctrl": "ReferConfigController",
+    "method": "convertToMobile",
+    "path": "/udc/refer-config/convert-to-mobile"
+   },
+   {
+    "ctrl": "ReferConfigController",
+    "method": "update",
+    "path": "/udc/refer-config/update"
+   },
+   {
+    "ctrl": "ReferConfigController",
+    "method": "deleteById",
+    "path": "/udc/refer-config/delete"
+   },
+   {
+    "ctrl": "ReferConfigController",
+    "method": "selectById",
+    "path": "/udc/refer-config/{id}"
+   },
+   {
+    "ctrl": "ReferConfigController",
+    "method": "selectPageByCondition",
+    "path": "/udc/refer-config/search"
+   },
+   {
+    "ctrl": "SandboxController",
+    "method": "selectRoles",
+    "path": "/udc/select-roles"
+   },
+   {
+    "ctrl": "SandboxController",
+    "method": "selectSandboxByAppId",
+    "path": "/udc/select/{appId}"
+   },
+   {
+    "ctrl": "SandboxController",
+    "method": "getBuildInfo",
+    "path": "/udc/build-info/{appId}"
+   },
+   {
+    "ctrl": "SandboxController",
+    "method": "getDeltaBuildInfo",
+    "path": "/udc/delta-build-info/{appId}"
+   },
+   {
+    "ctrl": "SandboxController",
+    "method": "getReleaseBuildInfo",
+    "path": "/udc/release-build-info/{appId}"
+   },
+   {
+    "ctrl": "ScalabilityController",
+    "method": "selectById",
+    "path": "/udc/scalability/{id}"
+   },
+   {
+    "ctrl": "ScalabilityOptionController",
+    "method": "selectById",
+    "path": "/udc/scalability-option/{id}"
+   },
+   {
+    "ctrl": "ScalabilityOptionController",
+    "method": "selectByAppIdWithDetail",
+    "path": "/udc/scalability-option/select-by-appid/with-detail/{appId}"
+   },
+   {
+    "ctrl": "ScalabilityOptionController",
+    "method": "selectAllOptionName",
+    "path": "/udc/scalability-option/select-all-optionName"
+   },
+   {
+    "ctrl": "TempPresetMicroFlowController",
+    "method": "getMicroFlowDefinition",
+    "path": "/udc/preset/microflow/generate/{id}"
+   },
+   {
+    "ctrl": "UdcCtpEnumController",
+    "method": "selectOneByIdAndApp",
+    "path": "/udc/select-one-by-id-and-app"
+   },
+   {
+    "ctrl": "UdcCtpEnumController",
+    "method": "selectByEnumItemByDependentApp",
+    "path": "/udc/udc-enum-item/search-item-by-relation-app"
+   },
+   {
+    "ctrl": "UdcDesignMetadataController",
+    "method": "selectServiceMetadata",
+    "path": "/udc/design-metadata/service"
+   },
+   {
+    "ctrl": "UdcDesignMetadataController",
+    "method": "selectRestApiMetadata",
+    "path": "/udc/design-metadata/rest"
+   },
+   {
+    "ctrl": "UdcDesignMetadataController",
+    "method": "selectRestApiMetadataByFullNames",
+    "path": "/udc/design-metadata/rest-by-names"
+   },
+   {
+    "ctrl": "UdcDesignMetadataController",
+    "method": "selectRestApiMetadataByFullName",
+    "path": "/udc/design-metadata/rest-by-name"
+   },
+   {
+    "ctrl": "UdcDesignMetadataController",
+    "method": "selectRestApiMetadataExcludeBoot",
+    "path": "/udc/design-metadata/rest-exclude-boot"
+   },
+   {
+    "ctrl": "UdcDesignMetadataController",
+    "method": "selectOpenApiMetadata",
+    "path": "/udc/design-metadata/open-api"
+   },
+   {
+    "ctrl": "UdcDesignMetadataController",
+    "method": "selectOpenApiMetadataByFullNames",
+    "path": "/udc/design-metadata/open-api-by-names"
+   },
+   {
+    "ctrl": "UdcDesignMetadataController",
+    "method": "selectOpenApiMetadataByFullName",
+    "path": "/udc/design-metadata/open-api-by-name"
+   },
+   {
+    "ctrl": "UdcDesignMetadataController",
+    "method": "selectDtoMetadata",
+    "path": "/udc/design-metadata/dto"
+   },
+   {
+    "ctrl": "UdcDesignMetadataController",
+    "method": "selectDtoMetadataByFullNames",
+    "path": "/udc/design-metadata/dto-by-names"
+   },
+   {
+    "ctrl": "UdcDesignMetadataController",
+    "method": "selectDtoMetadataByFullName",
+    "path": "/udc/design-metadata/dto-by-name"
+   },
+   {
+    "ctrl": "UdcDesignMetadataController",
+    "method": "selectEntityRelationDtoMetadata",
+    "path": "/udc/design-metadata/entity-relation-dto"
+   },
+   {
+    "ctrl": "UdcDesignMetadataController",
+    "method": "selectDtoMetadataByEntityFullNames",
+    "path": "/udc/design-metadata/dto-by-entitys"
+   },
+   {
+    "ctrl": "UdcDesignMetadataController",
+    "method": "selectDtoMetadataByEntityFullName",
+    "path": "/udc/design-metadata/dto-by-entity"
+   },
+   {
+    "ctrl": "UdcDesignMetadataController",
+    "method": "selectDtoMetadataExcludeBoot",
+    "path": "/udc/design-metadata/dto-exclude-boot"
+   },
+   {
+    "ctrl": "UdcDesignMetadataController",
+    "method": "selectEntityRelationDtoMetadataExcludeBoot",
+    "path": "/udc/design-metadata/entity-relation-dto-exclude-boot"
+   },
+   {
+    "ctrl": "UdcDesignMetadataController",
+    "method": "selectEnumMetadata",
+    "path": "/udc/design-metadata/enum"
+   },
+   {
+    "ctrl": "UdcDesignMetadataController",
+    "method": "selectEnumMetadataByFullNames",
+    "path": "/udc/design-metadata/enum-by-names"
+   },
+   {
+    "ctrl": "UdcDesignMetadataController",
+    "method": "selectEnumMetadataByFullName",
+    "path": "/udc/design-metadata/enum-by-name"
+   },
+   {
+    "ctrl": "UdcDesignMetadataController",
+    "method": "selectEntityMetadata",
+    "path": "/udc/design-metadata/entity"
+   },
+   {
+    "ctrl": "UdcDesignMetadataController",
+    "method": "selectEntityMetadataByFullNames",
+    "path": "/udc/design-metadata/entity-by-names"
+   },
+   {
+    "ctrl": "UdcDesignMetadataController",
+    "method": "selectEntityMetadataByFullName",
+    "path": "/udc/design-metadata/entity-by-name"
+   },
+   {
+    "ctrl": "UdcDesignMetadataController",
+    "method": "selectEntityMetadataExcludeBoot",
+    "path": "/udc/design-metadata/entity-exclude-boot"
+   },
+   {
+    "ctrl": "UdcDesignMetadataController",
+    "method": "selectAppServiceMetadata",
+    "path": "/udc/design-metadata/app-service"
+   },
+   {
+    "ctrl": "UdcDesignMetadataController",
+    "method": "selectAppServiceMetadataByFullNames",
+    "path": "/udc/design-metadata/app-service-by-names"
+   },
+   {
+    "ctrl": "UdcDesignMetadataController",
+    "method": "selectAppServiceMetadataByFullName",
+    "path": "/udc/design-metadata/app-service-by-name"
+   },
+   {
+    "ctrl": "UdcDesignMetadataController",
+    "method": "selectAppServiceMetadataByDto",
+    "path": "/udc/design-metadata/app-service-dto"
+   },
+   {
+    "ctrl": "UdcDesignMetadataController",
+    "method": "selectAppServiceMetadataExcludeBoot",
+    "path": "/udc/design-metadata/app-service-exclude-boot"
+   },
+   {
+    "ctrl": "UdcDesignMetadataController",
+    "method": "selectMqMetadata",
+    "path": "/udc/design-metadata/mq"
+   },
+   {
+    "ctrl": "UdcDesignMetadataController",
+    "method": "selectMqMetadataByFullNames",
+    "path": "/udc/design-metadata/mq-by-names"
+   },
+   {
+    "ctrl": "UdcDesignMetadataController",
+    "method": "selectMqMetadataByFullName",
+    "path": "/udc/design-metadata/mq-by-name"
+   },
+   {
+    "ctrl": "UdcDesignMetadataController",
+    "method": "selectMqMetadataExcludeBoot",
+    "path": "/udc/design-metadata/mq-exclude-boot"
+   },
+   {
+    "ctrl": "UdcDesignMetadataController",
+    "method": "selectAggMetadata",
+    "path": "/udc/design-metadata/agg"
+   },
+   {
+    "ctrl": "UdcDesignMetadataController",
+    "method": "selectAggMetadataByFullNames",
+    "path": "/udc/design-metadata/agg-by-names"
+   },
+   {
+    "ctrl": "UdcDesignMetadataController",
+    "method": "selectAggMetadataByFullName",
+    "path": "/udc/design-metadata/agg-by-name"
+   },
+   {
+    "ctrl": "UdcDesignMetadataController",
+    "method": "selectAggEntityMetadata",
+    "path": "/udc/design-metadata/agg-entity"
+   },
+   {
+    "ctrl": "UdcDesignMetadataController",
+    "method": "selectAggEntityMetadataByFullName",
+    "path": "/udc/design-metadata/agg-entity-by-name"
+   },
+   {
+    "ctrl": "UdcDesignMetadataController",
+    "method": "selectAggEntityMetadataByFullNames",
+    "path": "/udc/design-metadata/agg-entity-by-names"
+   },
+   {
+    "ctrl": "UdcDesignMetadataController",
+    "method": "selectEntityListByAgg",
+    "path": "/udc/design-metadata/entity-by-agg"
+   },
+   {
+    "ctrl": "UdcDesignMetadataController",
+    "method": "selectAggMetadataExcludeBoot",
+    "path": "/udc/design-metadata/agg-exclude-boot"
+   },
+   {
+    "ctrl": "UdcDesignMetadataController",
+    "method": "selectReferMetadataByEntity",
+    "path": "/udc/design-metadata/refer"
+   },
+   {
+    "ctrl": "UdcDesignMetadataController",
+    "method": "selectBasicEntityMetadata",
+    "path": "/udc/design-metadata/basic-entity"
+   },
+   {
+    "ctrl": "UdcDesignMetadataController",
+    "method": "selectBasicEntityMetadataByFullNames",
+    "path": "/udc/design-metadata/basic-entity-by-names"
+   },
+   {
+    "ctrl": "UdcDesignMetadataController",
+    "method": "selectBasicEntityMetadataByFullName",
+    "path": "/udc/design-metadata/basic-entity-by-name"
+   },
+   {
+    "ctrl": "UdcDesignMetadataController",
+    "method": "selectPageMetadataByFullName",
+    "path": "/udc/design-metadata/page"
+   },
+   {
+    "ctrl": "UdcEnumCategoryController",
+    "method": "selectById",
+    "path": "/udc/udc-enum-category/{id}"
+   },
+   {
+    "ctrl": "UdcEnumCategoryController",
+    "method": "selectPageByConditions",
+    "path": "/udc/udc-enum-category/select-page"
+   },
+   {
+    "ctrl": "UdcEnumCategoryController",
+    "method": "selectListByConditions",
+    "path": "/udc/udc-enum-category/select-list"
+   },
+   {
+    "ctrl": "UdcEnumController",
+    "method": "create",
+    "path": "/udc/udc-enum"
+   },
+   {
+    "ctrl": "UdcEnumController",
+    "method": "deleteByIds",
+    "path": "/udc/udc-enum/batch-delete"
+   },
+   {
+    "ctrl": "UdcEnumController",
+    "method": "search",
+    "path": "/udc/udc-enum/search"
+   },
+   {
+    "ctrl": "UdcEnumController",
+    "method": "selectListByConditions",
+    "path": "/udc/udc-enum/list"
+   },
+   {
+    "ctrl": "UdcEnumController",
+    "method": "selectById",
+    "path": "/udc/udc-enum/{id}"
+   },
+   {
+    "ctrl": "UdcEnumController",
+    "method": "selectListByTerm",
+    "path": "/udc/udc-enum/search/term"
+   },
+   {
+    "ctrl": "UdcEnumItemController",
+    "method": "create",
+    "path": "/udc/udc-enum-item"
+   },
+   {
+    "ctrl": "UdcEnumItemController",
+    "method": "deleteById",
+    "path": "/udc/udc-enum-item/delete"
+   },
+   {
+    "ctrl": "UdcEnumItemController",
+    "method": "deleteByIds",
+    "path": "/udc/udc-enum-item/batch-delete"
+   },
+   {
+    "ctrl": "UdcEnumItemController",
+    "method": "selectPageByConditions",
+    "path": "/udc/udc-enum-item/search"
+   },
+   {
+    "ctrl": "UdcEnumItemController",
+    "method": "selectById",
+    "path": "/udc/udc-enum-item/{id}"
+   },
+   {
+    "ctrl": "UdcEnumItemController",
+    "method": "selectByEnumIdAndLevel",
+    "path": "/udc/udc-enum-item/{enumId}/{level}"
+   },
+   {
+    "ctrl": "UdcEnumItemController",
+    "method": "selectListByTerm",
+    "path": "/udc/udc-enum-item/search/term"
+   },
+   {
+    "ctrl": "UdcEnumItemController",
+    "method": "exportExcel",
+    "path": "/udc/udc-enum-item/export"
+   },
+   {
+    "ctrl": "UdcEnumItemController",
+    "method": "importExcel",
+    "path": "/udc/udc-enum-item/import"
+   },
+   {
+    "ctrl": "UdcFileController",
+    "method": "download",
+    "path": "/udc/runtime/file/download"
+   },
+   {
+    "ctrl": "UdcFileController",
+    "method": "metadataDownload",
+    "path": "/udc/runtime/file/metadata/{appId}"
+   },
+   {
+    "ctrl": "UdcManagerController",
+    "method": "explain",
+    "path": "/udc/limiter/explain/{limiterName}"
+   },
+   {
+    "ctrl": "UdcManagerController",
+    "method": "clearTimeout",
+    "path": "/udc/limiter/clear/timeout/{limiterName}"
+   },
+   {
+    "ctrl": "UdcManagerController",
+    "method": "clearForce",
+    "path": "/udc/limiter/clear/force/{limiterName}"
+   },
+   {
+    "ctrl": "UdcManagerController",
+    "method": "getRequestStatus",
+    "path": "/udc/manager/request/status/{requestId}"
+   },
+   {
+    "ctrl": "UdcManagerController",
+    "method": "getLogs",
+    "path": "/udc/manager/logs/{logKey}"
+   },
+   {
+    "ctrl": "UdcManagerController",
+    "method": "enableAppLogConfig",
+    "path": "/udc/manager/app-log-config/renewal"
+   },
+   {
+    "ctrl": "UdcManagerController",
+    "method": "resetAppLogConfig",
+    "path": "/udc/manager/app-log-config/reset"
+   },
+   {
+    "ctrl": "UdcManagerController",
+    "method": "getAppLogConfig",
+    "path": "/udc/manager/app-log-config/info/{appName}"
+   },
+   {
+    "ctrl": "UdcManagerController",
+    "method": "resetAppDataLogConfig",
+    "path": "/udc/manager/app-data-log-config/reset"
+   },
+   {
+    "ctrl": "UdcManagerController",
+    "method": "getAppDataLogConfig",
+    "path": "/udc/manager/app-data-log-config/info"
+   },
+   {
+    "ctrl": "UdcManagerController",
+    "method": "selectPageByConditions",
+    "path": "/udc/manager/app/search"
+   },
+   {
+    "ctrl": "UdcManagerController",
+    "method": "selectSubAppPageByConditions",
+    "path": "/udc/manager/sub-app/search"
+   },
+   {
+    "ctrl": "UdcSandBoxLogController",
+    "method": "search",
+    "path": "/udc/sandbox/logs/search/microflow"
+   },
+   {
+    "ctrl": "UdcSandBoxLogController",
+    "method": "searchDetails",
+    "path": "/udc/sandbox/logs/search-details/microflow"
+   },
+   {
+    "ctrl": "UdcSandBoxLogController",
+    "method": "searchFlowDetails",
+    "path": "/udc/sandbox/logs/search-details/microflow/flowLog"
+   },
+   {
+    "ctrl": "UdcSandBoxLogController",
+    "method": "searchPageLog",
+    "path": "/udc/sandbox/logs/pageLog/search"
+   },
+   {
+    "ctrl": "UdcSandBoxLogController",
+    "method": "searchPageLogNonMetadata",
+    "path": "/udc/sandbox/logs/pageLog/search-non-metadata"
+   }
+  ]
+ }
+}

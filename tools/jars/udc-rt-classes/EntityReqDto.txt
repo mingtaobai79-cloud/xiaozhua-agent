@@ -1,0 +1,136 @@
+Classfile /<SEEYON_AGENT_ROOT>/tools/jars/udc-rt-classes/com/seeyon/boot/starter/udcrt/proxy/dto/UdcEntityRequestDto.class
+  Last modified 2026年10月1日; size 1157 bytes
+  SHA-256 checksum 80be7e88ea957d479630e3103d64d560510fa2dd0aaed880c4e0af51b5453f94
+  Compiled from "UdcEntityRequestDto.java"
+public class com.seeyon.boot.starter.udcrt.proxy.dto.UdcEntityRequestDto extends com.seeyon.boot.starter.udcrt.proxy.dto.UdcEntityBaseRequestDto
+  minor version: 0
+  major version: 52
+  flags: (0x0021) ACC_PUBLIC, ACC_SUPER
+  this_class: #4                          // com/seeyon/boot/starter/udcrt/proxy/dto/UdcEntityRequestDto
+  super_class: #5                         // com/seeyon/boot/starter/udcrt/proxy/dto/UdcEntityBaseRequestDto
+  interfaces: 0, fields: 3, methods: 5, attributes: 1
+Constant pool:
+   #1 = Methodref          #5.#32         // com/seeyon/boot/starter/udcrt/proxy/dto/UdcEntityBaseRequestDto."<init>":()V
+   #2 = Fieldref           #4.#33         // com/seeyon/boot/starter/udcrt/proxy/dto/UdcEntityRequestDto.methodMetadata:Lcom/seeyon/boot/starter/extmetadata/dto/UdcAppServiceMethodMetadataDto;
+   #3 = Fieldref           #4.#34         // com/seeyon/boot/starter/udcrt/proxy/dto/UdcEntityRequestDto.data:Ljava/lang/Object;
+   #4 = Class              #35            // com/seeyon/boot/starter/udcrt/proxy/dto/UdcEntityRequestDto
+   #5 = Class              #36            // com/seeyon/boot/starter/udcrt/proxy/dto/UdcEntityBaseRequestDto
+   #6 = Utf8               serialVersionUID
+   #7 = Utf8               J
+   #8 = Utf8               ConstantValue
+   #9 = Long               -6182411591858114159l
+  #11 = Utf8               methodMetadata
+  #12 = Utf8               Lcom/seeyon/boot/starter/extmetadata/dto/UdcAppServiceMethodMetadataDto;
+  #13 = Utf8               data
+  #14 = Utf8               Ljava/lang/Object;
+  #15 = Utf8               <init>
+  #16 = Utf8               ()V
+  #17 = Utf8               Code
+  #18 = Utf8               LineNumberTable
+  #19 = Utf8               LocalVariableTable
+  #20 = Utf8               this
+  #21 = Utf8               Lcom/seeyon/boot/starter/udcrt/proxy/dto/UdcEntityRequestDto;
+  #22 = Utf8               getMethodMetadata
+  #23 = Utf8               ()Lcom/seeyon/boot/starter/extmetadata/dto/UdcAppServiceMethodMetadataDto;
+  #24 = Utf8               getData
+  #25 = Utf8               ()Ljava/lang/Object;
+  #26 = Utf8               setMethodMetadata
+  #27 = Utf8               (Lcom/seeyon/boot/starter/extmetadata/dto/UdcAppServiceMethodMetadataDto;)V
+  #28 = Utf8               setData
+  #29 = Utf8               (Ljava/lang/Object;)V
+  #30 = Utf8               SourceFile
+  #31 = Utf8               UdcEntityRequestDto.java
+  #32 = NameAndType        #15:#16        // "<init>":()V
+  #33 = NameAndType        #11:#12        // methodMetadata:Lcom/seeyon/boot/starter/extmetadata/dto/UdcAppServiceMethodMetadataDto;
+  #34 = NameAndType        #13:#14        // data:Ljava/lang/Object;
+  #35 = Utf8               com/seeyon/boot/starter/udcrt/proxy/dto/UdcEntityRequestDto
+  #36 = Utf8               com/seeyon/boot/starter/udcrt/proxy/dto/UdcEntityBaseRequestDto
+{
+  private static final long serialVersionUID;
+    descriptor: J
+    flags: (0x001a) ACC_PRIVATE, ACC_STATIC, ACC_FINAL
+    ConstantValue: long -6182411591858114159l
+
+  private com.seeyon.boot.starter.extmetadata.dto.UdcAppServiceMethodMetadataDto methodMetadata;
+    descriptor: Lcom/seeyon/boot/starter/extmetadata/dto/UdcAppServiceMethodMetadataDto;
+    flags: (0x0002) ACC_PRIVATE
+
+  private java.lang.Object data;
+    descriptor: Ljava/lang/Object;
+    flags: (0x0002) ACC_PRIVATE
+
+  public com.seeyon.boot.starter.udcrt.proxy.dto.UdcEntityRequestDto();
+    descriptor: ()V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method com/seeyon/boot/starter/udcrt/proxy/dto/UdcEntityBaseRequestDto."<init>":()V
+         4: return
+      LineNumberTable:
+        line 9: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lcom/seeyon/boot/starter/udcrt/proxy/dto/UdcEntityRequestDto;
+
+  public com.seeyon.boot.starter.extmetadata.dto.UdcAppServiceMethodMetadataDto getMethodMetadata();
+    descriptor: ()Lcom/seeyon/boot/starter/extmetadata/dto/UdcAppServiceMethodMetadataDto;
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: getfield      #2                  // Field methodMetadata:Lcom/seeyon/boot/starter/extmetadata/dto/UdcAppServiceMethodMetadataDto;
+         4: areturn
+      LineNumberTable:
+        line 12: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lcom/seeyon/boot/starter/udcrt/proxy/dto/UdcEntityRequestDto;
+
+  public java.lang.Object getData();
+    descriptor: ()Ljava/lang/Object;
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: getfield      #3                  // Field data:Ljava/lang/Object;
+         4: areturn
+      LineNumberTable:
+        line 16: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lcom/seeyon/boot/starter/udcrt/proxy/dto/UdcEntityRequestDto;
+
+  public void setMethodMetadata(com.seeyon.boot.starter.extmetadata.dto.UdcAppServiceMethodMetadataDto);
+    descriptor: (Lcom/seeyon/boot/starter/extmetadata/dto/UdcAppServiceMethodMetadataDto;)V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0
+         1: aload_1
+         2: putfield      #2                  // Field methodMetadata:Lcom/seeyon/boot/starter/extmetadata/dto/UdcAppServiceMethodMetadataDto;
+         5: return
+      LineNumberTable:
+        line 8: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       6     0  this   Lcom/seeyon/boot/starter/udcrt/proxy/dto/UdcEntityRequestDto;
+            0       6     1 methodMetadata   Lcom/seeyon/boot/starter/extmetadata/dto/UdcAppServiceMethodMetadataDto;
+
+  public void setData(java.lang.Object);
+    descriptor: (Ljava/lang/Object;)V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0
+         1: aload_1
+         2: putfield      #3                  // Field data:Ljava/lang/Object;
+         5: return
+      LineNumberTable:
+        line 8: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       6     0  this   Lcom/seeyon/boot/starter/udcrt/proxy/dto/UdcEntityRequestDto;
+            0       6     1  data   Ljava/lang/Object;
+}
+SourceFile: "UdcEntityRequestDto.java"

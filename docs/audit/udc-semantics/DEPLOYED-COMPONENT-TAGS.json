@@ -1,0 +1,78 @@
+{
+  "schema": "udc-deployed-component-tags/1",
+  "evidence": {
+    "kind": "LIVE",
+    "channel": "K8s API read-only GET /api/v1/namespaces/<ns>/pods (spec.containers[].image)",
+    "captured": "2026-10-15 (round 10)",
+    "ns": "lowcode-test",
+    "pdodnames_recorded": false,
+    "note": "只落平台构件；客户应用 pod 名/镜像名含客户标识，一律不入库、不落名"
+  },
+  "deployed_tags": {
+    "app-approval": "5.3.291",
+    "app-common": "5.3.274",
+    "bpm": "5.3.374",
+    "cdp-data": "5.3.279",
+    "cdp-schedule": "5.3.273",
+    "cip-capability": "5.3.276",
+    "cip-connector": "5.3.286",
+    "cip-convert": "5.3.261",
+    "cip-manager": "5.3.273",
+    "cip-openapi-gateway": "5.3.265",
+    "ctp-affair": "5.3.315",
+    "ctp-media": "5.3.261",
+    "ctp-message": "5.3.287",
+    "ctp-user": "5.3.429",
+    "ctp-webapi-gateway": "5.3.266",
+    "m5": "5.3.265",
+    "organization": "5.3.368",
+    "portal": "5.3.392",
+    "udc": "5.3.517"
+  },
+  "artifacts": {
+    "app-approval": "app-approval",
+    "app-common": "app-common",
+    "bpm": "bpm",
+    "cdp-data": "cdp-data",
+    "cdp-schedule": "cdp-schedule",
+    "cip-capability": "cip-capability",
+    "cip-connector": "cip-connector",
+    "cip-convert": "cip-convert",
+    "cip-manager": "cip-manager",
+    "cip-openapi-gateway": "cip-openapi-gateway",
+    "ctp-affair": "ctp-affair",
+    "ctp-media": "ctp-media",
+    "ctp-message": "ctp-message",
+    "ctp-user": "ctp-user",
+    "ctp-webapi-gateway": "ctp-webapi-gateway",
+    "m5": "m5",
+    "organization": "organization",
+    "portal": "portal",
+    "udc": "udc"
+  },
+  "findings": {
+    "udc_service_tag": "5.3.517",
+    "hypothesis_deployed_udc_neq_5_3_517": "REFUTED (service image tag level)",
+    "cross_check_documented_runtime_facades": {
+      "bpm": "5.3.374",
+      "organization": "5.3.368",
+      "ctp-user": "5.3.429"
+    },
+    "control_plane_log_provider": "udc (tag 5.3.517) 是唯一打印 request url:/udc/** 的平台 pod"
+  },
+  "limitations": [
+    "镜像 tag 只证构件版本，不证其中 jar 内每个 class 的字节；载体级证据见 udc-assemble-5.3.517-deployed/ 的部署态 javap",
+    "本轮全量日志（无 tailLines）中 micro-flow-group 命中 0 次 ⇒ 第九轮的两个 MISS_T 路由已滚出保留窗口，未再观测"
+  ],
+  "reverification": {
+    "round": 14,
+    "date": "2026-10-15",
+    "channel": "K8s API read-only GET /api/v1/namespaces/lowcode-test/pods",
+    "pods_total": 79,
+    "components_seen": 19,
+    "matched": 19,
+    "differences": 0,
+    "not_seen": [],
+    "result": "19/19 identical to round-10 snapshot"
+  }
+}

@@ -1,0 +1,2544 @@
+{
+ "endNode": {
+  "id": "",
+  "name": "",
+  "type": "END",
+  "actionType": "END_NODE",
+  "nodeId": "MFEndNode",
+  "caption": "结束",
+  "description": "",
+  "input": null,
+  "output": {
+   "id": null,
+   "javaType": "java.lang.String",
+   "dataType": "STRING",
+   "type": "OBJECT",
+   "desc": "V17 全节点验收出参",
+   "dtoType": null,
+   "udcApp": null,
+   "name": "_FLOW_OUTPUT_bMx2qh"
+  },
+  "value": {
+   "type": "SelectParam",
+   "selectParam": {
+    "id": "_CREATE_VARIABLE_3eLmAb",
+    "javaType": "java.lang.String",
+    "dataType": "STRING",
+    "type": "OBJECT",
+    "desc": "vText",
+    "dtoType": "",
+    "name": "_CREATE_VARIABLE_3eLmAb",
+    "key": "_CREATE_VARIABLE_3eLmAb",
+    "path": "_CREATE_VARIABLE_3eLmAb",
+    "outputName": "_CREATE_VARIABLE_3eLmAb",
+    "description": "vText",
+    "position": "parent"
+   },
+   "desc": "vText [文本]"
+  },
+  "paramType": "BASIC",
+  "basic": "STRING",
+  "isArray": false,
+  "desc": "V17 全节点验收出参",
+  "outPutDesc": null,
+  "isCompleted": true
+ },
+ "output": {
+  "id": null,
+  "javaType": "java.lang.String",
+  "dataType": "STRING",
+  "type": "OBJECT",
+  "desc": "V17 全节点验收出参",
+  "dtoType": null,
+  "udcApp": null,
+  "name": "_FLOW_OUTPUT_bMx2qh"
+ },
+ "input": {
+  "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+  "javaType": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+  "dataType": "DTO",
+  "type": "OBJECT",
+  "desc": "小爪验收实体全量",
+  "dtoType": null,
+  "udcApp": null,
+  "name": "_FLOW_INPUT_xzhV17",
+  "inApp": true,
+  "appName": "datamigration8704025620829192834",
+  "hasPagination": false,
+  "dtoFullName": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+  "isArray": true,
+  "dto": true
+ },
+ "sourceType": "PAGE",
+ "trigger": {
+  "id": "",
+  "nodeId": "MFStartNode",
+  "caption": "开始",
+  "description": "",
+  "type": "MANUAL",
+  "input": {
+   "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+   "javaType": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+   "dataType": "DTO",
+   "type": "OBJECT",
+   "desc": "小爪验收实体全量",
+   "dtoType": null,
+   "udcApp": null,
+   "name": "_FLOW_INPUT_xzhV17",
+   "inApp": true,
+   "appName": "datamigration8704025620829192834",
+   "hasPagination": false,
+   "dtoFullName": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+   "isArray": true,
+   "dto": true
+  },
+  "output": {
+   "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+   "javaType": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+   "dataType": "DTO",
+   "type": "OBJECT",
+   "desc": "小爪验收实体全量",
+   "dtoType": null,
+   "udcApp": null,
+   "name": "_FLOW_INPUT_xzhV17",
+   "inApp": true,
+   "appName": "datamigration8704025620829192834",
+   "hasPagination": false,
+   "dtoFullName": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+   "isArray": true,
+   "dto": true
+  }
+ },
+ "nodes": [
+  {
+   "paramType": "BASIC",
+   "title": "vText",
+   "dataType": "STRING",
+   "value": null,
+   "nodeId": "CREATE_VARIABLE_3eLmAb",
+   "actionType": "CREATE_VARIABLE",
+   "caption": "创建变量(vText)",
+   "description": null,
+   "type": "ACTIVITY",
+   "output": {
+    "id": null,
+    "javaType": "java.lang.String",
+    "dataType": "STRING",
+    "type": "OBJECT",
+    "desc": "vText",
+    "name": "_CREATE_VARIABLE_3eLmAb"
+   },
+   "isCompleted": true
+  },
+  {
+   "paramType": "BASIC",
+   "title": "vNum",
+   "dataType": "BIGINTEGER",
+   "value": null,
+   "nodeId": "CREATE_VARIABLE_RDQZon",
+   "actionType": "CREATE_VARIABLE",
+   "caption": "创建变量(vNum)",
+   "description": null,
+   "type": "ACTIVITY",
+   "output": {
+    "id": null,
+    "javaType": "java.lang.Long",
+    "dataType": "BIGINTEGER",
+    "type": "OBJECT",
+    "desc": "vNum",
+    "name": "_CREATE_VARIABLE_RDQZon"
+   },
+   "isCompleted": true
+  },
+  {
+   "paramType": "BASIC",
+   "title": "vList",
+   "dataType": "STRING",
+   "nodeId": "CREATE_LIST_U7yqmc",
+   "actionType": "CREATE_LIST",
+   "caption": "创建列表(vList)",
+   "description": null,
+   "type": "ACTIVITY",
+   "output": {
+    "id": null,
+    "javaType": "java.lang.String",
+    "dataType": "STRING",
+    "type": "ARRAY",
+    "desc": "vList",
+    "name": "_CREATE_LIST_U7yqmc"
+   },
+   "isCompleted": true
+  },
+  {
+   "nodeId": "CREATE_MAP_QhLDSd",
+   "name": null,
+   "type": "ACTIVITY",
+   "caption": "创建Map",
+   "description": null,
+   "runAfter": null,
+   "input": null,
+   "output": {
+    "id": null,
+    "javaType": "java.util.Map",
+    "dataType": "MAP",
+    "type": "OBJECT",
+    "desc": "vMap",
+    "name": "_CREATE_MAP_QhLDSd",
+    "generics": {
+     "keyType": {
+      "dataType": "String"
+     },
+     "valueType": {
+      "dataType": "Object",
+      "javaType": "java.lang.Object"
+     }
+    }
+   },
+   "isCompleted": true,
+   "actionType": "CREATE_MAP",
+   "paramType": null,
+   "dataType": null,
+   "title": "vMap",
+   "generics": {
+    "keyType": {
+     "dataType": "String"
+    },
+    "valueType": {
+     "dataType": "Object",
+     "javaType": "java.lang.Object"
+    }
+   },
+   "entries": []
+  },
+  {
+   "nodeId": "CHANGE_VARIABLE_1u33Ih",
+   "name": null,
+   "type": "ACTIVITY",
+   "caption": "修改变量",
+   "description": null,
+   "runAfter": null,
+   "input": null,
+   "output": null,
+   "isCompleted": true,
+   "actionType": "CHANGE_VARIABLE",
+   "selectParam": {
+    "id": null,
+    "javaType": "java.lang.String",
+    "dataType": "STRING",
+    "type": "OBJECT",
+    "desc": "vText",
+    "name": "_CREATE_VARIABLE_3eLmAb",
+    "position": "parent",
+    "outputName": "_CREATE_VARIABLE_3eLmAb",
+    "description": "vText",
+    "nodeInfo": {
+     "nodeId": "CREATE_VARIABLE_3eLmAb",
+     "type": "ACTIVITY",
+     "actionType": "CREATE_VARIABLE"
+    }
+   },
+   "mappingType": null,
+   "attrs": null,
+   "mapping": null
+  },
+  {
+   "nodeId": "LIST_OPERATION_8ua7pm",
+   "name": null,
+   "type": "ACTIVITY",
+   "caption": "列表处理(SIZE)",
+   "description": null,
+   "runAfter": null,
+   "input": null,
+   "output": null,
+   "isCompleted": true,
+   "actionType": "LIST_OPERATION",
+   "selectParam": {
+    "id": null,
+    "javaType": "java.lang.String",
+    "dataType": "STRING",
+    "type": "ARRAY",
+    "desc": "vList",
+    "name": "_CREATE_LIST_U7yqmc",
+    "position": "parent",
+    "outputName": "_CREATE_LIST_U7yqmc",
+    "description": "vList",
+    "nodeInfo": {
+     "nodeId": "CREATE_LIST_U7yqmc",
+     "type": "ACTIVITY",
+     "actionType": "CREATE_LIST"
+    }
+   },
+   "operationType": {
+    "type": "SIZE"
+   },
+   "title": "列表处理后结果"
+  },
+  {
+   "nodeId": "CHANGE_LIST_u3riRG",
+   "name": null,
+   "type": "ACTIVITY",
+   "caption": "修改变量(列表)",
+   "description": null,
+   "runAfter": null,
+   "input": null,
+   "output": null,
+   "isCompleted": true,
+   "actionType": "CHANGE_LIST",
+   "selectParam": {
+    "id": null,
+    "javaType": "java.lang.String",
+    "dataType": "STRING",
+    "type": "ARRAY",
+    "desc": "vList",
+    "name": "_CREATE_LIST_U7yqmc",
+    "position": "parent",
+    "outputName": "_CREATE_LIST_U7yqmc",
+    "description": "vList",
+    "nodeInfo": {
+     "nodeId": "CREATE_LIST_U7yqmc",
+     "type": "ACTIVITY",
+     "actionType": "CREATE_LIST"
+    }
+   },
+   "action": "ADD",
+   "dataSource": {
+    "id": null,
+    "javaType": "java.lang.String",
+    "dataType": "STRING",
+    "type": "OBJECT",
+    "desc": "vText",
+    "name": "_CREATE_VARIABLE_3eLmAb",
+    "position": "parent",
+    "outputName": "_CREATE_VARIABLE_3eLmAb",
+    "description": "vText",
+    "nodeInfo": {
+     "nodeId": "CREATE_VARIABLE_3eLmAb",
+     "type": "ACTIVITY",
+     "actionType": "CREATE_VARIABLE"
+    }
+   }
+  },
+  {
+   "nodeId": "MAP_OPERATION_8sf0yn",
+   "name": null,
+   "type": "ACTIVITY",
+   "caption": "Map操作(PUT)",
+   "description": null,
+   "runAfter": null,
+   "input": null,
+   "output": null,
+   "isCompleted": true,
+   "actionType": "MAP_OPERATION",
+   "selectMap": {
+    "id": null,
+    "javaType": "java.util.Map",
+    "dataType": "MAP",
+    "type": "OBJECT",
+    "desc": "vMap",
+    "name": "_CREATE_MAP_QhLDSd",
+    "generics": {
+     "keyType": {
+      "dataType": "String"
+     },
+     "valueType": {
+      "dataType": "Object",
+      "javaType": "java.lang.Object"
+     }
+    },
+    "position": "parent",
+    "outputName": "_CREATE_MAP_QhLDSd",
+    "description": "vMap",
+    "nodeInfo": {
+     "nodeId": "CREATE_MAP_QhLDSd",
+     "type": "ACTIVITY",
+     "actionType": "CREATE_MAP"
+    }
+   },
+   "operationType": "PUT",
+   "generics": {
+    "keyType": {
+     "dataType": "String"
+    },
+    "valueType": {
+     "dataType": "Object",
+     "javaType": "java.lang.Object"
+    }
+   },
+   "entries": [
+    {
+     "key": {
+      "type": "SelectParam",
+      "selectParam": {
+       "id": null,
+       "javaType": "java.lang.String",
+       "dataType": "STRING",
+       "type": "OBJECT",
+       "desc": "vText",
+       "name": "_CREATE_VARIABLE_3eLmAb",
+       "position": "parent",
+       "outputName": "_CREATE_VARIABLE_3eLmAb",
+       "description": "vText",
+       "nodeInfo": {
+        "nodeId": "CREATE_VARIABLE_3eLmAb",
+        "type": "ACTIVITY",
+        "actionType": "CREATE_VARIABLE"
+       }
+      }
+     },
+     "value": {
+      "type": "SelectParam",
+      "selectParam": {
+       "id": null,
+       "javaType": "java.lang.Long",
+       "dataType": "BIGINTEGER",
+       "type": "OBJECT",
+       "desc": "vNum",
+       "name": "_CREATE_VARIABLE_RDQZon",
+       "position": "parent",
+       "outputName": "_CREATE_VARIABLE_RDQZon",
+       "description": "vNum",
+       "nodeInfo": {
+        "nodeId": "CREATE_VARIABLE_RDQZon",
+        "type": "ACTIVITY",
+        "actionType": "CREATE_VARIABLE"
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "paramType": "ENTITY_OBJECT",
+   "app": {
+    "appId": "8704025620829192834",
+    "appName": "datamigration8704025620829192834",
+    "caption": "",
+    "inApp": true,
+    "udcApp": true,
+    "dynamicDependency": false
+   },
+   "mappingType": "value",
+   "title": "vEntity",
+   "dataType": "DTO",
+   "structure": {
+    "key": "com.seeyon.datamigration8704025620829192834.domain.entity.YsFull6956",
+    "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+    "label": "小爪验收实体全量",
+    "dataType": "DTO",
+    "entity": "com.seeyon.datamigration8704025620829192834.domain.entity.YsFull6956",
+    "dtoType": "MASTER_ENTITY",
+    "udcApp": true,
+    "fullName": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+    "relationEntity": "-2537349473285092530",
+    "entityId": "-2537349473285092530",
+    "methodLegal": {
+     "available": true,
+     "complexCondition": true,
+     "seniorMethod": true,
+     "serviceType": "NONE",
+     "interfaceClassFullName": null
+    }
+   },
+   "value": null,
+   "nodeId": "CREATE_VARIABLE_uX6yCl",
+   "actionType": "CREATE_VARIABLE",
+   "caption": "创建变量(vEntity)",
+   "description": null,
+   "type": "ACTIVITY",
+   "output": {
+    "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+    "javaType": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+    "dataType": "DTO",
+    "type": "OBJECT",
+    "desc": "vEntity",
+    "appName": "datamigration8704025620829192834",
+    "dtoType": "MASTER_ENTITY",
+    "udcApp": true,
+    "relationEntity": "-2537349473285092530",
+    "name": "_CREATE_VARIABLE_uX6yCl"
+   },
+   "isCompleted": true
+  },
+  {
+   "nodeId": "CHANGE_VARIABLE_sqv49j",
+   "name": null,
+   "type": "ACTIVITY",
+   "caption": "修改变量(实体字段)",
+   "description": null,
+   "runAfter": null,
+   "input": null,
+   "output": null,
+   "isCompleted": true,
+   "actionType": "CHANGE_VARIABLE",
+   "selectParam": {
+    "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+    "javaType": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+    "dataType": "DTO",
+    "type": "OBJECT",
+    "desc": "vEntity",
+    "appName": "datamigration8704025620829192834",
+    "dtoType": "MASTER_ENTITY",
+    "udcApp": true,
+    "relationEntity": "-2537349473285092530",
+    "name": "vEntity",
+    "position": "parent",
+    "outputName": "_CREATE_VARIABLE_uX6yCl",
+    "description": "vEntity",
+    "nodeInfo": {
+     "nodeId": "CREATE_VARIABLE_uX6yCl",
+     "type": "ACTIVITY",
+     "actionType": "CREATE_VARIABLE"
+    },
+    "key": "_CREATE_VARIABLE_uX6yCl",
+    "path": "_CREATE_VARIABLE_uX6yCl"
+   },
+   "mappingType": "attrs",
+   "attrs": [
+    {
+     "attrType": {
+      "validate": true,
+      "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f01text",
+      "name": "f01text",
+      "fullName": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f01text",
+      "md5": "",
+      "javaType": "java.lang.String",
+      "dataType": "STRING",
+      "type": "OBJECT",
+      "caption": "文本字段",
+      "desc": "文本字段",
+      "description": "",
+      "refId": "",
+      "refApp": "datamigration8704025620829192834",
+      "refType": "NONE",
+      "multiSelect": false,
+      "dataI18n": false,
+      "sort": 6,
+      "customs": {
+       "basicType": false,
+       "mfDataI18n": false,
+       "defaultOrExpression": false,
+       "notNull": false,
+       "sourceType": "ENTITY",
+       "dataType": "STRING",
+       "name": "f01text",
+       "id": "-4144494497326241617"
+      }
+     },
+     "value": {
+      "type": "Expression",
+      "expression": {
+       "title": "{查询单条数据(1).文本字段+当前时间}",
+       "schema": "{\"designData\": {\"expressionTranslation\": \"查询单条数据(1).文本字段+当前时间\", \"resultTypeInfo\": \"STRING\", \"resultTypeFullName\": null, \"terminalType\": \"BACKEND\", \"isMultiSelect\": false, \"context\": [{\"name\": \"_RETRIEVE_KNCEzh\", \"description\": \"查询单条数据(1)\", \"type\": \"OBJECT\", \"selectable\": false, \"enableDataI18n\": false, \"properties\": [{\"name\": \"_RETRIEVE_KNCEzh\", \"description\": \"查询单条数据(1)\", \"type\": \"OBJECT\", \"selectable\": true, \"enableDataI18n\": false, \"properties\": [{\"name\": \"f01text\", \"description\": \"文本字段\", \"type\": \"STRING\", \"selectable\": true, \"enableDataI18n\": false, \"uniformityParams\": {\"paramId\": \"com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f01text\", \"paramCategory\": \"STRING\", \"extensionProperties\": \"{\\\"id\\\":\\\"com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f01text\\\",\\\"relationType\\\":\\\"NONE\\\",\\\"javaType\\\":\\\"java.lang.String\\\"}\", \"pageNodeExtension\": null}}], \"uniformityParams\": {\"paramId\": \"com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto\", \"paramCategory\": \"OBJECT\", \"extensionProperties\": \"{\\\"id\\\":\\\"com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto\\\"}\", \"pageNodeExtension\": null}}], \"uniformityParams\": {\"paramId\": \"com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto\", \"paramCategory\": \"DTO\", \"extensionProperties\": \"{\\\"id\\\":\\\"com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto\\\",\\\"javaType\\\":\\\"com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto\\\"}\", \"pageNodeExtension\": null}}], \"tokens\": [{\"uid\": \"033f4e24-81af-41b1-ba35-814756ac5c8e\", \"type\": \"VARIABLE\", \"value\": \"_RETRIEVE_KNCEzh._RETRIEVE_KNCEzh.f01text\", \"desc\": \"查询单条数据(1).文本字段\"}, {\"uid\": \"c0d2e70e-f34d-4f66-911f-874049d715e7\", \"type\": \"OPERATOR\", \"value\": \"+\", \"desc\": \"+\"}, {\"uid\": \"a7b15265-7c09-4958-b524-256498da7ffa\", \"type\": \"SYSTEM\", \"value\": \"system.currentDateTime\", \"desc\": \"当前时间\"}], \"sourceAppName\": null}, \"runtimeData\": {\"executableExpr\": \"93gDaq3/nXB1+C8j4AjYNEVRRY+GX/DRejGmES20GvQ=_RETRIEVE_KNCEzh._RETRIEVE_KNCEzh.f01text+system.currentDateTime\"}}"
+      }
+     },
+     "desc": "文本字段"
+    },
+    {
+     "attrType": {
+      "validate": true,
+      "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f03int",
+      "name": "f03int",
+      "fullName": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f03int",
+      "md5": "",
+      "javaType": "java.lang.Integer",
+      "dataType": "INTEGER",
+      "type": "OBJECT",
+      "caption": "整数字段",
+      "desc": "整数字段",
+      "description": "",
+      "refId": "",
+      "refApp": "datamigration8704025620829192834",
+      "refType": "NONE",
+      "multiSelect": false,
+      "dataI18n": false,
+      "sort": 8,
+      "customs": {
+       "basicType": false,
+       "mfDataI18n": false,
+       "defaultOrExpression": false,
+       "notNull": false,
+       "sourceType": "ENTITY",
+       "dataType": "INTEGER",
+       "name": "f03int",
+       "id": "-6040618203145140416"
+      }
+     },
+     "value": {
+      "type": "Simple",
+      "simple": 100,
+      "desc": "100"
+     },
+     "desc": "整数字段"
+    },
+    {
+     "attrType": {
+      "validate": true,
+      "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f10bool",
+      "name": "f10bool",
+      "fullName": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f10bool",
+      "md5": "",
+      "javaType": "java.lang.Boolean",
+      "dataType": "BOOLEAN",
+      "type": "OBJECT",
+      "caption": "布尔字段",
+      "desc": "布尔字段",
+      "description": "",
+      "refId": "",
+      "refApp": "datamigration8704025620829192834",
+      "refType": "NONE",
+      "multiSelect": false,
+      "dataI18n": false,
+      "sort": 15,
+      "customs": {
+       "basicType": false,
+       "mfDataI18n": false,
+       "defaultOrExpression": false,
+       "notNull": false,
+       "sourceType": "ENTITY",
+       "dataType": "BOOLEAN",
+       "name": "f10bool",
+       "id": "-6349194120059174012"
+      }
+     },
+     "value": {
+      "type": "Simple",
+      "simple": true,
+      "desc": "true"
+     },
+     "desc": "布尔字段"
+    }
+   ]
+  },
+  {
+   "nodeId": "RETRIEVE_KNCEzh",
+   "name": null,
+   "type": "ACTIVITY",
+   "caption": "查询单条数据",
+   "description": null,
+   "runAfter": null,
+   "input": null,
+   "output": {
+    "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+    "javaType": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+    "dataType": "DTO",
+    "type": "OBJECT",
+    "desc": "小爪验收实体全量",
+    "appName": "datamigration8704025620829192834",
+    "dtoType": "MASTER_ENTITY",
+    "udcApp": true,
+    "relationEntity": "-2537349473285092530",
+    "name": "_RETRIEVE_KNCEzh"
+   },
+   "isCompleted": true,
+   "actionType": "RETRIEVE",
+   "app": {
+    "appId": "8704025620829192834",
+    "appName": "datamigration8704025620829192834",
+    "caption": "",
+    "inApp": true,
+    "udcApp": true,
+    "dynamicDependency": false
+   },
+   "structure": {
+    "key": "com.seeyon.datamigration8704025620829192834.domain.entity.YsFull6956",
+    "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+    "label": "小爪验收实体全量",
+    "dataType": "DTO",
+    "entity": "com.seeyon.datamigration8704025620829192834.domain.entity.YsFull6956",
+    "dtoType": "MASTER_ENTITY",
+    "udcApp": true,
+    "fullName": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+    "relationEntity": "-2537349473285092530",
+    "entityId": "-2537349473285092530",
+    "methodLegal": {
+     "available": true,
+     "complexCondition": true,
+     "seniorMethod": true,
+     "serviceType": "NONE",
+     "interfaceClassFullName": null
+    }
+   },
+   "selectType": "DTO",
+   "scope": "OBJECT",
+   "methodLegal": {
+    "available": true,
+    "complexCondition": true,
+    "seniorMethod": true,
+    "serviceType": "NONE",
+    "interfaceClassFullName": null
+   },
+   "fetchType": "CONDITION",
+   "nullHandling": "CONTINUE",
+   "title": "小爪验收实体全量",
+   "condition": [
+    {
+     "type": "GROUP",
+     "uuid": "0e0f716a-e1fd-4809-bc14-9127b74784b8",
+     "conditions": [
+      {
+       "type": "CONDITION",
+       "leftParam": {
+        "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f01text",
+        "type": "OBJECT",
+        "javaType": "java.lang.String",
+        "dto": "_f01text",
+        "field": "f01text",
+        "desc": "文本字段",
+        "dataType": "STRING",
+        "multiSelect": false
+       },
+       "operator": {
+        "value": "EQ",
+        "desc": "="
+       },
+       "rightParams": [
+        {
+         "type": "CONSTANT",
+         "value": "XZH",
+         "desc": "XZH"
+        }
+       ],
+       "uuid": "ffa6a684-0501-40cd-a62f-b486eefeaa64",
+       "logicalOperator": "AND"
+      }
+     ]
+    }
+   ],
+   "sortParams": [
+    {
+     "sortType": "DESC",
+     "attrType": {
+      "validate": true,
+      "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f03int",
+      "name": "f03int",
+      "fullName": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f03int",
+      "md5": "",
+      "javaType": "java.lang.Integer",
+      "dataType": "INTEGER",
+      "type": "OBJECT",
+      "caption": "整数字段",
+      "desc": "整数字段",
+      "description": "",
+      "refId": "",
+      "refApp": "datamigration8704025620829192834",
+      "refType": "NONE",
+      "multiSelect": false,
+      "dataI18n": false,
+      "sort": 8,
+      "customs": {
+       "basicType": false,
+       "mfDataI18n": false,
+       "defaultOrExpression": false,
+       "notNull": false,
+       "sourceType": "ENTITY",
+       "dataType": "INTEGER",
+       "name": "f03int",
+       "id": "-6040618203145140416"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "nodeId": "RETRIEVE_ARRAY_YNzIUA",
+   "name": null,
+   "type": "ACTIVITY",
+   "caption": "查询多条数据",
+   "description": null,
+   "runAfter": null,
+   "input": null,
+   "output": {
+    "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+    "javaType": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+    "dataType": "DTO",
+    "type": "ARRAY",
+    "desc": "小爪验收实体全量列表",
+    "appName": "datamigration8704025620829192834",
+    "dtoType": "MASTER_ENTITY",
+    "udcApp": true,
+    "relationEntity": "-2537349473285092530",
+    "name": "_RETRIEVE_ARRAY_YNzIUA"
+   },
+   "isCompleted": true,
+   "actionType": "RETRIEVE_ARRAY",
+   "app": {
+    "appId": "8704025620829192834",
+    "appName": "datamigration8704025620829192834",
+    "caption": "",
+    "inApp": true,
+    "udcApp": true,
+    "dynamicDependency": false
+   },
+   "structure": {
+    "key": "com.seeyon.datamigration8704025620829192834.domain.entity.YsFull6956",
+    "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+    "label": "小爪验收实体全量",
+    "dataType": "DTO",
+    "entity": "com.seeyon.datamigration8704025620829192834.domain.entity.YsFull6956",
+    "dtoType": "MASTER_ENTITY",
+    "udcApp": true,
+    "fullName": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+    "relationEntity": "-2537349473285092530",
+    "entityId": "-2537349473285092530",
+    "methodLegal": {
+     "available": true,
+     "complexCondition": true,
+     "seniorMethod": true,
+     "serviceType": "NONE",
+     "interfaceClassFullName": null
+    }
+   },
+   "selectType": "DTO",
+   "scope": "OBJECT",
+   "methodLegal": {
+    "available": true,
+    "complexCondition": true,
+    "seniorMethod": true,
+    "serviceType": "NONE",
+    "interfaceClassFullName": null
+   },
+   "fetchType": "CONDITION",
+   "nullHandling": "CONTINUE",
+   "variableTitle": "小爪验收实体全量列表",
+   "condition": [
+    {
+     "type": "GROUP",
+     "uuid": "cda655fb-1fcd-4941-a4dc-ea2a80ccf640",
+     "conditions": [
+      {
+       "type": "CONDITION",
+       "leftParam": {
+        "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f01text",
+        "type": "OBJECT",
+        "javaType": "java.lang.String",
+        "dto": "_f01text",
+        "field": "f01text",
+        "desc": "文本字段",
+        "dataType": "STRING",
+        "multiSelect": false
+       },
+       "operator": {
+        "value": "EQ",
+        "desc": "="
+       },
+       "rightParams": [
+        {
+         "type": "CONSTANT",
+         "value": "XZH",
+         "desc": "XZH"
+        }
+       ],
+       "uuid": "0b34b0fd-91e4-42c1-b912-e817c8847da1",
+       "logicalOperator": "AND"
+      }
+     ]
+    }
+   ],
+   "sortParams": [
+    {
+     "sortType": "DESC",
+     "attrType": {
+      "validate": true,
+      "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f03int",
+      "name": "f03int",
+      "fullName": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f03int",
+      "md5": "",
+      "javaType": "java.lang.Integer",
+      "dataType": "INTEGER",
+      "type": "OBJECT",
+      "caption": "整数字段",
+      "desc": "整数字段",
+      "description": "",
+      "refId": "",
+      "refApp": "datamigration8704025620829192834",
+      "refType": "NONE",
+      "multiSelect": false,
+      "dataI18n": false,
+      "sort": 8,
+      "customs": {
+       "basicType": false,
+       "mfDataI18n": false,
+       "defaultOrExpression": false,
+       "notNull": false,
+       "sourceType": "ENTITY",
+       "dataType": "INTEGER",
+       "name": "f03int",
+       "id": "-6040618203145140416"
+      }
+     }
+    }
+   ],
+   "size": 999,
+   "pageSearch": "false",
+   "pageInfo": null
+  },
+  {
+   "nodeId": "CREATE_ENTITY_UuKpNp",
+   "name": null,
+   "type": "ACTIVITY",
+   "caption": "插入数据",
+   "description": null,
+   "runAfter": null,
+   "input": null,
+   "output": {
+    "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+    "javaType": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+    "dataType": "DTO",
+    "type": "OBJECT",
+    "desc": "小爪验收实体全量",
+    "appName": "datamigration8704025620829192834",
+    "dtoType": "MASTER_ENTITY",
+    "udcApp": true,
+    "relationEntity": "-2537349473285092530",
+    "name": "_CREATE_ENTITY_UuKpNp"
+   },
+   "isCompleted": true,
+   "actionType": "CREATE_ENTITY",
+   "app": {
+    "appId": "8704025620829192834",
+    "appName": "datamigration8704025620829192834",
+    "caption": "",
+    "inApp": true,
+    "udcApp": true,
+    "dynamicDependency": false
+   },
+   "structure": {
+    "key": "com.seeyon.datamigration8704025620829192834.domain.entity.YsFull6956",
+    "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+    "label": "小爪验收实体全量",
+    "dataType": "DTO",
+    "entity": "com.seeyon.datamigration8704025620829192834.domain.entity.YsFull6956",
+    "dtoType": "MASTER_ENTITY",
+    "udcApp": true,
+    "fullName": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+    "relationEntity": "-2537349473285092530",
+    "entityId": "-2537349473285092530",
+    "methodLegal": {
+     "available": true,
+     "complexCondition": true,
+     "seniorMethod": true,
+     "serviceType": "NONE",
+     "interfaceClassFullName": null
+    }
+   },
+   "title": "小爪验收实体全量",
+   "methodLegal": {
+    "available": true,
+    "complexCondition": true,
+    "seniorMethod": true,
+    "serviceType": "NONE",
+    "interfaceClassFullName": null
+   },
+   "mappingType": "attrs",
+   "attrs": [
+    {
+     "attrType": {
+      "validate": true,
+      "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f01text",
+      "name": "f01text",
+      "fullName": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f01text",
+      "md5": "",
+      "javaType": "java.lang.String",
+      "dataType": "STRING",
+      "type": "OBJECT",
+      "caption": "文本字段",
+      "desc": "文本字段",
+      "description": "",
+      "refId": "",
+      "refApp": "datamigration8704025620829192834",
+      "refType": "NONE",
+      "multiSelect": false,
+      "dataI18n": false,
+      "sort": 6,
+      "customs": {
+       "basicType": false,
+       "mfDataI18n": false,
+       "defaultOrExpression": false,
+       "notNull": false,
+       "sourceType": "ENTITY",
+       "dataType": "STRING",
+       "name": "f01text",
+       "id": "-4144494497326241617"
+      }
+     },
+     "value": {
+      "type": "SelectParam",
+      "selectParam": {
+       "key": "_CREATE_VARIABLE_uX6yClcom.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f01text",
+       "name": "f01text",
+       "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f01text",
+       "appName": "datamigration8704025620829192834",
+       "description": "文本字段",
+       "position": "children",
+       "path": "comseeyondatamigration8704025620829192834dtoYsFull6956Dtof01text",
+       "outputName": "_CREATE_VARIABLE_uX6yCl",
+       "dataType": "STRING",
+       "type": "OBJECT",
+       "javaType": "java.lang.String",
+       "dtoType": "CUSTOM",
+       "udcApp": true,
+       "multiSelect": false,
+       "customs": {
+        "basicType": false,
+        "mfDataI18n": false,
+        "defaultOrExpression": false,
+        "notNull": false,
+        "sourceType": "ENTITY",
+        "dataType": "STRING",
+        "name": "f01text",
+        "id": "-4144494497326241617"
+       },
+       "parentLabel": ""
+      }
+     }
+    },
+    {
+     "attrType": {
+      "validate": true,
+      "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f03int",
+      "name": "f03int",
+      "fullName": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f03int",
+      "md5": "",
+      "javaType": "java.lang.Integer",
+      "dataType": "INTEGER",
+      "type": "OBJECT",
+      "caption": "整数字段",
+      "desc": "整数字段",
+      "description": "",
+      "refId": "",
+      "refApp": "datamigration8704025620829192834",
+      "refType": "NONE",
+      "multiSelect": false,
+      "dataI18n": false,
+      "sort": 8,
+      "customs": {
+       "basicType": false,
+       "mfDataI18n": false,
+       "defaultOrExpression": false,
+       "notNull": false,
+       "sourceType": "ENTITY",
+       "dataType": "INTEGER",
+       "name": "f03int",
+       "id": "-6040618203145140416"
+      }
+     },
+     "value": {
+      "type": "SelectParam",
+      "selectParam": {
+       "key": "_CREATE_VARIABLE_uX6yClcom.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f03int",
+       "name": "f03int",
+       "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f03int",
+       "appName": "datamigration8704025620829192834",
+       "description": "整数字段",
+       "position": "children",
+       "path": "comseeyondatamigration8704025620829192834dtoYsFull6956Dtof03int",
+       "outputName": "_CREATE_VARIABLE_uX6yCl",
+       "dataType": "INTEGER",
+       "type": "OBJECT",
+       "javaType": "java.lang.Integer",
+       "dtoType": "CUSTOM",
+       "udcApp": true,
+       "multiSelect": false,
+       "customs": {
+        "basicType": false,
+        "mfDataI18n": false,
+        "defaultOrExpression": false,
+        "notNull": false,
+        "sourceType": "ENTITY",
+        "dataType": "INTEGER",
+        "name": "f03int",
+        "id": "-6040618203145140416"
+       },
+       "parentLabel": ""
+      }
+     }
+    },
+    {
+     "attrType": {
+      "validate": true,
+      "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f05dec",
+      "name": "f05dec",
+      "fullName": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f05dec",
+      "md5": "",
+      "javaType": "java.math.BigDecimal",
+      "dataType": "DECIMAL",
+      "type": "OBJECT",
+      "caption": "小数字段",
+      "desc": "小数字段",
+      "description": "",
+      "refId": "",
+      "refApp": "datamigration8704025620829192834",
+      "refType": "NONE",
+      "multiSelect": false,
+      "dataI18n": false,
+      "sort": 10,
+      "customs": {
+       "basicType": false,
+       "mfDataI18n": false,
+       "defaultOrExpression": false,
+       "notNull": false,
+       "sourceType": "ENTITY",
+       "dataType": "DECIMAL",
+       "name": "f05dec",
+       "id": "-6666907948550150155"
+      }
+     },
+     "value": {
+      "type": "SelectParam",
+      "selectParam": {
+       "key": "_CREATE_VARIABLE_uX6yClcom.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f05dec",
+       "name": "f05dec",
+       "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f05dec",
+       "appName": "datamigration8704025620829192834",
+       "description": "小数字段",
+       "position": "children",
+       "path": "comseeyondatamigration8704025620829192834dtoYsFull6956Dtof05dec",
+       "outputName": "_CREATE_VARIABLE_uX6yCl",
+       "dataType": "DECIMAL",
+       "type": "OBJECT",
+       "javaType": "java.math.BigDecimal",
+       "dtoType": "CUSTOM",
+       "udcApp": true,
+       "multiSelect": false,
+       "customs": {
+        "basicType": false,
+        "mfDataI18n": false,
+        "defaultOrExpression": false,
+        "notNull": false,
+        "sourceType": "ENTITY",
+        "dataType": "DECIMAL",
+        "name": "f05dec",
+        "id": "-6666907948550150155"
+       },
+       "parentLabel": ""
+      }
+     }
+    }
+   ],
+   "value": null
+  },
+  {
+   "nodeId": "CHANGE_ENTITY_UVTac4",
+   "name": null,
+   "type": "ACTIVITY",
+   "caption": "修改数据",
+   "description": null,
+   "runAfter": null,
+   "input": null,
+   "output": {
+    "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+    "javaType": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+    "dataType": "DTO",
+    "type": "OBJECT",
+    "desc": "小爪验收实体全量",
+    "appName": "datamigration8704025620829192834",
+    "dtoType": "MASTER_ENTITY",
+    "udcApp": true,
+    "relationEntity": "-2537349473285092530",
+    "name": "_CHANGE_ENTITY_UVTac4"
+   },
+   "isCompleted": true,
+   "actionType": "CHANGE_ENTITY",
+   "selectParam": {
+    "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+    "javaType": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+    "dataType": "DTO",
+    "type": "OBJECT",
+    "desc": "vEntity",
+    "appName": "datamigration8704025620829192834",
+    "dtoType": "MASTER_ENTITY",
+    "udcApp": true,
+    "relationEntity": "-2537349473285092530",
+    "name": "_CREATE_VARIABLE_uX6yCl",
+    "position": "parent",
+    "outputName": "_CREATE_VARIABLE_uX6yCl",
+    "description": "vEntity",
+    "nodeInfo": {
+     "nodeId": "CREATE_VARIABLE_uX6yCl",
+     "type": "ACTIVITY",
+     "actionType": "CREATE_VARIABLE"
+    }
+   },
+   "title": "小爪验收实体全量",
+   "attrs": []
+  },
+  {
+   "nodeId": "CREATE_BATCH_ENTITY_gPLAUB",
+   "name": null,
+   "type": "ACTIVITY",
+   "caption": "批量新增",
+   "description": null,
+   "runAfter": null,
+   "input": null,
+   "output": {
+    "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+    "javaType": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+    "dataType": "DTO",
+    "type": "ARRAY",
+    "desc": "小爪验收实体全量列表",
+    "appName": "datamigration8704025620829192834",
+    "dtoType": "MASTER_ENTITY",
+    "udcApp": true,
+    "relationEntity": "-2537349473285092530",
+    "name": "_CREATE_BATCH_ENTITY_gPLAUB"
+   },
+   "isCompleted": true,
+   "actionType": "CREATE_BATCH_ENTITY",
+   "selectParam": {
+    "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+    "javaType": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+    "dataType": "DTO",
+    "type": "ARRAY",
+    "desc": "小爪验收实体全量列表",
+    "appName": "datamigration8704025620829192834",
+    "dtoType": "MASTER_ENTITY",
+    "udcApp": true,
+    "relationEntity": "-2537349473285092530",
+    "name": "_RETRIEVE_ARRAY_YNzIUA",
+    "position": "parent",
+    "outputName": "_RETRIEVE_ARRAY_YNzIUA",
+    "description": "小爪验收实体全量列表",
+    "nodeInfo": {
+     "nodeId": "RETRIEVE_ARRAY_YNzIUA",
+     "type": "ACTIVITY",
+     "actionType": "RETRIEVE_ARRAY"
+    }
+   },
+   "title": "小爪验收实体全量列表"
+  },
+  {
+   "nodeId": "CHANGE_BATCH_ENTITY_fqaCY3",
+   "name": null,
+   "type": "ACTIVITY",
+   "caption": "批量修改",
+   "description": null,
+   "runAfter": null,
+   "input": null,
+   "output": {
+    "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+    "javaType": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+    "dataType": "DTO",
+    "type": "ARRAY",
+    "desc": "小爪验收实体全量列表",
+    "appName": "datamigration8704025620829192834",
+    "dtoType": "MASTER_ENTITY",
+    "udcApp": true,
+    "relationEntity": "-2537349473285092530",
+    "name": "_CHANGE_BATCH_ENTITY_fqaCY3"
+   },
+   "isCompleted": true,
+   "actionType": "CHANGE_BATCH_ENTITY",
+   "selectParam": {
+    "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+    "javaType": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+    "dataType": "DTO",
+    "type": "ARRAY",
+    "desc": "小爪验收实体全量列表",
+    "appName": "datamigration8704025620829192834",
+    "dtoType": "MASTER_ENTITY",
+    "udcApp": true,
+    "relationEntity": "-2537349473285092530",
+    "name": "_RETRIEVE_ARRAY_YNzIUA",
+    "position": "parent",
+    "outputName": "_RETRIEVE_ARRAY_YNzIUA",
+    "description": "小爪验收实体全量列表",
+    "nodeInfo": {
+     "nodeId": "RETRIEVE_ARRAY_YNzIUA",
+     "type": "ACTIVITY",
+     "actionType": "RETRIEVE_ARRAY"
+    }
+   },
+   "title": "小爪验收实体全量列表"
+  },
+  {
+   "nodeId": "DELETE_ENTITY_B1aneP",
+   "name": null,
+   "type": "ACTIVITY",
+   "caption": "删除数据",
+   "description": null,
+   "runAfter": null,
+   "input": null,
+   "output": {
+    "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+    "javaType": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+    "dataType": "DTO",
+    "type": "OBJECT",
+    "desc": "小爪验收实体全量",
+    "appName": "datamigration8704025620829192834",
+    "dtoType": "MASTER_ENTITY",
+    "udcApp": true,
+    "relationEntity": "-2537349473285092530",
+    "name": "_DELETE_ENTITY_B1aneP"
+   },
+   "isCompleted": true,
+   "actionType": "DELETE_ENTITY",
+   "app": {
+    "appId": "8704025620829192834",
+    "appName": "datamigration8704025620829192834",
+    "caption": "",
+    "inApp": true,
+    "udcApp": true,
+    "dynamicDependency": false
+   },
+   "structure": {
+    "key": "com.seeyon.datamigration8704025620829192834.domain.entity.YsFull6956",
+    "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+    "label": "小爪验收实体全量",
+    "dataType": "DTO",
+    "entity": "com.seeyon.datamigration8704025620829192834.domain.entity.YsFull6956",
+    "dtoType": "MASTER_ENTITY",
+    "udcApp": true,
+    "fullName": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+    "relationEntity": "-2537349473285092530",
+    "entityId": "-2537349473285092530",
+    "methodLegal": {
+     "available": true,
+     "complexCondition": true,
+     "seniorMethod": true,
+     "serviceType": "NONE",
+     "interfaceClassFullName": null
+    }
+   },
+   "title": "小爪验收实体全量",
+   "methodLegal": {
+    "available": true,
+    "complexCondition": true,
+    "seniorMethod": true,
+    "serviceType": "NONE",
+    "interfaceClassFullName": null
+   },
+   "deleteType": "CONDITION",
+   "condition": [
+    {
+     "type": "GROUP",
+     "uuid": "d13375cb-11cc-4b08-b032-30a0c55f8960",
+     "conditions": [
+      {
+       "type": "CONDITION",
+       "leftParam": {
+        "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.id",
+        "type": "OBJECT",
+        "javaType": "java.lang.Long",
+        "dto": "_id",
+        "field": "id",
+        "desc": "ID",
+        "dataType": "BIGINTEGER",
+        "multiSelect": false
+       },
+       "operator": {
+        "value": "EQ",
+        "desc": "="
+       },
+       "rightParams": [
+        {
+         "type": "CONSTANT",
+         "value": -1,
+         "desc": "-1"
+        }
+       ],
+       "uuid": "1f4cbace-5424-4c10-bd1f-f8f6664ebdfa",
+       "logicalOperator": "AND"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "nodeId": "SUB_MICROFLOW_yaIRYe",
+   "name": null,
+   "type": "ACTIVITY",
+   "caption": "子微流程",
+   "description": null,
+   "runAfter": null,
+   "input": null,
+   "output": null,
+   "isCompleted": true,
+   "actionType": "SUB_MICROFLOW",
+   "mfService": {
+    "id": "7257274749861959105",
+    "appCaption": null,
+    "appId": "8704025620829192834",
+    "appName": null,
+    "caption": "小爪子流程桩",
+    "description": "",
+    "hasInput": false,
+    "hasOutput": false,
+    "hostPath": null,
+    "input": null,
+    "method": "GET",
+    "name": "xzhSubflowStub",
+    "output": null,
+    "path": "/microflow/xzhSubflowStub",
+    "triggerType": "MANUAL",
+    "type": "CUSTOM",
+    "restType": "GET"
+   },
+   "outputName": null,
+   "outPutDesc": null
+  },
+  {
+   "nodeId": "CALL_APP_SERVICE_6emWKa",
+   "name": null,
+   "type": "ACTIVITY",
+   "caption": "插入数据(验收实体建档)",
+   "description": null,
+   "runAfter": null,
+   "input": null,
+   "output": {
+    "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+    "javaType": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+    "dataType": "DTO",
+    "type": "OBJECT",
+    "desc": "小爪验收实体全量",
+    "appName": "datamigration8704025620829192834",
+    "dtoType": "MASTER_ENTITY",
+    "udcApp": true,
+    "relationEntity": "-2537349473285092530",
+    "name": "_CREATE_ENTITY_UuKpNp"
+   },
+   "isCompleted": true,
+   "actionType": "CREATE_ENTITY",
+   "app": {
+    "appId": "8704025620829192834",
+    "appName": "datamigration8704025620829192834",
+    "caption": "",
+    "inApp": true,
+    "udcApp": true,
+    "dynamicDependency": false
+   },
+   "structure": {
+    "key": "com.seeyon.datamigration8704025620829192834.domain.entity.YsFull6956",
+    "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+    "label": "小爪验收实体全量",
+    "dataType": "DTO",
+    "entity": "com.seeyon.datamigration8704025620829192834.domain.entity.YsFull6956",
+    "dtoType": "MASTER_ENTITY",
+    "udcApp": true,
+    "fullName": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+    "relationEntity": "-2537349473285092530",
+    "entityId": "-2537349473285092530",
+    "methodLegal": {
+     "available": true,
+     "complexCondition": true,
+     "seniorMethod": true,
+     "serviceType": "NONE",
+     "interfaceClassFullName": null
+    }
+   },
+   "title": "小爪验收实体全量",
+   "methodLegal": {
+    "available": true,
+    "complexCondition": true,
+    "seniorMethod": true,
+    "serviceType": "NONE",
+    "interfaceClassFullName": null
+   },
+   "mappingType": "attrs",
+   "attrs": [
+    {
+     "attrType": {
+      "validate": true,
+      "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f01text",
+      "name": "f01text",
+      "fullName": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f01text",
+      "md5": "",
+      "javaType": "java.lang.String",
+      "dataType": "STRING",
+      "type": "OBJECT",
+      "caption": "文本字段",
+      "desc": "文本字段",
+      "description": "",
+      "refId": "",
+      "refApp": "datamigration8704025620829192834",
+      "refType": "NONE",
+      "multiSelect": false,
+      "dataI18n": false,
+      "sort": 0,
+      "customs": {
+       "basicType": false,
+       "mfDataI18n": false,
+       "defaultOrExpression": false,
+       "notNull": false,
+       "sourceType": "ENTITY",
+       "dataType": "STRING",
+       "name": "f01text",
+       "id": "-4144494497326241617"
+      }
+     },
+     "value": {
+      "type": "SelectParam",
+      "selectParam": {
+       "key": "_RETRIEVE_KNCEzhcom.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f01text",
+       "name": "f01text",
+       "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f01text",
+       "appName": "dto",
+       "description": "文本字段",
+       "position": "children",
+       "path": "comseeyondatamigration8704025620829192834dtoYsFull6956Dtof01text",
+       "outputName": "_RETRIEVE_KNCEzh",
+       "type": "OBJECT",
+       "dataType": "STRING",
+       "javaType": "java.lang.String"
+      },
+      "desc": "文本字段 [STRING]"
+     }
+    }
+   ],
+   "value": null
+  },
+  {
+   "nodeId": "CALL_APP_SERVICE_uJE4Br",
+   "name": null,
+   "type": "ACTIVITY",
+   "caption": "插入数据(控制台建档)",
+   "description": null,
+   "runAfter": null,
+   "input": null,
+   "output": {
+    "id": "com.seeyon.datamigration8704025620829192834.dto.MigrationConsoleDto",
+    "javaType": "com.seeyon.datamigration8704025620829192834.dto.MigrationConsoleDto",
+    "dataType": "DTO",
+    "type": "OBJECT",
+    "desc": "迁移控制台",
+    "appName": "datamigration8704025620829192834",
+    "dtoType": "MASTER_ENTITY",
+    "udcApp": true,
+    "relationEntity": "-51410241618685379",
+    "name": "_CREATE_ENTITY_UuKpNp"
+   },
+   "isCompleted": true,
+   "actionType": "CREATE_ENTITY",
+   "app": {
+    "appId": "8704025620829192834",
+    "appName": "datamigration8704025620829192834",
+    "caption": "",
+    "inApp": true,
+    "udcApp": true,
+    "dynamicDependency": false
+   },
+   "structure": {
+    "key": "com.seeyon.datamigration8704025620829192834.domain.entity.MigrationConsole",
+    "id": "com.seeyon.datamigration8704025620829192834.dto.MigrationConsoleDto",
+    "label": "迁移控制台",
+    "dataType": "DTO",
+    "entity": "com.seeyon.datamigration8704025620829192834.domain.entity.MigrationConsole",
+    "dtoType": "MASTER_ENTITY",
+    "udcApp": true,
+    "fullName": "com.seeyon.datamigration8704025620829192834.dto.MigrationConsoleDto",
+    "relationEntity": "-51410241618685379",
+    "entityId": "-51410241618685379",
+    "methodLegal": {
+     "available": true,
+     "complexCondition": true,
+     "seniorMethod": true,
+     "serviceType": "NONE",
+     "interfaceClassFullName": null
+    }
+   },
+   "title": "迁移控制台",
+   "methodLegal": {
+    "available": true,
+    "complexCondition": true,
+    "seniorMethod": true,
+    "serviceType": "NONE",
+    "interfaceClassFullName": null
+   },
+   "mappingType": "attrs",
+   "attrs": [
+    {
+     "attrType": {
+      "validate": true,
+      "id": "com.seeyon.datamigration8704025620829192834.dto.MigrationConsoleDto.consoleTheme",
+      "name": "consoleTheme",
+      "fullName": "com.seeyon.datamigration8704025620829192834.dto.MigrationConsoleDto.consoleTheme",
+      "md5": "",
+      "javaType": "java.lang.String",
+      "dataType": "STRING",
+      "type": "OBJECT",
+      "caption": "控制台主题",
+      "desc": "控制台主题",
+      "description": "",
+      "refId": "",
+      "refApp": "datamigration8704025620829192834",
+      "refType": "NONE",
+      "multiSelect": false,
+      "dataI18n": false,
+      "sort": 0,
+      "customs": {
+       "basicType": false,
+       "mfDataI18n": false,
+       "defaultOrExpression": false,
+       "notNull": false,
+       "sourceType": "ENTITY",
+       "dataType": "STRING",
+       "name": "consoleTheme",
+       "id": "4712931974228839837"
+      }
+     },
+     "value": {
+      "type": "SelectParam",
+      "selectParam": {
+       "key": "_RETRIEVE_KNCEzhcom.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f01text",
+       "name": "f01text",
+       "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f01text",
+       "appName": "dto",
+       "description": "文本字段",
+       "position": "children",
+       "path": "comseeyondatamigration8704025620829192834dtoYsFull6956Dtof01text",
+       "outputName": "_RETRIEVE_KNCEzh",
+       "type": "OBJECT",
+       "dataType": "STRING",
+       "javaType": "java.lang.String"
+      },
+      "desc": "文本字段 [STRING]"
+     }
+    }
+   ],
+   "value": null
+  },
+  {
+   "nodeId": "CALL_APP_SERVICE_VjFBfW",
+   "name": null,
+   "type": "ACTIVITY",
+   "caption": "插入数据(文件中间表建档)",
+   "description": null,
+   "runAfter": null,
+   "input": null,
+   "output": {
+    "id": "com.seeyon.datamigration8704025620829192834.dto.FileMigrationDto",
+    "javaType": "com.seeyon.datamigration8704025620829192834.dto.FileMigrationDto",
+    "dataType": "DTO",
+    "type": "OBJECT",
+    "desc": "文件上传中间表",
+    "appName": "datamigration8704025620829192834",
+    "dtoType": "MASTER_ENTITY",
+    "udcApp": true,
+    "relationEntity": "3582244432195832261",
+    "name": "_CREATE_ENTITY_UuKpNp"
+   },
+   "isCompleted": true,
+   "actionType": "CREATE_ENTITY",
+   "app": {
+    "appId": "8704025620829192834",
+    "appName": "datamigration8704025620829192834",
+    "caption": "",
+    "inApp": true,
+    "udcApp": true,
+    "dynamicDependency": false
+   },
+   "structure": {
+    "key": "com.seeyon.datamigration8704025620829192834.domain.entity.FileMigration",
+    "id": "com.seeyon.datamigration8704025620829192834.dto.FileMigrationDto",
+    "label": "文件上传中间表",
+    "dataType": "DTO",
+    "entity": "com.seeyon.datamigration8704025620829192834.domain.entity.FileMigration",
+    "dtoType": "MASTER_ENTITY",
+    "udcApp": true,
+    "fullName": "com.seeyon.datamigration8704025620829192834.dto.FileMigrationDto",
+    "relationEntity": "3582244432195832261",
+    "entityId": "3582244432195832261",
+    "methodLegal": {
+     "available": true,
+     "complexCondition": true,
+     "seniorMethod": true,
+     "serviceType": "NONE",
+     "interfaceClassFullName": null
+    }
+   },
+   "title": "文件上传中间表",
+   "methodLegal": {
+    "available": true,
+    "complexCondition": true,
+    "seniorMethod": true,
+    "serviceType": "NONE",
+    "interfaceClassFullName": null
+   },
+   "mappingType": "attrs",
+   "attrs": [
+    {
+     "attrType": {
+      "validate": true,
+      "id": "com.seeyon.datamigration8704025620829192834.dto.FileMigrationDto.fileName",
+      "name": "fileName",
+      "fullName": "com.seeyon.datamigration8704025620829192834.dto.FileMigrationDto.fileName",
+      "md5": "",
+      "javaType": "java.lang.String",
+      "dataType": "STRING",
+      "type": "OBJECT",
+      "caption": "文件名",
+      "desc": "文件名",
+      "description": "",
+      "refId": "",
+      "refApp": "datamigration8704025620829192834",
+      "refType": "NONE",
+      "multiSelect": false,
+      "dataI18n": false,
+      "sort": 0,
+      "customs": {
+       "basicType": false,
+       "mfDataI18n": false,
+       "defaultOrExpression": false,
+       "notNull": false,
+       "sourceType": "ENTITY",
+       "dataType": "STRING",
+       "name": "fileName",
+       "id": "8627565458616501294"
+      }
+     },
+     "value": {
+      "type": "SelectParam",
+      "selectParam": {
+       "key": "_RETRIEVE_KNCEzhcom.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f01text",
+       "name": "f01text",
+       "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f01text",
+       "appName": "dto",
+       "description": "文本字段",
+       "position": "children",
+       "path": "comseeyondatamigration8704025620829192834dtoYsFull6956Dtof01text",
+       "outputName": "_RETRIEVE_KNCEzh",
+       "type": "OBJECT",
+       "dataType": "STRING",
+       "javaType": "java.lang.String"
+      },
+      "desc": "文本字段 [STRING]"
+     }
+    }
+   ],
+   "value": null
+  },
+  {
+   "nodeId": "SUB_MICROFLOW_b2rZz8",
+   "name": null,
+   "type": "ACTIVITY",
+   "caption": "子微流程(1.10删除方案数据)",
+   "description": null,
+   "runAfter": null,
+   "input": null,
+   "output": null,
+   "isCompleted": true,
+   "actionType": "SUB_MICROFLOW",
+   "mfService": {
+    "id": "3403045189242538361",
+    "appCaption": null,
+    "appId": "8704025620829192834",
+    "appName": null,
+    "caption": "1.10删除方案数据",
+    "description": "",
+    "hasInput": false,
+    "hasOutput": false,
+    "hostPath": null,
+    "input": {
+     "id": "com.seeyon.datamigration8704025620829192834.dto.microflow.ScfasjrcjSKa",
+     "javaType": "com.seeyon.datamigration8704025620829192834.dto.microflow.ScfasjrcjSKa",
+     "inApp": true,
+     "appName": "datamigration8704025620829192834",
+     "dataType": "DTO",
+     "type": "OBJECT",
+     "desc": "方案id",
+     "dtoType": "CUSTOM",
+     "udcApp": true,
+     "hasPagination": false,
+     "name": "_FLOW_INPUT_CAVQVZ"
+    },
+    "method": "GET",
+    "name": "MFSERVICERFlOt9",
+    "output": null,
+    "path": "/microflow/MFSERVICERFlOt9",
+    "triggerType": "MANUAL",
+    "type": "SERVICE",
+    "restType": "GET"
+   },
+   "outputName": null,
+   "outPutDesc": null,
+   "mappingType": "attrs",
+   "value": {
+    "type": "Simple",
+    "simple": "",
+    "desc": ""
+   },
+   "attrs": [
+    {
+     "attrType": {
+      "name": "fanganid",
+      "id": "com.seeyon.datamigration8704025620829192834.dto.microflow.ScfasjrcjSKa.fanganid",
+      "fullName": "com.seeyon.datamigration8704025620829192834.dto.microflow.ScfasjrcjSKa.fanganid",
+      "dataType": "BIGINTEGER",
+      "type": "OBJECT",
+      "desc": "方案id",
+      "javaType": "java.lang.Long",
+      "dataI18n": false,
+      "filterDataType": null,
+      "filterFullName": null,
+      "filterType": null,
+      "multiSelect": false,
+      "refApp": "datamigration8704025620829192834",
+      "relationApp": "datamigration8704025620829192834",
+      "sort": null
+     },
+     "value": {
+      "type": "Expression",
+      "expression": {
+       "title": "{查询单条数据(1).ID}",
+       "schema": "{\"designData\": {\"expressionTranslation\": \"查询单条数据(1).ID\", \"resultTypeInfo\": \"BIGINTEGER\", \"resultTypeFullName\": null, \"terminalType\": \"BACKEND\", \"isMultiSelect\": false, \"context\": [{\"name\": \"_RETRIEVE_KNCEzh\", \"description\": \"查询单条数据(1)\", \"type\": \"OBJECT\", \"selectable\": false, \"enableDataI18n\": false, \"properties\": [{\"name\": \"_RETRIEVE_KNCEzh\", \"description\": \"查询单条数据(1)\", \"type\": \"OBJECT\", \"selectable\": true, \"enableDataI18n\": false, \"properties\": [{\"name\": \"id\", \"description\": \"ID\", \"type\": \"BIGINTEGER\", \"selectable\": true, \"enableDataI18n\": false, \"uniformityParams\": {\"paramId\": \"com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.id\", \"paramCategory\": \"BIGINTEGER\", \"extensionProperties\": \"{\\\"id\\\":\\\"com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.id\\\",\\\"relationType\\\":\\\"NONE\\\",\\\"javaType\\\":\\\"java.lang.Long\\\"}\", \"pageNodeExtension\": null}}], \"uniformityParams\": {\"paramId\": \"com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto\", \"paramCategory\": \"OBJECT\", \"extensionProperties\": \"{\\\"id\\\":\\\"com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto\\\"}\", \"pageNodeExtension\": null}}], \"uniformityParams\": {\"paramId\": \"com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto\", \"paramCategory\": \"DTO\", \"extensionProperties\": \"{\\\"id\\\":\\\"com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto\\\",\\\"javaType\\\":\\\"com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto\\\"}\", \"pageNodeExtension\": null}}], \"tokens\": [{\"uid\": \"07ed80e1-1086-4dd5-a140-ea1a3e116514\", \"type\": \"VARIABLE\", \"value\": \"_RETRIEVE_KNCEzh._RETRIEVE_KNCEzh.id\", \"desc\": \"查询单条数据(1).ID\"}], \"sourceAppName\": null}, \"runtimeData\": {\"executableExpr\": \"93gDaq3/nXB1+C8j4AjYNEVRRY+GX/DRejGmES20GvQ=_RETRIEVE_KNCEzh._RETRIEVE_KNCEzh.id\"}}"
+      }
+     }
+    },
+    {
+     "attrType": {
+      "name": "shifouquanbushanchu",
+      "id": "com.seeyon.datamigration8704025620829192834.dto.microflow.ScfasjrcjSKa.shifouquanbushanchu",
+      "fullName": "com.seeyon.datamigration8704025620829192834.dto.microflow.ScfasjrcjSKa.shifouquanbushanchu",
+      "dataType": "BOOLEAN",
+      "type": "OBJECT",
+      "desc": "是否全部删除",
+      "javaType": "java.lang.Boolean",
+      "dataI18n": false,
+      "filterDataType": null,
+      "filterFullName": null,
+      "filterType": null,
+      "multiSelect": false,
+      "refApp": "datamigration8704025620829192834",
+      "relationApp": "datamigration8704025620829192834",
+      "sort": null
+     },
+     "value": {
+      "type": "Simple",
+      "simple": "false",
+      "desc": "false"
+     }
+    }
+   ],
+   "pageInfo": null
+  },
+  {
+   "nodeId": "CALL_APP_SERVICE_zy4MW5",
+   "name": null,
+   "type": "ACTIVITY",
+   "caption": "自定义服务(流水号)",
+   "description": null,
+   "runAfter": null,
+   "input": null,
+   "output": {
+    "id": null,
+    "javaType": "java.lang.String",
+    "dataType": "STRING",
+    "type": "OBJECT",
+    "desc": "流水号",
+    "name": "_CALL_APP_SERVICE_zy4MW5"
+   },
+   "isCompleted": true,
+   "actionType": "CALL_APP_SERVICE",
+   "app": {
+    "appId": null,
+    "appName": "boot-starter-serialnumber",
+    "caption": "流水号组件",
+    "inApp": false,
+    "udcApp": false,
+    "dynamicDependency": "NONE"
+   },
+   "selectMethod": {
+    "caption": "获取下一个流水号",
+    "customs": null,
+    "description": "获取下一个流水号",
+    "dubbo": false,
+    "dubboVersion": "1.0",
+    "fullName": "com.seeyon.boot.starter.serialnumber.appservice.SerialNumberAppService.getSerialNumber",
+    "group": null,
+    "implClass": "com.seeyon.boot.starter.serialnumber.appservice.SerialNumberAppService",
+    "interfaceClass": null,
+    "isCondition": false,
+    "md5": "413b1d849eaae74b9b1f8e292e4d9fc8",
+    "parameter": {
+     "caption": null,
+     "type": "com.seeyon.boot.transport.SingleRequest",
+     "item": {
+      "enums": null,
+      "itemType": "com.seeyon.boot.starter.serialnumber.domain.dto.SerialNumberDto",
+      "item": null
+     }
+    },
+    "returnValue": {
+     "caption": "流水号",
+     "type": "com.seeyon.boot.transport.SingleResponse",
+     "item": {
+      "enums": null,
+      "itemType": "java.lang.String",
+      "item": null
+     }
+    }
+   },
+   "mappingType": "attrs",
+   "attrs": [
+    {
+     "attrType": {
+      "name": "serialSchemeCode",
+      "id": "com.seeyon.boot.starter.serialnumber.domain.dto.SerialNumberDto.serialSchemeCode",
+      "fullName": "com.seeyon.boot.starter.serialnumber.domain.dto.SerialNumberDto.serialSchemeCode",
+      "javaType": "java.lang.String",
+      "dataType": "STRING",
+      "type": "OBJECT",
+      "desc": "方案编码",
+      "multiSelect": false,
+      "refApp": "udc",
+      "relationApp": "udc",
+      "filterDataType": "STRING",
+      "filterType": "OBJECT",
+      "filterFullName": "com.seeyon.boot.starter.serialnumber.domain.dto.SerialNumberDto.serialSchemeCode",
+      "dataI18n": false,
+      "sort": 0,
+      "description": ""
+     },
+     "value": {
+      "type": "Simple",
+      "simple": "xiaoshouhetonghao",
+      "desc": "xiaoshouhetonghao"
+     }
+    }
+   ],
+   "outputName": "流水号"
+  },
+  {
+   "nodeId": "CONVERT_DATA_rjLrhu",
+   "name": null,
+   "type": "ACTIVITY",
+   "caption": "类型转换(文本拆分)",
+   "description": null,
+   "runAfter": null,
+   "input": null,
+   "output": {
+    "id": null,
+    "javaType": "java.lang.String",
+    "dataType": "STRING",
+    "type": "ARRAY",
+    "desc": "文本拆分",
+    "name": "_CONVERT_DATA_rjLrhu"
+   },
+   "isCompleted": true,
+   "actionType": "CONVERT_DATA",
+   "convertType": {
+    "desc": "指定符号拆分文本",
+    "value": "Split",
+    "dataType": "STRING",
+    "type": "ARRAY"
+   },
+   "selectParam": {
+    "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f01text",
+    "javaType": "java.lang.String",
+    "dataType": "STRING",
+    "type": "OBJECT",
+    "desc": "小爪验收实体全量",
+    "appName": "datamigration8704025620829192834",
+    "dtoType": "MASTER_ENTITY",
+    "udcApp": true,
+    "relationEntity": "-2537349473285092530",
+    "name": "f01text",
+    "description": "文本字段",
+    "position": "children",
+    "outputName": "_RETRIEVE_KNCEzh",
+    "path": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f01text",
+    "iconKey": "LinedSearch",
+    "parentLabel": "",
+    "disabled": false,
+    "multiSelect": false,
+    "customs": {
+     "basicType": false,
+     "mfDataI18n": false,
+     "defaultOrExpression": false,
+     "notNull": false,
+     "sourceType": "ENTITY",
+     "dataType": "STRING",
+     "name": "f01text",
+     "id": null
+    }
+   },
+   "regex": "MIDLINE",
+   "title": "文本拆分"
+  },
+  {
+   "nodeId": "CALL_DATA_FLOW_n2uVZf",
+   "name": null,
+   "type": "ACTIVITY",
+   "caption": "执行生单规则(1)",
+   "description": null,
+   "runAfter": null,
+   "input": null,
+   "output": {
+    "id": "com.seeyon.boot.starter.udcrt.dto.CallDataFlowResultDto",
+    "javaType": "com.seeyon.boot.starter.udcrt.dto.CallDataFlowResultDto",
+    "dataType": "DTO",
+    "type": "OBJECT",
+    "udcApp": true,
+    "dtoType": "CUSTOM",
+    "desc": "小爪生单规则V2",
+    "appName": "datamigration8704025620829192834",
+    "name": "_CALL_DATA_FLOW_n2uVZf"
+   },
+   "isCompleted": true,
+   "actionType": "CALL_DATA_FLOW",
+   "structure": {
+    "key": "com.seeyon.datamigration8704025620829192834.domain.entity.YsFull6956",
+    "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+    "label": "小爪验收实体全量",
+    "dataType": "DTO",
+    "entity": "com.seeyon.datamigration8704025620829192834.domain.entity.YsFull6956",
+    "dtoType": "MASTER_ENTITY",
+    "udcApp": true,
+    "fullName": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+    "relationEntity": "-2537349473285092530",
+    "entityId": "-2537349473285092530",
+    "methodLegal": {
+     "available": true,
+     "complexCondition": true,
+     "seniorMethod": true,
+     "serviceType": "NONE",
+     "interfaceClassFullName": null
+    }
+   },
+   "dataFlow": {
+    "id": "5610188019413371592",
+    "key": "5610188019413371592",
+    "value": "5610188019413371592",
+    "title": "小爪生单规则V2",
+    "appId": "8704025620829192834",
+    "appUrl": "datamigration8704025620829192834",
+    "caption": "小爪生单规则V2",
+    "name": "xzhOrderFlowV2",
+    "sourceEntityId": "id_-2537349473285092530",
+    "g_l_index": "1"
+   },
+   "dataSourceType": "SELECT_PARAM",
+   "title": "小爪生单规则V2的结果",
+   "selectParam": {
+    "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+    "javaType": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+    "dataType": "DTO",
+    "type": "OBJECT",
+    "desc": "小爪验收实体全量",
+    "appName": "datamigration8704025620829192834",
+    "dtoType": "MASTER_ENTITY",
+    "udcApp": true,
+    "relationEntity": "-2537349473285092530",
+    "name": "_RETRIEVE_KNCEzh",
+    "position": "parent",
+    "outputName": "_RETRIEVE_KNCEzh",
+    "description": "小爪验收实体全量",
+    "nodeInfo": {
+     "nodeId": "RETRIEVE_KNCEzh",
+     "type": "ACTIVITY",
+     "actionType": "RETRIEVE"
+    }
+   },
+   "dataFlowMappingId": "5610188019413371592"
+  },
+  {
+   "targetType": "ENTITY",
+   "app": {
+    "appId": "8704025620829192834",
+    "appName": "datamigration8704025620829192834",
+    "caption": "",
+    "inApp": true,
+    "udcApp": true,
+    "dynamicDependency": false
+   },
+   "title": "数据转换后的结果",
+   "dataType": "DTO",
+   "structure": {
+    "key": "com.seeyon.datamigration8704025620829192834.domain.entity.YsFull6956",
+    "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+    "label": "小爪验收实体全量",
+    "dataType": "DTO",
+    "entity": "com.seeyon.datamigration8704025620829192834.domain.entity.YsFull6956",
+    "dtoType": "MASTER_ENTITY",
+    "udcApp": true,
+    "fullName": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+    "relationEntity": "-2537349473285092530",
+    "entityId": "-2537349473285092530",
+    "methodLegal": {
+     "available": true,
+     "complexCondition": true,
+     "seniorMethod": true,
+     "serviceType": "NONE",
+     "interfaceClassFullName": null
+    }
+   },
+   "mappingRule": {
+    "uuid": "B6jcDdkY4xn21bnM",
+    "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+    "caption": "小爪验收实体全量",
+    "type": "OBJECT",
+    "javaType": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+    "subobjects": [],
+    "targetType": "ENTITY",
+    "mappingRows": [
+     {
+      "uuid": "AEOYuFjEdw3TZ801",
+      "targetField": {
+       "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f01text",
+       "path": [],
+       "name": "f01text",
+       "desc": "文本字段",
+       "dataType": "STRING",
+       "type": "OBJECT",
+       "javaType": "java.lang.String"
+      },
+      "mappingMode": "REFERENCE",
+      "value": {
+       "reference": {
+        "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f01text",
+        "path": [],
+        "name": "f01text",
+        "desc": "文本字段",
+        "dataType": "STRING",
+        "type": "OBJECT",
+        "javaType": "java.lang.String"
+       }
+      }
+     },
+     {
+      "uuid": "czm6zHhpVBUKz2wn",
+      "targetField": {
+       "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f03int",
+       "path": [],
+       "name": "f03int",
+       "desc": "整数字段",
+       "dataType": "INTEGER",
+       "type": "OBJECT",
+       "javaType": "java.lang.Integer"
+      },
+      "mappingMode": "REFERENCE",
+      "value": {
+       "reference": {
+        "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f03int",
+        "path": [],
+        "name": "f03int",
+        "desc": "整数字段",
+        "dataType": "INTEGER",
+        "type": "OBJECT",
+        "javaType": "java.lang.Integer"
+       }
+      }
+     },
+     {
+      "uuid": "cupcdpQcw9FnQXpi",
+      "targetField": {
+       "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f05dec",
+       "path": [],
+       "name": "f05dec",
+       "desc": "小数字段",
+       "dataType": "DECIMAL",
+       "type": "OBJECT",
+       "javaType": "java.math.BigDecimal"
+      },
+      "mappingMode": "REFERENCE",
+      "value": {
+       "reference": {
+        "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f05dec",
+        "path": [],
+        "name": "f05dec",
+        "desc": "小数字段",
+        "dataType": "DECIMAL",
+        "type": "OBJECT",
+        "javaType": "java.math.BigDecimal"
+       }
+      }
+     }
+    ]
+   },
+   "selectParam": {
+    "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+    "javaType": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+    "dataType": "DTO",
+    "type": "OBJECT",
+    "desc": "小爪验收实体全量",
+    "appName": "datamigration8704025620829192834",
+    "dtoType": "MASTER_ENTITY",
+    "udcApp": true,
+    "relationEntity": "-2537349473285092530",
+    "name": "_RETRIEVE_KNCEzh",
+    "position": "parent",
+    "outputName": "_RETRIEVE_KNCEzh",
+    "description": "小爪验收实体全量",
+    "nodeInfo": {
+     "nodeId": "RETRIEVE_KNCEzh",
+     "type": "ACTIVITY",
+     "actionType": "RETRIEVE"
+    }
+   },
+   "nodeId": "DATA_MAPPING_cfph6l",
+   "actionType": "DATA_MAPPING",
+   "caption": "数据转换",
+   "description": null,
+   "type": "ACTIVITY",
+   "output": {
+    "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+    "javaType": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+    "dataType": "DTO",
+    "type": "OBJECT",
+    "desc": "小爪验收实体全量",
+    "appName": "datamigration8704025620829192834",
+    "dtoType": "MASTER_ENTITY",
+    "udcApp": true,
+    "relationEntity": "-2537349473285092530",
+    "name": "_DATA_MAPPING_cfph6l"
+   },
+   "isCompleted": true
+  },
+  {
+   "nodeId": "FOR_oKLgSI",
+   "name": null,
+   "type": "FOR",
+   "caption": "计数循环(1)",
+   "description": null,
+   "runAfter": null,
+   "foreach": null,
+   "isCompleted": true,
+   "targetName": "序号",
+   "operator": "<=",
+   "forStep": 1,
+   "forStart": {
+    "type": "Simple",
+    "simple": 1,
+    "desc": 1
+   },
+   "forEnd": {
+    "type": "Simple",
+    "simple": 3,
+    "desc": 3
+   },
+   "output": {
+    "id": null,
+    "javaType": "java.lang.Integer",
+    "dataType": "INTEGER",
+    "type": "OBJECT",
+    "desc": "",
+    "name": "_FOR_iJovo7"
+   },
+   "nodes": [
+    {
+     "nodeId": "BRANCH_BwSHxl",
+     "name": null,
+     "type": "BRANCH",
+     "caption": "分支(1)",
+     "description": null,
+     "runAfter": null,
+     "conditions": [
+      {
+       "nodeId": "CONDITION_TcH9xx",
+       "name": "ifBranch",
+       "type": "CONDITION",
+       "caption": "循环已到末次",
+       "description": null,
+       "runAfter": null,
+       "expression": {
+        "title": "true ",
+        "schema": "{\"designData\":{\"expressionTranslation\":\"true \",\"resultTypeInfo\":\"BOOLEAN\",\"resultTypeFullName\":null,\"terminalType\":\"BACKEND\",\"isMultiSelect\":false,\"context\":[],\"tokens\":[{\"uid\":\"be82abcd-efc4-4995-be8f-219eaf51fae0\",\"type\":\"OPERATOR\",\"value\":\"true\",\"desc\":\"true\"}],\"sourceAppName\":null},\"runtimeData\":{\"executableExpr\":\"93gDaq3/nXB1+C8j4AjYNEVRRY+GX/DRejGmES20GvQ=true\"}}"
+       },
+       "isCompleted": true,
+       "nodes": [
+        {
+         "nodeId": "BREAK_N6QS9Y",
+         "name": null,
+         "type": "ACTIVITY",
+         "caption": "跳出循环(1)",
+         "description": null,
+         "runAfter": null,
+         "input": null,
+         "output": null,
+         "isCompleted": true,
+         "actionType": "BREAK"
+        },
+        {
+         "nodeId": "CUSTOM_ERROR_DbAvqj",
+         "name": null,
+         "type": "CUSTOM_ERROR",
+         "caption": "自定义错误(循环内)",
+         "description": null,
+         "runAfter": null,
+         "input": null,
+         "output": null,
+         "isCompleted": true,
+         "actionType": "CUSTOM_ERROR",
+         "error": {
+          "type": "Simple",
+          "simple": "循环内提示",
+          "desc": "循环内提示"
+         },
+         "errorType": "GLOBAL"
+        }
+       ]
+      },
+      {
+       "nodeId": "CONDITION_vNuF6u",
+       "name": "elseBranch",
+       "type": "CONDITION",
+       "caption": "不符合条件即进入该分支",
+       "description": null,
+       "runAfter": null,
+       "expression": null,
+       "isCompleted": true,
+       "nodes": []
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "nodeId": "BRANCH_v2PJej",
+   "name": null,
+   "type": "BRANCH",
+   "caption": "分支(错误提示)",
+   "description": null,
+   "runAfter": null,
+   "conditions": [
+    {
+     "nodeId": "CONDITION_p5YvHd",
+     "name": "ifBranch",
+     "type": "CONDITION",
+     "caption": "永远不成立",
+     "description": null,
+     "runAfter": null,
+     "expression": {
+      "title": "false ",
+      "schema": "{\"designData\": {\"expressionTranslation\": \"false \", \"resultTypeInfo\": \"BOOLEAN\", \"resultTypeFullName\": null, \"terminalType\": \"BACKEND\", \"isMultiSelect\": false, \"context\": [], \"tokens\": [{\"uid\": \"be82abcd-efc4-4995-be8f-219eaf51fae0\", \"type\": \"OPERATOR\", \"value\": \"false\", \"desc\": \"false\"}], \"sourceAppName\": null}, \"runtimeData\": {\"executableExpr\": \"93gDaq3/nXB1+C8j4AjYNEVRRY+GX/DRejGmES20GvQ=true\"}}"
+     },
+     "isCompleted": true,
+     "nodes": [
+      {
+       "nodeId": "CUSTOM_ERROR_g9eDjU",
+       "name": null,
+       "type": "CUSTOM_ERROR",
+       "caption": "自定义错误",
+       "description": null,
+       "runAfter": null,
+       "input": null,
+       "output": null,
+       "isCompleted": true,
+       "actionType": "CUSTOM_ERROR",
+       "error": {
+        "type": "Simple",
+        "simple": "全节点覆盖流程：走到这里说明前面都通过了",
+        "desc": "全节点覆盖流程：走到这里说明前面都通过了"
+       },
+       "errorType": "GLOBAL"
+      }
+     ]
+    },
+    {
+     "nodeId": "CONDITION_4RQ1YC",
+     "name": "elseBranch",
+     "type": "CONDITION",
+     "caption": "符合条件即进入该分支",
+     "description": null,
+     "runAfter": null,
+     "expression": {
+      "title": "{变量_数字>100}",
+      "schema": "{\"designData\": {\"expressionTranslation\": \"变量_数字>100\", \"resultTypeInfo\": \"BOOLEAN\", \"resultTypeFullName\": null, \"terminalType\": \"BACKEND\", \"isMultiSelect\": false, \"context\": [{\"name\": \"_CREATE_VARIABLE_RDQZon\", \"description\": \"变量_数字\", \"type\": \"OBJECT\", \"selectable\": false, \"enableDataI18n\": false, \"properties\": [{\"name\": \"_CREATE_VARIABLE_RDQZon\", \"description\": \"变量_数字\", \"type\": \"BIGINTEGER\", \"selectable\": true, \"enableDataI18n\": false, \"uniformityParams\": {\"paramId\": \"\", \"paramCategory\": \"BIGINTEGER\", \"extensionProperties\": \"\", \"pageNodeExtension\": null}}], \"uniformityParams\": {\"paramId\": \"\", \"paramCategory\": \"BIGINTEGER\", \"extensionProperties\": \"\", \"pageNodeExtension\": null}}], \"tokens\": [{\"uid\": \"0a23301d-bb4d-44b8-93c8-feed0e5caae3\", \"type\": \"VARIABLE\", \"value\": \"_CREATE_VARIABLE_RDQZon\", \"desc\": \"变量_数字\"}, {\"uid\": \"3dc74ac4-4e9a-4900-b152-b302fcb8b376\", \"type\": \"OPERATOR\", \"value\": \">\", \"desc\": \">\"}, {\"uid\": \"1da701d1-1877-4c08-95f1-754374067135\", \"type\": \"CONSTANT\", \"value\": \"100\", \"desc\": \"100\"}], \"sourceAppName\": null}, \"runtimeData\": {\"executableExpr\": \"93gDaq3/nXB1+C8j4AjYNEVRRY+GX/DRejGmES20GvQ=_CREATE_VARIABLE_RDQZon>100\"}}"
+     },
+     "isCompleted": true,
+     "nodes": []
+    }
+   ]
+  },
+  {
+   "nodeId": "CALL_APP_SERVICE_xap1",
+   "name": null,
+   "type": "ACTIVITY",
+   "caption": "自定义服务(跨应用-xiangmuguanli1656355078954763084)",
+   "description": null,
+   "runAfter": null,
+   "input": null,
+   "output": {
+    "id": "com.seeyon.boot.starter.file.dto.FileDto",
+    "javaType": "com.seeyon.boot.starter.file.dto.FileDto",
+    "dataType": "DTO",
+    "type": "OBJECT",
+    "desc": "CALL_APP_SERVICE_xap1",
+    "appName": "xiangmuguanli1656355078954763084",
+    "name": "CALL_APP_SERVICE_xap1"
+   },
+   "isCompleted": true,
+   "actionType": "CALL_APP_SERVICE",
+   "app": {
+    "appId": "1656355078954763084",
+    "appName": "xiangmuguanli1656355078954763084",
+    "caption": "智慧营销结算",
+    "inApp": false,
+    "udcApp": true,
+    "dynamicDependency": "NONE"
+   },
+   "selectMethod": {
+    "caption": "通过StorageKey查询文件信息",
+    "customs": null,
+    "description": "通过StorageKey查询文件信息",
+    "dubbo": false,
+    "dubboVersion": null,
+    "fullName": "com.seeyon.boot.starter.file.appservice.FileAppService.selectByStorageKey",
+    "group": null,
+    "implClass": "com.seeyon.boot.starter.file.appservice.FileAppService",
+    "interfaceClass": null,
+    "isCondition": false,
+    "md5": "438d932627d1631971de6bf176804322",
+    "parameter": {
+     "caption": "StorageKey",
+     "type": "com.seeyon.boot.transport.SingleRequest",
+     "item": {
+      "enums": null,
+      "itemType": "java.lang.String",
+      "item": null
+     }
+    },
+    "returnValue": {
+     "caption": "文件信息",
+     "type": "com.seeyon.boot.transport.SingleResponse",
+     "item": {
+      "enums": null,
+      "itemType": "com.seeyon.boot.starter.file.dto.FileDto",
+      "item": null
+     }
+    }
+   },
+   "value": {
+    "type": "Simple",
+    "simple": "",
+    "desc": "空值",
+    "constantShowPlaceholderKey": "where_emptyvalue"
+   },
+   "outPutDesc": null,
+   "outputName": "CALL_APP_SERVICE_xap1",
+   "mappingType": null,
+   "attrs": null
+  },
+  {
+   "nodeId": "CALL_APP_SERVICE_xap2",
+   "name": null,
+   "type": "ACTIVITY",
+   "caption": "自定义服务(跨应用-organization)",
+   "description": null,
+   "runAfter": null,
+   "input": null,
+   "output": {
+    "id": null,
+    "javaType": "java.util.Map",
+    "dataType": "MAP",
+    "type": "OBJECT",
+    "desc": "CALL_APP_SERVICE_xap2",
+    "appName": "organization",
+    "name": "CALL_APP_SERVICE_xap2"
+   },
+   "isCompleted": true,
+   "actionType": "CALL_APP_SERVICE",
+   "app": {
+    "appId": null,
+    "appName": "organization",
+    "caption": "组织模型",
+    "inApp": false,
+    "udcApp": false,
+    "dynamicDependency": "NONE"
+   },
+   "selectMethod": {
+    "caption": "查询指定人员的指定扩展字段值",
+    "customs": null,
+    "description": "查询指定人员的指定扩展字段值",
+    "dubbo": true,
+    "dubboVersion": "1.0",
+    "fullName": "com.seeyon.organization.appservice.api.core.metadata.OrgMetadataCoreAppServiceImpl.selectMemberMetadataInfo",
+    "group": null,
+    "implClass": "com.seeyon.organization.appservice.api.core.metadata.OrgMetadataCoreAppServiceImpl",
+    "interfaceClass": "com.seeyon.organization.api.core.metadata.OrgMetadataCoreAppService",
+    "isCondition": false,
+    "md5": "dd06466c619106e46c944fee703152a3",
+    "parameter": {
+     "caption": null,
+     "type": "com.seeyon.boot.transport.SingleRequest",
+     "item": {
+      "enums": null,
+      "itemType": "com.seeyon.organization.dto.sync.search.SearchMemberMetadataDto",
+      "item": null
+     }
+    },
+    "returnValue": {
+     "caption": "人员扩展字段值",
+     "type": "com.seeyon.boot.transport.SingleResponse",
+     "item": {
+      "enums": null,
+      "itemType": "java.util.Map",
+      "item": {
+       "enums": null,
+       "itemType": "java.lang.Object",
+       "javaType": "java.lang.Object",
+       "dataType": "OBJECT",
+       "keyType": "java.lang.String"
+      }
+     }
+    }
+   },
+   "mappingType": "attrs",
+   "attrs": [
+    {
+     "value": {
+      "type": "Simple",
+      "simple": "zhuzhiweicode",
+      "desc": "zhuzhiweicode"
+     },
+     "attrType": {
+      "name": "metadataCode",
+      "id": "com.seeyon.organization.dto.sync.search.SearchMemberMetadataDto.metadataCode",
+      "fullName": "com.seeyon.organization.dto.sync.search.SearchMemberMetadataDto.metadataCode",
+      "javaType": "java.lang.String",
+      "dataType": "STRING",
+      "type": "OBJECT",
+      "desc": "人员扩展字段编码",
+      "relationApp": "udc",
+      "refApp": "udc",
+      "multiSelect": false,
+      "filterDataType": "STRING",
+      "filterType": "OBJECT",
+      "filterFullName": "com.seeyon.organization.dto.sync.search.SearchMemberMetadataDto.metadataCode",
+      "dataI18n": false,
+      "sort": 0,
+      "description": ""
+     }
+    },
+    {
+     "value": {
+      "type": "SelectParam",
+      "selectParam": {
+       "id": null,
+       "javaType": "java.lang.Long",
+       "dataType": "BIGINTEGER",
+       "type": "OBJECT",
+       "desc": "vNum",
+       "name": "_CREATE_VARIABLE_RDQZon",
+       "key": "_CREATE_VARIABLE_RDQZon",
+       "path": "_CREATE_VARIABLE_RDQZon",
+       "outputName": "_CREATE_VARIABLE_RDQZon",
+       "description": "vNum",
+       "position": "parent"
+      },
+      "desc": "vNum [长整数]"
+     },
+     "attrType": {
+      "name": "memberIds",
+      "id": "com.seeyon.organization.dto.sync.search.SearchMemberMetadataDto.memberIds",
+      "fullName": "com.seeyon.organization.dto.sync.search.SearchMemberMetadataDto.memberIds",
+      "javaType": "java.lang.Long",
+      "dataType": "BIGINTEGER",
+      "type": "ARRAY",
+      "desc": "人员ids",
+      "relationApp": "udc",
+      "refApp": "udc",
+      "multiSelect": false,
+      "filterDataType": "BIGINTEGER",
+      "filterType": "ARRAY",
+      "filterFullName": "com.seeyon.organization.dto.sync.search.SearchMemberMetadataDto.memberIds",
+      "dataI18n": false,
+      "sort": 0,
+      "description": ""
+     }
+    }
+   ],
+   "outPutDesc": null,
+   "outputName": "CALL_APP_SERVICE_xap2"
+  }
+ ]
+}

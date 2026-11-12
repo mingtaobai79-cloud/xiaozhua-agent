@@ -1,0 +1,25 @@
+{
+  "nodeId": "PUBLISH_BUSINESS_EVENT_OOhZNn",
+  "name": null,
+  "type": "ACTIVITY",
+  "caption": "事件投递",
+  "description": null,
+  "runAfter": null,
+  "input": null,
+  "output": null,
+  "isCompleted": true,
+  "actionType": "PUBLISH_BUSINESS_EVENT",
+  "eventType": "IN_APP",
+  "selectEvent": {
+    "key": "com.seeyon.datamigration8704025620829192834.dto.microflow.event.XzhVerifyEvent",
+    "label": "小爪验收事件",
+    "value": "com.seeyon.datamigration8704025620829192834.dto.microflow.event.XzhVerifyEvent",
+    "fullName": "com.seeyon.datamigration8704025620829192834.dto.microflow.event.XzhVerifyEvent",
+    "caption": "小爪验收事件",
+    "source": "MICRO_FLOW",
+    "dtoType": "CUSTOM",
+    "udcApp": true
+  },
+  "mappingType": "attrs",
+  "attrs": []
+}

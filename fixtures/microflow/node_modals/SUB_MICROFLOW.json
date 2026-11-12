@@ -1,0 +1,33 @@
+{
+ "actionType": "SUB_MICROFLOW",
+ "caption": "子微流程",
+ "captured_from": "编辑器（用户讲解，2026-10-25）",
+ "semantics": "选择当前应用下正式态的服务定义微流程，按需配入参；避免循环调用",
+ "modal_fields": [
+  {
+   "label": "选择微流程服务",
+   "required": true,
+   "note": "下拉列子微流程(接口 udcMicroflowServiceListSubMfPost)"
+  },
+  {
+   "label": "参数",
+   "required": true,
+   "note": "按所选子微流程的【入参】配置(如 方案编码，文本/单条数据)"
+  },
+  {
+   "label": "出参描述",
+   "note": "显示所选子微流程的【出参】(名称/数据类型/类型)"
+  },
+  {
+   "label": "节点出参名称",
+   "required": true,
+   "note": "如 迁移json数据_1"
+  }
+ ],
+ "key_mechanism": "选中子微流程后，前端调接口加载该子微流程自己的 入参(参数) 和 出参(出参描述)；出参=子微流程定义里声明的出参",
+ "validation_rules": [
+  "选择微流程服务必填",
+  "参数按子微流程入参必填",
+  "节点出参名称必填"
+ ]
+}

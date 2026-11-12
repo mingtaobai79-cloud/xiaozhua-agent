@@ -1,0 +1,258 @@
+{
+  "schema_version": "udc-standard-code-evidence.v1",
+  "status": "PARTIALLY_VERIFIED",
+  "verification_level": "STATIC",
+  "network": "disabled",
+  "modules": {
+    "udc": {
+      "artifacts": [
+        {
+          "artifact": "udc-common",
+          "version": "5.3.517",
+          "path": "<PATH>",
+          "sha256": "30085724949703b1c2f96a37e72813a6ed9e7b752ebc206c7a47d26afceb30d7",
+          "class_count": 460
+        },
+        {
+          "artifact": "udc-facade",
+          "version": "5.3.517",
+          "path": "<PATH>",
+          "sha256": "7e531005de3b94aaaa0ac847328551eaf6e014d743cedf5b79d4bab4769c6501",
+          "class_count": 66
+        },
+        {
+          "artifact": "udc-starter-lowcode",
+          "version": "5.3.517",
+          "path": "<PATH>",
+          "sha256": "51d1a5e048623f5c26e41d8b5cd605c0adb3321ca4d0919b4ff598c12983cf16",
+          "class_count": 141
+        },
+        {
+          "artifact": "udc-starter-runtime",
+          "version": "5.3.517",
+          "path": "<PATH>",
+          "sha256": "74ae50bd8510414113248f0b1d400bca80d2ae2e0022c9dbbb31321a6040a66f",
+          "class_count": 346
+        }
+      ],
+      "scope": "UDC Platform code evidence; not customer business data."
+    },
+    "standard_product_application": {
+      "artifacts": [
+        {
+          "artifact": "bpm-facade",
+          "version": "3.12.101",
+          "path": "<PATH>",
+          "sha256": "26b312fdd40cc921a4cd8d08239f6b8d857c02a5ac8d4db271d07f6fcbd98af0",
+          "class_count": 484
+        },
+        {
+          "artifact": "ctp-user-api",
+          "version": "3.8.215",
+          "path": "<PATH>",
+          "sha256": "5b1ec52abd87ba79abe962453776e54fa9bc27551aa171e76981d211a5950543",
+          "class_count": 49
+        }
+      ],
+      "scope": "Standard Product Application code/contract evidence; separate from UDC."
+    }
+  },
+  "limitations": [
+    "Local artifact bytes prove static artifact identity only, not deployment or runtime behavior.",
+    "Artifact versions are independent evidence units and are not merged across patch lines.",
+    "Customer business inventories remain query-on-demand and are excluded."
+  ],
+  "frontend_evidence_plan": {
+    "status": "PARTIALLY_VERIFIED",
+    "verification_level": "SERVER_METADATA_FOUND_FRONTEND_BYTES_UNVERIFIED",
+    "required_source": "test2 server/runtime artifact",
+    "candidate_routes": [
+      "lowcode-test2.example.com",
+      "/service/{applicationId}/..."
+    ],
+    "required_artifacts": [
+      "frontend jar/static bundle",
+      "OSS object or mounted resource",
+      "image digest"
+    ],
+    "safe_method": "server-side read-only inspection only",
+    "not_claimed": [
+      "frontend bytes",
+      "frontend SHA-256",
+      "OSS object identity",
+      "image inclusion"
+    ]
+  },
+  "next_action": "Use a bounded read-only extraction/listing of selected udc.tar manifest/config layers or inspect the running image filesystem when Kubernetes transport is available; do not start/scale workloads.",
+  "corrections": [
+    "bpm-facade is classified under Standard Product Application; it is not a UDC artifact."
+  ],
+  "frontend_evidence": {
+    "status": "PARTIALLY_VERIFIED",
+    "verification_level": "SERVER_METADATA_ONLY",
+    "environment": "test2",
+    "server": "10.0.0.1",
+    "source_paths": [
+      "/data/udc/udc.tar",
+      "/data/udc/AppPropertiesTemplate.yml",
+      "/data/udc/AppPropertiesMeta.xml"
+    ],
+    "udc_package_version": "20260511100957",
+    "udc_version": "5.3.496",
+    "image_tag": "v8harbor.seeyonv8.com/platform/5.3/x86/tomcat/udc:5.3.496",
+    "frontend_project_version": "",
+    "frontend_build_uri": "udc-app-runtime/build/app",
+    "frontend_deploy_uri": "udc-app-runtime/deploy/app",
+    "finding": "OCI layout, tag, index and manifest are confirmed. Bounded archive metadata exposes only OCI structure; no frontend/static path was identified without extracting layers. Frontend bytes/path/digest remain UNVERIFIED.",
+    "limitations": [
+      "Server-side read-only evidence only; no extraction or deployment performed.",
+      "frontend_project_version is empty in meta.properties.",
+      "No Kubernetes API transport was available in this host because kubectl is not installed."
+    ],
+    "claims": {
+      "server_package": "FACT",
+      "frontend_build_deploy_contract": "FACT",
+      "frontend_bytes": "UNVERIFIED",
+      "frontend_sha256": "UNVERIFIED",
+      "image_inclusion": "UNVERIFIED",
+      "oci_manifest": "FACT",
+      "frontend_path": "UNVERIFIED"
+    },
+    "oci_layout": "1.0.0",
+    "oci_index_digest": "sha256:194e786f3ab6e843f1fb0b0b826258c3545deeb3a770347c9cef0e92438dd16d",
+    "oci_manifest_digest": "sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+    "repo_tag": "v8harbor.seeyonv8.com/platform/5.3/x86/tomcat/udc:5.3.496",
+    "layer_count": "UNVERIFIED"
+  },
+  "targeted_contracts": {
+    "udc": {
+      "artifact": "udc-facade",
+      "version": "5.3.517",
+      "sha256": "7e531005de3b94aaaa0ac847328551eaf6e014d743cedf5b79d4bab4769c6501",
+      "interfaces": [
+        "com.seeyon.udc.api.ApplicationManagerAppService",
+        "com.seeyon.udc.api.EntityAppService",
+        "com.seeyon.udc.api.DesignMetadataQueryAppService",
+        "com.seeyon.udc.api.PageMetadataQuery4SfAppService",
+        "com.seeyon.udc.api.MicroFlowInfoAppService"
+      ],
+      "runtime_classes": [
+        "com.seeyon.boot.starter.udcrt.domain.service.CustomApplicationService",
+        "com.seeyon.boot.starter.udcrt.domain.service.EntityRuntimeService",
+        "com.seeyon.boot.starter.udcrt.domain.service.EntityAppServiceInvokeService",
+        "com.seeyon.boot.starter.udcrt.domain.service.UdcDynamicResourceServiceImpl",
+        "com.seeyon.boot.starter.udcrt.domain.service.FrontFunctionSupportService"
+      ]
+    },
+    "standard-product": {
+      "artifact": "bpm-facade",
+      "version": "3.12.101",
+      "sha256": "26b312fdd40cc921a4cd8d08239f6b8d857c02a5ac8d4db271d07f6fcbd98af0",
+      "udc_related_dtos": [
+        "com.seeyon.bpm.dto.approval.BpmSendUdcDto",
+        "com.seeyon.bpm.dto.approval.BpmSaveDraftUdcDto",
+        "com.seeyon.bpm.dto.approval.BpmTriggerFlowUdcRequestDto",
+        "com.seeyon.bpm.dto.approval.BpmTriggerFlowUdcResponseDto",
+        "com.seeyon.bpm.dto.approval.BpmOperationRepealUdcDto"
+      ],
+      "openapi_dtos": [
+        "com.seeyon.bpm.dto.operation.openapi.BpmSubmitDto",
+        "com.seeyon.bpm.dto.operation.openapi.BpmSendDto"
+      ],
+      "udc_service": "com.seeyon.bpm.api.udc.BpmUdcApiService",
+      "udc_methods": {
+        "sendForUdc": "SingleResponse<BpmApiSendApiResponseDto> sendForUdc(SingleRequest<BpmSendUdcDto>)",
+        "saveDraft": "SingleResponse<BpmSaveDraftUdcResponseDto> saveDraft(SingleRequest<BpmSaveDraftUdcDto>)",
+        "triggerFlowForUdc": "ListResponse<BpmTriggerFlowUdcResponseDto> triggerFlowForUdc(SingleRequest<List<BpmTriggerFlowUdcRequestDto>>)",
+        "repealForUdc": "SingleResponse<Void> repealForUdc(SingleRequest<BpmOperationRepealUdcDto>)",
+        "stopForUdc": "SingleResponse<CommonResultDto> stopForUdc(SingleRequest<BpmStopDto>)",
+        "deleteCaseByIdForUdc": "SingleResponse<Void> deleteCaseByIdForUdc(SingleRequest<Long>, SingleRequest<Long>)",
+        "getNodePermissionOperation": "ListResponse<BpmNodePermissionResponseDto> getNodePermissionOperation(SingleRequest<BpmNodePermissionRequestDto>)",
+        "getNodePermission": "SingleResponse<BpmNodePermission4PageDto> getNodePermission(SingleRequest<BpmNodePermissionRequestDto>)"
+      },
+      "evidence_ref": "docs/audit/modules/decompiled/bpm-facade-3.12.101-BpmUdcApiService.java",
+      "finding": "BpmUdcApiService is a Standard Product BPM-side UDC adapter contract. Its interface directly types UDC approval DTOs, but its concrete implementation and runtime host are not yet identified."
+    },
+    "udc-runtime-bpm-bridge": {
+      "artifact": "udc-starter-runtime",
+      "version": "5.3.517",
+      "bridge_classes": [
+        {
+          "fqcn": "com.seeyon.boot.starter.udcrt.domain.service.ApproveFeatureService",
+          "role": "UDC side initiator of BPM operations",
+          "injected": "com.seeyon.bpm.api.udc.BpmUdcApiService",
+          "call_sites": [
+            "prefixForUdc",
+            "sendForUdc",
+            "saveDraft",
+            "repealForUdc"
+          ],
+          "flows": {
+            "startProcess": "sendForUdc / saveDraft (draft when needed)",
+            "repealProcess": "repealForUdc",
+            "getBpmPrefixParams": "prefixForUdc"
+          }
+        },
+        {
+          "fqcn": "com.seeyon.boot.starter.udcrt.event.listener.ApprovalStateChangeListener",
+          "role": "UDC entity event listener driving BPM lifecycle",
+          "injected": "com.seeyon.bpm.api.udc.BpmUdcApiService",
+          "call_sites": [
+            "deleteCaseByIdForUdc (onBillDelete)",
+            "stopForUdc (stopBpmProcess)"
+          ]
+        },
+        {
+          "fqcn": "com.seeyon.boot.starter.udcrt.api.UdcBpmProcessService",
+          "role": "UDC-provided inbound contract for BPM events",
+          "impl": "com.seeyon.boot.starter.udcrt.appservice.UdcBpmProcessServiceImpl",
+          "methods": [
+            "validUpdateFilterData",
+            "validCreateFilterData",
+            "processBpmApproval",
+            "processBpmStop",
+            "processBpmCancel",
+            "processBpmTakeBack",
+            "updateData"
+          ],
+          "inbound_types": [
+            "com.seeyon.bpm.dto.message.BpmApprovalResultData",
+            "com.seeyon.bpm.dto.message.event.BpmStopEvent",
+            "com.seeyon.bpm.dto.message.event.BpmCancelEvent"
+          ]
+        },
+        {
+          "fqcn": "com.seeyon.boot.starter.udcrt.domain.service.proxy.BpmApiFormPermissionAppServiceProxy",
+          "role": "UDC proxy to BPM form-permission API",
+          "target": "com.seeyon.bpm.api.common.BpmApiFormPermissionAppService"
+        }
+      ],
+      "conclusion": "Bidirectional interface-level linkage now CONFIRMED in bytecode: UDC runtime injects and invokes com.seeyon.bpm.api.udc.BpmUdcApiService (4 methods), and UDC exposes UdcBpmProcessService consuming BPM event DTOs. Static evidence only.",
+      "decompile_manifest": "docs/audit/modules/decompiled/udcrt-bpm-link-decompile-manifest.json"
+    }
+  },
+  "targeted_decompile": {
+    "manifest": "docs/audit/modules/decompiled/manifest.json",
+    "status": "FACT",
+    "verification_level": "STATIC",
+    "artifacts": {
+      "udc-facade:5.3.517": [
+        "ApplicationManagerAppService",
+        "EntityAppService",
+        "DesignMetadataQueryAppService",
+        "PageMetadataQuery4SfAppService",
+        "MicroFlowInfoAppService"
+      ],
+      "udc-starter-runtime:5.3.517": [
+        "EntityRuntimeService",
+        "EntityAppServiceInvokeService"
+      ],
+      "bpm-facade:3.12.101": [
+        "BpmSendUdcDto",
+        "BpmSaveDraftUdcDto",
+        "BpmTriggerFlowUdcRequestDto"
+      ]
+    },
+    "finding": "UDC exposes application/entity/design-metadata/page/microflow contracts; runtime provides dynamic AppService invocation and entity runtime services; Standard Product independently provides UDC approval DTOs. Exact runtime call order remains unverified."
+  }
+}

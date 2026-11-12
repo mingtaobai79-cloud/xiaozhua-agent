@@ -1,0 +1,43 @@
+{
+  "schema": "udc.construction.entity.generation-contract.v1",
+  "status": "STATIC_RULE_CROSS_SAMPLE_OBSERVED",
+  "parameters": {
+    "application": "A",
+    "entity": "X"
+  },
+  "evidence": [
+    "../audit/p0-4-generated-contract-cross-sample.json",
+    "../audit/p0-4-generated-entity-contract-audit.md"
+  ],
+  "caveats": [
+    "Observed output contract only; generator causality UNKNOWN",
+    "Optional controllers and custom services are not core outputs"
+  ],
+  "module": "biz",
+  "outputs": [
+    {
+      "type": "entity",
+      "class": "X",
+      "package": "<package>.domain.entity.X",
+      "required": true
+    },
+    {
+      "type": "domain_service",
+      "class": "XService",
+      "package": "<package>.domain.service.XService",
+      "required": true
+    },
+    {
+      "type": "app_service_impl",
+      "class": "XAppServiceImpl",
+      "package": "<package>.appservice.XAppServiceImpl",
+      "required": true
+    },
+    {
+      "type": "dao",
+      "class": "<ApplicationStem>XDao",
+      "package": "<package>.domain.dao.<ApplicationStem>XDao",
+      "required": true
+    }
+  ]
+}

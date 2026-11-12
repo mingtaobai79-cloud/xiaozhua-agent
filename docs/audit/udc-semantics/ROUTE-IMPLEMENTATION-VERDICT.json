@@ -1,0 +1,48 @@
+{
+ "schema": "route-implementation-verdict.v1",
+ "evidence": "VERIFIED_STATIC_BYTECODE (直读 .class 常量池, 不经 javap/CFR)",
+ "repo_root": "<PATH>",
+ "jars_scanned": 1521,
+ "jars_scanned_note": "可变域计数：本地 maven 仓库会被其它工作流写入（客户构件随构建落地），不参与结论面比对；护栏按 结论面逐字 + 扫描域不得缩小 判定，见 tests/udc/test_route_implementation_verdict.py",
+ "class_mapping": "udc/micro-flow-group",
+ "axis1_provider_uniqueness": {
+  "providers_declaring_class_mapping": [
+   [
+    "com\\seeyon\\udc-web\\5.3.517\\udc-web-5.3.517.jar",
+    "com/seeyon/udc/controller/MicroFlowGroupController.class"
+   ]
+  ],
+  "provider_count": 1,
+  "other_component_branch": "REFUTED"
+ },
+ "axis2_registered_leaves": {
+  "contract_routes_under_prefix": [
+   "/udc/micro-flow-group/batch-move",
+   "/udc/micro-flow-group/create",
+   "/udc/micro-flow-group/delete",
+   "/udc/micro-flow-group/delete-batch",
+   "/udc/micro-flow-group/select-by-type",
+   "/udc/micro-flow-group/update",
+   "/udc/micro-flow-group/{microFlowGroupId}"
+  ],
+  "contract_route_count": 7,
+  "target_leaf_literal_hits_in_providers": {
+   "search-list": [],
+   "select-by-appid": [],
+   "select-by-type": [
+    "com/seeyon/udc/controller/MicroFlowGroupController.class"
+   ],
+   "batch-move": [
+    "com/seeyon/udc/controller/MicroFlowGroupController.class"
+   ]
+  },
+  "control_leaf_must_be_present": {
+   "select-by-type": [
+    "com/seeyon/udc/controller/MicroFlowGroupController.class"
+   ],
+   "batch-move": [
+    "com/seeyon/udc/controller/MicroFlowGroupController.class"
+   ]
+  }
+ }
+}

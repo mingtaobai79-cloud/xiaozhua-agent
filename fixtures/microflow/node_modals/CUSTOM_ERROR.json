@@ -1,0 +1,55 @@
+{
+ "actionType": "CUSTOM_ERROR",
+ "caption": "自定义错误",
+ "captured_from": "编辑器（用户讲解，2026-10-25）",
+ "semantics": "= new 一个异常，阻断流程 + 回滚事务",
+ "modal_fields": [
+  {
+   "label": "错误提示方式",
+   "options": [
+    "全局提示",
+    "定位到页面元素"
+   ]
+  },
+  {
+   "label": "填写错误",
+   "required": true,
+   "placeholder": "请输入",
+   "note": "全局提示模式下：抛出错误信息(必填)"
+  },
+  {
+   "label": "原始数据",
+   "required": true,
+   "placeholder": "请选择原始数据",
+   "note": "定位模式：原始数据"
+  },
+  {
+   "label": "错误数据",
+   "required": true,
+   "placeholder": "请选择错误数据",
+   "note": "定位模式：错误数据"
+  },
+  {
+   "label": "定位字段",
+   "required": true,
+   "placeholder": "请选择显示错误信息的字段",
+   "note": "定位模式：定位字段"
+  }
+ ],
+ "mode_fields": {
+  "全局提示": [
+   "填写错误"
+  ],
+  "定位到页面元素": [
+   "原始数据",
+   "错误数据",
+   "定位字段",
+   "填写错误"
+  ]
+ },
+ "validation_rules": [
+  "错误提示方式必选",
+  "填写错误必填",
+  "定位模式还需原始数据/错误数据/定位字段"
+ ]
+}

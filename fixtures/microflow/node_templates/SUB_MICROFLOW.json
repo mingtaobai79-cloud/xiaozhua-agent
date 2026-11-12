@@ -1,0 +1,104 @@
+{
+ "nodeId": "SUB_MICROFLOW_b2rZz8",
+ "name": null,
+ "type": "ACTIVITY",
+ "caption": "子微流程(1.10删除方案数据)",
+ "description": null,
+ "runAfter": null,
+ "input": null,
+ "output": null,
+ "isCompleted": true,
+ "actionType": "SUB_MICROFLOW",
+ "mfService": {
+  "id": "3403045189242538361",
+  "appCaption": null,
+  "appId": "8704025620829192834",
+  "appName": null,
+  "caption": "1.10删除方案数据",
+  "description": "",
+  "hasInput": false,
+  "hasOutput": false,
+  "hostPath": null,
+  "input": {
+   "id": "com.seeyon.datamigration8704025620829192834.dto.microflow.ScfasjrcjSKa",
+   "javaType": "com.seeyon.datamigration8704025620829192834.dto.microflow.ScfasjrcjSKa",
+   "inApp": true,
+   "appName": "datamigration8704025620829192834",
+   "dataType": "DTO",
+   "type": "OBJECT",
+   "desc": "方案id",
+   "dtoType": "CUSTOM",
+   "udcApp": true,
+   "hasPagination": false,
+   "name": "_FLOW_INPUT_CAVQVZ"
+  },
+  "method": "GET",
+  "name": "MFSERVICERFlOt9",
+  "output": null,
+  "path": "/microflow/MFSERVICERFlOt9",
+  "triggerType": "MANUAL",
+  "type": "SERVICE",
+  "restType": "GET"
+ },
+ "outputName": null,
+ "outPutDesc": null,
+ "mappingType": "attrs",
+ "value": {
+  "type": "Simple",
+  "simple": "",
+  "desc": ""
+ },
+ "attrs": [
+  {
+   "attrType": {
+    "name": "fanganid",
+    "id": "com.seeyon.datamigration8704025620829192834.dto.microflow.ScfasjrcjSKa.fanganid",
+    "fullName": "com.seeyon.datamigration8704025620829192834.dto.microflow.ScfasjrcjSKa.fanganid",
+    "dataType": "BIGINTEGER",
+    "type": "OBJECT",
+    "desc": "方案id",
+    "javaType": "java.lang.Long",
+    "dataI18n": false,
+    "filterDataType": null,
+    "filterFullName": null,
+    "filterType": null,
+    "multiSelect": false,
+    "refApp": "datamigration8704025620829192834",
+    "relationApp": "datamigration8704025620829192834",
+    "sort": null
+   },
+   "value": {
+    "type": "Expression",
+    "expression": {
+     "title": "{查询单条数据(1).ID}",
+     "schema": "{\"designData\": {\"expressionTranslation\": \"查询单条数据(1).ID\", \"resultTypeInfo\": \"BIGINTEGER\", \"resultTypeFullName\": null, \"terminalType\": \"BACKEND\", \"isMultiSelect\": false, \"context\": [{\"name\": \"_RETRIEVE_KNCEzh\", \"description\": \"查询单条数据(1)\", \"type\": \"OBJECT\", \"selectable\": false, \"enableDataI18n\": false, \"properties\": [{\"name\": \"_RETRIEVE_KNCEzh\", \"description\": \"查询单条数据(1)\", \"type\": \"OBJECT\", \"selectable\": true, \"enableDataI18n\": false, \"properties\": [{\"name\": \"id\", \"description\": \"ID\", \"type\": \"BIGINTEGER\", \"selectable\": true, \"enableDataI18n\": false, \"uniformityParams\": {\"paramId\": \"com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.id\", \"paramCategory\": \"BIGINTEGER\", \"extensionProperties\": \"{\\\"id\\\":\\\"com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.id\\\",\\\"relationType\\\":\\\"NONE\\\",\\\"javaType\\\":\\\"java.lang.Long\\\"}\", \"pageNodeExtension\": null}}], \"uniformityParams\": {\"paramId\": \"com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto\", \"paramCategory\": \"OBJECT\", \"extensionProperties\": \"{\\\"id\\\":\\\"com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto\\\"}\", \"pageNodeExtension\": null}}], \"uniformityParams\": {\"paramId\": \"com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto\", \"paramCategory\": \"DTO\", \"extensionProperties\": \"{\\\"id\\\":\\\"com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto\\\",\\\"javaType\\\":\\\"com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto\\\"}\", \"pageNodeExtension\": null}}], \"tokens\": [{\"uid\": \"07ed80e1-1086-4dd5-a140-ea1a3e116514\", \"type\": \"VARIABLE\", \"value\": \"_RETRIEVE_KNCEzh._RETRIEVE_KNCEzh.id\", \"desc\": \"查询单条数据(1).ID\"}], \"sourceAppName\": null}, \"runtimeData\": {\"executableExpr\": \"93gDaq3/nXB1+C8j4AjYNEVRRY+GX/DRejGmES20GvQ=_RETRIEVE_KNCEzh._RETRIEVE_KNCEzh.id\"}}"
+    }
+   }
+  },
+  {
+   "attrType": {
+    "name": "shifouquanbushanchu",
+    "id": "com.seeyon.datamigration8704025620829192834.dto.microflow.ScfasjrcjSKa.shifouquanbushanchu",
+    "fullName": "com.seeyon.datamigration8704025620829192834.dto.microflow.ScfasjrcjSKa.shifouquanbushanchu",
+    "dataType": "BOOLEAN",
+    "type": "OBJECT",
+    "desc": "是否全部删除",
+    "javaType": "java.lang.Boolean",
+    "dataI18n": false,
+    "filterDataType": null,
+    "filterFullName": null,
+    "filterType": null,
+    "multiSelect": false,
+    "refApp": "datamigration8704025620829192834",
+    "relationApp": "datamigration8704025620829192834",
+    "sort": null
+   },
+   "value": {
+    "type": "Simple",
+    "simple": "false",
+    "desc": "false"
+   }
+  }
+ ],
+ "pageInfo": null
+}

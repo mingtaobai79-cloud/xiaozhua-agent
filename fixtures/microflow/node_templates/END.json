@@ -1,0 +1,44 @@
+{
+ "id": "",
+ "name": "",
+ "type": "END",
+ "actionType": "END_NODE",
+ "nodeId": "MFEndNode",
+ "caption": "结束",
+ "description": "",
+ "input": null,
+ "output": {
+  "id": null,
+  "javaType": "java.lang.String",
+  "dataType": "STRING",
+  "type": "OBJECT",
+  "desc": "V17 全节点验收出参",
+  "dtoType": null,
+  "udcApp": null,
+  "name": "_FLOW_OUTPUT_bMx2qh"
+ },
+ "value": {
+  "type": "SelectParam",
+  "selectParam": {
+   "id": "_CREATE_VARIABLE_3eLmAb",
+   "javaType": "java.lang.String",
+   "dataType": "STRING",
+   "type": "OBJECT",
+   "desc": "vText",
+   "dtoType": "",
+   "name": "_CREATE_VARIABLE_3eLmAb",
+   "key": "_CREATE_VARIABLE_3eLmAb",
+   "path": "_CREATE_VARIABLE_3eLmAb",
+   "outputName": "_CREATE_VARIABLE_3eLmAb",
+   "description": "vText",
+   "position": "parent"
+  },
+  "desc": "vText [文本]"
+ },
+ "paramType": "BASIC",
+ "basic": "STRING",
+ "isArray": false,
+ "desc": "V17 全节点验收出参",
+ "outPutDesc": null,
+ "isCompleted": true
+}

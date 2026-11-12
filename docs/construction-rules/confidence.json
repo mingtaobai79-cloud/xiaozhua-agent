@@ -1,0 +1,112 @@
+{
+  "schema": "udc.construction-rule-confidence.v1",
+  "support_summary": {
+    "application_count": 10,
+    "complete_core_entity_count": 813
+  },
+  "rules": [
+    {
+      "ruleId": "udc.entity.naming.v1",
+      "status": "STATIC_RULE",
+      "sampleCount": 813,
+      "applicationCount": 10,
+      "confidence": "high",
+      "exceptions": []
+    },
+    {
+      "ruleId": "udc.entity.package.v1",
+      "status": "STATIC_RULE",
+      "sampleCount": 813,
+      "applicationCount": 10,
+      "confidence": "high",
+      "exceptions": []
+    },
+    {
+      "ruleId": "udc.entity.generation-contract.v1",
+      "status": "STATIC_RULE",
+      "sampleCount": 813,
+      "applicationCount": 10,
+      "confidence": "high",
+      "exceptions": []
+    },
+    {
+      "ruleId": "udc.entity.attribute-output.v0",
+      "status": "OBSERVED",
+      "sampleCount": 1,
+      "applicationCount": 1,
+      "confidence": "medium",
+      "exceptions": []
+    },
+    {
+      "ruleId": "udc.entity.attribute-propagation.v0",
+      "status": "PARTIAL",
+      "sampleCount": 1,
+      "applicationCount": 1,
+      "confidence": "low",
+      "exceptions": []
+    },
+    {
+      "ruleId": "udc.entity.relation.v1",
+      "status": "OBSERVED",
+      "sampleCount": 1,
+      "applicationCount": 1,
+      "confidence": "medium",
+      "exceptions": []
+    },
+    {
+      "ruleId": "udc.entity.child.v1",
+      "status": "PARTIAL",
+      "sampleCount": 813,
+      "applicationCount": 10,
+      "confidence": "low",
+      "exceptions": []
+    },
+    {
+      "ruleId": "udc.entity.index.v1",
+      "status": "PARTIAL",
+      "sampleCount": 1,
+      "applicationCount": 1,
+      "confidence": "low",
+      "exceptions": []
+    },
+    {
+      "ruleId": "udc.entity.rule-flags.v1",
+      "status": "INPUT_ONLY",
+      "sampleCount": 1,
+      "applicationCount": 1,
+      "confidence": "low",
+      "exceptions": []
+    },
+    {
+      "ruleId": "udc.entity.generation-causality.v0",
+      "status": "UNKNOWN",
+      "sampleCount": 0,
+      "applicationCount": 0,
+      "confidence": "none",
+      "exceptions": []
+    },
+    {
+      "ruleId": "udc.entity.attribute-propagation.v1",
+      "status": "CROSS_SAMPLE_OBSERVED",
+      "sampleCount": 40,
+      "applicationCount": 4,
+      "attributeCount": 1277,
+      "mappedAttributeCount": 1207,
+      "unmappedAttributeCount": 70,
+      "mappingCoverage": 0.9451840250587314,
+      "evidenceLevel": "OUTPUT_SIDE_STATIC_OBSERVED",
+      "confidence": "medium",
+      "exceptions": [
+        "Nested DTO and collection fields do not map one-to-one to root Entity private fields",
+        "@DtoAttribute cross-sample co-occurrence is blocked by class-only evidence"
+      ],
+      "previousVersion": "udc.entity.attribute-propagation.v0",
+      "evidence": [
+        "entity/attribute-propagation-cross-sample.json",
+        "entity/attribute-dtoattribute-cooccurrence.json"
+      ]
+    }
+  ],
+  "global_caveat": "Generation causality remains UNKNOWN because design-time GraphQL/server artifact is unavailable",
+  "updated": "udc.entity.attribute-propagation.v1 added; v0 superseded"
+}

@@ -1,0 +1,105 @@
+{
+  "schema_version": "seeyon-agent.udc-page-tree-graphql-dispatch.v1",
+  "module": "udc",
+  "capability": "resource_menu",
+  "field_type": "udcMetaDataSelectFunctionNodeWithPageTreePost",
+  "status": "PARTIAL_DISPATCH_TRANSPORT_CONFIRMED",
+  "frontend": {
+    "loader": "a.wh.load",
+    "params_type": "udcMetaDataSelectFunctionNodeWithPageTreePostInputBody",
+    "params_key": "body",
+    "params": {
+      "appId": "required",
+      "hasAssociateApp": true,
+      "params": {"urlType": "optional terminal", "pageType": "optional pageType"},
+      "sort": {"orders": [{"direction": "ASC", "property": "createTime"}]}
+    },
+    "response_access": "content",
+    "observed_content_fields": ["id", "name", "caption", "uniqueKey", "functionNodes", "pages"]
+  },
+  "dispatch_chain": [
+    {
+      "from": "frontend fieldType",
+      "to": "GraphqlProxyRequestDto",
+      "status": "FACT_STATIC_FRONTEND_RUNTIME_BOUNDARY",
+      "evidence": "frontend loader contract plus GraphQL proxy DTO usage"
+    },
+    {
+      "from": "GraphqlProxyController.doGraphql(GraphqlProxyRequestDto)",
+      "to": "GraphqlProxyAppService.doGraphQL(SingleRequest<GraphqlProxyRequestDto>)",
+      "status": "FACT_STATIC_BYTECODE",
+      "evidence": "docs/audit/artifacts/udc-runtime-5.3.517/GraphqlProxyController.javap.txt"
+    },
+    {
+      "from": "GraphqlProxyAppServiceImpl.doGraphQL",
+      "to": "HttpClientUtil.post",
+      "status": "FACT_STATIC_BYTECODE",
+      "evidence": "docs/audit/artifacts/udc-runtime-5.3.517/GraphqlProxyAppServiceImpl.javap.txt"
+    },
+    {
+      "from": "GraphqlProxyAppServiceImpl.getUrl",
+      "to": "/graphql or /graphql-app/{appName}/graphql",
+      "status": "FACT_STATIC_BYTECODE",
+      "evidence": "GraphqlProxyAppServiceImpl.javap.txt"
+    },
+    {
+      "from": "GraphQL HTTP endpoint",
+      "to": "schema/resolver/handler for target field",
+      "status": "UNVERIFIED",
+      "evidence": "no exact field registration/schema/resolver artifact found locally"
+    },
+    {
+      "from": "schema/resolver/handler",
+      "to": "Java business AppService method",
+      "status": "UNVERIFIED"
+    },
+    {
+      "from": "Java business AppService method",
+      "to": "domain service and actual datasource",
+      "status": "UNVERIFIED"
+    }
+  ],
+  "headers_confirmed": ["traceId", "userId", "loginOrgId", "tenantId", "Accept-Language"],
+  "target_url_facts": {
+    "base": "http://127.0.0.1:{Apps.getHttpPort()}/{Apps.getAppName()}",
+    "form_app": "/graphql-app/{appName}/graphql",
+    "non_form_app": "/graphql"
+  },
+  "runtime_data_source": {
+    "database": "udc_test2 / MySQL_CONFIG_EVIDENCE",
+    "object_storage": "OSS_CONFIG_EVIDENCE",
+    "redis": "Lettuce_JSON_expire_3600_CONFIG_EVIDENCE",
+    "target_field_data_source": "UNKNOWN"
+  },
+  "implementation": {
+    "operation_contract": "NOT_CREATED",
+    "adapter": "NOT_CREATED",
+    "application_service": "NOT_CREATED",
+    "reason": "exact schema/resolver, business Java method, and data source are not connected"
+  },
+  "resource_chunk": {
+    "file": "a49eacdd.js",
+    "status": "BLOCKED",
+    "impact": "blocks Resource UI handler recovery only"
+  },
+  "unknowns": [
+    "exact GraphQL schema field registration",
+    "resolver/handler class and method",
+    "Java business AppService method",
+    "Domain Service method",
+    "response DTO class",
+    "functionNodes source",
+    "pages source",
+    "hasAssociateApp semantics",
+    "pageType/urlType/sort semantics at backend",
+    "actual database/OSS/Redis/RPC read path",
+    "live response/readback"
+  ],
+  "non_claims": [
+    "GraphQL proxy transport is not the target business resolver",
+    "PageMetadataQuery4SfAppService is not assigned without direct evidence",
+    "UdcFunctionNodeService is not assigned without direct evidence",
+    "configuration presence is not data-source execution proof",
+    "no write or mutation was executed"
+  ]
+}

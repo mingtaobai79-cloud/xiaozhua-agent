@@ -1,0 +1,100 @@
+{
+ "nodeId": "ForEach_eddc61",
+ "type": "FOR_EACH",
+ "caption": "列表循环",
+ "description": null,
+ "runAfter": null,
+ "foreach": {
+  "sourceItemes": []
+ },
+ "isCompleted": true,
+ "targetName": "当前实体",
+ "output": {
+  "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+  "javaType": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+  "dataType": "DTO",
+  "type": "OBJECT",
+  "desc": "当前实体",
+  "dtoType": "MASTER_ENTITY",
+  "udcApp": true,
+  "appName": "datamigration8704025620829192834",
+  "relationEntity": "-2537349473285092530",
+  "name": "_ForEach_eddc61"
+ },
+ "nodes": [
+  {
+   "nodeId": "CHANGE_VARIABLE_296754",
+   "name": null,
+   "type": "ACTIVITY",
+   "caption": "循环内取值",
+   "description": null,
+   "runAfter": null,
+   "input": null,
+   "output": null,
+   "isCompleted": true,
+   "actionType": "CHANGE_VARIABLE",
+   "selectParam": {
+    "id": null,
+    "javaType": "java.lang.String",
+    "dataType": "STRING",
+    "type": "OBJECT",
+    "desc": "文本变量",
+    "name": "_CREATE_VARIABLE_ab9799",
+    "position": "parent",
+    "outputName": "_CREATE_VARIABLE_ab9799",
+    "description": "文本变量",
+    "nodeInfo": {
+     "nodeId": "CREATE_VARIABLE_ab9799",
+     "type": "ACTIVITY",
+     "actionType": "CREATE_VARIABLE"
+    }
+   },
+   "mappingType": "attrs",
+   "attrs": [
+    {
+     "value": {
+      "type": "SelectParam",
+      "selectParam": {
+       "id": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f01text",
+       "javaType": "java.lang.String",
+       "dataType": "STRING",
+       "type": "OBJECT",
+       "desc": "列表循环",
+       "name": "f01text",
+       "position": "children",
+       "outputName": "_ForEach_eddc61",
+       "description": "列表循环",
+       "nodeInfo": {
+        "nodeId": "ForEach_eddc61",
+        "type": "ACTIVITY",
+        "actionType": "FOR_EACH"
+       },
+       "key": "_ForEach_eddc61com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto.f01text",
+       "path": "comseeyondatamigration8704025620829192834dtoYsFull6956Dtof01text"
+      },
+      "desc": "列表循环"
+     },
+     "attrType": null
+    }
+   ]
+  }
+ ],
+ "actionType": "FOR_EACH",
+ "selectParam": {
+  "id": null,
+  "javaType": "com.seeyon.datamigration8704025620829192834.dto.YsFull6956Dto",
+  "dataType": "DTO",
+  "type": "ARRAY",
+  "desc": "实体列表",
+  "name": "_RETRIEVE_ARRAY_d00825",
+  "position": "parent",
+  "outputName": "_RETRIEVE_ARRAY_d00825",
+  "description": "查询多条",
+  "nodeInfo": {
+   "nodeId": "RETRIEVE_ARRAY_d00825",
+   "type": "ACTIVITY",
+   "actionType": "RETRIEVE_ARRAY"
+  },
+  "dtoType": "MASTER_ENTITY"
+ }
+}

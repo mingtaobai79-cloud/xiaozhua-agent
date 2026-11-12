@@ -1,0 +1,46 @@
+{
+  "schema": "udc.construction-rules.index.v1",
+  "version": "0.1",
+  "status": "P1_CONTINUE",
+  "blocked_independent": [
+    "P0-3B Bridge 1: design-time GraphQL artifact unavailable"
+  ],
+  "rules": [
+    "entity/naming.json",
+    "entity/package.json",
+    "entity-generation-contract.json",
+    "generation/facade.json",
+    "generation/biz.json",
+    "generation/web.json",
+    "entity/attribute-java-type-rule.json",
+    "entity/entity-relation-rule.json",
+    "entity/entity-child-rule.json",
+    "entity/entity-index-rule.json",
+    "entity/entity-rule-flag-mapping.json",
+    "synthetic-entity-golden-diff.json",
+    "confidence.json",
+    "entity/attribute-propagation-matrix.json",
+    "entity/attribute-propagation-cross-sample.json",
+    "entity/attribute-dtoattribute-cooccurrence.json",
+    "entity/synthetic-attribute-golden-diff.json"
+  ],
+  "audit_root": "../audit",
+  "generation_causality": "UNKNOWN",
+  "versions": {
+    "udc.entity.attribute-propagation.v0": {
+      "status": "SUPERSEDED",
+      "supersededBy": "udc.entity.attribute-propagation.v1"
+    },
+    "udc.entity.attribute-propagation.v1": {
+      "status": "CROSS_SAMPLE_OBSERVED",
+      "sampleCount": 40,
+      "applicationCount": 4,
+      "attributeCount": 1277,
+      "mappingCoverage": 0.9451840250587314,
+      "limitations": [
+        "Output-side proxy; input AttributeDto unavailable",
+        "@DtoAttribute cross-sample cooccurrence blocked"
+      ]
+    }
+  }
+}

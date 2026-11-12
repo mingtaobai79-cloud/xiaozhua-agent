@@ -1,0 +1,88 @@
+{
+ "nodeId": "DELETE_ENTITY_90jya7",
+ "name": null,
+ "type": "ACTIVITY",
+ "caption": "删除数据(1)",
+ "description": null,
+ "runAfter": null,
+ "input": null,
+ "output": {
+  "id": null,
+  "name": "_DELETE_ENTITY_68bLqd",
+  "dataType": "INTEGER",
+  "type": "OBJECT",
+  "desc": "删除小爪验收实体全量成功的数量_1",
+  "javaType": "java.lang.Integer"
+ },
+ "isCompleted": true,
+ "actionType": "DELETE_ENTITY",
+ "deleteType": "CONDITION",
+ "app": {
+  "appId": "8704025620829192834",
+  "appName": "datamigration8704025620829192834",
+  "caption": "数据迁移",
+  "inApp": true,
+  "udcApp": true,
+  "dynamicDependency": false
+ },
+ "structure": {
+  "key": "com.seeyon.datamigration8704025620829192834.domain.entity.MigrationPlan",
+  "id": "com.seeyon.datamigration8704025620829192834.dto.MigrationPlanDto",
+  "label": "迁移方案配置",
+  "dataType": "DTO",
+  "entity": "com.seeyon.datamigration8704025620829192834.domain.entity.MigrationPlan",
+  "dtoType": "MASTER_ENTITY",
+  "udcApp": true,
+  "fullName": "com.seeyon.datamigration8704025620829192834.dto.MigrationPlanDto",
+  "relationEntity": "4796455827714164161",
+  "methodLegal": {
+   "available": true,
+   "complexCondition": true,
+   "seniorMethod": true,
+   "serviceType": "NONE",
+   "interfaceClassFullName": null
+  }
+ },
+ "condition": [
+  {
+   "type": "GROUP",
+   "uuid": "0c27b299-8f25-425e-a4e0-1add4be51101",
+   "conditions": [
+    {
+     "type": "CONDITION",
+     "leftParam": {
+      "id": "com.seeyon.datamigration8704025620829192834.dto.MigrationPlanDto.id",
+      "type": "OBJECT",
+      "javaType": "java.lang.Long",
+      "dto": "_id",
+      "field": "id",
+      "desc": "ID",
+      "dataType": "BIGINTEGER",
+      "multiSelect": false
+     },
+     "operator": {
+      "value": "EQ",
+      "desc": "="
+     },
+     "rightParams": [
+      {
+       "type": "EXPRESSION",
+       "value": "{\"designData\":{\"expressionTranslation\":\"微流程.开始.方案id [1.10删除方案数据入参jSKa].方案id \",\"resultTypeInfo\":\"BIGINTEGER\",\"resultTypeFullName\":null,\"terminalType\":\"BACKEND\",\"isMultiSelect\":false,\"context\":[{\"name\":\"_FLOW_INPUT_CAVQVZ\",\"description\":\"开始\",\"type\":\"OBJECT\",\"selectable\":false,\"enableDataI18n\":false,\"properties\":[{\"name\":\"_FLOW_INPUT_CAVQVZ\",\"description\":\"方案id [1.10删除方案数据入参jSKa]\",\"type\":\"OBJECT\",\"selectable\":true,\"enableDataI18n\":false,\"properties\":[{\"name\":\"fanganid\",\"description\":\"方案id\",\"type\":\"BIGINTEGER\",\"selectable\":true,\"enableDataI18n\":false,\"uniformityParams\":{\"paramId\":\"com.seeyon.datamigration8704025620829192834.dto.microflow.ScfasjrcjSKa.fanganid\",\"paramCategory\":\"BIGINTEGER\",\"extensionProperties\":\"{\\\"id\\\":\\\"com.seeyon.datamigration8704025620829192834.dto.microflow.ScfasjrcjSKa.fanganid\\\",\\\"relationType\\\":\\\"\\\",\\\"javaType\\\":\\\"java.lang.Long\\\"}\",\"pageNodeExtension\":null}}],\"uniformityParams\":{\"paramId\":\"com.seeyon.datamigration8704025620829192834.dto.microflow.ScfasjrcjSKa\",\"paramCategory\":\"OBJECT\",\"extensionProperties\":\"{\\\"id\\\":\\\"com.seeyon.datamigration8704025620829192834.dto.microflow.ScfasjrcjSKa\\\"}\",\"pageNodeExtension\":null}}],\"uniformityParams\":{\"paramId\":\"com.seeyon.datamigration8704025620829192834.dto.microflow.ScfasjrcjSKa\",\"paramCategory\":\"DTO\",\"extensionProperties\":\"{\\\"id\\\":\\\"com.seeyon.datamigration8704025620829192834.dto.microflow.ScfasjrcjSKa\\\",\\\"javaType\\\":\\\"com.seeyon.datamigration8704025620829192834.dto.microflow.ScfasjrcjSKa\\\"}\",\"pageNodeExtension\":null}}],\"tokens\":[{\"uid\":\"a5cd4adf-d75a-420e-ad33-61d89e2d13a5\",\"type\":\"VARIABLE\",\"value\":\"_FLOW_INPUT_CAVQVZ._FLOW_INPUT_CAVQVZ.fanganid\",\"desc\":\"微流程.开始.方案id [1.10删除方案数据入参jSKa].方案id\"}],\"sourceAppName\":null},\"runtimeData\":{\"executableExpr\":\"93gDaq3/nXB1+C8j4AjYNEVRRY+GX/DRejGmES20GvQ=_FLOW_INPUT_CAVQVZ._FLOW_INPUT_CAVQVZ.fanganid\"}}",
+       "desc": "{微流程.开始.方案id [1.10删除方案数据入参jSKa].方案id}"
+      }
+     ],
+     "uuid": "4a819957-eef3-4373-8ab4-0500c976e346",
+     "logicalOperator": "AND"
+    }
+   ]
+  }
+ ],
+ "title": "删除小爪验收实体全量成功的数量_1",
+ "methodLegal": {
+  "available": true,
+  "complexCondition": true,
+  "seniorMethod": true,
+  "serviceType": "NONE",
+  "interfaceClassFullName": null
+ }
+}

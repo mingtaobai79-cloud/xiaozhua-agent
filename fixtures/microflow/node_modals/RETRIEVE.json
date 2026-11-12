@@ -1,0 +1,158 @@
+{
+ "actionType": "RETRIEVE",
+ "caption": "查询单条数据",
+ "captured_from": "编辑器弹窗（用户逐屏讲解 + CDP 抓取，2026-10-25）",
+ "semantics": "条件查询：通过过滤条件查询单实体下的单条数据；ID查询：通过ID查询实体下的一条数据及其子/孙实体（聚合实体）",
+ "query_modes": {
+  "条件查询": {
+   "fields": [
+    "选择应用",
+    "选择实体",
+    "过滤条件",
+    "排序规则",
+    "查询聚合对象",
+    "节点出参名称",
+    "未查到数据时",
+    "提示内容"
+   ]
+  },
+  "ID查询": {
+   "fields": [
+    "选择应用",
+    "选择实体",
+    "选择该记录的ID",
+    "未查到数据时"
+   ],
+   "note": "ID查询下没有过滤条件/排序，改为「选择该记录的ID」(必填，引用变量或字段)"
+  }
+ },
+ "modal_fields": [
+  {
+   "label": "查询方式",
+   "required": true,
+   "control": "toggle",
+   "options": [
+    "条件查询",
+    "ID查询"
+   ],
+   "default": "条件查询"
+  },
+  {
+   "label": "选择应用",
+   "required": true,
+   "control": "select",
+   "default": "数据迁移 (当前应用)"
+  },
+  {
+   "label": "选择实体",
+   "required": true,
+   "control": "select",
+   "placeholder": "选择实体对象"
+  },
+  {
+   "label": "过滤条件",
+   "required": false,
+   "control": "condition-editor"
+  },
+  {
+   "label": "排序规则",
+   "required": false,
+   "control": "sort-editor"
+  },
+  {
+   "label": "查询聚合对象",
+   "required": false,
+   "control": "radio",
+   "options": [
+    "关闭",
+    "开启"
+   ],
+   "default": "关闭",
+   "tooltip": "低代码应用开启后查询该实体聚合对象数据(含主子孙)，关闭只查当前实体自身"
+  },
+  {
+   "label": "选择该记录的ID",
+   "required": true,
+   "control": "param-picker",
+   "note": "仅 ID查询 模式，引用变量/字段"
+  },
+  {
+   "label": "节点出参名称",
+   "required": true,
+   "control": "input",
+   "placeholder": "请输入"
+  },
+  {
+   "label": "未查到数据时",
+   "required": false,
+   "control": "radio",
+   "options": [
+    "终止流程，并显示提示(TERMINATION)",
+    "继续执行，自行处理空值判断(CONTINUE)"
+   ],
+   "default": "TERMINATION"
+  },
+  {
+   "label": "提示内容",
+   "required": true,
+   "control": "input",
+   "note": "仅当未查到数据时=终止流程 才出现，必填"
+  }
+ ],
+ "filter_condition_editor": {
+  "row_structure": [
+   "字段下拉(实体字段+类型)",
+   "运算符下拉",
+   "值输入",
+   "删除"
+  ],
+  "field_options_sample": [
+   "创建时间[日期时间]",
+   "更新时间[日期时间]",
+   "创建人[实体]",
+   "创建机构[实体]",
+   "创建部门[实体]",
+   "创建岗位[实体]",
+   "更新人[实体]",
+   "实验文本(已改)[文本]",
+   "ID[长整数]",
+   "实验日期[日期时间]",
+   "实验数量[整数]",
+   "实验开关[布尔]",
+   "是否草稿[布尔]"
+  ],
+  "operators": [
+   "=",
+   "!=",
+   ">",
+   "<",
+   ">=",
+   "<=",
+   "介于",
+   "不介于",
+   "为空",
+   "不为空"
+  ],
+  "value_editor": [
+   "引用(选字段/变量)",
+   "高级模式(表达式)"
+  ],
+  "logical_connector": "且 / 或（行间，黄色下拉）",
+  "supports_nested_groups": true
+ },
+ "sort_editor": {
+  "structure": [
+   "选择字段(下拉)",
+   "升序/降序",
+   "删除"
+  ],
+  "add_button": "添加规则"
+ },
+ "validation_rules": [
+  "查询方式必选(条件查询/ID查询)",
+  "选择应用/选择实体/节点出参名称必填",
+  "ID查询模式 → 选择该记录的ID 必填",
+  "条件查询 → 过滤条件每行: 字段+运算符+值 都不能空(否则「值不能为空」)",
+  "未查到数据时=终止流程 → 提示内容必填"
+ ]
+}

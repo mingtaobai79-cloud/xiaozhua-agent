@@ -1,0 +1,54 @@
+{
+ "actionType": "CREATE_ENTITY",
+ "caption": "插入数据",
+ "captured_from": "编辑器弹窗（用户打开，CDP 抓取，2026-10-25）",
+ "modal_fields": [
+  {
+   "label": "选择应用",
+   "required": true,
+   "control": "select",
+   "default": "数据迁移 (当前应用)"
+  },
+  {
+   "label": "选择实体",
+   "required": true,
+   "control": "select",
+   "note": "选实体后触发字段回填(attributes)"
+  },
+  {
+   "label": "赋值方式",
+   "required": true,
+   "control": "tabs",
+   "options": [
+    "字段映射(attrs)",
+    "对象引用(value)"
+   ]
+  },
+  {
+   "label": "字段赋值",
+   "required": false,
+   "control": "mapping-rows",
+   "note": "仅当选择实体后渲染：字段下拉 + 值编辑器 + 添加字段"
+  },
+  {
+   "label": "节点出参名称",
+   "required": true,
+   "control": "input",
+   "placeholder": "请输入"
+  }
+ ],
+ "validation_rules": [
+  "选择应用必选（当前应用可默认）",
+  "选择实体必选，选完才回填字段列表（attributes 带 md5）",
+  "赋值方式必选：字段映射=attrs 逐字段赋值，对象引用=value 引用实体变量",
+  "节点出参名称必填",
+  "字段赋值的每个值编辑器需选 Simple/SelectParam/Expression，不能空"
+ ],
+ "captured_entity": "小爪实验实体950795V2 (选择实体下拉里的一例；下拉关闭后才回填字段赋值)",
+ "field_assignment_mechanic": "字段赋值区初始为空(仅「添加字段」按钮)；点添加字段→选实体字段(下拉=实体attributes带md5)→为每个字段选值(Simple/SelectParam/Expression 三态)",
+ "value_editor_states": [
+  "Simple(常量)",
+  "SelectParam(引用前序出参)",
+  "Expression(表达式)"
+ ]
+}

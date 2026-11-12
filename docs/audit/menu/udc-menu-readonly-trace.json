@@ -1,0 +1,167 @@
+{
+  "schema_version": "seeyon-agent.udc-menu-trace.v1",
+  "module": "udc",
+  "capability": "resource_menu",
+  "target_operation": "udc.menu.list",
+  "recovery": {
+    "strategy": "multi_source",
+    "checked_sources": [
+      "local frontend artifact directories",
+      "<PATH>",
+      "<PATH>",
+      "<EVIDENCE_ROOT>",
+      "<USER_HOME>/...",
+      "Chrome and Edge user data paths",
+      "repository manifests and source maps",
+      "local audit logs and notes"
+    ],
+    "result": "NOT_FOUND",
+    "network_fallback": {
+      "candidate_url": "https://lowcode-test2.example.com/udc/a49eacdd.js",
+      "status": "BLOCKED",
+      "reason": "DNS resolution unavailable in current worker; no retry performed"
+    },
+    "next_required_source": "UDC frontend deployment host, Pod/container filesystem, browser/WebView cache export, or access log"
+  },
+  "status": "BLOCKED_STATIC_EVIDENCE_INCOMPLETE",
+  "version_scope": {
+    "frontend": "captured UDC frontend chunks",
+    "backend": "UDC 5.3.517 static artifact index"
+  },
+  "facts": [
+    {
+      "fact_id": "udc.resource.route.001",
+      "source_type": "frontend",
+      "source_locator": "docs/audit/frontend/chunks/src_app4Exposes_tsx.1714867c.js",
+      "evidence_level": "FACT",
+      "status": "STATIC",
+      "supports": ["resource_page_entry"],
+      "value": {
+        "route": "/resource",
+        "lazy_chunk": "src_pages_udc_resource_index_tsx",
+        "built_file": "a49eacdd.js"
+      }
+    },
+    {
+      "fact_id": "udc.page_tree.operation.001",
+      "source_type": "frontend",
+      "source_locator": "docs/audit/frontend/chunks/src_constants_design_page-type_ts-src_services_app-design_template_ts-src_services_design_pag-93bb09.6494d14a.js",
+      "evidence_level": "FACT",
+      "status": "STATIC",
+      "supports": ["page_tree_read_candidate", "menu_page_dependency_candidate"],
+      "value": {
+        "loader": "a.wh.load",
+        "field_type": "udcMetaDataSelectFunctionNodeWithPageTreePost",
+        "params_type": "udcMetaDataSelectFunctionNodeWithPageTreePostInputBody",
+        "params_key": "body",
+        "params_shape": {
+          "appId": "required",
+          "hasAssociateApp": true,
+          "params": {
+            "urlType": "optional terminal",
+            "pageType": "optional pageType"
+          },
+          "sort": {
+            "orders": [{"direction": "ASC", "property": "createTime"}]
+          }
+        },
+        "response_access": "content",
+        "observed_fields": ["id", "name", "caption", "uniqueKey", "functionNodes", "pages"]
+      }
+    },
+    {
+      "fact_id": "udc.page.list.operation.001",
+      "source_type": "frontend",
+      "source_locator": "docs/audit/frontend/chunks/src_constants_design_page-type_ts-src_services_app-design_template_ts-src_services_design_pag-93bb09.6494d14a.js",
+      "evidence_level": "FACT",
+      "status": "STATIC",
+      "supports": ["page_read_candidate"],
+      "value": {
+        "field_type": "udcPageInfoSearchNoPagePost",
+        "params_type": "udcPageInfoSearchNoPagePostInputBody",
+        "params_key": "body",
+        "params_shape": ["appId", "terminal", "pageType", "id"],
+        "response_fields": ["id", "name", "caption", "pageType", "pageUrl", "relationGroupId", "urlType", "sourceType", "masterEntityIds"]
+      }
+    },
+    {
+      "fact_id": "udc.backend.page.metadata.001",
+      "source_type": "backend_artifact_index",
+      "source_locator": "docs/audit/modules/targeted-code-index.json; docs/audit/modules/decompiled/manifest.json",
+      "evidence_level": "FACT",
+      "status": "STATIC",
+      "supports": ["backend_page_metadata_candidate", "runtime_resource_candidate"],
+      "value": {
+        "classes": [
+          "com.seeyon.udc.api.PageMetadataQuery4SfAppService",
+          "com.seeyon.boot.starter.udcrt.domain.service.UdcPageInfoMetaDataEnhancedService",
+          "com.seeyon.boot.starter.udcrt.domain.service.UdcDynamicResourceServiceImpl",
+          "com.seeyon.boot.starter.udcrt.domain.service.UdcFunctionNodeService",
+          "com.seeyon.boot.starter.udcrt.domain.service.ResourcePermissionService"
+        ],
+        "dto": [
+          "com.seeyon.udc.common.dto.PageInfoItemDto",
+          "com.seeyon.udc.common.dto.PageReferDto",
+          "com.seeyon.udc.common.dto.ApplicationRoleControlResourceDto"
+        ]
+      }
+    }
+  ],
+  "trace_edges": [
+    {
+      "from": "UDC /resource route",
+      "to": "src_pages_udc_resource_index_tsx.a49eacdd.js",
+      "status": "BLOCKED",
+      "reason": "real resource page chunk bytes are not present locally"
+    },
+    {
+      "from": "udcMetaDataSelectFunctionNodeWithPageTreePost",
+      "to": "UDC backend resolver/controller/service",
+      "status": "UNVERIFIED",
+      "reason": "frontend fieldType is not itself a backend method proof"
+    },
+    {
+      "from": "page tree/function node result",
+      "to": "menu/resource list semantics",
+      "status": "UNVERIFIED",
+      "reason": "observed result contains functionNodes/pages and is not proven to be Resource page menu data"
+    }
+  ],
+  "unknowns": [
+    "Resource page list handler and button/event functions",
+    "Resource/Menu fieldType and input type",
+    "Gateway path, route_id and service_id",
+    "Backend Controller/Resolver/RPC handler",
+    "Backend DTO and service method",
+    "Actual database or object-storage source",
+    "Redis key, TTL and invalidation",
+    "MinIO bucket/object relationship",
+    "Response envelope and frontend state update",
+    "Whether canonical operation is udc.menu.list, udc.resource.list, or another operation"
+  ],
+  "implementation_status": {
+    "operation_contract": "NOT_CREATED",
+    "adapter": "NOT_CREATED",
+    "application_service": "NOT_CREATED",
+    "reason": "creating these now would encode an unproven Menu contract"
+  },
+  "next_evidence": {
+    "single_action": "obtain and parse the real UDC resource page chunk a49eacdd.js",
+    "candidate_url": "https://lowcode-test2.example.com/udc/a49eacdd.js",
+    "scope_after_acquisition": [
+      "resource page list-loading function",
+      "resource/menu fieldType",
+      "paramsType and paramsKey",
+      "request payload",
+      "response fields",
+      "frontend state update"
+    ]
+  },
+  "non_claims": [
+    "No Menu operation contract is closed",
+    "No Menu adapter has been implemented",
+    "No mutation was called",
+    "No database, Redis or MinIO write was performed",
+    "Page tree evidence is not promoted to Menu evidence"
+  ]
+}

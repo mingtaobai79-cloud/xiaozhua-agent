@@ -1,0 +1,48 @@
+{
+ "slice": "C-5",
+ "step": "step1-update",
+ "env": "test2",
+ "app_id": "8704025620829192834",
+ "entity_id": "4796455827714164161",
+ "field": "zzprobeDecimal01",
+ "capture_method": "CDP Network.requestWillBeSent + Network.getResponseBody",
+ "note": "CDP 事件序列存档，未导出标准 HAR；每接口取本次操作最后一次请求/响应。",
+ "files": [
+  {
+   "file": "edit-lock.request.step1-update.json",
+   "kind": "request",
+   "bytes": 462,
+   "sha256": "9c953a50cd731af4e7ce24b69aaab426a3577caf73c31a5208fc26250563bcb6"
+  },
+  {
+   "file": "edit-lock.response.step1-update.json",
+   "kind": "response",
+   "bytes": 383,
+   "sha256": "b37b9b0c25875e9ab4224a7afc68f63e057ca0688e978c05c1799c2ebd40b8b7"
+  },
+  {
+   "file": "get-entity.request.step1-update.json",
+   "kind": "request",
+   "bytes": 2127,
+   "sha256": "8d06a97362ce1869b1738a2bf594ac9eabf820c3fb2d6beeea7412fec61289d9"
+  },
+  {
+   "file": "get-entity.response.step1-update.json",
+   "kind": "response",
+   "bytes": 99784,
+   "sha256": "f684a80b3013f44a52e405e0a31b187ddb74a4ecea679e2c9445610e8b484710"
+  },
+  {
+   "file": "save-batch.request.step1-update.json",
+   "kind": "request",
+   "bytes": 99008,
+   "sha256": "07fca407202d5c6e6576284c4a0a2daa289f5974765b9722aa3aaca13edf06d6"
+  },
+  {
+   "file": "save-batch.response.step1-update.json",
+   "kind": "response",
+   "bytes": 107084,
+   "sha256": "b627b4f803f2675fc8faf3140f2184cb932acbb34de0e10f7c5772277782a31e"
+  }
+ ]
+}

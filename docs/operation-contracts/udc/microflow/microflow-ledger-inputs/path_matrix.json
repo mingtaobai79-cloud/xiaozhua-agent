@@ -1,0 +1,10 @@
+{
+  "status": "UNVERIFIED",
+  "note": "微流程只读关键路径矩阵（本地 5.3.517 静态契约 + test2 活体路由事实分列）。A2 未 LIVE，全部路径 UNVERIFIED；不据活体 404/BOOT_3000 改写静态路径原文。",
+  "entries": [
+    {"kind": "Microflow readonly C1", "path": "udc-runtime/meta-data/select-function-node-tree/{appName}", "static_status": "VERIFIED_STATIC_BYTECODE", "live_status": "UNVERIFIED", "gaps": ["test2 /service/udc/meta-data/... 活体 404 Whitelabel（部署态无该路由段）"]},
+    {"kind": "Microflow readonly C2", "path": "udc-runtime/datatype/getAll", "static_status": "VERIFIED_STATIC_BYTECODE", "live_status": "UNVERIFIED", "gaps": ["test2 /service/udc/datatype/getAll 活体 404 Whitelabel"]},
+    {"kind": "Microflow readonly C3", "path": "udc-runtime/app-log/datalog/{id}", "static_status": "VERIFIED_STATIC_BYTECODE", "live_status": "UNVERIFIED", "gaps": ["test2 /service/udc/app-log/datalog/1 活体 404 Whitelabel"]},
+    {"kind": "Entity readonly (23既有契约试点)", "path": "/service/udc/entity/{id}", "static_status": "VERIFIED_STATIC_BYTECODE", "live_status": "UNVERIFIED", "gaps": ["活体 200 业务 envelope 但 data.content=null（id=1 假 target）；tree/application 端点要 Long 型 id（BOOT_3000）；search/term GET 405（部署态 POST）"]}
+  ]
+}

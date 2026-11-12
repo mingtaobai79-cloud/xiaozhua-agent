@@ -1,0 +1,825 @@
+{
+ "meta": {
+  "total_ops": 456,
+  "evidence": "STATIC",
+  "source": "test2 udc frontend chunks (store + reconcile + ns + unpacked)"
+ },
+ "by_domain": {
+  "Affair": {
+   "write": [
+    "udcAffairDeletePost",
+    "udcAffairUpdatePost"
+   ],
+   "read": [
+    "udcAffairGet",
+    "udcAffairListPost"
+   ],
+   "other": [
+    "udcAffairPost"
+   ]
+  },
+  "Application": {
+   "write": [
+    "udcApplicationCopyGet",
+    "udcApplicationCopyPost",
+    "udcApplicationCreateFromTemplatePost",
+    "udcApplicationDeleteByGuidPost",
+    "udcApplicationDeletePost",
+    "udcApplicationDependentApplicationCreateBatchPost",
+    "udcApplicationDependentApplicationDeleteByIdPost",
+    "udcApplicationDependentApplicationVersionUpdateBatchPost",
+    "udcApplicationDependentApplicationVersionUpdatePost",
+    "udcApplicationImportNewPost",
+    "udcApplicationImportOtherAppZipPost",
+    "udcApplicationRenewalAppEditingTimeGet",
+    "udcApplicationSaveAsPost",
+    "udcApplicationSaveNormalNewDesignPost",
+    "udcApplicationTransferParamPost",
+    "udcApplicationUpdatePost"
+   ],
+   "read": [
+    "ctpApplicationAppcenterSearch",
+    "udcApplicationAppFeatureAppGet",
+    "udcApplicationDependentApplicationSelectByConditionPost",
+    "udcApplicationDetailGet",
+    "udcApplicationFeatureAppTypeGet",
+    "udcApplicationFetchLastVersionMetadataPost",
+    "udcApplicationGet",
+    "udcApplicationIsLastVersionAppGet",
+    "udcApplicationSearchDetectionPost",
+    "udcApplicationSearchNewWithVersionListPost",
+    "udcApplicationSearchPageByGuidPost",
+    "udcApplicationSearchTemplatePost",
+    "udcApplicationVersionPlatformGet",
+    "udcApplicationVersionPlatformServiceGet"
+   ],
+   "other": [
+    "udcApplicationAppVersionAppGuidPost",
+    "udcApplicationDoDetectionPost",
+    "udcApplicationDoDetectionStatePost",
+    "udcApplicationMultiVersionPost",
+    "udcApplicationPost",
+    "udcApplicationSchemaDownloadIdPost"
+   ]
+  },
+  "Associate": {
+   "write": [
+    "appCommonAssociateEntityConfigSavePost",
+    "appCommonAssociateUpdatePost"
+   ],
+   "read": [
+    "appCommonAssociateEntityConfigSelectPost",
+    "appCommonAssociateSearch"
+   ],
+   "other": [
+    "appCommonAssociateCheckAppPost",
+    "appCommonAssociateConfigGeneratePost",
+    "appCommonAssociatePost"
+   ]
+  },
+  "Attachment": {
+   "write": [
+    "udcAttachmentTemplateCreateBatchPost"
+   ],
+   "read": [],
+   "other": []
+  },
+  "Attribute": {
+   "write": [
+    "udcAttributeGroupOperateBatchPost",
+    "udcAttributeSetDeletePost",
+    "udcAttributeSetPost",
+    "udcAttributeSetSearchTermPost",
+    "udcAttributeSetSelectByAppidPost",
+    "udcAttributeSetSelectByNameAttributesPost",
+    "udcAttributeSetUpdatePost"
+   ],
+   "read": [
+    "udcAttributeGroupEntityGet"
+   ],
+   "other": []
+  },
+  "Backend": {
+   "write": [
+    "udcBackendComponentImportPost",
+    "udcBackendComponentRefreshVersionGet",
+    "udcBackendComponentUpdatePost"
+   ],
+   "read": [
+    "udcBackendComponentDependentIdDefaultLastVersionGet",
+    "udcBackendComponentMultiVersionGet",
+    "udcBackendComponentSearchAppPost",
+    "udcBackendComponentSelectAllListByConditionsPost"
+   ],
+   "other": []
+  },
+  "Cdp": {
+   "write": [],
+   "read": [
+    "udcCdpDataReportGetReportListPost"
+   ],
+   "other": []
+  },
+  "Collaboration": {
+   "write": [
+    "udcCollaborationCreatePost",
+    "udcCollaborationDeleteIdPost",
+    "udcCollaborationHandoverPost"
+   ],
+   "read": [
+    "udcCollaborationAppGet"
+   ],
+   "other": [
+    "udcCollaborationMembersPost"
+   ]
+  },
+  "Condition": {
+   "write": [],
+   "read": [],
+   "other": [
+    "udcConditionCheckPost"
+   ]
+  },
+  "Ctp": {
+   "write": [
+    "udcCtpManagerTransferSavePost",
+    "udcCtpManagerTransferSelectGet"
+   ],
+   "read": [],
+   "other": [
+    "udcCtpManagerSandboxUsePost"
+   ]
+  },
+  "Custom": {
+   "write": [
+    "udcCustomDataTypeCreatePost",
+    "udcCustomDataTypeDeleteByIdPost",
+    "udcCustomDataTypeDeleteByIdsPost",
+    "udcCustomDataTypeUpdatePost"
+   ],
+   "read": [
+    "udcCustomDataTypeSearch"
+   ],
+   "other": [
+    "udcCustomDataTypeCustomDataTypePost"
+   ]
+  },
+  "Data": {
+   "write": [
+    "udcDataFlowDeleteContentPost",
+    "udcDataFlowMappingUpdatePost",
+    "udcDataTransferObjectCreateDtoPost",
+    "udcDataTransferObjectCreateDtoWithAttrsPost",
+    "udcDataTransferObjectDeleteDtoWithAttrsPost",
+    "udcDataTransferObjectDeletePost",
+    "udcDataTransferObjectGet",
+    "udcDataTransferObjectSearchByMicroFlowIdMicroFlowGet",
+    "udcDataTransferObjectSearchListPost",
+    "udcDataTransferObjectSearchMicroFlowCustomDtoAppGet",
+    "udcDataTransferObjectSelectDtoGet",
+    "udcDataTransferObjectSelectDtoWithAttrsGet",
+    "udcDataTransferObjectUpdateDtoPost",
+    "udcDataTransferObjectUpdateDtoWithAttrsPost"
+   ],
+   "read": [
+    "udcDataFlowAppAppGet",
+    "udcDataFlowListApplicationAppGet",
+    "udcDataFlowListEntityPost",
+    "udcDataFlowListEventEntityPost",
+    "udcDataFlowListEventsPost",
+    "udcDataFlowListManuallyMappingPost",
+    "udcDataFlowMappingGet",
+    "udcDataTypeDataTypesByAppIdAppGet",
+    "udcDataTypeDataTypesParamGet",
+    "udcDataTypeSelectByParamsPost"
+   ],
+   "other": [
+    "udcDataFlowEntityNotExistIdsPost",
+    "udcDataFlowMappingInitDataPost"
+   ]
+  },
+  "Deduction": {
+   "write": [
+    "udcDeductionMapDeleteContentPost",
+    "udcDeductionMapDeletePost",
+    "udcDeductionMapUpdatePost",
+    "udcDeductionRuleDeletePost",
+    "udcDeductionRuleUpdatePost"
+   ],
+   "read": [
+    "udcDeductionEntityListPost",
+    "udcDeductionMapAppAppGet",
+    "udcDeductionMapGet",
+    "udcDeductionRuleCountPost",
+    "udcDeductionRuleGet",
+    "udcDeductionRuleSearch"
+   ],
+   "other": [
+    "udcDeductionEntityNotExistIdsPost",
+    "udcDeductionMapPost",
+    "udcDeductionRuleInitDataPost",
+    "udcDeductionRulePost",
+    "udcDeductionValidRulePost"
+   ]
+  },
+  "Deployment": {
+   "write": [
+    "udcDeploymentAppOnlineNewPost",
+    "udcDeploymentAppReadyStatePost",
+    "udcDeploymentLatestTestInfoPost"
+   ],
+   "read": [],
+   "other": []
+  },
+  "Design": {
+   "write": [],
+   "read": [
+    "udcDesignMetadataAggEntityExcludeBootGet"
+   ],
+   "other": []
+  },
+  "Entity": {
+   "write": [
+    "udcEntityAttributeBatchDeletePost",
+    "udcEntityAttributeBatchUpdatePost",
+    "udcEntityAttributeGroupBathUpdatePost",
+    "udcEntityAttributeGroupCreateUpdatePost",
+    "udcEntityAttributeTransferPost",
+    "udcEntityAttributeUpdatePost",
+    "udcEntityBatchDeletePost",
+    "udcEntityBatchUpdateEntityGroupIdAndOrdernoPost",
+    "udcEntityDeletePost",
+    "udcEntityEntityCopyPost",
+    "udcEntityGroupBatchDeletePost",
+    "udcEntityGroupCreatePost",
+    "udcEntityGroupDeletePost",
+    "udcEntityGroupUpdateBatchPost",
+    "udcEntityGroupUpdatePost",
+    "udcEntityUpdateExtensionLinkagePost",
+    "udcEntityUpdatePost"
+   ],
+   "read": [
+    "udcEntityAssociationEntityAppGet",
+    "udcEntityAttributeGet",
+    "udcEntityAttributeGroupSearch",
+    "udcEntityAttributePresetAttributeCapacityAllAppGet",
+    "udcEntityAttributeSelectByPrimaryGet",
+    "udcEntityAttributeSelectParentEnumAttrsPost",
+    "udcEntityDataTypesGet",
+    "udcEntityGet",
+    "udcEntityGroupSelectByAppidAppGet",
+    "udcEntityOpenApiSelectGet",
+    "udcEntityPrimarySelectByAppidAppGet",
+    "udcEntityPrimarySelectRootGet",
+    "udcEntitySelectAllByAppidAppGet",
+    "udcEntitySelectAllByEntityIdGet",
+    "udcEntitySelectEventDataByEntityIdGet",
+    "udcEntitySelectMasterEntityCountAppGet",
+    "udcEntityStereoEntityAppGet"
+   ],
+   "other": [
+    "udcEntityAssociationGroupSerialPost",
+    "udcEntityAssociationSerialPost",
+    "udcEntityAttributeGroupCanceGroupPost",
+    "udcEntityAttributePost",
+    "udcEntityConstraintEntityPost",
+    "udcEntityPost"
+   ]
+  },
+  "Enum": {
+   "write": [],
+   "read": [
+    "udcEnumItemGet"
+   ],
+   "other": []
+  },
+  "Env": {
+   "write": [],
+   "read": [
+    "udcEnvCurrentEnvGet"
+   ],
+   "other": []
+  },
+  "Event": {
+   "write": [
+    "udcEventCreateWithDataPost",
+    "udcEventDeleteBatchPost",
+    "udcEventDeletePost",
+    "udcEventUpdatePost",
+    "udcEventUpdateWithDataPost"
+   ],
+   "read": [
+    "udcEventGet",
+    "udcEventListPost",
+    "udcEventSearchTermPost",
+    "udcEventSelectWithDataGet"
+   ],
+   "other": [
+    "udcEventPost"
+   ]
+  },
+  "Excel": {
+   "write": [],
+   "read": [
+    "udcExcelSearchListByConditionsPost"
+   ],
+   "other": []
+  },
+  "Expression": {
+   "write": [],
+   "read": [
+    "udcExpressionSystemVariableListGet"
+   ],
+   "other": [
+    "udcExpressionSchemaPost"
+   ]
+  },
+  "Feature": {
+   "write": [],
+   "read": [
+    "udcFeatureListGet"
+   ],
+   "other": []
+  },
+  "File": {
+   "write": [],
+   "read": [
+    "mainFileDownloadUrlGet",
+    "udcFileDownloadUrlGet"
+   ],
+   "other": [
+    "udcFileDownloadUrlsPost"
+   ]
+  },
+  "Form": {
+   "write": [
+    "udcFormUpgradeDeployDeletePost",
+    "udcFormUpgradeDeployExportRecordPost",
+    "udcFormUpgradeDeployListInfoPost",
+    "udcFormUpgradeDeployListRecordPost",
+    "udcFormUpgradeDeployNodeLastUpgradeResultGet",
+    "udcFormUpgradeDeployOneClickUpgradePost",
+    "udcFormUpgradeDeploySilentUpdatePost"
+   ],
+   "read": [],
+   "other": []
+  },
+  "Function": {
+   "write": [
+    "udcFunctionBatchDeletePost",
+    "udcFunctionCopyPost",
+    "udcFunctionDeletePost",
+    "udcFunctionDeleteReferPagePost",
+    "udcFunctionUpdateFunctionReferPost",
+    "udcFunctionUpdatePost"
+   ],
+   "read": [
+    "udcFunctionGet",
+    "udcFunctionSelectFunctionTreePost"
+   ],
+   "other": [
+    "udcFunctionDefaultPagePost",
+    "udcFunctionPost"
+   ]
+  },
+  "Image": {
+   "write": [],
+   "read": [
+    "appCommonImageSearch",
+    "appCommonImageStoreCategoryGet"
+   ],
+   "other": []
+  },
+  "Index": {
+   "write": [
+    "udcIndexDeleteBatchPost",
+    "udcIndexDeletePost",
+    "udcIndexUpdatePost"
+   ],
+   "read": [
+    "udcIndexAttributeEntityGet",
+    "udcIndexEntityListPost"
+   ],
+   "other": [
+    "udcIndexPost"
+   ]
+  },
+  "Manager": {
+   "write": [],
+   "read": [
+    "udcManagerRequestStatusRequestGet"
+   ],
+   "other": [
+    "udcManagerComponentLogPost"
+   ]
+  },
+  "Message": {
+   "write": [
+    "udcMessageCategoryCreatePost",
+    "udcMessageCategoryDeletePost",
+    "udcMessageCategoryUpdatePost",
+    "udcMessageLinkCreatePost",
+    "udcMessageLinkDeletePost",
+    "udcMessageLinkUpdatePost"
+   ],
+   "read": [
+    "udcMessageCategoryListPost",
+    "udcMessageLinkListPost"
+   ],
+   "other": []
+  },
+  "Meta": {
+   "write": [],
+   "read": [
+    "udcMetaDataSearchAvailableAppMultiVersionPost",
+    "udcMetaDataSearchAvailableUpgradeAppGet",
+    "udcMetaDataSelectAggregationEntityEntityGet",
+    "udcMetaDataSelectAggregationEntityPost",
+    "udcMetaDataSelectAllLayoutByAppPost",
+    "udcMetaDataSelectAppByIdPost",
+    "udcMetaDataSelectAppListGet",
+    "udcMetaDataSelectCtpEnumAppGet",
+    "udcMetaDataSelectCtpEnumByApp1Post",
+    "udcMetaDataSelectCustomReferPageGet",
+    "udcMetaDataSelectEntityByAppIdAppGet",
+    "udcMetaDataSelectEntityByAppNameAppNameGet",
+    "udcMetaDataSelectEntityPost",
+    "udcMetaDataSelectJavaEnumByAppPost",
+    "udcMetaDataSelectJavaEnumItemPost",
+    "udcMetaDataSelectPageInfoListPost",
+    "udcMetaDataSelectPageLayoutPost",
+    "udcMetaDataSelectPagePost"
+   ],
+   "other": [
+    "udcMetaDataMergeReferPost",
+    "udcMetaDataReferAndAppPost"
+   ]
+  },
+  "Micro": {
+   "write": [
+    "udcMicroFlowGroupBatchMovePost",
+    "udcMicroFlowGroupCreatePost",
+    "udcMicroFlowGroupDeleteBatchPost",
+    "udcMicroFlowGroupDeletePost",
+    "udcMicroFlowGroupUpdatePost"
+   ],
+   "read": [
+    "udcMicroFlowGroupSelectByTypePost"
+   ],
+   "other": []
+  },
+  "Microflow": {
+   "write": [
+    "udcMicroflowBatchFindAggDtoPost",
+    "udcMicroflowBatchFindJavaEnumPost",
+    "udcMicroflowBatchMovePost",
+    "udcMicroflowCheckSchemaUpdatePost",
+    "udcMicroflowCopy",
+    "udcMicroflowCopyBySourceIdPost",
+    "udcMicroflowCopyPageRuleBoundControlPost",
+    "udcMicroflowCreateMessagePost",
+    "udcMicroflowCreatePost",
+    "udcMicroflowDeletePost",
+    "udcMicroflowDisableNodePost",
+    "udcMicroflowMessageDtoDeletePost",
+    "udcMicroflowUpdateMessagePost",
+    "udcMicroflowUpdateOrderNoAndGroupPost",
+    "udcMicroflowUpdatePost"
+   ],
+   "read": [
+    "udcMicroflowFindByIdGet",
+    "udcMicroflowFindCallInfoDownstreamPost",
+    "udcMicroflowFindCallInfoUpstreamPost",
+    "udcMicroflowFindNodesGet",
+    "udcMicroflowSearch",
+    "udcMicroflowSearchAppServiceByAppNamePost",
+    "udcMicroflowSearchAppServiceByNamePost",
+    "udcMicroflowSearchAppServicePost",
+    "udcMicroflowSearchAppsPost",
+    "udcMicroflowSearchEntityRulePost",
+    "udcMicroflowSearchEnumByAppNamePost",
+    "udcMicroflowSearchEventListPost",
+    "udcMicroflowSearchMessageDtoPost",
+    "udcMicroflowSearchMethodByNamePost",
+    "udcMicroflowSearchMicroFlowEventAppGet",
+    "udcMicroflowSearchMicroFlowMessageAppGet",
+    "udcMicroflowSearchNonEntityDtoPost",
+    "udcMicroflowSearchRestExcludeBootPost",
+    "udcMicroflowSearchSendMqListPost",
+    "udcMicroflowSearchTreeEntityPost",
+    "udcMicroflowSelectMessageGet",
+    "udcMicroflowServiceCommonInputListPost",
+    "udcMicroflowServiceDetailsDynamicPost",
+    "udcMicroflowServiceDetailsGet",
+    "udcMicroflowServiceFrontendListPost",
+    "udcMicroflowServiceListPost",
+    "udcMicroflowServiceListSubMfPost",
+    "udcMicroflowTreeEntityDtoPost"
+   ],
+   "other": [
+    "udcMicroflowCheckDtoMetadataExistPost",
+    "udcMicroflowCheckMicroFlowCaptionPost",
+    "udcMicroflowFilterEventPost",
+    "udcMicroflowFilterMqPost",
+    "udcMicroflowFilterNotVirtualPost",
+    "udcMicroflowFindCustomDtoPost",
+    "udcMicroflowFindDataSystemPost",
+    "udcMicroflowFindDtoByEntityPost",
+    "udcMicroflowFindFullAggDtoPost",
+    "udcMicroflowRecoverPost",
+    "udcMicroflowRefactorRefactoredPost",
+    "udcMicroflowRefactorResolveNodesReferenceRelationshipsPost"
+   ]
+  },
+  "Multi": {
+   "write": [
+    "udcMultiEditLockPost",
+    "udcMultiEditUnlockPost"
+   ],
+   "read": [],
+   "other": []
+  },
+  "Node": {
+   "write": [],
+   "read": [
+    "bpmNodePermissionListPost"
+   ],
+   "other": []
+  },
+  "Operation": {
+   "write": [],
+   "read": [
+    "udcOperationLogGet",
+    "udcOperationLogSearchInitDataAppGet",
+    "udcOperationLogSearchStorageKeyPost"
+   ],
+   "other": [
+    "udcOperationLogElementIsExistPost"
+   ]
+  },
+  "Other": {
+   "write": [],
+   "read": [
+    "cipManagerManageSelectActivexCapabilityEnumGet",
+    "edoc335172694483814428EdocMarkDefineSelectMarkFormDesignPost"
+   ],
+   "other": [
+    "organizationOrgMemberAvatarIdsPost"
+   ]
+  },
+  "Page": {
+   "write": [
+    "udcPageAdminV1DeleteGet",
+    "udcPageComponentRefreshGet",
+    "udcPageComponentUpdatePost",
+    "udcPageComponentUploadGet",
+    "udcPageInfoBaseInfoBatchCreatePost",
+    "udcPageInfoBaseInfoUpdatePost",
+    "udcPageInfoBatchCreatePost",
+    "udcPageInfoDeleteByConditionsPost",
+    "udcPageInfoDeletePost",
+    "udcPageInfoFunctionBaseInfoCreatePost",
+    "udcPageLayoutBaseInfoCreatePost",
+    "udcPageLayoutBaseInfoUpdatePost",
+    "udcPageLayoutDeleteByConditionsPost",
+    "udcPageLayoutUpdateDrafPost",
+    "udcPageLayoutUpdatePost",
+    "udcPageTemplateBatchCreatePost",
+    "udcPageTemplateClassCreatePost",
+    "udcPageTemplateClassDeletePost",
+    "udcPageTemplateClassUpdatePost",
+    "udcPageTemplateCreateOrUpdatePost",
+    "udcPageTemplateDeleteByIdsPost",
+    "udcPageTemplatePublishPost",
+    "udcPageTemplatePublishedCreateOrUpdatePost",
+    "udcPageTemplatePublishedDeleteByIdsPost",
+    "udcPageTemplatePublishedSearch",
+    "udcPageTemplatePublishedSearchNoPagePost",
+    "udcPageTemplateSaveAsPost"
+   ],
+   "read": [
+    "udcPageComponentAnalysisPackageGet",
+    "udcPageComponentSelectAllListByConditionsPost",
+    "udcPageComponentSelectByGet",
+    "udcPageComponentSelectListByDependencyConditionsPost",
+    "udcPageInfoDesignerSelectDetailListByConditionsPost",
+    "udcPageInfoDetailGet",
+    "udcPageInfoParamsPageGet",
+    "udcPageInfoRecoverPost",
+    "udcPageInfoRelationInfoRelationGroupIdPost",
+    "udcPageInfoSearchNoPagePost",
+    "udcPageInfoSelectListByConditionsPost",
+    "udcPageLayoutDesignerSelectDetailListByConditionsPost",
+    "udcPageLayoutDetailGet",
+    "udcPageLayoutRelationInfoIdPost",
+    "udcPageLayoutSelectListByConditionsPost",
+    "udcPageTemplateClassSelectTreeCategoryGet",
+    "udcPageTemplateSearchAvailablePost",
+    "udcPageTemplateSearchNoPagePost",
+    "udcPageTemplateSearchWithRightsPost"
+   ],
+   "other": [
+    "udcPageLayoutRecoverPost",
+    "udcPageTemplateCheckNamePost"
+   ]
+  },
+  "Pinyin": {
+   "write": [],
+   "read": [
+    "udcPinyinGet"
+   ],
+   "other": []
+  },
+  "Portal": {
+   "write": [
+    "udcPortalPortalSpaceCreatePost",
+    "udcPortalPortalSpaceDeletePost",
+    "udcPortalPortalSpaceSelectMaxSortNoGet",
+    "udcPortalPortalSpaceSpaceSaveCopyPost",
+    "udcPortalPortalSpaceUpdatePost"
+   ],
+   "read": [
+    "portalPortalSpaceGet",
+    "udcPortalPortalSpaceSearch"
+   ],
+   "other": []
+  },
+  "Portlet": {
+   "write": [
+    "udcPortletCreatePortletPost",
+    "udcPortletCreatePost",
+    "udcPortletDeleteIdPost",
+    "udcPortletSortPost",
+    "udcPortletUpdatePortletPost",
+    "udcPortletUpdatePost"
+   ],
+   "read": [
+    "udcPortletSelectByAppIdAppGet"
+   ],
+   "other": []
+  },
+  "Refer": {
+   "write": [
+    "udcReferConfigCreateConfigInfoPost",
+    "udcReferConfigCreateOrUpdatePost",
+    "udcReferConfigDeleteByGroupIdPost",
+    "udcReferConfigUpdateConfigInfoPost"
+   ],
+   "read": [
+    "udcReferConfigGroupListPost",
+    "udcReferConfigListPost"
+   ],
+   "other": []
+  },
+  "Runtime": {
+   "write": [
+    "udcRuntimeDeployFormPost",
+    "udcRuntimeDeployNormalPost",
+    "udcRuntimeDeployPost"
+   ],
+   "read": [
+    "udcRuntimeUpgradeAppListPost",
+    "udcRuntimeUpgradeHostAppNameListPost"
+   ],
+   "other": [
+    "udcRuntimeAuthAccessUrlPost"
+   ]
+  },
+  "Sandbox": {
+   "write": [
+    "udcSandboxAppStopAppPost",
+    "udcSandboxBatchCleanStopPost",
+    "udcSandboxBatchStopPost",
+    "udcSandboxClearDataPost",
+    "udcSandboxClientCreateGet",
+    "udcSandboxClientDeleteGet",
+    "udcSandboxStopPost",
+    "udcSandboxSystemConfigSetReleaseConfigPost",
+    "udcSandboxSystemConfigUpdatePost",
+    "udcSandboxTenantConfigCreatePost",
+    "udcSandboxTenantConfigDeleteGet",
+    "udcSandboxTenantConfigUpdatePost"
+   ],
+   "read": [
+    "udcSandboxBuildInfoAppGet",
+    "udcSandboxClientCheckAllStatusGet",
+    "udcSandboxClientCheckAllTaskGet",
+    "udcSandboxClientRestartGet",
+    "udcSandboxClientSearch",
+    "udcSandboxResourcesGet",
+    "udcSandboxSelectAppGet",
+    "udcSandboxSelectRolesPost",
+    "udcSandboxSystemConfigGetAppLimitGet",
+    "udcSandboxSystemConfigGetGet",
+    "udcSandboxTenantConfigConfigAllTenantGet",
+    "udcSandboxTenantConfigSearch"
+   ],
+   "other": [
+    "udcSandboxAppCheckAlertPost",
+    "udcSandboxAppCleanRestartAppPost",
+    "udcSandboxAppCleanRestartByAppPost",
+    "udcSandboxAppReleaseAppPost",
+    "udcSandboxAppReleaseAppStatusPost",
+    "udcSandboxAppStartAppPost",
+    "udcSandboxAppStartByAppPost",
+    "udcSandboxAppUnLoadAppPost",
+    "udcSandboxClientSandboxLogPost",
+    "udcSandboxClientSandboxLogUrlPost",
+    "udcSandboxRestartPost",
+    "udcSandboxSandboxAppsByConditionPost"
+   ]
+  },
+  "Scalability": {
+   "write": [
+    "udcScalabilityBatchDeletePost",
+    "udcScalabilityDeletePost",
+    "udcScalabilityOptionDeletePost",
+    "udcScalabilityOptionUpdatePost",
+    "udcScalabilityUpdatePost"
+   ],
+   "read": [
+    "udcScalabilityOptionDataTypeAppGet",
+    "udcScalabilityOptionOptionGet",
+    "udcScalabilityOptionSelectAllOptionNamePost",
+    "udcScalabilityOptionSelectByAppidTreeAppGet",
+    "udcScalabilityOptionSelectByAppidWithDetailAppGet"
+   ],
+   "other": [
+    "udcScalabilityOptionPost",
+    "udcScalabilityPost"
+   ]
+  },
+  "Serial": {
+   "write": [],
+   "read": [
+    "udcSerialSchemeSearchNoPagePost"
+   ],
+   "other": []
+  },
+  "Stereotype": {
+   "write": [],
+   "read": [
+    "udcStereotypeListGet"
+   ],
+   "other": []
+  },
+  "System": {
+   "write": [
+    "bpmSystemSettingListGet"
+   ],
+   "read": [
+    "appCommonSystemConfigSystemConfigGet"
+   ],
+   "other": []
+  },
+  "Template": {
+   "write": [],
+   "read": [],
+   "other": [
+    "portalTemplateImageDataPost"
+   ]
+  },
+  "Theme": {
+   "write": [],
+   "read": [
+    "appCommonThemeSelectDefaultBrandPost"
+   ],
+   "other": []
+  },
+  "Udc": {
+   "write": [
+    "udcUdcEnumCategoryDeletePost",
+    "udcUdcEnumCategoryUpdatePost",
+    "udcUdcEnumDeletePost",
+    "udcUdcEnumItemOperateBatchPost",
+    "udcUdcEnumUpdatePost"
+   ],
+   "read": [
+    "appCommonUdcRuntimeMetaDataSelectAllEntityByAppNameAppNameGet",
+    "appCommonUdcRuntimeMetaDataSelectReferByEntityPost",
+    "cdpDataUdcPortletReportAppListPost",
+    "udcUdcEnumCategorySelectCategoryAndEnumPost",
+    "udcUdcEnumItemGet",
+    "udcUdcEnumItemListPost",
+    "udcUdcEnumItemSearch",
+    "udcUdcEnumSearch"
+   ],
+   "other": [
+    "udcUdcEnumCategoryPost",
+    "udcUdcEnumPost"
+   ]
+  },
+  "User": {
+   "write": [],
+   "read": [
+    "ctpUserCtpManagerTenantPageListPost"
+   ],
+   "other": []
+  }
+ },
+ "counts": {
+  "write": 196,
+  "read": 190,
+  "other": 70
+ }
+}

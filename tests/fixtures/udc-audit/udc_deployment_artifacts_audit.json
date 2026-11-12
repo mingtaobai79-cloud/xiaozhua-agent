@@ -1,0 +1,15 @@
+{
+  "schema_version": "fixture.v1",
+  "artifact_version": "5.3.517",
+  "artifact_index": {
+    "customer_frontend": {
+      "entry_count": 1793
+    }
+  },
+  "interpretation": {
+    "generated_frontend_independent_artifact": true
+  },
+  "limitations": [
+    "Artifact evidence does not prove OSS/Ingress byte provenance."
+  ]
+}

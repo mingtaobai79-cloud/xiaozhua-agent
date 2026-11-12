@@ -1,0 +1,107 @@
+{
+  "schema_version": "seeyon-agent.gateway-access-contract.v0.1",
+  "status": "MINIMAL_VERIFIED",
+  "verification_level": "LIVE_STATIC_ARTIFACT_AND_K8S",
+  "environment": "test2",
+  "namespace": "lowcode-test",
+  "gateway": {
+    "deployment": "ctp-webapi-gateway",
+    "service": "ctp-webapi-gateway",
+    "service_cluster_ip": "10.0.0.1",
+    "port": 80,
+    "artifact": "ctp-webapi-gateway-assemble.jar",
+    "modules": [
+      "ctp-webapi-gateway-web:5.3.266",
+      "ctp-webapi-gateway-biz:5.3.266",
+      "gateway-spi:5.3.260",
+      "gateway-filter:5.3.260"
+    ]
+  },
+  "agent_access_layer": {
+    "client": "components.gateway.client.GatewayReadonlyClient",
+    "adapter": "components.gateway.adapter.GatewayAdapter",
+    "network_default": "disabled",
+    "allowed_methods": ["GET"],
+    "blocked_methods": ["POST", "PUT", "PATCH", "DELETE"],
+    "evidence_output": "operation/mode/gateway/service/route/path/request/response/verified/error"
+  },
+  "routing": {
+    "route_definition_locator": "com.seeyon.ctp.webapi.gateway.discovery.CtpDiscoveryClientRouteDefinitionLocator",
+    "service_discovery": [
+      "NacosReactiveDiscovery",
+      "ReactiveDiscovery",
+      "ServiceInstanceCache"
+    ],
+    "route_pattern": "UNKNOWN",
+    "udc_service_name": "udc",
+    "udc_route": "/service/udc/{target_path} → /udc/{target_path} (LIVE_READONLY_OBSERVED for udc.entity.get)",
+    "path_rewrite": "external /service prefix is observed before target /udc path; exact filter implementation remains partially evidenced",
+    "udc_graphql_gateway_mapping": "LIVE_READONLY_OBSERVED for /service/udc/graphql request shape; authenticated GraphQL operation not executed in this slice",
+    "route_id_prefix": "seeyon- (default when DiscoveryLocatorProperties.routeIdPrefix has no text)",
+    "route_id_formula": "routeId = routeIdPrefix + serviceInstance.serviceId",
+    "route_uri_source": "DiscoveryLocatorProperties.urlExpression evaluated against ServiceInstance",
+    "route_metadata": "copy of ServiceInstance.metadata",
+    "route_order": 2147483647,
+    "route_predicates_source": "DiscoveryLocatorProperties.predicates, args evaluated as SpEL against ServiceInstance",
+    "route_filters": [
+      "SeeyonStripPrefix",
+      "ProcessHeader",
+      "Retry(retries=2,methods=GET,POST,exceptions=io.netty.channel.unix.Errors$NativeIoException)"
+    ],
+    "healthy_instance_filter": "enabled && healthy",
+    "nacos_instance_selection": "selectInstances(serviceId, group, true)"
+  },
+  "filters": {
+    "strip_prefix": {
+      "class": "com.seeyon.ctp.webapi.gateway.filter.SeeyonStripPrefixGatewayFilterFactory",
+      "behavior": "implementation class confirmed; concrete prefix mapping remains UNKNOWN"
+    },
+    "process_header": {
+      "class": "com.seeyon.ctp.webapi.gateway.filter.ProcessHeaderGatewayFilterFactory",
+      "behavior": "implementation class confirmed; exact header names and values UNKNOWN"
+    },
+    "signature": {
+      "class": "com.seeyon.ctp.webapi.gateway.filter.SignVerificationFilter",
+      "required_headers": "UNKNOWN",
+      "algorithm": "UNKNOWN"
+    },
+    "request_time": {
+      "class": "com.seeyon.ctp.webapi.gateway.filter.RequestTimeFilter",
+      "required_headers": "UNKNOWN",
+      "constant": "requestTimeBegin",
+      "configuration": "WebApiProperties.timeWindow / rt fields present; exact acceptance rule UNKNOWN"
+    },
+    "csrf": {
+      "class": "com.seeyon.ctp.webapi.gateway.filter.CtpCsrfFilter",
+      "required_headers": "UNKNOWN",
+      "constants": {
+        "cookie": "XSRF-TOKEN",
+        "header": "X-XSRF-TOKEN"
+      }
+    },
+    "response": {
+      "class": "com.seeyon.ctp.webapi.gateway.filter.TongWebResponseFilter",
+      "envelope": "UNKNOWN"
+    },
+    "error": {
+      "handler": "com.seeyon.ctp.webapi.gateway.handler.GlobalExceptionHandler",
+      "envelope": "UNKNOWN"
+    }
+  },
+  "evidence": [
+    "docs/audit/udc-gateway-and-capability-boundary-evidence.md",
+    "docs/operation-contracts/gateway/live-readonly-udc-entity-get-evidence.json",
+    "test2 live pod inventory",
+    "gateway jar inventory",
+    "live javap -c -p CtpDiscoveryClientRouteDefinitionLocator",
+    "live javap -c -p NacosReactiveDiscovery",
+    "live javap -constants WebApiProperties/GatewayConstant/CookieConstants",
+    "components/gateway/client.py",
+    "components/gateway/adapter.py"
+  ],
+  "non_claims": [
+    "Only udc.entity.get is live verified; this does not verify every UDC readonly operation",
+    "No POST/write/publish executed",
+    "No guessed service name, route, header, signature, CSRF or envelope"
+  ]
+}

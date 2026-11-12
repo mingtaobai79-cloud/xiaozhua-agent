@@ -1,0 +1,213 @@
+{
+ "BRANCH": {
+  "count": 5,
+  "bytes": 16226,
+  "from": [
+   "1.10删除方案数据",
+   "1.9 判断当前启用方案是否存在指向同一张表",
+   "小爪全节点24-V16"
+  ],
+  "file": "fixtures/microflow/node_templates/BRANCH.json"
+ },
+ "BREAK": {
+  "count": 1,
+  "bytes": 196,
+  "from": [
+   "小爪全节点24-V16"
+  ],
+  "file": "fixtures/microflow/node_templates/BREAK.json"
+ },
+ "CALL_APP_SERVICE": {
+  "count": 3,
+  "bytes": 3214,
+  "from": [
+   "小爪全节点24-V16"
+  ],
+  "file": "fixtures/microflow/node_templates/CALL_APP_SERVICE.json"
+ },
+ "CALL_DATA_FLOW": {
+  "count": 1,
+  "bytes": 2121,
+  "from": [
+   "小爪全节点24-V16"
+  ],
+  "file": "fixtures/microflow/node_templates/CALL_DATA_FLOW.json"
+ },
+ "CHANGE_BATCH_ENTITY": {
+  "count": 1,
+  "bytes": 1200,
+  "from": [
+   "小爪全节点24-V16"
+  ],
+  "file": "fixtures/microflow/node_templates/CHANGE_BATCH_ENTITY.json"
+ },
+ "CHANGE_ENTITY": {
+  "count": 1,
+  "bytes": 1191,
+  "from": [
+   "小爪全节点24-V16"
+  ],
+  "file": "fixtures/microflow/node_templates/CHANGE_ENTITY.json"
+ },
+ "CHANGE_LIST": {
+  "count": 1,
+  "bytes": 894,
+  "from": [
+   "小爪全节点24-V16"
+  ],
+  "file": "fixtures/microflow/node_templates/CHANGE_LIST.json"
+ },
+ "CHANGE_VARIABLE": {
+  "count": 4,
+  "bytes": 5447,
+  "from": [
+   "1.7 获取数据迁移数据信息",
+   "1.9 判断当前启用方案是否存在指向同一张表",
+   "小爪全节点24-V16"
+  ],
+  "file": "fixtures/microflow/node_templates/CHANGE_VARIABLE.json"
+ },
+ "CONVERT_DATA": {
+  "count": 1,
+  "bytes": 1238,
+  "from": [
+   "小爪全节点24-V16"
+  ],
+  "file": "fixtures/microflow/node_templates/CONVERT_DATA.json"
+ },
+ "CREATE_BATCH_ENTITY": {
+  "count": 1,
+  "bytes": 1200,
+  "from": [
+   "小爪全节点24-V16"
+  ],
+  "file": "fixtures/microflow/node_templates/CREATE_BATCH_ENTITY.json"
+ },
+ "CREATE_ENTITY": {
+  "count": 4,
+  "bytes": 6047,
+  "from": [
+   "小爪全节点24-V16"
+  ],
+  "file": "fixtures/microflow/node_templates/CREATE_ENTITY.json"
+ },
+ "CREATE_LIST": {
+  "count": 1,
+  "bytes": 354,
+  "from": [
+   "小爪全节点24-V16"
+  ],
+  "file": "fixtures/microflow/node_templates/CREATE_LIST.json"
+ },
+ "CREATE_MAP": {
+  "count": 1,
+  "bytes": 629,
+  "from": [
+   "小爪全节点24-V16"
+  ],
+  "file": "fixtures/microflow/node_templates/CREATE_MAP.json"
+ },
+ "CREATE_VARIABLE": {
+  "count": 7,
+  "bytes": 2622,
+  "from": [
+   "1.10删除方案数据",
+   "1.7 获取数据迁移数据信息",
+   "1.9 判断当前启用方案是否存在指向同一张表"
+  ],
+  "file": "fixtures/microflow/node_templates/CREATE_VARIABLE.json"
+ },
+ "CUSTOM_ERROR": {
+  "count": 2,
+  "bytes": 330,
+  "from": [
+   "小爪全节点24-V16"
+  ],
+  "file": "fixtures/microflow/node_templates/CUSTOM_ERROR.json"
+ },
+ "DATA_MAPPING": {
+  "count": 1,
+  "bytes": 3722,
+  "from": [
+   "小爪全节点24-V16"
+  ],
+  "file": "fixtures/microflow/node_templates/DATA_MAPPING.json"
+ },
+ "DELETE_ENTITY": {
+  "count": 3,
+  "bytes": 3913,
+  "from": [
+   "1.10删除方案数据",
+   "小爪全节点24-V16"
+  ],
+  "file": "fixtures/microflow/node_templates/DELETE_ENTITY.json"
+ },
+ "FOR": {
+  "count": 2,
+  "bytes": 4580,
+  "from": [
+   "1.10删除方案数据",
+   "小爪全节点24-V16"
+  ],
+  "file": "fixtures/microflow/node_templates/FOR.json"
+ },
+ "LIST_OPERATION": {
+  "count": 1,
+  "bytes": 598,
+  "from": [
+   "小爪全节点24-V16"
+  ],
+  "file": "fixtures/microflow/node_templates/LIST_OPERATION.json"
+ },
+ "MAP_OPERATION": {
+  "count": 1,
+  "bytes": 1555,
+  "from": [
+   "小爪全节点24-V16"
+  ],
+  "file": "fixtures/microflow/node_templates/MAP_OPERATION.json"
+ },
+ "RETRIEVE": {
+  "count": 3,
+  "bytes": 7372,
+  "from": [
+   "1.7 获取数据迁移数据信息",
+   "1.9 判断当前启用方案是否存在指向同一张表",
+   "小爪全节点24-V16"
+  ],
+  "file": "fixtures/microflow/node_templates/RETRIEVE.json"
+ },
+ "RETRIEVE_ARRAY": {
+  "count": 2,
+  "bytes": 2953,
+  "from": [
+   "1.10删除方案数据",
+   "小爪全节点24-V16"
+  ],
+  "file": "fixtures/microflow/node_templates/RETRIEVE_ARRAY.json"
+ },
+ "SUB_MICROFLOW": {
+  "count": 2,
+  "bytes": 4330,
+  "from": [
+   "小爪全节点24-V16"
+  ],
+  "file": "fixtures/microflow/node_templates/SUB_MICROFLOW.json"
+ },
+ "FOR_EACH": {
+  "count": 1,
+  "bytes": 2760,
+  "from": [
+   "活引用重建V2-3112(LIVE)"
+  ],
+  "file": "fixtures/microflow/node_templates/FOR_EACH.json"
+ },
+ "END": {
+  "count": 1,
+  "bytes": 1009,
+  "from": [
+   "xzhAllNodesV16(生产母版)"
+  ],
+  "file": "fixtures/microflow/node_templates/END.json"
+ }
+}

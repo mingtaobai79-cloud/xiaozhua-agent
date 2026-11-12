@@ -1,0 +1,19 @@
+# 一次性调试脚本
+/scratch/
+/_attic_pending/
+/build/
+/dist/
+# 证据快照（反编译产物 / 客户抓包）
+/docs/audit/artifacts/
+/docs/audit/evidence/
+# 本地环境
+/.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+# 凭据（绝不入库）
+*credential*.json
+*cookies*.json
+*.token
+.env

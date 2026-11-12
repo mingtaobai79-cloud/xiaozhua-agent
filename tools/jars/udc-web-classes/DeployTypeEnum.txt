@@ -1,0 +1,14 @@
+Compiled from "DeployTypeEnum.java"
+public final class com.seeyon.udc.common.enums.DeployTypeEnum extends java.lang.Enum<com.seeyon.udc.common.enums.DeployTypeEnum> implements com.seeyon.boot.enums.Messageable {
+  public static final com.seeyon.udc.common.enums.DeployTypeEnum TEST;
+  public static final com.seeyon.udc.common.enums.DeployTypeEnum RELEASE;
+  public static final com.seeyon.udc.common.enums.DeployTypeEnum ON_ONLINE;
+  public static final com.seeyon.udc.common.enums.DeployTypeEnum DELTA;
+  private int code;
+  private static final com.seeyon.udc.common.enums.DeployTypeEnum[] $VALUES;
+  public static com.seeyon.udc.common.enums.DeployTypeEnum[] values();
+  public static com.seeyon.udc.common.enums.DeployTypeEnum valueOf(java.lang.String);
+  private com.seeyon.udc.common.enums.DeployTypeEnum(int);
+  public int code();
+  static {};
+}

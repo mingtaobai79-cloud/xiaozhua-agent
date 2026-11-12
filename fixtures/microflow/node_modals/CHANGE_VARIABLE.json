@@ -1,0 +1,17 @@
+{
+  "actionType": "CHANGE_VARIABLE",
+  "caption": "修改变量",
+  "captured_from": "编辑器弹窗（用户打开，CDP 抓取，2026-10-25）",
+  "modal_fields": [
+    {"label": "变量", "required": true, "control": "select", "placeholder": "请选择变量数据",
+     "note": "下拉列出前序节点已创建的变量（= selectParam 引用源）"},
+    {"label": "变量值", "required": true, "control": "value-editor", "placeholder": "请输入",
+     "note": "值编辑器三态：Simple 常量 / SelectParam 引用 / Expression 表达式"}
+  ],
+  "no_assignment_tabs": true,
+  "validation_rules": [
+    "变量必选，且只能选前序已创建的变量（引用顺序 G8）",
+    "变量值必填，不能空",
+    "基本变量 → 变量值是单值编辑器；实体变量 → 变量值可能切到字段映射(attrs)"
+  ]
+}
