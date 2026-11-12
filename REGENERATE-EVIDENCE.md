@@ -240,3 +240,50 @@ interfaces.json（原）      63.9 MB
 
 原 `interfaces.json` 仍然不进仓库 —— 它只被构建脚本和那 232 个断言测试使用，
 不进运行时。需要它时用上面的一条命令重建。
+
+---
+
+# UDC 平台参考包（随仓库分发，1.7 MB）
+
+写 UDC 自定义页面 / 微流程扩展时，最需要的是**平台 Controller / Service 的真实签名**：
+路径、入参 DTO、返回体、方法重载。这部分随仓库带了一份：
+
+```text
+docs/audit/reference/udc-platform-5.3.517.tar.gz   1.7 MB / 387 文件 / 解压 15.6 MB
+```
+
+内容（全部是机器生成的 javap 原文，无客户信息）：
+
+```text
+udc-web-5.3.517              全部 Controller 的 javap（2.4 MB 单文件）
+udc-web-5.3.517-contracts    ApplicationController / MicroFlowController / EntityController …
+udc-web-5.3.517-methods      方法索引
+udc-runtime-5.3.517(+-javap) UdcBaseGeneralController / UdcRestPathParse（REST 路径怎么解析）
+udc-resource / udc-publish / udc-biz / udc-flow / udc-app-basic / udc-common
+extmetadata-5.3.318          UdcEntityMetaDataService（元数据写入契约）
+metadata-5.3.358             MetadataService / MetadataController
+udc-user-5.3.517-contracts / runtime-lowcode-5.3.517
+```
+
+解压到证据根，现有工具路径直接可用：
+
+```bash
+tar -xzf docs/audit/reference/udc-platform-5.3.517.tar.gz -C docs/audit/artifacts
+python tools/signature_lookup.py MicroFlowController        # 全平台签名
+grep -rn "udcMicroflow" docs/audit/artifacts/udc-web-5.3.517-contracts/ | head
+```
+
+## 为什么只收了这些
+
+扫过 `docs/audit/artifacts` 下全部 49 个子目录（390 MB），按「能不能加速 + 有没有客户痕迹」两关筛：
+
+```text
+收了      15 个 UDC 平台目录，15.6 MB → 1.7 MB（压缩比 11%），387 个文件逐字节校验一致
+没收      extension-surface 293 MB   已用 signatures.txt.gz 替代（2.1 MB，可查同一批签名）
+         decompiled 43.7 MB          50 个临时 CFR 目录、版本重复，混 101 处客户名 /
+                                     218 处 test2 / 178 处真实 appId / 11 处真实人名 → 弃
+         udc-node-evidence 等 14 个  含客户名、test2、appId、内网 IP、真实人名 → 弃
+```
+
+`extension-surface` 与 `decompiled` 都能用 `python tools/regen_evidence.py` 和
+`cfr-0.152.jar` 重造，不值得为它们把仓库撑大 30 倍。
