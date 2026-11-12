@@ -245,32 +245,67 @@ interfaces.json（原）      63.9 MB
 
 # UDC 平台参考包（随仓库分发，1.7 MB）
 
-写 UDC 自定义页面 / 微流程扩展时，最需要的是**平台 Controller / Service 的真实签名**：
-路径、入参 DTO、返回体、方法重载。这部分随仓库带了一份：
+写 UDC 自定义页面 / 微流程 / 扩展时最缺的是**平台真实契约**：端点路径、入参 DTO、
+方法重载、表达式函数。这些随仓库带了一份：
 
 ```text
-docs/audit/reference/udc-platform-5.3.517.tar.gz   1.7 MB / 387 文件 / 解压 15.6 MB
+docs/audit/reference/udc-platform-5.3.517.tar.gz   1.7 MB / 402 文件 / 解压 16.2 MB
 ```
 
-内容（全部是机器生成的 javap 原文，无客户信息）：
+自带一份端点表 `udc-web-5.3.517-contracts/_api_full.json`：
+**54 个 Controller / 674 个端点**，每条含 HTTP 方法、完整路径、中文说明、是否写操作。
+
+## 自定义页面：74 个端点 / 6 个 Controller
 
 ```text
-udc-web-5.3.517              全部 Controller 的 javap（2.4 MB 单文件）
-udc-web-5.3.517-contracts    ApplicationController / MicroFlowController / EntityController …
-udc-web-5.3.517-methods      方法索引
-udc-runtime-5.3.517(+-javap) UdcBaseGeneralController / UdcRestPathParse（REST 路径怎么解析）
-udc-resource / udc-publish / udc-biz / udc-flow / udc-app-basic / udc-common
-extmetadata-5.3.318          UdcEntityMetaDataService（元数据写入契约）
-metadata-5.3.358             MetadataService / MetadataController
-udc-user-5.3.517-contracts / runtime-lowcode-5.3.517
+PageInfoController               25    页面信息（查询/保存/发布）
+PageLayoutController             18    页面布局
+PageTemplateController           14    页面模板
+PageTemplatePublishedController   9    已发布模板
+PageTemplateClassController       7    模板分类
+PageRouteController               1    路由
+```
+
+配套 javap：`udc-page-5.3.517/UdcBaseGeneralController.javap.txt`（221 KB，
+页面通用聚合入口）、`UdcReferController`、`UdcRtPageInfoController`、`UdcRtPageLogController`。
+
+## 微流程：119 个端点 / 8 个 Controller
+
+```text
+MicroFlowController                    67   增删改查 / checkSchema / 校验
+DataFlowDesignController               24   数据流设计
+MicroFlowFunctionalCheckController      9   功能检查
+MicroFlowGroupController                7   分组
+MicroFlowUpgradeController              6   升级
+MicroFlowRefactorController             3   重构
+MicroFlowMacroController                2   宏
+TempPresetMicroFlowController           1   预置
+```
+
+## 表达式（微流程绑定用）
+
+```text
+udc-expression-functions.json          57 KB   函数树（含 knownGap 标注）
+udc-expression-system-variables.json   36 KB   系统变量
+udc-expression-samples.json            59 KB   真实样本
+udc-expression-schema-full.json        22 KB   ENTITY / CONFIG_PARAM 结构
+udc-expression-schema-paramtypes.json  14 KB   参数类型
+udc-expression-contracts.json          16 KB   token 类型 / 可执行表达式判定
 ```
 
 解压到证据根，现有工具路径直接可用：
 
 ```bash
 tar -xzf docs/audit/reference/udc-platform-5.3.517.tar.gz -C docs/audit/artifacts
-python tools/signature_lookup.py MicroFlowController        # 全平台签名
-grep -rn "udcMicroflow" docs/audit/artifacts/udc-web-5.3.517-contracts/ | head
+python -c "import json;d=json.load(open('docs/audit/artifacts/udc-web-5.3.517-contracts/_api_full.json'));print(d['MicroFlowController']['methods'][0])"
+python tools/signature_lookup.py MicroFlowController
+```
+
+重建走脚本，不手工打包（脱敏表与排除规则都在里面）：
+
+```bash
+python tools/build_reference_bundle.py --check   # 先看收录/排除清单
+python tools/build_reference_bundle.py           # 出包
 ```
 
 ## 为什么只收了这些
@@ -281,9 +316,127 @@ grep -rn "udcMicroflow" docs/audit/artifacts/udc-web-5.3.517-contracts/ | head
 收了      15 个 UDC 平台目录，15.6 MB → 1.7 MB（压缩比 11%），387 个文件逐字节校验一致
 没收      extension-surface 293 MB   已用 signatures.txt.gz 替代（2.1 MB，可查同一批签名）
          decompiled 43.7 MB          50 个临时 CFR 目录、版本重复，混 101 处客户名 /
-                                     218 处 test2 / 178 处真实 appId / 11 处真实人名 → 弃
-         udc-node-evidence 等 14 个  含客户名、test2、appId、内网 IP、真实人名 → 弃
+                                     218 处测试环境域名 / 178 处真实 appId / 11 处真实人名 → 弃
+         udc-node-evidence 等 14 个  含客户名、环境域名、appId、内网 IP、真实人名 → 弃
 ```
 
 `extension-surface` 与 `decompiled` 都能用 `python tools/regen_evidence.py` 和
 `cfr-0.152.jar` 重造，不值得为它们把仓库撑大 30 倍。
+
+---
+
+# 自定义微流程能调什么 / 自定义页面能用什么
+
+前面两份是「标品怎么暴露」，这两份才是「我方扩展怎么写」：可调用的服务方法、
+可用的前端组件。
+
+## 一、自定义微流程可调用的服务
+
+```text
+docs/audit/reference/svc-app-service.txt.gz   145 KB
+833 个 AppService / 10176 行方法签名 / 67 个依赖构件
+```
+
+每行第二列是**依赖构件 jar**（可推 groupId:artifactId:version）：
+
+```text
+com.seeyon.app.approval.api.ApprovalAppService	app-approval-facade-5.3.295.jar
+com.seeyon.app.approval.api.ApprovalAppService#getFormDataByGraphql(SingleRequest<ApprovalGraphqlRequestDto>):SingleResponse<String>	app-approval-facade-5.3.295.jar
+```
+
+查法：
+
+```bash
+python tools/reference_lookup.py svc ApprovalAppService
+python tools/reference_lookup.py svc --dep app-approval-facade     # 按构件看能调什么
+```
+
+**边界（必须知道）**：索引只覆盖 67 个标品 facade 构件。客户自定义应用里的
+`*AppServiceImpl` 不在这些 jar 里 —— 那部分靠平台自身链路现查：
+`udcMicroflowSearchAppsPost` → `udcMicroflowSearchAppServiceByAppNamePost` →
+`udcMicroflowSearchMethodByNamePost` → `udcMicroflowFindCustomDtoPost`
+（契约见 `core/facts/udc/microflow/custom-service-api.md`）。
+
+## 二、自定义页面可用前端组件
+
+```text
+docs/audit/reference/ui-components.txt.gz   10 KB
+515 个组件 / 786 个属性 / 50 个 @seeyon 包
+```
+
+```bash
+python tools/reference_lookup.py ui Button
+python tools/reference_lookup.py ui --pkg biz-org-tree
+```
+
+输出：
+
+```text
+Button   @seeyon/ui@3.0.0-beta.73
+    onClick?: (e: any, other: any) => any
+    isDebounce?: boolean
+    iconPosition?: IconPosition
+    ...
+```
+
+**边界**：属性名来自 `.d.ts`，可信；其中 10% 类型是 `any`（组件 `: any` 透传），
+类型不可信。antd 派生组件的属性多在 antd 侧，这里只列包内显式声明的部分。
+
+## 三、重建
+
+```bash
+python tools/build_app_service_index.py                    # 需先有 doc/audit/artifacts
+python tools/build_component_index.py --modules <pc/node_modules>   # 需先 npm install
+```
+
+---
+
+# 查具体东西（surface-index，0.85 MB）
+
+上面几份是「有什么」「怎么调」。真正落地时还要三样具体的东西：**这个 DTO 有哪些字段**、
+**这个接口的实现类是哪个**、**UDC 能扩展哪些点**。这些都在 `surface-index.tar.gz` 里：
+
+```text
+docs/audit/reference/surface-index.tar.gz   0.85 MB / 128 文件 / 解压 7.6 MB
+```
+
+| 文件 | 内容 | 规模 |
+|---|---|---|
+| `dto-meta.json` | DTO 元数据（字段名、类型、示例） | 1305 个 DTO |
+| `dto-fields/` | 按 DTO 拆开的字段表 | 12 个文件 |
+| `action-index.md` | 接口 → 实现类 + 入参 DTO | 0.12 MB |
+| `impl-map.json` | 接口 → 实现类映射 | — |
+| `interface-inventory.md` | 接口人读清单（按包分组，标必实现方法） | 1457 个接口 |
+| `packages/` | 按构件一包一份的接口与方法签名 | 92 份 |
+| `domains/` | 按业务域合并的视图 | 11 份 |
+| `extension-points.md` | 扩展点清单 | — |
+| `symbols-udc-extend.json` / `symbols-udc-plugin-api.json` | UDC 扩展 / 插件 API 符号 | 1.7 MB |
+| `consumers.json` | 谁在消费这些接口 | — |
+| `constants.md` | 常量清单 | 0.36 MB |
+
+解压后与工具路径一致：
+
+```bash
+tar -xzf docs/audit/reference/surface-index.tar.gz -C docs/audit/artifacts/extension-surface-20261029
+```
+
+例：查某个 DTO 有哪些字段
+
+```bash
+python -c "
+import json;d=json.load(open('docs/audit/artifacts/extension-surface-20261029/dto-meta.json'))
+m=d['map']; k=[x for x in m if 'Attribute' in x][0]
+print(k); print(json.dumps(m[k], ensure_ascii=False)[:600])"
+```
+
+重建（两份包都走同一脚本，脱敏表与排除规则在里面）：
+
+```bash
+python tools/build_reference_bundle.py --profile core      # 平台契约包 1.71 MB
+python tools/build_reference_bundle.py --profile surface   # 具体资料包 0.85 MB
+```
+
+没进这两份包、也仍然不收的，只有 4 类，原因都不是"省空间"：
+`interfaces.json` / `interfaces-facade-only.json` / `batch2` / `batch3` 是同一批签名的原始中间件，
+已由 `signatures.txt.gz`（2.1 MB，可查全部 21389 个类）覆盖；`decompiled` 是临时 CFR 目录，
+混 101 处客户名；`surface.json` 是客户应用自己的前端快照。
