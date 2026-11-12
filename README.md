@@ -10,7 +10,16 @@ Test collection: `3203 tests collected`
 
 ---
 
-## 装法（三选一）
+## 装法
+
+### 一条命令
+
+```bash
+bash quickstart.sh              # 装到 ~/xiaozhua-pkg，宿主 all，装完自检工具数
+bash quickstart.sh ~/my-pkg hermes   # 指定目录 + 单宿主
+```
+
+### 或者手动三选一
 
 ### A. pip 装成命令（推荐）
 

@@ -147,3 +147,51 @@ pytest tests/udc/test_extension_usage_assets.py -q
 | 1184 jar / 1.9 GB | `D:/repo/CHIT/com/seeyon` 遍历 | 实测 |
 | 8 并发 25 分钟 | 由 0.279 秒/类 × 21389 类推算 | 推算，非实测 |
 | 汇总步（interfaces.json 等） | 脚本存在且有 docstring | 未逐步重放 |
+
+---
+
+# 一句话重建
+
+```bash
+python tools/regen_evidence.py            # 抽取 + 聚合，两步一次跑完
+python tools/regen_evidence.py --check    # 只查前置，不写文件
+```
+
+构件清单随仓库分发：`config/evidence-manifest.json`（91 项，含 jar 名与版本）。
+脚本按清单在 `--maven` 指定的本地 maven 仓库里定位 jar（`--maven` 默认
+`D:/repo/CHIT/com/seeyon`，`--javap` 默认 `D:/software/java/bin/javap.exe`）。
+
+产出：`<evidence>/batch2/*.json` + `<evidence>/interfaces.json`
+（`sources` / `classes` / `method_index` 三段）。
+
+## 验证到什么程度（别当成「全量重生成」）
+
+| 环节 | 状态 | 证据 |
+|---|---|---|
+| 逐构件抽取 `batch2/*.json` | 已验证 | 3 个构件真跑，0.279 秒/类 |
+| 聚合出 `interfaces.json` | 已验证 | 22557 类 / 7 秒 |
+| 用重建件替掉原件跑依赖用例 | **228 / 232 通过** | 见下 |
+| 派生文档（interface-inventory.md、packages/、evidence-index） | **未打通** | 见下 |
+
+**没过的 4 个，原因都已定位，都不是解析错：**
+
+```text
+test_backend_interfaces_artifact_complete   interface-inventory.md 里写着 1457 个接口，
+                                            重建后 JSON 是 2108 个 → 文本没同步
+test_every_screenshot_package_has_surface   packages/ 有 91 个文件（按构件分），
+                                            emit_package_surfaces.py 跑出来是 4458 个
+                                            （按 package 分）→ 分组口径不同，不是同一套
+test_skill_navigation_points_to_real_files  evidence-index 里的接口数同上没同步
+test_contract_probes_compile                探针编译失败，随上面三处不一致连带
+```
+
+也就是说：**签名面可以一句话重建；派生的人读文档需要各自的生成器，且
+`packages/` 的分组口径与脚本当前输出不一致，我没有打通，如实标注。**
+要完整恢复，还得把 `emit_package_surfaces.py` 的分组参数对齐，或改用当初生成
+那 91 个文件的入口（仓库里没找到）。
+
+## 环境差异导致的小偏移
+
+重建后 14 个构件的类数比清单登记的少（`boot-core` 507 vs 512、
+`boot-starter-dubbo` 48 vs 55 等）。这是**清单基线早于本地 maven 仓库当前版本**，
+不是抽取漏类；脚本结束时会把这些差异逐条列出来，看到它属于正常。

@@ -1,0 +1,644 @@
+{
+ "_note": "反编译证据的构件清单（91 项）。tools/regen_evidence.py 按此在本地 maven 仓库定位 jar 并重抽。",
+ "_generated_from": "docs/audit/artifacts/extension-surface-20261029/interfaces.json 的 sources 段",
+ "evidence_root": "docs/audit/artifacts/extension-surface-20261029",
+ "artifacts": [
+  {
+   "name": "app-approval-facade",
+   "jar": "app-approval-facade-5.3.295.jar",
+   "version": "5.3.295",
+   "classes": 25,
+   "total_methods": 257
+  },
+  {
+   "name": "app-common-facade",
+   "jar": "app-common-facade-5.3.274.jar",
+   "version": "5.3.274",
+   "classes": 103,
+   "total_methods": 1053
+  },
+  {
+   "name": "boot-core",
+   "jar": "boot-core-5.3.600.jar",
+   "version": "5.3.600",
+   "classes": 512,
+   "total_methods": 3932
+  },
+  {
+   "name": "boot-formula-engine",
+   "jar": "boot-formula-engine-5.3.603.jar",
+   "version": "5.3.603",
+   "classes": 41,
+   "total_methods": 384
+  },
+  {
+   "name": "boot-license-generator",
+   "jar": "boot-license-generator-2.6.0.jar",
+   "version": "2.6.0",
+   "classes": 8,
+   "total_methods": 61
+  },
+  {
+   "name": "boot-spi",
+   "jar": "boot-spi-5.3.600.jar",
+   "version": "5.3.600",
+   "classes": 3,
+   "total_methods": 8
+  },
+  {
+   "name": "boot-starter-appservice",
+   "jar": "boot-starter-appservice-5.3.600.jar",
+   "version": "5.3.600",
+   "classes": 41,
+   "total_methods": 196
+  },
+  {
+   "name": "boot-starter-artifact",
+   "jar": "boot-starter-artifact-5.3.600.jar",
+   "version": "5.3.600",
+   "classes": 16,
+   "total_methods": 96
+  },
+  {
+   "name": "boot-starter-attachment",
+   "jar": "boot-starter-attachment-5.3.290.jar",
+   "version": "5.3.290",
+   "classes": 15,
+   "total_methods": 151
+  },
+  {
+   "name": "boot-starter-cache",
+   "jar": "boot-starter-cache-5.3.600.jar",
+   "version": "5.3.600",
+   "classes": 50,
+   "total_methods": 234
+  },
+  {
+   "name": "boot-starter-cip",
+   "jar": "boot-starter-cip-5.3.603.jar",
+   "version": "5.3.603",
+   "classes": 98,
+   "total_methods": 967
+  },
+  {
+   "name": "boot-starter-condition",
+   "jar": "boot-starter-condition-5.3.603.jar",
+   "version": "5.3.603",
+   "classes": 77,
+   "total_methods": 396
+  },
+  {
+   "name": "boot-starter-datainit",
+   "jar": "boot-starter-datainit-5.3.600.jar",
+   "version": "5.3.600",
+   "classes": 88,
+   "total_methods": 579
+  },
+  {
+   "name": "boot-starter-datamigration",
+   "jar": "boot-starter-datamigration-5.3.600.jar",
+   "version": "5.3.600",
+   "classes": 247,
+   "total_methods": 2252
+  },
+  {
+   "name": "boot-starter-datasource",
+   "jar": "boot-starter-datasource-5.3.600.jar",
+   "version": "5.3.600",
+   "classes": 31,
+   "total_methods": 632
+  },
+  {
+   "name": "boot-starter-datatype",
+   "jar": "boot-starter-datatype-5.3.600.jar",
+   "version": "5.3.600",
+   "classes": 23,
+   "total_methods": 160
+  },
+  {
+   "name": "boot-starter-dubbo",
+   "jar": "boot-starter-dubbo-5.3.600.jar",
+   "version": "5.3.600",
+   "classes": 55,
+   "total_methods": 395
+  },
+  {
+   "name": "boot-starter-dynamicloader",
+   "jar": "boot-starter-dynamicloader-5.3.600.jar",
+   "version": "5.3.600",
+   "classes": 15,
+   "total_methods": 109
+  },
+  {
+   "name": "boot-starter-dynamicsql",
+   "jar": "boot-starter-dynamicsql-5.3.600.jar",
+   "version": "5.3.600",
+   "classes": 42,
+   "total_methods": 381
+  },
+  {
+   "name": "boot-starter-elasticsearch",
+   "jar": "boot-starter-elasticsearch-5.3.290.jar",
+   "version": "5.3.290",
+   "classes": 25,
+   "total_methods": 252
+  },
+  {
+   "name": "boot-starter-enums",
+   "jar": "boot-starter-enums-5.3.603.jar",
+   "version": "5.3.603",
+   "classes": 51,
+   "total_methods": 754
+  },
+  {
+   "name": "boot-starter-environment",
+   "jar": "boot-starter-environment-5.3.600.jar",
+   "version": "5.3.600",
+   "classes": 13,
+   "total_methods": 77
+  },
+  {
+   "name": "boot-starter-eventbus",
+   "jar": "boot-starter-eventbus-5.3.600.jar",
+   "version": "5.3.600",
+   "classes": 24,
+   "total_methods": 154
+  },
+  {
+   "name": "boot-starter-excel",
+   "jar": "boot-starter-excel-5.3.603.jar",
+   "version": "5.3.603",
+   "classes": 72,
+   "total_methods": 866
+  },
+  {
+   "name": "boot-starter-extmetadata",
+   "jar": "boot-starter-extmetadata-5.3.603.jar",
+   "version": "5.3.603",
+   "classes": 106,
+   "total_methods": 1223
+  },
+  {
+   "name": "boot-starter-file",
+   "jar": "boot-starter-file-5.3.600.jar",
+   "version": "5.3.600",
+   "classes": 89,
+   "total_methods": 1045
+  },
+  {
+   "name": "boot-starter-filterchain",
+   "jar": "boot-starter-filterchain-5.3.600.jar",
+   "version": "5.3.600",
+   "classes": 8,
+   "total_methods": 22
+  },
+  {
+   "name": "boot-starter-formconvert",
+   "jar": "boot-starter-formconvert-5.3.600.jar",
+   "version": "5.3.600",
+   "classes": 40,
+   "total_methods": 402
+  },
+  {
+   "name": "boot-starter-formula",
+   "jar": "boot-starter-formula-5.3.603.jar",
+   "version": "5.3.603",
+   "classes": 202,
+   "total_methods": 1266
+  },
+  {
+   "name": "boot-starter-frontend-log",
+   "jar": "boot-starter-frontend-log-5.3.600.jar",
+   "version": "5.3.600",
+   "classes": 8,
+   "total_methods": 26
+  },
+  {
+   "name": "boot-starter-ganttchart",
+   "jar": "boot-starter-ganttchart-5.3.600.jar",
+   "version": "5.3.600",
+   "classes": 50,
+   "total_methods": 572
+  },
+  {
+   "name": "boot-starter-graphql",
+   "jar": "boot-starter-graphql-5.3.600.jar",
+   "version": "5.3.600",
+   "classes": 772,
+   "total_methods": 6901
+  },
+  {
+   "name": "boot-starter-i18n",
+   "jar": "boot-starter-i18n-5.3.600.jar",
+   "version": "5.3.600",
+   "classes": 28,
+   "total_methods": 367
+  },
+  {
+   "name": "boot-starter-index",
+   "jar": "boot-starter-index-5.3.265.jar",
+   "version": "5.3.265",
+   "classes": 24,
+   "total_methods": 131
+  },
+  {
+   "name": "boot-starter-labelprint",
+   "jar": "boot-starter-labelprint-5.3.600.jar",
+   "version": "5.3.600",
+   "classes": 23,
+   "total_methods": 213
+  },
+  {
+   "name": "boot-starter-license",
+   "jar": "boot-starter-license-5.3.600.jar",
+   "version": "5.3.600",
+   "classes": 17,
+   "total_methods": 168
+  },
+  {
+   "name": "boot-starter-lock",
+   "jar": "boot-starter-lock-5.3.600.jar",
+   "version": "5.3.600",
+   "classes": 9,
+   "total_methods": 80
+  },
+  {
+   "name": "boot-starter-metadata",
+   "jar": "boot-starter-metadata-5.3.600.jar",
+   "version": "5.3.600",
+   "classes": 81,
+   "total_methods": 1160
+  },
+  {
+   "name": "boot-starter-mgn-export",
+   "jar": "boot-starter-mgn-export-5.3.600.jar",
+   "version": "5.3.600",
+   "classes": 9,
+   "total_methods": 48
+  },
+  {
+   "name": "boot-starter-module",
+   "jar": "boot-starter-module-5.3.600.jar",
+   "version": "5.3.600",
+   "classes": 40,
+   "total_methods": 213
+  },
+  {
+   "name": "boot-starter-monitor",
+   "jar": "boot-starter-monitor-5.3.600.jar",
+   "version": "5.3.600",
+   "classes": 15,
+   "total_methods": 151
+  },
+  {
+   "name": "boot-starter-mq",
+   "jar": "boot-starter-mq-5.3.600.jar",
+   "version": "5.3.600",
+   "classes": 68,
+   "total_methods": 495
+  },
+  {
+   "name": "boot-starter-mybatis",
+   "jar": "boot-starter-mybatis-5.3.600.jar",
+   "version": "5.3.600",
+   "classes": 140,
+   "total_methods": 896
+  },
+  {
+   "name": "boot-starter-nacos",
+   "jar": "boot-starter-nacos-5.3.600.jar",
+   "version": "5.3.600",
+   "classes": 26,
+   "total_methods": 240
+  },
+  {
+   "name": "boot-starter-opinion",
+   "jar": "boot-starter-opinion-5.3.260.jar",
+   "version": "5.3.260",
+   "classes": 64,
+   "total_methods": 990
+  },
+  {
+   "name": "boot-starter-parameter",
+   "jar": "boot-starter-parameter-5.3.603.jar",
+   "version": "5.3.603",
+   "classes": 22,
+   "total_methods": 248
+  },
+  {
+   "name": "boot-starter-prometheus",
+   "jar": "boot-starter-prometheus-5.3.600.jar",
+   "version": "5.3.600",
+   "classes": 32,
+   "total_methods": 122
+  },
+  {
+   "name": "boot-starter-proxy",
+   "jar": "boot-starter-proxy-5.3.600.jar",
+   "version": "5.3.600",
+   "classes": 18,
+   "total_methods": 115
+  },
+  {
+   "name": "boot-starter-qrcode",
+   "jar": "boot-starter-qrcode-5.3.600.jar",
+   "version": "5.3.600",
+   "classes": 59,
+   "total_methods": 495
+  },
+  {
+   "name": "boot-starter-scanner",
+   "jar": "boot-starter-scanner-5.3.600.jar",
+   "version": "5.3.600",
+   "classes": 2,
+   "total_methods": 124
+  },
+  {
+   "name": "boot-starter-schedule",
+   "jar": "boot-starter-schedule-5.3.600.jar",
+   "version": "5.3.600",
+   "classes": 50,
+   "total_methods": 364
+  },
+  {
+   "name": "boot-starter-security",
+   "jar": "boot-starter-security-5.3.600.jar",
+   "version": "5.3.600",
+   "classes": 17,
+   "total_methods": 83
+  },
+  {
+   "name": "boot-starter-sensitive",
+   "jar": "boot-starter-sensitive-5.3.603.jar",
+   "version": "5.3.603",
+   "classes": 9,
+   "total_methods": 40
+  },
+  {
+   "name": "boot-starter-serialnumber",
+   "jar": "boot-starter-serialnumber-5.3.603.jar",
+   "version": "5.3.603",
+   "classes": 85,
+   "total_methods": 874
+  },
+  {
+   "name": "boot-starter-sharding",
+   "jar": "boot-starter-sharding-5.3.600.jar",
+   "version": "5.3.600",
+   "classes": 61,
+   "total_methods": 463
+  },
+  {
+   "name": "boot-starter-shortlink",
+   "jar": "boot-starter-shortlink-5.3.600.jar",
+   "version": "5.3.600",
+   "classes": 5,
+   "total_methods": 15
+  },
+  {
+   "name": "boot-starter-spi",
+   "jar": "boot-starter-spi-5.3.600.jar",
+   "version": "5.3.600",
+   "classes": 12,
+   "total_methods": 52
+  },
+  {
+   "name": "boot-starter-swagger",
+   "jar": "boot-starter-swagger-5.3.600.jar",
+   "version": "5.3.600",
+   "classes": 25,
+   "total_methods": 131
+  },
+  {
+   "name": "boot-starter-systemvariable",
+   "jar": "boot-starter-systemvariable-5.3.603.jar",
+   "version": "5.3.603",
+   "classes": 4,
+   "total_methods": 147
+  },
+  {
+   "name": "boot-starter-threadpool",
+   "jar": "boot-starter-threadpool-5.3.600.jar",
+   "version": "5.3.600",
+   "classes": 14,
+   "total_methods": 113
+  },
+  {
+   "name": "boot-starter-tomcat",
+   "jar": "boot-starter-tomcat-5.3.600.jar",
+   "version": "5.3.600",
+   "classes": 7,
+   "total_methods": 51
+  },
+  {
+   "name": "boot-starter-transaction",
+   "jar": "boot-starter-transaction-5.3.600.jar",
+   "version": "5.3.600",
+   "classes": 15,
+   "total_methods": 45
+  },
+  {
+   "name": "boot-starter-web",
+   "jar": "boot-starter-web-5.3.600.jar",
+   "version": "5.3.600",
+   "classes": 65,
+   "total_methods": 628
+  },
+  {
+   "name": "boot-starter-websocket",
+   "jar": "boot-starter-websocket-5.3.600.jar",
+   "version": "5.3.600",
+   "classes": 8,
+   "total_methods": 23
+  },
+  {
+   "name": "bpm-facade",
+   "jar": "bpm-facade-5.3.374.jar",
+   "version": "5.3.374",
+   "classes": 533,
+   "total_methods": 5893
+  },
+  {
+   "name": "cdp-data-facade",
+   "jar": "cdp-data-facade-5.3.279.jar",
+   "version": "5.3.279",
+   "classes": 127,
+   "total_methods": 863
+  },
+  {
+   "name": "cip-capability-common",
+   "jar": "cip-capability-common-5.3.276.jar",
+   "version": "5.3.276",
+   "classes": 425,
+   "total_methods": 5148
+  },
+  {
+   "name": "cip-capability-facade",
+   "jar": "cip-capability-facade-5.3.276.jar",
+   "version": "5.3.276",
+   "classes": 490,
+   "total_methods": 4378
+  },
+  {
+   "name": "cip-connector-api",
+   "jar": "cip-connector-api-5.3.286.jar",
+   "version": "5.3.286",
+   "classes": 119,
+   "total_methods": 1504
+  },
+  {
+   "name": "cip-connector-facade",
+   "jar": "cip-connector-facade-5.3.286.jar",
+   "version": "5.3.286",
+   "classes": 121,
+   "total_methods": 1165
+  },
+  {
+   "name": "cip-manager-facade",
+   "jar": "cip-manager-facade-5.3.273.jar",
+   "version": "5.3.273",
+   "classes": 95,
+   "total_methods": 865
+  },
+  {
+   "name": "cip-openapi-common",
+   "jar": "cip-openapi-common-5.3.260.jar",
+   "version": "5.3.260",
+   "classes": 21,
+   "total_methods": 134
+  },
+  {
+   "name": "ctp-affair-facade",
+   "jar": "ctp-affair-facade-5.3.315.jar",
+   "version": "5.3.315",
+   "classes": 122,
+   "total_methods": 1442
+  },
+  {
+   "name": "ctp-message-facade",
+   "jar": "ctp-message-facade-5.3.287.jar",
+   "version": "5.3.287",
+   "classes": 45,
+   "total_methods": 310
+  },
+  {
+   "name": "ctp-user-facade",
+   "jar": "ctp-user-facade-5.3.429.jar",
+   "version": "5.3.429",
+   "classes": 263,
+   "total_methods": 2987
+  },
+  {
+   "name": "devops-starter-artifact",
+   "jar": "devops-starter-artifact-5.3.600.jar",
+   "version": "5.3.600",
+   "classes": 51,
+   "total_methods": 611
+  },
+  {
+   "name": "devops-starter-common",
+   "jar": "devops-starter-common-5.3.600.jar",
+   "version": "5.3.600",
+   "classes": 51,
+   "total_methods": 324
+  },
+  {
+   "name": "m5-facade",
+   "jar": "m5-facade-5.3.265.jar",
+   "version": "5.3.265",
+   "classes": 55,
+   "total_methods": 504
+  },
+  {
+   "name": "organization-facade",
+   "jar": "organization-facade-5.3.601.jar",
+   "version": "5.3.601",
+   "classes": 414,
+   "total_methods": 6409
+  },
+  {
+   "name": "portal-facade",
+   "jar": "portal-facade-5.3.392.jar",
+   "version": "5.3.392",
+   "classes": 49,
+   "total_methods": 633
+  },
+  {
+   "name": "udc-biz",
+   "jar": "udc-biz-5.3.517.jar",
+   "version": "5.3.517",
+   "classes": 1856,
+   "total_methods": 21998
+  },
+  {
+   "name": "udc-cicd",
+   "jar": "udc-cicd-5.3.517.jar",
+   "version": "5.3.517",
+   "classes": 65,
+   "total_methods": 635
+  },
+  {
+   "name": "udc-common",
+   "jar": "udc-common-5.3.605.jar",
+   "version": "5.3.605",
+   "classes": 424,
+   "total_methods": 4457
+  },
+  {
+   "name": "udc-extend",
+   "jar": "udc-extend-5.3.517.jar",
+   "version": "5.3.517",
+   "classes": 82,
+   "total_methods": 618
+  },
+  {
+   "name": "udc-facade",
+   "jar": "udc-facade-5.3.605.jar",
+   "version": "5.3.605",
+   "classes": 66,
+   "total_methods": 501
+  },
+  {
+   "name": "udc-plugin-api",
+   "jar": "udc-plugin-api-5.3.517.jar",
+   "version": "5.3.517",
+   "classes": 307,
+   "total_methods": 2667
+  },
+  {
+   "name": "udc-starter-customplan",
+   "jar": "udc-starter-customplan-5.3.605.jar",
+   "version": "5.3.605",
+   "classes": 78,
+   "total_methods": 1001
+  },
+  {
+   "name": "udc-starter-dataflow",
+   "jar": "udc-starter-dataflow-5.3.605.jar",
+   "version": "5.3.605",
+   "classes": 116,
+   "total_methods": 1122
+  },
+  {
+   "name": "udc-starter-lowcode",
+   "jar": "udc-starter-lowcode-5.3.605.jar",
+   "version": "5.3.605",
+   "classes": 121,
+   "total_methods": 1081
+  },
+  {
+   "name": "udc-starter-runtime",
+   "jar": "udc-starter-runtime-5.3.605.jar",
+   "version": "5.3.605",
+   "classes": 307,
+   "total_methods": 2834
+  },
+  {
+   "name": "udc-web",
+   "jar": "udc-web-5.3.517.jar",
+   "version": "5.3.517",
+   "classes": 54,
+   "total_methods": 691
+  }
+ ]
+}
