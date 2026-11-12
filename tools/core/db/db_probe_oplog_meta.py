@@ -3,7 +3,7 @@
 import pathlib
 import pymysql
 
-ENV = pathlib.Path("<HERMES_HOME>/skills/devops/seeyon-low-code-environment/.env")
+ENV = pathlib.Path("<HERMES_HOME>/skills/devops/xiaozhua-low-code-environment/.env")
 PLAT = "udc_test2"
 
 
@@ -20,8 +20,8 @@ def load_env():
 
 def main():
     cfg = load_env()
-    c = pymysql.connect(host=cfg["SEEYON_DB_HOST"], port=int(cfg.get("SEEYON_DB_PORT", 3306)),
-                        user=cfg["SEEYON_DB_USERNAME"], password=cfg["SEEYON_DB_PASSWORD"],
+    c = pymysql.connect(host=cfg["XIAOZHUA_DB_HOST"], port=int(cfg.get("XIAOZHUA_DB_PORT", 3306)),
+                        user=cfg["XIAOZHUA_DB_USERNAME"], password=cfg["XIAOZHUA_DB_PASSWORD"],
                         database=PLAT, charset="utf8mb4", connect_timeout=10, read_timeout=300)
     cur = c.cursor()
     cur.execute("SELECT table_name FROM information_schema.tables WHERE table_schema=%s "

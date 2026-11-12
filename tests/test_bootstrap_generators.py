@@ -9,7 +9,7 @@ from pathlib import Path
 ROOT = Path(__file__).parents[1]
 sys.path.insert(0, str(ROOT))
 
-from seeyon_host_bootstrap import bootstrap
+from xiaozhua_host_bootstrap import bootstrap
 
 
 def _b():

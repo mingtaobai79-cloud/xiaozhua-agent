@@ -35,7 +35,7 @@ def test_evidence_ledger_cli_is_offline_and_json(tmp_path):
     udc.write_text(json.dumps({"status":"FACT", "facts":{"route":"present"}}), encoding="utf-8")
     runtime.write_text(json.dumps({"resources":{"pod":"ready"}}), encoding="utf-8")
     http.write_text(json.dumps({"probes":[{"label":"route","classification":"PASS","http_status":200}]}), encoding="utf-8")
-    r = subprocess.run([sys.executable, "-m", "seeyon_cli", "evidence-ledger", "--udc-json", str(udc), "--runtime", str(runtime), "--http", str(http)], cwd=ROOT, capture_output=True, text=True)
+    r = subprocess.run([sys.executable, "-m", "xiaozhua_cli", "evidence-ledger", "--udc-json", str(udc), "--runtime", str(runtime), "--http", str(http)], cwd=ROOT, capture_output=True, text=True)
     assert r.returncode == 0
     payload = json.loads(r.stdout)
     assert payload["network"] == "disabled"

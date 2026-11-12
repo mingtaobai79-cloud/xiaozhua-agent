@@ -1,7 +1,7 @@
 # runtime 域差分扫描 — 三层扫描法 + registry 全键差分（runtime-domain-scan.md）
 
 - 域模块: udc-runtime（运行态支撑面 = `udc-starter-runtime` 启动器 jar 的 HTTP 控制器层）
-- 版本单元: 5.3.517（本地 Maven `<MAVEN_REPO>\com\seeyon`，只读离线证据；**禁混写相邻 5.3.496/5.3.345-358 单元**）
+- 版本单元: 5.3.517（本地 Maven `<MAVEN_REPO>\com\xiaozhua`，只读离线证据；**禁混写相邻 5.3.496/5.3.345-358 单元**）
 - 证据等级: VERIFIED_STATIC_BYTECODE（类名层计数 + 端点路径字面量层 133 行逐条判定 + 27 类 `javap -p -v` 全量落盘）
 - 方法论: 照抄 `docs/operation-contracts/udc/bi/bi-vacuum-contract.md` 三层扫描法（L-A 类名层 / L-B 端点路径字面量层 / L-C 常量池全量层）
 - 生成: implementer · 依据 main/ROUTE.md v3 §S3（HANDOFF dedupe_key `R2-handoff-v1`）
@@ -11,7 +11,7 @@
 
 | 项 | 值 |
 |---|---|
-| jar | `<MAVEN_REPO>\com\seeyon\udc-starter-runtime\5.3.517\udc-starter-runtime-5.3.517.jar` |
+| jar | `<MAVEN_REPO>\com\xiaozhua\udc-starter-runtime\5.3.517\udc-starter-runtime-5.3.517.jar` |
 | 字节 | 861880 |
 | jar_sha256 | `74ae50bd8510414113248f0b1d400bca80d2ae2e0022c9dbbb31321a6040a66f`（main 已实测，本轮独立复测一致） |
 | javap | `C:\Program Files\Java\latest\jdk-21\bin\javap.exe`（21.0.10，不在 PATH，用绝对路径） |

@@ -14,7 +14,7 @@
 | 后端 javap artifact | 5.3.517 | `docs/audit/artifacts/udc-web-5.3.517-javap/`（与镜像同号 → 本地反编译产物即 test2 部署代码） |
 | 前端壳 | `seeyonGlobalVersion=5.3.41`、`seeyonSyfVersion=5.3.11`、`seeyonVendorVersion=1.0.12` | 设置页 HTML 内联 script（`/main/child-frame/udc/app-design/basic-setting`） |
 | 设计器远端入口 | `/udc/remoteEntry.js` 47,554 字节，166 个 chunk | 同上，`GET /udc/remoteEntry.js` |
-| 静态存储 | OSS `seeyon-public-test2.oss-cn-beijing.aliyuncs.com`，key = `udc/<chunk>.<hash>.js` | 404 时返回的 `HostId`/`Key` |
+| 静态存储 | OSS `xiaozhua-public-test2.oss-cn-beijing.aliyuncs.com`，key = `udc/<chunk>.<hash>.js` | 404 时返回的 `HostId`/`Key` |
 
 **jar 内部 class 级确认：BLOCKED** —— `/app/udc-assemble.jar`（502,607,791 字节，`-rwxr-x--- appuser root`）在容器内 `unzip -p` 对该 fat jar 全部静默失败（MANIFEST/条目计数均 0 输出）。镜像 tag 已完成版本对齐，此步为冗余确认，未继续攻坚。
 
@@ -30,7 +30,7 @@
 
 | 形态 | 构造 | 证据 chunk |
 |---|---|---|
-| **A. loader 描述符** | `getRequestByAppName("udc").queryLoader.load({fieldType, paramsType, paramsKey, params, queryFields})` | `vendors-node_modules_seeyon_biz-basic-data...c121b851.js`（抽到 25 个） |
+| **A. loader 描述符** | `getRequestByAppName("udc").queryLoader.load({fieldType, paramsType, paramsKey, params, queryFields})` | `vendors-node_modules_xiaozhua_biz-basic-data...c121b851.js`（抽到 25 个） |
 | **A'. mutation loader** | `getRequestByAppName(x).udcMutationLoader.load({fieldType, paramsType, paramsKey, queryFields, params})` | `src_redux_store_ts.14dc061e*.js`（`udcScalabilityOptionSelectAllOptionNamePost`、`udcApplicationUpdatePost`）—— **除 queryLoader 外的第二个 loader** |
 | **B. apolloQuery + 前缀拼接** | `apolloQuery("mutation ".concat(PREFIX, "OpName ($body: ".concat(PREFIX, "OpNameInputBody) { ... }"))` | 同上（`BasicDataDesignUpdatePost` 实证） |
 | **C. 字面量 query** | `n("mutation udcPageInfoBatchCreatePost($params: udcPageInfoBatchCreatePostInputBody) { ... }")` | `src_constants_design_page-type_ts-src_services_app-design_template...6494d14a.js` |
@@ -176,7 +176,7 @@ SUBPAGE / LAYOUT / NORMAL / FORM / MOBILE
 
 ### 3.7 流水号 ⚠️
 - **tab 组件**：`f`=模块 30912（basic-setting 本体，读 `appDesign.appReducer.appDetails`），uniformityKey=`serial`
-- 复用子组件：`vendors/node_modules_seeyon_biz-serial-scheme_dist_index-9208ea8a_js.b8764667.js`（npm 包，UI：预留规则/登录日期/登录组织/登录用户/序号/规则编码/规则名称）
+- 复用子组件：`vendors/node_modules_xiaozhua_biz-serial-scheme_dist_index-9208ea8a_js.b8764667.js`（npm 包，UI：预留规则/登录日期/登录组织/登录用户/序号/规则编码/规则名称）
 - op：`udcUdcSerialSelectPost`（key=body, type=`...InputBody`）、`SerialConditionBatchCreatePost`（形态 B）；函数名 `serialSectionDtoList`、`combinedFieldList`、`simpleFieldList`、`getReserveData`
 - 后端：**`UdcSerialConfigController`**（`udc-starter-runtime`，路径 `udc-runtime/serial-config{,/list,/select-entity-list,/select-entity-by-serial-id}`）—— registry 已有 4 条只读契约（`udc.serial.select_entity_list` 等）
 - 写侧 op 未定 ⚠️
@@ -268,7 +268,7 @@ SUBPAGE / LAYOUT / NORMAL / FORM / MOBILE
 
 - 本地 chunk：`<HERMES_HOME>/cache/scratch/udc-pod-chunks/`（36 个，含 `remoteEntry.js`、`ctp-user-remoteEntry.js`、`manifest.json`、`op-catalog.json`）
 - 原始 bundle（另一批）：`<HERMES_HOME>/cache/scratch/udc-semantics-audit/webpack-modules/`（1387 个）
-- 后端 javap：`<SEEYON_AGENT_ROOT>/docs/audit/artifacts/udc-web-5.3.517-javap/_full_api_map.json`（54 controller）、`*.javap.txt`
+- 后端 javap：`<XIAOZHUA_AGENT_ROOT>/docs/audit/artifacts/udc-web-5.3.517-javap/_full_api_map.json`（54 controller）、`*.javap.txt`
 - 探测脚本：`<HERMES_HOME>/cache/scratch/pod_probe.sh`（SSH heredoc；注意 Windows 下须 `ssh host 'bash -s' < file` 或 base64 内联，纯 `<` 与嵌套单引号会断）
 
 

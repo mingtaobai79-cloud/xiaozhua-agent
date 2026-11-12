@@ -453,7 +453,7 @@ S2 不得误判为两次操作。分组创建为 `PORTLET_GROUP(6) DELETE/CREATE
 ```bash
 CDP=  # 本切片不使用 CDP
 J=/d/software/hermes/cache/scratch/djars
-CFR=<HERMES_HOME>/skills/seeyon/03-v8-extension/seeyon-v8-spi/references/contract-index/tools/cfr.jar
+CFR=<HERMES_HOME>/skills/seeyon/03-v8-extension/xiaozhua-v8-spi/references/contract-index/tools/cfr.jar
 
 # 控制器（端点 + 语义原文）
 java -jar $CFR --jarfilter "com.seeyon.udc.controller.PortletController" \
@@ -476,7 +476,7 @@ java -jar $CFR --jarfilter "com.seeyon.udc.operationlog.enums.*" \
   --outputdir <HERMES_HOME>/cache/scratch/cfr-enums $J/udc-plugin-api-5.3.517.jar
 
 # DB 只读
-cd /d/software/hermes/skills/seeyon/01-platform/seeyon-low-code-environment/scripts
+cd /d/software/hermes/skills/seeyon/01-platform/xiaozhua-low-code-environment/scripts
 python conn.py db "SELECT type,COUNT(*) c FROM udc_portlet GROUP BY type" --db=udc_test2 --env=test2
 python conn.py db "SELECT COUNT(*) c FROM udc_page_info WHERE page_type='PORTLET'" --db=udc_test2 --env=test2
 python conn.py db "SELECT module,sub_module,action_type,COUNT(*) c FROM udc_operation_log WHERE module=4 GROUP BY module,sub_module,action_type" --db=udc_test2 --env=test2

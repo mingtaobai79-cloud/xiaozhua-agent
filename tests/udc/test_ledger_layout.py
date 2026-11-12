@@ -73,7 +73,7 @@ def test_archive_is_not_current_conclusion():
     text = _readme()
     assert "没有一份是" in text or "全部是历史件" in text or "没有一份可以当" in text, (
         "README 没说明本目录全部是历史件（STATUS-2026H2.md 自称 adapter 切片已达成，最易误导）")
-    assert "doc-consolidation-progress.md" in text and "seeyon-distribution-progress.md" in text, (
+    assert "doc-consolidation-progress.md" in text and "xiaozhua-distribution-progress.md" in text, (
         "README 没指向两条线的现行入口（读者不知道该去哪看现状）")
 
 
@@ -86,7 +86,7 @@ def test_log_files_point_to_current_version():
         assert p.name in text, "%s 未登记" % p.name
     # 三份 LOG 各有现行版，逐一核对 README 里都写了
     for cur in ("docs/audit/udc-semantics/PROGRESS.md",
-                "docs/plans/seeyon-distribution-progress.md",
+                "docs/plans/xiaozhua-distribution-progress.md",
                 "docs/plans/doc-consolidation-progress.md"):
         assert cur in text, "README 没给 LOG 系列的现行版指针：%s" % cur
 

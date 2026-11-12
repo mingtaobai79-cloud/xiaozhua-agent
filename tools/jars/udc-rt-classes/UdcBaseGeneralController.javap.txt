@@ -1,4 +1,4 @@
-Classfile /<SEEYON_AGENT_ROOT>/tools/jars/udc-rt-classes/com/seeyon/boot/starter/udcrt/proxy/controller/UdcBaseGeneralController.class
+Classfile /<XIAOZHUA_AGENT_ROOT>/tools/jars/udc-rt-classes/com/seeyon/boot/starter/udcrt/proxy/controller/UdcBaseGeneralController.class
   Last modified 2026年10月1日; size 33434 bytes
   SHA-256 checksum 19c40f0353d2346bd0e5c374e8e7a79b9268b739f18cc1049435c12b37e664c8
   Compiled from "UdcBaseGeneralController.java"

@@ -47,7 +47,7 @@
 实现   components/udc/<域>/<子模块>_*.py
 事实   core/facts/udc/<域>/<子模块>/create.md + <子模块>-write-chain.md
 契约   docs/operation-contracts/udc/<域>/<子模块>-contracts.md
-skill  skills/seeyon-udc-<域>-<子模块>/SKILL.md
+skill  skills/xiaozhua-udc-<域>-<子模块>/SKILL.md
 ```
 
 缺一类 = 模块没沉淀完。`tools/core/capability_report.py --check` 报缺口。
@@ -62,7 +62,7 @@ skill  skills/seeyon-udc-<域>-<子模块>/SKILL.md
 
 ## 5. 事实与代码同步（skill 铁律负二）
 
-技能目录（Hermes `<HERMES_HOME>\skills\`）和仓库（`<SEEYON_AGENT_ROOT>\`）是两套文件，
+技能目录（Hermes `<HERMES_HOME>\skills\`）和仓库（`<XIAOZHUA_AGENT_ROOT>\`）是两套文件，
 无自动同步。改一边必须改另一边：
 
 | 技能里加了什么 | 仓库对应位置 |

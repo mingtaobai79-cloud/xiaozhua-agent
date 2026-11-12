@@ -72,9 +72,9 @@
 
 | 文件 | 状态 |
 |---|---|
-| `next-direction-input.md` | **被代码读取**：`components/audit_summary.py:12` 的 `REPORTS["next_direction"]`；`seeyon_cli.py` 的 `summary` 子命令用它 |
+| `next-direction-input.md` | **被代码读取**：`components/audit_summary.py:12` 的 `REPORTS["next_direction"]`；`xiaozhua_cli.py` 的 `summary` 子命令用它 |
 | `recovery-checkpoint.md` | **被读取**：`tests/fixtures/udc-audit/manifest.json` 的 `source_documents` |
-| `udc-semantics/COMPLETION-METHOD-PROMPT.md` | **保留原地**（2026-11-07 裁决）：udc-semantics 线（cron 已于 2026-10-16 停）的任务级方法提示词。方法论六步 + 完成判据 checklist 仍被 `skills/05-agent/seeyon-constraint-extraction/SKILL.md` 当作范式引用；`DEPLOYED-STATE-VERDICT.md` 拿它的 §环境 做运行时版本交叉校验（3/3 一致）。**已脱敏环境节**（客户应用 ID / 目标实体 ID / 集群命名空间 / 凭据路径改为配置键），方法内容未改 |
+| `udc-semantics/COMPLETION-METHOD-PROMPT.md` | **保留原地**（2026-11-07 裁决）：udc-semantics 线（cron 已于 2026-10-16 停）的任务级方法提示词。方法论六步 + 完成判据 checklist 仍被 `skills/05-agent/xiaozhua-constraint-extraction/SKILL.md` 当作范式引用；`DEPLOYED-STATE-VERDICT.md` 拿它的 §环境 做运行时版本交叉校验（3/3 一致）。**已脱敏环境节**（客户应用 ID / 目标实体 ID / 集群命名空间 / 凭据路径改为配置键），方法内容未改 |
 | `udc-semantics/UNDERSTANDING-CHECKPOINT.md` | **保留原地**（2026-11-07 裁决）：2026-10-11 的理解检查点。§3「已确认的前端真实机制」与 §4「页面保存/构建链」是全仓**唯一**系统性叙述该主题的位置（`core/facts/udc/write-chain/` 有保存协议与 page-schema 形状，但没有 UdcForm/UdcSubPage/UdcReference/UdcPanel 的组件语义与动作枚举）。零代码读取、零正文引用，但内容无替代 |
 | `deferred/_deferred/` | 暂缓实现（v0.2 才启用） |
 

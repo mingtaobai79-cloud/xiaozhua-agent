@@ -676,7 +676,7 @@
 - 护栏（改，第二十一轮）：`tests/udc/test_full_domain_op_surface.py`（`MIN_*` 升到新域 `(1170,1044,238,2110,2107,53)`、`CLASSDIR` → `sup_v2`）；`tests/udc/test_dynamic_register_channel.py`（三支计数 90/60/88/238、`CLASSDIR` → `sup_v2`）
 - 证据件（改，第二十一轮）：`DEPLOYED-FULL-DOMAIN-OP-SURFACE.json` / `DYNAMIC-REGISTER-CHANNEL.json` 由新域原地重算（两件仍字节级可由复算器重现）
 - 文档（改，第二十一轮）：`COMPLETION-METHOD-PROMPT.md`（`pods/exec` 第十八轮 ALLOWED 注记**就地更正为 LIVE DENIED**）
-- 方法：skill `seeyon-constraint-extraction`
+- 方法：skill `xiaozhua-constraint-extraction`
 
 ## 下一步（按序）
 **第二十轮已落地**：① **补做上轮遗留 commit**（10 个具体文件，`fcfadc2`，未用 `-A`）；② **把「字节级复算」不变量推广到其余复算对** —— 实测出三类：
@@ -694,7 +694,7 @@
 
 **仍余（下一轮起）**：
 ① **60 条 op 仍 UNVERIFIED（措辞可升一档，但仍不得写「不存在」）**：现证据 = 「**marker-闭包域**（94 jar / 2107 op）内 0 命中」+「87 个含 marker 的部署构件**全部**在域内」＋**「双必要条件」两轴均 PASS（第二十二轮新增）**：轴 A = marker（Spring MVC 必要）闭包 PASS；轴 B = **HTTP 暴露能力**（JAX-RS `@Path` / 原生 Servlet `@WebServlet|WebFilter|extends HttpServlet`，无 marker 也能暴露）⇒ **0-marker 的 428 件中真实可暴露者仅 2 件、且全为第三方容器/库**，**平台家族 0 命中**；+「取不到的 29 件**全为第三方、平台家族 0」⇒ 「域漏构件」这一支已可判为**不可能藏平台端点**。**但须同时记住（诚实边界）**：**0-marker 里有 48 件平台构件**（含 `udc-biz` 2312 class）⇒ 「0-marker 不可能是暴露者」这句**不是** marker 判据独立给出的，而是**由轴 B 兑现**的。**仍未消除的边界只剩一条：运行期加载的域外 ext 组件**（不在磁盘构件内，静态不可见；且 pod 日志仅存 ~2h、`/udc/**` 未带会话一律 `BOOT_1006` 且负控同响应 ⇒ 本窗口不可证）。故**升一档措辞、不升格为「不存在」**。
-② **`NOT_OBTAINABLE` 29 件 = 已落成「低风险豁免」条目（第二十二轮完成）**：豁免成立的三条依据（均实测、见 `DEPLOYED-MARKER-CLOSURE.json` / `DEPLOYED-EXPOSURE-CENSUS.json`）：(a) 29 件**全为第三方、平台家族前缀命中 0**（`aliyun-log-0.6.33` / `beetl-2.9.10` / `bucket4j-core-7.6.0` / `jose4j-0.9.6` / `client-java-*` / `google-*` / `jib-*` 等，无 `udc-`/`boot-starter-`/`ctp-`/`cdp-`/`cip-`/`organization-`/`bpm-` 前缀）；(b) 它们**按定义**是「装在部署镜像里、但不属于平台自研面」的第三方库；平台端点不可能由第三方库定义 seeyon 命名空间的路由；(c) 取件缺口已定位：本地 maven 无此件、**Artifactory GAVC 只返回 `.pom` 兄弟** ⇒ 本轮多次尝试**无可用取件通道**（`pods/exec` 亦已实测 DENIED）。⇒ 记为**低风险豁免**并**明确写出取件缺口**；豁免**不升格**为「已证不存在」，措辞仍留 UNVERIFIED。
+② **`NOT_OBTAINABLE` 29 件 = 已落成「低风险豁免」条目（第二十二轮完成）**：豁免成立的三条依据（均实测、见 `DEPLOYED-MARKER-CLOSURE.json` / `DEPLOYED-EXPOSURE-CENSUS.json`）：(a) 29 件**全为第三方、平台家族前缀命中 0**（`aliyun-log-0.6.33` / `beetl-2.9.10` / `bucket4j-core-7.6.0` / `jose4j-0.9.6` / `client-java-*` / `google-*` / `jib-*` 等，无 `udc-`/`boot-starter-`/`ctp-`/`cdp-`/`cip-`/`organization-`/`bpm-` 前缀）；(b) 它们**按定义**是「装在部署镜像里、但不属于平台自研面」的第三方库；平台端点不可能由第三方库定义 xiaozhua 命名空间的路由；(c) 取件缺口已定位：本地 maven 无此件、**Artifactory GAVC 只返回 `.pom` 兄弟** ⇒ 本轮多次尝试**无可用取件通道**（`pods/exec` 亦已实测 DENIED）。⇒ 记为**低风险豁免**并**明确写出取件缺口**；豁免**不升格**为「已证不存在」，措辞仍留 UNVERIFIED。
 ③ **`scratch/` 24h 清理风险已内置**：`sup_v2` 与 `lib_inventory.json` 消失时，三处护栏分别 **skip**（域根）/ **skip**（清单）—— 但**结论面断言（544/87/428/闭包）不依赖 scratch**，只依赖入仓证据件，故基线不会因此变红。
 ④ **复算件一律按字节级写**（新件已照此办）：新增复算器**默认** `newline=` 显式 + 护栏字节级判等。**延伸铁律（第二十二轮血证）**：不止复算件 —— **任何** `Path.write_text()` 改文档时，**必须**显式 `newline=` 指定该文件 **HEAD 约定**（本仓多数为 LF），否则 Windows 文本模式会把整文件转 CRLF、把「单点改动」变成「全文件重写而无法评审」。本轮已因此自查自纠一次。
 ⑤ **(vi-b) 「死路径」判决仍只靠三条间接轴**：直证（405/404 区分）两条通道均失败，已如实记为负结果、按负结果冻结。

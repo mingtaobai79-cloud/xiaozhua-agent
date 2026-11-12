@@ -10,7 +10,7 @@ from .models import GatewayRoute
 class GatewayDiscovery:
     """根据 Nacos/服务发现实例生成 Gateway 路由证据。"""
 
-    def __init__(self, *, route_id_prefix: str = "seeyon-", url_expression: str = "http://{host}:{port}"):
+    def __init__(self, *, route_id_prefix: str = "xiaozhua-", url_expression: str = "http://{host}:{port}"):
         self.route_id_prefix = route_id_prefix
         self.url_expression = url_expression
 

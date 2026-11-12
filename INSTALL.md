@@ -17,16 +17,16 @@
 
 ```bash
 # 1. 解压
-unzip seeyon-agent-0.1.0.zip
-cd seeyon-agent-0.1.0
+unzip xiaozhua-agent-0.1.0.zip
+cd xiaozhua-agent-0.1.0
 
 # 2. 装依赖（只有两个包）
 pip install "pyyaml>=6.0" "websocket-client>=1.6"
 
 # 3. 装到你的 AI 宿主（三选一或全装）
-python installer/install.py --host hermes      --target ~/seeyon-pkg --write
-python installer/install.py --host codex       --target ~/seeyon-pkg --write
-python installer/install.py --host claude-code --target ~/seeyon-pkg --write
+python installer/install.py --host hermes      --target ~/xiaozhua-pkg --write
+python installer/install.py --host codex       --target ~/xiaozhua-pkg --write
+python installer/install.py --host claude-code --target ~/xiaozhua-pkg --write
 ```
 
 `--host all` 一次装三个。
@@ -34,10 +34,10 @@ python installer/install.py --host claude-code --target ~/seeyon-pkg --write
 装完会生成这个结构：
 
 ```
-seeyon-pkg/
+xiaozhua-pkg/
   hermes/
     mcp_servers.yaml                  ← 贴进 Hermes 配置
-    skills/seeyon-agent-hermes/SKILL.md
+    skills/xiaozhua-agent-hermes/SKILL.md
   codex/
     config.toml                       ← 贴进 Codex 配置
     AGENTS.md
@@ -81,7 +81,7 @@ printf '%s\n%s\n' \
 要不要真的提交、提交到哪，你自己决定。
 
 ```python
-from seeyon_host_bootstrap import bootstrap
+from xiaozhua_host_bootstrap import bootstrap
 b = bootstrap()
 body = b["enum_body"](app_id, "枚举名", "enumCode")
 print(body)   # → 一个可以直接 POST 的 JSON

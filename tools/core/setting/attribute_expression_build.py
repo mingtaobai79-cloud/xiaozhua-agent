@@ -31,7 +31,7 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parents[3]
 sys.path.insert(0, str(REPO))
 
-APP_ID = None  # ★ 运行时由 --app-id / SEEYON_APP_ID 提供（原写死值已移除）
+APP_ID = None  # ★ 运行时由 --app-id / XIAOZHUA_APP_ID 提供（原写死值已移除）
 ENTITY_ID = "474806313816300867"     # 小爪实验实体950795V2（expression schema 用它）
 
 TOKEN_TYPES = ("CONSTANT", "VARIABLE", "SYSTEM", "FUNCTION", "OPERATOR")

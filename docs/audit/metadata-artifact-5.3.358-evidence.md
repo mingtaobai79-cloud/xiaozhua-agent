@@ -17,7 +17,7 @@ This artifact is `VERIFIED_STATIC_BYTECODE` for the metadata subsystem API/depen
 
 ## `MetadataService.javap.txt`
 ```text
-Classfile /<SEEYON_AGENT_ROOT>/docs/audit/artifacts/metadata-5.3.358/MetadataService.class
+Classfile /<XIAOZHUA_AGENT_ROOT>/docs/audit/artifacts/metadata-5.3.358/MetadataService.class
   Compiled from "MetadataService.java"
      #1 = Fieldref           #120.#1224   // com/seeyon/ctp/metadata/domain/service/MetadataService.appServiceReliableInvoker:Lcom/seeyon/boot/starter/proxy/appservice/AppServiceReliableInvoker;
      #2 = Methodref          #120.#1225   // com/seeyon/ctp/metadata/domain/service/MetadataService.upgrade:(Ljava/util/Map;Ljava/util/List;)V
@@ -398,7 +398,7 @@ Classfile /<SEEYON_AGENT_ROOT>/docs/audit/artifacts/metadata-5.3.358/MetadataSer
 
 ## `MetadataController.javap.txt`
 ```text
-Classfile /<SEEYON_AGENT_ROOT>/docs/audit/artifacts/metadata-5.3.358/MetadataController.class
+Classfile /<XIAOZHUA_AGENT_ROOT>/docs/audit/artifacts/metadata-5.3.358/MetadataController.class
   Compiled from "MetadataController.java"
 public class com.seeyon.ctp.metadata.controller.MetadataController extends com.seeyon.boot.starter.web.BaseComponentController
     #11 = Fieldref           #321.#886    // com/seeyon/ctp/metadata/controller/MetadataController.HTML_CACHE:Lcom/google/common/cache/Cache;

@@ -60,4 +60,4 @@ search-app-edition  顶层裸数组                                 ← 不套 c
 | 写链与坑 | `core/facts/udc/application/app-inner/app-inner-write-chain.md` |
 | 页面叙事 | `core/facts/udc/application/app-inner-pages.md` |
 | 证据 | `core/facts/udc/application/evidence/app-inner-build-2026-10-22/` |
-| skill | `skills/seeyon-udc-application-app-inner/SKILL.md` |
+| skill | `skills/xiaozhua-udc-application-app-inner/SKILL.md` |

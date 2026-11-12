@@ -9,9 +9,9 @@
 """
 import json, pathlib, sys, re
 
-DOC = pathlib.Path(r"<SEEYON_AGENT_ROOT>/docs/audit/entity-field-matrix/SLICE-B2-INTEGER-live.md")
-EV_CREATE = pathlib.Path(r"<SEEYON_AGENT_ROOT>/docs/audit/entity-field-matrix/EVIDENCE-batch-contract-live.json")
-EV_UPDATE = pathlib.Path(r"<SEEYON_AGENT_ROOT>/docs/audit/entity-field-matrix/EVIDENCE-batch-update-live.json")
+DOC = pathlib.Path(r"<XIAOZHUA_AGENT_ROOT>/docs/audit/entity-field-matrix/SLICE-B2-INTEGER-live.md")
+EV_CREATE = pathlib.Path(r"<XIAOZHUA_AGENT_ROOT>/docs/audit/entity-field-matrix/EVIDENCE-batch-contract-live.json")
+EV_UPDATE = pathlib.Path(r"<XIAOZHUA_AGENT_ROOT>/docs/audit/entity-field-matrix/EVIDENCE-batch-update-live.json")
 
 txt = DOC.read_text(encoding="utf-8")
 # 契约正文 = §十（round3 收口说明，会引用错口径做对照）之前的部分；负向断言只查正文

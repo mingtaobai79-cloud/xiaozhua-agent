@@ -1,10 +1,10 @@
 # UDC BI 域只读契约 — 域真空（VACUUM）负证据契约
 
 - 域模块: udc-bi（BI / 报表 / 可视化）
-- 版本单元: 5.3.517（本地 Maven `<MAVEN_REPO>\com\seeyon`，只读离线证据）
+- 版本单元: 5.3.517（本地 Maven `<MAVEN_REPO>\com\xiaozhua`，只读离线证据）
 - 证据等级: VERIFIED_STATIC_BYTECODE（类名层扫描计数 + 端点路径字面量层 219 行逐条判定 + 38 类 `javap -p -v`）+ OBSERVATION（常量池邻近词汇层 / 构件层 / customer-web 反编译腿，均为旁证，不升级）
 - 生成: implementer · 依据 main/ROUTE.md
-- 会话引用基点（R3 补，供本契约内 `main/ROUTE.md`、`main/NEEDS-HUMAN-ganttchart-scope.md` 这类会话内引用可解析）: 协作会话根目录 = `<COLLAB_ROOT>\agent-collaboration\session-20261008-121739-4f41b8ca\`（上述两件相对该目录解析；仓库内件相对 `<SEEYON_AGENT_ROOT>\` 解析；同域证据件相对 `docs\audit\artifacts\udc-bi-5.3.517\` 解析）
+- 会话引用基点（R3 补，供本契约内 `main/ROUTE.md`、`main/NEEDS-HUMAN-ganttchart-scope.md` 这类会话内引用可解析）: 协作会话根目录 = `<COLLAB_ROOT>\agent-collaboration\session-20261008-121739-4f41b8ca\`（上述两件相对该目录解析；仓库内件相对 `<XIAOZHUA_AGENT_ROOT>\` 解析；同域证据件相对 `docs\audit\artifacts\udc-bi-5.3.517\` 解析）
 - 修订记录: R2/R3/R4（前序会话）加入 customer-web 腿与构件层腿 → **R2 收口（前一轮，依 main/ROUTE.md R2 §3）**把负证据升级为三层并改写扫描方法口径，输入即 R1 产出件 `docs/audit/artifacts/udc-bi-5.3.517/bi-endpoint-literal-scan.md` → **R3 收口修补（本轮，依 main/ROUTE.md R3 §3）= 0 新增扫描、0 取证、0 结论变更，只修证据引用闭包**: D-1 L-A 腿脚本/原始计数断链（三件自归档会话落入本域证据目录并记 sha256+来源）、D-2 脚本枚举 5→6（补 `r1_bi_judge.py`）、D-3 `components/platform_operations/models.py` 行号统一口径、D-4 追加第二条抽查锚 `UdcBaseGeneralController`（数字逐字取 main 实测）
 
 ## 结论（唯一判定）
@@ -37,8 +37,8 @@
 | 7. LIVE 回读条件 | 见下「LIVE 回读条件」 | 需 BI 模块 jar / 部署态 / 非 5.3.517 版本单元；**本轮不做** |
 
 ### 证据锚点（element 6，完整）
-- 证据单元（scope）: 6 个 UDC 5.3.517 jar，本地 Maven `<MAVEN_REPO>\com\seeyon`，版本 5.3.517（禁混写相邻 5.3.496 test2 单元）。
-  - jar 引用解析规则（R3 补，全文唯一）: 本契约与 `registry-entries.md` 中的 jar **只给文件名**（如 `udc-starter-runtime-5.3.517.jar`），解析方式 = 由下表 6 jar 表 + 版本单元目录 `<MAVEN_REPO>\com\seeyon\<artifactId>\5.3.517\<jar 文件名>` 拼接为绝对路径；R3 逐个 `os.path.exists` 实测 = 6/6 命中（例: `<MAVEN_REPO>\com\seeyon\udc-starter-runtime\5.3.517\udc-starter-runtime-5.3.517.jar`）。
+- 证据单元（scope）: 6 个 UDC 5.3.517 jar，本地 Maven `<MAVEN_REPO>\com\xiaozhua`，版本 5.3.517（禁混写相邻 5.3.496 test2 单元）。
+  - jar 引用解析规则（R3 补，全文唯一）: 本契约与 `registry-entries.md` 中的 jar **只给文件名**（如 `udc-starter-runtime-5.3.517.jar`），解析方式 = 由下表 6 jar 表 + 版本单元目录 `<MAVEN_REPO>\com\xiaozhua\<artifactId>\5.3.517\<jar 文件名>` 拼接为绝对路径；R3 逐个 `os.path.exists` 实测 = 6/6 命中（例: `<MAVEN_REPO>\com\xiaozhua\udc-starter-runtime\5.3.517\udc-starter-runtime-5.3.517.jar`）。
   | jar | 字节 | class_sha256（整 jar 实测，python哈希==sha256sum==Maven.sha1 三向一致） |
   |---|---|---|
   | udc-common-5.3.517.jar | 718566 | 30085724949703b1c2f96a37e72813a6ed9e7b752ebc206c7a47d26afceb30d7 |
@@ -97,10 +97,10 @@
 ## 范围声明（OBSERVATION，非验收变更）
 - 本契约 scope = 6 个 UDC 5.3.517 jar（本地 Maven 证据单元）。
 - customer-web-1.0.11029 的 maven jar 不在 <MAVEN_REPO>（磁盘仅存先前会话反编译证据 `docs/audit/artifacts/customer-web-1.0.11029/`，非 5.3.517 maven 单元）→ 不在本任务证据边界内，不作交叉腿强求，仅记入本范围声明。
-- 构件（artifactId）层扫描已覆盖（前序会话 R4，**OBSERVATION 级，非字节码证据**）: 本地 Maven `<MAVEN_REPO>\com\seeyon` 命名空间 537 个 jar 条目 / **101 个唯一 artifactId**，按 **14 个 BI 特征词**做 substring 扫描 → **得到 6 条子串命中（3×`-biz` + 2×`capability` + 1×`ganttchart`）→ 逐条排除 → 真 BI 构件 = 0**，整体记为 **OBSERVATION 级**。证据 = `docs/audit/artifacts/udc-bi-5.3.517/bi-domain-scan-artifact-layer.md`（含 6 条逐条归因理由）。本腿不改变 5.3.517 主判定（VACUUM / 0 条契约）。
-  - **口径纠正（依 ROUTE §1.1，本契约采此表述）**: 此前出现的「全仓 2小爪 BI 构件 0 命中」说法**过窄** —— 它基于一个不含 `chart` 的关键词集。**构件层的正确表述固定为**「14 特征词 → 6 条子串命中 → 逐条排除 → 真 BI 构件 0（OBSERVATION 级）」，构件层禁用「0 命中」措辞（宽口径确有 6 条子串命中）。
+- 构件（artifactId）层扫描已覆盖（前序会话 R4，**OBSERVATION 级，非字节码证据**）: 本地 Maven `<MAVEN_REPO>\com\xiaozhua` 命名空间 537 个 jar 条目 / **101 个唯一 artifactId**，按 **14 个 BI 特征词**做 substring 扫描 → **得到 6 条子串命中（3×`-biz` + 2×`capability` + 1×`ganttchart`）→ 逐条排除 → 真 BI 构件 = 0**，整体记为 **OBSERVATION 级**。证据 = `docs/audit/artifacts/udc-bi-5.3.517/bi-domain-scan-artifact-layer.md`（含 6 条逐条归因理由）。本腿不改变 5.3.517 主判定（VACUUM / 0 条契约）。
+  - **口径纠正（依 ROUTE §1.1，本契约采此表述）**: 此前出现的「全仓 xiaozhua BI 构件 0 命中」说法**过窄** —— 它基于一个不含 `chart` 的关键词集。**构件层的正确表述固定为**「14 特征词 → 6 条子串命中 → 逐条排除 → 真 BI 构件 0（OBSERVATION 级）」，构件层禁用「0 命中」措辞（宽口径确有 6 条子串命中）。
   - 说明（避免与既有锚点混淆）: 上文「命中计数」段里的「12 个强特征词 × 6 jar = 0」指的是 **5.3.517 字节码类名层**的另一项扫描（口径与词集均不同于构件层），属保留的既有锚点，不受本纠正条影响。
-  - 同腿另记: `com/seeyon` 113 个 artifactId 宽口径名扫中 BI 形态线索 = ganttchart（已单列为上表 OBSERVATION 边界条目）、graphql（已在 5.3.517 内取证为 `GraphqlProxyController`，见端点层）、3 个 `*-biz`（项目命名噪声）、2 个 `cip-capability-*`（capa·bi·lity 子串）；无 report/board/dataset 形态的 2小爪 自研构件。
+  - 同腿另记: `com/seeyon` 113 个 artifactId 宽口径名扫中 BI 形态线索 = ganttchart（已单列为上表 OBSERVATION 边界条目）、graphql（已在 5.3.517 内取证为 `GraphqlProxyController`，见端点层）、3 个 `*-biz`（项目命名噪声）、2 个 `cip-capability-*`（capa·bi·lity 子串）；无 report/board/dataset 形态的 xiaozhua 自研构件。
 - 未改任何冻结文件；只读扫描 + javap；路径取注解原值（本域无 BI controller，无路径可提取，故无网关前缀拼接风险；L-B 全量表路径亦逐字未改）。
 
 ## 交付三件套索引（TASK-GOAL 三件齐）
@@ -110,7 +110,7 @@
 
 ## 红线自查（R2 收口）
 - 本轮 **0 新增扫描**（无新 jar / 无 ganttchart 取证 / 无新版本单元）；输入即 R1 产出件。
-- 领地仅 `docs/operation-contracts/udc/bi/`（本契约 + `registry-entries.md`）+ `docs/audit/artifacts/udc-bi-5.3.517/`；冻结件（`components/platform_operations/registry.py` / `components/platform_operations/layer.py` / `seeyon_cli.py` / `tests/**` / `README.md` / `docs/audit/agent-version-audit.md` / `docs/audit/code-reality-audit.md` / 其他域契约目录）零改动；共享件（`core/facts/INDEX.md`、`STATUS.md`、`connector/spi/*`）现盘由其他并发会话改动，本任务未触碰、未回滚、未计入。
+- 领地仅 `docs/operation-contracts/udc/bi/`（本契约 + `registry-entries.md`）+ `docs/audit/artifacts/udc-bi-5.3.517/`；冻结件（`components/platform_operations/registry.py` / `components/platform_operations/layer.py` / `xiaozhua_cli.py` / `tests/**` / `README.md` / `docs/audit/agent-version-audit.md` / `docs/audit/code-reality-audit.md` / 其他域契约目录）零改动；共享件（`core/facts/INDEX.md`、`STATUS.md`、`connector/spi/*`）现盘由其他并发会话改动，本任务未触碰、未回滚、未计入。
 - 无 LIVE / 无网关 / 无 `.207`；路径全部取注解原值、未拼任何网关前缀；5.3.517 与 5.3.496 test2、5.3.260（ganttchart）严格分单元，未混写证据。
 - 证据等级未越级: L-C 常量池层与构件层、ganttchart 条目均标 OBSERVATION；「BI 承载模块在外部构件」未写成 FACT。
 - 契约条目仍为 **0 条**；结论行不变（VACUUM）。

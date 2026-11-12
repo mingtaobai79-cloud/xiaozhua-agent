@@ -2,7 +2,7 @@
 """修复 INDEX.md 里被 bash 反引号吃掉的 ⑳ 条目（改用脚本写，避开 shell 引号）。"""
 from pathlib import Path
 
-P = Path("<SEEYON_AGENT_ROOT>/core/facts/INDEX.md")
+P = Path("<XIAOZHUA_AGENT_ROOT>/core/facts/INDEX.md")
 NEW = (
     "⑳`service-business-flow.md` **Service 业务流转**（方法背后动了什么：两层结构——"
     "`XxxAppServiceImpl` 只做一行转发、真正业务在 `domain/service/XxxService`"

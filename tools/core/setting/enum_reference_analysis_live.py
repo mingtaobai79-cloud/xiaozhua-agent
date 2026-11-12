@@ -20,11 +20,11 @@ import re
 import sys
 from pathlib import Path
 
-REPO = Path(r"<SEEYON_AGENT_ROOT>")
+REPO = Path(r"<XIAOZHUA_AGENT_ROOT>")
 sys.path.insert(0, str(REPO))
 from providers.mysql_readonly import MySQLConnectionAdapter
 
-ENV = Path(r"<HERMES_HOME>\skills\seeyon\01-platform\seeyon-low-code-environment\.env")
+ENV = Path(r"<HERMES_HOME>\skills\xiaozhua\01-platform\xiaozhua-low-code-environment\.env")
 env = {}
 for line in ENV.read_text(encoding="utf-8-sig", errors="replace").splitlines():
     line = line.strip()
@@ -34,14 +34,14 @@ for line in ENV.read_text(encoding="utf-8-sig", errors="replace").splitlines():
     if sep:
         env[k.strip()] = v.strip().strip('"').strip("'")
 
-a = MySQLConnectionAdapter(host=env["SEEYON_DB_HOST"],
-                           port=env.get("SEEYON_DB_PORT") or 3306,
-                           user=env["SEEYON_DB_USERNAME"],
-                           password=env["SEEYON_DB_PASSWORD"])
+a = MySQLConnectionAdapter(host=env["XIAOZHUA_DB_HOST"],
+                           port=env.get("XIAOZHUA_DB_PORT") or 3306,
+                           user=env["XIAOZHUA_DB_USERNAME"],
+                           password=env["XIAOZHUA_DB_PASSWORD"])
 import os as _os
-APP = _os.environ.get("SEEYON_APP_ID")
+APP = _os.environ.get("XIAOZHUA_APP_ID")
 if not APP:
-    raise SystemExit("缺 appId：请设 SEEYON_APP_ID")
+    raise SystemExit("缺 appId：请设 XIAOZHUA_APP_ID")
 
 # ctpEnumInfo 结构：抽取 id 与 code
 CTP_ENUM_BLOCK = re.compile(

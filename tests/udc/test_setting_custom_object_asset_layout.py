@@ -6,7 +6,7 @@
   事实   core/facts/udc/setting/custom-object/create.md
   契约   docs/operation-contracts/udc/setting/custom-object-contracts.md
   脚本   tools/core/setting/custom_object_{reference_analysis,write,delete_precheck,delete_batch}.py
-  skill  skills/seeyon-udc-setting/SKILL.md（须含自定义对象段落）
+  skill  skills/xiaozhua-udc-setting/SKILL.md（须含自定义对象段落）
 """
 import sys
 from pathlib import Path
@@ -18,7 +18,7 @@ SETTING = ROOT / "components" / "udc" / "setting"
 TOOLS = ROOT / "tools" / "core" / "setting"
 FACTS = ROOT / "core" / "facts" / "udc" / "setting" / "custom-object"
 CONTRACTS = ROOT / "docs" / "operation-contracts" / "udc" / "setting"
-SKILL = ROOT / "skills" / "seeyon-udc-setting" / "SKILL.md"
+SKILL = ROOT / "skills" / "xiaozhua-udc-setting" / "SKILL.md"
 
 
 def test_impl_in_setting_package():

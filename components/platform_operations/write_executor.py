@@ -97,7 +97,7 @@ class WriteExecutor:
     # ---------------------------------------------------------------- 业务信封
     @staticmethod
     def _envelope(body: Any) -> tuple[bool, str | None, Any, str | None]:
-        """解析 Seeyon 业务信封。返回 (ok, code, status, traceId)。
+        """解析 xiaozhua 业务信封。返回 (ok, code, status, traceId)。
 
         判据：HTTP 2xx 且业务 ``status == 0``。**BOOT_0000 / HTTP 200 单独不作为成功**，
         这是仓库既有铁律（TASK-GOAL 硬约束第 1 条）。

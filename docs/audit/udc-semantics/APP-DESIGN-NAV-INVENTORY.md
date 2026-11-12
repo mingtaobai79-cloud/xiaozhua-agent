@@ -1,7 +1,7 @@
 # UDC 设计器左导航全量清单 + 微前端架构取证
 
 日期：2026-10-12
-主线：`<SEEYON_AGENT_ROOT>`
+主线：`<XIAOZHUA_AGENT_ROOT>`
 环境：test2 (`lowcode-test2.example.com`)，UDC 镜像 5.3.496（`config/environments.yaml`）
 证据来源：真实前端 bundle（OSS 拉取，Cookie 鉴权）；来源 chunk 全部列在每节。
 

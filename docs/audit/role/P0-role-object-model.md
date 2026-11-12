@@ -2,7 +2,7 @@
 
 - 生成时间：2026-10-17 15:18:57 (GMT+8)
 - 环境：test2（`lowcode-test2.example.com` 同租户）
-- DB：`udc_test2`，MySQL；凭据经 Skill 配置层 `seeyon-low-code-environment/.env` 读取，**未打印、未落盘 secret**
+- DB：`udc_test2`，MySQL；凭据经 Skill 配置层 `xiaozhua-low-code-environment/.env` 读取，**未打印、未落盘 secret**
 - 探针脚本（只读）：`<HERMES_HOME>/cache/scratch/p0_role_ddl_v2.py`、`p0_role_samples.py`、`p0_role_probe3.py`、`p0_role_probe4.py`、`p0_role_probe5.py`、`p0_role_probe6.py`
 - 原始返回 JSON：同目录 `p0_role_ddl.json`、`p0_role_samples.json`、`p0_role_probe{3,4,5,6}.json`
 - 证据等级：全部为 **LIVE**（活体 DB 实测）
@@ -12,7 +12,7 @@
 
 HANDOFF-01 指定「凭据只引用 `shared-credentials/test2-web-credential.json` 路径」。实测该文件内容为 **Web 会话凭据**（`sy_access_token` / `cookie` / `app_id` / `base`），**不含 MySQL 主机/账号/口令**，无法用于 DB 直连。
 
-因此 DB 连接改用本机既有的 test2 数据源配置层：`<HERMES_HOME>/skills/seeyon/01-platform/seeyon-low-code-environment/scripts/conn.py::load_env('test2')`（凭据在 `.env` 的 `SEEYON_DB_*`，等价于 `conn.py db` 官方通路）。**同样只引用路径、未打印、未落盘**。此偏差属可逆的执行细节，未改变本切片范围与验收标准。
+因此 DB 连接改用本机既有的 test2 数据源配置层：`<HERMES_HOME>/skills/seeyon/01-platform/xiaozhua-low-code-environment/scripts/conn.py::load_env('test2')`（凭据在 `.env` 的 `XIAOZHUA_DB_*`，等价于 `conn.py db` 官方通路）。**同样只引用路径、未打印、未落盘**。此偏差属可逆的执行细节，未改变本切片范围与验收标准。
 
 ## 0. 结论速览（三问三答）
 
@@ -1207,4 +1207,4 @@ uv run --no-project --quiet --with pymysql python p0_role_probe5.py
 uv run --no-project --quiet --with pymysql python p0_role_probe6.py
 ```
 
-凭据由 `<HERMES_HOME>/skills/seeyon/01-platform/seeyon-low-code-environment/scripts/conn.py` 的 `load_env('test2')` 解析，脚本内无明文 secret。
+凭据由 `<HERMES_HOME>/skills/seeyon/01-platform/xiaozhua-low-code-environment/scripts/conn.py` 的 `load_env('test2')` 解析，脚本内无明文 secret。

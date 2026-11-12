@@ -1,6 +1,6 @@
 """PageSchemaRenderer — 实体 → 最小可用列表页 pageSchema 树（声明级骨架）。
 
-证据基线：skill seeyon-udc-design-time-build / references/page-schema-api-construction.md
+证据基线：skill xiaozhua-udc-design-time-build / references/page-schema-api-construction.md
 （zzprobe LIVE 验证 jar 1.0.4 成功）+ 前端 bundle getControlSchema 契约。
 
 离线只产声明级骨架：三控件（UdcFilter/UdcToolBar/UdcDataGridView）+
@@ -221,7 +221,7 @@ class PageSchemaRenderer:
             pageSchema=page_schema,
             unverified_fields=unverified,
             evidence=[
-                "skill:seeyon-udc-design-time-build/references/page-schema-api-construction.md",
+                "skill:xiaozhua-udc-design-time-build/references/page-schema-api-construction.md",
                 "zzprobe LIVE jar 1.0.4 successful deploy",
             ],
         )
@@ -332,7 +332,7 @@ class PageSchemaRenderer:
             evidence=[
                 "webpack 5.3.517 module 2879 UdcForm registration (controlActions/SINGLE/BIND_ENTITY)",
                 "webpack 5.3.517 module 61325 UdcSubPage registration (switch/activeRule)",
-                "skill:seeyon-udc-design-time-build/references/page-schema-api-construction.md",
+                "skill:xiaozhua-udc-design-time-build/references/page-schema-api-construction.md",
             ],
         )
 

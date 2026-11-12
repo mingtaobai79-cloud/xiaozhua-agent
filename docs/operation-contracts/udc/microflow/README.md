@@ -72,7 +72,7 @@
 
 | 文件 | 字节 | 内容 | 读取方 |
 |---|---:|---|---|
-| `cappservice-parameter-semantics.md` | 20,706 | **CALL_APP_SERVICE「服务参数」语义**：`fullName`/`md5` 真实语义、`parameter`/`returnValue` 契约、`mappingType`/`attrs`、逐字段总表 | `components/udc/microflow_constraints.py:488` 注释直接指本文件 §5；`tests/udc/test_call_app_service_node_contract.py` 与 `skills/05-agent/seeyon-agent-evidence-driven/SKILL.md` 引用 |
+| `cappservice-parameter-semantics.md` | 20,706 | **CALL_APP_SERVICE「服务参数」语义**：`fullName`/`md5` 真实语义、`parameter`/`returnValue` 契约、`mappingType`/`attrs`、逐字段总表 | `components/udc/microflow_constraints.py:488` 注释直接指本文件 §5；`tests/udc/test_call_app_service_node_contract.py` 与 `skills/05-agent/xiaozhua-agent-evidence-driven/SKILL.md` 引用 |
 
 **这份位置锁定，不得移动。**
 
@@ -115,7 +115,7 @@
 
 | 被引文件 | 引用方 |
 |---|---|
-| `cappservice-parameter-semantics.md` | `components/udc/microflow_constraints.py`、`tests/udc/test_call_app_service_node_contract.py`、`skills/05-agent/seeyon-agent-evidence-driven/SKILL.md` |
+| `cappservice-parameter-semantics.md` | `components/udc/microflow_constraints.py`、`tests/udc/test_call_app_service_node_contract.py`、`skills/05-agent/xiaozhua-agent-evidence-driven/SKILL.md` |
 | `a6-milestone-report.md` | `core/facts/udc/application/applog-family.md`、`docs/deliverables/microflow-readonly-milestone-report.md` |
 | `candidate-contracts-evidence.md` / `gateway-live-facts.md` / `local-53517-offline-candidates.md` | `docs/deliverables/microflow-readonly-milestone-report.md` |
 | `live-evidence/**` | `core/facts/bpm/{data-flow-map,flow-node-tree}.md`、`core/facts/runtime/datatype-getAll.md`、`core/facts/udc/application/applog-family.md`、`core/facts/spi/evidence/live/` |

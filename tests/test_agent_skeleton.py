@@ -1,21 +1,21 @@
 from pathlib import Path
-from core.agent import AgentRequest, MemoryContext, MemorySession, SeeyonAgent
+from core.agent import AgentRequest, MemoryContext, MemorySession, XiaozhuaAgent
 from core.evidence import Evidence
 from components.udc.component import UdcComponent
 
 ROOT = Path(__file__).parents[1]
 
 def test_routes_udc_request_to_udc_component():
-    agent = SeeyonAgent({"udc": UdcComponent()})
+    agent = XiaozhuaAgent({"udc": UdcComponent()})
     assert agent.route(AgentRequest("分析 UDC 实体")) == "udc"
 
 def test_mixed_udc_and_runtime_intent_is_not_silently_routed():
-    agent = SeeyonAgent({"udc": UdcComponent()})
+    agent = XiaozhuaAgent({"udc": UdcComponent()})
     assert agent.route(AgentRequest("排查微流程运行态 Redis 缓存")) == "unknown"
 
 
 def test_english_keyword_inside_unrelated_word_does_not_route():
-    agent = SeeyonAgent({"udc": UdcComponent()})
+    agent = XiaozhuaAgent({"udc": UdcComponent()})
     assert agent.route(AgentRequest("review the teamquality report")) == "unknown"
     assert agent.route(AgentRequest("排查 MQ 消息队列")) == "spi"
 
@@ -27,7 +27,7 @@ def test_udc_component_is_read_only_and_exposes_dry_run():
 
 def test_host_can_inject_context_and_session():
     session = MemorySession()
-    agent = SeeyonAgent({"udc": UdcComponent()}, context=MemoryContext({"env": "test2"}), session=session)
+    agent = XiaozhuaAgent({"udc": UdcComponent()}, context=MemoryContext({"env": "test2"}), session=session)
     result = agent.dispatch(AgentRequest("分析 UDC 实体", {"target": "demo"}))
     assert result["mode"] == "read-only"
     assert session.events[0]["component"] == "udc"

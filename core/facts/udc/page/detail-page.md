@@ -1,6 +1,6 @@
 # udc.page.create（DETAIL 面）｜详情页能力事实格
 
-> 基线仓库根：`<SEEYON_AGENT_ROOT>`（本件只写 `core/facts/udc/page/detail-page.md`）。
+> 基线仓库根：`<XIAOZHUA_AGENT_ROOT>`（本件只写 `core/facts/udc/page/detail-page.md`）。
 > 九段固定序（1 Capability / 2 Version / 3 Input / 4 Required / 5 Execution / 6 Side Effects /
 > 7 Known Constraints / 8 Evidence / 9 Verified）。证据等级三档：`OBSERVED_LIVE` / `VERIFIED_STATIC_BYTECODE` / `UNVERIFIED`。
 > 每段引在盘证据（路径 + 行号/字段名），无证据项如实标 `UNVERIFIED`；**凭据 0 入件**（只引路径/对象 id/`expires_epoch`）。

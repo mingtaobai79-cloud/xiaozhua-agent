@@ -1,7 +1,7 @@
 # 微流程只读里程碑（M1）实施方案
 
 状态：待执行（main 主控）
-适用仓库：`<SEEYON_AGENT_ROOT>`
+适用仓库：`<XIAOZHUA_AGENT_ROOT>`
 基线：HEAD `a799744`，工作区干净，离线全量测试 309 passed
 
 ## 一、已核实的基线事实
@@ -21,9 +21,9 @@
 现有微流程相关证据（可作为起点，不得凭业务名推测）：
 
 - `docs/audit/modules/decompiled/udc-facade-5.3.517-MicroFlowInfoAppService.java`：仅 `findCallConnectorAppService` / `findCallIntegrationAppService` 两个方法（AppService 层，非 REST）。
-- `docs/audit/artifacts/customer-web-1.0.11029/CustomRestApiMicroFlowController.javap.txt`（**客户场景证据，已迁出至 `seeyon-customer-evidence/javap/`**，仓库内已无此路径） 及同目录大量 `MicroFlow*Controller.javap.txt`（客户应用 app9000000000000000001 的微流程页面控制器）。
+- `docs/audit/artifacts/customer-web-1.0.11029/CustomRestApiMicroFlowController.javap.txt`（**客户场景证据，已迁出至 `xiaozhua-customer-evidence/javap/`**，仓库内已无此路径） 及同目录大量 `MicroFlow*Controller.javap.txt`（客户应用 app9000000000000000001 的微流程页面控制器）。
 - `docs/audit/artifacts/udc-runtime-5.3.517/`：`UdcFunctionNodeController.javap.txt`、`GraphqlProxyController.javap.txt`、`UdcRestPathParse.javap.txt`、`EntityRuntimeService.javap.txt` 等 25 份。
-- 已知客户应用微流程路径形态（来自 `seeyon-low-code-environment` skill 的应用路由约定）：`{base}/service/{applicationId}/{业务路径}/microflow/{methodId}`，Controller 侧由 `@RestApi("微流程-xxx")` + `@RequestMapping("{applicationId}")` + `@PostMapping("{业务路径}/microflow/{methodId}")` 反查；拼接必须保留 `/service/` 前缀，应用 ID / 路径 / 方法 ID 按注解原值保留。
+- 已知客户应用微流程路径形态（来自 `xiaozhua-low-code-environment` skill 的应用路由约定）：`{base}/service/{applicationId}/{业务路径}/microflow/{methodId}`，Controller 侧由 `@RestApi("微流程-xxx")` + `@RequestMapping("{applicationId}")` + `@PostMapping("{业务路径}/microflow/{methodId}")` 反查；拼接必须保留 `/service/` 前缀，应用 ID / 路径 / 方法 ID 按注解原值保留。
 
 ## 二、本轮目标
 
@@ -47,7 +47,7 @@
 
 ## 五、访问材料（全部只读）
 
-- `<HERMES_HOME>/skills/devops/seeyon-low-code-environment/.env`：`SEEYON_SSH_*`、`SEEYON_KUBECONFIG_TEST2`、`SEEYON_KUBECONFIG_UAT`、`SEEYON_DB_*`、`SEEYON_REDIS_*`、`SEEYON_K8S_NAMESPACE`、`SEEYON_ENV`
+- `<HERMES_HOME>/skills/devops/xiaozhua-low-code-environment/.env`：`XIAOZHUA_SSH_*`、`XIAOZHUA_KUBECONFIG_TEST2`、`XIAOZHUA_KUBECONFIG_UAT`、`XIAOZHUA_DB_*`、`XIAOZHUA_REDIS_*`、`XIAOZHUA_K8S_NAMESPACE`、`XIAOZHUA_ENV`
 - 同目录 `low-code-test.pem`（仅用于 10.0.0.1）、`kubeconfig-zhiyuan`（作为 test2 kubeconfig 使用）
 - 同目录 `SKILL.md`：环境识别、凭据边界、Pod 诊断、Redis/MySQL 访问规范
 - 应用基址 `https://lowcode-test2.example.com`；业务路径形态 `/service/{applicationId}/{业务路径}`

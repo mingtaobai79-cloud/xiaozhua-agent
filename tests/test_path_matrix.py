@@ -35,7 +35,7 @@ def test_cli_udc_path_matrix_emits_json(tmp_path):
     for path, payload in ((udc_path, {"status": "FACT"}), (runtime_path, {}), (http_path, {})):
         path.write_text(json.dumps(payload), encoding="utf-8")
     proc = subprocess.run(
-        [sys.executable, "seeyon_cli.py", "udc-path-matrix", "--udc-json", str(udc_path), "--runtime", str(runtime_path), "--http", str(http_path)],
+        [sys.executable, "xiaozhua_cli.py", "udc-path-matrix", "--udc-json", str(udc_path), "--runtime", str(runtime_path), "--http", str(http_path)],
         cwd=Path(__file__).parents[1], capture_output=True, text=True,
     )
     assert proc.returncode == 0

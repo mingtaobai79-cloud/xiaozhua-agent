@@ -1,5 +1,5 @@
 {
-  "schema_version": "seeyon-agent.udc-menu-trace.v1",
+  "schema_version": "xiaozhua-agent.udc-menu-trace.v1",
   "module": "udc",
   "capability": "resource_menu",
   "target_operation": "udc.menu.list",

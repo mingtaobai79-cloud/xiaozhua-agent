@@ -31,7 +31,7 @@ def test_audit_does_not_promote_inventory_only_496_to_fact(tmp_path):
 
 def test_cli_version_audit_emits_json_and_preserves_496_boundary(tmp_path):
     write_json(tmp_path / "udc_version_samples_manifest.json", {"versions": ["5.3.496"], "samples": []})
-    result = subprocess.run([sys.executable, "-m", "seeyon_cli", "version-audit", "--audit-dir", str(tmp_path), "--version", "5.3.496"], capture_output=True, text=True)
+    result = subprocess.run([sys.executable, "-m", "xiaozhua_cli", "version-audit", "--audit-dir", str(tmp_path), "--version", "5.3.496"], capture_output=True, text=True)
     assert result.returncode == 0
     payload = json.loads(result.stdout)
     assert payload["status"] in {"OBSERVATION", "UNVERIFIED"}

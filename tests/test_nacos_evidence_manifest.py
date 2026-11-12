@@ -22,7 +22,7 @@ def test_manifest_groups_application_and_redacts_sensitive_values(tmp_path):
 
 def test_manifest_cli_reads_snapshot_and_reports_gaps(tmp_path):
     (tmp_path / "app.yaml").write_text("spring.application.name: app\n", encoding="utf-8")
-    proc = subprocess.run([sys.executable, "-m", "seeyon_cli", "nacos-evidence-manifest", "--snapshot-dir", str(tmp_path), "--application-id", "app", "--tenant", "t1", "--group", "g1"], capture_output=True, text=True)
+    proc = subprocess.run([sys.executable, "-m", "xiaozhua_cli", "nacos-evidence-manifest", "--snapshot-dir", str(tmp_path), "--application-id", "app", "--tenant", "t1", "--group", "g1"], capture_output=True, text=True)
     assert proc.returncode == 0
     payload = json.loads(proc.stdout)
     assert payload["network"] == "disabled"

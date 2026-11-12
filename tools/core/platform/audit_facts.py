@@ -9,7 +9,7 @@ import json
 import re
 from pathlib import Path
 
-ROOT = Path("<SEEYON_AGENT_ROOT>")
+ROOT = Path("<XIAOZHUA_AGENT_ROOT>")
 FD = ROOT / "core/facts/standard-product"
 ART = ROOT / "docs/audit/artifacts"
 

@@ -1,5 +1,5 @@
 {
-  "schema_version": "seeyon-agent.udc-page-tree-trace.v1",
+  "schema_version": "xiaozhua-agent.udc-page-tree-trace.v1",
   "module": "udc",
   "parent_scope": "resource_menu",
   "capability": "page_tree_function_node_read",
@@ -37,8 +37,8 @@
   },
   "runtime": {
     "environment": "test2",
-    "tenant": "seeyon-test2",
-    "group": "seeyon",
+    "tenant": "xiaozhua-test2",
+    "group": "xiaozhua",
     "udc_data_id": "udc",
     "udc_database": "udc_test2",
     "database_type": "MySQL_CONFIG_EVIDENCE",

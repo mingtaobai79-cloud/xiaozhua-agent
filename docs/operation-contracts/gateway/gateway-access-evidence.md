@@ -79,7 +79,7 @@ com.seeyon.ctp.webapi.gateway.filter.TongWebResponseFilter
 
 ```text
 routeId = routeIdPrefix + serviceInstance.serviceId
-routeIdPrefix 默认值：seeyon-
+routeIdPrefix 默认值：xiaozhua-
 route URI = DiscoveryLocatorProperties.urlExpression evaluated against ServiceInstance
 route metadata = ServiceInstance.metadata copy
 route order = Integer.MAX_VALUE

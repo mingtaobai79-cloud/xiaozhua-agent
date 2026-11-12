@@ -342,7 +342,7 @@ def test_cli_reports_traceable_vs_self_reported(capsys):
 
 def test_real_bootstrap_body_still_flags_synthetic_evidence(tmp_path, monkeypatch):
     """真实宿主入口：bootstrap()['microflow_create_body'] 消费合成证据时仍报 UNVERIFIED。"""
-    from seeyon_host_bootstrap import bootstrap
+    from xiaozhua_host_bootstrap import bootstrap
     matrix = tmp_path / 'm.md'
     ev = tmp_path / 'ev'
     matrix.write_text(_DECL_MATRIX, encoding='utf-8')

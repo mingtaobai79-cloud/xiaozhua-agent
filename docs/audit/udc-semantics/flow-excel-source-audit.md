@@ -2,13 +2,13 @@
 
 ## 范围与证据身份
 
-本报告属于 seeyon-agent 主线的离线平台机制审计，不是客户应用搭建结果。未访问平台、未连接数据库、未上传文件、未发送业务通知。
+本报告属于 xiaozhua-agent 主线的离线平台机制审计，不是客户应用搭建结果。未访问平台、未连接数据库、未上传文件、未发送业务通知。
 
 源码根与 artifact 位置由 `config/udc-semantics-evidence.local.json` 配置。本机配置被 git 忽略；本文仅引用相对于 source_snapshot.root 的源码路径。旧源码 checkout 的运行版本绑定为 UNVERIFIED，不将其自动视为本地 reference jar 或 test2 已部署版本。
 
 机器清单：`flow-excel-contracts.json`。清单记录源文件 SHA-256、逐行引用、范围 SHA-256、断言 token、DTO 字段、Controller 字面路径和表名。全部 `can_execute=false`、`live_verified=false`；未经核对的副作用为 null，不根据 GET/POST 或方法名推断只读。
 
-辅助脚本：`tools/core/audit_udc_flow_excel.py`（**已移入 `_attic_pending/one-off/unsorted/audit_udc_flow_excel.py`**，仓库内已无此路径）。这是离线证据抽取/回放工具，不是 seeyon-agent 的平台执行器、页面 validator 或完整业务 planner。
+辅助脚本：`tools/core/audit_udc_flow_excel.py`（**已移入 `_attic_pending/one-off/unsorted/audit_udc_flow_excel.py`**，仓库内已无此路径）。这是离线证据抽取/回放工具，不是 xiaozhua-agent 的平台执行器、页面 validator 或完整业务 planner。
 
 ## 1. 必须纠正的两条结论
 

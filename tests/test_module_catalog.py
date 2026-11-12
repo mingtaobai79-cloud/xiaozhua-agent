@@ -26,7 +26,7 @@ def test_catalog_does_not_promote_customer_business_detail():
     assert "customer_entity_inventory" not in text
 
 def test_module_catalog_cli_is_machine_readable():
-    r = subprocess.run([sys.executable, "-m", "seeyon_cli", "module-catalog"], cwd=ROOT, capture_output=True, text=True)
+    r = subprocess.run([sys.executable, "-m", "xiaozhua_cli", "module-catalog"], cwd=ROOT, capture_output=True, text=True)
     assert r.returncode == 0, r.stderr
     payload = json.loads(r.stdout)
     assert payload["network"] == "disabled"

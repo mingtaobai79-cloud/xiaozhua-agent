@@ -6,7 +6,7 @@
 from pathlib import Path
 
 from components.construction.requirement_parser import RequirementParser
-from seeyon_host_bootstrap import bootstrap
+from xiaozhua_host_bootstrap import bootstrap
 
 REQ = """新建实体SupplierContract，标题为供应商合同
 - 合同编号：字符串

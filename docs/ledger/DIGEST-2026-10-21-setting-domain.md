@@ -7,7 +7,7 @@
 ## 一、当前任务线
 
 **目标**：让 AI 以用户身份、通过真实前后端协议操作致远 UDC 设计器，
-把「应用设计 → 设置」域各 tab 全部打通并沉淀回 `seeyon-agent`。
+把「应用设计 → 设置」域各 tab 全部打通并沉淀回 `xiaozhua-agent`。
 
 **本轮范围**：设置域。已完成 8 个 tab：
 
@@ -25,9 +25,9 @@
 | 类型必须全覆盖 | 「任何数据类型的格式、和类别你都得试一下，你看看他是怎么组装的」——不许验通一条就报打通 |
 | 换样本复验 | 对象/选项集要**换一个来源**（例如都选 bpm 引擎下的）再验一遍，防止只在一个上下文里碰对 |
 | 控件不能一刀切 | 除文本外其他类型的字段不一定是单行文本，**不能全用 `Input`** |
-| 沉淀去处 | 结论 → `core/facts/`；构造/校验器 → `components/`；契约 → `registry.py`；使用说明 → Hermes skill `seeyon-udc-setting`。**只写进 skill 不写进仓库 = 没沉淀** |
+| 沉淀去处 | 结论 → `core/facts/`；构造/校验器 → `components/`；契约 → `registry.py`；使用说明 → Hermes skill `xiaozhua-udc-setting`。**只写进 skill 不写进仓库 = 没沉淀** |
 | 汇报口径 | 分清 LIVE PASS / LIVE / VERIFIED_STATIC_BYTECODE / UNVERIFIED / VACUUM；`BOOT_0000` 不等于成功，必须 DB 或接口回读 |
-| 客户信息 | 客户实体/页面/微流程明细不进长期事实库；证据在仓外 `seeyon-customer-evidence/` |
+| 客户信息 | 客户实体/页面/微流程明细不进长期事实库；证据在仓外 `xiaozhua-customer-evidence/` |
 
 ## 三、本轮已完成（全部有 commit + 事实格 + 落位测试）
 
@@ -114,13 +114,13 @@ ade6a152  选项集/参数打通，流水号读面 LIVE 写面 PARTIAL
 ## 八、开局命令
 
 ```bash
-cd <SEEYON_AGENT_ROOT>
+cd <XIAOZHUA_AGENT_ROOT>
 .venv/Scripts/python.exe -m pytest tests -q --tb=no        # 基线 1716 passed
 .venv/Scripts/python.exe tools/core/capability_report.py    # 九域落位 + 契约数（116 条/写面 32）
 .venv/Scripts/python.exe tools/core/capability_report.py --check   # 缺口 → 退出码非 0
 
 # 只读 DB（凭据从 skill .env 读，不入库）
-# .env 路径：skills/seeyon/01-platform/seeyon-low-code-environment/.env
+# .env 路径：skills/seeyon/01-platform/xiaozhua-low-code-environment/.env
 # 关键 schema：udc_test2（元数据）/ ctp_user_test2 / organization_test2
 ```
 

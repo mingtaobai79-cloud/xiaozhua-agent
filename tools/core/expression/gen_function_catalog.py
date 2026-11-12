@@ -8,7 +8,7 @@
 import json
 from pathlib import Path
 
-REPO = Path(r"<SEEYON_AGENT_ROOT>")
+REPO = Path(r"<XIAOZHUA_AGENT_ROOT>")
 SRC = Path(r"<HERMES_HOME>\cache\scratch\expression_preset.json")
 
 doc = json.loads(SRC.read_text(encoding="utf-8"))

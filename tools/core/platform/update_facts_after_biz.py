@@ -2,7 +2,7 @@
 """实现 jar 到手后，更新两个事实格的覆盖数字与结论。"""
 from pathlib import Path
 
-FD = Path("<SEEYON_AGENT_ROOT>/core/facts/standard-product")
+FD = Path("<XIAOZHUA_AGENT_ROOT>/core/facts/standard-product")
 
 REPS_ACTION = [
     ("| 仓库里有实现类 | **517**（68 个接口） |",

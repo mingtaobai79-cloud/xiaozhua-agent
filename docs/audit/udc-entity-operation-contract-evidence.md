@@ -4,7 +4,7 @@
 
 ## Scope
 
-- Parent component: 2小爪 Agent
+- Parent component: xiaozhua Agent
 - Component: UDC
 - Environment: test2 via SSH 10.0.0.1 → `kubectl --kubeconfig=configtest2`
 - Namespace: `lowcode-test`

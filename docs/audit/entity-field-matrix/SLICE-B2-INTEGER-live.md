@@ -473,7 +473,7 @@ LIVE 佐证：`共管账户ID`(INTEGER) `min="0"`、`max=""`、`vse='{"min":"","
 ## 八、复现
 
 ```bash
-cd <SEEYON_AGENT_ROOT>
+cd <XIAOZHUA_AGENT_ROOT>
 # CDP 9222 + cookie 注入后：
 node docs/audit/artifacts/scratch-migrated/slice-b2/b2_v10.js    # ★ 一次跑完：双击类型→选整数→保存→抓 batch
 # DB / 读接口 / 审计日志回读见 §二 SQL 与 curl

@@ -1,6 +1,6 @@
 """MicroFlow 构造骨架 — 模板填充 + create/checkSchema body 组装（宿主执行）。
 
-证据基线（skill seeyon-udc-design-time-build，metadata-artifact-apis.md L71-73）：
+证据基线（skill xiaozhua-udc-design-time-build，metadata-artifact-apis.md L71-73）：
 - 新建微流程走 REST ``POST /service/udc/microflow/create``（字符串枚举
   triggerType=BUSINESS_EVENT|MANUAL|SCHEDULE、type=SERVICE、state=DRAFT），
   与 GraphQL ``udcMicroflowUpdatePost``（数字枚举）是两套契约，别互套。

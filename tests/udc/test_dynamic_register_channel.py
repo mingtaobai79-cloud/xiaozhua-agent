@@ -34,7 +34,7 @@ def _resolve_class_dir() -> Path:
     顺序：环境变量 → config/environments.yaml → 历史 scratch 路径（兜底）。
     """
     import os as _os
-    env_dir = _os.environ.get("SEEYON_SUP_CLASSES_DIR")
+    env_dir = _os.environ.get("XIAOZHUA_SUP_CLASSES_DIR")
     if env_dir:
         return Path(env_dir)
     try:

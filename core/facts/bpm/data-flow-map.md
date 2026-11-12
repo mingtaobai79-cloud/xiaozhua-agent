@@ -1,7 +1,7 @@
 # 数据流映射只读族 + UDC↔BPM 数据流链路契约｜flow 域第 2 格
 
 > 基线：本任务 TASK-GOAL（`事实模块任务｜BPM-flow(flow 域 16 契约+微流程)`）+ 本会话 `main/ROUTE.md` @ 目标仓库
-> `<SEEYON_AGENT_ROOT>` HEAD `16a384c`。九段式能力事实文档（交付物第 2 件，`core/facts/bpm/data-flow-map.md`），
+> `<XIAOZHUA_AGENT_ROOT>` HEAD `16a384c`。九段式能力事实文档（交付物第 2 件，`core/facts/bpm/data-flow-map.md`），
 > 节序照在盘样板 `core/facts/udc/entity/create.md`（B1 样板格，PASS）。行尾 CRLF（本格登记形态；族内行尾不统一：族索引 core/facts/INDEX.md 为 CRLF，core/facts/batch-modules-20260925.md 与 core/facts/udc/entity/create.md、core/facts/udc/readonly-faces-batch2.md 为 LF，实测法 tr -cd CR/LF 计数）。
 > 本件**只做数据流映射只读族 + UDC↔BPM 数据流链路契约**；第 1 格 `flow-node-tree.md` 已冻结（绑定字节 16070 B /
 > sha256 `36ead221…4ec5f`），本件不改动它。只写事实文档，不实现代码、不改 `components/**`；凭据值 0 入件。

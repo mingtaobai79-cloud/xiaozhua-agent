@@ -1,4 +1,4 @@
-# EVIDENCE-DISCIPLINE｜2小爪 Agent 证据纪律
+# EVIDENCE-DISCIPLINE｜xiaozhua Agent 证据纪律
 
 > 声明级文档。锚点全部在盘可复核；未建/未实现项逐条标 UNVERIFIED 或"未实现"。
 
@@ -67,5 +67,5 @@ STATIC（源码/javap）→ VERIFIED（测试/调用）→ LIVE（真实环境�
 - 本包描述的宿主暴露、adapter 目录、installer 安装脚本全部为**目标态未实现**；
   （注：`adapters/mcp/` 传输层已实装，属另一条独立线，非本包的产物与主张范围，见 §3 双向纪律实例）；
 - 本包未新造定位/阶段/验收，全部引在盘锚点（ROADMAP-v2 §一~§四、
-  AGENT-ADAPTER §一/§二/§三/§四、`seeyon_host_bootstrap.py`、
+  AGENT-ADAPTER §一/§二/§三/§四、`xiaozhua_host_bootstrap.py`、
   `core/registry.py`、`README.md`）。

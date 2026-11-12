@@ -2,7 +2,7 @@
 
 > 性质：把 2026-09-24 test2 上「需求→实体+属性→**建页(LIST+DETAIL)**→RELEASE 构建→物理表落库」这条
 > 设计态写链固化成 agent 的**可执行方案 data**（`components/platform_operations/deployment.py`
-> + `seeyon_host_bootstrap.deploy_plan`）。agent 保持 readonly：写契约在
+> + `xiaozhua_host_bootstrap.deploy_plan`）。agent 保持 readonly：写契约在
 > `layer.py` 仍判 DENIED（`contract.write` → POLICY_DENIED），宿主（Hermes/CC/Codex）
 > 按方案 steps 执行真实端点。证据等级分列，不升级、不臆造。
 
@@ -69,12 +69,12 @@
 - 本轮失败归因 = **被拷应用自身数据悬空**（页面数据源缺失 146 次 / 参照悬空 30+ / 关联枚举元数据为空 / 页面表达式失效），链路侧无缺陷。
 - 语义印证：RELEASE 前需有成功 TEST —— UI 曾提示"应用未成功发布过，请先【测试】操作"（09-24 LIVE 文案）。
 
-## 五、agent 暴露面（seeyon_host_bootstrap.deploy_plan）
+## 五、agent 暴露面（xiaozhua_host_bootstrap.deploy_plan）
 
 ```
 host["deploy_plan"](application_id, entity_name, attributes, caption,
                     stereotype="bill", deploy_type="RELEASE")
-  → {"schema": "seeyon-deployment-plan.v1", "readonly_plan": True,
+  → {"schema": "xiaozhua-deployment-plan.v1", "readonly_plan": True,
      "steps": [entity.create, attribute.create, deploy.normal],
      "enums": {...}, "evidence": [...], "unknowns": [...]}
 ```

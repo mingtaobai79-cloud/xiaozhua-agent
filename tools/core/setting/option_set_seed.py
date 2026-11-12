@@ -1,6 +1,6 @@
 """设置域 · 选项集：建两套完整样本（分组 → 选项集 → 多个选项项）。
 
-用途：给用户页面验收"生成是否正确"。走 seeyon-agent 自己的构造器 + 校验器，
+用途：给用户页面验收"生成是否正确"。走 xiaozhua-agent 自己的构造器 + 校验器，
 不是裸脚本拼 body。
 
 用法：
@@ -24,8 +24,8 @@ from components.udc.setting.option_set_constraints import (  # noqa: E402
     validate_option_set_item_body,
 )
 
-APP_ID = None  # ★ 由 --app-id / SEEYON_APP_ID 提供
-APP_ID = __import__("os").environ.get("SEEYON_APP_ID") or APP_ID
+APP_ID = None  # ★ 由 --app-id / XIAOZHUA_APP_ID 提供
+APP_ID = __import__("os").environ.get("XIAOZHUA_APP_ID") or APP_ID
 
 APP_GUID = "2275741415570096882"
 

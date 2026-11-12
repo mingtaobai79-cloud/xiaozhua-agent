@@ -1,7 +1,7 @@
-# ARCHITECTURE｜2小爪 Agent v2 总架构（A1）
+# ARCHITECTURE｜xiaozhua Agent v2 总架构（A1）
 
 > 基线：`docs/capability/ROADMAP-v2.md` @ git `d76f7af`（本文件是 §一/§二/§三/§五 的展开，不新增定位）。
-> 任务：seeyon-v2-capability-phase1 交付物 A1。证据纪律：STATIC / VERIFIED / LIVE 为事实，
+> 任务：xiaozhua-v2-capability-phase1 交付物 A1。证据纪律：STATIC / VERIFIED / LIVE 为事实，
 > GENERATED 仅假设；无在盘证据处标 **UNVERIFIED**，不臆造。
 > 本文件只描述架构与在盘事实引用，不含实现代码改动。
 > 本文是 ROADMAP-v2 的目标架构展开；仓库实现与目录职责视图见 `../ARCHITECTURE.md`。
@@ -11,15 +11,15 @@
 
 ## 一、定位：两级兼容模型（展开 ROADMAP-v2 §一）
 
-2小爪 Agent v2 的核心原则（引自 ROADMAP-v2 §一）：**不造新的 Agent，而是把 2小爪 现有能力、
+xiaozhua Agent v2 的核心原则（引自 ROADMAP-v2 §一）：**不造新的 Agent，而是把 xiaozhua 现有能力、
 代码、事实、运行环境和版本差异固化成 Agent 可调用、可验证、可兼容的 Capability——再以
 "可安装的 Agent 角色与能力包"形态嵌入已有宿主。**
 
 据此有两级兼容：
 
-1. **2小爪 版本兼容（对内）**：客户当前仓库版本为 **Canonical**，能力定义稳定；
+1. **xiaozhua 版本兼容（对内）**：客户当前仓库版本为 **Canonical**，能力定义稳定；
    版本差异走 **Version Adapter**（`adapter-5.3` / `adapter-5.4` / …），Agent 不自行判断版本分支。
-2. **Agent Host 兼容（对外）**：2小爪 Agent = 可安装的 **Agent 角色 + 能力包**
+2. **Agent Host 兼容（对外）**：xiaozhua Agent = 可安装的 **Agent 角色 + 能力包**
    （Role / Facts / Skills / Tools / Code / Sandbox），经 Adapter 进入不同宿主；
    **不自研 Agent Loop / 记忆 / Planner / Agent OS**。
 
@@ -90,7 +90,7 @@ Global 层是六项横向能力，对所有模块（UDC/BPM/…/Gateway）通用
 | Evidence | `core/facts/` | 四层事实体系见 A4；registry `OperationStatus` 携证据等级 | VERIFIED |
 | Version | `adapters/`（版本维度） | Canonical=客户当前仓库；registry 全部契约 artifact=5.3.517 | STATIC |
 | Registry | `core/capabilities/` | `components/platform_operations/registry.py` | VERIFIED |
-| Adapter | `adapters/{hermes,codex,claude-code}/` | `seeyon_host_bootstrap.py`（v1 adapter 入口，见 A8） | VERIFIED |
+| Adapter | `adapters/{hermes,codex,claude-code}/` | `xiaozhua_host_bootstrap.py`（v1 adapter 入口，见 A8） | VERIFIED |
 
 说明：ROADMAP-v2 §二 的目标态目录为 `core/ role|facts|skills|tools|capabilities`、
 `modules/ udc|gateway|sandbox|item-mgmt`、`adapters/ hermes|codex|claude-code`、`installer/`、
@@ -149,8 +149,8 @@ UDC 模块层四个能力域（ROADMAP §二 `modules/udc/`）：
 
 ## 六、宿主 Adapter 面：deploy_plan 四步（在盘事实引用）
 
-**入口**：`seeyon_host_bootstrap.py` 的 `bootstrap()` 返回 `host["deploy_plan"]`
-（`deploy_plan()` 定义在 `seeyon_host_bootstrap.py:119` 附近），实现体
+**入口**：`xiaozhua_host_bootstrap.py` 的 `bootstrap()` 返回 `host["deploy_plan"]`
+（`deploy_plan()` 定义在 `xiaozhua_host_bootstrap.py:119` 附近），实现体
 `components/platform_operations/deployment.py: build_deployment_plan()`。
 
 **四步（实测 `components/platform_operations/deployment.py`）**：
@@ -162,7 +162,7 @@ UDC 模块层四个能力域（ROADMAP §二 `modules/udc/`）：
 | 3 | `udc.page.create` | POST | `/service/udc/page-info/base-info/create` | `GET /service/udc/page-info/select-by-appId/{appId}` 回读 caption+relationGroupId |
 | 4 | `udc.deploy.normal` | POST | `/service/udc/runtime/deploy-normal`（body 包 `deployDto`） | RDS `udc_test2.udc_deploy_record` 最新行（deploy_type=2 state=1）+ 应用库 SHOW TABLES |
 
-即 **建实体 → 建属性 → 建页 → RELEASE 构建**。方案 data 形状：`schema=seeyon-deployment-plan.v1`、
+即 **建实体 → 建属性 → 建页 → RELEASE 构建**。方案 data 形状：`schema=xiaozhua-deployment-plan.v1`、
 `readonly_plan=True`、`steps[]/enums/evidence/unknowns`。
 
 **写门边界**：agent 侧 `deploy_plan` 只出方案 data，不发写；`udc.deploy.normal` 在写门仍判
@@ -200,7 +200,7 @@ RELEASE 构建 `deploy_type=2 state=1`、物理表落应用库 `9000000000000000
 | ROADMAP 定位/骨架/能力模型/模块推进 | `docs/capability/ROADMAP-v2.md` @ `d76f7af` | STATIC |
 | registry 64 条目 = 59+2+3 别名 | `components/platform_operations/registry.py` | VERIFIED（脚本实测）|
 | 写门 DENIED / POLICY_DENIED | `components/platform_operations/layer.py` | VERIFIED |
-| deploy_plan 四步 | `seeyon_host_bootstrap.py`、`components/platform_operations/deployment.py` | VERIFIED |
+| deploy_plan 四步 | `xiaozhua_host_bootstrap.py`、`components/platform_operations/deployment.py` | VERIFIED |
 | 设计态写链 LIVE 实证 | `docs/audit/udc-design-time-deploy-write-contracts.md` | LIVE |
 | 375 测试全绿 | `.venv/Scripts/python.exe -m pytest tests -q` → `395 passed`（09-28 实测，README L30 基线） | VERIFIED |
 | 组件注册类 | `core/registry.py`（ComponentRegistry，52 行） | STATIC |

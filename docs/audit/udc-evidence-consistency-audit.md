@@ -7,14 +7,14 @@
 
 ### 1.1 目标审计目录
 
-- `<SEEYON_AGENT_ROOT>\docs\audit` 在核对时不存在；本报告由任务要求创建。
+- `<XIAOZHUA_AGENT_ROOT>\docs\audit` 在核对时不存在；本报告由任务要求创建。
 - 本地事实文件实际位于 `<USER_HOME>/...
 
 ### 1.2 已发现的 UDC JSON
 
 共发现 24 个文件名包含 `udc` 的 JSON 文件，全部可用 UTF-8/UTF-8 BOM 解析为 JSON（无解析失败）。代表性文件包括：
 
-`seeyon_udc_5.3.517_class_index.json`、`seeyon_udc_scan_parent.json`、`udc_5_3_517_core_chain_audit.json`、`udc_5_3_517_module_audit.json`、`udc_controller_service_edges.json`、`udc_deployment_artifacts_audit.json`、`udc_dynamic_contract_gap_catalog.json`、`udc_frontend_chunks_audit.json`、`udc_frontend_core_api_mapping.json`、`udc_frontend_design_api_mapping.json`、`udc_frontend_static_source_gap.json`、`udc_front_back_chain_audit.json`、`udc_member_version_diff*.json`、`udc_runtime_side_effect_catalog.json`、`udc_service_persistence_audit*.json`、`udc_version_compatibility_catalog.json`、`udc_version_samples_manifest.json`、`udc_web_controller_contracts.json` 等。
+`xiaozhua_udc_5.3.517_class_index.json`、`xiaozhua_udc_scan_parent.json`、`udc_5_3_517_core_chain_audit.json`、`udc_5_3_517_module_audit.json`、`udc_controller_service_edges.json`、`udc_deployment_artifacts_audit.json`、`udc_dynamic_contract_gap_catalog.json`、`udc_frontend_chunks_audit.json`、`udc_frontend_core_api_mapping.json`、`udc_frontend_design_api_mapping.json`、`udc_frontend_static_source_gap.json`、`udc_front_back_chain_audit.json`、`udc_member_version_diff*.json`、`udc_runtime_side_effect_catalog.json`、`udc_service_persistence_audit*.json`、`udc_version_compatibility_catalog.json`、`udc_version_samples_manifest.json`、`udc_web_controller_contracts.json` 等。
 
 ## 2. 关键计数一致性
 
@@ -42,7 +42,7 @@
 
 ### 3.1 5.3.496
 
-5.3.496 仅出现在 `seeyon_artifactory_inventory.json` 的多个 artifact 可用版本列表中；它不在 `udc_version_samples_manifest.json` 的六个实际样本（3.8.227、3.12.124、5.3.314、5.3.380、5.3.477、5.3.517）中，也不在两个 member diff 或 compatibility catalog 的样本版本中。因此 5.3.496 当前只能标为 **OBSERVATION（inventory 中观察到版本可用）**，不能标为该版本类/方法/行为的 FACT，不能据此生成与 5.3.517 的差异结论。
+5.3.496 仅出现在 `xiaozhua_artifactory_inventory.json` 的多个 artifact 可用版本列表中；它不在 `udc_version_samples_manifest.json` 的六个实际样本（3.8.227、3.12.124、5.3.314、5.3.380、5.3.477、5.3.517）中，也不在两个 member diff 或 compatibility catalog 的样本版本中。因此 5.3.496 当前只能标为 **OBSERVATION（inventory 中观察到版本可用）**，不能标为该版本类/方法/行为的 FACT，不能据此生成与 5.3.517 的差异结论。
 
 ### 3.2 5.3.517
 

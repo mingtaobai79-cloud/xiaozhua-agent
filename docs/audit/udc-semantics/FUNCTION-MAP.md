@@ -282,14 +282,14 @@
 - 拖拽：无
 - **直接调用接口**（7）：udcSandboxAppCleanRestartAppPost、udcSandboxAppReleaseAppPost、udcSandboxAppReleaseAppStatusPost、udcSandboxAppStartAppPost、udcSandboxAppStopAppPost、udcSandboxAppUnLoadAppPost、udcSandboxSystemConfigSetReleaseConfigPost
 
-### src_pages_app-design_basic-info_index_tsx-node_modules_seeyon_biz-icon-library
+### src_pages_app-design_basic-info_index_tsx-node_modules_xiaozhua_biz-icon-library
 
 - 按钮：保存失败、保存成功、发布中、发布失败、发布成功、发布时间、发布版本、发布状态、取消、团队设置、已发布、未发布、添加成员、确定、确定删除吗、确认、移动端、移除成功、组件已停用、页面发布中、页面发布失败、页面发布开始、页面发布成功、页面发布资源不足、页面发布超时
 - 组件：Collapse.Panel、Form.Item、Form.useForm、Menu.Item、Radio.Group
 - 拖拽：无
 - **直接调用接口**（6）：udcPageComponentAnalysisPackageGet、udcPageComponentRefreshGet、udcPageComponentSelectAllListByConditionsPost、udcPageComponentSelectByGet、udcPageComponentUpdatePost、udcPageComponentUploadGet
 
-### src_pages_udc_cmps_index_tsx-node_modules_seeyon_biz-icon-library_dist_index_c
+### src_pages_udc_cmps_index_tsx-node_modules_xiaozhua_biz-icon-library_dist_index_c
 
 - 按钮：停用、前端组件同步日志、前端组件导入、启用、组件导入成功
 - 组件：Form.Item、Form.useForm、Menu.Item、Radio.Group
@@ -326,63 +326,63 @@
 - 拖拽：无
 - **直接调用接口**（1）：udcPortalPortalSpaceDeletePost
 
-### node_modules_seeyon_biz-enums_dist_index-7189faa2_js.4340c5f3.js
+### node_modules_xiaozhua_biz-enums_dist_index-7189faa2_js.4340c5f3.js
 
 - 按钮：停用、取消、启用、排序号、排序号为必填项、新建、确定、编辑、编辑成功、请上传图片、连续新建
 - 组件：Form.useForm
 - 拖拽：无
 - **直接调用接口**（0）：—
 
-### node_modules_seeyon_biz-enums_dist_index-7e03e02d_js.a52b8615.js
+### node_modules_xiaozhua_biz-enums_dist_index-7e03e02d_js.a52b8615.js
 
 - 按钮：停用、取消、启用、排序号、排序号为必填项、新建、确定、编辑、编辑成功、请上传图片、连续新建
 - 组件：Form.useForm
 - 拖拽：无
 - **直接调用接口**（0）：—
 
-### node_modules_seeyon_biz-enums_dist_index-9365ba29_js.e2c68411.js
+### node_modules_xiaozhua_biz-enums_dist_index-9365ba29_js.e2c68411.js
 
 - 按钮：停用、取消、启用、排序号、排序号为必填项、新建、确定、编辑、编辑成功、请上传图片、连续新建
 - 组件：Form.useForm
 - 拖拽：无
 - **直接调用接口**（0）：—
 
-### node_modules_seeyon_biz-enums_dist_index-d16a4f98_js.a84d1636.js
+### node_modules_xiaozhua_biz-enums_dist_index-d16a4f98_js.a84d1636.js
 
 - 按钮：停用、取消、启用、排序号、排序号为必填项、新建、确定、编辑、编辑成功、请上传图片、连续新建
 - 组件：Form.useForm
 - 拖拽：无
 - **直接调用接口**（0）：—
 
-### node_modules_seeyon_biz-enums_dist_index-dfa7dac0_js.4ccc658d.js
+### node_modules_xiaozhua_biz-enums_dist_index-dfa7dac0_js.4ccc658d.js
 
 - 按钮：停用、取消、启用、排序号、排序号为必填项、新建、确定、编辑、编辑成功、请上传图片、连续新建
 - 组件：Form.useForm
 - 拖拽：无
 - **直接调用接口**（0）：—
 
-### node_modules_seeyon_biz-serial-scheme_dist_index-63bbd6cd_js.14fc2408.js
+### node_modules_xiaozhua_biz-serial-scheme_dist_index-63bbd6cd_js.14fc2408.js
 
 - 按钮：绑定实体
 - 组件：—
 - 拖拽：无
 - **直接调用接口**（0）：—
 
-### node_modules_seeyon_biz-serial-scheme_dist_index-a9cbbe00_js.c3e8b8dd.js
+### node_modules_xiaozhua_biz-serial-scheme_dist_index-a9cbbe00_js.c3e8b8dd.js
 
 - 按钮：绑定实体
 - 组件：—
 - 拖拽：无
 - **直接调用接口**（0）：—
 
-### node_modules_seeyon_biz-serial-scheme_dist_index-aa2d4add_js.0de18369.js
+### node_modules_xiaozhua_biz-serial-scheme_dist_index-aa2d4add_js.0de18369.js
 
 - 按钮：绑定实体
 - 组件：—
 - 拖拽：无
 - **直接调用接口**（0）：—
 
-### node_modules_seeyon_biz-serial-scheme_dist_index-f62267af_js.f827461e.js
+### node_modules_xiaozhua_biz-serial-scheme_dist_index-f62267af_js.f827461e.js
 
 - 按钮：绑定实体
 - 组件：—

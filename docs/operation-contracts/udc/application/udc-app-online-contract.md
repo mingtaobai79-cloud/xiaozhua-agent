@@ -72,7 +72,7 @@ STATIC 来源（逐字）：
 |---|---|---|---|---|
 | 0 | **类级 `@HasRole`** | 当前账号无 `udcAppDesigner/udcSystemAdmin/OpsAdmin/BpmSystemManager` 任一角色 | 框架层拒绝（非本方法抛出） | **需账号授权**（NEEDS_HUMAN 类） |
 | 1 | `validEnv()`（L197 → L243-248） | `ctpSystemEnvUdc.getCurrentModel()` 返回**空 List** | `【低代码应用推送方向】未配置` | **是**（test2 已配置，见 §5 判定） |
-| 1a | └ `validateEnv()`（`CtpSystemEnvApi` L22-33） | `deploymentEnvStr` 为空 / 拆出 >4 个 / `test` 与 `implement` 同时出现 | `[seeyon:environment:deploymentEnvStr]配置异常`（空）/ `系统配置[seeyon.system.deployment-env]数量不能超过4个` / `系统配置[seeyon.system.deployment-env]中test和implement不能同时出现` | **是**（test2 未触发，见 §5） |
+| 1a | └ `validateEnv()`（`CtpSystemEnvApi` L22-33） | `deploymentEnvStr` 为空 / 拆出 >4 个 / `test` 与 `implement` 同时出现 | `[xiaozhua:environment:deploymentEnvStr]配置异常`（空）/ `系统配置[seeyon.system.deployment-env]数量不能超过4个` / `系统配置[seeyon.system.deployment-env]中test和implement不能同时出现` | **是**（test2 未触发，见 §5） |
 | 1b | └ `currentEnv == null` | `currentEnv` 未配置 | `系统未配置[seeyon.system.current-env]` | **是**（test2 有值） |
 | 2 | `udcAppOpsCheck.check(appId, APP_DEPLOY)`（L198） | `udcAppRightsConfig.isEnable()==true` **且** `!Apps.isRunInTest()` 时：取当前 userId → 该 appId 的 memberRights 不含 `APP_DEPLOY.strCode()` | `BOOT_1004`（无中文文案，`handlerException()` L133-136） | **需应用级授权**（与 P1 target server_403 同族，NEEDS_HUMAN） |
 | 2a | └ 短路条件 | `udcAppRightsConfig.isEnable()==false` 或 `Apps.isRunInTest()==true` | 整门跳过 | 环境属性，非 agent 可控。**`isRunInTest()` 已解 = false（见下方判定依据块）；`isEnable()` 仍 UNVERIFIED** |
@@ -167,10 +167,10 @@ public List<CtpSystemEnvModelDto> getCurrentModel() {
 
 ### 5.2 test2 实配（Nacos 只读证据）
 
-`docs/audit/evidence/nacos-public-common.yaml`（test2 / tenant `seeyon-test2` / group `seeyon` / HTTP 200 / 209 B / secrets_redacted）：
+`docs/audit/evidence/nacos-public-common.yaml`（test2 / tenant `xiaozhua-test2` / group `xiaozhua` / HTTP 200 / 209 B / secrets_redacted）：
 
 ```yaml
-seeyon:
+xiaozhua:
   environment:
     dataPushStr: implement-prod-development
     checkDeploymentToProd: false
@@ -180,7 +180,7 @@ seeyon:
 ```
 
 - 版本锚：`nacos-test2-manifest.json` 记 `sha256=7c5bb470c223b7e4b33199e9ea99e2491b37a75fd5ffb1af1a7d8b1323666e52`、`bytes=209`、
-  http_status=200、network=live-read-only、tenant=seeyon-test2。采集件受 baseline commit `305e0ff` 管控（未改动）。
+  http_status=200、network=live-read-only、tenant=xiaozhua-test2。采集件受 baseline commit `305e0ff` 管控（未改动）。
   > **sha 口径警告（2026-10-17 补正，采纳 auditor VERDICT-handoff03 补正 3；本侧独立复现）**：
   > `7c5bb470…666e52` 是 **Nacos 原样字节（LF 换行，209 B）**的哈希。
   > 本地文件 `docs/audit/evidence/nacos-public-common.yaml` 因 git `autocrlf` 被转成 **CRLF（216 B）**，

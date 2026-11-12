@@ -38,7 +38,7 @@ def test_version_impact_summary_cli_accepts_audit_matrix_and_graph(tmp_path):
     audit = dump("audit.json", {"status": "FACT", "versions": ["5.3.517"], "facts": [{"artifact": "udc-web", "version": "5.3.517", "sha256": "b" * 64}]})
     matrix = dump("matrix.json", {"entries": [{"kind": "Version", "status": "FACT", "evidence_refs": ["audit"]}]})
     graph = dump("graph.json", {"nodes": [{"id": "version", "type": "version", "status": "FACT", "evidence_refs": ["audit"], "gaps": []}], "edges": []})
-    proc = subprocess.run([sys.executable, "-m", "seeyon_cli", "version-impact-summary", "--version-audit", audit, "--path-matrix", matrix, "--impact-graph", graph], capture_output=True, text=True, cwd=Path(__file__).parents[1])
+    proc = subprocess.run([sys.executable, "-m", "xiaozhua_cli", "version-impact-summary", "--version-audit", audit, "--path-matrix", matrix, "--impact-graph", graph], capture_output=True, text=True, cwd=Path(__file__).parents[1])
     assert proc.returncode == 0, proc.stderr
     payload = json.loads(proc.stdout)
     assert payload["network"] == "disabled"

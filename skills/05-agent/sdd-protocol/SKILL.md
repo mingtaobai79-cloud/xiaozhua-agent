@@ -94,14 +94,14 @@ instructions and context」。
 
 | 角色 | 主模型 | 兜底 |
 |---|---|---|
-| main | seeyon/glm-5.3-flash | api/gpt-6-luna |
+| main | xiaozhua/glm-5.3-flash | api/gpt-6-luna |
 | implementer | d1/deepseek-v4.1-flash | d1/deepseek-v4.1-flash（同模型重跑） |
 | auditor | d1/deepseek-v4.1-flash | d1/deepseek-v4.1-flash（同模型重跑） |
 
 路由是**角色级**，不是全局级：`run_turn()` 里按 `if role == "main"` 分叉，不要把三个角色写成同一对 provider/model。
 
 教训一：**渠道可用性是会变的，任何历史结论都必须当场重测再采信。**
-skill 里曾写「seeyon/glm-5.3-flash 认证已失效、彻底退出主模型」，复测发现它已恢复可用——
+skill 里曾写「xiaozhua/glm-5.3-flash 认证已失效、彻底退出主模型」，复测发现它已恢复可用——
 照旧结论直接排除它是一个渠道，就会在用户明确指定它时先反驳一轮。
 正确顺序：先 `probe` 主渠道与兜底各一次（看到真实回字且 RC=0），把结果报出来，再改配置。
 反过来同理：单次 smoke 成功也不证明该渠道能当主模型——见教训二。

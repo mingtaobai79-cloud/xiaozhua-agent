@@ -17,7 +17,7 @@ SCRIPT = ROOT / "installer" / "install.py"
 
 HOSTS = ("hermes", "codex", "claude-code")
 CANONICAL = "5.3.517"
-SCHEMA = "seeyon-host-bootstrap.v1"
+SCHEMA = "xiaozhua-host-bootstrap.v1"
 
 
 def run(*args, expect=0):
@@ -36,7 +36,7 @@ def installed(tmp_path):
     """**函数级**，不用 module 级 —— module 级会把产物缓存住，
     导致「改坏 installer 后 H1 测试仍读旧产物」而假绿（本轮实测踩到）。
     """
-    target = tmp_path / "seeyon-pkg"
+    target = tmp_path / "xiaozhua-pkg"
     run("--host", "all", "--target", str(target), "--write")
     return target
 
@@ -46,7 +46,7 @@ def test_规范名指令件落地且模板名不落地(installed):
     """§2：模板件 → 规范名。安装态里不许出现 .template。"""
     assert (installed / "codex" / "AGENTS.md").is_file()
     assert (installed / "claude-code" / "CLAUDE.md").is_file()
-    assert (installed / "hermes" / "skills" / "seeyon-agent-hermes" / "SKILL.md").is_file()
+    assert (installed / "hermes" / "skills" / "xiaozhua-agent-hermes" / "SKILL.md").is_file()
 
     for f in installed.rglob("*"):
         if f.is_file():
@@ -68,7 +68,7 @@ def test_H1_按安装态规则重写(installed):
 def test_过程态标签不随安装件传播(installed):
     """§3：STAGED / 待放行 是模板作者期残留，安装态必须消失。"""
     for rel in ("codex/AGENTS.md", "claude-code/CLAUDE.md",
-                "hermes/skills/seeyon-agent-hermes/SKILL.md"):
+                "hermes/skills/xiaozhua-agent-hermes/SKILL.md"):
         text = (installed / rel).read_text(encoding="utf-8")
         for tag in ("STAGED", "待放行"):
             assert tag not in text, "%s 里残留过程态标签 %r" % (rel, tag)
@@ -95,16 +95,16 @@ def test_凭据零入件(installed):
 def test_三宿主_MCP_片段各自格式正确(installed):
     """L2 ①：宿主侧 MCP 注册配置 —— 三种格式都要能被各自宿主解析。"""
     y = (installed / "hermes" / "mcp_servers.yaml").read_text(encoding="utf-8")
-    assert "seeyon:" in y and "adapters/mcp/server.py" in y
+    assert "xiaozhua:" in y and "adapters/mcp/server.py" in y
     assert y.lstrip().startswith("#"), "Hermes 片段应带「贴进 config.yaml」的说明头"
 
     t = (installed / "codex" / "config.toml").read_text(encoding="utf-8")
-    assert "[mcp_servers.seeyon]" in t
+    assert "[mcp_servers.xiaozhua]" in t
     assert 'command = "' in t and "server.py" in t
 
     j = json.loads((installed / "claude-code" / ".mcp.json").read_text(encoding="utf-8"))
-    assert "seeyon" in j["mcpServers"]
-    assert j["mcpServers"]["seeyon"]["args"][0].endswith("adapters/mcp/server.py")
+    assert "xiaozhua" in j["mcpServers"]
+    assert j["mcpServers"]["xiaozhua"]["args"][0].endswith("adapters/mcp/server.py")
 
 
 def test_三份片段指向同一个传输层(installed):
@@ -121,7 +121,7 @@ def test_portable_模式不写本机绝对路径(tmp_path):
     """跨机器分发：--portable 用占位符，不带本机 python 绝对路径以外的根路径。"""
     run("--host", "codex", "--target", str(tmp_path / "p"), "--portable", "--write")
     t = (tmp_path / "p" / "codex" / "config.toml").read_text(encoding="utf-8")
-    assert "<SEEYON_AGENT_ROOT>" in t, "portable 模式应保留占位符"
+    assert "<XIAOZHUA_AGENT_ROOT>" in t, "portable 模式应保留占位符"
 
 
 # ---------------------------------------------------------------- 安全边界
@@ -172,15 +172,15 @@ def test_hermes_skill_frontmatter_必须在首行(installed):
     会让 `---` frontmatter 不在第一行 → 宿主解析不出 name/description，
     skill 装了等于没装。签名改记 MANIFEST.json，不进文件头。
     """
-    skill = installed / "hermes" / "skills" / "seeyon-agent-hermes" / "SKILL.md"
+    skill = installed / "hermes" / "skills" / "xiaozhua-agent-hermes" / "SKILL.md"
     text = skill.read_text(encoding="utf-8")
     assert text.startswith("---\n"), (
         "Hermes SKILL.md 首行必须是 `---`（YAML frontmatter），实得：%r" % text[:40])
-    assert "name: seeyon-agent-hermes" in text.split("---")[1], "frontmatter 缺 name"
+    assert "name: xiaozhua-agent-hermes" in text.split("---")[1], "frontmatter 缺 name"
 
 def test_skill_目录名必须等于_frontmatter_name(installed):
-    """★ 实测踩到的真问题：把 `seeyon-agent-hermes` 装进 `skills/seeyon-agent/`，
-    正好撞上仓库里**另一个 skill**（v1 `seeyon-agent`，被 v2 的 base: 引用为只读基线）。
+    """★ 实测踩到的真问题：把 `xiaozhua-agent-hermes` 装进 `skills/xiaozhua-agent/`，
+    正好撞上仓库里**另一个 skill**（v1 `xiaozhua-agent`，被 v2 的 base: 引用为只读基线）。
     宿主上会变成「目录叫 A、skill 叫 B」，而仓库里 A 是别的东西。
     """
     import re

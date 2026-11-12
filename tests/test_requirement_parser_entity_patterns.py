@@ -1,6 +1,6 @@
 """`components/construction/requirement_parser.py` 实体名解析的回归闸门。
 
-**为什么有这个文件**：端到端验证（2026-11-08，走 MCP tools/call `seeyon_generate_from_requirement`）
+**为什么有这个文件**：端到端验证（2026-11-08，走 MCP tools/call `xiaozhua_generate_from_requirement`）
 发现这个能力的输入面几乎不可用 —— 最常见的两种写法都失败：
 
     「新建实体 PurchaseApply，含字段 code 文本」

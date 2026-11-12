@@ -68,7 +68,7 @@ contracts["udc.jar.export_app"] = UdcOperationContract("udc.jar.export_app", "PO
 
 - **2026-10-09**：5 条建议（C1–C5：`udc.attachment.template_get_by_guid` / `template_list_by_guids` / `template_list_by_app_id` / `udc.jar.download` / `udc.jar.export_app`）已由 implementer 按本文件「建议构造调用」python 块逐字段照抄落库 `components/platform_operations/registry.py`（插入位置：bi 域 ganttchart 批次之后、`return cls(contracts)` 之前，L146-159 注释块「UDC-MERGE 批2（resource 域, main ROUTE 2026-10-09）」。写 False、分级 VERIFIED_STATIC_BYTECODE，键名与值未做任何臆造。
 - 落库时点 registry.py 基线复测：具体 `UdcOperationContract` 构造 48 条 + 3 条 replace 别名 + 1 条通用循环 = 有效键 51，5 条新键全键 0 命中（净新增确认，无 key 冲突），落库后具体构造 53 条、有效键 56。
-- 全量测试 `<SEEYON_AGENT_ROOT>/.venv/Scripts/python.exe -m pytest tests/ -q`：**395 passed**（基线 395，全绿；exit=0；tests/ 零改动；落盘证据 implementer/_scratch/r1_test_output.txt）。
+- 全量测试 `<XIAOZHUA_AGENT_ROOT>/.venv/Scripts/python.exe -m pytest tests/ -q`：**395 passed**（基线 395，全绿；exit=0；tests/ 零改动；落盘证据 implementer/_scratch/r1_test_output.txt）。
 - 本文件其余内容（结论 / 构造 / 逐字段说明 / 排除清单）为建议件原文，未改动。
 
 - **2026-10-19 主控复核（回执行校正）**：上述 5 条（C1–C5）已含于 commit `ca05e0d`（`feat(udc-merge): 批2 registry 落库 — resource 域 5 条净新增`），不再是 working-tree 状态；当时回执行写的「待主控提交回填 commit」由此行回填。主控 program 级逐行 diff 复核：5 条契约构造行 + 5 个 evidence 定义行与本文源块 `BYTE-IDENTICAL`（零改写）。当前 HEAD `54bfdf9` 有效键实测 **76**；追加 publish/page 两域各 1 条后 **78**。清单位置以此为准，历史行「有效键 56」为其时点记录，不改写。

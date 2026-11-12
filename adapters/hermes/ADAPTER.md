@@ -23,7 +23,7 @@
    （HOST-INTEGRATION §3 L26：`<HERMES_HOME>\skills\` 或仓库内直接 skill_view）。
    复制即声明级装配动作，未跑通实测 = **UNVERIFIED**。
 2. **宿主工具跑 bootstrap**：宿主（Hermes）用 `terminal` / `execute_code` 跑
-   `seeyon_host_bootstrap.bootstrap()`（HOST-INTEGRATION §3 L27；§1 L8–L14 初始化脚本），
+   `xiaozhua_host_bootstrap.bootstrap()`（HOST-INTEGRATION §3 L27；§1 L8–L14 初始化脚本），
    再调返回 dict 的五能力。
 3. 长任务交三 Agent 文件协作，仓库只做能力面（HOST-INTEGRATION §3 L28）。
 
@@ -32,21 +32,21 @@
 
 ## 2. 五能力逐条映射（→ Hermes tool 动作）
 
-锚点 `seeyon_host_bootstrap.py`（返回 dict L136–L151；`capabilities` L144–L150）：
+锚点 `xiaozhua_host_bootstrap.py`（返回 dict L136–L151；`capabilities` L144–L150）：
 
 | # | Hermes tool 动作 | bootstrap 键（闭包） | 行号锚点 | 入参（签名） | 返回 / 边界 | 只读性 |
 |---|---|---|---|---|---|---|
-| 1 | `seeyon_dispatch` | `dispatch` | L133 | `intent, target=None` | dict：需求→路由→组件执行→证据化结果 | 只读；未注册组件/能力→`UNAVAILABLE`（registry L36–L52） |
-| 2 | `seeyon_generate` | `generate` | L46 | `application_id, entity_name, attributes=None, caption=None` | dict：后端 8 类 Java 骨架 + 前端页面定义；**方法体 UNVERIFIED**（L48 docstring 原文） | 声明级、只出数据 |
-| 3 | `seeyon_generate_from_requirement` | `generate_from_requirement` | L71 | `text, application_id` | dict：自然语言需求→实体模型（确定性解析）→骨架+页面；解析不可确定→`UNVERIFIED`+`unknowns`（L74–L76） | 声明级、只出数据 |
-| 4 | `seeyon_live_probe` | `live_probe` | L95 | `cred_file=None`（否则用 bootstrap 的 `credential_file`） | dict：test2 只读 POST 4 端点；默认 `allow_network=False`→`BLOCKED`（L99–L100），开才实跑 | 只读；活体 |
-| 5 | `seeyon_deploy_plan` | `deploy_plan` | L119 | `application_id, entity_name, attributes, caption=None, stereotype="bill", deploy_type="RELEASE"` | dict：设计态 4 步部署方案 **data**（`readonly_plan=True`，L122–L130），宿主执行写步 | 只出方案 data、不出写 |
+| 1 | `xiaozhua_dispatch` | `dispatch` | L133 | `intent, target=None` | dict：需求→路由→组件执行→证据化结果 | 只读；未注册组件/能力→`UNAVAILABLE`（registry L36–L52） |
+| 2 | `xiaozhua_generate` | `generate` | L46 | `application_id, entity_name, attributes=None, caption=None` | dict：后端 8 类 Java 骨架 + 前端页面定义；**方法体 UNVERIFIED**（L48 docstring 原文） | 声明级、只出数据 |
+| 3 | `xiaozhua_generate_from_requirement` | `generate_from_requirement` | L71 | `text, application_id` | dict：自然语言需求→实体模型（确定性解析）→骨架+页面；解析不可确定→`UNVERIFIED`+`unknowns`（L74–L76） | 声明级、只出数据 |
+| 4 | `xiaozhua_live_probe` | `live_probe` | L95 | `cred_file=None`（否则用 bootstrap 的 `credential_file`） | dict：test2 只读 POST 4 端点；默认 `allow_network=False`→`BLOCKED`（L99–L100），开才实跑 | 只读；活体 |
+| 5 | `xiaozhua_deploy_plan` | `deploy_plan` | L119 | `application_id, entity_name, attributes, caption=None, stereotype="bill", deploy_type="RELEASE"` | dict：设计态 4 步部署方案 **data**（`readonly_plan=True`，L122–L130），宿主执行写步 | 只出方案 data、不出写 |
 
 - `capabilities` dict 实测键（bootstrap L144–L150）：
   `components`（= `sorted(agent.registry.names())`）、`readonly_only=True`、
   `credential_mode="path-ref-only"`、
   `deployment_plan="readonly data; host executes the write steps"`、
-  `schema="seeyon-host-bootstrap.v1"`。
+  `schema="xiaozhua-host-bootstrap.v1"`。
 - 组件面来源（`capabilities.components`）= registry 3 组件
   `integration`/`runtime`/`udc`（`core/registry.py` ComponentRegistry；本轮 S1 抽验实测
   integration 3 / runtime 4 / udc 12 capabilities）。
@@ -64,13 +64,13 @@
 
 ## 4. 与 v1 skill 的差异 / 升级兼容口径
 
-- 现有 `skills/seeyon-agent/SKILL.md`（**在盘 1885 B，v1 Hermes 基线**）四能力表
+- 现有 `skills/xiaozhua-agent/SKILL.md`（**在盘 1885 B，v1 Hermes 基线**）四能力表
   （L20–L27）仅列：`dispatch` / `generate` / `live_probe` / `agent`。
 - 本件 `Hermes-SKILL.md` 升级补 `generate_from_requirement`（bootstrap L71），
   构成**五能力**（A8 §二 L40 口径："5 个宿主可调用能力"）。
 - 口径：
   - **升级**：能力面 4→5（补语义层入口 L71），v1 基线保留不删（不覆写原文件，只读引用）；
-  - **兼容**：`agent`（原始 SeeyonAgent，三 Port 协议）保留在 skill 初始化段（v1 L27、
+  - **兼容**：`agent`（原始 XiaozhuaAgent，三 Port 协议）保留在 skill 初始化段（v1 L27、
     HOST-INTEGRATION §2 L21）；五能力仍全部"只出数据/只读，不出写"（A8 §二 L51）；
   - 差异仅"**新增 1 个能力** + 目标态 MCP 清单"，未改任何在盘运行代码。
 

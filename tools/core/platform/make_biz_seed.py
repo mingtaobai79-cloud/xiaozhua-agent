@@ -14,7 +14,7 @@ for d in sorted(root.iterdir()):
     sources[d.name] = {"jar": js[-1].name, "file": str(js[-1])}
 
 out = {"sources": sources, "classes": {}, "method_index": {}}
-p = Path("<SEEYON_AGENT_ROOT>/docs/audit/artifacts/extension-surface-20261029/biz-seed.json")
+p = Path("<XIAOZHUA_AGENT_ROOT>/docs/audit/artifacts/extension-surface-20261029/biz-seed.json")
 p.write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
 print(f"{len(sources)} 个构件 → {p}")
 for k, v in list(sources.items())[:5]:

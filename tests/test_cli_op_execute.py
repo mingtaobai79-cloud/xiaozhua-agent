@@ -1,4 +1,4 @@
-"""CLI human-path integration: seeyon_cli op-execute -> PlatformOperationLayer.
+"""CLI human-path integration: xiaozhua_cli op-execute -> PlatformOperationLayer.
 
 Boundary: default is offline (network disabled) and must return BLOCKED, not a
 fabricated result. Live readonly GET requires explicit --allow-network plus a
@@ -16,7 +16,7 @@ ENTITY = "4649646467208458935"
 
 def _run(*argv):
     return subprocess.run(
-        [sys.executable, "-m", "seeyon_cli", "op-execute", *argv],
+        [sys.executable, "-m", "xiaozhua_cli", "op-execute", *argv],
         cwd=ROOT, capture_output=True, text=True,
     )
 
@@ -80,7 +80,7 @@ def test_op_execute_evidence_out_persists_redacted_result(tmp_path):
 def test_cli_operation_layer_composition_reaches_pass_with_stub_gateway():
     from components.platform_operations import ExecutionContext, UdcOperationRegistry
     from components.platform_operations.models import OperationIntent, OperationStatus
-    from seeyon_cli import build_operation_layer
+    from xiaozhua_cli import build_operation_layer
 
     class StubGateway:
         def read(self, operation, path, **kwargs):

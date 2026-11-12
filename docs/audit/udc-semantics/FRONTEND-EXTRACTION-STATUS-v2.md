@@ -1,6 +1,6 @@
 # UDC 设计器前端功能提取 —— 状态报告 v2
 
-> 日期：2026-10-13 | 主线：`<SEEYON_AGENT_ROOT>`
+> 日期：2026-10-13 | 主线：`<XIAOZHUA_AGENT_ROOT>`
 > 前端资产：`<HERMES_HOME>/cache/scratch/udc-frontend/`
 > 证据：STATIC（chunk 字节码 + wakaru 解包）
 > 接续：`FRONTEND-EXTRACTION-STATUS.md`（v1，S1-S6）

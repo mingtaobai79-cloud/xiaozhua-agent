@@ -1,6 +1,6 @@
 """Live readonly POST runner — opt-in live capability (P4) for readonly POST contracts.
 
-Seeyon UDC 的只读端点大部分是 POST（/udc-runtime/meta-data/* 等，7 域已坐实）。
+xiaozhua UDC 的只读端点大部分是 POST（/udc-runtime/meta-data/* 等，7 域已坐实）。
 静态层刻意把「POST 读型」判为 effective=False（执行链仅放行 GET），可执行性留活体（P4）。
 本模块就是那个活体落点：用 agent 自己的 GatewayReadonlyClient(allow_network=True) +
 按 ref 解析的 cookie 凭据 + config/environments.yaml 的环境常量，跑 test2 已坐实的 4 个
@@ -93,7 +93,7 @@ def _content_of(raw: bytes) -> Any:
 def _envelope_gates(http_status: Any, body: Any) -> list[str]:
     """验收门槛（a9 缺陷修复）：HTTP 非 2xx / 业务信封 status!=0 → 返回非空原因列表。
 
-    背景：Seeyon 业务信封 status=0 成功 / status=3（BOOT_3000 等）失败；
+    背景：xiaozhua 业务信封 status=0 成功 / status=3（BOOT_3000 等）失败；
     HTTP 500 是传输层异常。runner 旧逻辑只比两次响应 identity（md5 相同），
     不查 status/envelope，导致 500 与业务错都判 PASS——验收器不可信。
     非 dict body（如流式下载）或无 status 键的 body 不做业务检查（不臆造）。

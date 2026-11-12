@@ -9,10 +9,10 @@ from __future__ import annotations
 import json, sys, datetime
 from pathlib import Path
 
-REPO = Path(r"<SEEYON_AGENT_ROOT>")
+REPO = Path(r"<XIAOZHUA_AGENT_ROOT>")
 sys.path.insert(0, str(REPO))
 
-APP = None  # ★ 运行时由 --app-id / SEEYON_APP_ID 提供（原写死值已移除）
+APP = None  # ★ 运行时由 --app-id / XIAOZHUA_APP_ID 提供（原写死值已移除）
 DB = "udc_test2"
 TABLE = "udc_data_transfer_object"
 
@@ -30,7 +30,7 @@ SOURCE_TABLES = {
 
 
 def env():
-    p = Path(r"<HERMES_HOME>\skills\seeyon\01-platform\seeyon-low-code-environment\.env")
+    p = Path(r"<HERMES_HOME>\skills\xiaozhua\01-platform\xiaozhua-low-code-environment\.env")
     d = {}
     for line in p.read_text(encoding="utf-8-sig", errors="replace").splitlines():
         line = line.strip()
@@ -45,8 +45,8 @@ def env():
 def main() -> int:
     from providers.mysql_readonly import MySQLConnectionAdapter
     e = env()
-    conn = MySQLConnectionAdapter(host=e.get("SEEYON_DB_HOST", ""), port=e.get("SEEYON_DB_PORT") or 3306,
-                                  user=e.get("SEEYON_DB_USERNAME", ""), password=e.get("SEEYON_DB_PASSWORD", ""))
+    conn = MySQLConnectionAdapter(host=e.get("XIAOZHUA_DB_HOST", ""), port=e.get("XIAOZHUA_DB_PORT") or 3306,
+                                  user=e.get("XIAOZHUA_DB_USERNAME", ""), password=e.get("XIAOZHUA_DB_PASSWORD", ""))
 
     ts = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
     out = Path(r"<HERMES_HOME>\backups") / f"custom-object-delete-{ts}"

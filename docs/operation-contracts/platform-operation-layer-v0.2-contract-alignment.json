@@ -1,5 +1,5 @@
 {
-  "schema_version": "seeyon-agent.operation-contracts.v0.2",
+  "schema_version": "xiaozhua-agent.operation-contracts.v0.2",
   "status": "ALIGNED",
   "capabilities": [
     {"operation": "udc.entity.get", "contract_status": "VERIFIED_STATIC_BYTECODE", "method": "GET", "write": false, "live": "PASS", "verification": "PASS", "evidence": "PASS"},

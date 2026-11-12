@@ -2,7 +2,7 @@
 
 来源：设计器前端权威 schema
 - 节点定义：`module-83128`（90 个 `export const X = {group,name,type,settings,output,dataSchema,nodeDesc}`）
-- 过滤条件组件：`chunks/vendors-node_modules_seeyon_biz-where_dist_chunks_index-*.js`（操作符值域 + dataType 映射 + 控件映射 + 校验）
+- 过滤条件组件：`chunks/vendors-node_modules_xiaozhua_biz-where_dist_chunks_index-*.js`（操作符值域 + dataType 映射 + 控件映射 + 校验）
 - 参数面板：`module-64734`（入参/出参定义）
 - 数据链：`module-37302`(Uu) / `module-18640`(aT) / `module-89647`(lZ) / `module-30269`(ZK)
 
@@ -30,7 +30,7 @@
 结构：`[{type:"GROUP", uuid, logicalOperator:"AND"|"OR", conditions:[CONDITION...]}]`
 CONDITION：`{type:"CONDITION", uuid, logicalOperator, leftParam, operator, rightParams}`
 
-### 3.1 操作符值域（`seeyon-biz-where` 枚举，**中文即 desc**）
+### 3.1 操作符值域（`xiaozhua-biz-where` 枚举，**中文即 desc**）
 ```
 EQ="="  NEQ="!="  GT=">"  GE=">="  LT="<"  LE="<="
 BETWEEN="介于"  NOTBETWEEN="不介于"

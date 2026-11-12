@@ -1,13 +1,13 @@
 # item-mgmt.item-master-data｜物料/主数据 只读事实格（九段式 · 阶段 1）
 
 > 任务：`core/facts` 三 stub 之一 **item-mgmt（物料主数据）** 推进为有 LIVE 双源证据的九段式格。
-> 仓库 `<SEEYON_AGENT_ROOT>`，写前实测 HEAD `dc12ef3d16a292116128ddc110c5cb1cd1cb4e8d`，
+> 仓库 `<XIAOZHUA_AGENT_ROOT>`，写前实测 HEAD `dc12ef3d16a292116128ddc110c5cb1cd1cb4e8d`，
 > `git status --porcelain` = 1 行（仅 `?? core/facts/item-mgmt/`，本件落点），冻结件 0 触碰。
 > 活体入口：test2 网关 `https://lowcode-test2.example.com`（config/environments.yaml::test2，凭据仅路径引用，值 0 入件）。
 > 探时钟：2026-09-29 12:48–12:51 gmt8（UTC+8），epoch 1790657318–1790657510。
 
 ## 模块定位（重要·防外推）
-2小爪 UDC 中**不存在**独立的 `ItemAppService`/`MaterialAppService`/`物料主数据` 业务类（反编译树全仓 grep 仅见
+xiaozhua UDC 中**不存在**独立的 `ItemAppService`/`MaterialAppService`/`物料主数据` 业务类（反编译树全仓 grep 仅见
 `物料编码/物料型号/物料描述` 作为**实体属性字段**，如 `Biangengleijituihuo.java` 的 `materiel_number`，
 无 AppService/Controller 载体）。故"物料/主数据 只读面"在本模块内落为两条：
 1. **真实数据读取面** = UDC 运行态数据查询 `POST /udc-runtime/data/query`

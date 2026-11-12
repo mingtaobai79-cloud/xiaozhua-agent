@@ -1,7 +1,7 @@
 # UDC 微流程解析、节点和页面规则源码审计
 
 日期：2026-10-11
-主线：`<SEEYON_AGENT_ROOT>`
+主线：`<XIAOZHUA_AGENT_ROOT>`
 平台源码：`<PATH>
 运行包补充：`<HERMES_HOME>/cache/scratch/md561/udc-biz-5.3.517.jar`，sha256 `8a1cda618cdc23d18d02e39f4f93d6fad4ff732c987fd47bbb28118dbf66ef25`
 说明：源码树是静态版本证据，不能直接宣称当前 test2 行为；jar 模板是 5.3.517 静态证据。
@@ -380,7 +380,7 @@ DeductionRule + Algorithm + Detail → 同步生命周期监听器 → DO/UNDO
 
 这证明模板存在，不证明当前 test2 某个微流程已经用上模板；生成物检查仍是必要条件。
 
-## 8. 当前 seeyon-agent 缺口
+## 8. 当前 xiaozhua-agent 缺口
 
 主线仓库现在没有：
 

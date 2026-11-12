@@ -1,4 +1,4 @@
-# gateway.route｜2小爪 test2 网关路由契约（C1 正式格，2026-09-26）
+# gateway.route｜xiaozhua test2 网关路由契约（C1 正式格，2026-09-26）
 
 > 基线：docs/capability/ROADMAP-v2.md。原料=u4-gateway S1–S4 证据件（VERDICT PASS，
 > routes-evidence.md 逐件 SHA 登记）+ 09-24/25 本线部署/运行面 LIVE。
@@ -12,7 +12,7 @@
 - 入口 ingress：nginx `lowcode-test`（101.200.221.95:80/443），剥 `/service/` 前缀 rewrite 至
   `ctp-webapi-gateway:80`（10.0.0.1，ClusterIP）。
 - 网关镜像/jar：`ctp-webapi-gateway` jar 131013470B 逐位=冻结基线 r39b/r52（S1 实测 PRE==POST）。
-- 2小爪 Canonical=5.3.517（UDC 侧）；网关本体版本独立，UNVERIFIED。
+- xiaozhua Canonical=5.3.517（UDC 侧）；网关本体版本独立，UNVERIFIED。
 
 ## 3. Input
 无（路由表为静态事实）。消费面：`{gateway_base}/service/{appId}/{target_path}`；

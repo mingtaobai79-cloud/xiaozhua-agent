@@ -1,6 +1,6 @@
 """9 个 metadata 构造器的 MCP 暴露面回归闸门。
 
-**为什么有这文件**：`seeyon_host_bootstrap.bootstrap()` 一直返回 15 个能力，
+**为什么有这文件**：`xiaozhua_host_bootstrap.bootstrap()` 一直返回 15 个能力，
 但 `adapters/mcp/server.py` 的 `TOOL_KEYS` 只接了 5 个 —— 9 个构造器
 （pageSchema / microflow / index / enum / enum-item / dto / event / filter）
 在宿主侧**完全看不见**。2026-11-08 补齐。
@@ -31,21 +31,21 @@ ATTRS = [
 
 # 每个新工具一组「最小合法入参」
 CALLS = {
-    "seeyon_list_page_schema": dict(
+    "xiaozhua_list_page_schema": dict(
         application_id=APP, entity_name="PurchaseApply", caption="采购申请单", attributes=ATTRS),
-    "seeyon_detail_page_schema": dict(
+    "xiaozhua_detail_page_schema": dict(
         application_id=APP, entity_name="PurchaseApply", caption="采购申请单", attributes=ATTRS),
-    "seeyon_microflow_create_body": dict(
+    "xiaozhua_microflow_create_body": dict(
         name="pf_flow", caption="采购流程", application_id=APP,
         data_schema={"nodes": [], "endNode": {}}, trigger_type="MANUAL"),
-    "seeyon_index_body": dict(caption="单号索引", entity_id=12345, field_ids=[1, 2]),
-    "seeyon_enum_body": dict(app_id=APP_INT, caption="状态", name="status_enum"),
-    "seeyon_enum_item_body": dict(
+    "xiaozhua_index_body": dict(caption="单号索引", entity_id=12345, field_ids=[1, 2]),
+    "xiaozhua_enum_body": dict(app_id=APP_INT, caption="状态", name="status_enum"),
+    "xiaozhua_enum_item_body": dict(
         app_id=APP_INT, enum_id=777, caption="待审批", item_value="0",
         enum_code="status_enum", order_no=1),
-    "seeyon_dto_body": dict(app_id=APP_INT, caption="采购DTO", name="PurchaseDTO", attributes=ATTRS),
-    "seeyon_event_body": dict(app_id=APP_INT, caption="保存事件", event_name="onSave", dto_id=888),
-    "seeyon_filter_plan_body": dict(
+    "xiaozhua_dto_body": dict(app_id=APP_INT, caption="采购DTO", name="PurchaseDTO", attributes=ATTRS),
+    "xiaozhua_event_body": dict(app_id=APP_INT, caption="保存事件", event_name="onSave", dto_id=888),
+    "xiaozhua_filter_plan_body": dict(
         app_name="demoapp", app_id=APP_INT, page_id=999, grid_suffix="main",
         driven_entity="PurchaseApply", caption="默认过滤",
         conditions=[{"field": "code", "op": "like"}]),
@@ -92,7 +92,7 @@ def test_构造器返回非空真实产出(server, name):
 
 def test_列表页_pageSchema_有控件与工具栏(server):
     import json
-    data = json.loads(_call(server, "seeyon_list_page_schema", CALLS["seeyon_list_page_schema"]))
+    data = json.loads(_call(server, "xiaozhua_list_page_schema", CALLS["xiaozhua_list_page_schema"]))
     assert data["readonly_plan"] is True
     ps = data["pageSchema"]
     assert ps, "pageSchema 为空"
@@ -105,7 +105,7 @@ def test_列表页_pageSchema_有控件与工具栏(server):
 
 def test_详情页_pageSchema_非空(server):
     import json
-    data = json.loads(_call(server, "seeyon_detail_page_schema", CALLS["seeyon_detail_page_schema"]))
+    data = json.loads(_call(server, "xiaozhua_detail_page_schema", CALLS["xiaozhua_detail_page_schema"]))
     assert data["readonly_plan"] is True
     assert data["pageSchema"]
 
@@ -113,7 +113,7 @@ def test_详情页_pageSchema_非空(server):
 def test_枚举项保留平台槽位语义(server):
     """`itemValue`=枚举项值、`parentId`=上级项ID 是实测槽位，不能被改名。"""
     import json
-    data = json.loads(_call(server, "seeyon_enum_item_body", CALLS["seeyon_enum_item_body"]))
+    data = json.loads(_call(server, "xiaozhua_enum_item_body", CALLS["xiaozhua_enum_item_body"]))
     assert data["itemValue"] == "0"
     assert data["parentId"] == "0", "顶层项 parentId 必须是字符串 \"0\""
     assert data["enumCode"] == "status_enum"
@@ -121,15 +121,15 @@ def test_枚举项保留平台槽位语义(server):
 
 def test_微流程_body_把_dataSchema_字符串化(server):
     import json
-    data = json.loads(_call(server, "seeyon_microflow_create_body",
-                            CALLS["seeyon_microflow_create_body"]))
+    data = json.loads(_call(server, "xiaozhua_microflow_create_body",
+                            CALLS["xiaozhua_microflow_create_body"]))
     ds = data.get("dataSchema")
     assert isinstance(ds, str), "dataSchema 必须是字符串（平台接口要字符串，不是对象）"
 
 
 def test_过滤方案带_readonly_标记(server):
     import json
-    data = json.loads(_call(server, "seeyon_filter_plan_body", CALLS["seeyon_filter_plan_body"]))
+    data = json.loads(_call(server, "xiaozhua_filter_plan_body", CALLS["xiaozhua_filter_plan_body"]))
     assert data["readonly_plan"] is True
     assert data["body"]
 
@@ -145,5 +145,5 @@ def test_九个构造器都不落库(server, name):
 
 def test_不存在的工具名报参数错(server):
     resp = server.handle_frame({"jsonrpc": "2.0", "id": 1, "method": "tools/call",
-                                "params": {"name": "seeyon_write_entity", "arguments": {}}})
+                                "params": {"name": "xiaozhua_write_entity", "arguments": {}}})
     assert resp["error"]["code"] == -32602

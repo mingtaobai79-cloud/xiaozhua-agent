@@ -3,20 +3,20 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "seeyon-agent"
+name = "xiaozhua-agent"
 version = "0.1.0"
-description = "Seeyon UDC / SPI platform operation capability pack for MCP hosts"
+description = "xiaozhua UDC / SPI platform operation capability pack for MCP hosts"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = ["pyyaml>=6.0", "websocket-client>=1.6"]
 
 [project.scripts]
-seeyon-mcp = "adapters.mcp.server:main"
+xiaozhua-mcp = "adapters.mcp.server:main"
 
 [tool.setuptools]
-# 顶层 seeyon_host_bootstrap.py / seeyon_cli.py 是单文件模块，不是包成员，
+# 顶层 xiaozhua_host_bootstrap.py / xiaozhua_cli.py 是单文件模块，不是包成员，
 # 必须用 py-modules 声明，否则装成 wheel 后 import 不到。
-py-modules = ["seeyon_host_bootstrap", "seeyon_cli"]
+py-modules = ["xiaozhua_host_bootstrap", "xiaozhua_cli"]
 
 [tool.setuptools.packages.find]
 include = [
@@ -28,7 +28,7 @@ include = [
     "definitions*",
     "fixtures*",
     "installer*",
-    "seeyon_agent_data*",
+    "xiaozhua_agent_data*",
 ]
 # tests / tools / skills / scratch / _attic_pending 不进包
 exclude = ["tests*", "tools*", "skills*", "scratch*", "_attic_pending*"]
@@ -36,7 +36,7 @@ exclude = ["tests*", "tools*", "skills*", "scratch*", "_attic_pending*"]
 [tool.setuptools.package-data]
 # 运行时真的会读这些：
 #   config/*.yaml            —— 环境与路径模板
-#   seeyon_agent_data/construction-rules/*  —— 构建规则（docs/ 不是包，故复制一份进包）
+#   xiaozhua_agent_data/construction-rules/*  —— 构建规则（docs/ 不是包，故复制一份进包）
 "*" = ["*.yaml", "*.yml", "*.json", "*.txt", "*.md"]
 
 [tool.pytest.ini_options]

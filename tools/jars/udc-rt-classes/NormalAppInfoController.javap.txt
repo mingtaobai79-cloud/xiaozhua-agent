@@ -1,4 +1,4 @@
-Classfile /<SEEYON_AGENT_ROOT>/tools/jars/udc-rt-classes/com/seeyon/boot/starter/udcrt/proxy/controller/NormalAppInfoController.class
+Classfile /<XIAOZHUA_AGENT_ROOT>/tools/jars/udc-rt-classes/com/seeyon/boot/starter/udcrt/proxy/controller/NormalAppInfoController.class
   Last modified 2026年10月1日; size 737 bytes
   SHA-256 checksum 2b0574dc5ff19b0b39d84ce68796889c122f81d7626912f67b1e37bd7cdda195
   Compiled from "NormalAppInfoController.java"

@@ -317,7 +317,7 @@ WHERE app_id='8704025620829192834'
 ### 5.3 补充：为什么不是权限 / 不是 SSO
 
 - 同一 cookie 下 `remoteEntry.20261015192931` 返回 200 → 读权限无问题；
-- 404 响应体是 **OSS 原生 XML（`<Code>NoSuchKey</Code>` + `seeyon-public-test2.oss-cn-beijing.aliyuncs.com`）**，
+- 404 响应体是 **OSS 原生 XML（`<Code>NoSuchKey</Code>` + `xiaozhua-public-test2.oss-cn-beijing.aliyuncs.com`）**，
   不是网关权限页、不是 `BOOT_` 错误码、不是 SSO 跳转 → 请求已穿透到对象存储层。
 
 ---

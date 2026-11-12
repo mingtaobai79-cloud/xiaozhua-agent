@@ -32,8 +32,8 @@ from components.udc.setting.excel_template_constraints import (  # noqa: E402
     build_column, build_template_body, validate_template_body,
 )
 
-APP_ID = None  # ★ 由 --app-id / SEEYON_APP_ID 提供
-APP_ID = __import__("os").environ.get("SEEYON_APP_ID") or APP_ID
+APP_ID = None  # ★ 由 --app-id / XIAOZHUA_APP_ID 提供
+APP_ID = __import__("os").environ.get("XIAOZHUA_APP_ID") or APP_ID
 
 APP_GUID = "2275741415570096882"
 APP_NAME = ""          # 运行时解析，仓库内不落客户应用名
@@ -64,7 +64,7 @@ REL_CANDIDATES = {
 
 
 def env():
-    p = Path(r"<HERMES_HOME>\skills\seeyon\01-platform\seeyon-low-code-environment\.env")
+    p = Path(r"<HERMES_HOME>\skills\xiaozhua\01-platform\xiaozhua-low-code-environment\.env")
     d = {}
     for line in p.read_text(encoding="utf-8-sig", errors="replace").splitlines():
         line = line.strip()
@@ -86,10 +86,10 @@ def main() -> int:
 
     from providers.mysql_readonly import MySQLConnectionAdapter
     e = env()
-    db = MySQLConnectionAdapter(host=e.get("SEEYON_DB_HOST", ""),
-                                port=e.get("SEEYON_DB_PORT") or 3306,
-                                user=e.get("SEEYON_DB_USERNAME", ""),
-                                password=e.get("SEEYON_DB_PASSWORD", ""))
+    db = MySQLConnectionAdapter(host=e.get("XIAOZHUA_DB_HOST", ""),
+                                port=e.get("XIAOZHUA_DB_PORT") or 3306,
+                                user=e.get("XIAOZHUA_DB_USERNAME", ""),
+                                password=e.get("XIAOZHUA_DB_PASSWORD", ""))
 
     ent = db.query("SELECT id, name, caption, app_id "
                    "FROM udc_test2.udc_entity WHERE id=%s", (ENTITY_ID,))

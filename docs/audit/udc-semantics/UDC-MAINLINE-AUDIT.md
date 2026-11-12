@@ -1,18 +1,18 @@
 # UDC 搭建语义总审计
 
 日期：2026-10-11
-主线：`<SEEYON_AGENT_ROOT>`
+主线：`<XIAOZHUA_AGENT_ROOT>`
 状态：只读源码审计报告完成；协议模型、完整搭建、test2 写入与构建验收均未完成/未执行。
 
 ## 结论
 
-当前 `seeyon-agent` 主线不是完整 UDC 搭建执行器，而是：
+当前 `xiaozhua-agent` 主线不是完整 UDC 搭建执行器，而是：
 
 ```text
 证据目录 + 只读组件 + 需求解析 + 声明级生成 + dry-run/deploy plan + 宿主适配
 ```
 
-Hermes 下的 skill 是操作规程，不是 `seeyon-agent` 的实现证明。仓库测试最新实跑为 `399 passed in 9.43s`，但测试不覆盖“按自然语言搭建完整订单表单、菜单、微流程和构建回读”。
+Hermes 下的 skill 是操作规程，不是 `xiaozhua-agent` 的实现证明。仓库测试最新实跑为 `399 passed in 9.43s`，但测试不覆盖“按自然语言搭建完整订单表单、菜单、微流程和构建回读”。
 
 ## 已确认的正确链路
 
@@ -233,7 +233,7 @@ UNVERIFIED_PROBE
 
 ## 页面/菜单/子页面/外框审计结论
 
-独立逐行报告已完成：`docs/audit/udc-semantics/page-menu-source-audit.md`。该报告基于旧源码 Controller/Service/DTO 行号和 seeyon-agent 持有的 5.3.517 静态 javap 索引；不是 test2 运行验证。关键内容包括 PageInfo/PageSchema/PageDataSource/FunctionNode/PageLayout 的 ID 角色、基础创建与草稿/正式提交差异、菜单页面引用、子页面外框限制、页面复制时微流程/ID 替换，以及页面按钮构建仍未逐字抓包的边界。
+独立逐行报告已完成：`docs/audit/udc-semantics/page-menu-source-audit.md`。该报告基于旧源码 Controller/Service/DTO 行号和 xiaozhua-agent 持有的 5.3.517 静态 javap 索引；不是 test2 运行验证。关键内容包括 PageInfo/PageSchema/PageDataSource/FunctionNode/PageLayout 的 ID 角色、基础创建与草稿/正式提交差异、菜单页面引用、子页面外框限制、页面复制时微流程/ID 替换，以及页面按钮构建仍未逐字抓包的边界。
 
 ## 生单、扣减与导入导出的证据进展
 
@@ -247,7 +247,7 @@ UNVERIFIED_PROBE
 
 ## 下一步正确顺序
 
-1. 在 `seeyon-agent` 内实现版本化 UDC schema model：Entity/Attribute/Enum/Reference/Event/Index/AttributeGroup/Page/FunctionNode/MicroFlow/DataFlow/Deduction。
+1. 在 `xiaozhua-agent` 内实现版本化 UDC schema model：Entity/Attribute/Enum/Reference/Event/Index/AttributeGroup/Page/FunctionNode/MicroFlow/DataFlow/Deduction。
 2. 从前端 bundle 和 5.3.517 jar 提取控件 schema、动作枚举、节点类型和模板映射，保存为可引用事实，不写死到临时脚本。
 3. 实现只读 validator：页面 tree、数据源、列、组件属性、events、微流程 input/output、节点模板、页面规则分类。
 4. 实现 dry-run planner，输出完整需求链和 unknowns；仍不执行写。

@@ -1,5 +1,5 @@
 {
-  "schema_version": "seeyon-agent.gateway-access-contract.v0.1",
+  "schema_version": "xiaozhua-agent.gateway-access-contract.v0.1",
   "status": "MINIMAL_VERIFIED",
   "verification_level": "LIVE_STATIC_ARTIFACT_AND_K8S",
   "environment": "test2",
@@ -37,7 +37,7 @@
     "udc_route": "/service/udc/{target_path} → /udc/{target_path} (LIVE_READONLY_OBSERVED for udc.entity.get)",
     "path_rewrite": "external /service prefix is observed before target /udc path; exact filter implementation remains partially evidenced",
     "udc_graphql_gateway_mapping": "LIVE_READONLY_OBSERVED for /service/udc/graphql request shape; authenticated GraphQL operation not executed in this slice",
-    "route_id_prefix": "seeyon- (default when DiscoveryLocatorProperties.routeIdPrefix has no text)",
+    "route_id_prefix": "xiaozhua- (default when DiscoveryLocatorProperties.routeIdPrefix has no text)",
     "route_id_formula": "routeId = routeIdPrefix + serviceInstance.serviceId",
     "route_uri_source": "DiscoveryLocatorProperties.urlExpression evaluated against ServiceInstance",
     "route_metadata": "copy of ServiceInstance.metadata",

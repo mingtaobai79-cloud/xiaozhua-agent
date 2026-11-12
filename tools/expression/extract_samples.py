@@ -4,7 +4,7 @@
 只读；不访问网络。输出 docs/audit/artifacts/udc-expression-samples.json。"""
 import json, os, sys, hashlib
 
-ROOT = r"<SEEYON_AGENT_ROOT>"
+ROOT = r"<XIAOZHUA_AGENT_ROOT>"
 SCAN_DIRS = [
     r"docs\audit\artifacts\udc-node-evidence",
     r"docs\audit\artifacts\udc-frontend-ops",

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""installer/install.py — 把 Seeyon「角色 + 能力包」物化成各宿主可安装目录。
+"""installer/install.py — 把 xiaozhua「角色 + 能力包」物化成各宿主可安装目录。
 
 规格来源：installer/INSTALL-MANIFEST.md（§1 安装项 / §2 物化映射 / §3 H1 口径 / §4 校验项）。
 
@@ -14,16 +14,16 @@
 
 用法
 ----
-    python installer/install.py --host all --target /tmp/seeyon-install --dry-run
-    python installer/install.py --host hermes --target ~/seeyon-pkg --write
+    python installer/install.py --host all --target /tmp/xiaozhua-install --dry-run
+    python installer/install.py --host hermes --target ~/xiaozhua-pkg --write
     python installer/install.py --host codex --target ../my-repo --write --force
 
 产物（按宿主）
 --------------
-    hermes/       skills/seeyon-agent/SKILL.md      （frontmatter 原样）
+    hermes/       skills/xiaozhua-agent/SKILL.md      （frontmatter 原样）
                   mcp_servers.yaml                  （贴进 ~/.hermes/config.yaml 的 mcp_servers: 段）
     codex/        AGENTS.md                          （H1 按 §3 重写）
-                  config.toml                        （[mcp_servers.seeyon]）
+                  config.toml                        （[mcp_servers.xiaozhua]）
     claude-code/  CLAUDE.md                          （H1 按 §3 重写）
                   .mcp.json                          （{"mcpServers": {...}}）
     MANIFEST.json                                     （本次产物清单 + sha256，供校验/回滚）
@@ -39,7 +39,7 @@ import sys
 from pathlib import Path
 
 CANONICAL_VERSION = "5.3.517"
-SCHEMA_ANCHOR = "seeyon-host-bootstrap.v1"
+SCHEMA_ANCHOR = "xiaozhua-host-bootstrap.v1"
 SIGNATURE = "generated-by: installer/install.py"
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -48,11 +48,11 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 HOSTS: dict[str, dict] = {
     "hermes": {
         "source": "adapters/hermes/Hermes-SKILL.md",
-        # ★ 目录名必须等于 frontmatter 里的 `name`（seeyon-agent-hermes）。
-        #   原来写 `skills/seeyon-agent/`，而仓库 `skills/seeyon-agent/` 是**另一个 skill**
-        #   （v1 `seeyon-agent` 1.0.0，被 v2 的 `base:` 声明引用为只读基线）——
+        # ★ 目录名必须等于 frontmatter 里的 `name`（xiaozhua-agent-hermes）。
+        #   原来写 `skills/xiaozhua-agent/`，而仓库 `skills/xiaozhua-agent/` 是**另一个 skill**
+        #   （v1 `xiaozhua-agent` 1.0.0，被 v2 的 `base:` 声明引用为只读基线）——
         #   装到宿主上会变成「目录叫 A、skill 叫 B」，和仓库现有 skill 撞名。
-        "output": "skills/seeyon-agent-hermes/SKILL.md",
+        "output": "skills/xiaozhua-agent-hermes/SKILL.md",
         "h1": None,
         "mcp_file": "mcp_servers.yaml",
         "mcp_format": "yaml",
@@ -60,14 +60,14 @@ HOSTS: dict[str, dict] = {
     "codex": {
         "source": "adapters/codex/AGENTS.template.md",
         "output": "AGENTS.md",
-        "h1": "# AGENTS.md｜Seeyon Agent 宿主注册件（Canonical {v} · schema {s}）",
+        "h1": "# AGENTS.md｜xiaozhua Agent 宿主注册件（Canonical {v} · schema {s}）",
         "mcp_file": "config.toml",
         "mcp_format": "toml",
     },
     "claude-code": {
         "source": "adapters/claude-code/CLAUDE.template.md",
         "output": "CLAUDE.md",
-        "h1": "# CLAUDE.md｜Seeyon Agent 宿主注册件（Canonical {v} · schema {s}）",
+        "h1": "# CLAUDE.md｜xiaozhua Agent 宿主注册件（Canonical {v} · schema {s}）",
         "mcp_file": ".mcp.json",
         "mcp_format": "json",
     },
@@ -83,7 +83,7 @@ CRED_PATTERNS = (
     re.compile(r"eyJ[A-Za-z0-9_\-]{10,}\.[A-Za-z0-9_\-]{10,}\."),  # JWT
 )
 
-# MCP 片段只声明 server 名（`seeyon`），不列具体工具 —— 工具清单由
+# MCP 片段只声明 server 名（`xiaozhua`），不列具体工具 —— 工具清单由
 # `adapters/mcp/server.py` 的 `TOOL_KEYS` 决定（当前 54 个），
 # 在这里硬编码一份必然过期（旧版曾写死 5 个 v1 时代的名字）。
 
@@ -129,25 +129,25 @@ def materialize(host: str, target: Path) -> list[dict]:
     }]
 
 
-def mcp_config(host: str, seeyon_root: str | None = None,
+def mcp_config(host: str, xiaozhua_root: str | None = None,
                portable: bool = False) -> dict:
     """生成宿主侧 MCP 注册片段（传输层 = adapters/mcp/server.py，stdio）。
 
-    `seeyon_root` 给出时填真实路径（开箱可用）；`portable=True` 时改用
-    `<SEEYON_AGENT_ROOT>` 占位符（跨机器分发，安装时再替换）。
+    `xiaozhua_root` 给出时填真实路径（开箱可用）；`portable=True` 时改用
+    `<XIAOZHUA_AGENT_ROOT>` 占位符（跨机器分发，安装时再替换）。
     """
     python = sys.executable.replace("\\", "/")
-    if portable or not seeyon_root:
-        server = "<SEEYON_AGENT_ROOT>/adapters/mcp/server.py"
+    if portable or not xiaozhua_root:
+        server = "<XIAOZHUA_AGENT_ROOT>/adapters/mcp/server.py"
     else:
-        server = seeyon_root.rstrip("/\\").replace("\\", "/") + "/adapters/mcp/server.py"
+        server = xiaozhua_root.rstrip("/\\").replace("\\", "/") + "/adapters/mcp/server.py"
     spec = HOSTS[host]
 
     if spec["mcp_format"] == "yaml":
         # 贴进 ~/.hermes/config.yaml 顶层 mcp_servers: 段（本机实测格式，L714/L776）。
         content = (
             "# 贴进 ~/.hermes/config.yaml 的顶层 mcp_servers: 段\n"
-            "  seeyon:\n"
+            "  xiaozhua:\n"
             "    command: %s\n"
             "    args:\n"
             "      - %s\n"
@@ -155,13 +155,13 @@ def mcp_config(host: str, seeyon_root: str | None = None,
     elif spec["mcp_format"] == "toml":
         # Codex CLI：~/.codex/config.toml 的 [mcp_servers.<name>]。
         content = (
-            "[mcp_servers.seeyon]\n"
+            "[mcp_servers.xiaozhua]\n"
             'command = "%s"\n'
             'args = ["%s"]\n' % (python, server))
     else:
         # Claude Code：项目根 .mcp.json。
         content = json.dumps(
-            {"mcpServers": {"seeyon": {"command": python, "args": [server]}}},
+            {"mcpServers": {"xiaozhua": {"command": python, "args": [server]}}},
             indent=2, ensure_ascii=False) + "\n"
 
     return {
@@ -216,14 +216,14 @@ def verify(plan: list[dict]) -> list[str]:
 
             # 5. MCP 片段必须声明全部 5 个工具可发现
             if item["kind"] == "mcp-config":
-                if "seeyon" not in body:
-                    problems.append("%s: MCP 片段里没有 server 名 seeyon" % host)
+                if "xiaozhua" not in body:
+                    problems.append("%s: MCP 片段里没有 server 名 xiaozhua" % host)
 
     # 跨宿主：三份 MCP 片段必须指向同一个传输层
     servers = {i["content"] for i in plan if i["kind"] == "mcp-config"}
     if len(servers) > 1:
-        paths = {re.search(r"<SEEYON_AGENT_ROOT>[^\"'\s]*", s).group(0)
-                 for s in servers if re.search(r"<SEEYON_AGENT_ROOT>[^\"'\s]*", s)}
+        paths = {re.search(r"<XIAOZHUA_AGENT_ROOT>[^\"'\s]*", s).group(0)
+                 for s in servers if re.search(r"<XIAOZHUA_AGENT_ROOT>[^\"'\s]*", s)}
         if len(paths) > 1:
             problems.append("三份 MCP 片段指向不同传输层：%s" % paths)
 
@@ -244,7 +244,7 @@ def write_plan(plan: list[dict], target: Path, force: bool) -> list[str]:
                 head = dst.read_text(encoding="utf-8", errors="replace")[:300]
                 # Hermes 的 SKILL.md 不能带 HTML 注释签名（frontmatter 必须首行），
                 # 用它 frontmatter 里的 name 认身份。
-                owned = SIGNATURE in head or "seeyon-agent-hermes" in head
+                owned = SIGNATURE in head or "xiaozhua-agent-hermes" in head
                 if not owned:
                     raise SystemExit(
                         "拒绝覆盖非本工具产物：%s（加 --force 强制）" % dst)
@@ -278,7 +278,7 @@ def build_manifest(plan: list[dict], target: Path) -> dict:
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(
         prog="install.py",
-        description="把 Seeyon 角色+能力包物化成各宿主可安装目录（离线、幂等）")
+        description="把 xiaozhua 角色+能力包物化成各宿主可安装目录（离线、幂等）")
     ap.add_argument("--host", required=True,
                     choices=sorted(HOSTS) + ["all"], help="目标宿主")
     ap.add_argument("--target", required=True, type=Path,
@@ -287,10 +287,10 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--dry-run", action="store_true",
                     help="显式 dry-run（与默认行为相同，供脚本显式声明）")
     ap.add_argument("--force", action="store_true", help="允许覆盖非本工具产物")
-    ap.add_argument("--seeyon-root", default=None,
-                    help="Seeyon Agent 仓库根（写进 MCP 片段；默认用本脚本所在仓）")
+    ap.add_argument("--xiaozhua-root", default=None,
+                    help="xiaozhua Agent 仓库根（写进 MCP 片段；默认用本脚本所在仓）")
     ap.add_argument("--portable", action="store_true",
-                    help="MCP 片段用 <SEEYON_AGENT_ROOT> 占位符，不写本机绝对路径")
+                    help="MCP 片段用 <XIAOZHUA_AGENT_ROOT> 占位符，不写本机绝对路径")
     args = ap.parse_args(argv)
 
     if args.write and args.dry_run:
@@ -306,7 +306,7 @@ def main(argv: list[str] | None = None) -> int:
     plan: list[dict] = []
     for host in hosts:
         plan.extend(materialize(host, target))
-        root = args.seeyon_root or str(REPO_ROOT)
+        root = args.xiaozhua_root or str(REPO_ROOT)
         plan.append(mcp_config(host, root, args.portable))
 
     problems = verify(plan)

@@ -1,7 +1,7 @@
 # bpm-facade 3.12.101 ↔ udc-starter-runtime 5.3.517 接口对照（flow 域第 4 格）
 
 > 基线：本任务总目标（本会话 `inputs/desktop-source/TASK-GOAL.md` + `main/ROUTE.md` §3 P2 spec / §1.7 / §1.8）+ `HANDOFF-2`。
-> 目标仓库 `<SEEYON_AGENT_ROOT>`。九段式能力事实文档（本任务交付物第 2 件，`core/facts/bpm/bpm-version-map.md`）。
+> 目标仓库 `<XIAOZHUA_AGENT_ROOT>`。九段式能力事实文档（本任务交付物第 2 件，`core/facts/bpm/bpm-version-map.md`）。
 > 本件**只做 bpm-facade 3.12.101 与 udc-starter-runtime 5.3.517 的静态字节码接口对照**（纯静态，无 LIVE 探测、不涉凭据）；
 > 已 PASS 冻结的格① `engine-behavior.md`（16072 B / sha256 `7908a94d…`）与前两格 `flow-node-tree.md` / `data-flow-map.md` 绑定字节均不动。
 > 证据先落盘：`core/facts/bpm/evidence/bpm-version-map-static-20260927T100255Z.json`（14943 B / sha256 `862fc7d3…`，436 行 / LF）先落盘，本格后写。

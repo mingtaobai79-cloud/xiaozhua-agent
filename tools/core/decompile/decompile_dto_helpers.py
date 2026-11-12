@@ -6,9 +6,9 @@ import tempfile
 import zipfile
 from pathlib import Path
 
-CFR = Path(r"<HERMES_HOME>/skills/software-development/seeyon-v8-spi/seeyon-v8-spi/references/contract-index/tools/cfr.jar")
+CFR = Path(r"<HERMES_HOME>/skills/software-development/xiaozhua-v8-spi/xiaozhua-v8-spi/references/contract-index/tools/cfr.jar")
 ROOT = Path(r"<MAVEN_REPO>/com/seeyon")
-OUT = Path(r"<SEEYON_AGENT_ROOT>/docs/audit/modules/decompiled/platform-copy")
+OUT = Path(r"<XIAOZHUA_AGENT_ROOT>/docs/audit/modules/decompiled/platform-copy")
 OUT.mkdir(parents=True, exist_ok=True)
 
 TARGETS = ["DtoFieldHelper", "DtoConvertUtil"]

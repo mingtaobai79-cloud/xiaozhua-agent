@@ -3,7 +3,7 @@
 > ✅ **P6 裁决（2026-11-07）：保留原地，不移动、不删除。**
 > 本文件是 udc-semantics 线（cron 已于 2026-10-16 停）的**任务级方法提示词**，
 > 其中「完成判据」「每 10 分钟自唤醒」等属历史任务上下文，**不是当前有效指令**。
-> 保留理由：① 方法论六步仍被 `skills/05-agent/seeyon-constraint-extraction/SKILL.md` 当作范式引用；
+> 保留理由：① 方法论六步仍被 `skills/05-agent/xiaozhua-constraint-extraction/SKILL.md` 当作范式引用；
 > ② `DEPLOYED-STATE-VERDICT.md` 拿本文件 §环境 的运行时版本做交叉校验（3/3 一致）；
 > ③ 完成判据 checklist 是「什么算做完」的唯一成文标准。
 > 已登记于 `docs/audit/README.md` 第六节。§环境 已按仓库脱敏规则改写，方法内容一字未动。
@@ -13,7 +13,7 @@
 
 ## 目标（终态）
 
-把 seeyon-agent 从"能读会分析"推进到**"能把任何 UDC/BPM/ORG/USER 需求自己完整写出且不出错"**。
+把 xiaozhua-agent 从"能读会分析"推进到**"能把任何 UDC/BPM/ORG/USER 需求自己完整写出且不出错"**。
 判据：**仅凭沉淀的权威约束，从零手写一个完整需求对象 → 本地校验 PASS → 在线创建 → 回读一致**。
 
 ## ★ 核心方法论（用户明确要求，逐条执行）
@@ -27,10 +27,10 @@
 2. **追后端 biz 业务逻辑**（Controller 只是入参壳）：
    - `udc-web` = `com.seeyon.udc.controller.*`（54 Controller / 299 REST，入参/路由）
    - `udc-biz` = `com.seeyon.udc.*`（**业务逻辑在此**：api/AppService、microflow、entity、page、metadata、autocode…）
-   - 反编译用 CFR：`<HERMES_HOME>/skills/seeyon/03-v8-extension/seeyon-v8-spi/references/contract-index/tools/cfr.jar`
+   - 反编译用 CFR：`<HERMES_HOME>/skills/seeyon/03-v8-extension/xiaozhua-v8-spi/references/contract-index/tools/cfr.jar`
 3. **追交互表 / 存储**（元数据可能在 Redis 或 OSS/DB，按配置找）：
    - DB：schema `udc_test2`（表 `udc_microflow_info.data_schema` 等）、`information_schema` 找表
-   - Redis：按配置（`seeyon-low-code-environment` skill 的 env）扫 key；设计态权威源 = MySQL `udc_entity`/`udc_attribute`，
+   - Redis：按配置（`xiaozhua-low-code-environment` skill 的 env）扫 key；设计态权威源 = MySQL `udc_entity`/`udc_attribute`，
      运行态读 = Redis(180h)→OSS 发布镜像
    - 配置：`config/` 下的 environments.yaml（jar 路径/版本/网关/凭据一律引用配置键，不写死）
 4. **遇 BPM/USER/ORG 应用功能**：**和 UDC 一样的方法**追它们的前端代码 + web（Controller/DTO/Service）+ 交互表。
@@ -45,17 +45,17 @@
 
 > **脱敏说明（2026-11-07）**：本节原写有具体客户应用 ID、显示名、目标实体 ID、K8s 命名空间与凭据文件路径。
 > 这些属任务期环境上下文，已按仓库脱敏规则改为「配置键 / 占位符」，真实值只在运行环境与
-> `seeyon-customer-evidence/`（不入库）里取。方法内容未改。
+> `xiaozhua-customer-evidence/`（不入库）里取。方法内容未改。
 
-- 工作目录：`<SEEYON_AGENT_ROOT>`（纯本地 git，勿 push）
+- 工作目录：`<XIAOZHUA_AGENT_ROOT>`（纯本地 git，勿 push）
 - 目标应用与实体：**从 `config/environments.yaml` 的 env 键取**，不在此写死具体 ID
-- 环境操作：`seeyon-low-code-environment` skill（`python scripts/conn.py selftest --env=test2`；SSH/K8s/Redis/MySQL/Nacos）
+- 环境操作：`xiaozhua-low-code-environment` skill（`python scripts/conn.py selftest --env=test2`；SSH/K8s/Redis/MySQL/Nacos）
 - 凭据：由仓库外的共享凭据目录提供（路径见环境 skill）；**本文件不记录任何凭据路径或值**
 - 集群/命名空间：由 env 配置决定，不在此写死
 
 ## 硬约束
 
-- 不得写客户业务明细进仓库（客户明细只进 `seeyon-customer-evidence/`，不回流）——**用 `git add <具体文件>`，勿用 `git add -A`**
+- 不得写客户业务明细进仓库（客户明细只进 `xiaozhua-customer-evidence/`，不回流）——**用 `git add <具体文件>`，勿用 `git add -A`**
 - 语法基线：`uv run --no-project python -m compileall -q components tools tests` 须无错
 - 测试基线：`uv run --no-project python -m pytest tests/ -q` 须全绿；改测试后同步
   README/`docs/audit/agent-version-audit.md`/`docs/audit/code-reality-audit.md` 里的 `N passed`

@@ -4,7 +4,7 @@
 > 段序与 B1 样板格 `core/facts/udc/entity/create.md` 一致；本件**只做 applog 域非写面**，
 > draft 两条归 S2（已完成）、application get/search/deploy_info 归 S3（已完成）；**applog 写端点仅注记、不入格、不计数**。
 > 只写事实文档，不改 `registry.py`/`components/`/`docs/`；网关与凭据只写 config 键，值 0 入件；**不联网、不运行期复现**。
-> 仓库 `<SEEYON_AGENT_ROOT>`，实测 HEAD `16a384c`（本件写前 git 状态：**clean tree**，`git status --porcelain` 0 行，冻结件 S1/S2/S3 四件哈希与 ROUTE 绑定一致）。
+> 仓库 `<XIAOZHUA_AGENT_ROOT>`，实测 HEAD `16a384c`（本件写前 git 状态：**clean tree**，`git status --porcelain` 0 行，冻结件 S1/S2/S3 四件哈希与 ROUTE 绑定一致）。
 
 ---
 

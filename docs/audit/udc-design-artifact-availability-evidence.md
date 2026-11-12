@@ -48,7 +48,7 @@ Checked physical paths:
 No requested UDC design-time JAR was found in `<MAVEN_REPO>`, `<EVIDENCE_ROOT>`, or Desktop. A targeted scan of the user home found a real downloaded generated Java source file, but it is a customer/generated artifact and not one of the missing UDC design-time modules:
 
 ```text
-<USER_HOME>/...com_seeyon_9000000000000000001_dto_HetongdanganDto.java
+<USER_HOME>/...com_xiaozhua_9000000000000000001_dto_HetongdanganDto.java
 ```
 
 Its presence proves a generated-source delivery artifact exists locally, but does not prove which generator produced it or connect it to `udcEntityPost`. The only matching files under Temp are pytest-generated fixtures, not product artifacts:

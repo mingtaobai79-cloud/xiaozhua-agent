@@ -1,7 +1,7 @@
-# STATUS｜2小爪 Agent v2 · 适配器切片（三宿主 Adapter + installer 目标态）
+# STATUS｜xiaozhua Agent v2 · 适配器切片（三宿主 Adapter + installer 目标态）
 
 更新时间：2026-09-26 02:05 (CST)｜main 收口
-目标仓库：`<SEEYON_AGENT_ROOT>`（收口时实测 HEAD `16a384c`）
+目标仓库：`<XIAOZHUA_AGENT_ROOT>`（收口时实测 HEAD `16a384c`）
 规范源：`docs/capability/ROADMAP-v2.md` §二/§五、`docs/capability/AGENT-ADAPTER.md`（A8）
 完成定义（TASK-GOAL）：5 项全落盘 + 全量测试绿 + STATUS 记录 → **本切片全部达成**
 
@@ -47,7 +47,7 @@
 ## 三、证据纪律声明（本切片全项遵守）
 
 - **凭据 0 入件**：全部 5 项 13 个文件只写路径引用 / 环境变量机制（`credential_file` /
-  `--credential-file` / `SEEYON_CRED_FILE` 宿主侧路径载体 / `path-ref-only`），无任何 token /
+  `--credential-file` / `XIAOZHUA_CRED_FILE` 宿主侧路径载体 / `path-ref-only`），无任何 token /
   密码 / 凭据值入盘。
 - **实现态不虚写**：MCP server 传输层、三宿主注册 / 挂载 / 实装、五能力真实暴露、
   installer 打包 / 安装脚本、v2 宿主专属 schema、`generate` 方法体——全部逐条标
@@ -55,7 +55,7 @@
 - **不连网 / 不连真实环境 / 禁 git push**：本切片未连任何真实环境，未执行任何 push。
 - **边界遵守**：全程只写 `adapters/`、`installer/`、`core/role/`、`STATUS.md`；
   未触碰 `components/`、`core/facts|tools|skills/`、`docs/capability/`、`tests/` 及
-  `seeyon_cli.py` / `seeyon_host_bootstrap.py`（收口实测 17 件 sha 逐项不变）。
+  `xiaozhua_cli.py` / `xiaozhua_host_bootstrap.py`（收口实测 17 件 sha 逐项不变）。
 
 ---
 
@@ -86,7 +86,7 @@
 - 5 项全落盘（§一）✓
 - 全量测试绿：`375 passed`，RC=0（§二）✓
 - STATUS 记录：本文件（§三~§五）✓
-- **2小爪 Agent v2 适配器切片目标态 = 已达成**（声明级 / 目标态；实现项标 UNVERIFIED，
+- **xiaozhua Agent v2 适配器切片目标态 = 已达成**（声明级 / 目标态；实现项标 UNVERIFIED，
   后续按 ROADMAP-v2 模块推进线实装，不在本切片范围）。
 
 ---
@@ -127,7 +127,7 @@
 
 - 零活体：无任何真实网络调用（交付件内仅 pom.xml 的 Maven XML 命名空间 URL = jar 原文，非调用）；禁连 test2、禁 HTTP、禁建测试应用。
 - 凭据 0 入件：`core/facts/standard-product/**` grep credential 类词（password/secret/token/apikey/Authorization/密码/口令）= 0 命中。
-- 受控路径 0 改动：`components/`、`core/tools/`、`adapters/`、`tests/`、`seeyon_cli.py`、`seeyon_host_bootstrap.py` 均未改；
+- 受控路径 0 改动：`components/`、`core/tools/`、`adapters/`、`tests/`、`xiaozhua_cli.py`、`xiaozhua_host_bootstrap.py` 均未改；
   兄弟线领地 `core/facts/item-mgmt|connector|spi/` 只读未写。
 - P3（本小节）仅**新增** `core/facts/INDEX.md` 一行 standard-product + 本 STATUS.md 小节；`INDEX.md` 其余行逐字未改（diff 可证），`tests/` 未改。
 
@@ -427,7 +427,7 @@
 
 ## 十二、SPI 线 P8｜spi 事实格收口面订正（implementer · 2026-10-08T03:31:58Z 实测 date -u · 0 网络/0 SSH/0 kubectl/0 HTTP/0 探测/0 建应用/0 写观测面 · 只改 core/facts/INDEX.md 第 23 行 + 本段尾部纯追加）
 
-- **本批边界（单 HANDOFF 单写面）**: 依 HANDOFF-P8（dedupe `p8-handoff-20261008T0330Z`）订正 INDEX.md 第 23 行 spi 行的状态段与锚段，并追加本段。除该两件外 0 字节改动；`core/facts/spi/**`（四格 + evidence/live e1–e9 + hashes 清单 + README）、docs/audit/**、tests/**、components/、core/tools/、adapters/、seeyon_cli.py、seeyon_host_bootstrap.py 全部未触碰，写前/写后逐值复算零漂移（见 RESULT-P8 对照表）。写前基线实测: INDEX.md 8754 B/`42abee5f`/30 行（行尾 CRLF，实测 30 CR）· STATUS.md 56098 B/`9f1039ba`（行尾 LF，0 CR）——与 HANDOFF §二 基线逐值 MATCH，无他线并发写入。
+- **本批边界（单 HANDOFF 单写面）**: 依 HANDOFF-P8（dedupe `p8-handoff-20261008T0330Z`）订正 INDEX.md 第 23 行 spi 行的状态段与锚段，并追加本段。除该两件外 0 字节改动；`core/facts/spi/**`（四格 + evidence/live e1–e9 + hashes 清单 + README）、docs/audit/**、tests/**、components/、core/tools/、adapters/、xiaozhua_cli.py、xiaozhua_host_bootstrap.py 全部未触碰，写前/写后逐值复算零漂移（见 RESULT-P8 对照表）。写前基线实测: INDEX.md 8754 B/`42abee5f`/30 行（行尾 CRLF，实测 30 CR）· STATUS.md 56098 B/`9f1039ba`（行尾 LF，0 CR）——与 HANDOFF §二 基线逐值 MATCH，无他线并发写入。
 - **订正掉的已作废事实**: 原 L23 状态段写「spi-ext-runtime.md = P4b 边界 PASS 但**运行态子面 = 未达成**……运行态闭合需 P4a 人工」，锚段写 runtime `64f332dd…`/7123B 且 `evidence/live` 只列 e1–e4。该两处已由 P7c 本线远端只读直读 + auditor VERDICT-P7bc=PASS（2026-10-08 入站）取代，锚段按本批写前实测刷新。
 - **引用口径（依 NB-A 引用纪律，禁压缩表述）**:
   - **LIVE PASS（本线复现·加载面）** 的外延 = 三项远端直读——插件 jar 落盘尺寸/sha256/mtime/ctime、`META-INF/spring.factories` 注册对、`BOOT-INF/lib` 框架 SPI jar 清单（e9）。

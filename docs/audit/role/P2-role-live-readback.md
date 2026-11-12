@@ -24,7 +24,7 @@
 
 凭据：`<COLLAB_ROOT>/agent-collaboration/shared-credentials/test2-web-credential.json`
 （只引用路径）；续期源 `shared-credentials/ctp-user-login.json`（同样只引用路径，值不打印不落盘）。
-DB 通路：`seeyon-low-code-environment/scripts/conn.py db ... --env=test2 --db=udc_test2`（15:22 规则）。
+DB 通路：`xiaozhua-low-code-environment/scripts/conn.py db ... --env=test2 --db=udc_test2`（15:22 规则）。
 
 ---
 

@@ -5,7 +5,7 @@ from __future__ import annotations
 import re
 from pathlib import Path
 
-FD = Path("<SEEYON_AGENT_ROOT>/core/facts/standard-product")
+FD = Path("<XIAOZHUA_AGENT_ROOT>/core/facts/standard-product")
 TARGETS = ["extension-point-consumers.md", "extension-point-decision-table.md",
            "extension-project-skeleton.md", "extension-registration-mechanisms.md"]
 

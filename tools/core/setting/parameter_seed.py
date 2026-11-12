@@ -1,6 +1,6 @@
 """设置域 · 参数：建两个样本（给用户页面验收）。
 
-走 seeyon-agent 自己的构造器 + 校验器。
+走 xiaozhua-agent 自己的构造器 + 校验器。
 
 用法：
   python tools/core/setting/parameter_seed.py --port 9231 [--i-have-write-authorization]
@@ -19,8 +19,8 @@ from components.udc.setting.parameter_constraints import (  # noqa: E402
     build_parameter_body, validate_parameter_body,
 )
 
-APP_ID = None  # ★ 由 --app-id / SEEYON_APP_ID 提供
-APP_ID = __import__("os").environ.get("SEEYON_APP_ID") or APP_ID
+APP_ID = None  # ★ 由 --app-id / XIAOZHUA_APP_ID 提供
+APP_ID = __import__("os").environ.get("XIAOZHUA_APP_ID") or APP_ID
 
 APP_GUID = "2275741415570096882"
 

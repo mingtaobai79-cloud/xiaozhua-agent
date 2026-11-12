@@ -2654,7 +2654,7 @@
  },
  "pages": [
   {
-   "chunk": "node_modules_seeyon_biz-enums_dist_index-7189faa2_js.4340c5f3.js",
+   "chunk": "node_modules_xiaozhua_biz-enums_dist_index-7189faa2_js.4340c5f3.js",
    "buttons": [
     "停用",
     "取消",
@@ -2702,7 +2702,7 @@
    "possible_ops_count": 0
   },
   {
-   "chunk": "node_modules_seeyon_biz-enums_dist_index-7e03e02d_js.a52b8615.js",
+   "chunk": "node_modules_xiaozhua_biz-enums_dist_index-7e03e02d_js.a52b8615.js",
    "buttons": [
     "停用",
     "取消",
@@ -2750,7 +2750,7 @@
    "possible_ops_count": 0
   },
   {
-   "chunk": "node_modules_seeyon_biz-enums_dist_index-9365ba29_js.e2c68411.js",
+   "chunk": "node_modules_xiaozhua_biz-enums_dist_index-9365ba29_js.e2c68411.js",
    "buttons": [
     "停用",
     "取消",
@@ -2798,7 +2798,7 @@
    "possible_ops_count": 0
   },
   {
-   "chunk": "node_modules_seeyon_biz-enums_dist_index-d16a4f98_js.a84d1636.js",
+   "chunk": "node_modules_xiaozhua_biz-enums_dist_index-d16a4f98_js.a84d1636.js",
    "buttons": [
     "停用",
     "取消",
@@ -2846,7 +2846,7 @@
    "possible_ops_count": 0
   },
   {
-   "chunk": "node_modules_seeyon_biz-enums_dist_index-dfa7dac0_js.4ccc658d.js",
+   "chunk": "node_modules_xiaozhua_biz-enums_dist_index-dfa7dac0_js.4ccc658d.js",
    "buttons": [
     "停用",
     "取消",
@@ -2894,7 +2894,7 @@
    "possible_ops_count": 0
   },
   {
-   "chunk": "node_modules_seeyon_biz-serial-scheme_dist_index-63bbd6cd_js.14fc2408.js",
+   "chunk": "node_modules_xiaozhua_biz-serial-scheme_dist_index-63bbd6cd_js.14fc2408.js",
    "buttons": [
     "绑定实体"
    ],
@@ -2918,7 +2918,7 @@
    "possible_ops_count": 3
   },
   {
-   "chunk": "node_modules_seeyon_biz-serial-scheme_dist_index-a9cbbe00_js.c3e8b8dd.js",
+   "chunk": "node_modules_xiaozhua_biz-serial-scheme_dist_index-a9cbbe00_js.c3e8b8dd.js",
    "buttons": [
     "绑定实体"
    ],
@@ -2942,7 +2942,7 @@
    "possible_ops_count": 3
   },
   {
-   "chunk": "node_modules_seeyon_biz-serial-scheme_dist_index-aa2d4add_js.0de18369.js",
+   "chunk": "node_modules_xiaozhua_biz-serial-scheme_dist_index-aa2d4add_js.0de18369.js",
    "buttons": [
     "绑定实体"
    ],
@@ -2966,7 +2966,7 @@
    "possible_ops_count": 3
   },
   {
-   "chunk": "node_modules_seeyon_biz-serial-scheme_dist_index-f62267af_js.f827461e.js",
+   "chunk": "node_modules_xiaozhua_biz-serial-scheme_dist_index-f62267af_js.f827461e.js",
    "buttons": [
     "绑定实体"
    ],
@@ -2990,7 +2990,7 @@
    "possible_ops_count": 3
   },
   {
-   "chunk": "node_modules_seeyon_biz-where_dist_conditionRight_js.76ceea66.js",
+   "chunk": "node_modules_xiaozhua_biz-where_dist_conditionRight_js.76ceea66.js",
    "buttons": [],
    "labels": [],
    "components": [],
@@ -3000,7 +3000,7 @@
    "possible_ops_count": 2
   },
   {
-   "chunk": "node_modules_seeyon_biz-where_dist_condition_js.37098cf6.js",
+   "chunk": "node_modules_xiaozhua_biz-where_dist_condition_js.37098cf6.js",
    "buttons": [],
    "labels": [],
    "components": [],
@@ -3010,7 +3010,7 @@
    "possible_ops_count": 2
   },
   {
-   "chunk": "node_modules_seeyon_biz-where_dist_modalWhere_js.aac960a8.js",
+   "chunk": "node_modules_xiaozhua_biz-where_dist_modalWhere_js.aac960a8.js",
    "buttons": [],
    "labels": [],
    "components": [],
@@ -3020,7 +3020,7 @@
    "possible_ops_count": 2
   },
   {
-   "chunk": "node_modules_seeyon_biz-where_dist_where_js.b3912f02.js",
+   "chunk": "node_modules_xiaozhua_biz-where_dist_where_js.b3912f02.js",
    "buttons": [],
    "labels": [],
    "components": [],
@@ -4350,7 +4350,7 @@
    "possible_ops_count": 1
   },
   {
-   "chunk": "src_pages_app-design_basic-info_index_tsx-node_modules_seeyon_biz-icon-library_dist_index_css.b24938e1.js",
+   "chunk": "src_pages_app-design_basic-info_index_tsx-node_modules_xiaozhua_biz-icon-library_dist_index_css.b24938e1.js",
    "buttons": [
     "保存失败",
     "保存成功",
@@ -4503,7 +4503,7 @@
    "possible_ops_count": 82
   },
   {
-   "chunk": "src_pages_app-design_basic-setting_index_tsx-node_modules_seeyon_biz-basic-data_dist_index_cs-483c13.3a08a45d.js",
+   "chunk": "src_pages_app-design_basic-setting_index_tsx-node_modules_xiaozhua_biz-basic-data_dist_index_cs-483c13.3a08a45d.js",
    "buttons": [
     "保存成功",
     "停用",
@@ -5039,7 +5039,7 @@
    "possible_ops_count": 0
   },
   {
-   "chunk": "src_pages_app-design_rule_dataflow_relation-graph_entry_tsx-node_modules_seeyon_biz-udc-graph-09b0c4.2ba8ff29.js",
+   "chunk": "src_pages_app-design_rule_dataflow_relation-graph_entry_tsx-node_modules_xiaozhua_biz-udc-graph-09b0c4.2ba8ff29.js",
    "buttons": [
     "新建",
     "新建或更新",
@@ -5200,7 +5200,7 @@
    "possible_ops_count": 0
   },
   {
-   "chunk": "src_pages_app-design_rule_index_tsx-node_modules_seeyon_biz-udc-graph_dist_index_css-src_comp-646d55.b1e6b2e3.js",
+   "chunk": "src_pages_app-design_rule_index_tsx-node_modules_xiaozhua_biz-udc-graph_dist_index_css-src_comp-646d55.b1e6b2e3.js",
    "buttons": [
     "删除",
     "必须配置扣减算法",
@@ -5438,7 +5438,7 @@
    "possible_ops_count": 3
   },
   {
-   "chunk": "src_pages_design_functions_components_add-space_index_tsx-node_modules_seeyon_biz-icon-librar-bea4ad.ec205c1d.js",
+   "chunk": "src_pages_design_functions_components_add-space_index_tsx-node_modules_xiaozhua_biz-icon-librar-bea4ad.ec205c1d.js",
    "buttons": [],
    "labels": [
     "分组名称",
@@ -6192,7 +6192,7 @@
    "possible_ops_count": 68
   },
   {
-   "chunk": "src_pages_udc_application_new-app_index_tsx-node_modules_seeyon_biz-icon-library_dist_index_css.f1f0ad2b.js",
+   "chunk": "src_pages_udc_application_new-app_index_tsx-node_modules_xiaozhua_biz-icon-library_dist_index_css.f1f0ad2b.js",
    "buttons": [
     "返回"
    ],
@@ -6222,7 +6222,7 @@
    "possible_ops_count": 24
   },
   {
-   "chunk": "src_pages_udc_backend-cmp_index_tsx-node_modules_seeyon_biz-icon-library_dist_index_css.0b5ab107.js",
+   "chunk": "src_pages_udc_backend-cmp_index_tsx-node_modules_xiaozhua_biz-icon-library_dist_index_css.0b5ab107.js",
    "buttons": [
     "后端组件导入",
     "导入成功",
@@ -6273,7 +6273,7 @@
    "possible_ops_count": 0
   },
   {
-   "chunk": "src_pages_udc_cmps_index_tsx-node_modules_seeyon_biz-icon-library_dist_index_css.a7b33360.js",
+   "chunk": "src_pages_udc_cmps_index_tsx-node_modules_xiaozhua_biz-icon-library_dist_index_css.a7b33360.js",
    "buttons": [
     "停用",
     "前端组件同步日志",

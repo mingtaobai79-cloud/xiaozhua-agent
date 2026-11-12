@@ -6,7 +6,7 @@
 > 证据等级：**VERIFIED_STATIC_BYTECODE**（CFR，boot-starter-formula 5.3.318 全量）
 > ＋ **LIVE PASS**（test2，2026-10-23 实测）
 > 实现：`components/udc/expression/`
-> 权威字节码：`<MAVEN_REPO>\com\seeyon\boot-starter-formula\5.3.318\boot-starter-formula-5.3.318.jar`
+> 权威字节码：`<MAVEN_REPO>\com\xiaozhua\boot-starter-formula\5.3.318\boot-starter-formula-5.3.318.jar`
 > 反编译件：`docs/audit/artifacts/decompiled/r38_full`（202 个 .java）
 
 ---

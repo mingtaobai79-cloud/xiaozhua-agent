@@ -16,7 +16,7 @@
 ## 1. 仓库与目录（已按用户要求切好）
 
 ```
-<SEEYON_AGENT_ROOT>          ← 纯本地 git，勿 push
+<XIAOZHUA_AGENT_ROOT>          ← 纯本地 git，勿 push
 ├── core/facts/                    事实（按域：udc/setting/...）
 ├── components/                    实现（constructors / constraints / api_model）
 ├── tools/core/<域>/               可复用脚本：setting 24 / decompile 26 / feishu 13 /
@@ -28,7 +28,7 @@
 ```
 
 - Hermes 侧 skill 已从 4 个平行目录收拢为 `skills/seeyon/`（01-platform / 02-udc / 03-v8-extension / 04-integration / 05-agent / 06-delivery / 07-office-collaboration）
-- 仓库只镜像 **3 个无 PII** 的 skill：`seeyon-agent-fact-protocol`、`seeyon-constraint-extraction`、`sdd-protocol`；同步工具 `tools/core/_meta/sync_skills_from_hermes.py --check`
+- 仓库只镜像 **3 个无 PII** 的 skill：`xiaozhua-agent-fact-protocol`、`xiaozhua-constraint-extraction`、`sdd-protocol`；同步工具 `tools/core/_meta/sync_skills_from_hermes.py --check`
 - 工作区唯一未提交文件：`tools/core/setting/attribute_default_expr_build.py`（重建默认值表达式验收字段集的脚本，17/17 通过）
 
 ---
@@ -143,7 +143,7 @@ scratch/app-design/designer-endpoints.json                   设计器入口清�
 ## 6. 新会话恢复动作
 
 ```bash
-cd <SEEYON_AGENT_ROOT>
+cd <XIAOZHUA_AGENT_ROOT>
 git log --oneline -3        # 期望 HEAD 73fffdbe 或其后
 git status --porcelain      # 期望仅 attribute_default_expr_build.py 未跟踪
 pytest tests -q             # 基线 1716 passed / 22 skipped
@@ -375,7 +375,7 @@ registry +6（148 条）：`udc.deploy.deploy_normal`、`udc.sandbox.build_info`
 | 事实格 | `core/facts/udc/application/app-inner/create.md`（Capability 表 17 行 + 响应层级三坑 + 写面边界） |
 | 写链 | `core/facts/udc/application/app-inner/app-inner-write-chain.md`（依赖六步 / 构建六段 / 日志命名 / 三条未解） |
 | 契约 | `docs/operation-contracts/udc/application/app-inner-contracts.md`（读 14 条 + 写 6 条，键名对齐 registry） |
-| skill | `skills/seeyon-udc-application-app-inner/SKILL.md` |
+| skill | `skills/xiaozhua-udc-application-app-inner/SKILL.md` |
 | 测试 | `tests/udc/test_application_app_inner_asset_layout.py`（23 条：落位 / 互链 / 实现形状 / 校验器 / 分类 / 证据一致性 / 脱敏） |
 
 ### 12.3 复跑结果
@@ -387,7 +387,7 @@ tests/udc/test_application_app_inner_asset_layout.py   23 passed
 pytest tests -q                                        1788 passed / 22 skipped（1810 collected）
 ```
 
-仓库 skill 由 5 个增至 6 个（+`seeyon-udc-application-app-inner`）。
+仓库 skill 由 5 个增至 6 个（+`xiaozhua-udc-application-app-inner`）。
 
 ### 12.4 剩余缺口（下一站，按同一套规矩补）
 

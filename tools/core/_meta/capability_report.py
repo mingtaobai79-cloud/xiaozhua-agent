@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Seeyon Agent 能力自检 —— 回答「我现在能做什么」。
+"""xiaozhua Agent 能力自检 —— 回答「我现在能做什么」。
 
 用法：
     python tools/core/capability_report.py            # 打印能力清单
@@ -7,7 +7,7 @@
     python tools/core/capability_report.py --check    # 只报缺口，退出码非 0 表示有缺口
 
 设计目标（用户 2026-10-20）：
-    「只要一个需求，你能在 seeyon agent 里面实现功能」
+    「只要一个需求，你能在 xiaozhua agent 里面实现功能」
     → 任何需求进来，先查本报告定位到「域 / 实现 / 事实 / 契约 / 脚本」，
       再决定是复用已有能力还是新建。
 
@@ -131,7 +131,7 @@ def build() -> dict:
 def render(data: dict) -> str:
     L = []
     L.append("=" * 74)
-    L.append("Seeyon Agent 能力清单（实测自仓库文件，非手写维护）")
+    L.append("xiaozhua Agent 能力清单（实测自仓库文件，非手写维护）")
     L.append("=" * 74)
     L.append(f"仓库    {data['repo']}")
     L.append(f"操作契约 {data['contracts_total']} 条（其中声明写面 {data['contracts_write']} 条）")

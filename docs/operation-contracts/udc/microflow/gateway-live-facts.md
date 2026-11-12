@@ -27,7 +27,7 @@ test2 活体路由探测（部署态事实）：
    registry 中 C1/C2/C3 的 `path` 保持控制器原值（`udc-runtime/...`），网关 service 名段另记活体确证值 `udc`（UNVERIFIED→LIVE 确证的是 service 名，非 controller 路径段）。
 2. **A2 LIVE PASS 卡点 = SSO OAuth 登录墙**：`/service/udc/...` 未登录时被网关 302 到
    `uatsso.客户方.com/esc-sso/oauth2.0/...`（code=BOOT_1006），拿不到业务 data。
-   穿透该墙需 test2 UDC 只读登录凭据（用户名/密码 或 SSO session）；.env 无 SEEYON_APP_TOKEN / APP_COOKIE。
+   穿透该墙需 test2 UDC 只读登录凭据（用户名/密码 或 SSO session）；.env 无 XIAOZHUA_APP_TOKEN / APP_COOKIE。
 3. **identity_matches 判读**：三条候选双发字节一致（sha 相同）但 data=null + code=server_404/BOOT_1006，
    属 layer.py 的 BUSINESS_NOT_FOUND / 鉴权墙边界，**不等于业务成功，不判 A2 PASS**。
 4. udc-runtime service 在 test2 未部署 → 即便拿到凭据，`udc-runtime/*` 也可能仍 server_404；

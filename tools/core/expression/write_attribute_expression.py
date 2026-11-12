@@ -279,7 +279,7 @@ def _load_system_descriptions(client) -> dict[str, str]:
 
 # ---------------------------------------------------------------- 基础设施
 def _env():
-    p = Path(r"<HERMES_HOME>\skills\seeyon\01-platform\seeyon-low-code-environment\.env")
+    p = Path(r"<HERMES_HOME>\skills\xiaozhua\01-platform\xiaozhua-low-code-environment\.env")
     out = {}
     if p.exists():
         for line in p.read_text(encoding="utf-8-sig", errors="replace").splitlines():
@@ -295,10 +295,10 @@ def _env():
 def _db():
     from providers.mysql_readonly import MySQLConnectionAdapter
     e = _env()
-    return MySQLConnectionAdapter(host=e.get("SEEYON_DB_HOST", ""),
-                                  port=e.get("SEEYON_DB_PORT") or 3306,
-                                  user=e.get("SEEYON_DB_USERNAME", ""),
-                                  password=e.get("SEEYON_DB_PASSWORD", ""))
+    return MySQLConnectionAdapter(host=e.get("XIAOZHUA_DB_HOST", ""),
+                                  port=e.get("XIAOZHUA_DB_PORT") or 3306,
+                                  user=e.get("XIAOZHUA_DB_USERNAME", ""),
+                                  password=e.get("XIAOZHUA_DB_PASSWORD", ""))
 
 
 def _client(port: int):

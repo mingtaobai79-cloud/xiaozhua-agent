@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
 """对比 test2 / uat：状态(草稿/已生成) × 正文/附件/pdf 落库情况"""
 import os, sys
-for line in open(r'<HERMES_HOME>\skills\seeyon\01-platform\seeyon-low-code-environment\.env', encoding='utf-8'):
+for line in open(r'<HERMES_HOME>\skills\xiaozhua\01-platform\xiaozhua-low-code-environment\.env', encoding='utf-8'):
     line = line.strip()
     if '=' in line and not line.startswith('#'):
         k, v = line.split('=', 1); os.environ[k] = v
-sys.path.insert(0, r'<HERMES_HOME>\skills\seeyon\01-platform\seeyon-low-code-environment\scripts')
+sys.path.insert(0, r'<HERMES_HOME>\skills\xiaozhua\01-platform\xiaozhua-low-code-environment\scripts')
 from env import load_env
 import pymysql
 cfg = load_env('test2'); m = cfg['mysql']
-c = pymysql.connect(host=m['host'], port=int(m['port']), user=os.environ['SEEYON_DB_USERNAME'],
-                    password=os.environ['SEEYON_DB_PASSWORD'], database='udc_test2', charset='utf8mb4',
+c = pymysql.connect(host=m['host'], port=int(m['port']), user=os.environ['XIAOZHUA_DB_USERNAME'],
+                    password=os.environ['XIAOZHUA_DB_PASSWORD'], database='udc_test2', charset='utf8mb4',
                     cursorclass=pymysql.cursors.DictCursor)
 def q(s, a=None):
     with c.cursor() as cur:

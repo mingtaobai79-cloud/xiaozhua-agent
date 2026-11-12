@@ -9,7 +9,7 @@ import json
 import os
 import sys
 
-os.chdir('<SEEYON_AGENT_ROOT>')
+os.chdir('<XIAOZHUA_AGENT_ROOT>')
 sys.path.insert(0, '.')
 
 from components.construction.node_builder import NodeBuilder

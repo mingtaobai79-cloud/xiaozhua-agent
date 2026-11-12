@@ -1,4 +1,4 @@
-# seeyon-agent 环境清单 v1 —— 所有环境常量的唯一来源
+# xiaozhua-agent 环境清单 v1 —— 所有环境常量的唯一来源
 # 铁律: 代码/测试/文档/契约禁止写死 URL/appId/版本/路径, 一律引用这里的键
 default: local-maven
 
@@ -29,10 +29,10 @@ environments:
   #   credential: {ref: uat-credential, file: <仓库外路径>}
 
 # ─── 客户场景证据根（迁出仓库外，2026-10-09）──────────────
-customer_evidence_root: <EVIDENCE_ROOT>/seeyon-customer-evidence   # golden 样本/客户 javap/metadata dump
+customer_evidence_root: <EVIDENCE_ROOT>/xiaozhua-customer-evidence   # golden 样本/客户 javap/metadata dump
 customer_evidence_note: >
   客户应用场景证据不进本仓库。需要 golden 样本回放时设
-  SEEYON_CUSTOMER_EVIDENCE_ROOT 指向此根（或直接引用该路径）。
+  XIAOZHUA_CUSTOMER_EVIDENCE_ROOT 指向此根（或直接引用该路径）。
 
 # ─── S6-CONFIG-PROJECTS-MERGE: projects 段（U6 建议件 4201B/239ac37227c0 逐字并入）──
 # 铁律 040402：代码不写死配置值 → 每 project 只登记引用键 + 来源 dataId/group/tenant，值走 Nacos 只读取，不写进仓库
@@ -44,8 +44,8 @@ projects:
     k8s_namespace: lowcode-uat     # 来自 raw-01 C5/C7
     nacos:
       endpoint_ref: mse-c19f9232
-      tenant: seeyon-uat
-      group: seeyon
+      tenant: xiaozhua-uat
+      group: xiaozhua
       dataIds:
         primary: app9000000000000000001
         shared: [udc, public, public-common, public-system]
@@ -56,7 +56,7 @@ projects:
       datasource.password:         {redacted: true, source: public/seeyon/seeyon-uat}
       cache.redis-nodes:           {source: public/seeyon/seeyon-uat}
       cache.redis-password:        {redacted: true, source: public/seeyon/seeyon-uat}
-      storage.oss.private-bucket-name: {value_hint: seeyon-private-uat, source: public/seeyon/seeyon-uat}
+      storage.oss.private-bucket-name: {value_hint: xiaozhua-private-uat, source: public/seeyon/seeyon-uat}
       storage.oss.api-endpoint:    {source: public/seeyon/seeyon-uat}
       autocode.frontDomain:        {value_hint: http://lowcode-uat.example.com, source: udc/seeyon/seeyon-uat}
       udc.tenantId:                {value_hint: "-8112660841495312922", source: primary/seeyon/seeyon-uat}
@@ -68,14 +68,14 @@ projects:
     k8s_namespace: lowcode-test     # 来自 raw-01 C5/C8
     nacos:
       endpoint_ref: mse-c19f9232
-      tenant: seeyon-test2
-      group: seeyon
+      tenant: xiaozhua-test2
+      group: xiaozhua
       dataIds:
         primary: znxmglptcopy5791640252914287064
         shared: [udc, public, public-common, public-system]
     key_refs:
       datasource.database: {value_hint: znxmglptcopy5791640252914287064_test2, source: primary/seeyon/seeyon-test2}
-      storage.oss.private-bucket-name: {value_hint: seeyon-private-test2, source: public/seeyon/seeyon-test2}
+      storage.oss.private-bucket-name: {value_hint: xiaozhua-private-test2, source: public/seeyon/seeyon-test2}
       autocode.frontDomain: {value_hint: http://lowcode-test2.example.com, source: udc/seeyon/seeyon-test2}
 
 # ─── S6-CONFIG-PROJECTS-MERGE: nacos_endpoints 段（U6 建议件配套建议逐字并入）──

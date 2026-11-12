@@ -1,13 +1,13 @@
-# 2小爪 Agent 下一阶段方向审计输入
+# xiaozhua Agent 下一阶段方向审计输入
 
 > ✅ **P6 裁决（2026-11-07）：保留原地，不移动、不删除。**
 > 本文件是下一阶段方向的审计输入（高难度问题 / 决策闸门 / 证据要求），**仍被程序读取**：
 > `components/audit_summary.py:12` 的 `REPORTS["next_direction"]` 直接指向本文件名（2026-11-07 实测确认），
-> `seeyon_cli.py` 的 `audit-summary` 子命令走 `components.audit_summary.build_summary(dir, ...)` 读它；
+> `xiaozhua_cli.py` 的 `audit-summary` 子命令走 `components.audit_summary.build_summary(dir, ...)` 读它；
 > `tests/test_audit_summary.py:20` 也按此文件名写临时输入。
 > ⇒ 要动本文件，必须同步改代码与测试。上级登记见 `docs/audit/README.md` §六。
 
-> 目的：在已完成的 UDC 静态审计和当前 2小爪 Agent 只读骨架基础上，整理下一阶段必须继续回答的高难度问题、决策闸门和证据要求。本文**不是实施方案**，不定义功能代码、接口改造或环境操作；未授权连接 test2，也不以静态证据替代动态验证。
+> 目的：在已完成的 UDC 静态审计和当前 xiaozhua Agent 只读骨架基础上，整理下一阶段必须继续回答的高难度问题、决策闸门和证据要求。本文**不是实施方案**，不定义功能代码、接口改造或环境操作；未授权连接 test2，也不以静态证据替代动态验证。
 >
 > 证据口径：`FACT` 表示已有直接文件/源码/反编译/哈希证据；`OBSERVATION` 表示审计中观察到的现象；`UNVERIFIED/HYPOTHESIS` 表示尚未形成闭环。版本结论仅适用于明确的 artifact + version + sha256，不外推到全部 5.3 或全部客户。
 
@@ -15,8 +15,8 @@
 
 ### 1.1 已证实的骨架事实（FACT）
 
-- 仓库为 `<SEEYON_AGENT_ROOT>`，README 将当前版本定义为“可测试的只读骨架”。组件入口包括 Core、UDC、Runtime、Integration 和 Providers 端口预留。
-- Core 已有 `SeeyonAgent`、意图路由、宿主注入的 Context/Session/Policy、组件注册与执行事件记录；默认策略为只允许 `inspect_*` 与 `dry_run`。
+- 仓库为 `<XIAOZHUA_AGENT_ROOT>`，README 将当前版本定义为“可测试的只读骨架”。组件入口包括 Core、UDC、Runtime、Integration 和 Providers 端口预留。
+- Core 已有 `XiaozhuaAgent`、意图路由、宿主注入的 Context/Session/Policy、组件注册与执行事件记录；默认策略为只允许 `inspect_*` 与 `dry_run`。
 - UDC 组件 `components/udc/` 已具备模型、证据目录、分析器、版本注册、计划器和组件入口；能力清单为 `inspect_application`、`inspect_entity`、`inspect_page`、`inspect_microflow`、`dry_run`。
 - UDC 组件默认 `read_only = True`；README 明确列出尚未实现的创建应用、修改实体、数据库/Redis 写入、发布、部署和真实 GraphQL 写入。
 - UDC 当前以本地审计目录/快照为输入；`UdcEvidenceCatalog`、`UdcAnalyzer` 和 `UdcVersionRegistry` 读取 JSON 证据，不连接真实环境。缺失文件或未知版本会降级为 `UNVERIFIED`。
@@ -141,7 +141,7 @@
 
 ### R9. Agent 统一入口的意图路由是启发式，不是领域解析器
 
-当前 `SeeyonAgent.route` 通过关键词路由 `udc/integration/runtime/spi`。复杂任务可能同时涉及多个组件，或因词汇变化落入 unknown。风险等级：**中**。不得以当前路由结果证明跨组件任务编排正确；需要先定义任务分解和证据依赖。
+当前 `XiaozhuaAgent.route` 通过关键词路由 `udc/integration/runtime/spi`。复杂任务可能同时涉及多个组件，或因词汇变化落入 unknown。风险等级：**中**。不得以当前路由结果证明跨组件任务编排正确；需要先定义任务分解和证据依赖。
 
 ## 4. 不可假设项（在后续任何决策中保持 UNKNOWN）
 
@@ -213,7 +213,7 @@ UDC Construction Rule Model
 
 ### 8.1 绝对边界
 
-- UDC、BPM、SPI、Connector 是 2小爪 Agent 的同级独立平台模块。
+- UDC、BPM、SPI、Connector 是 xiaozhua Agent 的同级独立平台模块。
 - `UDC/BPM Construction`、`UDC/SPI Construction`、`UDC/Connector Construction` 是 UDC 的构造规则，不是对应平台模块的子模块。
 - 客户项目不用于反推 UDC 通用规则，只用于最后验证标准规则和识别客户扩展。
 

@@ -13,7 +13,7 @@ manifest 仍停在 14 个，而 server.py 已接 44 个）。手工同步必然�
     python tools/gen_mcp_manifest.py --stdout   # 打印不落盘
 
 数据源（唯一）：
-  seeyon_host_bootstrap.bootstrap()  →  各能力函数
+  xiaozhua_host_bootstrap.bootstrap()  →  各能力函数
   adapters.mcp.server.TOOL_KEYS      →  暴露哪些
   adapters.mcp.server.MCP_TOOL_NAMES →  工具名
   adapters.mcp.server.build_tool_schemas → 参数 schema
@@ -100,7 +100,7 @@ DOMAIN_ORDER = ["跨模块", "application", "entity", "setting", "serial", "flow
 
 
 def collect() -> tuple[list[dict], int]:
-    from seeyon_host_bootstrap import bootstrap
+    from xiaozhua_host_bootstrap import bootstrap
     from adapters.mcp.server import TOOL_KEYS, MCP_TOOL_NAMES, build_tool_schemas
 
     b = bootstrap()
@@ -136,7 +136,7 @@ def render(rows: list[dict], n_caps: int) -> str:
     L.append("# MCP 工具权威清单（自动生成，勿手改）")
     L.append("")
     L.append("> 生成器：`tools/gen_mcp_manifest.py`（`--check` 校验一致性）")
-    L.append("> 数据源：`seeyon_host_bootstrap.bootstrap()` + `adapters/mcp/server.py`")
+    L.append("> 数据源：`xiaozhua_host_bootstrap.bootstrap()` + `adapters/mcp/server.py`")
     L.append("> 手工维护的 `adapters/*/MCP-TOOL-MANIFEST.md` 只作历史记录，**以本文件为准**。")
     L.append("")
     L.append("## 概览")

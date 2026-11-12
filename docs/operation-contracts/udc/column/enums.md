@@ -191,7 +191,7 @@
 ## 7. 复现命令
 
 ```bash
-cd <HERMES_HOME>/skills/seeyon/01-platform/seeyon-low-code-environment/scripts
+cd <HERMES_HOME>/skills/seeyon/01-platform/xiaozhua-low-code-environment/scripts
 # type 分布
 python conn.py db "SELECT type, COUNT(*) c FROM udc_test2.udc_portlet GROUP BY type" --db=udc_test2 --env=test2
 # terminal_type 分布（0=ALL 6 / 1=PC 145 / 2=MOBILE 6）

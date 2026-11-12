@@ -2,7 +2,7 @@
 
 ## 为什么需要这条闸门
 
-`docs/plans/seeyon-distribution-progress.md`（分发线入口）里有一段
+`docs/plans/xiaozhua-distribution-progress.md`（分发线入口）里有一段
 「**文档整理第 1–5 轮**」，而文档整理早已转到独立循环
 （`docs/plans/doc-consolidation-progress.md`）。
 
@@ -26,7 +26,7 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-DIST = ROOT / "docs" / "plans" / "seeyon-distribution-progress.md"
+DIST = ROOT / "docs" / "plans" / "xiaozhua-distribution-progress.md"
 CONS = ROOT / "docs" / "plans" / "doc-consolidation-progress.md"
 assert (ROOT / "docs").is_dir() and (ROOT / "tests").is_dir()
 

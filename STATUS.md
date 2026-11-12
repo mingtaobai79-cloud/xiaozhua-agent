@@ -17,7 +17,7 @@
   `docs/HOST-INTEGRATION.md` §5 L49 写 `361 passed`、协作侧 2026-09-26 记录 `375 passed`——
   四者是不同时点的环境指纹，均不作契约；**一律以实测为准**（同型教训见 `docs/ledger/LOG-udc-semantics-PROGRESS-20261014-20261016.md` 第十八轮）。
 - registry / UDC 契约域：12/13 已扫（runtime 差分扫描待做）
-- 客户证据：仓库外 `<EVIDENCE_ROOT>/seeyon-customer-evidence/`（见 config/environments.yaml customer_evidence_root）
+- 客户证据：仓库外 `<EVIDENCE_ROOT>/xiaozhua-customer-evidence/`（见 config/environments.yaml customer_evidence_root）
 
 ## S7 声明件与在盘实现对齐（2026-10-19，implementer 自证记录）
 
@@ -31,8 +31,8 @@
   commit `3595d7e`（2026-09-28 22:54:34 +0800）。
 - `pytest tests/test_mcp_server.py -q` → **19 passed**，RC=0。
 - stdio 实跑（`python adapters/mcp/server.py < frames`，RC=0）：`initialize` → `protocolVersion=2024-11-05`
-  + `serverInfo seeyon-mcp/0.1.0`；`tools/list` → 恰 5 工具；`tools/call(seeyon_dispatch)` → 离线
-  `status=UNVERIFIED`；`tools/call(seeyon_live_probe)` 无凭据 → `status=SKIPPED`（≠ PASS）。
+  + `serverInfo xiaozhua-mcp/0.1.0`；`tools/list` → 恰 5 工具；`tools/call(xiaozhua_dispatch)` → 离线
+  `status=UNVERIFIED`；`tools/call(xiaozhua_live_probe)` 无凭据 → `status=SKIPPED`（≠ PASS）。
 - 全量 `pytest tests -q` → 1490 passed / 1 failed / 21 skipped（见上）。
 
 **改动（6 文件，全部允许写路径内）**
@@ -41,7 +41,7 @@
 |---|---|
 | `adapters/hermes/MCP-TOOL-MANIFEST.md` | 新增 §3 实现态分层（L1 已实装事实表 + L2 三项未实现）、§4 已知未实现/环境依赖、§5 边界自证；§0/§2 口径同步 |
 | `adapters/codex/MCP-TOOL-MANIFEST.md` | 同上（L1 段落与另两份逐字一致；L2 ① 换 Codex 宿主入口） |
-| `adapters/claude-code/MCP-TOOL-MANIFEST.md` | 同上；另更正 `SEEYON_CRED_FILE` 旧表述（"无 Python 代码读取"已作废，实为 `server.py` L178 读取） |
+| `adapters/claude-code/MCP-TOOL-MANIFEST.md` | 同上；另更正 `XIAOZHUA_CRED_FILE` 旧表述（"无 Python 代码读取"已作废，实为 `server.py` L178 读取） |
 | `adapters/hermes/Hermes-SKILL.md` | 头注与末节改为分层事实；通过数口径改为"以实测为准"+四来源并列 |
 | `adapters/claude-code/CLAUDE.template.md` | §3 测试口径去 395；§4 凭据行更正；§8 分层重写（已实装/未实现/环境依赖三块） |
 | `core/role/EVIDENCE-DISCIPLINE.md` | §2 VERIFIED 行去 395；§3 增"双向纪律"（禁欠报）；新增 §3.1"测试通过数不得当契约" |

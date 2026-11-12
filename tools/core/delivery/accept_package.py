@@ -8,7 +8,7 @@
 用法（在解压后的包根目录）：
     python tools/core/delivery/accept_package.py
 或指定包路径：
-    python tools/core/delivery/accept_package.py --zip D:/path/to/seeyon-agent-0.1.0.zip
+    python tools/core/delivery/accept_package.py --zip D:/path/to/xiaozhua-agent-0.1.0.zip
 """
 from __future__ import annotations
 
@@ -64,10 +64,10 @@ def main(argv: list[str]) -> int:
 
     if "--zip" in argv:
         z = Path(argv[argv.index("--zip") + 1])
-        work = Path(tempfile.mkdtemp(prefix="seeyon-accept-"))
+        work = Path(tempfile.mkdtemp(prefix="xiaozhua-accept-"))
         with zipfile.ZipFile(z) as zf:
             zf.extractall(work)
-        root = work / "seeyon-agent-0.1.0"
+        root = work / "xiaozhua-agent-0.1.0"
         print("包: %s (%.1f MB)" % (z.name, z.stat().st_size / 1024 / 1024))
         print("SHA256: %s" % hashlib.sha256(z.read_bytes()).hexdigest())
     else:
@@ -110,7 +110,7 @@ def main(argv: list[str]) -> int:
     ok4, detail4 = False, "无 .mcp.json"
     mcp = tgt / "claude-code" / ".mcp.json"
     if mcp.exists():
-        cfg = json.loads(mcp.read_text(encoding="utf-8"))["mcpServers"]["seeyon"]
+        cfg = json.loads(mcp.read_text(encoding="utf-8"))["mcpServers"]["xiaozhua"]
         r = _run(cfg["command"], cfg["args"], root, stdin=FRAMES)
         got = _tool_count(r.stdout)
         ok4 = r.returncode == 0 and got == 54
@@ -120,7 +120,7 @@ def main(argv: list[str]) -> int:
     # ⑤ 敏感信息：关键词不写死（写死等于把敏感串留在代码里），
     #    由调用方用环境变量给出，或只查通用的 appId 形态。
     leaked = []
-    extra = [s for s in os.environ.get("SEEYON_LEAK_PATTERNS", "").split(",") if s.strip()]
+    extra = [s for s in os.environ.get("XIAOZHUA_LEAK_PATTERNS", "").split(",") if s.strip()]
     patterns = extra + ["163126498398523384", "7988886308612688555"]
     for pat in patterns:
         for f in ("INSTALL.md", "README.md", "CHANGELOG.md"):
@@ -132,7 +132,7 @@ def main(argv: list[str]) -> int:
     # ⑥ 核心链路 body 构造（不发请求）
     probe = (
         "import sys,json;sys.path.insert(0,'.')\n"
-        "from seeyon_host_bootstrap import bootstrap\n"
+        "from xiaozhua_host_bootstrap import bootstrap\n"
         "b=bootstrap();APP='1';G='2'\n"
         "out={}\n"
         "out['index_body']=b['index_body']('i',1,[2])\n"

@@ -10,7 +10,7 @@
   事实        core/facts/udc/setting/enum/
   操作契约    docs/operation-contracts/udc/setting/enum-contracts.md
   操作脚本    tools/core/setting/
-  skill       skills/seeyon-udc-setting/SKILL.md
+  skill       skills/xiaozhua-udc-setting/SKILL.md
 """
 import sys
 from pathlib import Path
@@ -77,7 +77,7 @@ def test_operation_contract_is_under_setting_domain():
 
 def test_skill_is_separate_and_names_the_domain():
     """skill 独立成文件，且要说清自己属「设置」域。"""
-    p = ROOT / "skills" / "seeyon-udc-setting" / "SKILL.md"
+    p = ROOT / "skills" / "xiaozhua-udc-setting" / "SKILL.md"
     assert p.exists(), f"缺设置域 skill: {p}"
     txt = p.read_text(encoding="utf-8")
     assert "设置" in txt, "skill 须声明自己属设置域"
@@ -89,7 +89,7 @@ def test_skill_is_separate_and_names_the_domain():
 
 def test_skill_points_to_all_three_asset_kinds():
     """skill 必须分别指向脚本、事实、契约三处。"""
-    txt = (ROOT / "skills" / "seeyon-udc-setting" / "SKILL.md").read_text(encoding="utf-8")
+    txt = (ROOT / "skills" / "xiaozhua-udc-setting" / "SKILL.md").read_text(encoding="utf-8")
     assert "components/udc/setting" in txt, "skill 未指向实现位置"
     assert "core/facts/udc/setting" in txt, "skill 未指向事实位置"
     assert "docs/operation-contracts/udc/setting" in txt, "skill 未指向契约位置"

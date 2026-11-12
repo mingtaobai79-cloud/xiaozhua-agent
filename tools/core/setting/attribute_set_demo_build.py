@@ -30,7 +30,7 @@ from components.udc.setting.attribute_set_constraints import (  # noqa: E402
     validate_attribute_field_body, validate_attribute_set_body,
 )
 
-APP_ID = None  # ★ 运行时由 --app-id / SEEYON_APP_ID 提供（原写死值已移除）
+APP_ID = None  # ★ 运行时由 --app-id / XIAOZHUA_APP_ID 提供（原写死值已移除）
 # 前面实测可用的关联目标
 ENUM_ID = "-2722367167915323813"          # UI轨迹枚举（ctp_enum）
 ENUM_CODE = "XzhCtpEnum953322"            # 平台枚举编码

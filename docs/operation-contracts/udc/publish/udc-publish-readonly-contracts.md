@@ -1,7 +1,7 @@
 # UDC publish（发布/部署）域只读契约 — 5.3.517 单 jar 取证（CANDIDATE 1 条 + 写形态 1 条排除）
 
 - 域模块: udc-publish（发布 / 部署 / 应用发布状态）
-- 版本单元: 5.3.517（本地 Maven `<MAVEN_REPO>\com\seeyon`，只读离线证据）
+- 版本单元: 5.3.517（本地 Maven `<MAVEN_REPO>\com\xiaozhua`，只读离线证据）
 - 证据单元（scope）: **单 jar** `udc-starter-runtime-5.3.517.jar`
   （`<MAVEN_REPO>/com/seeyon/udc-starter-runtime/5.3.517/udc-starter-runtime-5.3.517.jar`，
   sha256 `74ae50bd8510414113248f0b1d400bca80d2ae2e0022c9dbbb31321a6040a66f`，861880 B）
@@ -10,7 +10,7 @@
 - 生成: implementer · 依据本会话 `main/ROUTE.md` §1 R1 与 `main/HANDOFF-R1.md`；方法论照抄
   `docs/operation-contracts/udc/bi/bi-vacuum-contract.md`（三层扫描法 + 双口径一致性 + 伪命中族排除）
 - 会话引用基点: 协作会话根目录 = `<COLLAB_ROOT>\agent-collaboration\session-20261008-213135-b84a9517\`
-  （`main/ROUTE.md`、`main/HANDOFF-R1.md`、`inbox/*.json` 相对该目录解析）；仓库内件相对 `<SEEYON_AGENT_ROOT>\` 解析；
+  （`main/ROUTE.md`、`main/HANDOFF-R1.md`、`inbox/*.json` 相对该目录解析）；仓库内件相对 `<XIAOZHUA_AGENT_ROOT>\` 解析；
   证据件相对 `docs\audit\artifacts\udc-publish-5.3.517\` 解析
 
 ## 结论（唯一判定）
@@ -100,7 +100,7 @@
 
 ## 红线自查
 - 写面仅 `docs/operation-contracts/udc/publish/**` + `docs/audit/artifacts/udc-publish-5.3.517/**`；
-  其他域目录 / `components/platform_operations/registry.py` / `tests/**` / `seeyon_cli.py` **零改动**（registry 仅只读 grep/import 复核）。
+  其他域目录 / `components/platform_operations/registry.py` / `tests/**` / `xiaozhua_cli.py` **零改动**（registry 仅只读 grep/import 复核）。
 - 无 LIVE / 无网关 / 无 `.207`；路径全部取注解原值、**未拼任何网关前缀**；`publish`/update 等写形态**未混入契约**（W1 段单列标注）。
 - 证据等级未越级：域归属语义、Spring 继承装配、构件边界、L-C 语义判读均标 **OBSERVATION**；跨构件/跨版本内容仅作边界声明、未写成 FACT。
 - 版本归属 5.3.517 单一；`git` 写操作全禁（主控代提交）。

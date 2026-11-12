@@ -80,7 +80,7 @@ def test_exported_jar_matches_the_recorded_deployed_hash():
 
 
 def test_evidence_carries_no_customer_identifiers():
-    """清洗门：客户 jar 名 / 客户标识不得进仓库（客户明细只进 seeyon-customer-evidence）。"""
+    """清洗门：客户 jar 名 / 客户标识不得进仓库（客户明细只进 xiaozhua-customer-evidence）。"""
     s = EVID.read_text(encoding='utf-8')
     for token in ('znxmglpt', 'chjh', 'sy_access_token', 'xiangmuguanli', 'peixunudc'):
         assert token not in s, f'含客户/敏感串 {token!r}'

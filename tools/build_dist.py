@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-"""tools/build_dist.py — 打一个可分发的 Seeyon Agent 能力包（zip）。
+"""tools/build_dist.py — 打一个可分发的 xiaozhua Agent 能力包（zip）。
 
 **为什么不打 wheel**：这个仓库的主体不是 Python 包，而是**角色能力包** ——
 `core/facts/` 1.4 MB 事实文档、`skills/`、`adapters/` 三宿主适配、`docs/` 契约层。
@@ -9,7 +9,7 @@
 
 包内结构（保持仓库相对路径，installer / MCP server 都不需要改路径推导）::
 
-    seeyon-agent-<version>/
+    xiaozhua-agent-<version>/
       INSTALL.md           首次接入指引（从 HOW-TO-CONNECT 裁剪）
       MANIFEST.json        文件清单 + sha256 + 统计
       VERSION              版本号
@@ -21,7 +21,7 @@
 
 用法::
 
-    python tools/build_dist.py                 # 写到 dist/seeyon-agent-<ver>.zip
+    python tools/build_dist.py                 # 写到 dist/xiaozhua-agent-<ver>.zip
     python tools/build_dist.py --out D:/tmp    # 指定输出目录
     python tools/build_dist.py --verify FILE   # 校验已有包的完整性
 """
@@ -55,7 +55,7 @@ EXCLUDE_NAMES = {".DS_Store", "Thumbs.db", "SOUL.md"}
 REQUIRED = [
     "README.md",
     "pyproject.toml",
-    "seeyon_host_bootstrap.py",
+    "xiaozhua_host_bootstrap.py",
     "adapters/mcp/server.py",
     "adapters/mcp/DESIGN.md",
     "installer/install.py",
@@ -63,7 +63,7 @@ REQUIRED = [
     "docs/operation-contracts/mcp/HOW-TO-CONNECT.md",
 ]
 
-INSTALL_MD = """# Seeyon Agent 能力包 {version}
+INSTALL_MD = """# xiaozhua Agent 能力包 {version}
 
 > 生成时间：{built}
 > 包内文件：{n_files} 个 / {size_mb:.1f} MB（压缩后 {zip_mb:.1f} MB）
@@ -80,7 +80,7 @@ python -m venv .venv
 pip install -e .
 
 # 3) 自检（不联网，应打印出能力数）
-python -c "from seeyon_host_bootstrap import bootstrap; print(len(bootstrap()))"
+python -c "from xiaozhua_host_bootstrap import bootstrap; print(len(bootstrap()))"
 ```
 
 能打印出数字就说明装配正常。
@@ -91,7 +91,7 @@ python -c "from seeyon_host_bootstrap import bootstrap; print(len(bootstrap()))"
 
 ```yaml
 mcp_servers:
-  seeyon:
+  xiaozhua:
     command: <包根目录>/.venv/Scripts/python.exe
     args:
       - <包根目录>/adapters/mcp/server.py
@@ -101,7 +101,7 @@ mcp_servers:
 **Codex** — `~/.codex/config.toml`：
 
 ```toml
-[mcp_servers.seeyon]
+[mcp_servers.xiaozhua]
 command = "<包根目录>/.venv/Scripts/python.exe"
 args = ["<包根目录>/adapters/mcp/server.py"]
 ```
@@ -111,7 +111,7 @@ args = ["<包根目录>/adapters/mcp/server.py"]
 ```json
 {{
   "mcpServers": {{
-    "seeyon": {{
+    "xiaozhua": {{
       "command": "<包根目录>/.venv/Scripts/python.exe",
       "args": ["<包根目录>/adapters/mcp/server.py"]
     }}
@@ -130,7 +130,7 @@ python installer/install.py --host all --target <输出目录> --portable
 配完重启宿主，调：
 
 ```
-seeyon_capability_index()
+xiaozhua_capability_index()
 ```
 
 返回 `domain_count: 9`、`summary.契约合计: 133` 就是通了。
@@ -138,7 +138,7 @@ seeyon_capability_index()
 ## 四、包内有什么
 
 ```
-seeyon_host_bootstrap.py      能力装配入口（MCP 工具就是它的能力投影）
+xiaozhua_host_bootstrap.py      能力装配入口（MCP 工具就是它的能力投影）
 adapters/mcp/server.py        MCP 传输层（stdio JSON-RPC 2.0）
 adapters/{{hermes,codex,claude-code}}/   三宿主适配件
 components/                   能力实现（44 个工具的构造器都在这）
@@ -226,13 +226,13 @@ def build(out_dir: Path) -> Path:
     built = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
     out_dir.mkdir(parents=True, exist_ok=True)
-    target = out_dir / ("seeyon-agent-%s.zip" % version)
+    target = out_dir / ("xiaozhua-agent-%s.zip" % version)
 
-    manifest = {"name": "seeyon-agent", "version": version, "built": built,
+    manifest = {"name": "xiaozhua-agent", "version": version, "built": built,
                 "file_count": len(files), "total_bytes": total, "files": {}}
 
     with zipfile.ZipFile(target, "w", zipfile.ZIP_DEFLATED, compresslevel=9) as z:
-        root = "seeyon-agent-%s" % version
+        root = "xiaozhua-agent-%s" % version
         for f in files:
             rel = f.relative_to(REPO).as_posix()
             z.write(f, "%s/%s" % (root, rel))

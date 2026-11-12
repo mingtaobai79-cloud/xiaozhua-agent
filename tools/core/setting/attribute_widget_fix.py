@@ -28,7 +28,7 @@ from components.udc.setting.attribute_set_constraints import (  # noqa: E402
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--port", type=int, default=9231)
-    ap.add_argument("--app-id", default=None, help="UDC 应用 id（默认读 SEEYON_APP_ID）")
+    ap.add_argument("--app-id", default=None, help="UDC 应用 id（默认读 XIAOZHUA_APP_ID）")
     ap.add_argument("--target-prefix", default="BCD2D805")
     ap.add_argument("--set-id", default="-3410968647846163890")
     ap.add_argument("--dump", action="store_true")

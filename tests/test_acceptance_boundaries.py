@@ -10,7 +10,7 @@ ROOT = Path(__file__).parents[1]
 
 
 def _run(*args):
-    return subprocess.run([sys.executable, "-m", "seeyon_cli", *args], cwd=ROOT, capture_output=True, text=True)
+    return subprocess.run([sys.executable, "-m", "xiaozhua_cli", *args], cwd=ROOT, capture_output=True, text=True)
 
 
 def _all_values(value):

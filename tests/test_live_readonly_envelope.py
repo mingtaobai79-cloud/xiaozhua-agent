@@ -2,9 +2,9 @@
 
 背景（a9 离线探针复现）：runner 只比两次响应 md5 + auth-fail，
 不查 HTTP status 与业务信封 status 字段。500 响应两次相同 → verdict=PASS，
-业务 status=3（Seeyon 失败码）两次相同 → verdict=PASS。验收器因此不可信。
+业务 status=3（xiaozhua 失败码）两次相同 → verdict=PASS。验收器因此不可信。
 
-铁律（Seeyon UDC 信封）：业务 status=0 成功 / status=3 失败（BOOT_3000 等）；
+铁律（xiaozhua UDC 信封）：业务 status=0 成功 / status=3 失败（BOOT_3000 等）；
 HTTP 500 是传输层异常。任一不成立都不得 PASS。
 """
 import sys
@@ -49,7 +49,7 @@ def test_http_500_is_not_pass():
 
 
 def test_business_envelope_failure_is_not_pass():
-    # HTTP 200 但业务 status=3（Seeyon 失败码）—— 不得判 PASS
+    # HTTP 200 但业务 status=3（xiaozhua 失败码）—— 不得判 PASS
     client = EnvelopeClient(http=200, body={"status": 3, "code": "BOOT_3000", "message": "业务失败"})
     out = LiveReadonlyRunner(client, _resolver(), "app-x").run()
     assert out["status"] != "PASS", out

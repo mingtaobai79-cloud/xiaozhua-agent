@@ -54,7 +54,7 @@ def test_package_root_template_is_com_seeyon():
     assert PACKAGE_ROOT_TEMPLATE == "com.seeyon.<application_id>"
 
 
-def test_plan_package_root_is_com_seeyon_prefixed():
+def test_plan_package_root_is_com_xiaozhua_prefixed():
     evaluator = ConstructionEvaluator(registry())
     plan = evaluator.plan(NormalizedEntityModel("demoapp", None, "Customer"))
     assert all(a.package.startswith("com.seeyon.demoapp.") for a in plan.artifacts)

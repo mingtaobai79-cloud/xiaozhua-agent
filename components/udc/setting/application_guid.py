@@ -6,7 +6,7 @@
 以前这条规则写在 `core/facts/udc/setting/precondition-appguid.md` 里，
 但**事实写了不等于能被找到**：
 
-    在别处用 seeyon-agent 建枚举 → 第一步 appGuid 就卡住
+    在别处用 xiaozhua-agent 建枚举 → 第一步 appGuid 就卡住
     → 搜 INDEX 没有这一行 → 翻了三四分钟 → 最后直接查库
 
 所以这条前置不能只作为「文档」，必须有一个**代码入口**：

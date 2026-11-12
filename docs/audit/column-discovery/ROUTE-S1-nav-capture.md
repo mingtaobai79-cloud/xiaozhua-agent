@@ -154,7 +154,7 @@ node <HERMES_HOME>/cache/scratch/colcap.js <输出路径>
 
 # 3. DB 只读校验（凭据由 conn.py 从 shared-credentials 读取，不打印）
 uv run --no-project --with pymysql python \
-  "<HERMES_HOME>/skills/seeyon/01-platform/seeyon-low-code-environment/scripts/conn.py" \
+  "<HERMES_HOME>/skills/seeyon/01-platform/xiaozhua-low-code-environment/scripts/conn.py" \
   db "SHOW TABLES LIKE '%portlet%'" --env=test2 --db=udc_test2
 ```
 

@@ -10,7 +10,7 @@ version: 1.0.0
 三方系统把 V8 页面嵌进他们的 iframe，用户在三方门户点击完成单点。不是钉钉→V8 方向，而是三方父页面通过 postMessage 发 authCode。
 
 ## 交互协议（张平/钉钉侧提供，已定）
-发：`{"type":"reqAuthCode","id":"唯一ID","channel":"seeyon","data":{"clientId":"dingtfp7grpdc9a2huti","corpId":"dingc6fe0934083fa30c4ac5d6980864d335"}}`
+发：`{"type":"reqAuthCode","id":"唯一ID","channel":"xiaozhua","data":{"clientId":"dingtfp7grpdc9a2huti","corpId":"dingc6fe0934083fa30c4ac5d6980864d335"}}`
 收：同 id、`code:200`、`data.authCode`。localStorage key 与生产父页面 origin 对方「晚一些给出」，跳板页留 CONFIG 占位不阻塞。
 
 ## 标品真实链路（源码证据，勿凭经验拼接）
@@ -33,12 +33,12 @@ version: 1.0.0
 ## 部署/配置
 - 跳板页部署在 V8 同域 nginx（如 /sso-bridge/index.html），不能放三方域。
 - 白名单在 Nacos 的 gateway 配置里放行 /sso-bridge/** 和 /oauth/home（用户明确白名单在 nacos gateway）。
-- 跳板页 CONFIG：clientId/corpId 已内置、parentOrigins 测试期 ['*'] 上生产换真实域名、lsKey 现为 seeyon_sso_authcode（与本地模拟页约定一致，生产 key 待对方给出后替换）、oauthHomePath 仅 frontBaseRoute 非根才改；webUrl 通过 URL 参数 encodeURIComponent 传入，代码里不写死业务地址。
+- 跳板页 CONFIG：clientId/corpId 已内置、parentOrigins 测试期 ['*'] 上生产换真实域名、lsKey 现为 xiaozhua_sso_authcode（与本地模拟页约定一致，生产 key 待对方给出后替换）、oauthHomePath 仅 frontBaseRoute 非根才改；webUrl 通过 URL 参数 encodeURIComponent 传入，代码里不写死业务地址。
 - 跳板页有 mode=sso（拼 /oauth/home，默认）与 mode=api（直调 /auth/third，备用对照）、debug=1 联调日志。
-- 产物目录：<SEEYON_AGENT_ROOT>\docs\deliverables\sso-bridge\（index.html 跳板页、server.js 本地静态服务、parent-simulator.html 三方父页面模拟器、oauth-home-stub.html 单点页桩、public/ 为 server.js 的静态根，改完 index.html 要 cp 进 public/）
+- 产物目录：<XIAOZHUA_AGENT_ROOT>\docs\deliverables\sso-bridge\（index.html 跳板页、server.js 本地静态服务、parent-simulator.html 三方父页面模拟器、oauth-home-stub.html 单点页桩、public/ 为 server.js 的静态根，改完 index.html 要 cp 进 public/）
 
 ## 本地全链路演练（无真 V8 也能验协议）
-1. `node "<SEEYON_AGENT_ROOT>/docs/deliverables/sso-bridge/server.js" 8090` 起静态服务（0.0.0.0，改 server.js 后必须重启进程才生效）。
+1. `node "<XIAOZHUA_AGENT_ROOT>/docs/deliverables/sso-bridge/server.js" 8090` 起静态服务（0.0.0.0，改 server.js 后必须重启进程才生效）。
 2. 钉钉/微信里打开 parent-simulator.html 链接（`http://<本机IP>:8090/parent-simulator.html`）：它内嵌跳板页 iframe、自动监听 reqAuthCode 并回 authCode（支持延迟/指定码/postMessage/localStorage/双通道三种模式），带全量通信日志。
 3. 跳板页拿到码后拼单点地址跳 `/oauth/home?...`；本地 server.js 把该路径接管到 oauth-home-stub.html，页面显示收到的 type/appId/corpId/web/code 五参数，type=DING_TALK 且 code 存在即显示「链路验证通过」。
 4. 演练只能验证协议收发与地址拼接；换登录态那段（/auth/third 种 cookie）必须把 index.html 部署到 V8 同域才能测。

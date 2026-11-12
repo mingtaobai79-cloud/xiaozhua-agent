@@ -1,6 +1,6 @@
 # udc.page.create（LIST 面）｜列表页能力事实格
 
-> 基线仓库根：`<SEEYON_AGENT_ROOT>`（本件只写 `core/facts/udc/page/list-page.md`，新建 `core/facts/udc/page/`）。
+> 基线仓库根：`<XIAOZHUA_AGENT_ROOT>`（本件只写 `core/facts/udc/page/list-page.md`，新建 `core/facts/udc/page/`）。
 > 九段固定序（1 Capability / 2 Version / 3 Input / 4 Required / 5 Execution / 6 Side Effects /
 > 7 Known Constraints / 8 Evidence / 9 Verified）。证据等级三档：`OBSERVED_LIVE` / `VERIFIED_STATIC_BYTECODE` / `UNVERIFIED`。
 > 每段引在盘证据（路径 + 行号/字段名），无证据项如实标 `UNVERIFIED`；**凭据 0 入件**（只引路径/对象 id/`expires_epoch`）。
@@ -174,7 +174,7 @@ body[0] = {
    `registry.py` L101-102（双斜杠条 `udc.entity_data.query_form_data`，`udc-runtime/data//query` 逐字保留）。
 9. **口径样板** — `core/facts/udc/entity/create.md`（B1 全格，本刀实测 sha256 前 16 = `f5476b8b948cedfa`）、
    `core/facts/udc/readonly-faces-batch2.md`、`core/facts/udc/runtime-data-read.md`（合并式 LIVE 格）。
-10. **目标目录缺口实测** — `<SEEYON_AGENT_ROOT>/core/facts/udc/` 本刀实测仅 `entity/`、`readonly-faces-batch2.md`、
+10. **目标目录缺口实测** — `<XIAOZHUA_AGENT_ROOT>/core/facts/udc/` 本刀实测仅 `entity/`、`readonly-faces-batch2.md`、
     `runtime-data-read.md`，**`page/` 不存在** → 本件新建 `core/facts/udc/page/`（符合缺口定位）。
 
 ## 9. Verified（逐项证据等级 + 未直读项）

@@ -31,7 +31,7 @@ Entity construction contract
 | Entity facade | `docs/audit/modules/decompiled/udc-facade-5.3.517-EntityAppService.java` | `fe11c35f36c122033662b1bcc650a5d11455c4b9c1e6cc8832b1c3e768182822` |
 | Application facade | `docs/audit/modules/decompiled/udc-facade-5.3.517-ApplicationManagerAppService.java` | `2abee3dd241c6308ab23268e410815de2993227122f90dd61339ed6916e9dad6` |
 | Runtime consumer | `docs/audit/modules/decompiled/udc-starter-runtime-5.3.517-EntityRuntimeService.java` | `4cb0e688038b4e954d05c084cbbea2c371e7592f18298ae0575a64aebecf6025` |
-| Front metadata handler | 本地 Temp decompiled source：`_cfr_com_seeyon_udc_autocode_metadata_config_EntityMetaDataPostProcessor` | 需进一步固化 manifest/hash |
+| Front metadata handler | 本地 Temp decompiled source：`_cfr_com_xiaozhua_udc_autocode_metadata_config_EntityMetaDataPostProcessor` | 需进一步固化 manifest/hash |
 
 ## 关键边界
 
@@ -70,7 +70,7 @@ unverified: [designer_create_payload, controller_mapping, persistence_write, met
 已从 `https://lowcode-test2.example.com/udc/` 读取并保存真实编译物：
 
 - `docs/audit/frontend/udc-remoteEntry.js`：47,554 bytes；webpack runtime 映射出 `entity-modeling`、`application`、`rule/microflow` 等 chunk。
-- `docs/audit/frontend/udc-manifest.json`（**客户场景证据，已迁出至 `seeyon-customer-evidence/frontend/`**，仓库内已无此路径）：`appId=udc`，hash=`10aaca62404d89a89a9d36be5ba93403`。
+- `docs/audit/frontend/udc-manifest.json`（**客户场景证据，已迁出至 `xiaozhua-customer-evidence/frontend/`**，仓库内已无此路径）：`appId=udc`，hash=`10aaca62404d89a89a9d36be5ba93403`。
 - 实体字段编辑 chunk：`src_pages_app-design_entity-modeling_entity-fieldset_index_tsx.fdeccdc6.js`，49,615 bytes。
 
 字段编辑器的静态行为已经观察到：
@@ -92,7 +92,7 @@ Form onFinish
 
 注意：这是字段构造，不是 Entity 本体创建。不能把 `postEntityAttribute` 误写成 `EntityAppService.create`。
 
-证据清单：`docs/audit/frontend/chunk-evidence-manifest.json`（**客户场景证据，已迁出至 `seeyon-customer-evidence/frontend/`**，仓库内已无此路径）。
+证据清单：`docs/audit/frontend/chunk-evidence-manifest.json`（**客户场景证据，已迁出至 `xiaozhua-customer-evidence/frontend/`**，仓库内已无此路径）。
 
 ## Field → API module → GraphQL contract（已闭合到 STATIC_RULE）
 
@@ -159,4 +159,4 @@ fetchEntityFieldDetailService
 
 - `docs/audit/frontend/chunks/src_pages_app-design_entity-modeling_entity-fieldset_index_tsx.fdeccdc6.js`
 - `docs/audit/frontend/chunks/src_redux_store_ts.14dc061e.js`
-- `docs/audit/frontend/entity-field-api-module-evidence.md`（**客户场景证据，已迁出至 `seeyon-customer-evidence/frontend/`**，仓库内已无此路径）
+- `docs/audit/frontend/entity-field-api-module-evidence.md`（**客户场景证据，已迁出至 `xiaozhua-customer-evidence/frontend/`**，仓库内已无此路径）

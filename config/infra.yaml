@@ -1,4 +1,4 @@
-# seeyon-agent 基础设施清单 v1 —— 数据库 / Redis / 存储 / Nacos 等公用设施
+# xiaozhua-agent 基础设施清单 v1 —— 数据库 / Redis / 存储 / Nacos 等公用设施
 # 铁律: 这里只登记"有什么、怎么连(引用键)", 具体连接值按环境覆盖; 值可来自环境变量/仓外文件, 永不入 git
 # 解析顺序: infra.yaml 键 -> environments.yaml 环境覆盖 -> 运行时注入(env/凭据文件)
 

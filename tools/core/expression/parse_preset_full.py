@@ -13,7 +13,7 @@ from pathlib import Path
 # 源文件：用户提供的 preset/list 完整原文（放在桌面）
 # 用 USERPROFILE 取，避免把本机用户名写进仓库（脱敏闸门会拦）
 SRC = Path(os.environ.get("USERPROFILE", str(Path.home()))) / "Desktop" / "新建 文本文档.txt"
-OUT_DIR = Path(r"<SEEYON_AGENT_ROOT>\core\facts\udc\expression")
+OUT_DIR = Path(r"<XIAOZHUA_AGENT_ROOT>\core\facts\udc\expression")
 
 raw = SRC.read_text(encoding="utf-8-sig", errors="replace")
 doc = json.loads(raw)

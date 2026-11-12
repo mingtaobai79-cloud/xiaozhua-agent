@@ -70,7 +70,7 @@ def _frontend(surface: dict) -> dict:
 
 
 def backend_artifacts(surface: dict) -> dict[str, str]:
-    """classpath 里的 seeyon 构件 → {artifactId: version}。"""
+    """classpath 里的 xiaozhua 构件 → {artifactId: version}。"""
     jars = _backend(surface)["compile_classpath"]["jars"]
     return {j["artifact"]: j["version"] for j in jars if j.get("group") == "com.seeyon"}
 
@@ -91,7 +91,7 @@ def declared_pom_dependencies(surface: dict, include_parent: bool = True) -> lis
 
 def frontend_packages(surface: dict) -> dict[str, str]:
     """node_modules/@seeyon/* → {包名: 版本}。"""
-    return {p["package"]: p.get("version") for p in _frontend(surface).get("seeyon_packages", [])
+    return {p["package"]: p.get("version") for p in _frontend(surface).get("xiaozhua_packages", [])
             if "package" in p}
 
 

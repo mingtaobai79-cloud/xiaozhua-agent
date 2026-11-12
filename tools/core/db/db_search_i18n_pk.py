@@ -3,7 +3,7 @@
 import pathlib
 import pymysql
 
-ENV = pathlib.Path("<HERMES_HOME>/skills/devops/seeyon-low-code-environment/.env")
+ENV = pathlib.Path("<HERMES_HOME>/skills/devops/xiaozhua-low-code-environment/.env")
 CANDIDATES = [
     ("app_common_test2", ["i18n_resource", "i18n_default_resource"]),
     ("udc_test2", ["udc_resource", "ctp_manager_resource"]),
@@ -24,8 +24,8 @@ def load_env():
 
 def main():
     cfg = load_env()
-    c = pymysql.connect(host=cfg["SEEYON_DB_HOST"], port=3306, user=cfg["SEEYON_DB_USERNAME"],
-                        password=cfg["SEEYON_DB_PASSWORD"], charset="utf8mb4",
+    c = pymysql.connect(host=cfg["XIAOZHUA_DB_HOST"], port=3306, user=cfg["XIAOZHUA_DB_USERNAME"],
+                        password=cfg["XIAOZHUA_DB_PASSWORD"], charset="utf8mb4",
                         connect_timeout=10, read_timeout=600)
     cur = c.cursor()
     for db, tables in CANDIDATES:

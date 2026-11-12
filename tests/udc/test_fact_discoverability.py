@@ -2,7 +2,7 @@
 
 为什么有这个测试
 ----------------
-真实事故（2026-10-23）：设置域功能都做完了，换个地方用 seeyon-agent 建枚举，
+真实事故（2026-10-23）：设置域功能都做完了，换个地方用 xiaozhua-agent 建枚举，
 **第一步 appGuid 就卡住** —— 搜 INDEX 搜不到，翻了三四分钟，最后直接查库。
 事实件其实存在（`core/facts/udc/setting/precondition-appguid.md`），
 只是没登记 INDEX。

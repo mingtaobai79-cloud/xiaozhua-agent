@@ -14,7 +14,7 @@ def test_gateway_request_rejects_write_methods():
 
 
 def test_gateway_request_allows_readonly_post():
-    # Seeyon UDC 只读端点（/udc-runtime/meta-data/*）业务上写=False 但 HTTP 方法为 POST。
+    # xiaozhua UDC 只读端点（/udc-runtime/meta-data/*）业务上写=False 但 HTTP 方法为 POST。
     req = GatewayRequest(method="POST", path="/udc/graphql", query="query { health }")
     assert req.method == "POST"
 
@@ -61,7 +61,7 @@ def test_gateway_client_normalizes_readonly_http_response():
 
 
 def test_gateway_client_allows_readonly_post_when_network_enabled():
-    # 只读 POST（Seeyon UDC 端点）已放行：网络开时不再 ValueError；
+    # 只读 POST（xiaozhua UDC 端点）已放行：网络开时不再 ValueError；
     # 请求带 body 且不触发写方法拒绝。写方法仍由 GatewayRequest 白名单拦。
     class FakeOpener:
         def __init__(self):

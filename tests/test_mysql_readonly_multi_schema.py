@@ -1,6 +1,6 @@
 """MySQL 只读 provider：安全门 + 多 schema 寻址 + 凭据解析。
 
-背景：seeyon test2 是「一个实例多个 schema」——元数据库 udc_test2、用户库
+背景：xiaozhua test2 是「一个实例多个 schema」——元数据库 udc_test2、用户库
 ctp_user_test2、组织库 organization_test2、每个应用的业务库 <appId>_test2 全在同一台。
 所以适配器不绑定单一 database，按 schema 名寻址；绑定单库会让跨库查询全部 1046。
 
@@ -146,8 +146,8 @@ def test_describe_table_queries_columns_and_indexes(monkeypatch):
 # ---------------------------------------------------------------- 凭据解析
 
 def test_explicit_args_win_over_env(monkeypatch):
-    monkeypatch.setenv("SEEYON_DB_HOST", "from-env")
-    monkeypatch.setenv("SEEYON_DB_USERNAME", "env-user")
+    monkeypatch.setenv("XIAOZHUA_DB_HOST", "from-env")
+    monkeypatch.setenv("XIAOZHUA_DB_USERNAME", "env-user")
     a = MySQLConnectionAdapter(host="explicit-host", user="explicit-user")
     cred = a._resolve()
     assert cred["host"] == "explicit-host"
@@ -155,9 +155,9 @@ def test_explicit_args_win_over_env(monkeypatch):
 
 
 def test_env_used_when_args_missing(monkeypatch):
-    monkeypatch.setenv("SEEYON_DB_HOST", "env-host")
-    monkeypatch.setenv("SEEYON_DB_USERNAME", "env-user")
-    monkeypatch.setenv("SEEYON_DB_PASSWORD", "env-pass")
+    monkeypatch.setenv("XIAOZHUA_DB_HOST", "env-host")
+    monkeypatch.setenv("XIAOZHUA_DB_USERNAME", "env-user")
+    monkeypatch.setenv("XIAOZHUA_DB_PASSWORD", "env-pass")
     a = MySQLConnectionAdapter()
     cred = a._resolve()
     assert cred["host"] == "env-host"
@@ -166,7 +166,7 @@ def test_env_used_when_args_missing(monkeypatch):
 
 
 def test_credential_file_used_as_last_resort(monkeypatch, tmp_path):
-    for k in ("SEEYON_DB_HOST", "SEEYON_DB_USERNAME", "SEEYON_DB_PASSWORD"):
+    for k in ("XIAOZHUA_DB_HOST", "XIAOZHUA_DB_USERNAME", "XIAOZHUA_DB_PASSWORD"):
         monkeypatch.delenv(k, raising=False)
     f = tmp_path / "cred.json"
     f.write_text('{"host":"file-host","user":"file-user","password":"file-pass"}',
@@ -180,7 +180,7 @@ def test_credential_file_used_as_last_resort(monkeypatch, tmp_path):
 def test_missing_host_returns_unavailable_result(monkeypatch):
     """缺 host 时 provider 层返回 error 结果，而不是抛异常（仓库约定）。"""
     from providers.mysql_readonly import _ConnFailure
-    for k in ("SEEYON_DB_HOST", "SEEYON_DB_USERNAME", "SEEYON_DB_PASSWORD"):
+    for k in ("XIAOZHUA_DB_HOST", "XIAOZHUA_DB_USERNAME", "XIAOZHUA_DB_PASSWORD"):
         monkeypatch.delenv(k, raising=False)
     a = MySQLConnectionAdapter()
     # adapter 内部抛 _ConnFailure（承载 ProviderError），边界处转 ProviderResult

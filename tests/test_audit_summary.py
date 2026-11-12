@@ -25,7 +25,7 @@ def test_audit_summary_reads_three_reports_and_udc_json(tmp_path):
     udc.write_text(json.dumps({"status": "FACT", "artifact_version": "5.3.517", "counts": {"endpoints": 2}}), encoding="utf-8")
 
     result = subprocess.run(
-        [sys.executable, "-m", "seeyon_cli", "audit-summary", "--audit-dir", str(audit), "--udc-json", str(udc)],
+        [sys.executable, "-m", "xiaozhua_cli", "audit-summary", "--audit-dir", str(audit), "--udc-json", str(udc)],
         cwd=ROOT, capture_output=True, text=True,
     )
 
@@ -44,7 +44,7 @@ def test_audit_summary_reads_three_reports_and_udc_json(tmp_path):
 
 def test_audit_summary_reports_missing_inputs_without_traceback(tmp_path):
     result = subprocess.run(
-        [sys.executable, "-m", "seeyon_cli", "audit-summary", "--audit-dir", str(tmp_path), "--udc-json", str(tmp_path / "missing.json")],
+        [sys.executable, "-m", "xiaozhua_cli", "audit-summary", "--audit-dir", str(tmp_path), "--udc-json", str(tmp_path / "missing.json")],
         cwd=ROOT, capture_output=True, text=True,
     )
 

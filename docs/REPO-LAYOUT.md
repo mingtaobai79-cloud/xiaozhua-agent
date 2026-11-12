@@ -1,4 +1,4 @@
-# 2小爪 Agent 目录约定
+# xiaozhua Agent 目录约定
 
 > 2026-10-20 清理后确立。目的是让"这是资产还是垃圾"一眼可判。
 
@@ -19,8 +19,8 @@
 
 | 文件 | 用途 |
 |---|---|
-| `seeyon_cli.py` | CLI 主入口（capabilities / op-execute / generate 等） |
-| `seeyon_host_bootstrap.py` | 宿主装配（`bootstrap()`） |
+| `xiaozhua_cli.py` | CLI 主入口（capabilities / op-execute / generate 等） |
+| `xiaozhua_host_bootstrap.py` | 宿主装配（`bootstrap()`） |
 | `scripts/run_live_readonly.py` | 活体只读 4 端点 |
 | `scripts/run_multi_live_test.py` | 三类多轮活体 |
 | `http.json` `integration.json` `runtime.json` | 运行时配置（被代码读取） |
@@ -38,7 +38,7 @@
 | `docs/audit/<专题>/` | 审计报告 |
 | `docs/plans/hermes/` | 计划文档 |
 | `docs/audit/deferred/_deferred/` | 暂缓实现（v0.2 才启用） |
-| `skills/seeyon-agent/SKILL.md` | 宿主侧 skill 定义 |
+| `skills/xiaozhua-agent/SKILL.md` | 宿主侧 skill 定义 |
 | `installer/` | 对外发布说明 |
 
 ### 工具

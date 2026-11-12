@@ -11,7 +11,7 @@
 
 规则
 ----
-tools 脚本必须通过 `--app-id` 或 `SEEYON_APP_ID` 拿 appId，
+tools 脚本必须通过 `--app-id` 或 `XIAOZHUA_APP_ID` 拿 appId，
 **不允许出现默认 appId**（默认值写错应用比报错危险得多）。
 
 例外（白名单，逐个说明理由）：
@@ -73,7 +73,7 @@ def test_tools_have_no_hardcoded_app_id():
             if line.lstrip().startswith("#"):
                 continue
             bad.append("%s:%d  %s" % (rel, i, line.strip()[:90]))
-    assert not bad, "tools 脚本写死 appId（改用 --app-id / SEEYON_APP_ID）:\n  " + \
+    assert not bad, "tools 脚本写死 appId（改用 --app-id / XIAOZHUA_APP_ID）:\n  " + \
                     "\n  ".join(bad[:12])
 
 
@@ -99,7 +99,7 @@ def test_env_refuses_to_guess_app_id():
     try:
         resolve_app_id(None)
     except EnvError as exc:
-        assert "appId" in str(exc) and "SEEYON_APP_ID" in str(exc)
+        assert "appId" in str(exc) and "XIAOZHUA_APP_ID" in str(exc)
     else:
         raise AssertionError("缺 appId 应抛 EnvError，不能给默认值")
 

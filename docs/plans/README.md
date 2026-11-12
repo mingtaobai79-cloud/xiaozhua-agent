@@ -9,7 +9,7 @@
 | 文件 | 内容 | 状态 |
 |---|---|---|
 | `doc-consolidation-progress.md` | 文档整理循环的**入口卡片**（P0–P6 状态表 + 4 条待裁决 + 下一批候选） | ✅ P0–P6 全关闭；逐轮记录已迁 `docs/ledger/LOG-doc-consolidation-20261107-rounds1-15.md` |
-| `seeyon-distribution-progress.md` | 能力包整理入口卡片（已完成 / 阻塞 / 下一步） | 🟡 阻塞中（无正式可安装包） |
+| `xiaozhua-distribution-progress.md` | 能力包整理入口卡片（已完成 / 阻塞 / 下一步） | 🟡 阻塞中（无正式可安装包） |
 | `microflow-100-plan.md` | 微流程 100% 可生成化方案（2026-10-16 起） | ⚪ 参考（节点事实仍有缺口，见 `doc-consolidation-progress.md` P4 B 组） |
 
 ## 历史计划（已执行或已过期，保留作记录）

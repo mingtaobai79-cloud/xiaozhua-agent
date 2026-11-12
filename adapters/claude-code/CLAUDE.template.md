@@ -7,17 +7,17 @@
 
 ## 1. 身份与铁律
 
-- 2小爪 Agent = **嵌入宿主（Claude Code）的组件，不是独立 agent**（`docs/HOST-INTEGRATION.md` L3
-  原文；ROADMAP-v2 §一.2 L12–L14："2小爪 Agent = 可安装的 **Agent 角色 + 能力包**…不自研 Agent
+- xiaozhua Agent = **嵌入宿主（Claude Code）的组件，不是独立 agent**（`docs/HOST-INTEGRATION.md` L3
+  原文；ROADMAP-v2 §一.2 L12–L14："xiaozhua Agent = 可安装的 **Agent 角色 + 能力包**…不自研 Agent
   Loop / 记忆 / Planner / Agent OS"）。
-- **CC 提供 Loop（在仓库根自动读 CLAUDE.md + tool use Bash），2小爪 只出 data**（A8
+- **CC 提供 Loop（在仓库根自动读 CLAUDE.md + tool use Bash），xiaozhua 只出 data**（A8
   `docs/capability/AGENT-ADAPTER.md` §一 L24–L25 定稿口径 + §三 CC 暴露形态 L64；
   HOST-INTEGRATION §3 CC 段 L31："CC 在仓库根自动读取本文件；tool use 用 Bash…"）。
 - 三级定位同口径：`core/role/ROLE-CARD.md` §1（S1 已建）。
 
 ## 2. 能力面（bootstrap 五能力 + capabilities）
 
-（锚点 `seeyon_host_bootstrap.py`，返回 dict L136–L151；`capabilities` L144–L150）
+（锚点 `xiaozhua_host_bootstrap.py`，返回 dict L136–L151；`capabilities` L144–L150）
 
 | 能力 | 行号 | 入参 | 返回 / 边界 | 只读性 |
 |---|---|---|---|---|
@@ -29,7 +29,7 @@
 
 `capabilities` dict 实测键（L144–L150）：`components`（= registry 3 组件 `integration`/`runtime`/
 `udc`）、`readonly_only=True`、`credential_mode="path-ref-only"`、
-`deployment_plan="readonly data; host executes the write steps"`、`schema="seeyon-host-bootstrap.v1"`。
+`deployment_plan="readonly data; host executes the write steps"`、`schema="xiaozhua-host-bootstrap.v1"`。
 组件面来源 = `core/registry.py` ComponentRegistry（在盘）。
 
 ## 3. 调用方式（CC 特有，区别于 Codex 的 shell 调 op-execute）
@@ -40,7 +40,7 @@
     当前实测 1490 passed / 1 failed / 21 skipped，红项属 scratch 依赖的环境项，见 §8）；
   - `scripts/run_live_readonly.py --credential-file <path> --allow-network`（活体 4 端点，脚本在盘 **3851 B**）；
   - `scripts/run_multi_live_test.py --allow-network --credential-file <path>`（三类多轮，脚本在盘 **7455 B**）。
-- **不是** Codex 那套 shell 调 `seeyon_cli op-execute`（那属 HOST-INTEGRATION §3 Codex 段 L34–L37，
+- **不是** Codex 那套 shell 调 `xiaozhua_cli op-execute`（那属 HOST-INTEGRATION §3 Codex 段 L34–L37，
   S4 不取；两段为并列的两个宿主接入要点）。
 - 长任务/多轮打法：交 `core/skills/udc-entity-dev.md`（B3，见 §6），宿主 Bash 逐步执行。
 
@@ -52,20 +52,20 @@
 
 | 项 | 精确约定 | 机制锚点 |
 |---|---|---|
-| 凭据载体 | **CC 宿主侧**用环境变量 `SEEYON_CRED_FILE` 指向仓外凭据 JSON（HOST-INTEGRATION L32 原文） | 机制原文 = `docs/HOST-INTEGRATION.md` L32；**传输层已读取该 env**（`adapters/mcp/server.py` L178 `os.environ.get("SEEYON_CRED_FILE")`），仅作路径载体、值 0 入件 |
-| 凭据传递 | **CC 宿主据 `SEEYON_CRED_FILE` 定位仓外凭据文件路径，再把该路径传给能力面 `credential_file`（bootstrap 入参）/ `--credential-file`（CLI 入参）——`path-ref-only`** | bootstrap L25/L96（`credential_file` 入参）；`credential_mode="path-ref-only"`（L147）；seeyon_cli.py L191；MCP 侧 `server.py` L178 |
-| 关键澄清（2026-10-19 更正） | **旧表述"2小爪 能力面不直接读该 env / 全仓仅 L32 一处、无 Python 代码读取"已作废**——实测 `adapters/mcp/server.py` L178 确有读取（作为 MCP 传输层凭据路径载体）。**仍未实现的是**：CC 宿主侧自己把该 env 落到 `credential_file` 的注入工序 | `grep -rn SEEYON_CRED_FILE` 实测命中：`docs/HOST-INTEGRATION.md` L32、`adapters/mcp/server.py` L178、`adapters/mcp/DESIGN.md` L107/L174、`adapters/mcp/STATUS.md` L20 |
+| 凭据载体 | **CC 宿主侧**用环境变量 `XIAOZHUA_CRED_FILE` 指向仓外凭据 JSON（HOST-INTEGRATION L32 原文） | 机制原文 = `docs/HOST-INTEGRATION.md` L32；**传输层已读取该 env**（`adapters/mcp/server.py` L178 `os.environ.get("XIAOZHUA_CRED_FILE")`），仅作路径载体、值 0 入件 |
+| 凭据传递 | **CC 宿主据 `XIAOZHUA_CRED_FILE` 定位仓外凭据文件路径，再把该路径传给能力面 `credential_file`（bootstrap 入参）/ `--credential-file`（CLI 入参）——`path-ref-only`** | bootstrap L25/L96（`credential_file` 入参）；`credential_mode="path-ref-only"`（L147）；xiaozhua_cli.py L191；MCP 侧 `server.py` L178 |
+| 关键澄清（2026-10-19 更正） | **旧表述"xiaozhua 能力面不直接读该 env / 全仓仅 L32 一处、无 Python 代码读取"已作废**——实测 `adapters/mcp/server.py` L178 确有读取（作为 MCP 传输层凭据路径载体）。**仍未实现的是**：CC 宿主侧自己把该 env 落到 `credential_file` 的注入工序 | `grep -rn XIAOZHUA_CRED_FILE` 实测命中：`docs/HOST-INTEGRATION.md` L32、`adapters/mcp/server.py` L178、`adapters/mcp/DESIGN.md` L107/L174、`adapters/mcp/STATUS.md` L20 |
 | token 纪律 | token 明文 0 入 CLAUDE.md/代码/仓/会话；凭据文件放仓外（`*_credential.json` gitignore 防线） | HOST-INTEGRATION §4 L43 |
-| 离线开关 | 活体需显式 `--allow-network`（默认关=离线只读） | seeyon_cli.py L196；bootstrap `allow_network` 默认 False（L25） |
+| 离线开关 | 活体需显式 `--allow-network`（默认关=离线只读） | xiaozhua_cli.py L196；bootstrap `allow_network` 默认 False（L25） |
 
-> 实装状态：`SEEYON_CRED_FILE` **传输层读取已实装**（`server.py` L178）；**CC 宿主侧注入工序未实现**
+> 实装状态：`XIAOZHUA_CRED_FILE` **传输层读取已实装**（`server.py` L178）；**CC 宿主侧注入工序未实现**
 > （§8）；本件只写机制描述，不引值。
 
 ## 5. 红线（与 HOST-INTEGRATION §4 安全边界 L39–L45 一致）
 
 1. 写操作（create/update/delete/publish/deploy）一律 **DENIED**——policy gate **拒绝，非提示性**
-   （§4 L42 原文；`seeyon_cli.py` L183 `udc-execute` "writes are denied"，退出码 2，`README.md` L96–L100）。
-2. token 明文 0 入产物/git/会话；凭据文件放仓外（§4 L43；本件只写 `SEEYON_CRED_FILE`/`credential_file`
+   （§4 L42 原文；`xiaozhua_cli.py` L183 `udc-execute` "writes are denied"，退出码 2，`README.md` L96–L100）。
+2. token 明文 0 入产物/git/会话；凭据文件放仓外（§4 L43；本件只写 `XIAOZHUA_CRED_FILE`/`credential_file`
    路径引用机制，不写任何凭据值）。
 3. STATIC/UNVERIFIED 不得报成 LIVE PASS；UNVERIFIED 方法体不臆造（§4 L44；`README.md` L28）。
 4. 默认离线只读；活体需显式 `--allow-network` + 凭据路径引用（§4 L41）。
@@ -80,7 +80,7 @@
 
 ## 7. v1 基线声明（禁虚写）
 
-- **CC 无在盘 v1 基线**：`skills/` 下只有 Hermes（`seeyon-agent/SKILL.md`，1885 B）；`core/skills/`
+- **CC 无在盘 v1 基线**：`skills/` 下只有 Hermes（`xiaozhua-agent/SKILL.md`，1885 B）；`core/skills/`
   只有 B3 打法（`udc-entity-dev.md`）。本件 = **CC 宿主首个注册件（从零建）**，不是 S2 那种"v1 升级"；
   **不写"CC 已有 v1 基线/已存在"**。
 
@@ -91,7 +91,7 @@
   sha256 `d20b47e8…`，commit `3595d7e`，`pytest tests/test_mcp_server.py -q` = **19 passed**，
   `protocolVersion=2024-11-05`，五 tool，凭据 path-ref-only，默认离线）。
 - **仍未实现**：① CC 侧 MCP 注册/接入配置（`.mcp.json` / `claude mcp add` + `CLAUDE.md` 装载）
-  ② v2 CC 专属 tool schema ③ 宿主注入 policy/context/session 三 Port ④ `SEEYON_CRED_FILE`
+  ② v2 CC 专属 tool schema ③ 宿主注入 policy/context/session 三 Port ④ `XIAOZHUA_CRED_FILE`
   → `credential_file` 的 CC 宿主侧注入工序。
 - **环境依赖（BLOCKED，不在本切片可写路径）**：全量 `pytest tests -q` 实测
   **1490 passed / 1 failed / 21 skipped**；失败项
@@ -99,5 +99,5 @@
   依赖 `<HERMES_HOME>/cache/scratch/sup_v2`（scratch 24h 清理，jar 成员清单 94 jar / 1170 class
   无在盘可复现来源，证据件按字节判等 ⇒ 不可重建），属 udc-semantics 线，已登记 BLOCKED。
 - 不改 `components/`、`core/`（含 `core/role/`/`core/facts/`/`core/skills/`）、`skills/`、
-  `docs/capability/`、`tests/`、`seeyon_cli.py`、`seeyon_host_bootstrap.py`、`adapters/mcp/**`、
+  `docs/capability/`、`tests/`、`xiaozhua_cli.py`、`xiaozhua_host_bootstrap.py`、`adapters/mcp/**`、
   已交付的 `adapters/hermes/`、`adapters/codex/`；凭据 0 入件；禁 `git push`；不写可运行 MCP server 代码。

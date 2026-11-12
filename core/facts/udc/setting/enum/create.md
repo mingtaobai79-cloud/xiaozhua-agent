@@ -3,7 +3,7 @@
 > 前置：本文所有 `udc*Post` 必填的 `appGuid`，取法见 [`precondition-appguid.md`](../precondition-appguid.md)（用 `udcApplicationDetailGet` 接口查，appGuid ≠ appId，无需查库）。
 > **状态：LIVE PASS**（2026-10-20 三段写入链全通 + DB 回读 + 设计器 UI 抓包交叉证实）
 > 目标环境：test2，`datamigration9000000000000000001`
-> 验证方式：seeyon-agent 自身能力（`build_*` → `validate_*` → 提交 → DB 回读）
+> 验证方式：xiaozhua-agent 自身能力（`build_*` → `validate_*` → 提交 → DB 回读）
 > 详细请求体、报错字典、踩坑清单见 **`core/facts/udc/setting/enum/enum-write-chain.md`**（本文件是事实格摘要）
 
 ## R-E1 Capability
@@ -77,7 +77,7 @@ POST /service/udc/graphql?udcEnumItemPost
 **代码落点**：
 - 构造器 `components/construction/metadata_artifacts.py`：`build_enum_body` / `build_enum_category_body` / `build_enum_item_body`
 - 校验器 `components/udc/setting/enum_constraints.py`：`validate_enum_body` / `validate_enum_category_body` / `validate_enum_item_body`
-- 宿主入口 `seeyon_host_bootstrap.py`：`enum_body` / `enum_category_body` / `enum_item_body`
+- 宿主入口 `xiaozhua_host_bootstrap.py`：`enum_body` / `enum_category_body` / `enum_item_body`
 
 ## R-E6 Side Effects + 回滚
 

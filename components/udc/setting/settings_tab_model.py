@@ -20,7 +20,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Any
 
-SCHEMA_ID = "udc.seeyon-agent.settings-tab-catalog.v1"
+SCHEMA_ID = "udc.xiaozhua-agent.settings-tab-catalog.v1"
 
 CALLBACK_FORMS: dict[str, str] = {
     "A": "queryLoader.load({fieldType,paramsType,paramsKey,params,queryFields})",

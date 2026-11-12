@@ -9,8 +9,8 @@ import zipfile
 from pathlib import Path
 
 JAR = Path(r"<MAVEN_REPO>/com/seeyon/bpm-facade/5.3.374/bpm-facade-5.3.374.jar")
-CFR = Path(r"<HERMES_HOME>/skills/software-development/seeyon-v8-spi/seeyon-v8-spi/references/contract-index/tools/cfr.jar")
-OUT = Path(r"<SEEYON_AGENT_ROOT>/docs/audit/modules/decompiled/bpm-addsign")
+CFR = Path(r"<HERMES_HOME>/skills/software-development/xiaozhua-v8-spi/xiaozhua-v8-spi/references/contract-index/tools/cfr.jar")
+OUT = Path(r"<XIAOZHUA_AGENT_ROOT>/docs/audit/modules/decompiled/bpm-addsign")
 OUT.mkdir(parents=True, exist_ok=True)
 
 TARGETS = [

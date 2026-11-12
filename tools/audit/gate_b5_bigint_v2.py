@@ -20,7 +20,7 @@ v2 设计（结构性修正，不是补几条断言）：
 """
 import hashlib, json, pathlib, re, sys
 
-REPO = pathlib.Path(r"<SEEYON_AGENT_ROOT>")
+REPO = pathlib.Path(r"<XIAOZHUA_AGENT_ROOT>")
 DOC = REPO / "docs/audit/entity-field-matrix/SLICE-B5-BIGINTEGER-static.md"
 ASSET_E = REPO / "docs/audit/entity-field-matrix/assets/bundle-SEG-E_Etable.js.txt"
 ASSET_T = REPO / "docs/audit/entity-field-matrix/assets/bundle-SEG-T_WB_range.js.txt"

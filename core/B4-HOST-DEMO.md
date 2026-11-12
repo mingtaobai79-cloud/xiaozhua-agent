@@ -8,7 +8,7 @@
       （5 枚举值域 + 1 unknown 如实标 + 5 evidence 分级）
 - [3] core/tools/udc/ 4 tool 声明与 4 步方案一一对齐 ✓
 - [4] core/facts/udc/entity/create.md 九段式齐、证据等级逐段标 ✓
-- [5] bootstrap schema=seeyon-host-bootstrap.v1（离线态，未动 test2）✓
+- [5] bootstrap schema=xiaozhua-host-bootstrap.v1（离线态，未动 test2）✓
 
 判定：B4=PASS。样板链 A→B→演示全链跑通，第一阶段完成定义（A 八件+B 样板格+演示验收）达成。
 边界：本次演示为 dry（不向 test2 发起真实写请求）；真实写链已在 09-24 验收单上 LIVE 实证过（实体 7670732978062038177 + 4 属性 + 2 页面 + RELEASE 构建 + 物理表）。

@@ -1,7 +1,7 @@
 # runtime-engine-location.contract｜B-8 微流程执行引擎定位
 
 > 切片：B-8（HANDOFF 20261018T031306Z）｜证据等级：**STATIC**（全部字节码/常量池证据，0 /service，0 写，0 DB）
-> 仓库：<SEEYON_AGENT_ROOT>｜HEAD：d946c0d（本切片未 commit 前的基线）
+> 仓库：<XIAOZHUA_AGENT_ROOT>｜HEAD：d946c0d（本切片未 commit 前的基线）
 > 目标：定位微流程运行时执行引擎；判定执行链是否有 state 条件（B-7 遗留#1 指定证据源）
 
 ---

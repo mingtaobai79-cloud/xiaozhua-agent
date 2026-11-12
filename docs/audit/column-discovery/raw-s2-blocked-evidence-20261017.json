@@ -115,7 +115,7 @@
     "note": "only one live ingress IP; 10.0.0.1 did not answer TLS (000)"
   },
   "db_readonly_baseline": {
-    "tool": "<HERMES_HOME>/skills/seeyon/01-platform/seeyon-low-code-environment/scripts/conn.py",
+    "tool": "<HERMES_HOME>/skills/seeyon/01-platform/xiaozhua-low-code-environment/scripts/conn.py",
     "note": "SELECT only; proves zero write happened during blocked S2",
     "target_app_portlet_total": "[{\"total\": 0}]",
     "global_portlet_total": "[{\"c\": 157}]",

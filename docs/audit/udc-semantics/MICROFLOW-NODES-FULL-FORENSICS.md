@@ -160,7 +160,7 @@ FOR_F9Jlvj 的所有必填属性=> ["forStart","forEnd","forStep","targetName"]
 ## 八、自证
 
 ```bash
-cd <SEEYON_AGENT_ROOT>
+cd <XIAOZHUA_AGENT_ROOT>
 
 # 单节点探针
 python scratch/probe_node_full.py 类型转换

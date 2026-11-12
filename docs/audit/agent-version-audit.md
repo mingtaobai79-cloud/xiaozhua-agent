@@ -1,13 +1,13 @@
-# 2小爪 Agent 当前工程版本边界与文档漂移审计
+# xiaozhua Agent 当前工程版本边界与文档漂移审计
 
-- **目标工程：** `<SEEYON_AGENT_ROOT>`
+- **目标工程：** `<XIAOZHUA_AGENT_ROOT>`
 - **审计范围：** README、`pyproject.toml`、CLI capabilities、测试收集/执行结果及既有本地审计文档
 - **安全边界：** 仅本地读取与测试；未连接 test2，未执行外部写操作
 - **审计结论：** `PARTIALLY VERIFIED`
 
 ## 结论摘要
 
-当前工程是一个可执行、可测试的**离线只读骨架**，不是已接入真实 2小爪 运行环境的完整 Agent。代码包版本为 `0.1.0`；Test collection: `3201 tests collected`，收集数不等于通过数，实际执行结果见 `docs/plans/seeyon-distribution-progress.md`。CLI `capabilities` 实际声明 `udc`、`runtime`、`integration` 三个只读组件，网络边界为 `disabled`；README 中关于 SPI “占位、未实现或注册”的描述与代码一致。
+当前工程是一个可执行、可测试的**离线只读骨架**，不是已接入真实 xiaozhua 运行环境的完整 Agent。代码包版本为 `0.1.0`；Test collection: `3201 tests collected`，收集数不等于通过数，实际执行结果见 `docs/plans/xiaozhua-distribution-progress.md`。CLI `capabilities` 实际声明 `udc`、`runtime`、`integration` 三个只读组件，网络边界为 `disabled`；README 中关于 SPI “占位、未实现或注册”的描述与代码一致。
 
 此前文档中出现过若干历史测试计数，本次以当前 checkout 的实际全量运行结果为准，旧计数不再作为当前版本依据，本次以当前 checkout 的实际全量运行结果为准，旧计数不再作为当前版本依据。
 
@@ -19,11 +19,11 @@
 |---|---|---|---|
 | Python package version | `0.1.0` | `pyproject.toml` `[project].version` | **FACT** |
 | Python requirement | `>=3.12` | `pyproject.toml` | **FACT** |
-| CLI entry | `python -m seeyon_cli` / `seeyon_cli.py` | CLI source and subprocess help | **FACT** |
+| CLI entry | `python -m xiaozhua_cli` / `xiaozhua_cli.py` | CLI source and subprocess help | **FACT** |
 | installable console script | 未声明 `[project.scripts]` | `pyproject.toml` | **FACT / GAP** |
 | supported implementation shape | Core + UDC + Runtime + Integration；SPI 无注册实现 | source inventory and capabilities | **FACT** |
 
-代码版本只描述仓库声明与实际源码形态，不等于 2小爪 平台版本兼容性，也不等于生产部署版本。
+代码版本只描述仓库声明与实际源码形态，不等于 xiaozhua 平台版本兼容性，也不等于生产部署版本。
 
 ### 2. 事实版本（Evidence/data version）
 
@@ -81,12 +81,12 @@
 | 验证层 | 当前结果 | 状态 |
 |---|---|---|
 | Test collection | `1563 tests` | **VERIFIED** |
-| Full deterministic suite | 最近执行结果见 `docs/plans/seeyon-distribution-progress.md` | **按运行记录核验** |
+| Full deterministic suite | 最近执行结果见 `docs/plans/xiaozhua-distribution-progress.md` | **按运行记录核验** |
 | Documentation contract tests | README/pyproject/capabilities/audit report contracts pass in full suite | **FOCUSED VERIFIED** |
 | CLI capabilities subprocess | RC 0; JSON；`mode=read-only`；`network=disabled`；组件为 `udc/runtime/integration` | **REAL LOCAL SMOKE VERIFIED** |
 | CLI help | RC 0；列出 13 个子命令；缺参由 argparse 返回 RC 2（既有测试覆盖） | **REAL LOCAL SMOKE VERIFIED** |
 | Python syntax | 全仓 `python -m compileall -q components tools tests` 无错误（顺带清除 0ec93ee 引入的截断坏孤儿 `tools/verify_addsign_issues_owner.py`，7 行字符串未闭合、无引用） | **REGRESSION VERIFIED** |
-| Git baseline/diff | `<SEEYON_AGENT_ROOT>` 现为 Git worktree（基线 e5d324c→7dcbc10→坏孤儿清除 commit），逐行 diff 可复核；纯本地仓不 push | **FOCUSED VERIFIED** |
+| Git baseline/diff | `<XIAOZHUA_AGENT_ROOT>` 现为 Git worktree（基线 e5d324c→7dcbc10→坏孤儿清除 commit），逐行 diff 可复核；纯本地仓不 push | **FOCUSED VERIFIED** |
 | 部署态构件 tag 复验 | 19/19 相同 / 差异 0（2026-10-15，K8s API 只读 `GET pods`，pod 总数 79） | **LIVE VERIFIED** |
 
 测试通过只证明当前本地解释器和离线输入下的代码行为，不证明外部环境、实时 HTTP/Kubernetes、数据库、Redis、发布或部署。
@@ -101,7 +101,7 @@
 - Runtime/Integration 的实时适配器能力；当前仅读取本地 snapshot/provider；
 - SPI 实际组件能力；当前只有路由占位，没有注册实现；
 - UDC 动态 DTO、完整前后端请求合同、生成/发布状态机与幂等性；
-- install/package 后的 `seeyon` console script；`pyproject.toml` 未声明脚本入口；
+- install/package 后的 `xiaozhua` console script；`pyproject.toml` 未声明脚本入口；
 - 真实 test2、Pod、Ingress/OSS、GraphQL、数据库和缓存环境；镜像 tag 之下的 `BOOT-INF/lib` 构件全量（`pods/exec` 为 RBAC `forbidden`）。
 
 ## README / pyproject / CLI 对照
@@ -133,11 +133,11 @@ python -m pytest tests --collect-only -q
 python -m pytest tests -q
 历史基线已更新
 
-python -m seeyon_cli capabilities
+python -m xiaozhua_cli capabilities
 RC=0
 JSON: mode=read-only, network=disabled, components=[udc, runtime, integration]
 
-python -m seeyon_cli --help
+python -m xiaozhua_cli --help
 RC=0
 14 subcommands listed
 

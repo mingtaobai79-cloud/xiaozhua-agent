@@ -13,7 +13,7 @@
     from tools.core._env import bootstrap, resolve_app_id, connect_db
 
     ap = argparse.ArgumentParser()
-    ap.add_argument("--app-id", help="UDC 应用 id（也可用 SEEYON_APP_ID）")
+    ap.add_argument("--app-id", help="UDC 应用 id（也可用 XIAOZHUA_APP_ID）")
     args, client = bootstrap(ap)          # 建好 CDP 连接
     app_id = resolve_app_id(args.app_id)  # 缺失就报错退出，不给默认值
 
@@ -33,14 +33,14 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parents[2]
 
 # .env 由外部技能目录提供；允许用环境变量覆盖，便于容器/CI
-ENV_FILE = Path(os.environ.get("SEEYON_ENV_FILE")
-                or r"<HERMES_HOME>\skills\seeyon\01-platform"
-                   r"\seeyon-low-code-environment\.env")
-ENV_SCRIPTS = Path(os.environ.get("SEEYON_ENV_SCRIPTS")
-                   or r"<HERMES_HOME>\skills\seeyon\01-platform"
-                      r"\seeyon-low-code-environment\scripts")
+ENV_FILE = Path(os.environ.get("XIAOZHUA_ENV_FILE")
+                or r"<HERMES_HOME>\skills\xiaozhua\01-platform"
+                   r"\xiaozhua-low-code-environment\.env")
+ENV_SCRIPTS = Path(os.environ.get("XIAOZHUA_ENV_SCRIPTS")
+                   or r"<HERMES_HOME>\skills\xiaozhua\01-platform"
+                      r"\xiaozhua-low-code-environment\scripts")
 
-DEFAULT_PORT = int(os.environ.get("SEEYON_CDP_PORT", "0") or 0)
+DEFAULT_PORT = int(os.environ.get("XIAOZHUA_CDP_PORT", "0") or 0)
 
 
 class EnvError(RuntimeError):
@@ -51,7 +51,7 @@ def load_env(env: str = "test2") -> dict:
     """加载平台环境配置（数据库等）。找不到 .env 直接报错。"""
     if not ENV_FILE.is_file():
         raise EnvError(
-            "找不到环境文件：%s（可用 SEEYON_ENV_FILE 指定）" % ENV_FILE)
+            "找不到环境文件：%s（可用 XIAOZHUA_ENV_FILE 指定）" % ENV_FILE)
     for line in ENV_FILE.read_text(encoding="utf-8").splitlines():
         line = line.strip()
         if "=" in line and not line.startswith("#"):
@@ -68,11 +68,11 @@ def resolve_app_id(app_id: str | None, *, required: bool = True) -> str:
 
     ★ 永远不返回默认值。`required=False` 时返回 None（给纯平台级脚本用）。
     """
-    val = (app_id or os.environ.get("SEEYON_APP_ID") or "").strip()
+    val = (app_id or os.environ.get("XIAOZHUA_APP_ID") or "").strip()
     if not val:
         if required:
             raise EnvError(
-                "缺少 appId：请传 --app-id，或设环境变量 SEEYON_APP_ID。\n"
+                "缺少 appId：请传 --app-id，或设环境变量 XIAOZHUA_APP_ID。\n"
                 "  （本工具不提供默认 appId —— 用错的 appId 会把数据写到别的应用）")
         return None
     if not val.isdigit():
@@ -88,7 +88,7 @@ def resolve_port(port: int | None, *, default: int | None = None) -> int:
         return DEFAULT_PORT
     if default:
         return int(default)
-    raise EnvError("缺少 CDP 端口：请传 --port，或设 SEEYON_CDP_PORT")
+    raise EnvError("缺少 CDP 端口：请传 --port，或设 XIAOZHUA_CDP_PORT")
 
 
 def connect_db(cfg: dict | None = None, database: str = "udc_test2"):
@@ -100,10 +100,10 @@ def connect_db(cfg: dict | None = None, database: str = "udc_test2"):
 
     cfg = cfg or load_env()
     m = cfg["mysql"]
-    user = os.environ.get("SEEYON_DB_USERNAME")
-    pwd = os.environ.get("SEEYON_DB_PASSWORD")
+    user = os.environ.get("XIAOZHUA_DB_USERNAME")
+    pwd = os.environ.get("XIAOZHUA_DB_PASSWORD")
     if not user or not pwd:
-        raise EnvError("缺数据库凭据：SEEYON_DB_USERNAME / SEEYON_DB_PASSWORD")
+        raise EnvError("缺数据库凭据：XIAOZHUA_DB_USERNAME / XIAOZHUA_DB_PASSWORD")
     return pymysql.connect(
         host=m["host"], port=int(m["port"]), user=user, password=pwd,
         database=database, charset="utf8mb4",
@@ -129,10 +129,10 @@ def bootstrap(parser: argparse.ArgumentParser, *, url_substr: str = "app-design"
         app_id = resolve_app_id(args.app_id)
     """
     parser.add_argument("--port", type=int, default=None,
-                        help="CDP 端口（默认读 SEEYON_CDP_PORT）")
+                        help="CDP 端口（默认读 XIAOZHUA_CDP_PORT）")
     if with_app_id:
         parser.add_argument("--app-id", default=None,
-                            help="UDC 应用 id（默认读 SEEYON_APP_ID）")
+                            help="UDC 应用 id（默认读 XIAOZHUA_APP_ID）")
     parser.add_argument("--env", default="test2", help="环境名（test2/uat）")
     args = parser.parse_args()
     client = None

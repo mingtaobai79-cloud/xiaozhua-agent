@@ -7,8 +7,8 @@ import tempfile
 import zipfile
 from pathlib import Path
 
-CFR = Path(r"<HERMES_HOME>/skills/software-development/seeyon-v8-spi/seeyon-v8-spi/references/contract-index/tools/cfr.jar")
-OUT = Path(r"<SEEYON_AGENT_ROOT>/docs/audit/modules/decompiled/bpm-addsign")
+CFR = Path(r"<HERMES_HOME>/skills/software-development/xiaozhua-v8-spi/xiaozhua-v8-spi/references/contract-index/tools/cfr.jar")
+OUT = Path(r"<XIAOZHUA_AGENT_ROOT>/docs/audit/modules/decompiled/bpm-addsign")
 ESC = re.compile(r"\\u([0-9a-fA-F]{4})")
 u = lambda s: ESC.sub(lambda m: chr(int(m.group(1), 16)), s)
 

@@ -1,7 +1,7 @@
 # standard-product｜P2 对账（module_catalog 标注 / UdcOperationRegistry 59 口径 / 标品域↔客开域边界）
 
 > 会话：`session-20260929-184027-7f85bd1f` ｜ 授权：main/`main/ROUTE.md` §3b HANDOFF-2（dedupe_key=`handoff-2-reconciliation`）
-> 目标仓库：`<SEEYON_AGENT_ROOT>` ｜ 口径：**纯静态、零活体**——未连 test2、未发任何 HTTP、未建测试应用
+> 目标仓库：`<XIAOZHUA_AGENT_ROOT>` ｜ 口径：**纯静态、零活体**——未连 test2、未发任何 HTTP、未建测试应用
 > **P1 冻结**：本轮**未改写** P1 绑定件。复核一致：`standard-product-contracts.md` sha256=`13a828343e8559640af103400c73f10b8af96d4ea81ebca38af098ec8cded168`（=P1-DECISION 绑定值），`evidence/bytecode/manifest.json` sha256=`4e53e5f0d5fa1b3e2444eea2559d884ec21da26e110510ab285ec4699003aa44`。
 > 本件产物：本文件 + `evidence/reconciliation/`（复现脚本与实测输出）。全部落在 `core/facts/standard-product/**`。
 > 凭据 0 入件；无证据一律 `UNVERIFIED`，不编。
@@ -151,7 +151,7 @@
 
 **边界自证（本轮）**
 - 写入范围：仅 `core/facts/standard-product/**`（新增本文件 + `evidence/reconciliation/` 两件）。**未改写 P1 绑定件**（`standard-product-contracts.md` / `evidence/bytecode/**` sha256 复核 = P1 绑定值，未变）。
-- 只读未写：`components/`、`core/tools/`、`adapters/`、`tests/`、`seeyon_cli.py`、`seeyon_host_bootstrap.py`、兄弟线领地 `core/facts/item-mgmt|connector|spi`。
+- 只读未写：`components/`、`core/tools/`、`adapters/`、`tests/`、`xiaozhua_cli.py`、`xiaozhua_host_bootstrap.py`、兄弟线领地 `core/facts/item-mgmt|connector|spi`。
 - 零活体：无 HTTP、无 test2 连接、无测试应用创建；脚本为纯进程内静态读取。凭据 0 入件。
 
 **UNVERIFIED / 未覆盖（不得当事实）**

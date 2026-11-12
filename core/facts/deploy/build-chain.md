@@ -3,7 +3,7 @@
 > 基线：test2 LIVE 实证一轮（2026-09-27 19:05:16→19:07:06，deployId=1006978865758003184）。
 > 段序同 B1 样板格 `core/facts/udc/entity/create.md`；本件只写"构建/发布链路"这一格。
 > 凭据 0 入件（只引 config 键/路径）；应用 id 仅作证据锚，业务明细不入长期库。
-> 仓库 `<SEEYON_AGENT_ROOT>`。
+> 仓库 `<XIAOZHUA_AGENT_ROOT>`。
 
 ---
 
@@ -30,7 +30,7 @@
 ## 3. Input
 
 - **必须按形参名包裹**：`{"deployDto": {"appId": <Long>, "deployType": "TEST", "projectType": "ALL", "terminalType": "ALL"}}`
-- 形参注解是 2小爪 Boot 的 `@MultiRequestBody`（**非** Spring `@RequestBody`）→ 语义 = 按形参名从 JSON 顶层取子对象。
+- 形参注解是 xiaozhua Boot 的 `@MultiRequestBody`（**非** Spring `@RequestBody`）→ 语义 = 按形参名从 JSON 顶层取子对象。
 - 反证：平铺 body（`{"appId":...}`）→ DTO 为 null → `EL1007E: Property or field 'appId' cannot be found on null`。
 
 ## 4. Required

@@ -128,18 +128,18 @@ diff：`docs/audit/README.md` 4/0，`udc-semantics/README.md` 新建。
 
 | 结果 | 数量 | 说明 |
 |---|---|---|
-| 两侧完全相同 | 4 | `seeyon-field-semantics-migration`、`seeyon-excel-import-export-migration`、`seeyon-external-api-testing`、`sdd-protocol` |
+| 两侧完全相同 | 4 | `xiaozhua-field-semantics-migration`、`xiaozhua-excel-import-export-migration`、`xiaozhua-external-api-testing`、`sdd-protocol` |
 | 内容不同 | 23 | 其中 **16 个**「仓库行被 Hermes 覆盖率 ≥0.98」= 仓库是旧子集 |
-| Hermes 无同名 | 8 | `seeyon-agent`、`seeyon-udc-setting`、`seeyon-udc-module-landing` 等 |
+| Hermes 无同名 | 8 | `xiaozhua-agent`、`xiaozhua-udc-setting`、`xiaozhua-udc-module-landing` 等 |
 
 覆盖率最低的三个（也是"各有独有内容"的嫌疑对象）：
-`05-agent/seeyon-constraint-extraction` 0.917、`02-udc/seeyon-udc-page-debug` 0.925、
-`02-udc/seeyon-udc-module-landing` 0.953 —— 仍属"仓库更短"，不是各有独有段落。
+`05-agent/xiaozhua-constraint-extraction` 0.917、`02-udc/xiaozhua-udc-page-debug` 0.925、
+`02-udc/xiaozhua-udc-module-landing` 0.953 —— 仍属"仓库更短"，不是各有独有段落。
 
 另实测两处硬事实：
-- `seeyon-udc-microflow-generation` 与 `seeyon-udc-business-flow-assembly` 都在
-  `<HERMES_HOME>/skills/udc/`（**兄弟目录**，不在 `skills/seeyon/` 下）——原文档写成 `seeyon/02-udc/` 是错的。
-- `skills/README.md` 说 `02-udc/seeyon-udc-module-landing` 被测试断言 —— **实测无任何测试引用该路径**。
+- `xiaozhua-udc-microflow-generation` 与 `xiaozhua-udc-business-flow-assembly` 都在
+  `<HERMES_HOME>/skills/udc/`（**兄弟目录**，不在 `skills/seeyon/` 下）——原文档写成 `xiaozhua/02-udc/` 是错的。
+- `skills/README.md` 说 `02-udc/xiaozhua-udc-module-landing` 被测试断言 —— **实测无任何测试引用该路径**。
 
 ### 裁决：不是矛盾，是两种关系
 
@@ -179,7 +179,7 @@ diff：`docs/SKILL-DISTRIBUTION.md` 45/9、`skills/README.md` 6/0。
 
 一次性扫描（`rg`/`grep -rl` 全仓 `.py/.md/.json/.yaml/.sh`，排除 `_attic`）：
 `COMPLETION-METHOD-PROMPT.md` 与 `UNDERSTANDING-CHECKPOINT.md` 均 **零代码读取**，
-但分别被 `DEPLOYED-STATE-VERDICT.md`（交叉校验）和 `skills/05-agent/seeyon-constraint-extraction/SKILL.md`
+但分别被 `DEPLOYED-STATE-VERDICT.md`（交叉校验）和 `skills/05-agent/xiaozhua-constraint-extraction/SKILL.md`
 （范式引用）正文提到。按约束「零引用不能作为删除依据」，逐份核内容是否有替代。
 
 | 文件 | 读取面 | 内容替代性 | 裁决 |
@@ -432,9 +432,9 @@ tests/udc/test_extension_usage_assets.py` → **50 passed**。`git diff --numsta
 
 | 文件 | 谁读它 | 裁决 |
 |---|---|---|
-| `docs/audit/next-direction-input.md` | **`components/audit_summary.py:12`**（`REPORTS["next_direction"]`）+ `seeyon_cli.py:333` 的 `summary` 子命令 + `tests/test_audit_summary.py:20` | ⛔ **禁止移动**，加登记头注 |
+| `docs/audit/next-direction-input.md` | **`components/audit_summary.py:12`**（`REPORTS["next_direction"]`）+ `xiaozhua_cli.py:333` 的 `summary` 子命令 + `tests/test_audit_summary.py:20` | ⛔ **禁止移动**，加登记头注 |
 | `docs/audit/recovery-checkpoint.md` | **`tests/fixtures/udc-audit/manifest.json:9`** 的 `source_documents`（`components/evidence_bundle.py` 校验该 manifest） | ⛔ **禁止移动**，加登记头注 |
-| `docs/audit/udc-semantics/COMPLETION-METHOD-PROMPT.md` | 仅 `skills/05-agent/seeyon-constraint-extraction/SKILL.md:219` 提及；`DEPLOYED-STATE-VERDICT.md` 与归档日志各一处历史引用 | 🟡 加登记头注，暂不移动（方法论仍有参考价值） |
+| `docs/audit/udc-semantics/COMPLETION-METHOD-PROMPT.md` | 仅 `skills/05-agent/xiaozhua-constraint-extraction/SKILL.md:219` 提及；`DEPLOYED-STATE-VERDICT.md` 与归档日志各一处历史引用 | 🟡 加登记头注，暂不移动（方法论仍有参考价值） |
 | `docs/audit/udc-semantics/UNDERSTANDING-CHECKPOINT.md` | **全仓零引用** | 🟡 加登记头注，暂不移动（「前端真实机制」「页面保存链」两节是该线唯一系统叙述） |
 
 **另两个 P6 项经核对不需要处理：**
@@ -465,7 +465,7 @@ P6 六项全部完成分类，**物理移动 0 个**。原因不是偷懒：按�
 
 ### 本轮完成（P5 流水账收束，零删除、零搬迁既有资产，只新增归档副本 + 改入口）
 
-**1）docs/plans/seeyon-distribution-progress.md**
+**1）docs/plans/xiaozhua-distribution-progress.md**
 - 原文件 151 行 / 71,472 B 的追加式日志**逐字复制**到新文件
   `docs/ledger/LOG-distribution-20261020-20261107.md`（含迁移说明头；正文与原件 `endswith` 校验为 True，
   字节数 71,472 一致）。
@@ -483,7 +483,7 @@ P6 六项全部完成分类，**物理移动 0 个**。原因不是偷懒：按�
 - `core/role/EVIDENCE-DISCIPLINE.md:52`、`STATUS.md:18` 原指向 `PROGRESS.md` L585
   （"测试通过数不得当契约"的同型错记录）——迁移后行号失效，改为指向
   `docs/ledger/LOG-udc-semantics-PROGRESS-20261014-20261016.md` 第十八轮。
-- 未改 `skills/05-agent/seeyon-constraint-extraction/SKILL.md:219`（仍指向 PROGRESS.md
+- 未改 `skills/05-agent/xiaozhua-constraint-extraction/SKILL.md:219`（仍指向 PROGRESS.md
   作为进度看板，该路径现仍是有效入口，无需改）。
 
 **验证**：`pytest tests/test_documentation_contract.py tests/udc/test_fact_discoverability.py

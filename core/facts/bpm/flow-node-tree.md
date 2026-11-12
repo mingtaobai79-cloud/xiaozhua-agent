@@ -1,7 +1,7 @@
 # udc.microflow.function_node_tree｜微流程函数节点树读取（flow 域第 1 格）
 
 > 基线：本任务 TASK-GOAL（`事实模块任务｜BPM-flow(flow 域 16 契约+微流程)`）+ 本会话 `main/ROUTE.md` @ 目标仓库
-> `<SEEYON_AGENT_ROOT>` HEAD `16a384c`。九段式能力事实文档（交付物第 1 件，`core/facts/bpm/flow-node-tree.md`），
+> `<XIAOZHUA_AGENT_ROOT>` HEAD `16a384c`。九段式能力事实文档（交付物第 1 件，`core/facts/bpm/flow-node-tree.md`），
 > 节序照在盘样板 `core/facts/udc/entity/create.md`（B1 样板格，PASS）。
 > 本件**只做 `udc.microflow.function_node_tree` 一格**；第 2 格 `data-flow-map.md` 本轮不建、不写。
 > 只写事实文档，不实现代码、不改 `components/**`；凭据值 0 入件（仅引对象标识/证据等级）。

@@ -16,7 +16,7 @@
 
 ## 2. Version
 
-不记版本。包版本随应用漂移，需要时查证据件 `seeyon_packages[].version`。
+不记版本。包版本随应用漂移，需要时查证据件 `xiaozhua_packages[].version`。
 
 ## 3. Input
 

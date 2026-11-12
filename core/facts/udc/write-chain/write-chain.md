@@ -43,7 +43,7 @@
 > 双回读命中同一目标、`entityId` 归属正确（非孤儿）（§R2 / STATUS §八.8）。
 > unblock v2（T2 前缀路由修正）对只读 serial-config 生效但 custom-app/create 仍 2/2 status:2（§八.6）。
 > 只写本件 + `evidence/` + STATUS.md 追加段；凭据 0 入件；网关/appId/cookie 一律 config 键或 ref 路径，值 0 入件。
-> 仓库 `<SEEYON_AGENT_ROOT>`，HEAD `cf45180`。test2 镜像 5.3.496。
+> 仓库 `<XIAOZHUA_AGENT_ROOT>`，HEAD `cf45180`。test2 镜像 5.3.496。
 
 ---
 

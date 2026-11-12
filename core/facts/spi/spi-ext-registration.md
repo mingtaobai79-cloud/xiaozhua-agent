@@ -2,7 +2,7 @@
 
 > 任务：HANDOFF P1（唯一活动边界）→ 在 `core/facts/spi/` 落 2 格九段式事实 + `evidence/`。
 > 路线：`main/ROUTE.md`（P1，2026-09-29T10:35Z）。本件 = 动作 1。
-> 交付仓 `<SEEYON_AGENT_ROOT>`；写前实测 HEAD `dc12ef3d16a292116128ddc110c5cb1cd1cb4e8d`，
+> 交付仓 `<XIAOZHUA_AGENT_ROOT>`；写前实测 HEAD `dc12ef3d16a292116128ddc110c5cb1cd1cb4e8d`，
 > `git status --porcelain` = 4 行（` M core/facts/INDEX.md`、`?? core/facts/connector/`、`?? core/facts/item-mgmt/`、`?? core/facts/spi/`）；
 > 其中 `M INDEX.md` 与本件**无关**（本件写盘只限 `core/facts/spi/**` 与角色目录）。
 > 证据等级：有 jar 字节码支撑 = `VERIFIED_STATIC_BYTECODE`；仅源码/文档 = `STATIC_CONTRACT`；运行态 = LIVE（本轮未做，属 P2）。

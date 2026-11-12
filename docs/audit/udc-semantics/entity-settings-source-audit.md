@@ -1,7 +1,7 @@
 # UDC 实体、字段、设置与规则链源码审计
 
 日期：2026-10-11
-主线：`<SEEYON_AGENT_ROOT>`
+主线：`<XIAOZHUA_AGENT_ROOT>`
 平台源码证据：`<PATH>
 证据性质：旧源码树静态证据，不能直接等同当前 test2 live；5.3.517 运行包/字节码需单独标注。
 本轮：只读，无 test2 写入。
@@ -20,7 +20,7 @@ DataFlow / DeductionRule / DeductionMap
 Page / FunctionNode / Excel import-export
 ```
 
-当前 `seeyon-agent` 没有实现这些设计态对象的完整写入执行器，也没有把它们统一成一个可自动搭建的 schema compiler。项目当前是只读证据、dry-run、deployment plan 主线；前面临时脚本直连平台不能反推项目已经具备这些能力。
+当前 `xiaozhua-agent` 没有实现这些设计态对象的完整写入执行器，也没有把它们统一成一个可自动搭建的 schema compiler。项目当前是只读证据、dry-run、deployment plan 主线；前面临时脚本直连平台不能反推项目已经具备这些能力。
 
 ## 2. 字段创建和属性校验
 
@@ -110,7 +110,7 @@ defaultValueIsChange
 - 通过 `UdcMetaDataAppService`、`EntityService` 获取实体/字段元数据，见 `58-68`。
 - 对枚举、Java enum、关联实体、1:1 子实体分别构造表达式 schema，见 `195-229`、`274-345`。
 
-结论：默认值表达式不是页面字段的自由文本，而是依赖实体元数据、关联关系和表达式 schema 的设计态对象。`seeyon-agent` 当前没有实现这个 schema 构造器。
+结论：默认值表达式不是页面字段的自由文本，而是依赖实体元数据、关联关系和表达式 schema 的设计态对象。`xiaozhua-agent` 当前没有实现这个 schema 构造器。
 
 ## 4. 实体加载、索引、字段集和实体规则标记
 
@@ -287,7 +287,7 @@ Controller → AppService(@Transactional) → DeductionRuleService 的直接链�
 
 ## 9. 当前主线实现缺口
 
-`seeyon-agent` 当前没有：
+`xiaozhua-agent` 当前没有：
 
 1. AttributeDto 级字段定义/默认值/关系/多选校验模型。
 2. AttributeGroup/Index/Reference/Event/Enum/Deduction/DataFlow 独立对象模型。
@@ -312,4 +312,4 @@ Controller → AppService(@Transactional) → DeductionRuleService 的直接链�
 | 当前 test2 运行包是否完全同源码 | 未完成版本绑定 | UNVERIFIED |
 | 订单表单导入导出完整链 | 未完成 | UNVERIFIED |
 | 生单/扣减业务节点完整执行链 | 未完成 | UNVERIFIED |
-| 当前 seeyon-agent 已能执行上述写链 | 项目代码显示只读/方案 | FACT: NOT IMPLEMENTED |
+| 当前 xiaozhua-agent 已能执行上述写链 | 项目代码显示只读/方案 | FACT: NOT IMPLEMENTED |

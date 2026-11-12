@@ -1,7 +1,7 @@
 """从 test2 抓真实定义，落 definitions/。CDP 页面内 fetch（复用页面 cookie）。
 
 关键：GraphQL query 必须用「graphqlLoader (」带空格 + 换行分隔字段，否则
-Seeyon 自定义解析器报 "offending token ':'"。
+xiaozhua 自定义解析器报 "offending token ':'"。
 """
 import sys, json, os
 sys.path.insert(0, '.')
@@ -12,7 +12,7 @@ APP_NAME = 'datamigration9000000000000000001'
 OUT_DIR = 'definitions'
 
 def gql(op, content_fields, variables):
-    """构造 Seeyon GraphQL body。content_fields 是 content{} 内的多行字段串。"""
+    """构造 xiaozhua GraphQL body。content_fields 是 content{} 内的多行字段串。"""
     q = (f'mutation graphqlLoader ($params0: {op}InputBody) {{ \n'
          f'  data0: {op}(body: $params0) {{ code data {{ \n'
          f'    content{{\n{content_fields}\n    }}\n'

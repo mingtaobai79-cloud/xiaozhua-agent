@@ -111,6 +111,6 @@
 
 复现命令模板（只读）：
 ```bash
-cd <HERMES_HOME>/skills/seeyon/01-platform/seeyon-low-code-environment/scripts
+cd <HERMES_HOME>/skills/seeyon/01-platform/xiaozhua-low-code-environment/scripts
 python conn.py db "<SQL>" --db=udc_test2 --env=test2
 ```

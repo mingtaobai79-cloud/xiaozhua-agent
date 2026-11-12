@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """scan_pii.py — 扫描仓库里的真实客户/人员/角色信息
 
-目标：seeyon-agent 会被复用，不能带任何真实客户、人员、角色标识。
+目标：xiaozhua-agent 会被复用，不能带任何真实客户、人员、角色标识。
 
 扫描维度（示例值一律用代号，不写真值——本文件自身也受闸门约束）：
   1. 人名/工号：真实姓名 / <工号前缀><数字> 形态
@@ -14,7 +14,7 @@ import re
 from collections import Counter
 from pathlib import Path
 
-REPO = Path(r"<SEEYON_AGENT_ROOT>")
+REPO = Path(r"<XIAOZHUA_AGENT_ROOT>")
 TEXT_EXT = {".py", ".md", ".yaml", ".yml", ".json", ".txt", ".js", ".sh", ".bat", ".toml"}
 
 PATTERNS = {

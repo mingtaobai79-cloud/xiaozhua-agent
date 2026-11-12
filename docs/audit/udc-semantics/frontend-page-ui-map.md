@@ -21,7 +21,7 @@
 - **关联接口**（144）：appCommonSystemConfigSystemConfigGet、portalTemplateImageDataPost、udcAffairListPost、udcApplicationCopyGet、udcApplicationCopyPost、udcApplicationCreateFromTemplatePost、udcApplicationDeleteByGuidPost、udcApplicationDeletePost、udcApplicationFetchLastVersionMetadataPost、udcApplicationGet、udcApplicationImportNewPost、udcApplicationPost、udcApplicationSaveAsPost、udcApplicationSchemaDownloadIdPost、udcApplicationSearchNewWithVersionListPost、udcApplicationSearchPageByGuidPost、udcApplicationSearchTemplatePost、udcApplicationTransferParamPost、udcApplicationVersionPlatformGet、udcApplicationVersionPlatformServiceGet、udcAttachmentTemplateCreateBatchPost、udcAttributeGroupEntityGet、udcAttributeGroupOperateBatchPost、udcConditionCheckPost、udcDataFlowListManuallyMappingPost、udcDataTransferObjectSearchByMicroFlowIdMicroFlowGet、udcDataTransferObjectSearchBySourceIdSourceGet、udcDataTransferObjectSearchListPost、udcDataTransferObjectSearchMicroFlowCustomDtoAppGet、udcDataTypeDataTypesByAppIdAppGet、udcDeploymentAppReadyStatePost、udcEntityAssociationEntityAppGet、udcEntityAssociationGroupSerialPost、udcEntityAssociationSerialPost、udcEntityAttributeBatchDeletePost、udcEntityAttributeBatchUpdatePost、udcEntityAttributeGet、udcEntityAttributeGroupBathUpdatePost、udcEntityAttributeGroupCanceGroupPost、udcEntityAttributeGroupCreateUpdatePost
 - **文案**：一对一 | 一对一实体不存在: | 一对多实体不存在: | 上午 09:40 | 上午 9:40 | 上级枚举 | 下拉字段 | 下拉样式 | 下拉框 | 下盖时拍照 | 下载文件 | 不可选范围 | 不在参照列表中显示，一般用于自定义列的计算 | 不录制 | 不支持同一个控件被多个跟随位置的面板绑定 | 不支持的节点类型 | 不能为空 | 不能大于最大值 | 不能小于最小值 | 不能输入特殊字符 | 不设置全局提示 | 与数据控件一致 | 个性化参数设置 | 个税扣缴义务人 | 中性灰 | 中间区 | 主按钮 | 主表 | 主题 | 九月十九日
 
-## src_pages_app-design_rule_index_tsx-node_modules_seeyon_biz-udc-graph_dist_index
+## src_pages_app-design_rule_index_tsx-node_modules_xiaozhua_biz-udc-graph_dist_index
 
 - **按钮**：删除、必须配置扣减算法、扣减规则设置、新建分组、是，前往保存、查看日志、欢迎来到规则设置、添加、添加扣减规则、编辑标题、表达式设置、设置规则、请设置提示信息、请设置来源字段
 - **组件**：Form.Item、Form.useForm、Menu.Item、Radio.Group
@@ -69,7 +69,7 @@
 - **关联接口**（83）：udcAffairListPost、udcApplicationFetchLastVersionMetadataPost、udcConditionCheckPost、udcDataFlowListManuallyMappingPost、udcDataTransferObjectSearchByMicroFlowIdMicroFlowGet、udcDataTransferObjectSearchBySourceIdSourceGet、udcDataTransferObjectSearchListPost、udcDataTransferObjectSearchMicroFlowCustomDtoAppGet、udcEnumItemGet、udcEventCreateWithDataPost、udcEventDeletePost、udcEventListPost、udcEventPost、udcEventSelectWithDataGet、udcFunctionFindTreeAndGroupPost、udcFunctionSelectFunctionTreePost、udcMessageCategoryListPost、udcMessageLinkListPost、udcMetaDataSelectAggregationEntityEntityGet、udcMetaDataSelectAggregationEntityPost、udcMetaDataSelectAllPageByAppPost、udcMetaDataSelectAppByIdPost、udcMetaDataSelectCtpEnumAppGet、udcMetaDataSelectCtpEnumByApp1Post、udcMetaDataSelectEntityByAppIdAppGet、udcMetaDataSelectEntityPost、udcMetaDataSelectFunctionNodeWithPageTreePost、udcMetaDataSelectJavaEnumByAppPost、udcMicroFlowGroupBatchMovePost、udcMicroFlowGroupCreatePost、udcMicroFlowGroupDeleteBatchPost、udcMicroFlowGroupDeletePost、udcMicroFlowGroupSelectByTypePost、udcMicroFlowGroupUpdatePost、udcMicroflowBatchFindAggDtoPost、udcMicroflowBatchFindJavaEnumPost、udcMicroflowBatchMovePost、udcMicroflowCheckDtoMetadataExistPost、udcMicroflowCheckMicroFlowCaptionPost、udcMicroflowCheckSchemaUpdatePost
 - **文案**：不能包含下划线 | 不能输入空格 | 为列表时，默认值无效 | 信息保存成功 | 列表 | 单选 | 参数类型 | 参数设置 | 取消 | 只能以字母开头，允许输入数字、字母 | 名称 | 名称不能超过10个字 | 名称必填 | 名称禁止输入空格 | 多选 | 实体 | 对象 | 提示 | 数据类型 | 日期 | 日期时间 | 时间 | 暂无数据 | 枚举 | 添加入参 | 添加变量 | 确定 | 确认 | 编码 | 编码必填
 
-## src_pages_app-design_basic-info_index_tsx-node_modules_seeyon_biz-icon-library_d
+## src_pages_app-design_basic-info_index_tsx-node_modules_xiaozhua_biz-icon-library_d
 
 - **按钮**：保存失败、保存成功、发布中、发布失败、发布成功、发布时间、发布版本、发布状态、取消、团队设置、已发布、未发布、添加成员、确定、确定删除吗、确认、移动端、移除成功、组件已停用、页面发布中、页面发布失败、页面发布开始、页面发布成功、页面发布资源不足、页面发布超时、页面未开始发布
 - **组件**：Collapse.Panel、Form.Item、Form.useForm、Menu.Item、Radio.Group
@@ -237,7 +237,7 @@
 - **关联接口**（24）：appCommonThemeSelectDefaultBrandPost、udcApplicationGet、udcApplicationImportOtherAppZipPost、udcApplicationRenewalAppEditingTimeGet、udcEntityDataTypesGet、udcFunctionBatchDeletePost、udcFunctionCopyPost、udcFunctionCreateFunctionReferPost、udcMetaDataSelectPageLayoutPost、udcMetaDataSelectPagePost、udcMicroflowDeletePost、udcMicroflowFindNodeSchemaPost、udcMicroflowSearchEntityRulePost、udcPageAdminV1DeleteGet、udcPageInfoBaseInfoUpdateNamePost、udcPageInfoDesignerSelectDetailListByConditionsPost、udcPageInfoRelationInfoRelationGroupIdPost、udcPageInfoSearchNoPagePost、udcPageInfoSelectListByConditionsPost、udcScalabilityOptionPost、udcScalabilityOptionUpdatePost、udcUdcEnumItemGet、udcUdcEnumItemSearch、udcUdcEnumSearch
 - **文案**：
 
-## src_pages_udc_application_new-app_index_tsx-node_modules_seeyon_biz-icon-library
+## src_pages_udc_application_new-app_index_tsx-node_modules_xiaozhua_biz-icon-library
 
 - **按钮**：返回
 - **组件**：Checkbox.Group、Form.Item、Form.useForm、Menu.Item
@@ -341,7 +341,7 @@
 - **关联接口**（10）：udcFileDownloadUrlGet、udcFormUpgradeDeployDeletePost、udcFormUpgradeDeployExportRecordPost、udcFormUpgradeDeployListInfoPost、udcFormUpgradeDeployListRecordPost、udcFormUpgradeDeployNodeLastUpgradeResultGet、udcFormUpgradeDeployOneClickUpgradePost、udcFormUpgradeDeploySilentUpdatePost、udcRuntimeUpgradeAppListPost、udcRuntimeUpgradeHostAppNameListPost
 - **文案**：上次更新时间 | 全部应用 | 删除成功 | 前端 | 前端组件名称 | 发布中 | 发布失败 | 发布成功 | 发布状态 | 发布类型 | 后端 | 启用状态 | 失败原因 | 失败数 | 宿主应用 | 已启用 | 应用名称 | 应用更新中 | 应用类型 | 应用编码 | 成功数 | 批次号 | 指定前端组件 | 指定应用 | 按照下面的查询条件更新应用 | 操作 | 更新日期 | 更新条件 | 更新记录 | 更新说明
 
-## src_pages_app-design_basic-setting_index_tsx-node_modules_seeyon_biz-basic-data_
+## src_pages_app-design_basic-setting_index_tsx-node_modules_xiaozhua_biz-basic-data_
 
 - **按钮**：保存成功、停用、删除、删除成功、取消、启用、导入导出模板、已设置、排序号、新建分类、新建选项集、未设置、确定、编辑、编辑分类、编辑成功、编辑选项集、选项集导入模板、重置
 - **组件**：Form.Item、Form.useForm、Menu.Item、Select.Option
@@ -381,7 +381,7 @@
 - **关联接口**（7）：udcSandboxAppCleanRestartAppPost、udcSandboxAppReleaseAppPost、udcSandboxAppReleaseAppStatusPost、udcSandboxAppStartAppPost、udcSandboxAppStopAppPost、udcSandboxAppUnLoadAppPost、udcSandboxSystemConfigSetReleaseConfigPost
 - **文案**：应用上架失败 | 应用名称 | 应用所属人 | 应用版本 | 应用编码 | 所属弹性容器 | 操作 | 最近活跃时间 | 构建时间 | 知道了 | 租户名称 | 设置 | 设置成功
 
-## src_pages_udc_cmps_index_tsx-node_modules_seeyon_biz-icon-library_dist_index_css
+## src_pages_udc_cmps_index_tsx-node_modules_xiaozhua_biz-icon-library_dist_index_css
 
 - **按钮**：停用、前端组件同步日志、前端组件导入、启用、组件导入成功
 - **组件**：Form.Item、Form.useForm、Menu.Item、Radio.Group
@@ -413,7 +413,7 @@
 - **关联接口**（5）：udcMicroflowRecoverPost、udcOperationLogElementIsExistPost、udcOperationLogGet、udcPageInfoRecoverPost、udcPageLayoutRecoverPost
 - **文案**：修改 | 元素 | 公共页面规则 | 创建 | 删除 | 外框 | 子页面 | 字段集 | 定位 | 属性 | 属性值（操作前） | 属性值（操作后） | 应用 | 应用版本 | 微流程 | 快照 | 扣减规则 | 操作 | 操作人 | 操作元素 | 操作时间 | 未知的微流程类型 | 栏目 | 模块 | 生单规则 | 自定义对象 | 获取初始化数据失败 | 菜单 | 该模块元素已不存在，无法定位。 | 请输入
 
-## src_pages_design_functions_components_add-space_index_tsx-node_modules_seeyon_bi
+## src_pages_design_functions_components_add-space_index_tsx-node_modules_xiaozhua_bi
 
 - **按钮**：—
 - **组件**：Form.Item、Form.useForm
@@ -421,7 +421,7 @@
 - **关联接口**（5）：portalPortalSpaceGet、udcPortalPortalSpaceCreatePost、udcPortalPortalSpaceDeletePost、udcPortalPortalSpaceSpaceSaveCopyPost、udcPortalPortalSpaceUpdatePost
 - **文案**：分组名称 | 菜单名称
 
-## node_modules_seeyon_biz-serial-scheme_dist_index-63bbd6cd_js.14fc2408.js
+## node_modules_xiaozhua_biz-serial-scheme_dist_index-63bbd6cd_js.14fc2408.js
 
 - **按钮**：—
 - **组件**：Form.Item、Form.useForm
@@ -429,7 +429,7 @@
 - **关联接口**（3）：udcDesignMetadataAggEntityExcludeBootGet、udcDesignMetadataEntityByNamePost、udcUdcSerialSelectPost
 - **文案**：实体 | 实体名称 | 无条件 | 暂无数据 | 流水号类型字段 | 生成/释放条件配置 | 生成条件 | 被以下实体字段绑定 | 释放条件
 
-## node_modules_seeyon_biz-serial-scheme_dist_index-a9cbbe00_js.c3e8b8dd.js
+## node_modules_xiaozhua_biz-serial-scheme_dist_index-a9cbbe00_js.c3e8b8dd.js
 
 - **按钮**：—
 - **组件**：Form.Item、Form.useForm
@@ -437,7 +437,7 @@
 - **关联接口**（3）：udcDesignMetadataAggEntityExcludeBootGet、udcDesignMetadataEntityByNamePost、udcUdcSerialSelectPost
 - **文案**：实体 | 实体名称 | 无条件 | 暂无数据 | 流水号类型字段 | 生成/释放条件配置 | 生成条件 | 被以下实体字段绑定 | 释放条件
 
-## node_modules_seeyon_biz-serial-scheme_dist_index-aa2d4add_js.0de18369.js
+## node_modules_xiaozhua_biz-serial-scheme_dist_index-aa2d4add_js.0de18369.js
 
 - **按钮**：—
 - **组件**：Form.Item、Form.useForm
@@ -445,7 +445,7 @@
 - **关联接口**（3）：udcDesignMetadataAggEntityExcludeBootGet、udcDesignMetadataEntityByNamePost、udcUdcSerialSelectPost
 - **文案**：实体 | 实体名称 | 无条件 | 暂无数据 | 流水号类型字段 | 生成/释放条件配置 | 生成条件 | 被以下实体字段绑定 | 释放条件
 
-## node_modules_seeyon_biz-serial-scheme_dist_index-f62267af_js.f827461e.js
+## node_modules_xiaozhua_biz-serial-scheme_dist_index-f62267af_js.f827461e.js
 
 - **按钮**：—
 - **组件**：Form.Item、Form.useForm
@@ -461,7 +461,7 @@
 - **关联接口**（3）：udcFunctionBatchDeletePost、udcFunctionCopyPost、udcFunctionCreateFunctionReferPost
 - **文案**：分组名称 | 菜单名称
 
-## node_modules_seeyon_biz-where_dist_conditionRight_js.76ceea66.js
+## node_modules_xiaozhua_biz-where_dist_conditionRight_js.76ceea66.js
 
 - **按钮**：—
 - **组件**：—
@@ -469,7 +469,7 @@
 - **关联接口**（2）：udcMetadataDtoByEntitysPost、udcMetadataEnumByNamePost
 - **文案**：
 
-## node_modules_seeyon_biz-where_dist_condition_js.37098cf6.js
+## node_modules_xiaozhua_biz-where_dist_condition_js.37098cf6.js
 
 - **按钮**：—
 - **组件**：—
@@ -477,7 +477,7 @@
 - **关联接口**（2）：udcMetadataDtoByEntitysPost、udcMetadataEnumByNamePost
 - **文案**：
 
-## node_modules_seeyon_biz-where_dist_modalWhere_js.aac960a8.js
+## node_modules_xiaozhua_biz-where_dist_modalWhere_js.aac960a8.js
 
 - **按钮**：删除、取消分组、复制、添加、添加条件、添加条件组、确认
 - **组件**：Menu.Item
@@ -485,7 +485,7 @@
 - **关联接口**（2）：udcMetadataDtoByEntitysPost、udcMetadataEnumByNamePost
 - **文案**：删除 | 取消分组 | 复制 | 条件 | 添加 | 添加条件 | 添加条件组 | 确认 | 继续分组 | 转为条件 | 转为条件组
 
-## node_modules_seeyon_biz-where_dist_where_js.b3912f02.js
+## node_modules_xiaozhua_biz-where_dist_where_js.b3912f02.js
 
 - **按钮**：删除、取消分组、复制、添加、添加条件、添加条件组、确认
 - **组件**：Menu.Item
@@ -533,7 +533,7 @@
 - **关联接口**（1）：udcMetaDataSelectAllLayoutByAppPost
 - **文案**：你输入的名称过长 | 修改外框成功 | 只能包含中文、英文、数字以及下划线 | 复制外框 | 复制成功 | 外框名称 | 外框标识 | 新增外框 | 移动端 | 编辑外框 | 请输入外框名称 | 请输入外框标识 | 请选择适配终端 | 适配终端
 
-## node_modules_seeyon_biz-enums_dist_index-7189faa2_js.4340c5f3.js
+## node_modules_xiaozhua_biz-enums_dist_index-7189faa2_js.4340c5f3.js
 
 - **按钮**：停用、取消、启用、排序号、排序号为必填项、新建、确定、编辑、编辑成功、请上传图片、连续新建
 - **组件**：Form.useForm
@@ -541,7 +541,7 @@
 - **关联接口**（0）：—
 - **文案**：停用 | 创建成功 | 取消 | 启用 | 排序号 | 排序号不能大于1000000 | 排序号为必填项 | 新建 | 枚举项值 | 枚举项值为必填项 | 枚举项名称 | 枚举项名称为必填项 | 父节点 | 状态 | 状态为必填项 | 确定 | 编辑 | 编辑成功 | 请上传图片 | 请输入 | 连续新建 | 首尾不能输入空格 | 默认语言的值下不能为空
 
-## node_modules_seeyon_biz-enums_dist_index-7e03e02d_js.a52b8615.js
+## node_modules_xiaozhua_biz-enums_dist_index-7e03e02d_js.a52b8615.js
 
 - **按钮**：停用、取消、启用、排序号、排序号为必填项、新建、确定、编辑、编辑成功、请上传图片、连续新建
 - **组件**：Form.useForm
@@ -549,7 +549,7 @@
 - **关联接口**（0）：—
 - **文案**：停用 | 创建成功 | 取消 | 启用 | 排序号 | 排序号不能大于1000000 | 排序号为必填项 | 新建 | 枚举项值 | 枚举项值为必填项 | 枚举项名称 | 枚举项名称为必填项 | 父节点 | 状态 | 状态为必填项 | 确定 | 编辑 | 编辑成功 | 请上传图片 | 请输入 | 连续新建 | 首尾不能输入空格 | 默认语言的值下不能为空
 
-## node_modules_seeyon_biz-enums_dist_index-9365ba29_js.e2c68411.js
+## node_modules_xiaozhua_biz-enums_dist_index-9365ba29_js.e2c68411.js
 
 - **按钮**：停用、取消、启用、排序号、排序号为必填项、新建、确定、编辑、编辑成功、请上传图片、连续新建
 - **组件**：Form.useForm
@@ -557,7 +557,7 @@
 - **关联接口**（0）：—
 - **文案**：停用 | 创建成功 | 取消 | 启用 | 排序号 | 排序号不能大于1000000 | 排序号为必填项 | 新建 | 枚举项值 | 枚举项值为必填项 | 枚举项名称 | 枚举项名称为必填项 | 父节点 | 状态 | 状态为必填项 | 确定 | 编辑 | 编辑成功 | 请上传图片 | 请输入 | 连续新建 | 首尾不能输入空格 | 默认语言的值下不能为空
 
-## node_modules_seeyon_biz-enums_dist_index-d16a4f98_js.a84d1636.js
+## node_modules_xiaozhua_biz-enums_dist_index-d16a4f98_js.a84d1636.js
 
 - **按钮**：停用、取消、启用、排序号、排序号为必填项、新建、确定、编辑、编辑成功、请上传图片、连续新建
 - **组件**：Form.useForm
@@ -565,7 +565,7 @@
 - **关联接口**（0）：—
 - **文案**：停用 | 创建成功 | 取消 | 启用 | 排序号 | 排序号不能大于1000000 | 排序号为必填项 | 新建 | 枚举项值 | 枚举项值为必填项 | 枚举项名称 | 枚举项名称为必填项 | 父节点 | 状态 | 状态为必填项 | 确定 | 编辑 | 编辑成功 | 请上传图片 | 请输入 | 连续新建 | 首尾不能输入空格 | 默认语言的值下不能为空
 
-## node_modules_seeyon_biz-enums_dist_index-dfa7dac0_js.4ccc658d.js
+## node_modules_xiaozhua_biz-enums_dist_index-dfa7dac0_js.4ccc658d.js
 
 - **按钮**：停用、取消、启用、排序号、排序号为必填项、新建、确定、编辑、编辑成功、请上传图片、连续新建
 - **组件**：Form.useForm
@@ -661,7 +661,7 @@
 - **关联接口**（0）：—
 - **文案**：事件订阅 | 入参 | 全部 | 出参 | 动作描述 | 发起BPM流程 | 失败 | 将来源实体数据进行分组 | 序号 | 开始 | 异步消息通知 | 成功 | 手工触发 | 执行动作 | 执行回写规则 | 执行时间 | 执行状态 | 拍平来源实体聚合数据 | 拍平目标实体聚合数据 | 操作 | 操作类型 | 新建 | 新建或更新 | 新建目标实体数据 | 更新 | 更新目标实体数据 | 来源实体 | 来源实体数据 | 来源实体过滤条件 | 来源数据行条件匹配
 
-## src_pages_app-design_rule_dataflow_relation-graph_entry_tsx-node_modules_seeyon_
+## src_pages_app-design_rule_dataflow_relation-graph_entry_tsx-node_modules_xiaozhua_
 
 - **按钮**：保存、删除提示、取消、已设置、提交、提示设置、新建或更新数据、新建数据、映射规则设置、是，前往保存、未设置、条件设置不正确、查看日志、点击设置内容、确定删除此数据、确认、编辑、编辑标题、要保存修改吗、设置、详情入参配置、请设置显示字段、请输入提示设置
 - **组件**：Checkbox.Group、Form.Item、Form.useForm、Radio.Group
@@ -709,7 +709,7 @@
 - **关联接口**（0）：—
 - **文案**：业务应用 | 修改 | 修改字段明细 | 全部 | 删除 | 名称、编码 | 实体ID | 审批应用 | 应用数据日志 | 操作 | 操作人员 | 操作实体 | 操作时间 | 操作类型 | 收起 | 新增 | 新增字段明细 | 新增明细表行 | 暂无数据，请选择左侧应用获取配置信息 | 更多
 
-## src_pages_udc_backend-cmp_index_tsx-node_modules_seeyon_biz-icon-library_dist_in
+## src_pages_udc_backend-cmp_index_tsx-node_modules_xiaozhua_biz-icon-library_dist_in
 
 - **按钮**：后端组件导入、导入成功、请上传第三方组件
 - **组件**：Form.Item、Form.useForm、Menu.Item、Radio.Group、Select.Option

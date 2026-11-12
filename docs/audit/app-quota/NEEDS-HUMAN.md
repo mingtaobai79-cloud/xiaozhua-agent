@@ -263,7 +263,7 @@ i18n 文案（`app_common_test2.i18n_default_resource`，`resource_key='error.co
 ## 六、可复现命令
 
 ```bash
-cd <SEEYON_AGENT_ROOT>
+cd <XIAOZHUA_AGENT_ROOT>
 
 # 1) 设计态 + 缓存态取证（DB + Redis，只读，0 次 /service）
 uv run --no-project --with pymysql python docs/audit/artifacts/scratch-migrated/slice-a1/a1_quota_closure.py

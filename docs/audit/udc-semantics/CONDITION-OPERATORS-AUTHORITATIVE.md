@@ -7,7 +7,7 @@
 - `com.seeyon.boot.starter.condition.dto.SingleConditionDto`（含 `Type` / `LeftParamDto` / `RightParamDto` / `ConditionOperatorDto`）
 - udc 侧：`com.seeyon.udc.microflow.domain.bo.ConditionInfo` / `param.ConditionParam` / `ConditionLeftParam` / `ConditionRightParam`
 
-★ 权威 > 前端推断：前端 `seeyon-biz-where` 只暴露 20 个操作符，**后端 OperatorEnum 是 22 个**（多 `ZERO`/`NOTZERO`），且 `NEQ` 的 SQL 值是 `<>` 不是 `!=`。
+★ 权威 > 前端推断：前端 `xiaozhua-biz-where` 只暴露 20 个操作符，**后端 OperatorEnum 是 22 个**（多 `ZERO`/`NOTZERO`），且 `NEQ` 的 SQL 值是 `<>` 不是 `!=`。
 
 ---
 
@@ -84,7 +84,7 @@ ENTITY→EQ NEQ IN NOTIN NULL NOTNULL；ATTACHMENT→仅 NULL NOTNULL；MULTI*�
 **5.3.318 对账修正**：BIGINTEGER 补 NULL/NOTNULL（原缺）；INTEGER/DATETIME 补 ZERO/NOTZERO（原缺）。
 **ConditionService.check 契约**（5.3.318 反编译）：leftParam/operator/rightParams 不可 null；GROUP 内从第 2 个条件起 logicalOperator 不可空；type 只能 GROUP/CONDITION。
 
-## 4. 与前端 seeyon-biz-where 的差异
+## 4. 与前端 xiaozhua-biz-where 的差异
 
 | 项 | 前端 | 后端权威 |
 | --- | --- | --- |

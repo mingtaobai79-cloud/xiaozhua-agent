@@ -32,6 +32,6 @@ def test_integration_component_uses_provider_port(tmp_path):
 def test_cli_runtime_report_returns_json(tmp_path):
     path = tmp_path / "runtime.json"
     path.write_text('{"environment":"test2"}', encoding="utf-8")
-    result = subprocess.run([sys.executable, "-m", "seeyon_cli", "runtime-report", "--snapshot", str(path), "--target", "udc"], cwd=ROOT, capture_output=True, text=True)
+    result = subprocess.run([sys.executable, "-m", "xiaozhua_cli", "runtime-report", "--snapshot", str(path), "--target", "udc"], cwd=ROOT, capture_output=True, text=True)
     assert result.returncode == 0
     assert json.loads(result.stdout)["status"] == "FACT"

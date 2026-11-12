@@ -22,7 +22,7 @@ import pathlib
 import re
 import sys
 
-REPO = pathlib.Path(r"<SEEYON_AGENT_ROOT>")
+REPO = pathlib.Path(r"<XIAOZHUA_AGENT_ROOT>")
 E1 = REPO / "docs/audit/entity-field-matrix/EVIDENCE-batch-contract-live.json"
 E2 = REPO / "docs/audit/entity-field-matrix/EVIDENCE-batch-update-live.json"
 # 优先读仓库内落地的资产段（可复现、不受 cache 24h 清理影响）；

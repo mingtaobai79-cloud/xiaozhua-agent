@@ -86,8 +86,8 @@
 | 被引文件 | 引用方 |
 |---|---|
 | `custom-object-contracts.md` | `core/facts/udc/setting/custom-object/create.md`、`tests/udc/test_setting_custom_object_asset_layout.py`（断言路径常量） |
-| `enum-contracts.md` | `skills/seeyon-udc-setting/SKILL.md`（L656 契约表）、`tests/udc/test_setting_enum_asset_layout.py`（含 L95 断言「skill 必须指向本目录」） |
-| `serial-contracts.md` | `core/facts/INDEX.md`、`skills/seeyon-udc-setting/SKILL.md`（L470）、`tests/udc/test_setting_excel_qrcode.py` |
+| `enum-contracts.md` | `skills/xiaozhua-udc-setting/SKILL.md`（L656 契约表）、`tests/udc/test_setting_enum_asset_layout.py`（含 L95 断言「skill 必须指向本目录」） |
+| `serial-contracts.md` | `core/facts/INDEX.md`、`skills/xiaozhua-udc-setting/SKILL.md`（L470）、`tests/udc/test_setting_excel_qrcode.py` |
 | `qrcode-contracts.md` | `core/facts/INDEX.md`、`tests/udc/test_setting_excel_qrcode.py`、`tools/core/setting/qrcode_rule_seed.py` |
 | `attribute-set-contracts.md` | `core/facts/INDEX.md`、`core/facts/udc/setting/attribute-set/default-value-chain.md` |
 | `scalability-contracts.md` | `core/facts/INDEX.md` |

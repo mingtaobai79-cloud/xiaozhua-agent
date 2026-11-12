@@ -1,4 +1,4 @@
-# 2小爪 Agent 骨架收敛与下一阶段实施计划
+# xiaozhua Agent 骨架收敛与下一阶段实施计划
 
 目标：先把现有只读骨架收敛为可信、可重复、证据不漂移的审计/诊断基础，再围绕 application_id `app9000000000000000001` 补齐定向静态证据和 test2 只读动态证据。
 
@@ -17,7 +17,7 @@
 ## 目标骨架
 
 ```text
-SeeyonAgent
+XiaozhuaAgent
 ├── Core: TaskRequest / Context / Result-Evidence-Status / Registry / PolicyGate / ReadOnlyOrchestrator
 ├── Profiles: 4类Profile / ProfileBuilder / ProfileEvidenceGraph
 ├── Components: UDC / Runtime / Integration / SPI

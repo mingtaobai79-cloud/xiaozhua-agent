@@ -16,7 +16,7 @@
 | 6 | BI | **VACUUM（负证据完备）** | 无 udc_bi 表；仅 gantt_chart_schema | 162 文件 / 1258KB | 平台侧 0 条真 BI 契约；Gantt 5.3.260 独立面 |
 | 7 | 栏目 | **PARTIAL（S1+S2 定位完成，写链 LIVE）** | 表族 = `udc_portlet`（type=0 分组 / type=1 栏目）+ `udc_page_info`(page_type='PORTLET') + 门户侧 `portal_portlet_category`/`portal_portlet_definition` | S1 导航抓包 + S2 建删全链（`docs/audit/column-discovery/`） | 域定位闭环；契约未写 |
 | 8 | 设置 | PARTIAL（13 tab 调用链 LIVE，写面未全） | 无独立表（复用 app/entity 配置） | 102 文件 / 871KB | 各 tab 写入与回读未逐项验收 |
-| 9 | 角色 | **VACUUM（真实域近乎空白）** | udc_role=96，udc_role_resource=12328 | 11 文件 / 27KB（多为 agent 角色卡，非 UDC 角色） | 角色/权限域在 seeyon-agent 内无契约、无取证 |
+| 9 | 角色 | **VACUUM（真实域近乎空白）** | udc_role=96，udc_role_resource=12328 | 11 文件 / 27KB（多为 agent 角色卡，非 UDC 角色） | 角色/权限域在 xiaozhua-agent 内无契约、无取证 |
 
 ## 1. 应用（Application）
 
@@ -227,7 +227,7 @@
 
 **主要事实**
 - **13 个 tab 的前端页面与调用链路已 LIVE 取证**（`SETTINGS-TABS-CALLCHAIN.md` 27.2KB，2026-10-12 test2）。
-- 版本边界已钉：后端镜像 `udc:5.3.517`，前端壳 `seeyonGlobalVersion=5.3.41`、`seeyonSyfVersion=5.3.11`，设计器远端 `/udc/remoteEntry.js`（47,554B / 166 chunk），静态存储 OSS `seeyon-public-test2` key=`udc/<chunk>.<hash>.js`。
+- 版本边界已钉：后端镜像 `udc:5.3.517`，前端壳 `seeyonGlobalVersion=5.3.41`、`seeyonSyfVersion=5.3.11`，设计器远端 `/udc/remoteEntry.js`（47,554B / 166 chunk），静态存储 OSS `xiaozhua-public-test2` key=`udc/<chunk>.<hash>.js`。
 - 四种调用形态已归纳：loader 描述符 / raw Apollo 文档 / saga / 其他。
 - 数据字典与基础设置 API：`DATADICT-AND-BASESETTING-APIS.md`（17KB）。
 
@@ -263,7 +263,7 @@
 **主要事实**
 - **重要区分**：仓库内 `core/role/`（ROLE-CARD.md、BEHAVIOR.md、EVIDENCE-DISCIPLINE.md、README.md）是**Agent 角色卡**，不是 UDC 平台角色域证据。混为一谈会虚报进度。
 - UDC 角色域真实证据：仅 `docs/operation-contracts/udc/menu/P1-udc-role-has-system-admin.md`（2.8KB）一条，且是挂在 menu 域下的附带条目。
-- DB 真实存在：`udc_role`=96、`udc_role_resource`=12328、`udc_resource`=6968——**数据和权限关系都在，但 seeyon-agent 内零契约、零写链、零取证**。
+- DB 真实存在：`udc_role`=96、`udc_role_resource`=12328、`udc_resource`=6968——**数据和权限关系都在，但 xiaozhua-agent 内零契约、零写链、零取证**。
 - 无 `udc_permission` / `udc_auth` 表（权限走 resource 关联）。
 
 **证据**

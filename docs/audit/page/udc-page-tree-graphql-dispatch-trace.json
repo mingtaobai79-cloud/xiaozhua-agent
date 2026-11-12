@@ -1,5 +1,5 @@
 {
-  "schema_version": "seeyon-agent.udc-page-tree-graphql-dispatch.v1",
+  "schema_version": "xiaozhua-agent.udc-page-tree-graphql-dispatch.v1",
   "module": "udc",
   "capability": "resource_menu",
   "field_type": "udcMetaDataSelectFunctionNodeWithPageTreePost",

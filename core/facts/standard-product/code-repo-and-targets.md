@@ -29,7 +29,7 @@
 
 **① nacos 配置（权威，已取证）**
 
-平台把代码仓配置放在应用级 dataId（group = `seeyon`）里，键路径固定：
+平台把代码仓配置放在应用级 dataId（group = `xiaozhua`）里，键路径固定：
 
 ```yaml
 repo:
@@ -57,7 +57,7 @@ repo:
 | test2 | `https://<host>` | `extend-test2` | `autocode-test2` |
 
 ★ 所以「域名可换」的正确含义是：**域名和组名都在 nacos 里，读配置即可，不要写死任何一段。**
-★ 取证方式（只读）：`GET /v1/cs/configs?dataId=<dataId>&group=seeyon&tenant=<namespace>`，取 `repo.gitlab` 段。
+★ 取证方式（只读）：`GET /v1/cs/configs?dataId=<dataId>&group=xiaozhua&tenant=<namespace>`，取 `repo.gitlab` 段。
 
 **② 调用方显式传**
 

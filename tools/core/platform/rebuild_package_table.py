@@ -6,7 +6,7 @@ import json
 import re
 from pathlib import Path
 
-ROOT = Path("<SEEYON_AGENT_ROOT>")
+ROOT = Path("<XIAOZHUA_AGENT_ROOT>")
 FACT = ROOT / "core/facts/standard-product/platform-package-capability-index.md"
 IP = ROOT / "docs/audit/artifacts/extension-surface-20261029/interfaces.json"
 

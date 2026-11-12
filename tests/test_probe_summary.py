@@ -42,7 +42,7 @@ def test_probe_summary_downgrades_pass_with_unverified_note():
     assert result["unverified"][0]["label"] == "manifest"
 
 def test_probe_summary_cli_reads_default_temp_probe_files():
-    result = subprocess.run([sys.executable, "-m", "seeyon_cli", "probe-summary"], cwd=ROOT, capture_output=True, text=True)
+    result = subprocess.run([sys.executable, "-m", "xiaozhua_cli", "probe-summary"], cwd=ROOT, capture_output=True, text=True)
     assert result.returncode == 0
     payload = json.loads(result.stdout)
     assert {"status", "schema_version", "scope", "limitations", "facts", "unverified", "blocked", "sources"} <= set(payload)

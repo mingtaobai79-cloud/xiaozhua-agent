@@ -4,7 +4,7 @@
 > 段序与 B1 样板格 `core/facts/udc/entity/create.md`（8145 B）一致；本件**只做 `udc.serial` 一格**，
 > 别名 `udc.serial_config.entity_list` 仅注记、不计新能力；只写事实文档，不改 `registry.py`/`components/`/`docs/`；
 > 网关与凭据只写 config 键，值 0 入件。
-> 仓库 `<SEEYON_AGENT_ROOT>`，实测 HEAD `16a384c`。
+> 仓库 `<XIAOZHUA_AGENT_ROOT>`，实测 HEAD `16a384c`。
 
 ---
 

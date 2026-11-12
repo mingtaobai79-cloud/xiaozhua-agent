@@ -54,7 +54,7 @@
 
 | 目录 | 说明 |
 |---|---|
-| `mirrored-skills/` | 镜像 skill（seeyon-udc-entity-domain-dup） |
+| `mirrored-skills/` | 镜像 skill（xiaozhua-udc-entity-domain-dup） |
 | `mirrored-skills-20261022/` | 2026-10-22 镜像 |
 | `stale-skill-copies/` | 过时 skill 副本（sdd-protocol-old 等） |
 | `superseded-artifacts/` | 被替代的 JSON 产物（mf_all.json、r33_* 等） |

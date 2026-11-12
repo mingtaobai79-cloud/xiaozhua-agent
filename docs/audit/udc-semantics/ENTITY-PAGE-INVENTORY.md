@@ -1,6 +1,6 @@
 # 实体页面功能盘点（6 tab × 功能 × 接口 × 权限 × 边界）
 
-> 日期：2026-10-12 | 主线：`<SEEYON_AGENT_ROOT>` | 本轮只读，无 test2 写入
+> 日期：2026-10-12 | 主线：`<XIAOZHUA_AGENT_ROOT>` | 本轮只读，无 test2 写入
 > 触发：用户提供 11 张实体页面截图 + 表达式接口真实报文，指示「弄通实体那个页面所有功能，不着急联通……权限、边界都没弄清楚」
 > 证据分级沿用仓内约定：LIVE / VERIFIED_STATIC_SOURCE / STATIC（前端 bundle/javap）/ UNVERIFIED / BLOCKED
 

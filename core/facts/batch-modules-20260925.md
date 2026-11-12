@@ -13,8 +13,8 @@
 
 ## G2 nacos（core/facts/nacos/dataid-diff.md 之原料）
 - 端点：MSE `mse-c19f9232-nacos-ans.mse.aliyuncs.com:8848`（k8s 内 svc，无公网；经 test2 跳板 curl）。
-- 命名空间：`seeyon-uat`（totalCount=63 dataId）/ `seeyon-test2`（50+）；group=`seeyon`。
-- 取数：`GET /v1/cs/configs?dataId=&group=seeyon&tenant=&search=blur&pageNo=1&pageSize=500`（本会话 LIVE）。
+- 命名空间：`xiaozhua-uat`（totalCount=63 dataId）/ `xiaozhua-test2`（50+）；group=`xiaozhua`。
+- 取数：`GET /v1/cs/configs?dataId=&group=xiaozhua&tenant=&search=blur&pageNo=1&pageSize=500`（本会话 LIVE）。
 - 关键事实：每 dataId 的 `datasource.database` 明写（应用命名空间 dataId=app id 名）→ **DB 从 Nacos 直读**成立。
 - 差异样例（LIVE FACT）：`udc` dataId → frontDomain lowcode-uat vs lowcode-test2、database udc_uat vs udc_test2。
 - Verified：LIVE。约束：内网域名解析+跳板可达性依赖（09-24 曾断 3h）。

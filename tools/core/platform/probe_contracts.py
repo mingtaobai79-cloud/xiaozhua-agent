@@ -28,7 +28,7 @@ JAVAC = "<LOCAL_ROOT>/java/bin/javac.exe"
 
 
 def pick_jar(repo: Path, pkg: str) -> Path | None:
-    d = repo / "com" / "seeyon" / pkg
+    d = repo / "com" / "xiaozhua" / pkg
     if not d.is_dir():
         return None
     jars = sorted(d.rglob("*.jar"))

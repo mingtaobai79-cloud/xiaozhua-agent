@@ -71,7 +71,7 @@ contracts["udc.bi.<op>"] = UdcOperationContract(
 ```
 
 ## 未改任何冻结文件
-本文件与 `bi-vacuum-contract.md` 均为本域新目录 `docs/operation-contracts/udc/bi/` 下的建议/负证据件；`components/platform_operations/registry.py` / `components/platform_operations/layer.py` / `seeyon_cli.py` / `tests/*` 一律未触（MERGE 任务统一落库）。
+本文件与 `bi-vacuum-contract.md` 均为本域新目录 `docs/operation-contracts/udc/bi/` 下的建议/负证据件；`components/platform_operations/registry.py` / `components/platform_operations/layer.py` / `xiaozhua_cli.py` / `tests/*` 一律未触（MERGE 任务统一落库）。
 
 ## 追加节 · 5.3.260 独立版本单元（R7，HUMAN 2026-10-08 13:56 授权）
 

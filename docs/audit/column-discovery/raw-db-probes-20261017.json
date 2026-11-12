@@ -3,7 +3,7 @@
   "ts_gmt8": "2026-10-17T15:15:00+08:00",
   "env": "test2",
   "db": "udc_test2",
-  "conn_tool": "<HERMES_HOME>/skills/seeyon/01-platform/seeyon-low-code-environment/scripts/conn.py",
+  "conn_tool": "<HERMES_HOME>/skills/seeyon/01-platform/xiaozhua-low-code-environment/scripts/conn.py",
   "credential_ref": "<COLLAB_ROOT>/agent-collaboration/shared-credentials/test2-web-credential.json (referenced only, not printed)",
   "evidence_level": "LIVE",
   "note": "All queries are read-only (SELECT / SHOW). No writes performed in this slice.",

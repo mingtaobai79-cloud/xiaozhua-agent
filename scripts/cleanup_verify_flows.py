@@ -6,7 +6,7 @@
 
 用法（在仓库根目录执行）：
 
-    python <HERMES_HOME>/skills/udc/seeyon-udc-microflow-generation/scripts/\
+    python <HERMES_HOME>/skills/udc/xiaozhua-udc-microflow-generation/scripts/\
 cleanup_verify_flows.py --marks p5,p6 --tables-table migration_1962926556161096741 \
         --where "task_id LIKE 'P6%'" --where "source_table LIKE 'P6%'"
 
@@ -23,8 +23,8 @@ import subprocess
 import sys
 import time
 
-REPO = "<SEEYON_AGENT_ROOT>"
-CONN = "<HERMES_HOME>/skills/seeyon/01-platform/seeyon-low-code-environment"
+REPO = "<XIAOZHUA_AGENT_ROOT>"
+CONN = "<HERMES_HOME>/skills/seeyon/01-platform/xiaozhua-low-code-environment"
 
 
 def log(*a):

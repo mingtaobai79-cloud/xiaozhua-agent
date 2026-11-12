@@ -1,6 +1,6 @@
 """脱敏闸门：结论区不得出现真实客户 / 人员 / 角色标识。
 
-背景（2026-10-20）：seeyon-agent 要被复用，不能带任何真实客户信息。
+背景（2026-10-20）：xiaozhua-agent 要被复用，不能带任何真实客户信息。
       第一版脱敏把「目录路径」当证据边界，误改了原始抓包 json；
       纠正后的判据：
         证据区（原始数据）= 平台接口返回的机器数据，脱敏后仍可复核 → 保留原文
@@ -310,7 +310,8 @@ def test_no_customer_ids_in_file_names():
     # 这里只断言它们仍在盘（若哪天被授权改名，本常量同步删除）。
     missing = [rel for rel in KNOWN_NAME_VIOLATIONS if not (ROOT / rel).is_file()]
     assert not missing, (
-        "登记在案的 3 个命名违规文件不见了（被改名却没同步本常量？）：\n  " + "\n  ".join(missing))
+        "登记在案的 3 个命名违规文件不见了（被改名却没同步本常量？）：\n  " + "\n  ".join(missing))
+
 
 def test_pii_patterns_match_real_suffixed_forms():
     """PII 正则必须命中「ID 后紧跟 _ 或字母」的真实形态。

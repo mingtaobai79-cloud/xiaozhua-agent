@@ -392,19 +392,19 @@ Long eventId = this.eventService.create((EventDto)eventAndDataDto);
 ```bash
 # 0) 环境（凭据只引用路径，不落 secret）
 #    凭据: <COLLAB_ROOT>\agent-collaboration\shared-credentials\test2-web-credential.json
-#    env loader: hermes skills/seeyon/01-platform/seeyon-low-code-environment/scripts/env.py
+#    env loader: hermes skills/seeyon/01-platform/xiaozhua-low-code-environment/scripts/env.py
 ```
 
 ```python
 # SELF-CHECK 1 —— 枚举映射 490 断言零错（LIVE，只读）
 # 期望输出: 字段映射校验: ok=490 bad=0
-python <SEEYON_AGENT_ROOT>/tools/audit/b5_map_check.py
+python <XIAOZHUA_AGENT_ROOT>/tools/audit/b5_map_check.py
 
 # SELF-CHECK 2 —— 全库事件普查（LIVE，只读）
 # 期望: udc_event 52 行；source {1:50, 2:1, 0:1}；enabled {1:47, 0:5}
 #       action_type {1:49, 0:3}；event_data_type {0:50, 1:2}
 #       exp_design_data 非空=0；message_topic 非空=0
-python <SEEYON_AGENT_ROOT>/tools/audit/b5_scan.py
+python <XIAOZHUA_AGENT_ROOT>/tools/audit/b5_scan.py
 
 # SELF-CHECK 2a —— 三链量化 + trigger 分母 + §5 对账（LIVE，只读）
 # 实跑输出（EXIT=0，tools/audit/b5_scan7.py）：
@@ -420,7 +420,7 @@ python <SEEYON_AGENT_ROOT>/tools/audit/b5_scan.py
 #   selectEvent.source {MICRO_FLOW:34, None:37, ENTITY:1}
 #   eventType×selectEvent为空 {('IN_APP',False):35, ('AMONG_APP',True):37}
 #   对账 命中 1/72；未命中 71 = MICRO_FLOW 34 + None 37
-python <SEEYON_AGENT_ROOT>/tools/audit/b5_scan7.py
+python <XIAOZHUA_AGENT_ROOT>/tools/audit/b5_scan7.py
 # 修复留痕（D19/D21 要求的两处同根缺陷，一起修）：
 #   L37 原 `if o.get('type')=='BUSINESS_EVENT' and 'messageInfo' in o` → 改为只读 data_schema.trigger，
 #       空壳不再被过滤，nodeInfo 引用自然排除
@@ -439,9 +439,9 @@ python <SEEYON_AGENT_ROOT>/tools/audit/b5_scan7.py
 #   ⚠ 空壳不是「messageSource=None」，而是**没有 messageInfo**——该字段不存在。
 #     前者暗示平台有 None 枚举值，后者只是结构缺失。故分两行写，不并列。
 #   [对照，禁用] 任意深度口径 = 255（= 254 + 1 个引用碎片）
-python <SEEYON_AGENT_ROOT>/tools/audit/b5_scan7.py
-python <SEEYON_AGENT_ROOT>/tools/audit/b5_verify_254.py
-python <SEEYON_AGENT_ROOT>/tools/audit/b5_recon_independent.py
+python <XIAOZHUA_AGENT_ROOT>/tools/audit/b5_scan7.py
+python <XIAOZHUA_AGENT_ROOT>/tools/audit/b5_verify_254.py
+python <XIAOZHUA_AGENT_ROOT>/tools/audit/b5_recon_independent.py
 
 # SELF-CHECK 2a-3 —— 一致性闸门（把上面那条判据变成可执行断言，一步判定）
 # 依次跑三个实现、解析 total/with_mi/without，任一脚本非 exit=0、数字缺失、
@@ -451,19 +451,19 @@ python <SEEYON_AGENT_ROOT>/tools/audit/b5_recon_independent.py
 #   b5_verify_254.py           exit=0   total=254  with_mi=244  without=10
 #   b5_recon_independent.py    exit=0   total=254  with_mi=244  without=10
 #   GATE PASS (total=254 / with_mi=244 / without=10)
-python <SEEYON_AGENT_ROOT>/tools/audit/b5_denom_gate.py
+python <XIAOZHUA_AGENT_ROOT>/tools/audit/b5_denom_gate.py
 # 这一步的意义：不是"我相信两个脚本等价"，而是"不一致就跑不过去"。
 # 后来者改任一脚本口径（例如又回到任意深度遍历 → 255），闸门立刻 FAIL，无法静默交付。
 
 # SELF-CHECK 2b —— 实体计数（LIVE，只读）
 # 期望: udc_entity 全库 1814；本应用 9；udc_application 20
 #       即"实体事件"是 1814×9≈16326 个虚拟对象，而 udc_event source=0 只有 1 行
-python <SEEYON_AGENT_ROOT>/tools/audit/b5_ent.py
+python <XIAOZHUA_AGENT_ROOT>/tools/audit/b5_ent.py
 
 # SELF-CHECK 3 —— className 派生规则 49/49（SAMPLE，离线）
 python - <<'PY'
 import json
-d=r"<SEEYON_AGENT_ROOT>\docs\audit\artifacts\udc-node-evidence\udcEventListPost_all.json"
+d=r"<XIAOZHUA_AGENT_ROOT>\docs\audit\artifacts\udc-node-evidence\udcEventListPost_all.json"
 sm=json.load(open(d,encoding="utf-8"))
 bad=[e["name"] for e in sm if e.get("className")!=(e["name"][:1].upper()+e["name"][1:]+"Event")]
 print("className 不符数:",len(bad),"/",len(sm))   # 期望 0 / 49
@@ -471,12 +471,12 @@ PY
 
 # SELF-CHECK 4 —— event_data 是服务端注入（STATIC，看反编译源码）
 grep -n "setEventData(dtoId)" \
-  <SEEYON_AGENT_ROOT>/docs/audit/artifacts/scratch-migrated/cfr-r31b/com/seeyon/udc/appservice/EventWithDataAppServiceImpl.java
+  <XIAOZHUA_AGENT_ROOT>/docs/audit/artifacts/scratch-migrated/cfr-r31b/com/seeyon/udc/appservice/EventWithDataAppServiceImpl.java
 # 期望命中 L124 附近，且在 dtoAppService.createDtoWithAttrs4EntityEvent 之后
 
 # SELF-CHECK 5 —— 实体事件不是表数据（STATIC，看模板推导）
 grep -n "defaultevent.json\|setSource(EventSourceEnum.ENTITY)" \
-  <SEEYON_AGENT_ROOT>/docs/audit/artifacts/scratch-migrated/cfr-r31b/com/seeyon/udc/common/utils/EntityEventLoader.java
+  <XIAOZHUA_AGENT_ROOT>/docs/audit/artifacts/scratch-migrated/cfr-r31b/com/seeyon/udc/common/utils/EntityEventLoader.java
 # 期望: DEFAULT_EVENT_JSON_FILE_PATH = "presetData/event/defaultevent.json"
 
 # SELF-CHECK 6 —— 6 枚举取值（STATIC，需已反编译 udc-plugin-api）

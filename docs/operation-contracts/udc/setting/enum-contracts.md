@@ -50,7 +50,7 @@
 | 分组名重复 | 枚举分类名称重复 | `ENUM_3009` |
 | 删除偶发误报（数据已生效） | 数据库错误 | `BOOT_4000` |
 
-## seeyon-agent 侧能力
+## xiaozhua-agent 侧能力
 
 ```python
 # 构造（components/construction/metadata_artifacts.py）

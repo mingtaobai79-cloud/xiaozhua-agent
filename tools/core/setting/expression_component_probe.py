@@ -91,8 +91,8 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parents[3]
 sys.path.insert(0, str(REPO))
 
-APP_ID = None  # ★ 由 --app-id / SEEYON_APP_ID 提供
-APP_ID = __import__("os").environ.get("SEEYON_APP_ID") or APP_ID
+APP_ID = None  # ★ 由 --app-id / XIAOZHUA_APP_ID 提供
+APP_ID = __import__("os").environ.get("XIAOZHUA_APP_ID") or APP_ID
 
 
 PARAM_TYPES = ("ENTITY", "ATTRIBUTE_SCOPE", "CONFIG_PARAM", "BASIC")

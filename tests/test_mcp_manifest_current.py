@@ -50,7 +50,7 @@ def test_every_tool_key_has_domain_mapping():
 def test_credentialed_tools_require_host_and_cookie():
     """需要凭据的工具，schema 里 host/cookie 必须是必填。"""
     sys.path.insert(0, str(REPO))
-    from seeyon_host_bootstrap import bootstrap
+    from xiaozhua_host_bootstrap import bootstrap
     from adapters.mcp.server import TOOL_KEYS, build_tool_schemas
 
     b = bootstrap()
@@ -60,8 +60,8 @@ def test_credentialed_tools_require_host_and_cookie():
     # 已知的写/联网工具，必须提供某种授权入口：
     #   host+cookie（凭据即授权）或 cdp_port（页面代发，cookie 不离开浏览器）
     # ★ cdp_port 优先 —— 导出 token 到本地重放等于复制用户身份
-    for name in ("seeyon_microflow_publish", "seeyon_expression_verify",
-                 "seeyon_expression_filter", "seeyon_entity_rule_publish"):
+    for name in ("xiaozhua_microflow_publish", "xiaozhua_expression_verify",
+                 "xiaozhua_expression_filter", "xiaozhua_entity_rule_publish"):
         props = set(tools[name]["inputSchema"].get("properties") or {})
         assert {"host", "cookie", "cdp_port"} <= props, (
             "%s 必须暴露 host/cookie/cdp_port 三种授权入口，实际 properties=%s"

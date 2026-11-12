@@ -13,7 +13,7 @@
   3. **成功码不代表删掉了** —— 缺 id 时平台也回 BOOT_0000/content=0
      → 必须回读 DB 核对行数
   4. 失败即停，不重试
-  5. 创建走 seeyon-agent 自己的构造器 + 校验器，本地校验不过不提交
+  5. 创建走 xiaozhua-agent 自己的构造器 + 校验器，本地校验不过不提交
   6. 写操作需显式 --i-have-write-authorization 显式确认（fail-closed）
 
 写通道本身（WriteScope + 平台契约）见：
@@ -43,7 +43,7 @@ TABLE = "udc_data_transfer_object"
 
 
 def _env():
-    p = Path(r"<HERMES_HOME>\skills\seeyon\01-platform\seeyon-low-code-environment\.env")
+    p = Path(r"<HERMES_HOME>\skills\xiaozhua\01-platform\xiaozhua-low-code-environment\.env")
     env = {}
     if p.exists():
         for line in p.read_text(encoding="utf-8-sig", errors="replace").splitlines():
@@ -60,10 +60,10 @@ def _conn():
     from providers.mysql_readonly import MySQLConnectionAdapter
     env = _env()
     return MySQLConnectionAdapter(
-        host=env.get("SEEYON_DB_HOST", ""),
-        port=env.get("SEEYON_DB_PORT") or 3306,
-        user=env.get("SEEYON_DB_USERNAME", ""),
-        password=env.get("SEEYON_DB_PASSWORD", ""))
+        host=env.get("XIAOZHUA_DB_HOST", ""),
+        port=env.get("XIAOZHUA_DB_PORT") or 3306,
+        user=env.get("XIAOZHUA_DB_USERNAME", ""),
+        password=env.get("XIAOZHUA_DB_PASSWORD", ""))
 
 
 def _gql(client, op, query, body):

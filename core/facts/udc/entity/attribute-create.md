@@ -11,7 +11,7 @@
 **`udc.entity.attribute.create`** — 在已建实体下创建单个业务属性（字段）。
 - **类型**：CONFIG 型（agent 出只读方案 data，宿主执行写步；A3 §三 口径）。
 - **位置**：`components/platform_operations/deployment.py` `build_deployment_plan()` 的 **step2**，
-  经 `seeyon_host_bootstrap.deploy_plan()` 暴露给宿主。
+  经 `xiaozhua_host_bootstrap.deploy_plan()` 暴露给宿主。
 - **语义**：挂到指定 `entityId` 下建一条字段（name/caption/dataType），返回属性 id，
   供页面 schema 引用；平台自动补单据族系统属性列。
 - **样板链位序**：`entity.create → attribute.create → page.create → deploy.normal` 第 2 步（B1 §9 收口预告的 attribute 格）。

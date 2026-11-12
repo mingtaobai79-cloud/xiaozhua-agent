@@ -714,7 +714,7 @@ DATA_MAPPING ──(mappingRule.mappingRows[])──► DTO/实体字段级转�
 
 ```bash
 # 前置：env loader
-#   <HERMES_HOME>\skills\seeyon\01-platform\seeyon-low-code-environment\scripts\env.py
+#   <HERMES_HOME>\skills\xiaozhua\01-platform\xiaozhua-low-code-environment\scripts\env.py
 #   凭据只引用路径：<COLLAB_ROOT>\agent-collaboration\shared-credentials\test2-web-credential.json
 ```
 
@@ -723,7 +723,7 @@ DATA_MAPPING ──(mappingRule.mappingRows[])──► DTO/实体字段级转�
 # SELF-CHECK 1 【权威·D37 定稿】R1/R2/R3 三口径对照（本应用 vs 全库，LIVE，只读）
 # 期望: 本应用 R1=9 / R2=10occ·9uniq / R3=9occ·9uniq  {DATA_MAPPING:6, MAP_OPERATION:2, CREATE_MAP:1}
 #       全库   R1=42 / R2=244occ·139uniq / R3=131occ·131uniq {CREATE_MAP:30, MAP_OPERATION:75, DATA_MAPPING:26}
-python <SEEYON_AGENT_ROOT>/_attic_pending/legacy-audit/b6_r3check.py
+python <XIAOZHUA_AGENT_ROOT>/_attic_pending/legacy-audit/b6_r3check.py
 
 # SELF-CHECK 1b2 【D39 回应】auditor 决定性证据归属核实（LIVE，只读）
 # 期望: MFSERVICERD1uB6 id=-9063453479472505266 app_id=3289082814923688017（非本应用）
@@ -731,37 +731,37 @@ python <SEEYON_AGENT_ROOT>/_attic_pending/legacy-audit/b6_r3check.py
 #       本应用 8704025620829192834: **0**
 #       内层键数 {13:18,14:43,21:24,22:4}，3键壳 0
 #       内层 runAfter：键存在 75/89、值非 None 0/89（input/name 也是 75/89）
-python <SEEYON_AGENT_ROOT>/_attic_pending/legacy-audit/b6_auditor_claim.py
+python <XIAOZHUA_AGENT_ROOT>/_attic_pending/legacy-audit/b6_auditor_claim.py
 
 # SELF-CHECK 1b4 【全库 R3 全量对照】三节点字段分布（LIVE，只读，约 100s）
 # 期望: DATA_MAPPING 26 / targetType {None:20, ENTITY:6} / node.structure.dataType {DTO:26} / mappingMode {REFERENCE:264,CONSTANT:1,None:1} 266行
 #       CREATE_MAP 30 / entries 非空 22
 #       MAP_OPERATION 75 / operationType {GET:40,PUT:24,KEY_SET:11} / output {STRING:39,None:24,DECIMAL:7,BIGINTEGER:2,ENUM:1,DATE:1,MAP:1}
-python <SEEYON_AGENT_ROOT>/_attic_pending/legacy-audit/b6_alllib_r3.py
+python <XIAOZHUA_AGENT_ROOT>/_attic_pending/legacy-audit/b6_alllib_r3.py
 
 # SELF-CHECK 1b3 【口径分歧留痕】引用壳内部构成
 # 期望: 引用位内命中 113，宿主键名 {nodeInfo:113}，壳键数 {3:89, 4:24}
 #       孤儿（真映射节点 id 集判定）= 10 ；孤儿（真节点任意类型 id 集）= 10
 #       旧 allids（含壳自身，错误口径）= 32928 → 恒 0 = 循环论证（本脚本已改为正确口径）
 #       【订正】初版报「孤儿 0」是循环论证产物；auditor 报的 10 正确
-python <SEEYON_AGENT_ROOT>/_attic_pending/legacy-audit/b6_refshell.py
+python <XIAOZHUA_AGENT_ROOT>/_attic_pending/legacy-audit/b6_refshell.py
 # 独立复核（不依赖上面脚本的判定逻辑）
 # 期望: 旧 allids=32928 / 真节点=18447 / 真映射节点=101 / 孤儿 10（两种正确口径均 10）
-python <SEEYON_AGENT_ROOT>/_attic_pending/legacy-audit/b6_orphan_truth.py
-python <SEEYON_AGENT_ROOT>/_attic_pending/legacy-audit/b6_refshell.py
+python <XIAOZHUA_AGENT_ROOT>/_attic_pending/legacy-audit/b6_orphan_truth.py
+python <XIAOZHUA_AGENT_ROOT>/_attic_pending/legacy-audit/b6_refshell.py
 
 # SELF-CHECK 1a 【对照】分母三层陷阱（本应用 vs 全库，LIVE，只读）
 # 期望: 本应用 47 行 → A=9 {DATA_MAPPING:6, MAP_OPERATION:2, CREATE_MAP:1}，唯一 9，覆盖 6，state {10:7, 20:2}
 #             B(任意深度)=10，差 1；同名组 0；按(name,nodeId)去重仍 9
 #       全库 4755 行 → R1=42 {DATA_MAPPING:12, MAP_OPERATION:18, CREATE_MAP:12}（R1 已废弃，仅对照），唯一 42，覆盖 28，state {20:28, 10:14}
 #             B=244，差 202；同名 848 名称/1811 行；按(name,nodeId)去重 37
-python <SEEYON_AGENT_ROOT>/_attic_pending/legacy-audit/b6_scope.py
+python <XIAOZHUA_AGENT_ROOT>/_attic_pending/legacy-audit/b6_scope.py
 
 # SELF-CHECK 1b —— 本应用 9 个映射节点全景逐条（LIVE，只读）
 # 期望: 9 条；CREATE_MAP 1 / MAP_OPERATION 2 / DATA_MAPPING 6
 #       CREATE_MAP_n6a output=MAP key=String val=Object entries=len 1
 #       2 个 MAP_OPERATION 均 GET，theKey 一为 "expText"(字面量) 一为 SelectParam(动态)
-python <SEEYON_AGENT_ROOT>/_attic_pending/legacy-audit/b6_appnodes.py
+python <XIAOZHUA_AGENT_ROOT>/_attic_pending/legacy-audit/b6_appnodes.py
 
 # SELF-CHECK 1c —— 本应用字段定量（LIVE，只读）
 # 期望: targetType ENTITY 6/6
@@ -770,11 +770,11 @@ python <SEEYON_AGENT_ROOT>/_attic_pending/legacy-audit/b6_appnodes.py
 #       mappingRule.javaType = {present:3, key_missing:3}，缺键: DATA_MAPPING_x8 / 8EZQEb / bbb222
 #       mappingMode {REFERENCE:13, CONSTANT:1, None:1} 共 15 行
 #       mappingType 存在于映射节点 0/9
-python <SEEYON_AGENT_ROOT>/_attic_pending/legacy-audit/b6_appstats.py
+python <XIAOZHUA_AGENT_ROOT>/_attic_pending/legacy-audit/b6_appstats.py
 
 # SELF-CHECK 1d —— 全库对照（仅作形态参考，非本应用事实）
 # 期望: A=42、B=244、差=202
-python <SEEYON_AGENT_ROOT>/_attic_pending/legacy-audit/b6_census.py
+python <XIAOZHUA_AGENT_ROOT>/_attic_pending/legacy-audit/b6_census.py
 
 # SELF-CHECK 2 —— 字段语义定量（LIVE，只读）
 # 期望(全库 R3): CREATE_MAP 30 / output.dataType=MAP 30/30 / keyType=String 30/30 / valueType=Object 30/30
@@ -782,36 +782,36 @@ python <SEEYON_AGENT_ROOT>/_attic_pending/legacy-audit/b6_census.py
 #       DATA_MAPPING: node.structure.dataType=DTO 26/26, mappingRule.javaType 缺键 3/26,
 #                     mappingRows.mappingMode {REFERENCE:264, CONSTANT:1, None:1} 共266行, mappingType 缺 26/26
 #       MAP_OPERATION: operationType {GET:40, PUT:24, KEY_SET:11}（REMOVE 0）, selectMap.dataType=MAP 75/75
-python <SEEYON_AGENT_ROOT>/_attic_pending/legacy-audit/b6_fields.py
+python <XIAOZHUA_AGENT_ROOT>/_attic_pending/legacy-audit/b6_fields.py
 
 # SELF-CHECK 3 —— mappingType 宿主否证（LIVE，只读）
 # 期望: 映射类节点（R3 全库 131 / R1 顶层 42）中含 mappingType 的 0 个 —— 两口径均为 0
 #       mappingType 取值 {attrs:3415, value:837, mapping:287, None:191}
 #       宿主 actionType 为 CHANGE_VARIABLE/CREATE_VARIABLE/CALL_MICRO_FLOW/... 共 12 类
-python <SEEYON_AGENT_ROOT>/_attic_pending/legacy-audit/b6_mt.py
+python <XIAOZHUA_AGENT_ROOT>/_attic_pending/legacy-audit/b6_mt.py
 
 # SELF-CHECK 4 —— entries 形态与条目统计（LIVE，只读）
 # 期望: 含非空 entries 的节点 7 个、条目 40；key.type {Simple:40}；value.type {SelectParam:38, Simple:2}
 #       CREATE_MAP 空值形态 = 空 list[] ×5（非 null）
-python <SEEYON_AGENT_ROOT>/_attic_pending/legacy-audit/b6_sample.py
+python <XIAOZHUA_AGENT_ROOT>/_attic_pending/legacy-audit/b6_sample.py
 
 # SELF-CHECK 4b —— 同名不同 id 微流程核查（LIVE，只读）【分母第二层陷阱】
 # 期望: udc_microflow_info 4755 行、唯一 id 4755、重复 id 0
 #       同名多行：848 个名称 / 1811 行；state 分布 {10:289, 20:4466}
 #       映射节点所在微流程 28 个 id，其中 8 个 id 属同名组
 #       映射节点按宿主 state {20:28, 10:14}
-python <SEEYON_AGENT_ROOT>/_attic_pending/legacy-audit/b6_dupnames.py
+python <XIAOZHUA_AGENT_ROOT>/_attic_pending/legacy-audit/b6_dupnames.py
 # 逐条核对（nodeId 重复明细）
 # 期望: nodes 位置 42 条、唯一 (mf,nodeId) 42、重复键 []
 #       CREATE_MAP 12 条逐条列出（R1 顶层口径；R3 全量为 30），其中 MFSERVICEvmSOMc/DVrcsWim 各 2 次
-python <SEEYON_AGENT_ROOT>/_attic_pending/legacy-audit/b6_dups.py
+python <XIAOZHUA_AGENT_ROOT>/_attic_pending/legacy-audit/b6_dups.py
 # 表级核对
 # 期望: 总行 4755 / 唯一 id 4755 / 重复 id 0；MFSERVICEvmSOMc 与 DVrcsWim 各 2 行（id 不同）
-python <SEEYON_AGENT_ROOT>/_attic_pending/legacy-audit/b6_duprows.py
+python <XIAOZHUA_AGENT_ROOT>/_attic_pending/legacy-audit/b6_duprows.py
 
 # SELF-CHECK 5 —— MapOperationTypeEnum 权威取值（STATIC_BYTECODE）
 grep -A2 "public enum MapOperationTypeEnum" \
-  <SEEYON_AGENT_ROOT>/docs/audit/artifacts/scratch-migrated/cfr-r31b/com/seeyon/udc/enums/microflow/MapOperationTypeEnum.java
+  <XIAOZHUA_AGENT_ROOT>/docs/audit/artifacts/scratch-migrated/cfr-r31b/com/seeyon/udc/enums/microflow/MapOperationTypeEnum.java
 # 期望: GET(0), PUT(1), REMOVE(2), KEY_SET(3)
 
 # SELF-CHECK 7 —— 全文数字自洽扫描（main D44 最后一道闸门，静态检查，秒级）
@@ -819,16 +819,16 @@ grep -A2 "public enum MapOperationTypeEnum" \
 #      期望 D: 42/244 全部位于对照/留痕语境
 #      期望 E: CREATE_MAP/DATA_MAPPING/MAP_OPERATION 的旧值(R1 12/12/18)残留 0 处
 #      期望 F: 「本应用 9 / 全库 131」口径已区分
-python <SEEYON_AGENT_ROOT>/_attic_pending/legacy-audit/b6_selfcheck_numbers.py
+python <XIAOZHUA_AGENT_ROOT>/_attic_pending/legacy-audit/b6_selfcheck_numbers.py
 # 期望: A ✅ / D ✅ / E 三项全 ✅ / F ✅
 
 # SELF-CHECK 8 —— 孤儿引用三口径对照（澄清「全局 vs 微流程内」）
 # 期望: A(含壳) 32928 → 孤儿 0（循环论证）; B(真节点全局) 18447 → 孤儿 10; C(同微流程) → 孤儿 10，涉 7 个微流程
 #       B 与 C 同一集合（setB == setC 为 True）
-python <SEEYON_AGENT_ROOT>/_attic_pending/legacy-audit/b6_orphan_3ways.py
+python <XIAOZHUA_AGENT_ROOT>/_attic_pending/legacy-audit/b6_orphan_3ways.py
 
 # SELF-CHECK 6 —— MappingMode 11 常量（STATIC_BYTECODE，注意目录是 cfr-r31 非 r31b）
-grep "MAPPING_MODE_" <SEEYON_AGENT_ROOT>/docs/audit/artifacts/scratch-migrated/cfr-r31/com/seeyon/udc/common/mappingmode/MappingMode.java
+grep "MAPPING_MODE_" <XIAOZHUA_AGENT_ROOT>/docs/audit/artifacts/scratch-migrated/cfr-r31/com/seeyon/udc/common/mappingmode/MappingMode.java
 # 期望: FieldCopy/Formula/Sum/Average/Count/Max/Min/Splicing/FirstLine/LastLine/FixedValue
 ```
 

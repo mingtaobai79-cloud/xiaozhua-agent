@@ -142,7 +142,7 @@ Construction / Publish / Generator Bridge
 
 | Item | Status | Evidence |
 |---|---|---|
-| Frontend `createEntity` request construction | VERIFIED_STATIC_SOURCE | `docs/audit/frontend/entity-api-module-64527-evidence.md`（**客户场景证据，已迁出至 `seeyon-customer-evidence/frontend/`**，仓库内已无此路径）; chunk SHA-256 `6051e1df6c574df74c842f9e4c0714fae5c7ff0df6e86e5ffa5b2d4f994f387d` |
+| Frontend `createEntity` request construction | VERIFIED_STATIC_SOURCE | `docs/audit/frontend/entity-api-module-64527-evidence.md`（**客户场景证据，已迁出至 `xiaozhua-customer-evidence/frontend/`**，仓库内已无此路径）; chunk SHA-256 `6051e1df6c574df74c842f9e4c0714fae5c7ff0df6e86e5ffa5b2d4f994f387d` |
 | `udcEntityPost` frontend field token | VERIFIED_STATIC_SOURCE | module `64527` in same chunk |
 | `udcEntityPostInputBody` frontend input token | VERIFIED_STATIC_SOURCE | module `64527` in same chunk |
 | GraphQL server field definition | UNKNOWN | no local schema artifact |

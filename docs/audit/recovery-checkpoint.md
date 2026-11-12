@@ -1,4 +1,4 @@
-# 2小爪 Agent 恢复检查点
+# xiaozhua Agent 恢复检查点
 
 > ✅ **P6 裁决（2026-11-07）：保留原地，不移动、不删除。**
 > 本文件是 2026-09-03 的恢复检查点（当时任务上下文），**仍被程序读取**：
@@ -11,7 +11,7 @@
 
 ## 当前真实任务
 
-当前主线不是开票测试，而是 `<SEEYON_AGENT_ROOT>` 的 UDC/Seeyon Agent 审计、事实边界和 Profile 架构整理。
+当前主线不是开票测试，而是 `<XIAOZHUA_AGENT_ROOT>` 的 UDC/Seeyon Agent 审计、事实边界和 Profile 架构整理。
 
 目标是建立并保持四类独立对象：UDC Platform、Standard Product Application、Customer UDC Application、Extension Service。
 
@@ -29,14 +29,14 @@
 
 ## 当前工作区实测状态
 
-核对目录：`<SEEYON_AGENT_ROOT>`
+核对目录：`<XIAOZHUA_AGENT_ROOT>`
 
 已存在：
 
 - `components/profiles/__init__.py`：仅有四类 Profile 的最小模型；未发现 `builder.py`。
 - `components/profile_graph.py`：已存在，约 174 行。
 - `components/udc/component.py`：已存在，约 65 行。
-- `seeyon_cli.py`：已存在，约 228 行。
+- `xiaozhua_cli.py`：已存在，约 228 行。
 - `docs/audit/code-reality-audit.md`
 - `docs/audit/udc-evidence-consistency-audit.md`
 - `docs/audit/next-direction-input.md`
@@ -77,7 +77,7 @@
 - Targeted facade bytecode confirms `EntityAppService.create(SingleRequest<EntityDto>)`, `update(SingleRequest<EntityDto>)`, and read methods.
 - `ApplicationManagerAppService.createEntity` is a default no-op-like interface method returning `SingleResponse.ok()` in the decompile; it is not persistence evidence.
 - Concrete resolver/controller/service/persistence/generation/runtime linkage remains UNVERIFIED.
-- Evidence: `docs/audit/frontend/entity-api-module-64527-evidence.md`（**客户场景证据，已迁出至 `seeyon-customer-evidence/frontend/`**，仓库内已无此路径）, `docs/audit/entity-backend-static-chain-evidence.md`.
+- Evidence: `docs/audit/frontend/entity-api-module-64527-evidence.md`（**客户场景证据，已迁出至 `xiaozhua-customer-evidence/frontend/`**，仓库内已无此路径）, `docs/audit/entity-backend-static-chain-evidence.md`.
 
 
 ## 2026-09-04 metadata artifact continuation
@@ -146,6 +146,6 @@
 
 ## 2026-09-04 generated source artifact discovery
 
-- Targeted local filesystem scan found `<USER_HOME>/...com_seeyon_9000000000000000001_dto_HetongdanganDto.java`.
+- Targeted local filesystem scan found `<USER_HOME>/...com_xiaozhua_9000000000000000001_dto_HetongdanganDto.java`.
 - This is a real generated-source delivery artifact, but its producer, generation trigger, compile/package step, and relation to `udcEntityPost` remain unverified. It is not treated as a UDC design-time module Artifact.
 - Docker CLI probe was blocked by the local terminal backend path/WSL wrapper failure (`cd /c/Users/10514` unavailable); no Docker evidence is claimed.

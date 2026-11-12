@@ -1,6 +1,6 @@
 """实体配置面生成器 — 索引/枚举/事件+DTO/过滤方案 body data（宿主执行，agent 不出写）。
 
-证据基线（skill seeyon-udc-design-time-build / references/metadata-artifact-apis.md，
+证据基线（skill xiaozhua-udc-design-time-build / references/metadata-artifact-apis.md，
 全部 test2 LIVE 探针推进所得，逐字段照录不臆造）：
 - 索引 POST /service/udc/index：{caption, entityId, fieldIds=逗号分隔字符串}
   （fieldIds 给数组报 BOOT_3002 ... to type String）

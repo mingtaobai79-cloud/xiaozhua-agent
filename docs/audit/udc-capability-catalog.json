@@ -1,6 +1,6 @@
 {
-  "schema_version": "seeyon-agent.udc-capability-catalog.v1",
-  "parent_component": "seeyon-agent",
+  "schema_version": "xiaozhua-agent.udc-capability-catalog.v1",
+  "parent_component": "xiaozhua-agent",
   "environment": "test2",
   "namespace": "lowcode-test",
   "gateway": {

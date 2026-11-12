@@ -21,7 +21,7 @@
 
 DOM 结构（实测）：
 ```html
-<div class="ant-radio-group ... seeyon-btn" id="eventType">
+<div class="ant-radio-group ... xiaozhua-btn" id="eventType">
   <label class="ant-radio-button-wrapper ...">
     <input type="radio" class="ant-radio-button-input" value="AMONG_APP">
     <span>应用间(异步)</span></label>
@@ -29,7 +29,7 @@ DOM 结构（实测）：
     <input type="radio" class="ant-radio-button-input" value="IN_APP">
     <span>应用内(同步)</span></label>
 </div>
-<div class="ant-radio-group ... seeyon-radio" id="messageType">
+<div class="ant-radio-group ... xiaozhua-radio" id="messageType">
   <label class="ant-radio-wrapper ...">
     <input type="radio" class="ant-radio-input" value="DEFAULT"><span>普通事件</span></label>
   <label class="ant-radio-wrapper ...">

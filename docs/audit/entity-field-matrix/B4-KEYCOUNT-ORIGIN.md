@@ -199,7 +199,7 @@ ADD 的 26 键同理对上**表单默认表 `f[String]`**：`minLength:0` / `max
 ## 七、复现与注入验证
 
 ```bash
-cd <SEEYON_AGENT_ROOT>
+cd <XIAOZHUA_AGENT_ROOT>
 python tools/audit/b4_keycount_algebra.py          # EXIT=0 = 34 断言全过（取证闸门）
 python tools/audit/gate_b4_doc.py                  # EXIT=0 = 41 断言全过（B4 文档闸门）
 python tools/audit/gate_b2_docfix.py               # EXIT=0 = 74 断言全过（B2 文档闸门，round4 版）

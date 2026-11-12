@@ -10,7 +10,7 @@
      - 实体装配单独加载 属性/索引/实体规则标志（:1245-1259, :1350-1376, :1408-1425）
      - 实体规则标志来自 microFlowService.loadHasRuleEntityId(appId)，
        按 VALIDATE / DEFAULT_VALUE / ASSIGN_VALUE 区分 —— 字段 defaultValue ≠ 实体规则默认值
-  L2 create REST 受键面（LIVE 探针证据，seeyon-udc-design-time-build skill）：
+  L2 create REST 受键面（LIVE 探针证据，xiaozhua-udc-design-time-build skill）：
      - 已证白名单：multiSelect / relationType / relationApp / relationEntity / uniqueness
        （deployment.py _ATTR_SEMANTIC_KEYS 同源）
      - 六件套在 create 面是否受键 = **UNVERIFIED**（未实测；本模型不冒充已证）

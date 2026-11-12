@@ -11,14 +11,14 @@
 实际检查目录：
 
 ```text
-<SEEYON_AGENT_ROOT>/
+<XIAOZHUA_AGENT_ROOT>/
   docs/construction-rules/
   docs/audit/
   components/
   core/
   providers/
   tests/
-  seeyon_cli.py
+  xiaozhua_cli.py
 ```
 
 ## 2. 当前真实架构
@@ -26,9 +26,9 @@
 当前项目不是 Generator 工程，而是一个离线、只读、证据审计与组件路由骨架。
 
 ```text
-CLI: seeyon_cli.py
+CLI: xiaozhua_cli.py
     ↓
-SeeyonAgent / AgentRequest
+XiaozhuaAgent / AgentRequest
     ↓
 ComponentRegistry
     ↓
@@ -73,8 +73,8 @@ core/registry.py
 
 core/agent.py
   AgentRequest
-  SeeyonAgent.route()
-  SeeyonAgent.dispatch()
+  XiaozhuaAgent.route()
+  XiaozhuaAgent.dispatch()
 
 components/artifact_inventory.py
   scan_repository()

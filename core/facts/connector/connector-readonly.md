@@ -1,7 +1,7 @@
 # connector.connector-readonly｜集成连接器/数据流 只读事实格（九段式 · 阶段 2）
 
 > 任务：`core/facts` 三 stub 之二 **connector（集成连接器）** 推进为有证据的九段式只读格。
-> 仓库 `<SEEYON_AGENT_ROOT>`，写前实测 HEAD `dc12ef3d16a292116128ddc110c5cb1cd1cb4e8d`。
+> 仓库 `<XIAOZHUA_AGENT_ROOT>`，写前实测 HEAD `dc12ef3d16a292116128ddc110c5cb1cd1cb4e8d`。
 > 只读、0 写请求；凭据 0 入件（仅键名/长度/时效声明）；证据分级 STATIC_CONTRACT < VERIFIED_STATIC_BYTECODE < LIVE；
 > 无 LIVE 接口如实标 UNVERIFIED，**不编**。本批经 REWORK（E6）坐实真实 connector 接口 LIVE：`data-flow-map/search` LIVE=PASS（非空+traceId）；
 > **阶段 4（E7）A 域剩余 5 只读路由已逐路由 LIVE 单发**：网关可达（200+traceId+类型化信封）但业务 `data` 空 ⇒ 逐路由维持 UNVERIFIED、不冒充 PASS（增量坐实 `search-original` 需 `dataFlowId`+`sourceEntityId`、`init-data` 需 `sourceEntity`）；B 域 `udc/microflow` 仍 UNVERIFIED；控制端点 `meta-data` LIVE=PASS（不同域）。
@@ -90,7 +90,7 @@
   **（本轮 18:37 E5 已解除：main 18:32 实测 `HTTP_LAYER_UP` + 15:2x 人指解除冻结，控制端点单发 200/BOOT_0000 + 非空 + traceId，本约束闭环）**
 - 环境事实（ROUTE/collaboration 记载）：`GET /udc/* 实测 404`（设计态 B 走 `/service/{app}/udc/*`，非运行态数据面）；
   活体只读面为 `POST /udc-runtime/*`（A 属之）。
-- 无写路径授权；本轮 0 写请求；禁改 `components/ core/tools/ adapters/ tests/ seeyon_cli/ seeyon_host_bootstrap`。
+- 无写路径授权；本轮 0 写请求；禁改 `components/ core/tools/ adapters/ tests/ xiaozhua_cli/ xiaozhua_host_bootstrap`。
 - 入参 DTO 字段清单：本批未逐一落盘（javap 仅类型签名）→ 具体字段要求仍 UNVERIFIED，不外推、不臆造字段。
   **非空业务样本**：E6 已取到 `data-flow-map/search` 非空样本（901 B 数据流映射列表，见 §8 E6）；
   `data-flow-mapping/search-original` 本轮空结果，非空样本未取得（UNVERIFIED）。

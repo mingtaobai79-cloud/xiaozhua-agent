@@ -38,7 +38,7 @@ def test_cli_extension_boundary_emits_json_and_returns_unverified_without_source
     facts = tmp_path / "facts.json"
     facts.write_text("{}", encoding="utf-8")
     proc = subprocess.run(
-        [sys.executable, "seeyon_cli.py", "extension-boundary", "--facts-json", str(facts)],
+        [sys.executable, "xiaozhua_cli.py", "extension-boundary", "--facts-json", str(facts)],
         cwd=Path(__file__).parents[1], capture_output=True, text=True,
     )
     assert proc.returncode == 2

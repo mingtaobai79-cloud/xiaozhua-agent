@@ -239,7 +239,7 @@ def test_cli_profile_graph_reads_local_json_and_prints_single_line(tmp_path):
     source = tmp_path / "profiles.json"
     source.write_text(json.dumps(payload), encoding="utf-8")
     result = subprocess.run(
-        [sys.executable, "-m", "seeyon_cli", "profile-graph", "--profiles-json", str(source)],
+        [sys.executable, "-m", "xiaozhua_cli", "profile-graph", "--profiles-json", str(source)],
         cwd=ROOT, capture_output=True, text=True,
     )
     assert result.returncode == 0, result.stderr
@@ -255,7 +255,7 @@ def test_cli_profile_graph_conflict_exit_code_two(tmp_path):
     source = tmp_path / "profiles.json"
     source.write_text(json.dumps(payload), encoding="utf-8")
     result = subprocess.run(
-        [sys.executable, "-m", "seeyon_cli", "profile-graph", "--profiles-json", str(source)],
+        [sys.executable, "-m", "xiaozhua_cli", "profile-graph", "--profiles-json", str(source)],
         cwd=ROOT, capture_output=True, text=True,
     )
     assert result.returncode == 2
@@ -265,7 +265,7 @@ def test_cli_profile_graph_conflict_exit_code_two(tmp_path):
 
 def test_cli_profile_graph_requires_profiles_json(tmp_path):
     result = subprocess.run(
-        [sys.executable, "-m", "seeyon_cli", "profile-graph"],
+        [sys.executable, "-m", "xiaozhua_cli", "profile-graph"],
         cwd=ROOT, capture_output=True, text=True,
     )
     assert result.returncode != 0
@@ -322,7 +322,7 @@ def test_relation_without_own_evidence_stays_unevidenced():
 def test_cli_profile_graph_missing_file_returns_single_line_json_error(tmp_path):
     missing = tmp_path / "missing.json"
     result = subprocess.run(
-        [sys.executable, "-m", "seeyon_cli", "profile-graph", "--profiles-json", str(missing)],
+        [sys.executable, "-m", "xiaozhua_cli", "profile-graph", "--profiles-json", str(missing)],
         cwd=ROOT, capture_output=True, text=True,
     )
     assert result.returncode == 2

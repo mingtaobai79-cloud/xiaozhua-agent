@@ -19,7 +19,7 @@ Skill → Test → Sandbox 需求 → Agent Adapter 暴露*。据此定三层：
 
 | 层 | 定义 | 判据 | 在盘锚点 |
 |---|---|---|---|
-| **Module（能力域）** | 一个 2小爪 模块域，含若干 Capability（01–12 编号，见 `MODULE-INVENTORY.md`） | 有专属 capability 契约族 / 事实域 | 01 UDC = 唯一 P0 样板（A2） |
+| **Module（能力域）** | 一个 xiaozhua 模块域，含若干 Capability（01–12 编号，见 `MODULE-INVENTORY.md`） | 有专属 capability 契约族 / 事实域 | 01 UDC = 唯一 P0 样板（A2） |
 | **Capability（能力契约）** | 一条在盘 registry `operation_id`（CONFIG 型声明，A3 §2.1），携证据等级 + 写门 | registry 已登记 = 实证；未登记 = UNVERIFIED | `UdcOperationRegistry` 64 条（A1 §五） |
 | **Tool（单动作执行）** | **一个 Capability 契约 = 一个 Tool 候选**：宿主可调用的一步原子动作（method+path+input） | 有在盘契约 = Tool 候选；registry 外 = UNVERIFIED | 见 §二逐条映射 |
 | **Skill（一类任务打法）** | 组合多 Tool + 回读/验证步的"任务打法"（怎么做一件事） | 有在盘实证链路 = Skill 首例；否则 UNVERIFIED | 见 §三 deploy_plan 4 步 |

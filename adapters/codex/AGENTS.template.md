@@ -6,16 +6,16 @@
 
 ## 1. 身份与铁律
 
-- 2小爪 Agent = **嵌入宿主（Codex）的组件，不是独立 agent**（`docs/HOST-INTEGRATION.md` L3 原文；
-  ROADMAP-v2 §一.2 L12–L14："2小爪 Agent = 可安装的 **Agent 角色 + 能力包**…不自研 Agent Loop /
+- xiaozhua Agent = **嵌入宿主（Codex）的组件，不是独立 agent**（`docs/HOST-INTEGRATION.md` L3 原文；
+  ROADMAP-v2 §一.2 L12–L14："xiaozhua Agent = 可安装的 **Agent 角色 + 能力包**…不自研 Agent Loop /
   记忆 / Planner / Agent OS"）。
-- **Codex 提供 Loop / 记忆 / Planner，2小爪 只出 data**（A8 `docs/capability/AGENT-ADAPTER.md`
-  §一 L24–L25 定稿口径 + §三 L63 Codex 暴露形态；宿主 Loop/记忆/Planner 归宿主，不进 2小爪 契约）。
+- **Codex 提供 Loop / 记忆 / Planner，xiaozhua 只出 data**（A8 `docs/capability/AGENT-ADAPTER.md`
+  §一 L24–L25 定稿口径 + §三 L63 Codex 暴露形态；宿主 Loop/记忆/Planner 归宿主，不进 xiaozhua 契约）。
 - 三级定位同口径：`core/role/ROLE-CARD.md` §1（S1 已建）——两级兼容 + 不自研宿主能力。
 
 ## 2. 能力面（bootstrap 五能力 + CLI 面）
 
-### 2.1 五能力（锚点 `seeyon_host_bootstrap.py`，返回 dict L136–L151）
+### 2.1 五能力（锚点 `xiaozhua_host_bootstrap.py`，返回 dict L136–L151）
 
 | 能力 | 行号 | 入参 | 返回 / 边界 | 只读性 |
 |---|---|---|---|---|
@@ -27,26 +27,26 @@
 
 `capabilities` dict 实测键（L144–L150）：`components`（= registry 3 组件 `integration`/`runtime`/
 `udc`）、`readonly_only=True`、`credential_mode="path-ref-only"`、
-`deployment_plan="readonly data; host executes the write steps"`、`schema="seeyon-host-bootstrap.v1"`。
+`deployment_plan="readonly data; host executes the write steps"`、`schema="xiaozhua-host-bootstrap.v1"`。
 
-### 2.2 CLI 面（锚点 `seeyon_cli.py`，Codex 用 shell 调，HOST-INTEGRATION §3 Codex 段 L34–L37）
+### 2.2 CLI 面（锚点 `xiaozhua_cli.py`，Codex 用 shell 调，HOST-INTEGRATION §3 Codex 段 L34–L37）
 
-- `python -m seeyon_cli capabilities`（**L174**）— 列只读能力面。
-- `python -m seeyon_cli op-execute`（**L185–L196**）— 只读 UDC 操作经 PlatformOperationLayer
+- `python -m xiaozhua_cli capabilities`（**L174**）— 列只读能力面。
+- `python -m xiaozhua_cli op-execute`（**L185–L196**）— 只读 UDC 操作经 PlatformOperationLayer
   （离线默认）；参数：
   `--operation`（required，op id）/ `--application-id`（required）/ `--entity-id` / `--entity-name` /
   `--gateway-url` / `--credential-file`（JSON：`credential_ref`→HTTP headers 映射，default None）/
   `--credential-ref`（default `cli-default`）/ `--principal`（default `cli`）/ `--timeout`（default 15.0）/
   `--evidence-out`（落脱敏 OperationResult JSON）/ `--allow-network`（`store_true`，default 关 = 离线只读）。
-- 写面（对照用）：`python -m seeyon_cli udc-execute`（**L183**，"writes are denied"，写一律 DENIED，
+- 写面（对照用）：`python -m xiaozhua_cli udc-execute`（**L183**，"writes are denied"，写一律 DENIED，
   退出码 2，`README.md` L96–L100 同口径）。
 
 ## 3. 调用方式（Codex 侧）
 
 （锚点 `docs/HOST-INTEGRATION.md` §3 Codex 段 L34–L37 原文命令）
-- **shell 调 CLI**：`python -m seeyon_cli op-execute --operation <op> --application-id <app>
+- **shell 调 CLI**：`python -m xiaozhua_cli op-execute --operation <op> --application-id <app>
   --credential-file <仓外路径> --allow-network`（L36 原文示意）；
-- **Python 调 bootstrap**：`sys.path.insert(0, repo_root)` → `from seeyon_host_bootstrap import bootstrap`
+- **Python 调 bootstrap**：`sys.path.insert(0, repo_root)` → `from xiaozhua_host_bootstrap import bootstrap`
   → `bootstrap(...)` 取五能力（HOST-INTEGRATION §1 L8–L14）。
 - Codex 侧凭据同样走**环境变量/路径引用**（HOST-INTEGRATION §3 L37 原文："凭据走环境变量/路径引用"）。
 - 长任务/多轮打法：交 `core/skills/udc-entity-dev.md`（B3，见 §5），宿主 shell 逐步执行。
@@ -55,9 +55,9 @@
 
 | 项 | 约定 | 机制锚点 |
 |---|---|---|
-| 凭据 | 仅**路径引用/环境变量**（`--credential-file <仓外 JSON>` + `--credential-ref`），token 明文 0 入仓/入会话/入产物 | `seeyon_cli.py` L191–L192；bootstrap `credential_mode="path-ref-only"`（L147）；HOST-INTEGRATION §4 L43 |
-| 离线开关 | `--allow-network` 默认**关**（离线只读）；开才活体 GET | `seeyon_cli.py` L196（`store_true`）；bootstrap `allow_network` 默认 False（L25） |
-| 证据落盘 | `--evidence-out` 落**脱敏** OperationResult JSON（不含凭据值） | `seeyon_cli.py` L195 |
+| 凭据 | 仅**路径引用/环境变量**（`--credential-file <仓外 JSON>` + `--credential-ref`），token 明文 0 入仓/入会话/入产物 | `xiaozhua_cli.py` L191–L192；bootstrap `credential_mode="path-ref-only"`（L147）；HOST-INTEGRATION §4 L43 |
+| 离线开关 | `--allow-network` 默认**关**（离线只读）；开才活体 GET | `xiaozhua_cli.py` L196（`store_true`）；bootstrap `allow_network` 默认 False（L25） |
+| 证据落盘 | `--evidence-out` 落**脱敏** OperationResult JSON（不含凭据值） | `xiaozhua_cli.py` L195 |
 
 > 实装状态：以上为 CLI/bootstrap **在盘已支持**的参数（签名实测）；Codex 宿主侧 config 注入实现
 > = 目标态未建，**UNVERIFIED**（A8 §四 L93–L96）。
@@ -86,4 +86,4 @@
 - MCP server 传输层 / 宿主 config 实装 / 五能力真实暴露给 Codex = 未建，UNVERIFIED
   （A8 §三 L63、§四 L93–L96；`MCP-TOOL-MANIFEST.md` 标同）。
 - 不改 `components/`、`core/`（含 `core/role/`/`core/facts/`/`core/skills/`）、`skills/`、
-  `docs/capability/`、`tests/`、`seeyon_cli.py` 及仓库其他路径；凭据 0 入件；禁 `git push`。
+  `docs/capability/`、`tests/`、`xiaozhua_cli.py` 及仓库其他路径；凭据 0 入件；禁 `git push`。

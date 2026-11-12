@@ -37,7 +37,7 @@ class AgentRequest:
     intent: str
     context: dict[str, Any] = field(default_factory=dict)
 
-class SeeyonAgent:
+class XiaozhuaAgent:
     def __init__(self, components=None, *, context=None, session=None, policy=None):
         if isinstance(components, ComponentRegistry):
             self.registry = components

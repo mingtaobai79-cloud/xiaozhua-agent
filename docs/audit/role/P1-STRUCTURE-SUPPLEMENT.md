@@ -343,7 +343,7 @@ grep -oE 'udcQueryLoader\.load\(\{[^}]{0,160}' module1622.js
 | 内容 | 路径 | size / 校验 |
 |---|---|---|
 | javap 全量 | `<HERMES_HOME>\cache\scratch\implementer-only\role_static_r2\ctrl_v.txt` | 77,922 B / sha16 `98b7ce94` |
-| class 本体（可重跑） | `…\role_static_r2\classes\com\seeyon\udc\user\controller\UdcRoleController.class` | sha256 `885fba64…b098db` |
+| class 本体（可重跑） | `…\role_static_r2\classes\com\xiaozhua\udc\user\controller\UdcRoleController.class` | sha256 `885fba64…b098db` |
 | op 定义层 | `…\role_static_r2\web\module1622.js` | 3,994 B / sha16 `4acd467f` |
 | 微前端入口 | `…\role_static_r2\web\remoteEntry.js` | 15,328 B / sha16 `a69f9b9b` |
 | 角色管理页 | `…\role_static_r2\web\src_pages_role-permission_index_tsx.7d23367b.js` | 16,319 B / sha16 `468aafbb` |

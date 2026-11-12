@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-FD = Path("<SEEYON_AGENT_ROOT>/core/facts/standard-product")
+FD = Path("<XIAOZHUA_AGENT_ROOT>/core/facts/standard-product")
 
 OLD_79 = """数据源 `interfaces.json`（91 个构件）：**1145 个接口**，其中 845 个带 abstract。
 人读全量清单 `interface-inventory.md`（1017 行）；扩展点 × 平台实现落地表

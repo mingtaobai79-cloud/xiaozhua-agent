@@ -285,7 +285,7 @@ CTP 用户域的**统一三方认证（SSO）与免登（avoid-login）SPI 扩�
 - 与在盘 `5.3.331` / `5.3.351` 属**不同证据单元**，本版独立成格，不与其他版本合并（profile `limitations` 第 3 条口径）。
 
 ### 3. Input
-类型级无输入（`interface`）。契约面全部方法签名由 `javap -public -s` 逐字取得（`evidence/.../javap-com_seeyon_ctp_user_api_sso_CtpUserSsoAuthProviderService.txt`）：
+类型级无输入（`interface`）。契约面全部方法签名由 `javap -public -s` 逐字取得（`evidence/.../javap-com_xiaozhua_ctp_user_api_sso_CtpUserSsoAuthProviderService.txt`）：
 
 ```java
 public interface CtpUserSsoAuthProviderService {
@@ -344,9 +344,9 @@ DTO 面（profile 登记的 `com.seeyon.ctp.user.dto`，实测 18 类）：关�
 | `package-inventory.txt`（14 包分布 + major=52） | `40a780d46d5095963ef577d7f277709167030af530bda9de6a7da9182ad3d138` |
 | `registration-mechanism.txt`（services/spring.factories ABSENT + @Indexed 指针） | `0d19372243ea861817a6c3d572ddead2b0757f55e1c4635ce953fa467e6c3861` |
 | `crosscheck-javap-vs-cfr.json`（5 接口方法名集合等值） | `f09eb13136c39ec8fa3b84742c77b07fca8e6a7ee8520682567da8d52a95a6ff` |
-| `javap-com_seeyon_ctp_user_api_sso_CtpUserSsoAuthProviderService.txt` | `c5741d241f54352d4281ad3349c26ef29dbf2b179c2bbe661934b9e889db5df1` |
-| `javap-com_seeyon_ctp_user_api_CtpSsoAvoidLoginBaseService.txt` | `050fc182afa864aa5804e3f277c0c963b7691aa937001d59aee7ea5b7ffbe9a1` |
-| `javap-com_seeyon_ctp_user_api_avoidlogin_CtpAvoidLogin{Backend,MiddlePage,ClientMode}ProviderService.txt` | `1421b924da98b15612b033506575c88d71269f4252b8565c6eafdbc2c6f0786a` / `16cdfcb7e97b156d64f338b80ae7bee9fba721a673bcc8b2f557aa2a858cedb6` / `f30f1c4aa30e0574856ef71342e1e7e06f2876158dbd9ef096d383c870b355be` |
+| `javap-com_xiaozhua_ctp_user_api_sso_CtpUserSsoAuthProviderService.txt` | `c5741d241f54352d4281ad3349c26ef29dbf2b179c2bbe661934b9e889db5df1` |
+| `javap-com_xiaozhua_ctp_user_api_CtpSsoAvoidLoginBaseService.txt` | `050fc182afa864aa5804e3f277c0c963b7691aa937001d59aee7ea5b7ffbe9a1` |
+| `javap-com_xiaozhua_ctp_user_api_avoidlogin_CtpAvoidLogin{Backend,MiddlePage,ClientMode}ProviderService.txt` | `1421b924da98b15612b033506575c88d71269f4252b8565c6eafdbc2c6f0786a` / `16cdfcb7e97b156d64f338b80ae7bee9fba721a673bcc8b2f557aa2a858cedb6` / `f30f1c4aa30e0574856ef71342e1e7e06f2876158dbd9ef096d383c870b355be` |
 | `javap-verbose-annotation-CtpUserChannelRouter.txt`（@Indexed 元注解） | `f56f781b15e2ccf9aad4bd0f83f947db156150987909fa9616bb537ccc16b691` |
 | `javap-verbose-sso-interface-header.txt`（major 52 / flags 0x0601） | `24172937c2ed29ca68ccc2312d17b16815d63563e79d3fdea1dce03fd3167031` |
 | `cfr-jar/com/seeyon/ctp/user/api/sso/CtpUserSsoAuthProviderService.java` | `4c3b6c155c5b286e0f0faf43ccd3424eee9ce6002e7d80b3a58723f1be83c0d7` |

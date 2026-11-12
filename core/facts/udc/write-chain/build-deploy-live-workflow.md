@@ -84,7 +84,7 @@ variables.params0 = {deployId}
 
 1. 设计器打开页面 1520098474917276520，补全 udcDataGridView_xzh1 的字段绑定（点击操作），抓补全请求
 2. 重新点「测试」构建至 SUCCESS，然后走「发布」→ ON_ONLINE 全链
-3. 沉淀 BUILD-DEPLOY 状态机护栏测试进 seeyon-agent
+3. 沉淀 BUILD-DEPLOY 状态机护栏测试进 xiaozhua-agent
 
 ## 6. ★★ GraphQL 状态查询的确切写法（2026-11-01 实测，三次失败才试对）
 

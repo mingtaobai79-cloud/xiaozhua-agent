@@ -7,7 +7,7 @@ import zipfile
 from pathlib import Path
 from typing import Iterable
 
-DEFAULT_KEYWORDS = ("udc", "lowcode", "seeyon")
+DEFAULT_KEYWORDS = ("udc", "lowcode", "xiaozhua")
 
 def _sha256(path: Path) -> str:
     digest = hashlib.sha256()

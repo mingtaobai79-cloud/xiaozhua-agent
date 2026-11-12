@@ -2,7 +2,7 @@
 值槽三态（Simple/SelectParam/Expression）分布 + 期望类型 + 引用来源。
 产出 core/facts/udc/microflow/expression-capability-matrix.json"""
 import os, sys, json, collections
-os.chdir("<SEEYON_AGENT_ROOT>"); sys.path.insert(0, ".")
+os.chdir("<XIAOZHUA_AGENT_ROOT>"); sys.path.insert(0, ".")
 
 d = json.load(open("scratch/pmp_schemas.json", encoding="utf-8"))
 def walk(n, out):

@@ -3,7 +3,7 @@
 
 锁住五件事：
   ① 四格环境无关事实在 core/facts/standard-product/，且各有「## 铁律」区块
-  ② 仓内 skill skills/02-udc/seeyon-extension-usage/SKILL.md 存在且在 skills/README.md 登记
+  ② 仓内 skill skills/02-udc/xiaozhua-extension-usage/SKILL.md 存在且在 skills/README.md 登记
   ③ 三格后端事实**不得**出现工程/环境标识（客户 appId、本机工程路径）——这是本轮返工的主因
   ④ 证据区存在方法签名件，且**签名件本身**不含工程/环境标识
   ⑤ core/facts/INDEX.md 已登记这四格
@@ -18,7 +18,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 FACT_DIR = ROOT / "core" / "facts" / "standard-product"
 EVID = ROOT / "docs" / "audit" / "artifacts" / "extension-surface-20261029"
-SKILL = ROOT / "skills" / "02-udc" / "seeyon-extension-usage" / "SKILL.md"
+SKILL = ROOT / "skills" / "02-udc" / "xiaozhua-extension-usage" / "SKILL.md"
 
 FACTS = [
     "platform-package-capability-index.md",
@@ -126,13 +126,13 @@ def test_repo_skill_exists_and_registered():
     assert SKILL.exists(), f"仓内 skill 缺失：{SKILL.relative_to(ROOT)}"
     t = SKILL.read_text(encoding="utf-8", errors="replace")
     assert t.startswith("---"), "SKILL.md 缺 YAML frontmatter"
-    assert "name: seeyon-extension-usage" in t, "SKILL.md name 不符"
+    assert "name: xiaozhua-extension-usage" in t, "SKILL.md name 不符"
     assert "## When to Use" in t, "SKILL.md 缺 `## When to Use`"
     # skill 不得内联事实全文：应指向仓库事实路径
     assert "core/facts/standard-product/" in t, "SKILL.md 未指向事实格（单向引用）"
     # 必须在 skills/README.md 登记
     readme = (ROOT / "skills" / "README.md").read_text(encoding="utf-8", errors="replace")
-    assert "seeyon-extension-usage" in readme, "skills/README.md 未登记该 skill"
+    assert "xiaozhua-extension-usage" in readme, "skills/README.md 未登记该 skill"
 
 
 def test_evidence_symbols_present_and_neutral():
@@ -258,7 +258,7 @@ def test_frontend_extractor_recurses_and_gates():
     """
     t = EXTRACTOR.read_text(encoding="utf-8", errors="replace")
     assert "def parse_dts_exports_deep" in t, "抽取器缺递归解析函数"
-    assert "parse_dts_exports_deep(cand, pkg)" in t, "find_seeyon_packages 未调用递归解析"
+    assert "parse_dts_exports_deep(cand, pkg)" in t, "find_xiaozhua_packages 未调用递归解析"
     assert "RE_EXPORT_ANY" in t, "缺 `export {A}`（先 import 再导出，无 from）解析"
     assert "RE_DECL_TOP" in t, "缺文件级 declare（无 export 前缀）解析"
     assert "return 5" in t, "缺「有 d.ts 却 0 符号」的失败闸门"
@@ -268,7 +268,7 @@ def test_frontend_surface_artifact_complete():
     import json
     p = _latest_frontend_surface()
     d = json.loads(p.read_text(encoding="utf-8"))
-    pkgs = d["sources"]["frontend"]["seeyon_packages"]
+    pkgs = d["sources"]["frontend"]["xiaozhua_packages"]
     assert len(pkgs) == 50, f"应 50 个 @seeyon 包，实有 {len(pkgs)}"
     empty = [x["package"] for x in pkgs
              if (x.get("symbols") or {}).get("files_scanned")
@@ -973,7 +973,7 @@ def test_skill_navigation_points_to_real_files():
     踩过的坑：SKILL.md 里写「84 个包 / 758 个接口」，实际早变了；
     或 references 里写了文件名但没建。这条闸门两个都防。
     """
-    skill_dir = ROOT / "skills/02-udc/seeyon-extension-usage"
+    skill_dir = ROOT / "skills/02-udc/xiaozhua-extension-usage"
     skill = skill_dir / "SKILL.md"
     assert skill.exists(), "缺 SKILL.md"
     t = skill.read_text(encoding="utf-8", errors="replace")

@@ -4,7 +4,7 @@
 > 段序与 B1 样板格 `core/facts/udc/entity/create.md` 一致；本件**只做 `udc.application.draft` 两条**，
 > application 域 search/get/deploy_info 归 S3、applog 归 S4；同控制器写端点（create/delete/deleteAll/delete-timeout）**仅注记、不入格、不计数**。
 > 只写事实文档，不改 `registry.py`/`components/`/`docs/`；网关与凭据只写 config 键，值 0 入件。
-> 仓库 `<SEEYON_AGENT_ROOT>`，实测 HEAD `16a384c`。
+> 仓库 `<XIAOZHUA_AGENT_ROOT>`，实测 HEAD `16a384c`。
 
 ---
 

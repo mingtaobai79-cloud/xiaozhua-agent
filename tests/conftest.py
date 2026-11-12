@@ -1,4 +1,4 @@
-"""Shared pytest fixtures for the seeyon-agent test suite.
+"""Shared pytest fixtures for the xiaozhua-agent test suite.
 
 客户场景证据（golden 样本等）已于 2026-10-09 迁出仓库
 （见 config/environments.yaml customer_evidence_root）。
@@ -9,7 +9,7 @@
 import os
 from pathlib import Path
 
-_CUSTOMER_EVIDENCE_ROOT = Path(r"<EVIDENCE_ROOT>/seeyon-customer-evidence")
+_CUSTOMER_EVIDENCE_ROOT = Path(r"<EVIDENCE_ROOT>/xiaozhua-customer-evidence")
 
 import pytest
 
@@ -19,7 +19,7 @@ def _customer_evidence_available() -> bool:
 
 
 # 客户 golden 样本证据根（仅测试进程内生效，不写入任何仓库文件）
-os.environ.setdefault("SEEYON_CUSTOMER_EVIDENCE_ROOT", str(_CUSTOMER_EVIDENCE_ROOT))
+os.environ.setdefault("XIAOZHUA_CUSTOMER_EVIDENCE_ROOT", str(_CUSTOMER_EVIDENCE_ROOT))
 
 requires_customer_evidence = pytest.mark.skipif(
     not _customer_evidence_available(),

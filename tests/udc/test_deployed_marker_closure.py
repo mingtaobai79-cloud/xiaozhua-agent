@@ -67,7 +67,7 @@ def test_not_obtainable_jars_are_never_counted_as_zero_marker():
 
 
 def test_not_obtainable_jars_are_all_third_party():
-    """★ 关键补强：取不到的 29 件若含 seeyon 家族构件，则闭包论证就有一个真窟窿。
+    """★ 关键补强：取不到的 29 件若含 xiaozhua 家族构件，则闭包论证就有一个真窟窿。
 
     实测全部为第三方（无 udc-/boot-starter-/ctp-/cdp-/cip-/devops-starter- 前缀）⇒
     未扫子集里「可能是平台自身构件」的一个也没有。

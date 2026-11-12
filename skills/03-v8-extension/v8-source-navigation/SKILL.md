@@ -52,7 +52,7 @@ description: 在已挂载的 V8 源码中定位模块、符号定义和调用示
 - 前端组织：优先相对路径 `frontend/apps/organization/src/pages` 与 `src/services`。
 - 前端 BPM/审批：优先相对路径 `frontend/apps/bpm` 与 `frontend/apps/app-approval`。
 - 前端 UDC：优先相对路径 `frontend/apps/udc`；客开页面通常在独立 UDC 扩展工程，不在基线 `frontend/apps`。
-- 公共组件和运行时能力：优先相对路径 `frontend/libs/seeyon-global`、`frontend/libs/biz-*`、`frontend/libs/syf`。
+- 公共组件和运行时能力：优先相对路径 `frontend/libs/xiaozhua-global`、`frontend/libs/biz-*`、`frontend/libs/syf`。
 
 ## 线上 URL 定位
 

@@ -12,7 +12,7 @@ import re
 from collections import Counter
 from pathlib import Path
 
-REPO = Path(r"D:\work\chit\seeyon-agent")
+REPO = Path(r"D:\work\chit\xiaozhua-agent")
 TEXT_EXT = {".py", ".md", ".yaml", ".yml", ".json", ".txt", ".js", ".sh", ".bat", ".toml"}
 
 EVIDENCE_MARKERS = ("/artifacts/", "/artifacts\\")

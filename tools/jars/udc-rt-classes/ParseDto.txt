@@ -1,4 +1,4 @@
-Classfile /<SEEYON_AGENT_ROOT>/tools/jars/udc-rt-classes/com/seeyon/boot/starter/udcrt/proxy/dto/UdcRestPathParseDto.class
+Classfile /<XIAOZHUA_AGENT_ROOT>/tools/jars/udc-rt-classes/com/seeyon/boot/starter/udcrt/proxy/dto/UdcRestPathParseDto.class
   Last modified 2026年10月1日; size 5815 bytes
   SHA-256 checksum 9645d0ced3eacf04c4f83b50c463f5939a5ee453784f199a481c271b5aa1486a
   Compiled from "UdcRestPathParseDto.java"

@@ -7,7 +7,7 @@
 > 工具面从 5 → 14 → **44**，本文件停在 14 个。手工维护的清单必然漂移。
 >
 > **权威清单 = `docs/operation-contracts/mcp/TOOLS.md`**（由 `tools/gen_mcp_manifest.py`
-> 从 `seeyon_host_bootstrap.bootstrap()` + `adapters/mcp/server.py` 直接生成，
+> 从 `xiaozhua_host_bootstrap.bootstrap()` + `adapters/mcp/server.py` 直接生成，
 > `tests/test_mcp_manifest_current.py` 守住一致性）。
 >
 > 本文件保留作历史记录：它记录了 2026-09 ~ 11-08 期间的工具声明演进。
@@ -22,19 +22,19 @@
 >
 > | 新增 tool | 承接 v1 键 | 入参要点 | 实测产出 |
 |---|---|---|---|
-| `seeyon_list_page_schema` | `list_page_schema` | app_id / entity_name / caption / attributes | 4,612 B（`pageType=SEARCH_LIST` + 列定义） |
-| `seeyon_detail_page_schema` | `detail_page_schema` | 同上传参 | 2,966 B（`UdcForm SINGLE` + 子页） |
-| `seeyon_filter_plan_body` | `filter_plan_body` | app_name / app_id / page_id / grid_suffix / driven_entity / caption / conditions | 1,150 B |
-| `seeyon_microflow_create_body` | `microflow_create_body` | name / caption / app_id / data_schema(object) / trigger_type | 467 B（`dataSchema` 字符串化） |
-| `seeyon_dto_body` | `dto_body` | app_id / caption / name / attributes | 402 B |
-| `seeyon_enum_body` | `enum_body` | app_id / caption / name / order_no | 266 B |
-| `seeyon_event_body` | `event_body` | app_id / caption / event_name / dto_id | 206 B |
-| `seeyon_enum_item_body` | `enum_item_body` | app_id / enum_id / caption / item_value / enum_code / order_no | 197 B |
-| `seeyon_index_body` | `index_body` | caption / entity_id / field_ids（integer 数组） | 57 B |
+| `xiaozhua_list_page_schema` | `list_page_schema` | app_id / entity_name / caption / attributes | 4,612 B（`pageType=SEARCH_LIST` + 列定义） |
+| `xiaozhua_detail_page_schema` | `detail_page_schema` | 同上传参 | 2,966 B（`UdcForm SINGLE` + 子页） |
+| `xiaozhua_filter_plan_body` | `filter_plan_body` | app_name / app_id / page_id / grid_suffix / driven_entity / caption / conditions | 1,150 B |
+| `xiaozhua_microflow_create_body` | `microflow_create_body` | name / caption / app_id / data_schema(object) / trigger_type | 467 B（`dataSchema` 字符串化） |
+| `xiaozhua_dto_body` | `dto_body` | app_id / caption / name / attributes | 402 B |
+| `xiaozhua_enum_body` | `enum_body` | app_id / caption / name / order_no | 266 B |
+| `xiaozhua_event_body` | `event_body` | app_id / caption / event_name / dto_id | 206 B |
+| `xiaozhua_enum_item_body` | `enum_item_body` | app_id / enum_id / caption / item_value / enum_code / order_no | 197 B |
+| `xiaozhua_index_body` | `index_body` | caption / entity_id / field_ids（integer 数组） | 57 B |
 
 >
 > **本文自称的两个「未实现」现在都已翻面**：
-> - ~~宿主侧 MCP 注册/接入配置~~ → 已落地：`<HERMES_HOME>/config.yaml` L776 `mcp_servers.seeyon`；skill `seeyon-agent-hermes` v2.0.0 `readiness_status: available`
+> - ~~宿主侧 MCP 注册/接入配置~~ → 已落地：`<HERMES_HOME>/config.yaml` L776 `mcp_servers.xiaozhua`；skill `xiaozhua-agent-hermes` v2.0.0 `readiness_status: available`
 > - 仍未实现：v2 宿主专属 tool schema、宿主注入 policy/context/session 三 Port
 >
 > 守它的测试：`tests/test_mcp_metadata_tools.py`（26 用例）+ `tests/test_mcp_server.py`（20 用例）。
@@ -50,7 +50,7 @@
 
 ## 0. 口径与边界
 
-- 本清单 = **v1 `seeyon-host-bootstrap.v1` 五能力 → MCP tool 声明**（字段映射见
+- 本清单 = **v1 `xiaozhua-host-bootstrap.v1` 五能力 → MCP tool 声明**（字段映射见
   AGENT-ADAPTER §四 L78–L91："v1 dict 哪个字段承接进 v2 adapter 暴露面"）。
 - 五能力语义在盘实测（bootstrap L46/L71/L95/L119/L133）；**传输层实装态见 §3（已实装 / 未实现分层写）**。
 - 每 tool 列：`name` / 入参 / 返回 / 只读性 / 凭据模式。凭据模式统一 =
@@ -60,12 +60,12 @@
 
 | MCP tool name | 承接 v1 键（行号） | 入参 | 返回 | 只读性 | 凭据模式 |
 |---|---|---|---|---|---|
-| `seeyon_dispatch` | `dispatch`（L133） | `intent:str, target?:str` | `dict`：路由+组件执行+证据化结果（含 `status`） | **只读**；未知组件/能力→`UNAVAILABLE`（registry L36–L52） | `path-ref-only`（无凭据也离线可用） |
-| `seeyon_generate` | `generate`（L46） | `application_id, entity_name, attributes?:list, caption?:str` | `dict`：backend（8 类 Java 骨架）+ frontend（页面定义）；`status`/`plan_blocked`/`plan_warnings` | **只读**（出数据）；方法体 UNVERIFIED（L48） | `path-ref-only` |
-| `seeyon_generate_from_requirement` | `generate_from_requirement`（L71） | `text:str, application_id` | `dict`：`parsed`（实体模型）+ backend + frontend；不可确定→`UNVERIFIED`+`unknowns`（L74–L76） | **只读**（出数据） | `path-ref-only` |
-| `seeyon_live_probe` | `live_probe`（L95） | `cred_file?`（否则用 bootstrap 的 `credential_file`） | `dict`：test2 4 端点只读 POST 结果；无凭据→`SKIPPED`；有凭据但 `allow_network=False`→`BLOCKED`（L96–L100） | **只读**；活体需显式 `allow_network=True` | `path-ref-only`（活体需凭据路径） |
-| `seeyon_deploy_plan` | `deploy_plan`（L119） | `application_id, entity_name, attributes, caption?, stereotype="bill", deploy_type="RELEASE"` | `dict`：设计态 4 步部署方案 data（`readonly_plan=True`，L122–L130） | **只读出方案 data**；写步由宿主执行（`deployment_plan` 口径，L148） | `path-ref-only` |
-| （非 tool）`agent` 注入面 | `agent`（L137） | 宿主可注入 context/session/policy（三 Port，HOST-INTEGRATION §2 L21） | SeeyonAgent 实例 | 只读装配边界 | `path-ref-only` |
+| `xiaozhua_dispatch` | `dispatch`（L133） | `intent:str, target?:str` | `dict`：路由+组件执行+证据化结果（含 `status`） | **只读**；未知组件/能力→`UNAVAILABLE`（registry L36–L52） | `path-ref-only`（无凭据也离线可用） |
+| `xiaozhua_generate` | `generate`（L46） | `application_id, entity_name, attributes?:list, caption?:str` | `dict`：backend（8 类 Java 骨架）+ frontend（页面定义）；`status`/`plan_blocked`/`plan_warnings` | **只读**（出数据）；方法体 UNVERIFIED（L48） | `path-ref-only` |
+| `xiaozhua_generate_from_requirement` | `generate_from_requirement`（L71） | `text:str, application_id` | `dict`：`parsed`（实体模型）+ backend + frontend；不可确定→`UNVERIFIED`+`unknowns`（L74–L76） | **只读**（出数据） | `path-ref-only` |
+| `xiaozhua_live_probe` | `live_probe`（L95） | `cred_file?`（否则用 bootstrap 的 `credential_file`） | `dict`：test2 4 端点只读 POST 结果；无凭据→`SKIPPED`；有凭据但 `allow_network=False`→`BLOCKED`（L96–L100） | **只读**；活体需显式 `allow_network=True` | `path-ref-only`（活体需凭据路径） |
+| `xiaozhua_deploy_plan` | `deploy_plan`（L119） | `application_id, entity_name, attributes, caption?, stereotype="bill", deploy_type="RELEASE"` | `dict`：设计态 4 步部署方案 data（`readonly_plan=True`，L122–L130） | **只读出方案 data**；写步由宿主执行（`deployment_plan` 口径，L148） | `path-ref-only` |
+| （非 tool）`agent` 注入面 | `agent`（L137） | 宿主可注入 context/session/policy（三 Port，HOST-INTEGRATION §2 L21） | XiaozhuaAgent 实例 | 只读装配边界 | `path-ref-only` |
 
 > 组件面来源 `capabilities.components` = registry 3 组件 `integration`/`runtime`/`udc`
 > （bootstrap L145 实测；S1 抽验 integration 3 / runtime 4 / udc 12 capabilities）。
@@ -78,9 +78,9 @@
   各宿主注入实现未实现（§3 L2③）。
 - `capabilities.deployment_plan = "readonly data; host executes the write steps"`（L148）
   → 写方案 data、宿主执行写步，MCP tool 面不直接执行写。
-- `capabilities.schema = "seeyon-host-bootstrap.v1"`（L149）→ 本清单 schema 锚；
+- `capabilities.schema = "xiaozhua-host-bootstrap.v1"`（L149）→ 本清单 schema 锚；
   **v2 宿主专属 schema（hermes）未定义 = 未实现**（A8 §四 L85；§3 L2②）。
-- `allow_network`（L143）/ MCP 侧 `SEEYON_ALLOW_NETWORK` env（`server.py` L176–L177）
+- `allow_network`（L143）/ MCP 侧 `XIAOZHUA_ALLOW_NETWORK` env（`server.py` L176–L177）
   → 活体探测开关，**传输层已承载**（§3 L1）；**宿主侧开关配置未实装**（§3 L2①）。
 
 ## 3. 实现态分层（2026-10-19 实测，非转述）
@@ -94,22 +94,22 @@
 | 事实项 | 实测值 / 证据 |
 |---|---|
 | 实现件 | `adapters/mcp/server.py`，**12835 B**，sha256 `d20b47e8635b8fb0639902fb311e18549c87b03d2edcf38f97ce03798a5e179e` |
-| 提交 | commit `3595d7e`（`feat(mcp): seeyon_host_bootstrap 五能力 → MCP stdio server 实装`，2026-09-28 22:54:34 +0800） |
+| 提交 | commit `3595d7e`（`feat(mcp): xiaozhua_host_bootstrap 五能力 → MCP stdio server 实装`，2026-09-28 22:54:34 +0800） |
 | 单测 | `pytest tests/test_mcp_server.py -q` → **19 passed**（2026-10-19 实测，0.17s，RC=0） |
 | 协议面 | stdio 每行一帧 JSON-RPC 2.0；`protocolVersion = "2024-11-05"`；method 白名单 `initialize` / `tools/list` / `tools/call`（`notifications/initialized` 静默 ack）；错误码 -32601 / -32602 / -32700 / -32603 |
-| tool 面 | 恰 **5** 个：`seeyon_dispatch` / `seeyon_generate` / `seeyon_generate_from_requirement` / `seeyon_live_probe` / `seeyon_deploy_plan`（`server.py` L25–L31）；**无任何写工具**（`test_write_not_exposed`） |
+| tool 面 | 恰 **5** 个：`xiaozhua_dispatch` / `xiaozhua_generate` / `xiaozhua_generate_from_requirement` / `xiaozhua_live_probe` / `xiaozhua_deploy_plan`（`server.py` L25–L31）；**无任何写工具**（`test_write_not_exposed`） |
 | schema 生成 | `build_tool_schemas()` 由 `inspect.signature` + `components/platform_operations/deployment.py` 常量（`DATATYPES`/`DEPLOY_TYPES`/`STEREO_TYPES`）生成，枚举非手抄（`server.py` L83–L120） |
-| 凭据 | `path-ref-only`：`SEEYON_CRED_FILE` env 或 `live_probe(cred_file=)`（`server.py` L178），**值 0 入件** |
-| 离线默认 | `SEEYON_ALLOW_NETWORK` 未设或非 `1`/`true`/`True` → `allow_network=False`（`server.py` L176–L177） |
-| 实跑（本件复核，非单测替代） | `python adapters/mcp/server.py < frames`（RC=0）：`initialize`→`protocolVersion=2024-11-05` + `serverInfo seeyon-mcp/0.1.0`；`tools/list`→恰 5 工具；`tools/call(seeyon_dispatch)`→离线 `status=UNVERIFIED`；`tools/call(seeyon_live_probe)` 无凭据→`status=SKIPPED`（**≠ PASS**） |
+| 凭据 | `path-ref-only`：`XIAOZHUA_CRED_FILE` env 或 `live_probe(cred_file=)`（`server.py` L178），**值 0 入件** |
+| 离线默认 | `XIAOZHUA_ALLOW_NETWORK` 未设或非 `1`/`true`/`True` → `allow_network=False`（`server.py` L176–L177） |
+| 实跑（本件复核，非单测替代） | `python adapters/mcp/server.py < frames`（RC=0）：`initialize`→`protocolVersion=2024-11-05` + `serverInfo xiaozhua-mcp/0.1.0`；`tools/list`→恰 5 工具；`tools/call(xiaozhua_dispatch)`→离线 `status=UNVERIFIED`；`tools/call(xiaozhua_live_probe)` 无凭据→`status=SKIPPED`（**≠ PASS**） |
 
 ### L2 宿主侧接入面 —— 未实现（本清单真正描述的目标态）
 
 | # | 未实现项 | 实测依据 | 状态 |
 |---|---|---|---|
-| ① | **各宿主侧 MCP 注册/接入配置**（Hermes `config.yaml` `mcp_servers` 条目 + skill 装载项） | Hermes `config.yaml` 的 `mcp_servers` 段实测仅 context7 / cloudflare / v8-workbench / codebase-memory / rea，**无 seeyon 条目** | **未实现** |
-| ② | **v2 宿主专属 tool schema**（hermes / codex / claude-code 三套） | 现 schema = v1 `seeyon-host-bootstrap.v1` 签名反射结果，宿主差异化 schema 未定义（A8 §四 L85） | **未实现** |
-| ③ | **宿主注入 policy / context / session 三 Port 实装** | `seeyon_host_bootstrap.py` L39 `SeeyonAgent(comps)` 未传 `context`/`session`/`policy`（`core/agent.py` L39 支持注入，默认 `MemoryContext`/`MemorySession`/`ReadOnlyPolicy`）；`server.py` 未暴露注入入口 | **未实现** |
+| ① | **各宿主侧 MCP 注册/接入配置**（Hermes `config.yaml` `mcp_servers` 条目 + skill 装载项） | Hermes `config.yaml` 的 `mcp_servers` 段实测仅 context7 / cloudflare / v8-workbench / codebase-memory / rea，**无 xiaozhua 条目** | **未实现** |
+| ② | **v2 宿主专属 tool schema**（hermes / codex / claude-code 三套） | 现 schema = v1 `xiaozhua-host-bootstrap.v1` 签名反射结果，宿主差异化 schema 未定义（A8 §四 L85） | **未实现** |
+| ③ | **宿主注入 policy / context / session 三 Port 实装** | `xiaozhua_host_bootstrap.py` L39 `XiaozhuaAgent(comps)` 未传 `context`/`session`/`policy`（`core/agent.py` L39 支持注入，默认 `MemoryContext`/`MemorySession`/`ReadOnlyPolicy`）；`server.py` 未暴露注入入口 | **未实现** |
 
 ## 4. 已知未实现 / 环境依赖
 

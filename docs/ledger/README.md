@@ -10,7 +10,7 @@
 现状去哪看：
 
 - 文档整理线 → `docs/plans/doc-consolidation-progress.md`
-- 分发线 → `docs/plans/seeyon-distribution-progress.md`
+- 分发线 → `docs/plans/xiaozhua-distribution-progress.md`
 - 现在盘上有什么 → `docs/ARCHITECTURE.md`、`docs/REPO-LAYOUT.md`
 
 > **为什么 `docs/README.md` 写着"`ledger/` 没有入口是刻意的"？**
@@ -26,7 +26,7 @@
 | 文件 | 字节 | 行 | 时间跨度 | 性质 |
 |---|---:|---:|---|---|
 | `LOG-udc-semantics-PROGRESS-20261014-20261016.md` | 181,401 | 1,579 | 2026-10-13 → 10-16 | 迁出的逐字全文（原 `docs/audit/udc-semantics/PROGRESS.md`） |
-| `LOG-distribution-20261020-20261107.md` | 71,924 | 159 | 2026-10-20 → 11-07 | 迁出的逐字全文（原 `docs/plans/seeyon-distribution-progress.md`） |
+| `LOG-distribution-20261020-20261107.md` | 71,924 | 159 | 2026-10-20 → 11-07 | 迁出的逐字全文（原 `docs/plans/xiaozhua-distribution-progress.md`） |
 | `STATUS-2026H2.md` | 62,920 | 449 | 2026-09-22 → 10-08 | **时点快照**：适配器切片收口（自称 HEAD `16a384c`） |
 | `LOG-doc-consolidation-20261107-rounds1-15.md` | 43,853 | 678 | 2026-09-03 → 11-07 | 迁出的逐字全文（第 1–15 轮，倒序） |
 | `DIGEST-2026-10-22-setting-close-to-app.md` | 27,615 | 403 | 2026-10-21 → 10-22 | 上下文压缩续接件（源会话 `20261021_234751_d68325`） |
@@ -43,7 +43,7 @@
 - 用途：回答"某轮到底改了什么、为什么、测试跑出什么数"。
 - 三份的现行版入口：
   - `LOG-udc-semantics-PROGRESS-…` → `docs/audit/udc-semantics/PROGRESS.md`（只留当前结论 + 阻塞）
-  - `LOG-distribution-…` → `docs/plans/seeyon-distribution-progress.md`
+  - `LOG-distribution-…` → `docs/plans/xiaozhua-distribution-progress.md`
   - `LOG-doc-consolidation-…rounds1-15` → `docs/plans/doc-consolidation-progress.md`
 - ⚠️ **不要拿 `LOG-*` 当依据**：它记的是当时的状态。
 

@@ -233,8 +233,8 @@ docs/audit/evidence/nacos-udc-app-yaml.yaml
 
 ```text
 environment: test2
-tenant: seeyon-test2
-group: seeyon
+tenant: xiaozhua-test2
+group: xiaozhua
 dataId: udc
 dataId: udc-app-yaml
 UDC database name: udc_test2

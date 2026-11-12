@@ -1,7 +1,7 @@
 # UDC resource（静态资源 / 文件 / 附件）域只读契约 — 5.3.517 单 jar 取证（只读候选 5 条 + 写形态 5 条排除）
 
 - 域模块: udc-resource（资源 / 文件 / 附件模板 / jar 包下载导出）
-- 版本单元: 5.3.517（本地 Maven `<MAVEN_REPO>\com\seeyon`，只读离线证据）
+- 版本单元: 5.3.517（本地 Maven `<MAVEN_REPO>\com\xiaozhua`，只读离线证据）
 - 证据单元（scope）: **单 jar** `udc-starter-runtime-5.3.517.jar`
   （`<MAVEN_REPO>/com/seeyon/udc-starter-runtime/5.3.517/udc-starter-runtime-5.3.517.jar`，
   sha256 `74ae50bd8510414113248f0b1d400bca80d2ae2e0022c9dbbb31321a6040a66f`，861880 B）
@@ -11,7 +11,7 @@
   `docs/operation-contracts/udc/bi/bi-vacuum-contract.md`（三层扫描法 + 双口径一致性 + 伪命中族排除）+
   R1（publish 域）先例
 - 会话引用基点: 协作会话根目录 = `<COLLAB_ROOT>\agent-collaboration\session-20261008-213135-b84a9517\`；
-  仓库内件相对 `<SEEYON_AGENT_ROOT>\` 解析；证据件相对 `docs\audit\artifacts\udc-resource-5.3.517\` 解析
+  仓库内件相对 `<XIAOZHUA_AGENT_ROOT>\` 解析；证据件相对 `docs\audit\artifacts\udc-resource-5.3.517\` 解析
 
 ## 结论（唯一判定）
 **UDC 5.3.517（本 jar）resource 域 = 非真空：只读候选 5 条（全部未登记过 → registry 建议 5 条新增）。**

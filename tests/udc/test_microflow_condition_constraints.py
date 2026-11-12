@@ -1,4 +1,4 @@
-"""测试：微流程节点过滤条件 / 映射规则的约束校验器（前端 seeyon-biz-where 证据）。"""
+"""测试：微流程节点过滤条件 / 映射规则的约束校验器（前端 xiaozhua-biz-where 证据）。"""
 import sys
 from pathlib import Path
 
@@ -21,7 +21,7 @@ def test_operator_enum_has_biz_where_values():
     for op in ("EQ", "NEQ", "LIKE", "NOTLIKE", "RLIKE", "LLIKE", "BETWEEN", "NOTBETWEEN",
                "IN", "NOTIN", "NULL", "ZERO", "NOTZERO"):
         assert op in CONDITION_OPERATORS
-    # ★权威 OperatorEnum 共 22 个（前端 seeyon-biz-where 少 ZERO/NOTZERO）
+    # ★权威 OperatorEnum 共 22 个（前端 xiaozhua-biz-where 少 ZERO/NOTZERO）
     assert len(CONDITION_OPERATORS) == 22
 
 

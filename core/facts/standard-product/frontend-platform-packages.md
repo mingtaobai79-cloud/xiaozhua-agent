@@ -277,7 +277,7 @@ src/pages/<页面标识>/customPage.tsx
 
 ```
 ① 路径  docs/audit/artifacts/extension-surface-20261029/surface.json
-        → sources.frontend.seeyon_packages[].top_level_dts（50 个包的导出面逐字）
+        → sources.frontend.xiaozhua_packages[].top_level_dts（50 个包的导出面逐字）
         该文件的 frontend 段与包 d.ts 一一对应，不含工程/环境信息
 ② 复现  uv run --no-project python tools/core/platform/extract_extension_surface.py \
           --frontend <任一含 @seeyon/* 的工程 pc 目录> --emit <out.json>

@@ -1,6 +1,6 @@
 # Role 角色包索引（core/role/）
 
-> 本包为 `core/role/` 角色定义包：把 2小爪 Agent 的角色定位、行为规范与证据纪律固化为
+> 本包为 `core/role/` 角色定义包：把 xiaozhua Agent 的角色定位、行为规范与证据纪律固化为
 > 可安装角色+能力包的一部分（ROADMAP-v2 §二 目标态目录骨架 `core/role/`，
 > 在盘锚点 `docs/capability/ROADMAP-v2.md` L16–L38，`core/role/` 标注"Agent 角色与行为规范（第一等公民）"）。
 >
@@ -14,8 +14,8 @@
 | 文件 | 内容 | 主要锚点 |
 |---|---|---|
 | `README.md` | 本索引：Role 第一等公民定位、包内清单、目标态/实现态口径 | ROADMAP-v2 §二 |
-| `ROLE-CARD.md` | 角色卡：身份定位（不自研 Agent Loop/记忆/Planner/Agent OS）、能力面、宿主关系 | ROADMAP-v2 §一.2/§二；AGENT-ADAPTER §一/§二；`seeyon_host_bootstrap.py` L25/L136–L149；`core/registry.py` |
-| `BEHAVIOR.md` | 行为规范：CONFIG/CODE 二分、只读与写门纪律、意图路由/单步执行、边界不扩散 | ROADMAP-v2 §三；`seeyon_host_bootstrap.py` L144–L149；`README.md` 安全边界 |
+| `ROLE-CARD.md` | 角色卡：身份定位（不自研 Agent Loop/记忆/Planner/Agent OS）、能力面、宿主关系 | ROADMAP-v2 §一.2/§二；AGENT-ADAPTER §一/§二；`xiaozhua_host_bootstrap.py` L25/L136–L149；`core/registry.py` |
+| `BEHAVIOR.md` | 行为规范：CONFIG/CODE 二分、只读与写门纪律、意图路由/单步执行、边界不扩散 | ROADMAP-v2 §三；`xiaozhua_host_bootstrap.py` L144–L149；`README.md` 安全边界 |
 | `EVIDENCE-DISCIPLINE.md` | 证据纪律：四层事实体系、GENERATED_HYPOTHESIS 隔离、声明≠实现、UNVERIFIED 标注 | ROADMAP-v2 §四；AGENT-ADAPTER §四 |
 
 ## Role 为第一等公民

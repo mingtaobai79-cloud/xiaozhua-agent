@@ -13,7 +13,7 @@
   → 说明 Nacos 2.x 的 v2 cs/config 开放了只读查询，v1 只是未暴露（2.x 默认或网关策略）。
 
 ### 2. 目标配置在 Nacos 里查不到（全组合 20004）
-- dataId=`app9000000000000000001` × group∈{seeyon, DEFAULT_GROUP, SEYYON} × tenant∈{空, seeyon-test2, test2, seeyon}
+- dataId=`app9000000000000000001` × group∈{xiaozhua, DEFAULT_GROUP, SEYYON} × tenant∈{空, xiaozhua-test2, test2, xiaozhua}
   → 全部 `code=20004 config data not exist`。
 - 即该 customer applicationId 形态**不是 Nacos 里的 dataId**（test2 应用配置不用 applicationId 作 dataId，
   或用别的命名形态），Nacos 查不到 test2 数字型应用/实体 id。

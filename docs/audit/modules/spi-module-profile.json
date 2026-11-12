@@ -26,7 +26,7 @@
         ]
       }
     ],
-    "source_contract": "seeyon-v8-spi skill and local spi_info.json"
+    "source_contract": "xiaozhua-v8-spi skill and local spi_info.json"
   },
   "scope": "Independent SPI module; not UDC or Standard Product Application.",
   "limitations": [

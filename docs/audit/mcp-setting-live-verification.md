@@ -50,7 +50,7 @@ variables: {"p0": {"appId": "<appId>"}}
 ### ③ 创建（真写）
 
 ```
-工具   seeyon_option_set_category_body(appId, appGuid, "ZzTestCat", "探针测试分组")
+工具   xiaozhua_option_set_category_body(appId, appGuid, "ZzTestCat", "探针测试分组")
 接口   POST /service/udc/graphql?udcUdcEnumCategoryPost
 ```
 
@@ -78,7 +78,7 @@ variables: {"p0": {"appId": "<appId>"}}
 | createTime | — | `1794300830000` | ✓ 真实落库时间戳 |
 | enums | — | null | ✓ 无子枚举 |
 
-**结论**：`seeyon_option_set_category_body` 产出的 body 平台接受且字段无失真。**LIVE PASS**。
+**结论**：`xiaozhua_option_set_category_body` 产出的 body 平台接受且字段无失真。**LIVE PASS**。
 
 ### ⑤ 删除（清理 + 顺带验删除面）
 
@@ -127,7 +127,7 @@ r = p.api("<host>/service/udc/graphql?udcApplicationDetailGet",
 
 ## 起因：这里抓到一个真 bug
 
-`seeyon_entity_rule_body` 生成的 body 里 `type` 写的是 `"ENTITY"`，
+`xiaozhua_entity_rule_body` 生成的 body 里 `type` 写的是 `"ENTITY"`，
 平台直接回：
 
 ```
@@ -208,7 +208,7 @@ delete              BOOT_0000 + 回读消失            LIVE PASS
 
 ## 顺带暴露的设计问题
 
-`seeyon_entity_rule_publish(host, cookie, dto)` 要求调用方把 **cookie 字符串**传进来。
+`xiaozhua_entity_rule_publish(host, cookie, dto)` 要求调用方把 **cookie 字符串**传进来。
 
 但按红线，token/cookie 不应该被导出到本地再重放 —— 它就是这个用户的身份。
 本次验证全程用的是「页面自己 `fetch(credentials:'include')`」，cookie 从未离开浏览器。

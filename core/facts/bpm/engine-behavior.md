@@ -1,7 +1,7 @@
 # BPM 引擎对外行为实测｜flow 族只读端点（flow 域第 3 格）
 
 > 基线：本任务总目标（本会话 `inputs/desktop-source/TASK-GOAL.md` + `main/ROUTE.md` §0/§3）+ 本会话 `HANDOFF-1`。
-> 目标仓库 `<SEEYON_AGENT_ROOT>`。九段式能力事实文档（本任务交付物第 1 件，`core/facts/bpm/engine-behavior.md`）。
+> 目标仓库 `<XIAOZHUA_AGENT_ROOT>`。九段式能力事实文档（本任务交付物第 1 件，`core/facts/bpm/engine-behavior.md`）。
 > 本件**只做 flow 族只读端点对外行为实测**；前两格 `flow-node-tree.md` / `data-flow-map.md` 绑定字节不动；只写事实文档，不实现代码、不改 `components/**`；凭据值 0 入件。
 > 探测在先、落盘在后：证据件 `core/facts/bpm/evidence/engine-behavior-live-20260927T092124Z.json`（20098 B，sha256 `2e62ac55…`）先落盘，本格后写。
 > 行尾 CRLF（本格登记形态；实测 CR 数 = LF 数 = 行数，`tr -dc`/字节比对计数法；族内行尾不统一）。

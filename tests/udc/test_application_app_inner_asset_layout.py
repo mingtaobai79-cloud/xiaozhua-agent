@@ -4,7 +4,7 @@
   实现   components/udc/application/
   事实   core/facts/udc/application/app-inner/create.md + app-inner-write-chain.md
   契约   docs/operation-contracts/udc/application/app-inner-contracts.md
-  skill  skills/seeyon-udc-application-app-inner/SKILL.md
+  skill  skills/xiaozhua-udc-application-app-inner/SKILL.md
   证据   core/facts/udc/application/evidence/app-inner-build-2026-10-22/
 
 同时把「构建日志一把取全量」「组件依赖删除是 REST」「移除依赖吃依赖行 id」
@@ -25,7 +25,7 @@ from components.udc.application import dependency_constraints as dep  # noqa: E4
 IMPL_DIR = ROOT / "components" / "udc" / "application"
 FACT_DIR = ROOT / "core" / "facts" / "udc" / "application" / "app-inner"
 CONTRACT = ROOT / "docs" / "operation-contracts" / "udc" / "application" / "app-inner-contracts.md"
-SKILL = ROOT / "skills" / "seeyon-udc-application-app-inner" / "SKILL.md"
+SKILL = ROOT / "skills" / "xiaozhua-udc-application-app-inner" / "SKILL.md"
 EVIDENCE = ROOT / "core" / "facts" / "udc" / "application" / "evidence" / "app-inner-build-2026-10-22"
 
 

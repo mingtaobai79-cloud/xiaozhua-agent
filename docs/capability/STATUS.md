@@ -1,4 +1,4 @@
-# STATUS｜seeyon-v2-capability-phase1 交付进度
+# STATUS｜xiaozhua-v2-capability-phase1 交付进度
 
 > 基线：`docs/capability/ROADMAP-v2.md` @ git `d76f7af`。
 > 完成定义：A 八件 + B 样板格全落盘 + 全量测试保持绿。
@@ -54,7 +54,7 @@
       实测：三者定义（1 契约=1 Tool 候选，registry 外=UNVERIFIED）；64 裸=59 基础+2 R18+3 别名、读 57/写 7、17 域逐条 status（map_a7.py 逐条打印）；写 7 全走写门 DENIED；Skill 首例=deploy_plan 4 步建单据实体（组合 4 Tool+回读，LIVE 实证）；A8 留接口（Tool 清单→MCP 占位，不重复定义宿主）
 - [x] **A8 AGENT-ADAPTER.md** — 宿主适配规范（三层兼容模型 + v1 adapter + 三宿主暴露 + v1→v2 字段映射 + installer 目标态）
       落盘：`docs/capability/AGENT-ADAPTER.md`（11657 B，sha256 `fb996462fa2e7c21c86571d5fa44c60ac1b62a7c40d0c92f5c23026444ea814d`，补 (c) v1→v2 字段映射后值）
-      实测：三层兼容模型（版本/角色包/宿主，引 ROADMAP §一.2 不自研 Loop）；v1 adapter=seeyon_host_bootstrap.py 返回 dict(L136-149)+5 宿主能力+readonly_only/credential_mode=path-ref-only；registry 3 组件(integration 3/runtime 4/udc 12)；三宿主暴露(MCP 清单/Skill 文件/角色提示词包)除 Hermes Python-native 外全标 UNVERIFIED 未建；§四 v1→v2 字段映射（可复用 8 项在盘实测 + UNVERIFIED 未建项，对齐 A7 §四 占位）；★ **2026-11-07 更正**：`adapters/`、`installer/`、`core/{role,facts,skills,tools}` 现已存在（本句原文的「在盘全不存在」已作废）；`core/capabilities/`、`modules/`、`sandbox/` 仍未建
+      实测：三层兼容模型（版本/角色包/宿主，引 ROADMAP §一.2 不自研 Loop）；v1 adapter=xiaozhua_host_bootstrap.py 返回 dict(L136-149)+5 宿主能力+readonly_only/credential_mode=path-ref-only；registry 3 组件(integration 3/runtime 4/udc 12)；三宿主暴露(MCP 清单/Skill 文件/角色提示词包)除 Hermes Python-native 外全标 UNVERIFIED 未建；§四 v1→v2 字段映射（可复用 8 项在盘实测 + UNVERIFIED 未建项，对齐 A7 §四 占位）；★ **2026-11-07 更正**：`adapters/`、`installer/`、`core/{role,facts,skills,tools}` 现已存在（本句原文的「在盘全不存在」已作废）；`core/capabilities/`、`modules/`、`sandbox/` 仍未建
 
 ## 交付物 B｜UDC 样板链（core/{facts,tools,skills}/udc/）
 
@@ -80,7 +80,7 @@
       写门 4 步全 DENIED/POLICY_DENIED（layer.py:22）；与 B1 同 step1 声明/同写门/同 audit 行号；凭据 0 入仓、不改 components/ core/ 运行代码
 - [x] **B3 `core/skills/udc-entity-dev.md`** — 「在 UDC 建一个单据实体」Skill 打法（B 链 3/3 件）
       落盘：`core/skills/udc-entity-dev.md`（6936 B，sha256 `45a05379ffa7cac66a79f2363db1b651fd6cd418cad79770adfba414e91fc1f8`）
-      实测：5 段串 打法 ①需求解析(deployment.py:81 infer_datatype，实测 L81 非规格误写 L197)→②deploy_plan 生成(bootstrap 5 能力，实测 seeyon_host_bootstrap.py L136-149 9 键，引 A8 §二)→③4 步执行(宿主按 steps+shared-credentials 路径引用，4 步=B2 4 tool op：entity.create→attribute.create→page.create→deploy.normal)→④回读验证(audit §一 L13-18 LIVE 行：建实体 7670732978062038177/建属性×4/建页 2 命中/物理表 yanshouda_m5654091886000795633)→⑤异常路径(BOOT_1001/UDC_ENTITY_0010/BOOT_1000[audit L35]/BOOT_3002[audit L36] 实测错路，引 B1 §7 + audit §二/§四/§七)；
+      实测：5 段串 打法 ①需求解析(deployment.py:81 infer_datatype，实测 L81 非规格误写 L197)→②deploy_plan 生成(bootstrap 5 能力，实测 xiaozhua_host_bootstrap.py L136-149 9 键，引 A8 §二)→③4 步执行(宿主按 steps+shared-credentials 路径引用，4 步=B2 4 tool op：entity.create→attribute.create→page.create→deploy.normal)→④回读验证(audit §一 L13-18 LIVE 行：建实体 7670732978062038177/建属性×4/建页 2 命中/物理表 yanshouda_m5654091886000795633)→⑤异常路径(BOOT_1001/UDC_ENTITY_0010/BOOT_1000[audit L35]/BOOT_3002[audit L36] 实测错路，引 B1 §7 + audit §二/§四/§七)；
       头部标『适用宿主 hermes/codex/claude-code via adapter』+『canonical=客户当前仓库(5.3.517)』；引用 B1 f5476b8b + B2 4 tool(884ae001/d87febf3/beb12f12/f57efdad) + A3 §三/A7；
       未直读项(生成物落 OSS/前端随构建生成)=UNVERIFIED 不臆造；只写打法不实现代码，components/ core/ 零改动，凭据 0 入仓
 - [x] B4 宿主演示验收（Hermes 用 bootstrap+skill 完成一次"建实体"）

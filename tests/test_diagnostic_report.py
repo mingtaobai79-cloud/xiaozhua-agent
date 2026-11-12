@@ -29,7 +29,7 @@ def test_diagnostic_cli_reads_only_local_reports(tmp_path):
         p = tmp_path / name
         p.write_text(json.dumps(value), encoding="utf-8")
         return str(p)
-    args = [sys.executable, "-m", "seeyon_cli", "diagnostic-report",
+    args = [sys.executable, "-m", "xiaozhua_cli", "diagnostic-report",
             "--evidence-context", dump("context.json", {"status": "FACT", "scope": {}}),
             "--dynamic-evidence", dump("dynamic.json", {"status": "UNVERIFIED"}),
             "--path-matrix", dump("matrix.json", {"status": "UNVERIFIED", "entries": []}),

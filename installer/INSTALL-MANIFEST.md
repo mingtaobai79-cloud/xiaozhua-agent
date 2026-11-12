@@ -8,7 +8,7 @@
 
 | 宿主 | 源件（adapters/ 在盘） | 安装态目标 | 校验 |
 |---|---|---|---|
-| **Hermes** | `adapters/hermes/Hermes-SKILL.md`（4425 B，`747e95e5…`） | `<hermes-home>/skills/seeyon-agent-hermes/SKILL.md`（宿主 skills 目录；本机示例路径 `<HERMES_HOME>\skills\`，锚 HOST-INTEGRATION §3 Hermes 段 L25–L28） | v1 基线 `skills/seeyon-agent/SKILL.md`（1885 B，`在盘在仓`）为对照；安装件=v1 升级版五能力 skill |
+| **Hermes** | `adapters/hermes/Hermes-SKILL.md`（4425 B，`747e95e5…`） | `<hermes-home>/skills/xiaozhua-agent-hermes/SKILL.md`（宿主 skills 目录；本机示例路径 `<HERMES_HOME>\skills\`，锚 HOST-INTEGRATION §3 Hermes 段 L25–L28） | v1 基线 `skills/xiaozhua-agent/SKILL.md`（1885 B，`在盘在仓`）为对照；安装件=v1 升级版五能力 skill |
 | **Hermes（随附）** | `adapters/hermes/ADAPTER.md`（6199 B，`5280920a…`）、`adapters/hermes/MCP-TOOL-MANIFEST.md`（4252 B，`5f9934a9…`） | 随 Hermes 注册件分发（声明件，非宿主加载件） | 声明级内容可复核；MCP 传输层 UNVERIFIED |
 | **Codex** | `adapters/codex/AGENTS.template.md`（6968 B，`90b2ae54…`） | `<target-repo>/AGENTS.md`（安装态规范名，§2 物化） | 物化后目标目录出现 `AGENTS.md`；H1 按 §3 安装态生成规则 |
 | **Codex（随附）** | `adapters/codex/MCP-TOOL-MANIFEST.md`（5389 B，`4c4aeba1…`） | 随 Codex 注册件分发（声明件） | 声明级内容可复核；MCP 传输层 UNVERIFIED |
@@ -38,7 +38,7 @@ CLAUDE.md …` 全空）。规范名只在安装态由 installer 物化到目标
 **统一写法（宿主指令件 H1 模板作者期）**：标**模板件路径** + 说明**安装态物化目标名**；
 **不得含 STAGED/待放行等过程态标签**。
 **安装态 H1 生成规则**：物化时按规范名重写 H1 = 规范名（如 `<target-repo>/AGENTS.md`）+
-Canonical 版本锚（5.3.517）+ schema 锚（`seeyon-host-bootstrap.v1`），**覆盖模板作者期 H1**。
+Canonical 版本锚（5.3.517）+ schema 锚（`xiaozhua-host-bootstrap.v1`），**覆盖模板作者期 H1**。
 
 据此归一既有件（对照事实 = 本轮实测首行）：
 - **S3 反例**：`adapters/codex/AGENTS.template.md` 首行现含"【STAGED · 待 main 放行 AGENTS.md

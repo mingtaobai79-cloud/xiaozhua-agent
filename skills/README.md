@@ -1,6 +1,6 @@
-# seeyon-agent / skills
+# xiaozhua-agent / skills
 
-本目录的 skill 是**给 seeyon-agent 仓库自身定规矩的资产**，不是致远工作手册的镜像。
+本目录的 skill 是**给 xiaozhua-agent 仓库自身定规矩的资产**，不是致远工作手册的镜像。
 
 > **权威方向按目录族分（2026-11-07 裁决，详见 `docs/SKILL-DISTRIBUTION.md` §0）**：
 > `01-platform`/`02-udc`/`03-v8-extension`/`04-integration`/`06-delivery`/`07-office-collaboration`
@@ -20,7 +20,7 @@
 ```
 
 **权威副本在 Hermes**，仓库只是选择性镜像。禁止在仓库侧编辑 skill 正文，
-否则会与 Hermes 漂移（已发生过：`seeyon-udc-module-landing` 仓库版 13KB
+否则会与 Hermes 漂移（已发生过：`xiaozhua-udc-module-landing` 仓库版 13KB
 停在旧版本、Hermes 版 51KB）。
 
 同步/检查工具：
@@ -40,17 +40,17 @@ python tools/core/_meta/sync_skills_from_hermes.py --check   # 只报告差异
 | skill | 作用 | 脱敏 | 文件 / 字节 |
 |---|---|---|---|
 | `udc-microflow-expression-nodes` | 微流程节点写点表达式/分支条件/子微流程传参 | 1 处表达式加密串实例值 → `<加密串>` | 9 / 130,840 |
-| `seeyon-udc-custom-extension-engine` | UDC 扩展工程：从 jar 抽平台能力事实 | `datamigration<19位应用ID>` → 占位符；`gitlab.<客户域名>（真实域名只留 Hermes 侧）` → `<gitlab域名>`；`references/` 里 2 处内网 IP | 3 / 53,931 |
-| `seeyon-udc-microflow-generation` | 建/改/验 UDC 微流程全流程（62 文件大件） | 人名 → 「用户」；客户组织 → `<客户组织>`；`scripts/regress_gates.py` 里示例 appId → `znxmglpt<应用ID>` | 61 / 740,284 |
+| `xiaozhua-udc-custom-extension-engine` | UDC 扩展工程：从 jar 抽平台能力事实 | `datamigration<19位应用ID>` → 占位符；`gitlab.<客户域名>（真实域名只留 Hermes 侧）` → `<gitlab域名>`；`references/` 里 2 处内网 IP | 3 / 53,931 |
+| `xiaozhua-udc-microflow-generation` | 建/改/验 UDC 微流程全流程（62 文件大件） | 人名 → 「用户」；客户组织 → `<客户组织>`；`scripts/regress_gates.py` 里示例 appId → `znxmglpt<应用ID>` | 61 / 740,284 |
 
 > 三个都做了**整目录**复扫（含 `references/`、`scripts/`），不是只扫 `SKILL.md`。
 > 抽入后全量跑 `tests/test_deidentification.py` + `tests/udc/test_docs_py_refs_alive.py` 全绿。
-其中 `02-udc/seeyon-udc-setting`、`02-udc/seeyon-udc-module-landing` 被
+其中 `02-udc/xiaozhua-udc-setting`、`02-udc/xiaozhua-udc-module-landing` 被
 `tests/udc/test_setting_*_asset_layout.py` 断言，改动需同步改测试。
 
 #### 03-v8-extension —— 2026-11-08 首次实质抽取（7 个）
 
-此前只有 3 个（`seeyon-excel-import-export-migration` / `seeyon-v8-spi` / `v8-iframe-sso-bridge`），
+此前只有 3 个（`xiaozhua-excel-import-export-migration` / `xiaozhua-v8-spi` / `v8-iframe-sso-bridge`），
 V8 工作流主线在仓库侧是**空的**。本轮从 Hermes 抽入 7 个，**逐文件**过三道扫（客户标识 / 内网 IP / 凭据值），
 全部零命中才落盘；`references/` 子目录一并扫，不只扫 `SKILL.md`。
 
@@ -76,7 +76,7 @@ V8 工作流主线在仓库侧是**空的**。本轮从 Hermes 抽入 7 个，**
 > 仓库版是「怎么装」的方法论，不是能直接贴的命令。
 
 > **14 个真缺口至此清零**（12 个进 `02-udc`/`03-v8-extension`，见上两节）。
-> 唯一没进 `skills/` 的是 `seeyon-agent-hermes` —— 它是**宿主适配层**，源件在
+> 唯一没进 `skills/` 的是 `xiaozhua-agent-hermes` —— 它是**宿主适配层**，源件在
 > `adapters/hermes/Hermes-SKILL.md`，由 `installer/install.py` 物化，不该在 `skills/` 里再放一份。
 >
 > **全量镜像仍不做**：`tools/core/_meta/sync_skills_from_hermes.py --check` 当前报「补 1827」，其中含
@@ -87,15 +87,15 @@ V8 工作流主线在仓库侧是**空的**。本轮从 Hermes 抽入 7 个，**
 
 | skill | 作用 | PII |
 |---|---|---|
-| `seeyon-agent-component-architecture` | 组件分层与边界 | 通过 |
-| `seeyon-agent-evidence-driven` | 证据优先交付 | 通过 |
-| **`seeyon-agent-fact-protocol`** | ★ 往本仓库落事实/证据/skill 的通用规矩：五层归位、测试值只进 tools、R-E8 三样、六条口述硬规矩、可复用 vs 一次性脚本 | 通过 |
-| `seeyon-constraint-extraction` | 从 jar / 前端 bundle 提取权威约束并落成校验模型 | 通过 |
-| `seeyon-extension-usage`（02-udc） | 写扩展代码时的平台包用法：transport 出入参包装 / AppService 调用约定与框架 AOP / UDC 运行时链路与四类扩展点族 / 前端三包导出面与请求路由约定。只写环境无关的包内用法，环境结论留在证据区 | 通过 |
+| `xiaozhua-agent-component-architecture` | 组件分层与边界 | 通过 |
+| `xiaozhua-agent-evidence-driven` | 证据优先交付 | 通过 |
+| **`xiaozhua-agent-fact-protocol`** | ★ 往本仓库落事实/证据/skill 的通用规矩：五层归位、测试值只进 tools、R-E8 三样、六条口述硬规矩、可复用 vs 一次性脚本 | 通过 |
+| `xiaozhua-constraint-extraction` | 从 jar / 前端 bundle 提取权威约束并落成校验模型 | 通过 |
+| `xiaozhua-extension-usage`（02-udc） | 写扩展代码时的平台包用法：transport 出入参包装 / AppService 调用约定与框架 AOP / UDC 运行时链路与四类扩展点族 / 前端三包导出面与请求路由约定。只写环境无关的包内用法，环境结论留在证据区 | 通过 |
 
-### seeyon-agent（根级）
+### xiaozhua-agent（根级）
 
-宿主接入说明：`seeyon_host_bootstrap.bootstrap()` 的装配方式、四个能力、
+宿主接入说明：`xiaozhua_host_bootstrap.bootstrap()` 的装配方式、四个能力、
 离线/活体两种模式。**只存在于仓库**，Hermes 侧没有对应项。
 
 ### sdd-protocol / udc-trace-to-api
@@ -106,11 +106,11 @@ V8 工作流主线在仓库侧是**空的**。本轮从 Hermes 抽入 7 个，**
 ## 明确不在本目录的（留在 Hermes）
 
 ```
-seeyon-low-code-environment        含 .env / kubeconfig / 人名
-seeyon-udc-setting / runtime / design-time-build / page-debug
+xiaozhua-low-code-environment        含 .env / kubeconfig / 人名
+xiaozhua-udc-setting / runtime / design-time-build / page-debug
                                    含测试环境域名 + 客户组织
 04-integration/*                   含客户实例名
-v8-* （8 个）                       V8 工作台，与 seeyon-agent 仓库无关
+v8-* （8 个）                       V8 工作台，与 xiaozhua-agent 仓库无关
 ```
 
 ## 新增 skill 的判定流程

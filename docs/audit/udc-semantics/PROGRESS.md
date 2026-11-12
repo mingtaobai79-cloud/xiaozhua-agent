@@ -33,7 +33,7 @@
 - 模型：`components/udc/{microflow,entity,page,menu}_constraints.py`、`components/udc/graphql_op_naming.py`
 - 文档：`docs/audit/udc-semantics/` 下 `PLATFORM-*` / `RUNTIME-*` / `DEPLOYED-*` / `COMPONENT-*`
 - 逐节点契约：`MICROFLOW-<ACTION>-CONTRACT.md`（34 份，归属见本目录 `README.md`）
-- 方法：skill `seeyon-constraint-extraction`
+- 方法：skill `xiaozhua-constraint-extraction`
 - 域进度表 / 已落模型清单 / 下一代下一步：见归档件「## 域进度」「## 已落模型 / 文档」「## 下一步（按序）」
 
 ### 证据纪律（本线自证）

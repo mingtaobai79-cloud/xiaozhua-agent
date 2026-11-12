@@ -1,18 +1,18 @@
-# ROLE-CARD｜2小爪 Agent 角色卡
+# ROLE-CARD｜xiaozhua Agent 角色卡
 
 > 声明级文档。锚点全部在盘可复核；未建/未实现项逐条标 UNVERIFIED 或"未实现"。
 
 ## 1. 身份定位
 
-2小爪 Agent = 可安装的 **Agent 角色 + 能力包**（Role / Facts / Skills / Tools / Code / Sandbox），
+xiaozhua Agent = 可安装的 **Agent 角色 + 能力包**（Role / Facts / Skills / Tools / Code / Sandbox），
 经 Adapter 进入已有宿主（Hermes / Codex / Claude Code）。
 **不自研 Agent Loop / 记忆 / Planner / Agent OS**（原文锚点：
 `docs/capability/ROADMAP-v2.md` §一.2，L12–L14：
-"2小爪 Agent = 可安装的 **Agent 角色 + 能力包**…不自研 Agent Loop / 记忆 / Planner / Agent OS"；
+"xiaozhua Agent = 可安装的 **Agent 角色 + 能力包**…不自研 Agent Loop / 记忆 / Planner / Agent OS"；
 同口径复述于 `docs/capability/AGENT-ADAPTER.md` §一 L16、§六 L115）。
 
 两级兼容（ROADMAP-v2 §一，L8–L14）：
-- **2小爪 版本兼容（对内）**：客户当前仓库为 Canonical，能力定义稳定，差异走 Version Adapter，
+- **xiaozhua 版本兼容（对内）**：客户当前仓库为 Canonical，能力定义稳定，差异走 Version Adapter，
   Agent 不自行判断版本分支；
 - **Agent Host 兼容（对外）**：角色包经 Adapter 进入不同宿主，宿主可换、能力包定义稳定。
 
@@ -20,7 +20,7 @@
 
 ### 2.1 v1 宿主可调用 5 能力（在盘实测）
 
-入口 `seeyon_host_bootstrap.py` `bootstrap()`（L25），返回 dict 实测 L136–L149：
+入口 `xiaozhua_host_bootstrap.py` `bootstrap()`（L25），返回 dict 实测 L136–L149：
 `dispatch` / `generate` / `generate_from_requirement` / `live_probe` / `deploy_plan`。
 抽验实测（本轮脚本，2026-09-25）：顶层键 8 个
 （`agent, allow_network, capabilities, deploy_plan, dispatch, generate,
@@ -28,7 +28,7 @@ generate_from_requirement, live_probe`）；`capabilities` 子 dict =
 `{"components": ["integration", "runtime", "udc"], "readonly_only": True,
 "credential_mode": "path-ref-only",
 "deployment_plan": "readonly data; host executes the write steps",
-"schema": "seeyon-host-bootstrap.v1"}`——与 `docs/capability/AGENT-ADAPTER.md` §二
+"schema": "xiaozhua-host-bootstrap.v1"}`——与 `docs/capability/AGENT-ADAPTER.md` §二
 L37–L46 表一致。
 - `dispatch`（L133–L134）：意图路由（需求 → 路由 → 组件执行 → 证据化结果）；
 - `generate`（L46）：实体+属性 → 后端 8 类 Java 骨架 + 前端页面定义（**方法体 UNVERIFIED**，
@@ -58,8 +58,8 @@ MCP 传输层、Skill 文件、角色提示词包、`adapters/{hermes,codex,clau
 
 ## 3. 与宿主的关系
 
-- **宿主提供 Loop/记忆/Planner，2小爪 出 data**（AGENT-ADAPTER §一 L24–L25 定稿口径）：
-  UDC 是 2小爪 Agent 的组件，不是独立总 Agent；Context、Session、Tool 和 LLM 可由宿主注入
+- **宿主提供 Loop/记忆/Planner，xiaozhua 出 data**（AGENT-ADAPTER §一 L24–L25 定稿口径）：
+  UDC 是 xiaozhua Agent 的组件，不是独立总 Agent；Context、Session、Tool 和 LLM 可由宿主注入
   （`README.md` L108 原文）；
 - 写步分工：`capabilities.deployment_plan = "readonly data; host executes the write steps"`
   （bootstrap L148 实测）——agent 只出只读/方案 data，写步由宿主执行；

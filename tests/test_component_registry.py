@@ -1,6 +1,6 @@
 from core.registry import ComponentRegistry
 from core.ports import ComponentPort
-from core.agent import AgentRequest, SeeyonAgent
+from core.agent import AgentRequest, XiaozhuaAgent
 from components.udc.component import UdcComponent
 
 def test_registry_registers_components_and_discovers_capabilities():
@@ -28,7 +28,7 @@ def test_registry_dispatches_by_component_name():
 
 def test_agent_accepts_registry_and_preserves_legacy_dispatch():
     registry = ComponentRegistry([UdcComponent()])
-    agent = SeeyonAgent(registry)
+    agent = XiaozhuaAgent(registry)
     result = agent.dispatch(AgentRequest("分析 UDC 实体", {"target": "demo"}))
     assert result["component"] == "udc"
     assert result["target"] == "demo"

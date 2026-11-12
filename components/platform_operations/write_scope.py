@@ -1,6 +1,6 @@
 """写通道：显式授权范围内的写操作（默认仍 fail-closed）。
 
-背景：seeyon-agent 原本在三个位置硬编码只读——
+背景：xiaozhua-agent 原本在三个位置硬编码只读——
   ``layer.py:23``  ``if contract.write or method != "GET" or not effective: DENIED``
   ``policy.py``    ``MUTATING_METHODS = {POST, PUT, PATCH, DELETE}`` 一律 DENIED
   ``registry.py``  微流程写契约根本没登记

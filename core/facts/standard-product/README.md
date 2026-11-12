@@ -81,9 +81,9 @@ INDEX L118 那一行是这 23 份的**逐格摘要**（7886 字符的单行）�
 
 | 被引文件 | 引用方 |
 |---|---|
-| 23 格全部 | `core/facts/INDEX.md` L118（逐格摘要）、`skills/02-udc/seeyon-extension-usage/references/evidence-index.md`（自动生成）、`tools/core/platform/emit_evidence_index.py` |
+| 23 格全部 | `core/facts/INDEX.md` L118（逐格摘要）、`skills/02-udc/xiaozhua-extension-usage/references/evidence-index.md`（自动生成）、`tools/core/platform/emit_evidence_index.py` |
 | 12 份核心格（见测试 `FACTS` 列表） | `tests/udc/test_extension_usage_assets.py`（**逐份断言章节标题**，缺段落即红） |
-| `api-usage-cards.md` / `appservice-invocation.md` / `extension-point-decision-table.md` / `extension-point-consumers.md` / `platform-annotations.md` / `udc-microflow-extend-interfaces.md` | `skills/02-udc/seeyon-extension-usage/SKILL.md` 与 `references/extension-points.md` |
+| `api-usage-cards.md` / `appservice-invocation.md` / `extension-point-decision-table.md` / `extension-point-consumers.md` / `platform-annotations.md` / `udc-microflow-extend-interfaces.md` | `skills/02-udc/xiaozhua-extension-usage/SKILL.md` 与 `references/extension-points.md` |
 | `standard-product-contracts.md` / `reconciliation.md` | `docs/ledger/STATUS-2026H2.md` |
 | 8 份（`appservice-usage` / `boot-core-*` / `dao-and-mybatis` / `dubbo-cross-service` / `frontend-platform-packages` / `platform-package-capability-index` / `standard-product-appservice-surfaces` / `transport-usage` / `udc-runtime-and-extend-packages`） | `docs/audit/artifacts/extension-surface-20261029/README.md` |
 | `interface-inventory.md` | `docs/audit/artifacts/extension-surface-20261029/BASELINE.md`、`tools/core/platform/align_version_baseline.py` |

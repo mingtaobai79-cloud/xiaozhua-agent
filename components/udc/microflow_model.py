@@ -73,10 +73,10 @@ CONVERT_DATA_TYPES: frozenset[str] = frozenset({
     "GetEnumCode", "GetEnumName", "Split",
 })
 
-# ---------------------------------------------------------------- 过滤条件约束（前端 seeyon-biz-where 实证）
+# ---------------------------------------------------------------- 过滤条件约束（前端 xiaozhua-biz-where 实证）
 #
 # 操作符枚举（★权威：boot-starter-condition 5.3.308 OperatorEnum 反编译；
-#   前端 seeyon-biz-where 少 ZERO/NOTZERO，且 NEQ 前端显示 "!=" 后端是 "<>"）：
+#   前端 xiaozhua-biz-where 少 ZERO/NOTZERO，且 NEQ 前端显示 "!=" 后端是 "<>"）：
 #   EQ="="(1右参) NEQ="<>"(1) GT/LT/GE/LE(1) RLIKE/LLIKE/LIKE/NOTLIKE(1) IN/NOTIN(1)
 #   NULL/NOTNULL(0右参) ZERO="= 0"/NOTZERO="<> 0"(0) BETWEEN/NOTBETWEEN(2) INCLUDE*(1)
 CONDITION_OPERATORS: frozenset[str] = frozenset({

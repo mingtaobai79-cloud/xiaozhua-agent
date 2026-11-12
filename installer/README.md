@@ -1,6 +1,6 @@
 # installer/README.md｜安装目标态设计·目录约定（S5 · H-6）
 
-> 声明级设计文档。把 2小爪"角色 + 能力包"的**打包/安装面**固化为目录约定；
+> 声明级设计文档。把 xiaozhua"角色 + 能力包"的**打包/安装面**固化为目录约定；
 > **只做目录约定与安装清单，不产出安装脚本、不产出 build/package 代码**（TASK-GOAL 第 5 项口径；
 > 全部实现项标 **UNVERIFIED / 未实现**，不写"已实现/已落地"）。全部锚点在盘可复核；
 > 凭据 0 入件（只写路径引用机制，不引任何 token/值）；不连网、不连真实环境。
@@ -53,7 +53,7 @@ python installer/install.py --host all --target <dir-outside-repo> --dry-run
 # 真正物化
 python installer/install.py --host all --target <dir-outside-repo> --write
 
-# 跨机器分发：MCP 片段用 <SEEYON_AGENT_ROOT> 占位符，不写本机绝对路径
+# 跨机器分发：MCP 片段用 <XIAOZHUA_AGENT_ROOT> 占位符，不写本机绝对路径
 python installer/install.py --host codex --target <dir> --portable --write
 ```
 
@@ -61,15 +61,15 @@ python installer/install.py --host codex --target <dir> --portable --write
 
 | 宿主 | 指令件 | MCP 注册片段 |
 |---|---|---|
-| hermes | `skills/seeyon-agent-hermes/SKILL.md` | `mcp_servers.yaml`（贴进 `~/.hermes/config.yaml` 顶层 `mcp_servers:`） |
-| codex | `AGENTS.md`（H1 按 §3 重写） | `config.toml`（`[mcp_servers.seeyon]`） |
+| hermes | `skills/xiaozhua-agent-hermes/SKILL.md` | `mcp_servers.yaml`（贴进 `~/.hermes/config.yaml` 顶层 `mcp_servers:`） |
+| codex | `AGENTS.md`（H1 按 §3 重写） | `config.toml`（`[mcp_servers.xiaozhua]`） |
 | claude-code | `CLAUDE.md`（H1 按 §3 重写） | `.mcp.json`（`{"mcpServers": {...}}`） |
 
-> **为什么 Hermes 装到 `seeyon-agent-hermes/` 而不是 `seeyon-agent/`**（2026-11-08 实测踩到）：
-> 仓库里 `skills/seeyon-agent/SKILL.md` 是**另一个 skill**（v1 `name: seeyon-agent` / `1.0.0`），
-> 而 `adapters/hermes/Hermes-SKILL.md` 的 frontmatter 是 `name: seeyon-agent-hermes` / `2.0.0`，
+> **为什么 Hermes 装到 `xiaozhua-agent-hermes/` 而不是 `xiaozhua-agent/`**（2026-11-08 实测踩到）：
+> 仓库里 `skills/xiaozhua-agent/SKILL.md` 是**另一个 skill**（v1 `name: xiaozhua-agent` / `1.0.0`），
+> 而 `adapters/hermes/Hermes-SKILL.md` 的 frontmatter 是 `name: xiaozhua-agent-hermes` / `2.0.0`，
 > 且用 `base:` 显式声明 v1 为「read-only reference」。两者是**两个 skill，不是两个版本**。
-> 早先把 v2 物化进 `skills/seeyon-agent/`，到宿主侧就变成「目录叫 A、skill 叫 B」，
+> 早先把 v2 物化进 `skills/xiaozhua-agent/`，到宿主侧就变成「目录叫 A、skill 叫 B」，
 > 并和仓库同名目录撞车（Hermes `skill_view` 直接报 `Ambiguous skill name`）。
 > 现由 `test_skill_目录名必须等于_frontmatter_name` 守住。
 
@@ -80,7 +80,7 @@ python installer/install.py --host codex --target <dir> --portable --write
 
 - 只新增 `installer/`（2 文件）；未改 `components/`、`core/`（含 `core/role/`/`core/facts/`/
   `core/skills/`）、`skills/`、`docs/capability/`（只读引用 A8 §五/§六/§七、ROADMAP §二）、`tests/`、
-  `seeyon_cli.py`、`seeyon_host_bootstrap.py`、已交付的 `adapters/{hermes,codex,claude-code}/`
+  `xiaozhua_cli.py`、`xiaozhua_host_bootstrap.py`、已交付的 `adapters/{hermes,codex,claude-code}/`
   （全部只读，含 S3 件 H1 残留——按 INSTALL-MANIFEST 安装态规则归一，**不就地改**）。
 - 未写任何 basename ∈ {`agents.md`,`claude.md`,`soul.md`,`.cursorrules`} 的文件（§0.3）；
   未旁路写规范名；凭据 0 入件；禁 `git push`。

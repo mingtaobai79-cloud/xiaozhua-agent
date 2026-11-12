@@ -1464,7 +1464,7 @@
  },
  "pages": [
   {
-   "chunk": "node_modules_seeyon_biz-enums_dist_index-7189faa2_js.4340c5f3.js",
+   "chunk": "node_modules_xiaozhua_biz-enums_dist_index-7189faa2_js.4340c5f3.js",
    "labels": [
     "停用",
     "创建成功",
@@ -1520,7 +1520,7 @@
    "ops": []
   },
   {
-   "chunk": "node_modules_seeyon_biz-enums_dist_index-7e03e02d_js.a52b8615.js",
+   "chunk": "node_modules_xiaozhua_biz-enums_dist_index-7e03e02d_js.a52b8615.js",
    "labels": [
     "停用",
     "创建成功",
@@ -1576,7 +1576,7 @@
    "ops": []
   },
   {
-   "chunk": "node_modules_seeyon_biz-enums_dist_index-9365ba29_js.e2c68411.js",
+   "chunk": "node_modules_xiaozhua_biz-enums_dist_index-9365ba29_js.e2c68411.js",
    "labels": [
     "停用",
     "创建成功",
@@ -1632,7 +1632,7 @@
    "ops": []
   },
   {
-   "chunk": "node_modules_seeyon_biz-enums_dist_index-d16a4f98_js.a84d1636.js",
+   "chunk": "node_modules_xiaozhua_biz-enums_dist_index-d16a4f98_js.a84d1636.js",
    "labels": [
     "停用",
     "创建成功",
@@ -1688,7 +1688,7 @@
    "ops": []
   },
   {
-   "chunk": "node_modules_seeyon_biz-enums_dist_index-dfa7dac0_js.4ccc658d.js",
+   "chunk": "node_modules_xiaozhua_biz-enums_dist_index-dfa7dac0_js.4ccc658d.js",
    "labels": [
     "停用",
     "创建成功",
@@ -1744,7 +1744,7 @@
    "ops": []
   },
   {
-   "chunk": "node_modules_seeyon_biz-serial-scheme_dist_index-63bbd6cd_js.14fc2408.js",
+   "chunk": "node_modules_xiaozhua_biz-serial-scheme_dist_index-63bbd6cd_js.14fc2408.js",
    "labels": [
     "实体",
     "实体名称",
@@ -1777,7 +1777,7 @@
    ]
   },
   {
-   "chunk": "node_modules_seeyon_biz-serial-scheme_dist_index-a9cbbe00_js.c3e8b8dd.js",
+   "chunk": "node_modules_xiaozhua_biz-serial-scheme_dist_index-a9cbbe00_js.c3e8b8dd.js",
    "labels": [
     "实体",
     "实体名称",
@@ -1810,7 +1810,7 @@
    ]
   },
   {
-   "chunk": "node_modules_seeyon_biz-serial-scheme_dist_index-aa2d4add_js.0de18369.js",
+   "chunk": "node_modules_xiaozhua_biz-serial-scheme_dist_index-aa2d4add_js.0de18369.js",
    "labels": [
     "实体",
     "实体名称",
@@ -1843,7 +1843,7 @@
    ]
   },
   {
-   "chunk": "node_modules_seeyon_biz-serial-scheme_dist_index-f62267af_js.f827461e.js",
+   "chunk": "node_modules_xiaozhua_biz-serial-scheme_dist_index-f62267af_js.f827461e.js",
    "labels": [
     "实体",
     "实体名称",
@@ -1876,7 +1876,7 @@
    ]
   },
   {
-   "chunk": "node_modules_seeyon_biz-where_dist_conditionRight_js.76ceea66.js",
+   "chunk": "node_modules_xiaozhua_biz-where_dist_conditionRight_js.76ceea66.js",
    "labels": [],
    "buttons": [],
    "events": {
@@ -1892,7 +1892,7 @@
    ]
   },
   {
-   "chunk": "node_modules_seeyon_biz-where_dist_condition_js.37098cf6.js",
+   "chunk": "node_modules_xiaozhua_biz-where_dist_condition_js.37098cf6.js",
    "labels": [],
    "buttons": [],
    "events": {
@@ -1908,7 +1908,7 @@
    ]
   },
   {
-   "chunk": "node_modules_seeyon_biz-where_dist_modalWhere_js.aac960a8.js",
+   "chunk": "node_modules_xiaozhua_biz-where_dist_modalWhere_js.aac960a8.js",
    "labels": [
     "删除",
     "取消分组",
@@ -1952,7 +1952,7 @@
    ]
   },
   {
-   "chunk": "node_modules_seeyon_biz-where_dist_where_js.b3912f02.js",
+   "chunk": "node_modules_xiaozhua_biz-where_dist_where_js.b3912f02.js",
    "labels": [
     "删除",
     "取消分组",
@@ -5313,7 +5313,7 @@
    ]
   },
   {
-   "chunk": "src_pages_app-design_basic-info_index_tsx-node_modules_seeyon_biz-icon-library_dist_index_css.b24938e1.js",
+   "chunk": "src_pages_app-design_basic-info_index_tsx-node_modules_xiaozhua_biz-icon-library_dist_index_css.b24938e1.js",
    "labels": [
     "依赖应用",
     "依赖版本调整",
@@ -5564,7 +5564,7 @@
    ]
   },
   {
-   "chunk": "src_pages_app-design_basic-setting_index_tsx-node_modules_seeyon_biz-basic-data_dist_index_cs-483c13.3a08a45d.js",
+   "chunk": "src_pages_app-design_basic-setting_index_tsx-node_modules_xiaozhua_biz-basic-data_dist_index_cs-483c13.3a08a45d.js",
    "labels": [
     "中性灰",
     "主题",
@@ -6497,7 +6497,7 @@
    "ops": []
   },
   {
-   "chunk": "src_pages_app-design_rule_dataflow_relation-graph_entry_tsx-node_modules_seeyon_biz-udc-graph-09b0c4.2ba8ff29.js",
+   "chunk": "src_pages_app-design_rule_dataflow_relation-graph_entry_tsx-node_modules_xiaozhua_biz-udc-graph-09b0c4.2ba8ff29.js",
    "labels": [
     "事件名称",
     "事件属性",
@@ -6844,7 +6844,7 @@
    "ops": []
   },
   {
-   "chunk": "src_pages_app-design_rule_index_tsx-node_modules_seeyon_biz-udc-graph_dist_index_css-src_comp-646d55.b1e6b2e3.js",
+   "chunk": "src_pages_app-design_rule_index_tsx-node_modules_xiaozhua_biz-udc-graph_dist_index_css-src_comp-646d55.b1e6b2e3.js",
    "labels": [
     "不能下划线结尾",
     "不能使用连续的下划线",
@@ -7243,7 +7243,7 @@
    ]
   },
   {
-   "chunk": "src_pages_design_functions_components_add-space_index_tsx-node_modules_seeyon_biz-icon-librar-bea4ad.ec205c1d.js",
+   "chunk": "src_pages_design_functions_components_add-space_index_tsx-node_modules_xiaozhua_biz-icon-librar-bea4ad.ec205c1d.js",
    "labels": [
     "分组名称",
     "菜单名称"
@@ -8724,7 +8724,7 @@
    ]
   },
   {
-   "chunk": "src_pages_udc_application_new-app_index_tsx-node_modules_seeyon_biz-icon-library_dist_index_css.f1f0ad2b.js",
+   "chunk": "src_pages_udc_application_new-app_index_tsx-node_modules_xiaozhua_biz-icon-library_dist_index_css.f1f0ad2b.js",
    "labels": [
     "去设计",
     "平台版本",
@@ -8787,7 +8787,7 @@
    ]
   },
   {
-   "chunk": "src_pages_udc_backend-cmp_index_tsx-node_modules_seeyon_biz-icon-library_dist_index_css.0b5ab107.js",
+   "chunk": "src_pages_udc_backend-cmp_index_tsx-node_modules_xiaozhua_biz-icon-library_dist_index_css.0b5ab107.js",
    "labels": [
     "全部版本",
     "全部类型",
@@ -8848,7 +8848,7 @@
    "ops": []
   },
   {
-   "chunk": "src_pages_udc_cmps_index_tsx-node_modules_seeyon_biz-icon-library_dist_index_css.a7b33360.js",
+   "chunk": "src_pages_udc_cmps_index_tsx-node_modules_xiaozhua_biz-icon-library_dist_index_css.a7b33360.js",
    "labels": [
     "停用",
     "全部状态",

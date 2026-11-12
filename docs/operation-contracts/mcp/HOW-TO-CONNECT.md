@@ -1,4 +1,4 @@
-# 怎么接 2小爪 MCP
+# 怎么接 xiaozhua MCP
 
 > 面向：想在 Hermes / Codex / Claude Code 之外，或者自己的 agent 里接入的人。
 > 权威工具清单：`docs/operation-contracts/mcp/TOOLS.md`（自动生成，勿手改）
@@ -8,15 +8,15 @@
 
 ```
 Python 3.11+
-仓库：<SEEYON_AGENT_ROOT>（本机示例 <SEEYON_AGENT_ROOT>）
-虚拟环境：<SEEYON_AGENT_ROOT>/.venv
+仓库：<XIAOZHUA_AGENT_ROOT>（本机示例 <XIAOZHUA_AGENT_ROOT>）
+虚拟环境：<XIAOZHUA_AGENT_ROOT>/.venv
 ```
 
 依赖装好之后先自检一遍（不联网）：
 
 ```bash
-cd <SEEYON_AGENT_ROOT>
-./.venv/Scripts/python.exe -c "from seeyon_host_bootstrap import bootstrap; b=bootstrap(); print(len(b))"
+cd <XIAOZHUA_AGENT_ROOT>
+./.venv/Scripts/python.exe -c "from xiaozhua_host_bootstrap import bootstrap; b=bootstrap(); print(len(b))"
 ```
 
 能打印出数字（约 50）就说明装配正常。
@@ -26,13 +26,13 @@ cd <SEEYON_AGENT_ROOT>
 **stdio，JSON-RPC 2.0，一行一帧。** 没有 HTTP、没有端口、没有额外服务。
 
 ```bash
-<SEEYON_AGENT_ROOT>/.venv/Scripts/python.exe <SEEYON_AGENT_ROOT>/adapters/mcp/server.py
+<XIAOZHUA_AGENT_ROOT>/.venv/Scripts/python.exe <XIAOZHUA_AGENT_ROOT>/adapters/mcp/server.py
 ```
 
 | 项 | 值 |
 |---|---|
 | protocolVersion | `2024-11-05` |
-| serverInfo | `{"name": "seeyon-mcp", "version": "0.1.0"}` |
+| serverInfo | `{"name": "xiaozhua-mcp", "version": "0.1.0"}` |
 | method 白名单 | `initialize` / `tools/list` / `tools/call`（`notifications/initialized` 静默 ack） |
 | 未知 method | `-32601` |
 | 参数缺/型错 | `-32602` |
@@ -45,10 +45,10 @@ cd <SEEYON_AGENT_ROOT>
 
 ```yaml
 mcp_servers:
-  seeyon:
-    command: <SEEYON_AGENT_ROOT>/.venv/Scripts/python.exe
+  xiaozhua:
+    command: <XIAOZHUA_AGENT_ROOT>/.venv/Scripts/python.exe
     args:
-      - <SEEYON_AGENT_ROOT>/adapters/mcp/server.py
+      - <XIAOZHUA_AGENT_ROOT>/adapters/mcp/server.py
     timeout: 180
 ```
 
@@ -57,9 +57,9 @@ mcp_servers:
 `~/.codex/config.toml`：
 
 ```toml
-[mcp_servers.seeyon]
-command = "<SEEYON_AGENT_ROOT>/.venv/Scripts/python.exe"
-args = ["<SEEYON_AGENT_ROOT>/adapters/mcp/server.py"]
+[mcp_servers.xiaozhua]
+command = "<XIAOZHUA_AGENT_ROOT>/.venv/Scripts/python.exe"
+args = ["<XIAOZHUA_AGENT_ROOT>/adapters/mcp/server.py"]
 ```
 
 ### Claude Code
@@ -69,9 +69,9 @@ args = ["<SEEYON_AGENT_ROOT>/adapters/mcp/server.py"]
 ```json
 {
   "mcpServers": {
-    "seeyon": {
-      "command": "<SEEYON_AGENT_ROOT>/.venv/Scripts/python.exe",
-      "args": ["<SEEYON_AGENT_ROOT>/adapters/mcp/server.py"]
+    "xiaozhua": {
+      "command": "<XIAOZHUA_AGENT_ROOT>/.venv/Scripts/python.exe",
+      "args": ["<XIAOZHUA_AGENT_ROOT>/adapters/mcp/server.py"]
     }
   }
 }
@@ -83,7 +83,7 @@ args = ["<SEEYON_AGENT_ROOT>/adapters/mcp/server.py"]
 python installer/install.py --host all --target <输出目录> --portable
 ```
 
-`--portable` 用 `<SEEYON_AGENT_ROOT>` 占位符代替本机路径。不加 `--write` 是 dry-run，
+`--portable` 用 `<XIAOZHUA_AGENT_ROOT>` 占位符代替本机路径。不加 `--write` 是 dry-run，
 只打印计划不落盘。
 
 ## 四、验证连上了
@@ -91,7 +91,7 @@ python installer/install.py --host all --target <输出目录> --portable
 配完重启宿主，然后问：
 
 ```
-调用 seeyon_capability_index，传空参数
+调用 xiaozhua_capability_index，传空参数
 ```
 
 正常返回：
@@ -115,9 +115,9 @@ python installer/install.py --host all --target <输出目录> --portable
 ### 先查能力面
 
 ```
-seeyon_capability_index()              → 九大域全量
-seeyon_capability_index("setting")     → 只返回设置域
-seeyon_capability_index("rule")        → 规则域
+xiaozhua_capability_index()              → 九大域全量
+xiaozhua_capability_index("setting")     → 只返回设置域
+xiaozhua_capability_index("rule")        → 规则域
 ```
 
 每个域返回 `tools` / `facts` / `contracts` / `status` / `note`，`note` 里写着这个域的坑。
@@ -125,12 +125,12 @@ seeyon_capability_index("rule")        → 规则域
 ### 典型链路：生成一条微流程
 
 ```
-1. seeyon_microflow_trigger(kind="MANUAL")                    造触发器
-2. seeyon_microflow_node(action="create_variable", ...)       造节点（重复 N 次）
-3. seeyon_microflow_data_schema(name, caption, trigger, nodes) 组装 dataSchema
-4. seeyon_microflow_gates(schema)                             过 G1–G41，problems 必须为空
-5. seeyon_microflow_create_body(...)                          出 create/checkSchema body
-6. seeyon_microflow_publish(host, cookie, mid, ...)           发布（🔑 需凭据）
+1. xiaozhua_microflow_trigger(kind="MANUAL")                    造触发器
+2. xiaozhua_microflow_node(action="create_variable", ...)       造节点（重复 N 次）
+3. xiaozhua_microflow_data_schema(name, caption, trigger, nodes) 组装 dataSchema
+4. xiaozhua_microflow_gates(schema)                             过 G1–G41，problems 必须为空
+5. xiaozhua_microflow_create_body(...)                          出 create/checkSchema body
+6. xiaozhua_microflow_publish(host, cookie, mid, ...)           发布（🔑 需凭据）
 ```
 
 **第 4 步不能跳。** 闸门不过就别往下走 —— 平台 checkSchema 是浅校验，
@@ -139,9 +139,9 @@ seeyon_capability_index("rule")        → 规则域
 ### 典型链路：建一套设置
 
 ```
-seeyon_option_set_category_body  → 分组
-seeyon_option_set_body           → 选项集（category_id 用上一步的 id）
-seeyon_option_set_item_body      → 枚举项（enum_id 用上一步的 id）
+xiaozhua_option_set_category_body  → 分组
+xiaozhua_option_set_body           → 选项集（category_id 用上一步的 id）
+xiaozhua_option_set_item_body      → 枚举项（enum_id 用上一步的 id）
 ```
 
 ### 凭据怎么传
@@ -150,7 +150,7 @@ seeyon_option_set_item_body      → 枚举项（enum_id 用上一步的 id）
 `entity_rule_publish`）**强制要求 `host` + `cookie` 两个必填参数**，不传就调不起来。
 
 ```python
-seeyon_microflow_publish(
+xiaozhua_microflow_publish(
     host="https://<环境域名>",
     cookie="SY_ACCESS_TOKEN=...; SY_UID=...",
     mid="<微流程 id>",
@@ -172,7 +172,7 @@ seeyon_microflow_publish(
    落库由宿主拿 body 自己去 POST —— 这是刻意的：agent 不该有隐式写能力。
 
 ② 实体/结构不能手拼。
-   seeyon_microflow_node 的 app/structure 必须来自
+   xiaozhua_microflow_node 的 app/structure 必须来自
    udcMicroflowSearchTreeEntityPost 的真实返回，nodes.retrieve() 会校验。
 
 ③ 自定义页新建目录后必须重启 dev server。

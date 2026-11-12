@@ -1,7 +1,7 @@
-# 交付报告 · seeyon-agent 0.1.0
+# 交付报告 · xiaozhua-agent 0.1.0
 
 > 日期：2026-11-12
-> 包：`dist/seeyon-agent-0.1.0.zip`
+> 包：`dist/xiaozhua-agent-0.1.0.zip`
 > 结论：**可交付**。5 项验收标准逐条达成，1 次事故已记录并纠正认知。
 
 ## 〇、一句话
@@ -97,7 +97,7 @@ rule      entity_rule_body
 做了什么、平台返回什么、怎么补回、三处不可逆差异（行 id / 版本 / createTime）、
 正确做法是什么、教训两条。
 
-相关 docstring 已改（`seeyon_host_bootstrap.py` 的 `app_dependency_remove`）。
+相关 docstring 已改（`xiaozhua_host_bootstrap.py` 的 `app_dependency_remove`）。
 
 ## 二、执行纪律遵守情况
 
@@ -125,7 +125,7 @@ rule      entity_rule_body
 
 | 交付物 | 路径 | 状态 |
 |---|---|---|
-| 打包产物 | `dist/seeyon-agent-0.1.0.zip` | ✅ 8.0 MB |
+| 打包产物 | `dist/xiaozhua-agent-0.1.0.zip` | ✅ 8.0 MB |
 | 版本与变更 | `CHANGELOG.md` | ✅ |
 | 安装指南 | `INSTALL.md` | ✅ 无真实客户域名 |
 | 连接配置 + 工具清单 | `README.md` | ✅ 第 1、2 节 |

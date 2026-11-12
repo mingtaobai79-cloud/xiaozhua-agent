@@ -1,13 +1,13 @@
-# 2小爪 Agent — Agent-Host Integration Guide
+# xiaozhua Agent — Agent-Host Integration Guide
 
-2小爪 Agent 是嵌入宿主（Hermes / Claude Code / Codex）的组件，不是独立 agent。
+xiaozhua Agent 是嵌入宿主（Hermes / Claude Code / Codex）的组件，不是独立 agent。
 宿主通过一个初始化脚本获得四个能力；本文是所有宿主接入的唯一契约。
 
 ## 1. 初始化脚本（唯一入口）
 
 ```python
-sys.path.insert(0, r"<SEEYON_AGENT_ROOT>")
-from seeyon_host_bootstrap import bootstrap
+sys.path.insert(0, r"<XIAOZHUA_AGENT_ROOT>")
+from xiaozhua_host_bootstrap import bootstrap
 
 host = bootstrap()                                   # 离线（默认）
 host = bootstrap(credential_file=<path>, allow_network=True)  # 活体 test2
@@ -29,11 +29,11 @@ P5 包含保存、发布、构建等有副作用的阶段，不得直接作为�
 - `dispatch(intent, target)` — 需求归一化 → 组件路由 → **组件内只读 action** → 证据化结果
 - `generate(app_id, entity_name, attributes, caption)` — 后端 8 类 Java 骨架 + 前端页面定义
 - `live_probe(cred_file?)` — test2 只读 POST 4 端点双发（默认 BLOCKED）
-- `agent` — SeeyonAgent 本体；宿主可用自有 context/session/policy 重建（三 Port 协议）
+- `agent` — XiaozhuaAgent 本体；宿主可用自有 context/session/policy 重建（三 Port 协议）
 
 ### 2.1 任务路由与发现（`core/intent_actions.py`）
 
-`dispatch` 现在分两步：域路由（`SeeyonAgent.route`）之后按意图表在**组件已登记能力**
+`dispatch` 现在分两步：域路由（`XiaozhuaAgent.route`）之后按意图表在**组件已登记能力**
 里选 action，未命中才用域默认（udc → `inspect_application`，其他 → `inspect`）。
 因此「微流程节点怎么配」命中 `inspect_microflow` 而不是笼统的应用级报告。
 返回 dict 的 `action` 字段即路由决策（组件未自带时由入口补上）。
@@ -48,17 +48,17 @@ P5 包含保存、发布、构建等有副作用的阶段，不得直接作为�
 ## 3. 各宿主接入要点
 
 ### Hermes（本机）
-- 复制 `skills/seeyon-agent/SKILL.md` 到 `<HERMES_HOME>\skills\`（或仓库内直接 skill_view）；
+- 复制 `skills/xiaozhua-agent/SKILL.md` 到 `<HERMES_HOME>\skills\`（或仓库内直接 skill_view）；
 - 宿主工具里用 terminal/execute_code 跑 bootstrap + 能力调用；
-- 长任务交给三 Agent 文件协作（seeyon-old session），仓库只做能力面。
+- 长任务交给三 Agent 文件协作（xiaozhua-old session），仓库只做能力面。
 
 ### Claude Code
 - CC 在仓库根自动读取本文件；tool use 用 Bash 跑 pytest / scripts/run_live_readonly.py / scripts/run_multi_live_test.py；
-- CC 侧凭据：环境变量 `SEEYON_CRED_FILE` 指向仓外凭据 JSON，**绝不把 token 写进 CLAUDE.md/代码**。
+- CC 侧凭据：环境变量 `XIAOZHUA_CRED_FILE` 指向仓外凭据 JSON，**绝不把 token 写进 CLAUDE.md/代码**。
 
 ### Codex（OpenAI）
 - Codex 用 shell 调 CLI 面即可：
-  `python -m seeyon_cli op-execute --operation udc.page_info.select_host_and_only_page --application-id <app> --credential-file <path> --allow-network`
+  `python -m xiaozhua_cli op-execute --operation udc.page_info.select_host_and_only_page --application-id <app> --credential-file <path> --allow-network`
 - Codex 侧同样凭据走环境变量/路径引用。
 
 ## 4. 安全边界（全宿主一致）

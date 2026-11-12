@@ -2,7 +2,7 @@
 
 > 目标：把设计器前端每个页面、每个 tab、每个按钮/拖拽/弹窗 → 触发的接口，全部提取出来。
 > 方法：前端 = 需求真相源；后端 = 实现手段。前端盘干净 → 再对后端 → 再执行。
-> 主线：`<SEEYON_AGENT_ROOT>`；前端资产：`<HERMES_HOME>/cache/scratch/udc-frontend/`
+> 主线：`<XIAOZHUA_AGENT_ROOT>`；前端资产：`<HERMES_HOME>/cache/scratch/udc-frontend/`
 
 ## 基线（已完成）
 - 前端全量落盘：158/166 chunk（11MB）+ 99 解包目录（wakaru 近源码）

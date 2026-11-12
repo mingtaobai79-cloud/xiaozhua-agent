@@ -27,7 +27,7 @@ def test_dynamic_cli_fixture_boundary(tmp_path):
  paths=[]
  for n in ("http","k8s","nacos","mysql","redis"):
   p=tmp_path/(n+".json"); p.write_text(json.dumps({"classification":"PASS"})); paths += ["--"+n,str(p)]
- x=subprocess.run([sys.executable,"-m","seeyon_cli","dynamic-evidence"]+paths,cwd=ROOT,capture_output=True,text=True)
+ x=subprocess.run([sys.executable,"-m","xiaozhua_cli","dynamic-evidence"]+paths,cwd=ROOT,capture_output=True,text=True)
  assert x.returncode==0
  r=json.loads(x.stdout); assert r["network"]=="disabled" and all(v=="API_PASS" for v in r["source_statuses"].values())
 

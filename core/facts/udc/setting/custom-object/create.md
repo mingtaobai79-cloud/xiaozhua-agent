@@ -6,7 +6,7 @@
 > **落库表**：`udc_data_transfer_object`
 > **实现**：`components/udc/setting/custom_object_constraints.py`
 > **契约**：`docs/operation-contracts/udc/setting/custom-object-contracts.md`
-> **skill**：`skills/seeyon-udc-setting/SKILL.md`（自定义对象节）
+> **skill**：`skills/xiaozhua-udc-setting/SKILL.md`（自定义对象节）
 
 ## R-E1 Capability
 
@@ -164,7 +164,7 @@ POST /service/udc/graphql?udcDataTransferObjectPost
 删除 xzhEvtA1        BOOT_0000 content=1  trace=3283084407908337852
 回读核对            两条均已从 udc_data_transfer_object 消失；对象数 230→228
 
-创建 zxjAcceptObject（走 seeyon-agent 构造器 + 校验器）
+创建 zxjAcceptObject（走 xiaozhua-agent 构造器 + 校验器）
   build : {"appId","appGuid","name":"zxjAcceptObject","caption":"验收自定义对象",
            "source":1,"orderNo":200,"hostAppName":null,"dataStatus":false}
   check : ✅ 通过

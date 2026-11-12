@@ -4,7 +4,7 @@
 > 段序与 B1 样板格 `core/facts/udc/entity/create.md` 一致；本件**只做 application 域非草稿面 4 条**，
 > draft 两条归 S2（**已完成，不重复计数、不重写**）、applog 全族归 S4；同控制器写端点**仅注记、不入格、不计数**。
 > 只写事实文档，不改 `registry.py`/`components/`/`docs/`；网关与凭据只写 config 键，值 0 入件（E3 内含字面，**禁转抄**）。
-> 仓库 `<SEEYON_AGENT_ROOT>`，实测 HEAD `16a384c`。本轮**未联网、未新建探针、未读凭据目录**（按 S3 规格 §1 裁剪）。
+> 仓库 `<XIAOZHUA_AGENT_ROOT>`，实测 HEAD `16a384c`。本轮**未联网、未新建探针、未读凭据目录**（按 S3 规格 §1 裁剪）。
 
 ---
 

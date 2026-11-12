@@ -6,7 +6,7 @@
   MySQLConnectionAdapter   —— 直连真实 MySQL（只读，默认关闭，需显式开启）
 
 多数据库适配要点（实测 test2 实例 5.7.28-log，128 个 schema）：
-  1. **一个实例多个 schema**：seeyon 的元数据库（udc_test2）、用户库（ctp_user_test2）、
+  1. **一个实例多个 schema**：xiaozhua 的元数据库（udc_test2）、用户库（ctp_user_test2）、
      组织库（organization_test2）、每个应用的业务库（<appId>_test2）都在同一实例上。
      因此适配器不绑定单一 database，而是按 schema 名寻址。
   2. **版本差异**：5.7 无 ``information_schema.COLUMNS.EXTRA`` 的
@@ -116,11 +116,11 @@ class MySQLConnectionAdapter:
 
     凭据解析顺序（先环境变量，后仓外文件；**任何值都不进仓库**）：
       1. 显式参数 host/port/user/password
-      2. 环境变量：SEEYON_DB_HOST / SEEYON_DB_PORT / SEEYON_DB_USERNAME /
-         SEEYON_DB_PASSWORD / SEEYON_DB_NAME
+      2. 环境变量：XIAOZHUA_DB_HOST / XIAOZHUA_DB_PORT / XIAOZHUA_DB_USERNAME /
+         XIAOZHUA_DB_PASSWORD / XIAOZHUA_DB_NAME
       3. credential_file 指向的仓外 JSON，键同上（小写亦可）
 
-    不传 database：seeyon 一个实例承载多个 schema，绑定单库会让跨库查询全 1046。
+    不传 database：xiaozhua 一个实例承载多个 schema，绑定单库会让跨库查询全 1046。
     """
 
     network = "live"
@@ -140,9 +140,9 @@ class MySQLConnectionAdapter:
     # ---------- 凭据 ----------
     def _resolve(self) -> dict[str, str]:
         out = {k: ("" if v in (0, None) else str(v)) for k, v in self._explicit.items()}
-        envmap = {"host": "SEEYON_DB_HOST", "port": "SEEYON_DB_PORT",
-                  "user": "SEEYON_DB_USERNAME", "password": "SEEYON_DB_PASSWORD",
-                  "database": "SEEYON_DB_NAME"}
+        envmap = {"host": "XIAOZHUA_DB_HOST", "port": "XIAOZHUA_DB_PORT",
+                  "user": "XIAOZHUA_DB_USERNAME", "password": "XIAOZHUA_DB_PASSWORD",
+                  "database": "XIAOZHUA_DB_NAME"}
         for key, env in envmap.items():
             if not out.get(key):
                 out[key] = os.environ.get(env, "")
@@ -167,7 +167,7 @@ class MySQLConnectionAdapter:
             # 仓库约定：Provider 层不抛异常，用 ProviderError 表达（kind 限定 6 值）
             raise _ConnFailure(ProviderError(
                 "unavailable",
-                "MySQL host 未解析到（set SEEYON_DB_HOST or pass credential_file）",
+                "MySQL host 未解析到（set XIAOZHUA_DB_HOST or pass credential_file）",
                 {"resolved_keys": sorted(k for k, v in cred.items() if v)}))
         try:
             import pymysql
@@ -224,7 +224,7 @@ class MySQLConnectionAdapter:
             return ProviderResult(error=exc.error)
         return ProviderResult({"server": ver, "schemas": schemas})
 
-    # ---------- 面向 seeyon 的多库寻址 ----------
+    # ---------- 面向 xiaozhua 的多库寻址 ----------
     def list_schemas(self, pattern: str | None = None) -> ProviderResult[dict[str, Any]]:
         sql = ("SELECT SCHEMA_NAME FROM information_schema.SCHEMATA "
                + ("WHERE SCHEMA_NAME LIKE %s " if pattern else "")

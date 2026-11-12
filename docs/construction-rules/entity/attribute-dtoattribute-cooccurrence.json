@@ -38,7 +38,7 @@
   },
   "reason": "Selected cross-sample artifacts were class files inspected with javap; runtime annotations are not emitted by javap field listings. The source-level Golden Sample proves @DtoAttribute for 462 fields, but not cross-sample co-occurrence.",
   "evidence": [
-    "SEEYON_CUSTOMER_EVIDENCE_ROOT/construction-rule-inputs/p0-4-hetongdangan-attribute-contract.json",
+    "XIAOZHUA_CUSTOMER_EVIDENCE_ROOT/construction-rule-inputs/p0-4-hetongdangan-attribute-contract.json",
     "../../audit/entity-appservice-implementation-evidence.md"
   ],
   "limitations": [

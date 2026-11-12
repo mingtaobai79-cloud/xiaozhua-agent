@@ -2,7 +2,7 @@
 """INDEX.md 加第 22 格（AppService 调用通路）。"""
 from pathlib import Path
 
-P = Path("<SEEYON_AGENT_ROOT>/core/facts/INDEX.md")
+P = Path("<XIAOZHUA_AGENT_ROOT>/core/facts/INDEX.md")
 NEW = (
     "㉒`appservice-invocation.md` **AppService 调用通路**（怎么把方法真正调起来：两条通路——"
     "① Spring 注入 `@Autowired BpmAppService` + `SingleRequest.from(dto)` + "

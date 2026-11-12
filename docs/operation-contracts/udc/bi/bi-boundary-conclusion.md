@@ -2,7 +2,7 @@
 
 > **本件性质**：边界结论书面化（C 类边界确认任务的唯一业务产出）。**不含任何新取证**——全部结论由前序已收口证据合并书写，逐条给出证据路径。
 > **授权链**：main HANDOFF #4（dedupe_key `bi-p3-boundary-doc`，2026-10-17T09:43:10Z）→ 本件为其唯一动作产出。
-> **仓库**：`<SEEYON_AGENT_ROOT>`（纯 local，禁 push）。
+> **仓库**：`<XIAOZHUA_AGENT_ROOT>`（纯 local，禁 push）。
 > **证据等级纪律**：本件只做三件事——(1) 引用已收口证据；(2) 标注每条结论的等级（LIVE / STATIC / VACUUM / UNVERIFIED）；(3) 给出验收标准对账。**不新造端点、不新造表、不新造字段**。
 > **版本单元纪律**：本件合并两个**物理分开、禁混写、禁互推**的证据单元 —— `5.3.517`（UDC 六个 jar，VACUUM 判定）与 `5.3.260`（`boot-starter-ganttchart`，Gantt 独立面）。两单元的任何数字都不得跨单元推论。
 > **凭据**：仅按路径引用 `<COLLAB_ROOT>\agent-collaboration\shared-credentials\test2-web-credential.json`；本件 0 secret、0 token、0 cookie。

@@ -1,4 +1,4 @@
-# seeyon-agent UDC 版本族清单 v1 —— 大版本族 + artifact 多版本
+# xiaozhua-agent UDC 版本族清单 v1 —— 大版本族 + artifact 多版本
 # UDC 不同大版本行为可能不同: 每个族有自己的 profile, 契约/证据按 版本族+版本 隔离, 不混写
 families:
   "5.3":

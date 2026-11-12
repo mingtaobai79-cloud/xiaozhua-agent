@@ -1,6 +1,6 @@
 """MicroFlow 构造骨架（模板填充 + create/checkSchema body，宿主执行）。
 
-证据基线（skill seeyon-udc-design-time-build，REST create L71-L73 LIVE 实证）：
+证据基线（skill xiaozhua-udc-design-time-build，REST create L71-L73 LIVE 实证）：
 - create 走 REST `POST /service/udc/microflow/create`（字符串枚举 triggerType=MANUAL/SERVICE，
   与 GraphQL udcMicroflowUpdatePost 数字枚举是两套契约，别互套）
 - create 前必过 `POST /service/udc/microflow/checkSchema`（同 body），check:true errors:0 才建

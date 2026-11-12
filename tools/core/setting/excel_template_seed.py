@@ -22,8 +22,8 @@ from components.udc.setting.excel_template_constraints import (  # noqa: E402
     build_column, build_template_body, validate_template_body,
 )
 
-APP_ID = None  # ★ 由 --app-id / SEEYON_APP_ID 提供
-APP_ID = __import__("os").environ.get("SEEYON_APP_ID") or APP_ID
+APP_ID = None  # ★ 由 --app-id / XIAOZHUA_APP_ID 提供
+APP_ID = __import__("os").environ.get("XIAOZHUA_APP_ID") or APP_ID
 
 APP_GUID = "2275741415570096882"
 APP_NAME = ""   # 运行时从 udc_application 解析，仓库内不落客户应用名
@@ -109,7 +109,7 @@ def main() -> int:
     # ---- 2) 拉实体属性（Excel 列来源）—— 走 DB，比 GraphQL 直接
     def db_attrs(entity_id):
         env = {}
-        ep = Path(r"<HERMES_HOME>\skills\seeyon\01-platform\seeyon-low-code-environment\.env")
+        ep = Path(r"<HERMES_HOME>\skills\xiaozhua\01-platform\xiaozhua-low-code-environment\.env")
         for line in ep.read_text(encoding="utf-8-sig", errors="replace").splitlines():
             line = line.strip()
             if not line or line.startswith("#"):
@@ -118,10 +118,10 @@ def main() -> int:
             if sep:
                 env[k.strip()] = v.strip().strip('"').strip("'")
         from providers.mysql_readonly import MySQLConnectionAdapter
-        db = MySQLConnectionAdapter(host=env.get("SEEYON_DB_HOST", ""),
-                                    port=env.get("SEEYON_DB_PORT") or 3306,
-                                    user=env.get("SEEYON_DB_USERNAME", ""),
-                                    password=env.get("SEEYON_DB_PASSWORD", ""))
+        db = MySQLConnectionAdapter(host=env.get("XIAOZHUA_DB_HOST", ""),
+                                    port=env.get("XIAOZHUA_DB_PORT") or 3306,
+                                    user=env.get("XIAOZHUA_DB_USERNAME", ""),
+                                    password=env.get("XIAOZHUA_DB_PASSWORD", ""))
         rows = db.query(
             "SELECT name, caption, data_type, multi_select, is_not_null, "
             "relation_app, relation_entity, relation_type, db_column_name, order_no "

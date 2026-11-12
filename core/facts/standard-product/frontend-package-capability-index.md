@@ -16,7 +16,7 @@
 ## 2. Version
 
 本格**不记版本**。前端包按应用解析，同一应用内各包主版本线不一致是常态；需要版本时查证据件
-`seeyon_packages[].version`，不要写进事实格。
+`xiaozhua_packages[].version`，不要写进事实格。
 
 ## 3. Input
 
@@ -128,7 +128,7 @@ python tools/core/platform/extract_extension_surface.py \
 
 ```
 ① 路径  docs/audit/artifacts/frontend-surface-20261102/surface.json（472 KB）
-        → sources.frontend.seeyon_packages[]：每包 version / typings / top_level_dts / symbols
+        → sources.frontend.xiaozhua_packages[]：每包 version / typings / top_level_dts / symbols
         symbols 段含 entry、files_scanned、symbol_count、symbols{名:{kind,from}}、reexport_by_module
 ② 复现  python tools/core/platform/extract_extension_surface.py \
             --frontend <前端扩展工程 pc 目录> --emit <out.json>
@@ -155,4 +155,4 @@ python tools/core/platform/extract_extension_surface.py \
 - 入口 d.ts 多为 re-export 壳（47/50）：符号必须递归取得，只解析一层等于 0 符号，且会假绿。
 - `@seeyon/syf`、`@seeyon/mbiz-new-report` 无 d.ts，写 `import type … from` 直接编译不过。
 - 本格只给「有什么」。组件渲染行为与 props 细节回包内 d.ts，用 `symbols.symbols[名].from` 定位文件。
-- 包版本不写进本格（随应用漂移）；要版本查证据件 `seeyon_packages[].version`。
+- 包版本不写进本格（随应用漂移）；要版本查证据件 `xiaozhua_packages[].version`。

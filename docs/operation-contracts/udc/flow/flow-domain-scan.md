@@ -103,5 +103,5 @@ BPM 命中明细(OBSERVATION, jar tf | grep -i bpm, 只列 .class):
 - 设计态 udc-web/udc-biz/udc-assemble/udc-extend 本地 MISSING（与 microflow P1 缺口一致）→ 本域 REST 契约只锚定 5.3.517 已有 6 jar。
 
 ## 结束读回（本轮）
-- 本文件为 R1 唯一产出（<SEEYON_AGENT_ROOT>/docs/operation-contracts/udc/flow/flow-domain-scan.md）。
+- 本文件为 R1 唯一产出（<XIAOZHUA_AGENT_ROOT>/docs/operation-contracts/udc/flow/flow-domain-scan.md）。
 - git 基线快照: implementer/git-baseline-R1.txt（R1 开始前 git status --porcelain，14 行，HEAD a799744）；R1 结束时 git status 与基线比对见 PROGRESS 消息正文。

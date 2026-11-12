@@ -28,7 +28,7 @@ DOMAIN_TITLES = {
 
 def domain_of(fq: str) -> str:
     parts = fq.split(".")
-    if len(parts) >= 3 and parts[0] == "com" and parts[1] == "seeyon":
+    if len(parts) >= 3 and parts[0] == "com" and parts[1] == "xiaozhua":
         return parts[2]
     return parts[0]
 

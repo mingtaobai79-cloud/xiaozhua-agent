@@ -247,7 +247,7 @@ POST /service/udc/graphql?udcAttributeGroupEntityGet
 ## 十一、复现（含上一轮的教训）
 
 ```bash
-cd <SEEYON_AGENT_ROOT>
+cd <XIAOZHUA_AGENT_ROOT>
 # CDP 9222 + cookie 注入后：
 node docs/audit/artifacts/scratch-migrated/slice-b1/b1_v6.js     # 基线断言 + 添加 + 填名（平台会把输入值改为拼音名）
 node docs/audit/artifacts/scratch-migrated/slice-b1/b1_v7.js     # 填 caption

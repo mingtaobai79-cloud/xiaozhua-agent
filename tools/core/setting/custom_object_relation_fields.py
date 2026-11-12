@@ -28,7 +28,7 @@ REPO = Path(__file__).resolve().parents[3]
 sys.path.insert(0, str(REPO))
 from providers.cdp import CdpClient  # noqa: E402
 
-APP_ID = None  # ★ 运行时由 --app-id / SEEYON_APP_ID 提供（原写死值已移除）
+APP_ID = None  # ★ 运行时由 --app-id / XIAOZHUA_APP_ID 提供（原写死值已移除）
 # 应用名按 appId 从 udc_application 运行时解析（仓库内不落客户应用名常量）
 APP_NAME = ""
 PROBE_OID = "-7340588150208408653"

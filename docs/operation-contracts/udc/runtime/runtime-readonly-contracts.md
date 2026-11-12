@@ -1,7 +1,7 @@
 # UDC runtime 域只读契约 — 差分扫描结论与候选（runtime-readonly-contracts.md）
 
 - 域模块: udc-runtime（`udc-starter-runtime` 启动器 jar 的 HTTP 控制器层 = `com.seeyon.boot.starter.udcrt.controller.*`）
-- 版本单元: 5.3.517（本地 Maven `<MAVEN_REPO>\com\seeyon`，只读离线证据；**禁混写相邻版本单元**）
+- 版本单元: 5.3.517（本地 Maven `<MAVEN_REPO>\com\xiaozhua`，只读离线证据；**禁混写相邻版本单元**）
 - 证据等级: VERIFIED_STATIC_BYTECODE（三层扫描 + 27 类 `javap -p -v` 全量落盘；**封顶**，无越级）
 - 扫描方法: 见同目录 `runtime-domain-scan.md`（照抄 `udc/bi/bi-vacuum-contract.md` 三层法）
 - 建议条目: 见同目录 `registry-entries.md`（13 条 python 构造，dry-run PASS）

@@ -2,7 +2,7 @@
 """INDEX.md 加第 23 格（接口使用卡）。"""
 from pathlib import Path
 
-P = Path("<SEEYON_AGENT_ROOT>/core/facts/INDEX.md")
+P = Path("<XIAOZHUA_AGENT_ROOT>/core/facts/INDEX.md")
 NEW = (
     "㉓`api-usage-cards.md` **接口使用卡**（拿到就能调：一页一接口——接口全名 + 实现类 + "
     "每个方法的签名/入参 DTO 逐字段/返回 DTO 逐字段/流转第一步 + 泛化调用五个值怎么填；"

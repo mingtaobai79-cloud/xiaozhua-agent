@@ -42,7 +42,7 @@ def test_profile_builder_missing_inputs_is_unverified(tmp_path):
 
 def test_profile_build_cli_returns_single_line_json():
     result = subprocess.run([
-        sys.executable, "-m", "seeyon_cli", "profile-build",
+        sys.executable, "-m", "xiaozhua_cli", "profile-build",
         "--nacos-manifest", str(NACOS), "--udc-manifest", str(UDC),
     ], cwd=ROOT, capture_output=True, text=True)
     assert result.returncode == 0, result.stderr
@@ -55,7 +55,7 @@ def test_profile_build_cli_returns_single_line_json():
 
 def test_profile_build_cli_missing_input_returns_two(tmp_path):
     result = subprocess.run([
-        sys.executable, "-m", "seeyon_cli", "profile-build",
+        sys.executable, "-m", "xiaozhua_cli", "profile-build",
         "--nacos-manifest", str(tmp_path / "missing.json"),
         "--udc-manifest", str(UDC),
     ], cwd=ROOT, capture_output=True, text=True)

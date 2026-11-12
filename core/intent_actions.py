@@ -1,6 +1,6 @@
 """宿主意图 → 组件内只读 action 的最小路由表与发现面。
 
-为什么需要这一层：`SeeyonAgent.route` 只回答「哪个组件」，`dispatch` 随后对 udc 域
+为什么需要这一层：`XiaozhuaAgent.route` 只回答「哪个组件」，`dispatch` 随后对 udc 域
 固定用 `inspect_application`。于是宿主问「微流程节点怎么配」时永远拿不到
 `inspect_microflow`（该 action 早在 `UdcComponent.capabilities()` 里，却没有任何
 入口能选中它）。本模块把「意图关键词 → action」显式登记，并只对组件**已登记**的

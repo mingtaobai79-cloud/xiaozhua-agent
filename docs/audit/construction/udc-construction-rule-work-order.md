@@ -7,7 +7,7 @@
 ## Root architecture
 
 ```text
-Seeyon Agent
+xiaozhua Agent
 ├── UDC
 │   └── Construction Rules
 │       ├── Application

@@ -10,7 +10,7 @@
     "udc-portal": "5.3.517",
     "udc-plugin-api": "5.3.517"
   },
-  "cfr": "<HERMES_HOME>/skills/seeyon/03-v8-extension/seeyon-v8-spi/references/contract-index/tools/cfr.jar 0.152",
+  "cfr": "<HERMES_HOME>/skills/seeyon/03-v8-extension/xiaozhua-v8-spi/references/contract-index/tools/cfr.jar 0.152",
   "decompiled_outputs": [
     "<HERMES_HOME>/cache/scratch/cfr-web/com/seeyon/udc/controller/PortletController.java",
     "<HERMES_HOME>/cache/docs/audit/artifacts/decompiled/cfr-r31b/com/seeyon/udc/page/domain/service/PortletService.java",

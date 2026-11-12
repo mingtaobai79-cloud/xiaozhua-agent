@@ -29,7 +29,7 @@ def test_readme_matches_current_contract():
         "audit-summary", "probe-summary", "evidence-ledger", "udc-path-matrix",
         "impact-graph", "extension-boundary", "dry-run", "capabilities", "udc-execute",
     ):
-        assert f"python -m seeyon_cli {command}" in readme
+        assert f"python -m xiaozhua_cli {command}" in readme
     assert "Evidence Ledger" in readme
     assert "Probe Summary" in readme
     assert "不会连接真实环境" in readme
@@ -46,7 +46,7 @@ def test_version_capabilities_and_test_count_contract_is_explicit():
     assert f"Test collection: `{_pytest_collected_count()} tests collected`" in readme
 
     result = subprocess.run(
-        [sys.executable, "-m", "seeyon_cli", "capabilities"],
+        [sys.executable, "-m", "xiaozhua_cli", "capabilities"],
         cwd=ROOT, capture_output=True, text=True,
     )
     assert result.returncode == 0, result.stderr
@@ -107,7 +107,7 @@ def test_test_report_command_reads_pytest_result_and_exposes_acceptance_buckets(
     result_file = tmp_path / "pytest-report.txt"
     result_file.write_text("collected 12 items\n\n10 passed, 1 failed, 1 error in 2.34s\n", encoding="utf-8")
     result = subprocess.run(
-        [sys.executable, "-m", "seeyon_cli", "test-report", "--result", str(result_file)],
+        [sys.executable, "-m", "xiaozhua_cli", "test-report", "--result", str(result_file)],
         cwd=ROOT, capture_output=True, text=True,
     )
     assert result.returncode == 0, result.stderr

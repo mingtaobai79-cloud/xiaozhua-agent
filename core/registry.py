@@ -4,7 +4,7 @@ from .ports import ComponentPort
 
 
 class ComponentRegistry:
-    """Registry and dispatch boundary for Seeyon Agent components."""
+    """Registry and dispatch boundary for xiaozhua Agent components."""
 
     def __init__(self, components: Iterable[ComponentPort] | None = None):
         self._components: dict[str, ComponentPort] = {}

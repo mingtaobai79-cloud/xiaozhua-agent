@@ -11,7 +11,7 @@ import json
 import re
 from pathlib import Path
 
-ROOT = Path("<SEEYON_AGENT_ROOT>")
+ROOT = Path("<XIAOZHUA_AGENT_ROOT>")
 ART = ROOT / "docs/audit/artifacts/extension-surface-20261029"
 
 NUM_MAP = [

@@ -92,7 +92,7 @@ udcMicroflowFindByIdGet       → dataSchema 完整回读（实测 2,678 B）
     trigger.nodeId    = MFStartNode
 ```
 
-MCP 侧对应 `seeyon_microflow_data_schema`（组装）+ `seeyon_microflow_publish`（发布）。
+MCP 侧对应 `xiaozhua_microflow_data_schema`（组装）+ `xiaozhua_microflow_publish`（发布）。
 
 ## 五、别踩的坑
 

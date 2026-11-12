@@ -1,4 +1,4 @@
-# BEHAVIOR｜2小爪 Agent 行为规范
+# BEHAVIOR｜xiaozhua Agent 行为规范
 
 > 声明级文档。锚点全部在盘可复核；未建/未实现项逐条标 UNVERIFIED 或"未实现"。
 
@@ -19,7 +19,7 @@ ROADMAP-v2 §二 L25）在盘**未建 = UNVERIFIED**；`sandbox/` Global 级目�
 ## 2. 只读与写门纪律
 
 - **默认离线只读**：`bootstrap()` 默认 `allow_network=False`
-  （`seeyon_host_bootstrap.py` L25 签名；L99–L100 `allow_network` 关时
+  （`xiaozhua_host_bootstrap.py` L25 签名；L99–L100 `allow_network` 关时
   live_probe 返回 `BLOCKED`）；
 - **只出数据、不出写**：`capabilities.readonly_only = True`（L146 实测）；
   五个宿主能力均"只出数据/只读，不出写"（AGENT-ADAPTER §二 L51）；

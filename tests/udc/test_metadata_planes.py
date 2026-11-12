@@ -234,7 +234,7 @@ def test_guardrail_bites_on_a_mutated_evidence_file():
 
 
 # 清洗门要查的标记（拼接构造：避免本文件"自己命中自己"这种自反假失败）
-_FORBIDDEN = ("seeyon" + ".com", "client" + "_", "_" + "customer")
+_FORBIDDEN = ("xiaozhua" + ".com", "client" + "_", "_" + "customer")
 
 
 def test_no_customer_identifiers_in_new_artifacts():

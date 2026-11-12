@@ -96,7 +96,7 @@ output:     必填（buildOutPut(... requiredJavaType)）
 - `RetrieveEntityArrayActivity$FetchType` 各分支的 AttrValue 内部结构
 - `MicroFlowComponentUtils.buildConditionInfo` / `checkConditionInfo`（condition 校验细则）
 - `RetrieveSortParam` / `ObjectSortParam`（排序结构）
-- 条件过滤器（where）操作符与 dataType 映射（前端 seeyon-biz-where，已另档）
+- 条件过滤器（where）操作符与 dataType 映射（前端 xiaozhua-biz-where，已另档）
 
 ## 8. 与前端推断的差异（修正记录）
 | 项 | 先前（前端推断，误） | 后端权威（修正） |

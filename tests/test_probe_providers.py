@@ -46,7 +46,7 @@ def test_probe_summary_cli_remains_compatible_with_explicit_paths(tmp_path):
     runtime.write_text('{}', encoding="utf-8")
     http.write_text('{"probes":[]}', encoding="utf-8")
     result = subprocess.run(
-        [sys.executable, "-m", "seeyon_cli", "probe-summary", "--runtime", str(runtime), "--http", str(http)],
+        [sys.executable, "-m", "xiaozhua_cli", "probe-summary", "--runtime", str(runtime), "--http", str(http)],
         cwd=ROOT, capture_output=True, text=True,
     )
     assert result.returncode == 2

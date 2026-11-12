@@ -10,20 +10,20 @@
 > 但内容无替代，删掉即断。已登记于 `docs/audit/README.md` 第六节。
 
 日期：2026-10-11
-主线仓库：`<SEEYON_AGENT_ROOT>`
+主线仓库：`<XIAOZHUA_AGENT_ROOT>`
 审计边界：只读；本轮不执行 test2 设计态写入、不改页面、不改微流程、不触发构建。
 
 ## 1. 先定性：主线项目与 Hermes Skill 的关系
 
-`seeyon-agent` 是主线实现。Hermes 下的 `seeyon-*` skill 是操作规程、证据规则和环境笔记，不等于 `seeyon-agent` 已经实现对应能力。
+`xiaozhua-agent` 是主线实现。Hermes 下的 `xiaozhua-*` skill 是操作规程、证据规则和环境笔记，不等于 `xiaozhua-agent` 已经实现对应能力。
 
-当前仓库的真实宿主入口是 `seeyon_host_bootstrap.py`：
+当前仓库的真实宿主入口是 `xiaozhua_host_bootstrap.py`：
 
-- `bootstrap()` 装配 `udc`、`runtime`、`integration` 三个组件；见 `seeyon_host_bootstrap.py:25-40`。
-- `generate()` / `generate_from_requirement()` 生成声明级 Java skeleton 和页面定义骨架；见 `seeyon_host_bootstrap.py:46-92`。
-- `live_probe()` 是显式允许网络后的只读探测；见 `seeyon_host_bootstrap.py:94-116`。
-- `deploy_plan()` 只输出方案数据，写操作由宿主执行；见 `seeyon_host_bootstrap.py:118-130`。
-- 返回能力表明确 `readonly_only=True`、`credential_mode=path-ref-only`；见 `seeyon_host_bootstrap.py:136-149`。
+- `bootstrap()` 装配 `udc`、`runtime`、`integration` 三个组件；见 `xiaozhua_host_bootstrap.py:25-40`。
+- `generate()` / `generate_from_requirement()` 生成声明级 Java skeleton 和页面定义骨架；见 `xiaozhua_host_bootstrap.py:46-92`。
+- `live_probe()` 是显式允许网络后的只读探测；见 `xiaozhua_host_bootstrap.py:94-116`。
+- `deploy_plan()` 只输出方案数据，写操作由宿主执行；见 `xiaozhua_host_bootstrap.py:118-130`。
+- 返回能力表明确 `readonly_only=True`、`credential_mode=path-ref-only`；见 `xiaozhua_host_bootstrap.py:136-149`。
 
 `components/udc/component.py:14-98` 也明确：UDC 组件是 read-only，`dry_run` 不执行写入。`components/platform_operations/layer.py:17-24` 对非只读 GET 契约统一返回 `DENIED`。
 
@@ -46,7 +46,7 @@
 
 ## 3. 已确认的前端真实机制
 
-证据来源：`core/facts/udc/frontend-assembly-protocol.md`、前端 chunk `<EVIDENCE_ROOT>/seeyon-customer-evidence/frontend/chunks/src_redux_store_ts.14dc061e.js` 及页面设计 bundle 的模块切片。
+证据来源：`core/facts/udc/frontend-assembly-protocol.md`、前端 chunk `<EVIDENCE_ROOT>/xiaozhua-customer-evidence/frontend/chunks/src_redux_store_ts.14dc061e.js` 及页面设计 bundle 的模块切片。
 
 ### 3.1 控件不是数据库字典，也不是我可以随意发明的 JSON
 
@@ -69,7 +69,7 @@ m.hG.init({
 - 自定义控件 schema：应用/宿主提供的 remote entry 或 package 动态加载。
 - 页面实例：拖拽实例化后才写入 `udc_page_schema.page_schema` / `draft_page_schema`。
 
-当前 `seeyon-agent` 没有实现 bundle schema 解析器，也没有实现组件注册表到页面实例的构造器。`components/construction/page_definition.py` 只输出 18 个页面元数据字段的声明级骨架，不能生成可运行的 `childById` 控件树。
+当前 `xiaozhua-agent` 没有实现 bundle schema 解析器，也没有实现组件注册表到页面实例的构造器。`components/construction/page_definition.py` 只输出 18 个页面元数据字段的声明级骨架，不能生成可运行的 `childById` 控件树。
 
 ### 3.2 页面 JSON 的基本形状
 
@@ -233,11 +233,11 @@ autocode/JAVA/2.7/templates/microflow/schedule/MicroFlowSchedule.java.ftl
 5. 微流程发布态/构建态条件满足；
 6. 生成类、运行入口和实际业务回读闭环。
 
-当前 `seeyon-agent` 没有实现上述 JSON 解析、节点合法性校验、模板映射、参数/输入输出图校验或微流程构造器。因此前面临时拼的 `RETRIEVE + CONVERT_DATA + CREATE_VARIABLE` 只能算一次平台 API 探针，不能算“订单人员、流程信息、流转日志、意见列表已经实现”。尤其“流转日志和意见列表拼接”没有真实 CALL_APP_SERVICE/CALL_MICRO_FLOW/数据流契约和回读证据。
+当前 `xiaozhua-agent` 没有实现上述 JSON 解析、节点合法性校验、模板映射、参数/输入输出图校验或微流程构造器。因此前面临时拼的 `RETRIEVE + CONVERT_DATA + CREATE_VARIABLE` 只能算一次平台 API 探针，不能算“订单人员、流程信息、流转日志、意见列表已经实现”。尤其“流转日志和意见列表拼接”没有真实 CALL_APP_SERVICE/CALL_MICRO_FLOW/数据流契约和回读证据。
 
 ## 6. 当前项目能力矩阵
 
-| 能力 | 当前 seeyon-agent 状态 | 证据 | 结论 |
+| 能力 | 当前 xiaozhua-agent 状态 | 证据 | 结论 |
 |---|---|---|---|
 | UDC 只读事实/报告 | 已有 | `components/udc/component.py` | 可用，属于审计能力 |
 | 需求解析 | 已有但确定性 | `components/construction/requirement_parser.py` | 只生成模型，不搭建 |
@@ -258,7 +258,7 @@ autocode/JAVA/2.7/templates/microflow/schedule/MicroFlowSchedule.java.ftl
 
 ## 7. 本轮结论
 
-当前可以确认“2小爪 Agent 已具备 UDC 证据与方案生成骨架”，不能确认“2小爪 Agent 已经理解并能自动搭建用户要求的完整订单应用”。
+当前可以确认“xiaozhua Agent 已具备 UDC 证据与方案生成骨架”，不能确认“xiaozhua Agent 已经理解并能自动搭建用户要求的完整订单应用”。
 
 下一步不是继续在 test2 里试写 JSON，而是按主线补实现：
 

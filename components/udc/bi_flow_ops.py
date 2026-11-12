@@ -18,7 +18,7 @@ import json
 from dataclasses import dataclass, field
 from pathlib import Path
 
-SCHEMA_ID = "udc.seeyon-agent.op-catalog.v1"
+SCHEMA_ID = "udc.xiaozhua-agent.op-catalog.v1"
 
 # 网关 service 前缀（round2 活体 URL 逐字）：两个域各自独立段，不并入 /service/udc/
 BI_SERVICE_PREFIX = "/service/cdp-data/"

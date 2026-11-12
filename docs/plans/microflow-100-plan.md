@@ -58,7 +58,7 @@
 ## 执行机制（用户要求：定时推进 + 审计验收）
 - cron 定时任务按周期推进 P1→P2→P3→P4，每个节点完成即落盘证据（`docs/audit/artifacts/udc-node-evidence/<node>.json`）
 - 验收口径（固化）：**每节点四件套齐 = 过**；红字=0 只是入场券
-- 全部事实进 seeyon-agent：facts/write-chain + skill references
+- 全部事实进 xiaozhua-agent：facts/write-chain + skill references
 
 ## 验收定义（用户原话转译）
 "微流程加业务能 100% 生成一个位置不错" = 给任意节点类型清单，能按固化规则组装出 checkSchema 过 + 面板零红字 + 必填全配 + 语义自洽 + 长ID可溯源 的 dataSchema，且全程有接口证据支撑。

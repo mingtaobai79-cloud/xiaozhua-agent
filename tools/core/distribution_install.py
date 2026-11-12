@@ -19,7 +19,7 @@ import zipfile
 
 from tools.core import distribution_manifest
 
-SCHEMA = 'seeyon-offline-bundle.v1'
+SCHEMA = 'xiaozhua-offline-bundle.v1'
 MANIFEST_NAME = 'bundle-manifest.json'
 _INVOKE_TIMEOUT_SECONDS = 60
 

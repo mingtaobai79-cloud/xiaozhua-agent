@@ -37,12 +37,12 @@
 
 ## ② deploy_plan 生成（bootstrap 5 能力，agent 只出 readonly data）
 
-- 宿主调 `seeyon_host_bootstrap.bootstrap()` 拿能力面（**实测 9 键 dict，`seeyon_host_bootstrap.py:136-149`**；
+- 宿主调 `xiaozhua_host_bootstrap.bootstrap()` 拿能力面（**实测 9 键 dict，`xiaozhua_host_bootstrap.py:136-149`**；
   A8 §二 已逐键登记）：`agent / dispatch / generate / generate_from_requirement / live_probe / deploy_plan /
   allow_network / capabilities{components[], readonly_only=True, credential_mode="path-ref-only",
-  deployment_plan="readonly data; host executes the write steps", schema="seeyon-host-bootstrap.v1"}`。
+  deployment_plan="readonly data; host executes the write steps", schema="xiaozhua-host-bootstrap.v1"}`。
 - 打法选 `host["deploy_plan"](application_id, entity_name, attributes, caption, stereotype="bill")` →
-  返回 `seeyon-deployment-plan.v1` 方案 data（`steps[]` 4 步 + `enums` + `evidence` + `unknowns`，
+  返回 `xiaozhua-deployment-plan.v1` 方案 data（`steps[]` 4 步 + `enums` + `evidence` + `unknowns`，
   A3 §三 CONFIG 真例逐字段）；**agent 不出写，只出方案 data**。
 
 ## ③ 4 步执行（宿主按 steps + shared-credentials 调网关；= B2 4 tool 声明）

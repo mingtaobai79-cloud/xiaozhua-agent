@@ -1,6 +1,6 @@
 """从「证据事实」生成 Hermes skill —— 事实 → skill 构造器。
 
-设计原则（源自 seeyon-agent-fact-protocol）：
+设计原则（源自 xiaozhua-agent-fact-protocol）：
 
   事实是权威，skill 是索引 —— skill 里不抄事实正文，只指路径。
   约束是判据，不是注释   —— 从 *_constraints.py / *_scope.py 抽 validate_* 与常量表，
@@ -18,10 +18,10 @@
 
 用法：
   python tools/core/_meta/build_facts_skill.py \
-      --name seeyon-udc-entity-domain \
+      --name xiaozhua-udc-entity-domain \
       --facts core/facts/udc/entity --facts core/facts/udc/expression \
       --constraints components/udc/rule_domain_scope.py \
-      --out "D:/software/hermes/skills/seeyon/02-udc/seeyon-udc-entity-domain"
+      --out "D:/software/hermes/skills/seeyon/02-udc/xiaozhua-udc-entity-domain"
 
 ★ 生成后必须跑 `--check`：文档计数、PII、事实路径存在性三项自检。
 """
@@ -227,7 +227,7 @@ def render_skill(name: str, facts: list[dict], cons: list[dict]) -> str:
     lines = [
         "---",
         f"name: {name}",
-        f'description: "Use when 操作 {name.replace("seeyon-", "").replace("-", " ")} 或复核其事实证据"',
+        f'description: "Use when 操作 {name.replace("xiaozhua-", "").replace("-", " ")} 或复核其事实证据"',
         "version: 1.0.0",
         "metadata:",
         "  hermes:",

@@ -5,7 +5,7 @@ import re
 import time
 from pathlib import Path
 
-OUT = Path(r"<SEEYON_AGENT_ROOT>/docs/audit/evidence/feishu-base")
+OUT = Path(r"<XIAOZHUA_AGENT_ROOT>/docs/audit/evidence/feishu-base")
 doc = (OUT / "whitemt-pending-issues-repro-plan.md").read_text(encoding="utf-8")
 rec = json.loads((OUT / "records_decoded.json").read_text(encoding="utf-8"))
 tbl = json.loads((OUT / "table_decoded.json").read_text(encoding="utf-8"))

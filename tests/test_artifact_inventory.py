@@ -39,7 +39,7 @@ def test_scan_keyword_filter_is_case_insensitive_and_matches_coordinates(tmp_pat
 
 def test_scan_ignores_non_maven_jars_and_missing_pom_is_null(tmp_path):
     (tmp_path / "random.jar").write_bytes(b"not zip")
-    jar, _ = make_artifact(tmp_path, "org.demo", "seeyon-api", "3.0")
+    jar, _ = make_artifact(tmp_path, "org.demo", "xiaozhua-api", "3.0")
     (jar.with_suffix(".pom")).unlink()
     result = scan_repository(tmp_path)
     assert len(result["artifacts"]) == 1
@@ -48,7 +48,7 @@ def test_scan_ignores_non_maven_jars_and_missing_pom_is_null(tmp_path):
 def test_cli_artifact_inventory_writes_manifest(tmp_path):
     make_artifact(tmp_path, "com.seeyon", "udc-web", "5.3.517")
     output = tmp_path / "manifest.json"
-    result = subprocess.run([sys.executable, "-m", "seeyon_cli", "artifact-inventory", "--root", str(tmp_path), "--keyword", "udc", "--output", str(output)], cwd=ROOT, capture_output=True, text=True)
+    result = subprocess.run([sys.executable, "-m", "xiaozhua_cli", "artifact-inventory", "--root", str(tmp_path), "--keyword", "udc", "--output", str(output)], cwd=ROOT, capture_output=True, text=True)
     assert result.returncode == 0, result.stderr
     payload = json.loads(result.stdout)
     assert payload["manifest"] == str(output)

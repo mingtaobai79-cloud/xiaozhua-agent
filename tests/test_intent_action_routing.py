@@ -1,6 +1,6 @@
 """宿主任务路由与发现：意图 → 组件内只读 action。
 
-背景：`SeeyonAgent.route` 只做域级路由，`dispatch` 对 udc 域固定执行
+背景：`XiaozhuaAgent.route` 只做域级路由，`dispatch` 对 udc 域固定执行
 `inspect_application`。宿主拿到「微流程节点怎么配」这类请求时，只能得到应用级
 报告，永远命中不到 `inspect_microflow`（该 action 已在 UdcComponent.capabilities()
 里，但入口选不到它），也没有任何接口告诉宿主「哪些意图对应哪个 action」。
@@ -20,14 +20,14 @@ import pytest
 ROOT = Path(__file__).parents[1]
 sys.path.insert(0, str(ROOT))
 
-from core.agent import AgentRequest, SeeyonAgent  # noqa: E402
+from core.agent import AgentRequest, XiaozhuaAgent  # noqa: E402
 from components.udc.component import UdcComponent  # noqa: E402
 
 AUDIT = ROOT / "tests" / "fixtures" / "udc-audit"
 
 
-def _agent(audit: bool = False) -> SeeyonAgent:
-    return SeeyonAgent({"udc": UdcComponent(audit_dir=AUDIT) if audit else UdcComponent()})
+def _agent(audit: bool = False) -> XiaozhuaAgent:
+    return XiaozhuaAgent({"udc": UdcComponent(audit_dir=AUDIT) if audit else UdcComponent()})
 
 
 # ---------------------------------------------------------------- 正例
@@ -89,7 +89,7 @@ def test_missing_capability_does_not_fabricate_action():
         def inspect(self, target):
             return {"component": "udc", "target": target, "status": "UNVERIFIED", "action": "inspect"}
 
-    agent = SeeyonAgent({"udc": _Stub()})
+    agent = XiaozhuaAgent({"udc": _Stub()})
     result = agent.dispatch(AgentRequest("微流程节点怎么配", {"target": "demo"}))
     assert result["action"] == "inspect"
 
@@ -184,4 +184,4 @@ def test_intent_index_omits_action_when_component_lacks_it():
         def inspect(self, target):
             return {"status": "UNVERIFIED"}
 
-    assert SeeyonAgent({"udc": _Stub()}).intent_index() == {"udc": {}}
+    assert XiaozhuaAgent({"udc": _Stub()}).intent_index() == {"udc": {}}

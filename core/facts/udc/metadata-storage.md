@@ -46,7 +46,7 @@ UdcEntityMetadata4OssService.selectEntityItemByAppName     (udc-common, javap)
 |---|---|---|
 | Redis Hash `{env}:Metadata:{Type}:{appName}` | **运行态权威读缓存**（180h TTL），`createMetadata` 直写（:552-555） | MetadataService.java |
 | MD5 key `{env}:Metadata:MD5:{Type}:{appName}` | 版本比对（变更检测） | :538-547 |
-| OSS（file.storage-type: oss，bucket seeyon-private-test2，nacos raw-02:578/590-597） | **持久镜像**：`syncSave2Storage→fileService.uploadForPublicNoDB`（:1450）；读 miss 时 `loadMetadataFromStorage` 回灌 Redis（:1716-1733） | MetadataService.java + nacos 配置证据 |
+| OSS（file.storage-type: oss，bucket xiaozhua-private-test2，nacos raw-02:578/590-597） | **持久镜像**：`syncSave2Storage→fileService.uploadForPublicNoDB`（:1450）；读 miss 时 `loadMetadataFromStorage` 回灌 Redis（:1716-1733） | MetadataService.java + nacos 配置证据 |
 | MySQL udc_* 表 | **设计态权威源**（udc_entity/udc_attribute/udc_page_info/...） | @Table 注解逐字 |
 
 ### 元数据写入触发（createMetadata :533 / createJsonMetadata :473）

@@ -11,7 +11,7 @@
 """
 import hashlib, json, pathlib, re, sys
 
-REPO = pathlib.Path(r"<SEEYON_AGENT_ROOT>")
+REPO = pathlib.Path(r"<XIAOZHUA_AGENT_ROOT>")
 DOC = REPO / "docs/audit/entity-field-matrix/SLICE-B6-DECIMAL-static.md"
 ASSET_E = REPO / "docs/audit/entity-field-matrix/assets/bundle-SEG-E_Etable.js.txt"
 ASSET_F = REPO / "docs/audit/entity-field-matrix/assets/bundle-SEG-F_ftable.js.txt"

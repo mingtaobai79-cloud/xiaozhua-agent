@@ -8,7 +8,7 @@
  "axis1_provider_uniqueness": {
   "providers_declaring_class_mapping": [
    [
-    "com\\seeyon\\udc-web\\5.3.517\\udc-web-5.3.517.jar",
+    "com\\xiaozhua\\udc-web\\5.3.517\\udc-web-5.3.517.jar",
     "com/seeyon/udc/controller/MicroFlowGroupController.class"
    ]
   ],

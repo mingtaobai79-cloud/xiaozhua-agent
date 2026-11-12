@@ -1,6 +1,6 @@
-"""Minimal CDP client for driving the Seeyon low-code designer.
+"""Minimal CDP client for driving the xiaozhua low-code designer.
 
-seeyon-agent 原来完全没有浏览器能力（全仓库 0 处 ``webSocketDebuggerUrl``），
+xiaozhua-agent 原来完全没有浏览器能力（全仓库 0 处 ``webSocketDebuggerUrl``），
 所以"页面点击"类验证只能靠一次性脚本，无法被 agent 自己复现。本模块补上这一层。
 
 设计边界（与仓库既有 provider 约定一致）：

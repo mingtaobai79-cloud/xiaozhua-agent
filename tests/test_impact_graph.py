@@ -38,7 +38,7 @@ def test_inference_is_never_fact_and_missing_nodes_are_unverified():
 def test_impact_graph_cli_reads_local_path_matrix_only(tmp_path):
     matrix = tmp_path / "matrix.json"
     matrix.write_text(json.dumps({"entries": []}), encoding="utf-8")
-    proc = subprocess.run([sys.executable, "-m", "seeyon_cli", "impact-graph", "--path-matrix", str(matrix)], cwd=Path(__file__).parents[1], capture_output=True, text=True)
+    proc = subprocess.run([sys.executable, "-m", "xiaozhua_cli", "impact-graph", "--path-matrix", str(matrix)], cwd=Path(__file__).parents[1], capture_output=True, text=True)
     assert proc.returncode == 0
     payload = json.loads(proc.stdout)
     assert payload["network"] == "disabled"

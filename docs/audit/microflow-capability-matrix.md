@@ -79,7 +79,7 @@ CHANGE_VARIABLE 还没验。
 | 组装器 | `microflow_composer.py` | 有（trigger/step/finish/gates） |
 | 闸门 | `components/udc/microflow/gates.py` | G1–G25（**G15 缺失**，O6） |
 | 验证 | `live/verify.py`（prove）、`live_refs.py`、`deploy.py` | 有 |
-| Skill | `seeyon-udc-microflow-generation`（正文 + 20 references） | 路由未拆分（O7） |
+| Skill | `xiaozhua-udc-microflow-generation`（正文 + 20 references） | 路由未拆分（O7） |
 | Tests | `tests/test_composer.py` 13 条 | 只覆盖组装器，节点形态无回归 |
 
 ## 四、接口契约现状

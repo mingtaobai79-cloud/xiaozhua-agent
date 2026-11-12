@@ -1,14 +1,14 @@
 ---
 name: v8-patch-deploy
 version: 0.1.0
-author: seeyon-agent
+author: xiaozhua-agent
 license: MIT
 description: Use when 打 V8 平台 BP 补丁（v8patchctl）：拉包校验、dry-run、上传、skopeo 修复。
-tags: [2小爪, v8, patch, v8patchctl, skopeo, deploy]
+tags: [xiaozhua, v8, patch, v8patchctl, skopeo, deploy]
 metadata:
   hermes:
-    tags: [2小爪, v8, patch, v8patchctl, skopeo, deploy]
-    related_skills: [seeyon-low-code-environment, v8-workbench-client-setup]
+    tags: [xiaozhua, v8, patch, v8patchctl, skopeo, deploy]
+    related_skills: [xiaozhua-low-code-environment, v8-workbench-client-setup]
 ---
 
 # V8 平台补丁部署（v8patchctl）

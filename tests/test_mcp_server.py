@@ -27,40 +27,40 @@ from adapters.mcp.server import (  # noqa: E402
 # （`agent` 是装配好的对象，不是可调用能力，不暴露）。
 EXPECTED_TOOL_NAMES = {
     # 原有 5 个
-    "seeyon_dispatch", "seeyon_generate", "seeyon_generate_from_requirement",
-    "seeyon_live_probe", "seeyon_deploy_plan",
+    "xiaozhua_dispatch", "xiaozhua_generate", "xiaozhua_generate_from_requirement",
+    "xiaozhua_live_probe", "xiaozhua_deploy_plan",
     # 2026-11-08 补齐的 9 个构造器
-    "seeyon_list_page_schema", "seeyon_detail_page_schema", "seeyon_microflow_create_body",
-    "seeyon_index_body", "seeyon_enum_body", "seeyon_enum_item_body",
-    "seeyon_dto_body", "seeyon_event_body", "seeyon_filter_plan_body",
+    "xiaozhua_list_page_schema", "xiaozhua_detail_page_schema", "xiaozhua_microflow_create_body",
+    "xiaozhua_index_body", "xiaozhua_enum_body", "xiaozhua_enum_item_body",
+    "xiaozhua_dto_body", "xiaozhua_event_body", "xiaozhua_filter_plan_body",
     # 2026-11-09 补齐的 9 个：设置域 3 + 微流程 3 + 表达式/自定义页/SPI 各 1
-    "seeyon_enum_category_body", "seeyon_event_data_body", "seeyon_refer_config_body",
-    "seeyon_microflow_node", "seeyon_microflow_gates", "seeyon_microflow_capability",
-    "seeyon_expression_catalog", "seeyon_custom_page_scaffold", "seeyon_spi_catalog",
+    "xiaozhua_enum_category_body", "xiaozhua_event_data_body", "xiaozhua_refer_config_body",
+    "xiaozhua_microflow_node", "xiaozhua_microflow_gates", "xiaozhua_microflow_capability",
+    "xiaozhua_expression_catalog", "xiaozhua_custom_page_scaffold", "xiaozhua_spi_catalog",
     # 2026-11-09 第二批：需显式 host+cookie（不传不联网）
-    "seeyon_microflow_publish", "seeyon_expression_verify",
+    "xiaozhua_microflow_publish", "xiaozhua_expression_verify",
     # 2026-11-09 第三批：设置域 7 子域（八大模块 setting/）→ 共 38 个
-    "seeyon_option_set_category_body", "seeyon_option_set_body",
-    "seeyon_option_set_item_body",
-    "seeyon_attribute_set_body", "seeyon_attribute_set_field_body",
-    "seeyon_scalability_option_body", "seeyon_scalability_field_body",
-    "seeyon_qrcode_body",
-    "seeyon_serial_scheme_body", "seeyon_serial_section",
-    "seeyon_parameter_body",
-    "seeyon_excel_template_body", "seeyon_excel_template_column",
+    "xiaozhua_option_set_category_body", "xiaozhua_option_set_body",
+    "xiaozhua_option_set_item_body",
+    "xiaozhua_attribute_set_body", "xiaozhua_attribute_set_field_body",
+    "xiaozhua_scalability_option_body", "xiaozhua_scalability_field_body",
+    "xiaozhua_qrcode_body",
+    "xiaozhua_serial_scheme_body", "xiaozhua_serial_section",
+    "xiaozhua_parameter_body",
+    "xiaozhua_excel_template_body", "xiaozhua_excel_template_column",
     # 八大模块总索引
-    "seeyon_capability_index",
+    "xiaozhua_capability_index",
     # 2026-11-09 第五批：微流程触发器 / dataSchema / FILTER 表达式 → 共 42 个
-    "seeyon_microflow_trigger", "seeyon_microflow_data_schema",
-    "seeyon_expression_filter",
+    "xiaozhua_microflow_trigger", "xiaozhua_microflow_data_schema",
+    "xiaozhua_expression_filter",
     # 九大域口径 + 规则域（LIVE 写链原本没接）→ 共 44 个
-    "seeyon_entity_rule_body", "seeyon_entity_rule_publish",
+    "xiaozhua_entity_rule_body", "xiaozhua_entity_rule_publish",
     # application 域（应用内功能页）→ 共 49 个
-    "seeyon_repo_state", "seeyon_repo_sync", "seeyon_code_targets",
-    "seeyon_project_shape", "seeyon_repo_url",
-    "seeyon_app_dependency_body", "seeyon_app_dependency_remove_body",
-    "seeyon_app_deploy_body", "seeyon_app_version_list",
-    "seeyon_app_build_info",
+    "xiaozhua_repo_state", "xiaozhua_repo_sync", "xiaozhua_code_targets",
+    "xiaozhua_project_shape", "xiaozhua_repo_url",
+    "xiaozhua_app_dependency_body", "xiaozhua_app_dependency_remove_body",
+    "xiaozhua_app_deploy_body", "xiaozhua_app_version_list",
+    "xiaozhua_app_build_info",
 }
 
 
@@ -71,7 +71,7 @@ def server() -> McpServer:
 
 def _caps_or_skip():
     """惰性装配 bootstrap 五能力（离线，不联网）。"""
-    from seeyon_host_bootstrap import bootstrap
+    from xiaozhua_host_bootstrap import bootstrap
     caps = bootstrap(credential_file=None, allow_network=False, audit_dir=None)
     return {k: caps[k] for k in MCP_TOOL_NAMES}
 
@@ -89,12 +89,12 @@ def test_schema_from_signatures():
     caps = _caps_or_skip()
     schemas = {t["name"]: t["inputSchema"] for t in build_tool_schemas(caps)}
     # deploy_plan 必填三元（bootstrap 签名 L119：无默认值者）
-    assert set(schemas["seeyon_deploy_plan"]["required"]) == {"application_id", "entity_name", "attributes"}
+    assert set(schemas["xiaozhua_deploy_plan"]["required"]) == {"application_id", "entity_name", "attributes"}
     # dispatch 必填 intent（target 有默认 None → 非必填）
-    assert schemas["seeyon_dispatch"]["required"] == ["intent"]
-    assert schemas["seeyon_dispatch"]["properties"]["target"]["default"] is None
+    assert schemas["xiaozhua_dispatch"]["required"] == ["intent"]
+    assert schemas["xiaozhua_dispatch"]["properties"]["target"]["default"] is None
     # live_probe 无必填（cred_file 缺省用 bootstrap credential_file）
-    assert schemas["seeyon_live_probe"]["required"] == []
+    assert schemas["xiaozhua_live_probe"]["required"] == []
 
 
 def test_enum_constraints():
@@ -102,7 +102,7 @@ def test_enum_constraints():
     from components.platform_operations.deployment import DEPLOY_TYPES, STEREO_TYPES
     caps = _caps_or_skip()
     schemas = {t["name"]: t["inputSchema"] for t in build_tool_schemas(caps)}
-    dp = schemas["seeyon_deploy_plan"]["properties"]
+    dp = schemas["xiaozhua_deploy_plan"]["properties"]
     assert dp["stereotype"]["enum"] == list(STEREO_TYPES)
     assert dp["deploy_type"]["enum"] == list(DEPLOY_TYPES)
 
@@ -110,7 +110,7 @@ def test_enum_constraints():
 def test_attributes_element_schema():
     caps = _caps_or_skip()
     schemas = {t["name"]: t["inputSchema"] for t in build_tool_schemas(caps)}
-    attrs = schemas["seeyon_generate"]["properties"]["attributes"]
+    attrs = schemas["xiaozhua_generate"]["properties"]["attributes"]
     assert attrs["items"]["required"] == ["name"]
     assert "type" in attrs["items"]["properties"]
     assert "dataType" not in attrs["items"]["properties"]
@@ -118,11 +118,11 @@ def test_attributes_element_schema():
 
 def test_generate_schema_field_matches_actual_call(server: McpServer):
     tools = server.handle_frame({"jsonrpc": "2.0", "id": 20, "method": "tools/list"})["result"]["tools"]
-    schema = next(t for t in tools if t["name"] == "seeyon_generate")["inputSchema"]
+    schema = next(t for t in tools if t["name"] == "xiaozhua_generate")["inputSchema"]
     fields = schema["properties"]["attributes"]["items"]["properties"]
     assert "type" in fields
     response = server.handle_frame({"jsonrpc": "2.0", "id": 21, "method": "tools/call", "params": {
-        "name": "seeyon_generate", "arguments": {"application_id": "app9000000000000000001",
+        "name": "xiaozhua_generate", "arguments": {"application_id": "app9000000000000000001",
         "entity_name": "Example", "attributes": [{"name": "title", "type": "String"}]}}})
     assert response["result"]["isError"] is False
     payload = json.loads(response["result"]["content"][0]["text"])
@@ -137,7 +137,7 @@ def test_call_dispatch_offline(server: McpServer):
     caps = _caps_or_skip()
     server._caps = caps
     resp = server.handle_frame({"jsonrpc": "2.0", "id": 1, "method": "tools/call",
-                                "params": {"name": "seeyon_dispatch",
+                                "params": {"name": "xiaozhua_dispatch",
                                            "arguments": {"intent": "unknown_component_x"}}})
     assert resp["result"]["isError"] is False
     payload = json.loads(resp["result"]["content"][0]["text"])
@@ -148,7 +148,7 @@ def test_call_deploy_plan_offline(server: McpServer):
     caps = _caps_or_skip()
     server._caps = caps
     resp = server.handle_frame({"jsonrpc": "2.0", "id": 2, "method": "tools/call",
-                                "params": {"name": "seeyon_deploy_plan",
+                                "params": {"name": "xiaozhua_deploy_plan",
                                            "arguments": {
                                                "application_id": "123",
                                                "entity_name": "XzlTest",
@@ -167,7 +167,7 @@ def test_call_deploy_plan_datatype_infer(server: McpServer):
     caps = _caps_or_skip()
     server._caps = caps
     resp = server.handle_frame({"jsonrpc": "2.0", "id": 3, "method": "tools/call",
-                                "params": {"name": "seeyon_deploy_plan",
+                                "params": {"name": "xiaozhua_deploy_plan",
                                            "arguments": {
                                                "application_id": "123",
                                                "entity_name": "XzlDate",
@@ -180,25 +180,25 @@ def test_call_deploy_plan_datatype_infer(server: McpServer):
 
 
 def test_call_live_probe_offline_blocked(server: McpServer, monkeypatch):
-    monkeypatch.delenv('SEEYON_ALLOW_NETWORK', raising=False)
+    monkeypatch.delenv('XIAOZHUA_ALLOW_NETWORK', raising=False)
     assert McpServer()._allow_network is False
-    monkeypatch.setenv('SEEYON_ALLOW_NETWORK', '1')
+    monkeypatch.setenv('XIAOZHUA_ALLOW_NETWORK', '1')
     assert McpServer()._allow_network is True
     assert McpServer(allow_network=False)._allow_network is False
-    monkeypatch.setenv('SEEYON_ALLOW_NETWORK', 'false')
+    monkeypatch.setenv('XIAOZHUA_ALLOW_NETWORK', 'false')
     assert McpServer()._allow_network is False
     """默认离线 → live_probe 不得 PASS：无 cred=SKIPPED；有 cred 无网络=BLOCKED（实码 L96-100）。"""
     caps = _caps_or_skip()
     server._caps = caps
     # 无 cred 路径：SKIPPED（先于 allow_network 判断，bootstrap L97-98 实测）
     resp = server.handle_frame({"jsonrpc": "2.0", "id": 4, "method": "tools/call",
-                                "params": {"name": "seeyon_live_probe", "arguments": {}}})
+                                "params": {"name": "xiaozhua_live_probe", "arguments": {}}})
     payload = json.loads(resp["result"]["content"][0]["text"])
     assert payload.get("status") in ("SKIPPED", "BLOCKED")  # 两者都是"未触网"语义
     assert payload.get("status") != "PASS"
     # 有 cred 路径（path 载体，非值）+离线 → BLOCKED，reason 含 allow_network
     resp2 = server.handle_frame({"jsonrpc": "2.0", "id": 41, "method": "tools/call",
-                                 "params": {"name": "seeyon_live_probe",
+                                 "params": {"name": "xiaozhua_live_probe",
                                             "arguments": {"cred_file": "shared-credentials/test2-web-credential.json"}}})
     payload2 = json.loads(resp2["result"]["content"][0]["text"])
     assert payload2.get("status") == "BLOCKED"
@@ -209,7 +209,7 @@ def test_call_generate_offline(server: McpServer):
     caps = _caps_or_skip()
     server._caps = caps
     resp = server.handle_frame({"jsonrpc": "2.0", "id": 5, "method": "tools/call",
-                                "params": {"name": "seeyon_generate",
+                                "params": {"name": "xiaozhua_generate",
                                            "arguments": {"application_id": "123", "entity_name": "XzlGen",
                                                          "attributes": [{"name": "xzl_no", "type": "STRING"}]}}})
     payload = json.loads(resp["result"]["content"][0]["text"])
@@ -220,7 +220,7 @@ def test_call_generate_from_requirement_offline(server: McpServer):
     caps = _caps_or_skip()
     server._caps = caps
     resp = server.handle_frame({"jsonrpc": "2.0", "id": 6, "method": "tools/call",
-                                "params": {"name": "seeyon_generate_from_requirement",
+                                "params": {"name": "xiaozhua_generate_from_requirement",
                                            "arguments": {"text": "做一个带编号和日期的验收单", "application_id": "123"}}})
     payload = json.loads(resp["result"]["content"][0]["text"])
     # 实码：中文句子无实体名 → status=UNVERIFIED + schema 标注（合法离线路径，非崩溃）
@@ -247,7 +247,7 @@ def test_missing_required_param(server: McpServer):
     caps = _caps_or_skip()
     server._caps = caps
     resp = server.handle_frame({"jsonrpc": "2.0", "id": 9, "method": "tools/call",
-                                "params": {"name": "seeyon_deploy_plan",
+                                "params": {"name": "xiaozhua_deploy_plan",
                                            "arguments": {"application_id": "123"}}})
     assert resp["error"]["code"] == ERR_INVALID_PARAMS
     assert "entity_name" in resp["error"]["message"]
@@ -258,7 +258,7 @@ def test_bad_param_type(server: McpServer):
     caps = _caps_or_skip()
     server._caps = caps
     resp = server.handle_frame({"jsonrpc": "2.0", "id": 10, "method": "tools/call",
-                                "params": {"name": "seeyon_dispatch",
+                                "params": {"name": "xiaozhua_dispatch",
                                            "arguments": {"intent": 123}}})
     assert resp["error"]["code"] == ERR_INVALID_PARAMS
     assert "intent" in resp["error"]["message"]
@@ -268,7 +268,7 @@ def test_bad_enum_value(server: McpServer):
     caps = _caps_or_skip()
     server._caps = caps
     resp = server.handle_frame({"jsonrpc": "2.0", "id": 11, "method": "tools/call",
-                                "params": {"name": "seeyon_deploy_plan",
+                                "params": {"name": "xiaozhua_deploy_plan",
                                            "arguments": {"application_id": "1", "entity_name": "X",
                                                          "attributes": [], "deploy_type": "NOT_A_TYPE"}}})
     assert resp["error"]["code"] == ERR_INVALID_PARAMS
@@ -285,7 +285,7 @@ def test_write_not_exposed():
     """
     caps = _caps_or_skip()
     tools = build_tool_schemas(caps)
-    assert all(not t["name"].startswith("seeyon_write") for t in tools)
+    assert all(not t["name"].startswith("xiaozhua_write") for t in tools)
 
     WRITE_WORDS = ("write", "delete", "commit", "submit", "publish", "sync")
     write_tools = [t for t in tools
@@ -294,7 +294,7 @@ def test_write_not_exposed():
     # 授权形态有两种，取决于写动作发生在哪：
     #   打平台  → host + cookie（凭据即授权）
     #   打本地/远端 git → confirm=True 布尔授权位（git 用 GCM，不用 cookie）
-    LOCAL_WRITE = {"seeyon_repo_sync"}
+    LOCAL_WRITE = {"xiaozhua_repo_sync"}
     for t in write_tools:
         required = set(t["inputSchema"].get("required") or [])
         if t["name"] in LOCAL_WRITE:
@@ -325,7 +325,7 @@ def test_initialize_handshake(server: McpServer):
     resp = server.handle_frame({"jsonrpc": "2.0", "id": 12, "method": "initialize",
                                 "params": {"protocolVersion": "2024-11-05"}})
     assert resp["result"]["protocolVersion"] == PROTOCOL_VERSION
-    assert resp["result"]["serverInfo"]["name"] == "seeyon-mcp"
+    assert resp["result"]["serverInfo"]["name"] == "xiaozhua-mcp"
 
 
 def test_notification_silent(server: McpServer):

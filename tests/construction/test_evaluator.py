@@ -3,7 +3,7 @@ from components.construction.registry import ConstructionRuleRegistry
 from components.construction.evaluator import ConstructionEvaluator
 from components.construction.fixtures import golden_application_id as _gid
 
-# 黄金样本的应用标识是**仓外事实**（客户证据仓 seeyon-customer-evidence），
+# 黄金样本的应用标识是**仓外事实**（客户证据仓 xiaozhua-customer-evidence），
 # 仓库内不硬编码客户名；期望值运行时解析，仓外缺失时退化为占位自洽校验。
 _GID = _gid()
 

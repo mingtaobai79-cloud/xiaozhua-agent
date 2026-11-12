@@ -23,7 +23,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field, asdict
 from typing import Any
 
-SCHEMA_ID = "seeyon-deployment-plan.v1"
+SCHEMA_ID = "xiaozhua-deployment-plan.v1"
 
 # ---- 平台受控词表（活体实测快照，非发明；随活体复核刷新） ----
 # stereotype 值域：从 test2 目标应用 169 个真实实体回读统计（GET /udc/entity/primary/select-by-appid）
@@ -105,7 +105,7 @@ def infer_datatype(field_name: str, explicit: str | None = None) -> tuple[str, b
 
 # 字段语义键：只有“平台 AttributeDto 实际接受、且有 LIVE/静态证据”的键才透传；
 # 输入提供且命中此白名单才进 body（未命中的一律不进，避免塞平台不认的键 → BOOT_3002/被忽略）。
-# 白名单证据（seeyon-udc-design-time-build skill，metadata-artifact-apis + 设计态建属性节）：
+# 白名单证据（xiaozhua-udc-design-time-build skill，metadata-artifact-apis + 设计态建属性节）：
 #   - 建属性 create 最小形态 = appId + entityId + name + caption + dataType（缺 dataType → BOOT_1001）
 #   - 多选人员族（LIVE 建后回读 multi_select=1）= dataType:ENTITY + multiSelect:true
 #     + relationType:1 + relationEntity:com.seeyon.organization...OrgMember + relationApp:organization

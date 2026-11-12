@@ -2,7 +2,7 @@
 """INDEX.md 加第 21 格（业务动作索引），并改格数。用脚本写避开 shell 反引号。"""
 from pathlib import Path
 
-P = Path("<SEEYON_AGENT_ROOT>/core/facts/INDEX.md")
+P = Path("<XIAOZHUA_AGENT_ROOT>/core/facts/INDEX.md")
 NEW = (
     "㉑`business-action-index.md` **业务动作索引**（要做什么→调哪个方法：2258 个 AppService 方法"
     "按八类动作归类——查询 1197（按接口聚合）/ 创建 237 / 修改 159 / 删除 137 / 校验 41 / "

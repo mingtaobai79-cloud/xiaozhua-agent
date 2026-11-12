@@ -3909,7 +3909,7 @@
    "appBasicInfoActions.fetchApplicationDetail",
    "appBasicInfoActions.t"
   ],
-  "src_pages_app-design_basic-info_index_tsx-node_modules_seeyon_biz-icon-library_dist_index_css.b24938e1.js": [
+  "src_pages_app-design_basic-info_index_tsx-node_modules_xiaozhua_biz-icon-library_dist_index_css.b24938e1.js": [
    "appBasicInfoActions.C",
    "appBasicInfoActions.a",
    "appBasicInfoActions.fetchApplicationDepList",
@@ -3974,7 +3974,7 @@
   ]
  },
  "page_ops_closure": {
-  "node_modules_seeyon_biz-enums_dist_index-dfa7dac0_js.4ccc658d.js": {
+  "node_modules_xiaozhua_biz-enums_dist_index-dfa7dac0_js.4ccc658d.js": {
    "direct": [],
    "closure": [
     "mainFileDownloadUrlGet",
@@ -4029,7 +4029,7 @@
     "udcPortalPortalSpaceUpdatePost"
    ]
   },
-  "node_modules_seeyon_biz-serial-scheme_dist_index-63bbd6cd_js.14fc2408.js": {
+  "node_modules_xiaozhua_biz-serial-scheme_dist_index-63bbd6cd_js.14fc2408.js": {
    "direct": [],
    "closure": [
     "udcDesignMetadataAggEntityExcludeBootGet",
@@ -4037,7 +4037,7 @@
     "udcUdcSerialSelectPost"
    ]
   },
-  "node_modules_seeyon_biz-serial-scheme_dist_index-a9cbbe00_js.c3e8b8dd.js": {
+  "node_modules_xiaozhua_biz-serial-scheme_dist_index-a9cbbe00_js.c3e8b8dd.js": {
    "direct": [],
    "closure": [
     "udcDesignMetadataAggEntityExcludeBootGet",
@@ -4045,7 +4045,7 @@
     "udcUdcSerialSelectPost"
    ]
   },
-  "node_modules_seeyon_biz-serial-scheme_dist_index-aa2d4add_js.0de18369.js": {
+  "node_modules_xiaozhua_biz-serial-scheme_dist_index-aa2d4add_js.0de18369.js": {
    "direct": [],
    "closure": [
     "udcDesignMetadataAggEntityExcludeBootGet",
@@ -4053,7 +4053,7 @@
     "udcUdcSerialSelectPost"
    ]
   },
-  "node_modules_seeyon_biz-serial-scheme_dist_index-f62267af_js.f827461e.js": {
+  "node_modules_xiaozhua_biz-serial-scheme_dist_index-f62267af_js.f827461e.js": {
    "direct": [],
    "closure": [
     "udcDesignMetadataAggEntityExcludeBootGet",
@@ -4061,7 +4061,7 @@
     "udcUdcSerialSelectPost"
    ]
   },
-  "node_modules_seeyon_biz-where_dist_conditionRight_js.76ceea66.js": {
+  "node_modules_xiaozhua_biz-where_dist_conditionRight_js.76ceea66.js": {
    "direct": [],
    "closure": [
     "udcApplicationGet",
@@ -4082,7 +4082,7 @@
     "udcPageTemplateBatchCreatePost"
    ]
   },
-  "node_modules_seeyon_biz-where_dist_condition_js.37098cf6.js": {
+  "node_modules_xiaozhua_biz-where_dist_condition_js.37098cf6.js": {
    "direct": [],
    "closure": [
     "udcApplicationGet",
@@ -4101,7 +4101,7 @@
     "udcPageTemplateBatchCreatePost"
    ]
   },
-  "node_modules_seeyon_biz-where_dist_modalWhere_js.aac960a8.js": {
+  "node_modules_xiaozhua_biz-where_dist_modalWhere_js.aac960a8.js": {
    "direct": [],
    "closure": [
     "udcApplicationGet",
@@ -4120,7 +4120,7 @@
     "udcPageTemplateBatchCreatePost"
    ]
   },
-  "node_modules_seeyon_biz-where_dist_where_js.b3912f02.js": {
+  "node_modules_xiaozhua_biz-where_dist_where_js.b3912f02.js": {
    "direct": [],
    "closure": [
     "udcApplicationGet",
@@ -15072,7 +15072,7 @@
     "udcSerialSchemeSearchNoPagePost"
    ]
   },
-  "src_pages_app-design_basic-info_index_tsx-node_modules_seeyon_biz-icon-library_dist_index_css.b24938e1.js": {
+  "src_pages_app-design_basic-info_index_tsx-node_modules_xiaozhua_biz-icon-library_dist_index_css.b24938e1.js": {
    "direct": [
     "udcPageComponentAnalysisPackageGet",
     "udcPageComponentRefreshGet",
@@ -15390,7 +15390,7 @@
     "udcUdcEnumSearch"
    ]
   },
-  "src_pages_app-design_basic-setting_index_tsx-node_modules_seeyon_biz-basic-data_dist_index_cs-483c13.3a08a45d.js": {
+  "src_pages_app-design_basic-setting_index_tsx-node_modules_xiaozhua_biz-basic-data_dist_index_cs-483c13.3a08a45d.js": {
    "direct": [],
    "closure": [
     "appCommonImageSearch",
@@ -18205,7 +18205,7 @@
     "udcSandboxTenantConfigUpdatePost"
    ]
   },
-  "src_pages_app-design_rule_dataflow_relation-graph_entry_tsx-node_modules_seeyon_biz-udc-graph-09b0c4.2ba8ff29.js": {
+  "src_pages_app-design_rule_dataflow_relation-graph_entry_tsx-node_modules_xiaozhua_biz-udc-graph-09b0c4.2ba8ff29.js": {
    "direct": [],
    "closure": [
     "appCommonSystemConfigSystemConfigGet",
@@ -18789,7 +18789,7 @@
     "udcSandboxTenantConfigUpdatePost"
    ]
   },
-  "src_pages_app-design_rule_index_tsx-node_modules_seeyon_biz-udc-graph_dist_index_css-src_comp-646d55.b1e6b2e3.js": {
+  "src_pages_app-design_rule_index_tsx-node_modules_xiaozhua_biz-udc-graph_dist_index_css-src_comp-646d55.b1e6b2e3.js": {
    "direct": [],
    "closure": [
     "appCommonSystemConfigSystemConfigGet",
@@ -20365,7 +20365,7 @@
     "udcSerialSchemeSearchNoPagePost"
    ]
   },
-  "src_pages_design_functions_components_add-space_index_tsx-node_modules_seeyon_biz-icon-librar-bea4ad.ec205c1d.js": {
+  "src_pages_design_functions_components_add-space_index_tsx-node_modules_xiaozhua_biz-icon-librar-bea4ad.ec205c1d.js": {
    "direct": [],
    "closure": [
     "mainFileDownloadUrlGet",
@@ -25954,7 +25954,7 @@
     "udcUdcEnumSearch"
    ]
   },
-  "src_pages_udc_application_new-app_index_tsx-node_modules_seeyon_biz-icon-library_dist_index_css.f1f0ad2b.js": {
+  "src_pages_udc_application_new-app_index_tsx-node_modules_xiaozhua_biz-icon-library_dist_index_css.f1f0ad2b.js": {
    "direct": [],
    "closure": [
     "appCommonSystemConfigSystemConfigGet",
@@ -26216,7 +26216,7 @@
     "udcUdcEnumSearch"
    ]
   },
-  "src_pages_udc_backend-cmp_index_tsx-node_modules_seeyon_biz-icon-library_dist_index_css.0b5ab107.js": {
+  "src_pages_udc_backend-cmp_index_tsx-node_modules_xiaozhua_biz-icon-library_dist_index_css.0b5ab107.js": {
    "direct": [
     "udcBackendComponentImportPost",
     "udcBackendComponentMultiVersionGet",
@@ -26398,7 +26398,7 @@
     "udcSerialSchemeSearchNoPagePost"
    ]
   },
-  "src_pages_udc_cmps_index_tsx-node_modules_seeyon_biz-icon-library_dist_index_css.a7b33360.js": {
+  "src_pages_udc_cmps_index_tsx-node_modules_xiaozhua_biz-icon-library_dist_index_css.a7b33360.js": {
    "direct": [
     "udcManagerComponentLogPost",
     "udcPageComponentAnalysisPackageGet",
@@ -28264,7 +28264,7 @@
     "udcPortalPortalSpaceUpdatePost"
    ]
   },
-  "vendors-node_modules_immutability-helper_index_js-node_modules_seeyon_biz-image-selector_dist-e0e582.e758945c.js": {
+  "vendors-node_modules_immutability-helper_index_js-node_modules_xiaozhua_biz-image-selector_dist-e0e582.e758945c.js": {
    "direct": [
     "appCommonImageSearch",
     "appCommonImageStoreCategoryGet"
@@ -28555,7 +28555,7 @@
     "udcPortalPortalSpaceUpdatePost"
    ]
   },
-  "vendors-node_modules_rc-resize-observer_es_index_js-node_modules_seeyon_biz-quick-search_dist-e64df4.df1da074.js": {
+  "vendors-node_modules_rc-resize-observer_es_index_js-node_modules_xiaozhua_biz-quick-search_dist-e64df4.df1da074.js": {
    "direct": [],
    "closure": [
     "ctpUserCtpManagerTenantPageListPost",
@@ -28944,7 +28944,7 @@
     "udcPortalPortalSpaceUpdatePost"
    ]
   },
-  "vendors-node_modules_seeyon_biz-basic-data_dist_index_js-node_modules_seeyon_biz-excel-compon-2449d0.c121b851.js": {
+  "vendors-node_modules_xiaozhua_biz-basic-data_dist_index_js-node_modules_xiaozhua_biz-excel-compon-2449d0.c121b851.js": {
    "direct": [
     "udcBasicDataDesignInitBasicdataPagePost",
     "udcDesignMetadataAggEntityExcludeBootGet",
@@ -29114,7 +29114,7 @@
     "udcUdcSerialSelectPost"
    ]
   },
-  "vendors-node_modules_seeyon_biz-expression_dist_provider-a156f088_js.a388e405.js": {
+  "vendors-node_modules_xiaozhua_biz-expression_dist_provider-a156f088_js.a388e405.js": {
    "direct": [],
    "closure": [
     "udcApplicationGet",
@@ -29132,7 +29132,7 @@
     "udcPageTemplateBatchCreatePost"
    ]
   },
-  "vendors-node_modules_seeyon_biz-icon-library_dist_index_js.72b83ae6.js": {
+  "vendors-node_modules_xiaozhua_biz-icon-library_dist_index_js.72b83ae6.js": {
    "direct": [],
    "closure": [
     "mainFileDownloadUrlGet",
@@ -29187,7 +29187,7 @@
     "udcPortalPortalSpaceUpdatePost"
    ]
   },
-  "vendors-node_modules_seeyon_biz-serial-scheme_dist_index-60275bd2_js.6ddcb634.js": {
+  "vendors-node_modules_xiaozhua_biz-serial-scheme_dist_index-60275bd2_js.6ddcb634.js": {
    "direct": [],
    "closure": [
     "udcDesignMetadataAggEntityExcludeBootGet",
@@ -29195,7 +29195,7 @@
     "udcUdcSerialSelectPost"
    ]
   },
-  "vendors-node_modules_seeyon_biz-serial-scheme_dist_index-9208ea8a_js.b8764667.js": {
+  "vendors-node_modules_xiaozhua_biz-serial-scheme_dist_index-9208ea8a_js.b8764667.js": {
    "direct": [],
    "closure": [
     "udcDesignMetadataAggEntityExcludeBootGet",
@@ -29203,7 +29203,7 @@
     "udcUdcSerialSelectPost"
    ]
   },
-  "vendors-node_modules_seeyon_biz-style-designer_dist_index_js.c93ab064.js": {
+  "vendors-node_modules_xiaozhua_biz-style-designer_dist_index_js.c93ab064.js": {
    "direct": [],
    "closure": [
     "mainFileDownloadUrlGet",
@@ -29258,7 +29258,7 @@
     "udcPortalPortalSpaceUpdatePost"
    ]
   },
-  "vendors-node_modules_seeyon_biz-where_dist_chunks_index-3b9ba019_js.c840f348.js": {
+  "vendors-node_modules_xiaozhua_biz-where_dist_chunks_index-3b9ba019_js.c840f348.js": {
    "direct": [
     "udcExpressionSystemVariableListGet",
     "udcMetadataDtoByEntitysPost",
@@ -29320,7 +29320,7 @@
     "udcPortalPortalSpaceUpdatePost"
    ]
   },
-  "vendors-node_modules_seeyon_biz-where_dist_chunks_where-0ad1fda8_js.46c97d26.js": {
+  "vendors-node_modules_xiaozhua_biz-where_dist_chunks_where-0ad1fda8_js.46c97d26.js": {
    "direct": [],
    "closure": [
     "udcApplicationGet",

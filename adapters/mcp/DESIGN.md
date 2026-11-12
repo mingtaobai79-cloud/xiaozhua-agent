@@ -3,7 +3,7 @@
 > 设计先行（ROUTE §S1）。**本件只出设计，不写 `server.py`**（S2）。
 > 边界：只写 `adapters/mcp/**` + `tests/test_mcp_server.py`（+`STATUS.md`）；禁改
 > `components/` `core/` `docs/capability/`；凭据 0 入件（只写路径引用/环境变量机制）。
-> 目标仓库：`<SEEYON_AGENT_ROOT>`。完成定义：server 可起 + 测试绿 + STATUS。
+> 目标仓库：`<XIAOZHUA_AGENT_ROOT>`。完成定义：server 可起 + 测试绿 + STATUS。
 
 ---
 
@@ -61,11 +61,11 @@ TASK-GOAL「jsonrpc 2.0,官方 python-sdk 或手写最小实现」口径，选�
 
 | MCP tool | bootstrap 键(行) | 入参（Python 签名） | 返回 | 只读 | 凭据模式 |
 |---|---|---|---|---|---|
-| `seeyon_dispatch` | `dispatch`(L133) | `intent:str, target?:str` | dict 路由+证据(含 `status`) | 只读 | path-ref-only |
-| `seeyon_generate` | `generate`(L46) | `application_id, entity_name, attributes?:list, caption?:str` | dict backend+frontend(`status`/`plan_blocked`) | 只读出数据 | path-ref-only |
-| `seeyon_generate_from_requirement` | `generate_from_requirement`(L71) | `text:str, application_id` | dict `parsed`+backend+frontend | 只读出数据 | path-ref-only |
-| `seeyon_live_probe` | `live_probe`(L95) | `cred_file?`（缺省用 bootstrap `credential_file`） | dict 4 端点结果 | 只读;**活体需 `allow_network=True`** | path-ref-only |
-| `seeyon_deploy_plan` | `deploy_plan`(L119) | `application_id, entity_name, attributes, caption?, stereotype="bill", deploy_type="RELEASE"` | dict 4 步方案 data(`readonly_plan=True`) | 只读出方案;宿主执行写 | path-ref-only |
+| `xiaozhua_dispatch` | `dispatch`(L133) | `intent:str, target?:str` | dict 路由+证据(含 `status`) | 只读 | path-ref-only |
+| `xiaozhua_generate` | `generate`(L46) | `application_id, entity_name, attributes?:list, caption?:str` | dict backend+frontend(`status`/`plan_blocked`) | 只读出数据 | path-ref-only |
+| `xiaozhua_generate_from_requirement` | `generate_from_requirement`(L71) | `text:str, application_id` | dict `parsed`+backend+frontend | 只读出数据 | path-ref-only |
+| `xiaozhua_live_probe` | `live_probe`(L95) | `cred_file?`（缺省用 bootstrap `credential_file`） | dict 4 端点结果 | 只读;**活体需 `allow_network=True`** | path-ref-only |
+| `xiaozhua_deploy_plan` | `deploy_plan`(L119) | `application_id, entity_name, attributes, caption?, stereotype="bill", deploy_type="RELEASE"` | dict 4 步方案 data(`readonly_plan=True`) | 只读出方案;宿主执行写 | path-ref-only |
 
 ### 2.1 自动生成的两条源
 - **入参结构（JSON Schema 的 `type`/`required`/默认值）**：由 `inspect.signature()` 从
@@ -83,8 +83,8 @@ TASK-GOAL「jsonrpc 2.0,官方 python-sdk 或手写最小实现」口径，选�
     工具入参以 bootstrap `deploy_plan` 签名为准（不透传 project/terminal），如需全参在
     S2 标 UNVERIFIED 扩展点，不在本设计虚写为已支持。**
 - **`core/tools/udc/*.md` 的角色**：4 步 deploy 子契约（entity.create/attribute.create/
-  page.create/deploy.normal）= `seeyon_deploy_plan` 返回的 `steps[].op` 的语义说明源。
-  S2 自动生成时把这 4 个 op 的 `method`/`path`/`body` 锚写进 `seeyon_deploy_plan` 的
+  page.create/deploy.normal）= `xiaozhua_deploy_plan` 返回的 `steps[].op` 的语义说明源。
+  S2 自动生成时把这 4 个 op 的 `method`/`path`/`body` 锚写进 `xiaozhua_deploy_plan` 的
   工具描述（`description` 字段），使宿主 LLM 知道 4 步写链。**registry-gap 纪律照搬**：
   `udc.page.create` 在 registry 无 op-id（`UNVERIFIED/registry-gap`，page.create.md §registry），
   工具描述只标「链级 OBSERVED_LIVE / registry 未登记」，不编造 registry 条目。
@@ -98,16 +98,16 @@ TASK-GOAL「jsonrpc 2.0,官方 python-sdk 或手写最小实现」口径，选�
 
 ## 3. 离线默认传导（`allow_network=False` 全链路）
 
-**默认值源**：`bootstrap(allow_network: bool = False)`（seeyon_host_bootstrap.py L25）——
+**默认值源**：`bootstrap(allow_network: bool = False)`（xiaozhua_host_bootstrap.py L25）——
 离线是函数签名默认，非调用方记忆。
 
 **传导路径（逐跳，每跳可断言）**：
-1. **MCP 进程侧**：`seeyon_live_probe`（及其它工具）调用前，server 持有
-   `self._allow_network`。默认 = 读环境变量 `SEEYON_ALLOW_NETWORK`（未设 = `False`）。
-   **不写任何凭据值入件**：凭据走 `SEEYON_CRED_FILE`（路径载体，manifest 口径），仅存路径。
+1. **MCP 进程侧**：`xiaozhua_live_probe`（及其它工具）调用前，server 持有
+   `self._allow_network`。默认 = 读环境变量 `XIAOZHUA_ALLOW_NETWORK`（未设 = `False`）。
+   **不写任何凭据值入件**：凭据走 `XIAOZHUA_CRED_FILE`（路径载体，manifest 口径），仅存路径。
 2. **bootstrap 侧**：`bootstrap(credential_file=<path>, allow_network=self._allow_network,
    audit_dir=...)` —— server 把自身 flag 原样传入；不传则落回签名默认 `False`。
-3. **live_probe 侧**（seeyon_host_bootstrap.py L99-100 实测）：
+3. **live_probe 侧**（xiaozhua_host_bootstrap.py L99-100 实测）：
    - `credential_file` 缺省且无 `cred_file` 入参 → 返回 `{"status":"SKIPPED","reason":"no credential file provided"}`（不联网）。
    - `allow_network=False`（默认）→ 返回 `{"status":"BLOCKED","reason":"allow_network=False (default offline)"}`（**不联网**，不触达 GatewayReadonlyClient）。
    - `allow_network=True` + 有 cred 路径 → 才 `GatewayReadonlyClient(allow_network=True)` 真发 4 端点。
@@ -117,7 +117,7 @@ TASK-GOAL「jsonrpc 2.0,官方 python-sdk 或手写最小实现」口径，选�
 **验收不变量**：默认启动下跑全 5 工具 = 0 网络调用；`live_probe` 默认路径必须返回
 `BLOCKED`（非 `PASS`）——「任何离线输出不能被解读为 LIVE PASS」（README 测试纪律）。
 
-**活体显式开**：宿主显式 `SEEYON_ALLOW_NETWORK=1`（或未来 S2 的 `live_probe` 参数
+**活体显式开**：宿主显式 `XIAOZHUA_ALLOW_NETWORK=1`（或未来 S2 的 `live_probe` 参数
 `allow_network` 透传）才放行；开启后仍 path-ref-only，凭据值 0 入件。
 
 ---
@@ -166,12 +166,12 @@ TASK-GOAL「jsonrpc 2.0,官方 python-sdk 或手写最小实现」口径，选�
 |---|---|---|
 | 协议选型 | 定：手写 jsonrpc 2.0 stdio | ✅ 依据 §0 实测 |
 | 5 工具 schema 自动生成 | 定契约（`build_tool_schemas()` 纯函数 + 反射 + 常量 enum） | 契约定，码 S2 |
-| 离线默认传导 | 定路径（`SEEYON_ALLOW_NETWORK` → bootstrap → live_probe BLOCKED） | 路径定，码 S2 |
+| 离线默认传导 | 定路径（`XIAOZHUA_ALLOW_NETWORK` → bootstrap → live_probe BLOCKED） | 路径定，码 S2 |
 | pytest 三层矩阵 | 定用例表 | 表定，码 S2 |
 | `live_probe` 真联网路径 | 不实现（默认 BLOCKED 已满足「server 可起+测试绿」） | **UNVERIFIED**（活体需显式开，本切片不连网） |
 | deploy_plan 全参（project/terminal_type） | 以 bootstrap `deploy_plan` 签名为准，不透传全参 | **扩展点 UNVERIFIED**（需要时 S2 加，不在本设计虚写） |
 | MCP `resources`/`prompts` 扩展 | 不实现（最小 3 method） | **UNVERIFIED**（宿主扩展才需） |
-| 凭据 | 仅 `SEEYON_CRED_FILE` 路径载体，值 0 入件 | 纪律 |
+| 凭据 | 仅 `XIAOZHUA_CRED_FILE` 路径载体，值 0 入件 | 纪律 |
 
 ---
 

@@ -107,7 +107,7 @@ default ${resp}<${respOutputType}> ${name?uncap_first}(${req}<${inputType}> requ
 ```
 
 **不是**「先手写接口再注册」——接口是平台生成的。
-此前 `seeyon-extension-usage` §7.3 的「代码里定义」表述需按本格修正。
+此前 `xiaozhua-extension-usage` §7.3 的「代码里定义」表述需按本格修正。
 
 ## 6. 其余 autocode 模板（说明平台还替我们生成什么）
 

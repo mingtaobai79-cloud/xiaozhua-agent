@@ -199,10 +199,10 @@ base_raw  = 'docs/audit/column-discovery'
 
 复现本报告：
 ```bash
-cd <SEEYON_AGENT_ROOT>/docs/operation-contracts/udc/column
+cd <XIAOZHUA_AGENT_ROOT>/docs/operation-contracts/udc/column
 python - <<'EOF'
 import os, json, re
-DISC = r"<SEEYON_AGENT_ROOT>/docs/audit/column-discovery"
+DISC = r"<XIAOZHUA_AGENT_ROOT>/docs/audit/column-discovery"
 raw = "".join(open(os.path.join(DISC,"raw",f), encoding="utf-8").read()
               for f in os.listdir(os.path.join(DISC,"raw")))
 for v in ["17922483013725158661","17922483545794594178","17922503199724992371",

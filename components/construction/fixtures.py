@@ -15,7 +15,7 @@ import re
 from dataclasses import dataclass
 from pathlib import Path
 
-# 客户应用标识是**仓外事实**：仓库内不硬编码（客户明细只进 seeyon-customer-evidence）。
+# 客户应用标识是**仓外事实**：仓库内不硬编码（客户明细只进 xiaozhua-customer-evidence）。
 # 下面这个常量仅作"未解析时的占位"，真实值由 golden_application_id() 在运行时从
 # 仓外 golden 目录结构解析得到。
 GOLDEN_APPLICATION_ID = "app9000000000000000001"
@@ -54,7 +54,7 @@ def golden_application_id(evidence_root=None) -> str:
     """
     import os as _os
     # 顺序：显式参数 → 环境变量（覆盖）→ config/environments.yaml（仓库内权威配置）
-    root = evidence_root or _os.environ.get("SEEYON_CUSTOMER_EVIDENCE_ROOT")
+    root = evidence_root or _os.environ.get("XIAOZHUA_CUSTOMER_EVIDENCE_ROOT")
     if not root:
         root = _customer_evidence_root_from_config()
     if root:
@@ -129,7 +129,7 @@ def load_golden_sample(artifacts_root) -> GoldenSample:
     # 客户 golden 样本已迁出仓库（见 config/environments.yaml customer_evidence_root），
     # 仅当显式传入仓库外证据根或环境变量指向时可用；仓库内不再携带客户场景数据。
     import os as _os
-    _ev_root = _os.environ.get("SEEYON_CUSTOMER_EVIDENCE_ROOT")
+    _ev_root = _os.environ.get("XIAOZHUA_CUSTOMER_EVIDENCE_ROOT")
     if _ev_root:
         candidates.extend([
             Path(_ev_root) / "fixtures-golden" / _app_id / GOLDEN_ENTITY,

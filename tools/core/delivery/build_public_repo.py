@@ -16,7 +16,7 @@
 
 用法：
     python tools/core/delivery/build_public_repo.py --src <主仓库> --dst <干净仓库>
-    python tools/core/delivery/build_public_repo.py --src . --dst ../seeyon-agent-public --check
+    python tools/core/delivery/build_public_repo.py --src . --dst ../xiaozhua-agent-public --check
 """
 from __future__ import annotations
 
@@ -32,7 +32,7 @@ SKIP_TOP = {
     ".git", ".venv", "scratch", "_attic_pending", "build", "dist",
     "__pycache__", ".pytest_cache",
     "artifact-inventory.manifest.json", "http.json", "integration.json",
-    "runtime.json", ".gitignore-public", "seeyon_agent.egg-info",
+    "runtime.json", ".gitignore-public", "xiaozhua_agent.egg-info",
 }
 
 # 相对路径前缀（用 / 分隔），命中即整棵子树跳过
@@ -57,11 +57,11 @@ MAX_FILE_MB = 2.0
 
 SKILL_MOVES = {
     "sdd-protocol": "05-agent",
-    "seeyon-agent": "05-agent",
-    "seeyon-udc-application-app-inner": "02-udc",
-    "seeyon-udc-microflow-node": "02-udc",
-    "seeyon-udc-module-landing": "02-udc",
-    "seeyon-udc-setting": "02-udc",
+    "xiaozhua-agent": "05-agent",
+    "xiaozhua-udc-application-app-inner": "02-udc",
+    "xiaozhua-udc-microflow-node": "02-udc",
+    "xiaozhua-udc-module-landing": "02-udc",
+    "xiaozhua-udc-setting": "02-udc",
     "udc-trace-to-api": "02-udc",
 }
 
@@ -87,12 +87,12 @@ SCRUBS: list[tuple[re.Pattern, str]] = [
     # 已排除的 skill 名不应在 related_skills 里出现
     (re.compile(r",\s*" + "changhong" + r"-pmp"), ""),
     (re.compile(r"" + "changhong" + r"-pmp,\s*"), ""),
-    # Nacos 命名空间名里的客户标识（seeyon-<客户>、<客户>-test2 形态）
-    (re.compile(r"seeyon-[a-z0-9-]*" + "changhong" + r"[a-z0-9-]*", re.I), "seeyon-test2"),
-    (re.compile(r"[a-z0-9-]*" + "changhong" + r"[a-z0-9-]*-test2", re.I), "seeyon-test2"),
+    # Nacos 命名空间名里的客户标识（xiaozhua-<客户>、<客户>-test2 形态）
+    (re.compile(r"xiaozhua-[a-z0-9-]*" + "changhong" + r"[a-z0-9-]*", re.I), "xiaozhua-test2"),
+    (re.compile(r"[a-z0-9-]*" + "changhong" + r"[a-z0-9-]*-test2", re.I), "xiaozhua-test2"),
     (re.compile(r"[a-z0-9-]*" + "changhong" + r"[a-z0-9-]*", re.I), "sample"),
     # 本机绝对路径
-    (re.compile(r"[A-Za-z]:[\\/]work[\\/]chit[\\/]seeyon-agent"), "<SEEYON_AGENT_ROOT>"),
+    (re.compile(r"[A-Za-z]:[\\/]work[\\/]chit[\\/]xiaozhua-agent"), "<XIAOZHUA_AGENT_ROOT>"),
     (re.compile(r"[A-Za-z]:[\\/]work[\\/]" + "changhong"), "<PROJECT_ROOT>"),
     (re.compile(r"[A-Za-z]:[\\/]work[\\/]chit"), "<EVIDENCE_ROOT>"),
     (re.compile(r"[A-Za-z]:[\\/]repo[\\/]CHIT"), "<MAVEN_REPO>"),

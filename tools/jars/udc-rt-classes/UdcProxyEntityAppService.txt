@@ -1,4 +1,4 @@
-Classfile /<SEEYON_AGENT_ROOT>/tools/jars/udc-rt-classes/com/seeyon/boot/starter/udcrt/appservice/UdcProxyEntityAppService.class
+Classfile /<XIAOZHUA_AGENT_ROOT>/tools/jars/udc-rt-classes/com/seeyon/boot/starter/udcrt/appservice/UdcProxyEntityAppService.class
   Last modified 2026年10月1日; size 4243 bytes
   SHA-256 checksum fa2a3620ffda7e4a5ac5462bcdf13bb800112e0461ec84152cf92fd6d6d41cfc
   Compiled from "UdcProxyEntityAppService.java"

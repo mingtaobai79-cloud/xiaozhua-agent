@@ -17,7 +17,7 @@ import re
 import urllib.request
 from pathlib import Path
 
-UA = {"User-Agent": "seeyon-agent/0.1 (audit)"}
+UA = {"User-Agent": "xiaozhua-agent/0.1 (audit)"}
 RE_VER = re.compile(r'href="(\d+\.\d+(?:\.\d+)*)/"')
 
 

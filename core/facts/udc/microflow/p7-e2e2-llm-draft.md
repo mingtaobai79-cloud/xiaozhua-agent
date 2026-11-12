@@ -3,7 +3,7 @@
 ## 结论：E2E_BUSINESS_FLOW_VERIFIED（第二次，换实体+换聚合）
 
 宿主 LLM（本会话"小爪"）读自然语言业务需求，产出 IntentDraft（中文字段名），
-seeyon-agent 编译器归一化→构造→发布→构建→调度运行→数据库结果正确。
+xiaozhua-agent 编译器归一化→构造→发布→构建→调度运行→数据库结果正确。
 execution_id = e2e-349271037da9，buildVersion = 20261103200509。
 
 ## 业务需求（自然语言）

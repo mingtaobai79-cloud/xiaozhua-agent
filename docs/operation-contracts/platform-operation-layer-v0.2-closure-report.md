@@ -57,7 +57,7 @@ docs/operation-contracts/gateway/live-readonly-udc-attribute-list-evidence.json
 application_id = 3289082814923688017
 entity_id      = 4649646467208458935
 service        = udc
-route          = seeyon-udc
+route          = xiaozhua-udc
 Gateway path   = /service/udc/{target_path}
 ```
 
@@ -183,5 +183,5 @@ GraphQL authenticated transport
 所有 UDC readonly 能力已完成
 所有 Gateway Filter 合同已完成
 写操作安全链已完成
-Seeyon Agent 整体完成
+xiaozhua Agent 整体完成
 ```

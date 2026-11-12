@@ -1,6 +1,6 @@
-# 2小爪 Agent Code Reality Audit
+# xiaozhua Agent Code Reality Audit
 
-Test collection: `3201 tests collected`. Historical counts below are not current execution results; see `docs/plans/seeyon-distribution-progress.md` for the latest run.
+Test collection: `3201 tests collected`. Historical counts below are not current execution results; see `docs/plans/xiaozhua-distribution-progress.md` for the latest run.
 
 > **正文是 2026-09-03 那次审计的现场快照，不是当前状态。**
 > 其中的 `183 passing tests` / `183 collected` / `total of 59` 都是**当时**的数值（仓库后来从
@@ -10,14 +10,14 @@ Test collection: `3201 tests collected`. Historical counts below are not current
 > 标注 `【当前 2026-11-07】` 的条目是按现值改过的，改的依据都写在行内。
 
 - **Audit type:** evidence-first static/runtime audit
-- **Target:** `<SEEYON_AGENT_ROOT>`
+- **Target:** `<XIAOZHUA_AGENT_ROOT>`
 - **UDC evidence input:** `<USER_HOME>/...
 - **Scope constraint:** offline/read-only only; no test2 connection and no external-environment changes
 - **Audit date:** 2026-09-03 (local task context)
 
 ## Executive conclusion
 
-**The repository is a small, tested, offline read-only skeleton, not a complete 2小爪 Agent runtime.** The core registry, routing, evidence envelope, UDC catalog/analyzer/planner, local snapshot providers, and CLI are real executable code and are covered by 183 passing tests. Runtime and Integration are snapshot-backed report components, not live adapters. SPI is referenced by routing but has no registered implementation. Write/publish/deploy/real test2 operations are denied or not implemented in the current public surface.
+**The repository is a small, tested, offline read-only skeleton, not a complete xiaozhua Agent runtime.** The core registry, routing, evidence envelope, UDC catalog/analyzer/planner, local snapshot providers, and CLI are real executable code and are covered by 183 passing tests. Runtime and Integration are snapshot-backed report components, not live adapters. SPI is referenced by routing but has no registered implementation. Write/publish/deploy/real test2 operations are denied or not implemented in the current public surface.
 
 ## Evidence status
 
@@ -27,7 +27,7 @@ Test collection: `3201 tests collected`. Historical counts below are not current
 | Core routing/registry/evidence | **FOCUSED VERIFIED** | `pytest tests -q` 【当前 2026-11-07】: 3172 passed, 23 skipped；source inspection |
 | UDC catalog/analyzer over local artifacts | **REAL LOCAL SMOKE VERIFIED** | CLI run against Temp `udc_*.json`; no network |
 | Runtime/Integration live behavior | **UNVERIFIED** | Only local JSON snapshots/providers exercised |
-| CLI process boundary | **REAL LOCAL SMOKE VERIFIED** | Actual `python seeyon_cli.py ...` subprocesses |
+| CLI process boundary | **REAL LOCAL SMOKE VERIFIED** | Actual `python xiaozhua_cli.py ...` subprocesses |
 | Full external/test2 acceptance | **NOT RUN / UNVERIFIED** | Explicitly out of scope |
 | Git change baseline | **BLOCKED** | Target directory has no `.git` repository; Git commands returned “not a git repository” |
 
@@ -35,7 +35,7 @@ Test collection: `3201 tests collected`. Historical counts below are not current
 
 ### Repository shape
 
-Top-level entries are: `core/`, `components/`, `providers/`, `tests/`, `.pytest_cache/`, `__pycache__/`, `integration.json`, `runtime.json`, `pyproject.toml`, `README.md`, and `seeyon_cli.py`.
+Top-level entries are: `core/`, `components/`, `providers/`, `tests/`, `.pytest_cache/`, `__pycache__/`, `integration.json`, `runtime.json`, `pyproject.toml`, `README.md`, and `xiaozhua_cli.py`.
 
 Python inventory from the checkout:
 
@@ -50,16 +50,16 @@ Python inventory from the checkout:
 
 ### Entrypoints
 
-1. **Python CLI:** `seeyon_cli.py`, guarded by `raise SystemExit(main())`.
-2. **Library composition root:** `core.agent.SeeyonAgent`.
+1. **Python CLI:** `xiaozhua_cli.py`, guarded by `raise SystemExit(main())`.
+2. **Library composition root:** `core.agent.XiaozhuaAgent`.
 3. **Registry:** `core.registry.ComponentRegistry`.
 4. **UDC component:** `components.udc.component.UdcComponent`.
 5. **No package console-script entry** is declared in `pyproject.toml`; the project exposes a directly runnable script rather than an installed CLI command.
 
 ### Core behavior
 
-- `SeeyonAgent.route()` uses keyword heuristics for UDC, Integration, Runtime, and SPI intents.
-- `SeeyonAgent.dispatch()` applies the injected/default `ReadOnlyPolicy`, dispatches through `ComponentRegistry`, and appends an event to `MemorySession`.
+- `XiaozhuaAgent.route()` uses keyword heuristics for UDC, Integration, Runtime, and SPI intents.
+- `XiaozhuaAgent.dispatch()` applies the injected/default `ReadOnlyPolicy`, dispatches through `ComponentRegistry`, and appends an event to `MemorySession`.
 - `ComponentRegistry` registers components by their `name`, rejects duplicate names, lists capabilities, and dispatches either `execute()` or `inspect()`.
 - `core.evidence.Status` defines `FACT`, `OBSERVATION`, `HYPOTHESIS`, `UNVERIFIED`, `DENIED`, and `UNAVAILABLE`.
 - `Result` produces a JSON-compatible envelope with `component`, `target`, `status`, and `evidence`.
@@ -72,7 +72,7 @@ The Temp directory contained **22** readable `udc_*.json` files, including contr
 Actual command output from:
 
 ```text
-python seeyon_cli.py udc-report --audit-dir <USER_HOME>/... --target demo
+python xiaozhua_cli.py udc-report --audit-dir <USER_HOME>/... --target demo
 ```
 
 reported:
@@ -137,7 +137,7 @@ python -m py_compile <all Python files under the repository>
 
 ### Medium priority
 
-6. **No installed CLI contract.** `pyproject.toml` has no `[project.scripts]` entry, so `seeyon` is not declared as an installable console command.
+6. **No installed CLI contract.** `pyproject.toml` has no `[project.scripts]` entry, so `xiaozhua` is not declared as an installable console command.
 7. **Error handling is narrow.** Snapshot JSON parsing and provider exceptions are not normalized into the stable `Result`/evidence envelope; malformed or failing provider reads can raise directly.
 8. **Registry dispatch dynamically creates a dataclass per `execute()` call.** This works in tests but is an ad-hoc boundary rather than a shared request type/port contract.
 9. **Evidence model is not enforced end-to-end.** Components can return plain dictionaries; `Status` validates `Evidence` objects but does not constrain every result payload or source provenance.
@@ -180,7 +180,7 @@ python -m py_compile <all Python files under the repository>
 | `pytest --collect-only -q` | **3201 tests collected** |
 | `pytest -q` | 【当前 2026-11-07】**3172 passed, 23 skipped**（原表此行留空，已补） |
 | `py_compile` all repository Python files | **RC 0** |
-| `seeyon_cli.py --help` | **RC 0**, dependency-light help |
+| `xiaozhua_cli.py --help` | **RC 0**, dependency-light help |
 | `capabilities` | **RC 0**, read-only/network-disabled declaration |
 | `udc-report` against Temp artifacts | **RC 0**, JSON `status=FACT` with preserved gaps |
 | `udc-analyze` against Temp artifacts | **RC 0**, domain report with `dynamic_contract_fields` and `frontend_static_source` unverified |

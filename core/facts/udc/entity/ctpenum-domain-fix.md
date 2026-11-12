@@ -2,7 +2,7 @@
 
 > HANDOFF：`p0-ctpenum-fix-slice1`（main → implementer，2026-10-17）。
 > ROUTE：`main/ROUTE.md` P0 — 枚举域错配修复。
-> 证据时刻：2026-10-17 15:00–18:30 +08。仓库：seeyon-agent（本地）。
+> 证据时刻：2026-10-17 15:00–18:30 +08。仓库：xiaozhua-agent（本地）。
 > 凭据 0 入仓；只写实验应用/授权应用证据。
 
 ---

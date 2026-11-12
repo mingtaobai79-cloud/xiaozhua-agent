@@ -68,7 +68,7 @@ python -m pytest tests -q -p no:cacheprovider
 - 旧源码/reference jar/目标部署版本没有完整绑定。
 - Gateway 前缀与真实前端调用未抓包确认。
 - 目标应用实体/页面/微流程/生单/扣减/Excel 业务数据未验收。
-- seeyon-agent 尚未实现这些协议模型、payload/schema validator 和完整 dry-run planner。
+- xiaozhua-agent 尚未实现这些协议模型、payload/schema validator 和完整 dry-run planner。
 - 页面构建按钮真实请求与生成物回读未完成。
 - 当前所有契约候选 can_execute=false；未发平台请求、未修改 test2、未生成客户业务记录。
 

@@ -23,7 +23,7 @@
 - 判定: **MATCH**（复现值==锚定值）。
 
 ### 复测 4 — 冻结 registry.py 零写（精确判据）
-- 命令: `git -C seeyon-agent diff -- components/platform_operations/registry.py`，取 + 行，grep 本会话 16 个精确 entity op_id，统计命中。
+- 命令: `git -C xiaozhua-agent diff -- components/platform_operations/registry.py`，取 + 行，grep 本会话 16 个精确 entity op_id，统计命中。
 - 实测: + 行共 44 行，命中本会话 16 entity op_id 的 + 行 = **0**。
   （registry.py 现 + 行属并行微流程域 udc.application/flow/metadata/page_log/applog，非本会话 entity；上轮 main 亦独立测得 0。）
 - 判定: **MATCH**（本会话 entity op_id 冻结 0 写入）。

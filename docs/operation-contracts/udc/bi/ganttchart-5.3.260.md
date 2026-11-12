@@ -82,5 +82,5 @@
 - 所有路径为注解 `value`/`path` element_value **原值逐字抄录**；类级基路径无先导 `/`（`gantt-chart`、`gantt-chart-schema`），方法级路径亦无先导 `/`，`{code}` 为路径变量原形。
 - **禁跨单元推论**: 不得由「5.3.260 有甘特图端点」推出「5.3.517 承载 BI」，也不得反向；跨版本装配关系 = HYPOTHESIS，本轮不取证。
 - `boot-starter-ganttchart-5.3.260-sources.jar.lastUpdated` = Maven Resolver 拉取失败标记，依 HUMAN 裁定**原样登记、不下载、不修复、不重试**；其内部 artifactory base URL 已脱敏为 `<artifactory-host-redacted>`。
-- 未触碰件: `docs/audit/artifacts/udc-bi-5.3.517/**`（64 件已入库跟踪件）、`components/platform_operations/registry.py`/`layer.py`、`seeyon_cli.py`、`tests/**`、`README.md`、`docs/audit/agent-version-audit.md`、`docs/audit/code-reality-audit.md`、其他域契约目录。
+- 未触碰件: `docs/audit/artifacts/udc-bi-5.3.517/**`（64 件已入库跟踪件）、`components/platform_operations/registry.py`/`layer.py`、`xiaozhua_cli.py`、`tests/**`、`README.md`、`docs/audit/agent-version-audit.md`、`docs/audit/code-reality-audit.md`、其他域契约目录。
 

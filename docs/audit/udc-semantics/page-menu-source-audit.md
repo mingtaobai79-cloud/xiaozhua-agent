@@ -1,9 +1,9 @@
 # UDC 页面保存、菜单功能节点、子页面与外框源码审计
 
 日期：2026-10-11
-主线：`<SEEYON_AGENT_ROOT>`
+主线：`<XIAOZHUA_AGENT_ROOT>`
 源码树：`<PATH>
-运行版本配置：`<SEEYON_AGENT_ROOT>/config/artifact-versions.yaml`
+运行版本配置：`<XIAOZHUA_AGENT_ROOT>/config/artifact-versions.yaml`
 
 证据边界：
 
@@ -41,7 +41,7 @@ Application
   → 发布元数据/运行态页面
 ```
 
-当前 `seeyon-agent` 只具备证据、只读和方案生成能力，不具备正式的页面 schema builder、菜单写入器、外框 builder 或构建按钮验收器。
+当前 `xiaozhua-agent` 只具备证据、只读和方案生成能力，不具备正式的页面 schema builder、菜单写入器、外框 builder 或构建按钮验收器。
 
 ## 2. Controller 路径证据
 
@@ -629,7 +629,7 @@ udcDeploymentAppOnlineNewPost → deployType=ON_ONLINE
 
 这些是协议/验收问题，不是继续追加一个 JSON 字段就能证明已经解决的问题。
 
-## 10. seeyon-agent 当前缺口和正确落地顺序
+## 10. xiaozhua-agent 当前缺口和正确落地顺序
 
 当前主线仍缺：
 
@@ -655,4 +655,4 @@ udcDeploymentAppOnlineNewPost → deployType=ON_ONLINE
   → submit/构建/生成物/运行态验收
 ```
 
-当前仍保持：`seeyon-agent` 不直接执行平台写操作；任何历史订单页面对象均为 `UNVERIFIED_PROBE`，不能当正式交付。
+当前仍保持：`xiaozhua-agent` 不直接执行平台写操作；任何历史订单页面对象均为 `UNVERIFIED_PROBE`，不能当正式交付。

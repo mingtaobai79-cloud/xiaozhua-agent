@@ -1,6 +1,6 @@
 """PageSchemaRenderer — 实体 → 最小可用列表页 pageSchema 树（声明级骨架，宿主执行）。
 
-证据基线：skill seeyon-udc-design-time-build 的 references/page-schema-api-construction.md
+证据基线：skill xiaozhua-udc-design-time-build 的 references/page-schema-api-construction.md
 （zzprobe jar 1.0.2 失败 → 1.0.4 成功 LIVE 验证）+ 前端 bundle getControlSchema 契约。
 
 离线只产声明级骨架：控件树 + 必填键位 + dataSource 11 键 + 列映射；

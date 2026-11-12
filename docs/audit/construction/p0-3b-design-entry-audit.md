@@ -21,7 +21,7 @@ Runtime `BaseEntityCurdService` is closed separately and is not reopened here.
 Source:
 
 ```text
-<SEEYON_AGENT_ROOT>/docs/audit/frontend/chunks/src_redux_store_ts.14dc061e.js  ← 客户场景证据，已迁出至 `<EVIDENCE_ROOT>/seeyon-customer-evidence/frontend/chunks/`，本仓不再持有
+<XIAOZHUA_AGENT_ROOT>/docs/audit/frontend/chunks/src_redux_store_ts.14dc061e.js  ← 客户场景证据，已迁出至 `<EVIDENCE_ROOT>/xiaozhua-customer-evidence/frontend/chunks/`，本仓不再持有
 ```
 
 Source SHA-256:

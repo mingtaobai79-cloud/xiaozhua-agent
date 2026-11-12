@@ -1,4 +1,4 @@
-# 2小爪 Agent
+# xiaozhua Agent
 
 致远 UDC / SPI 平台的操作能力包（MCP）。给 Hermes、Codex、Claude Code 这类宿主用，
 让 AI 以用户身份经平台接口真实操作 —— 建实体、配枚举、发规则、出报文。
@@ -20,17 +20,17 @@ pip install "pyyaml>=6.0" "websocket-client>=1.6"
 宿主配置只需一行：
 
 ```json
-{"mcpServers": {"seeyon": {"command": "seeyon-mcp"}}}
+{"mcpServers": {"xiaozhua": {"command": "xiaozhua-mcp"}}}
 ```
 
 ### B. git clone + installer
 
 ```bash
-git clone https://github.com/mingtaobai79-cloud/seeyon-agent.git && cd seeyon-agent
+git clone https://github.com/mingtaobai79-cloud/seeyon-agent.git && cd xiaozhua-agent
 pip install "pyyaml>=6.0" "websocket-client>=1.6"
-python installer/install.py --host hermes      --target ~/seeyon-pkg --write
-python installer/install.py --host codex       --target ~/seeyon-pkg --write
-python installer/install.py --host claude-code --target ~/seeyon-pkg --write
+python installer/install.py --host hermes      --target ~/xiaozhua-pkg --write
+python installer/install.py --host codex       --target ~/xiaozhua-pkg --write
+python installer/install.py --host claude-code --target ~/xiaozhua-pkg --write
 ```
 
 `--host` 可选 `hermes` / `codex` / `claude-code` / `all`。生成的配置写的是你机器上的真实绝对路径，直接贴进宿主配置。
@@ -45,7 +45,7 @@ python installer/install.py --host claude-code --target ~/seeyon-pkg --write
 printf '%s\n%s\n' \
   '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"t","version":"1"}}}' \
   '{"jsonrpc":"2.0","id":2,"method":"tools/list","params":{}}' \
-  | seeyon-mcp
+  | xiaozhua-mcp
 ```
 
 输出两行 JSON，第二个里有 **54** 个 `"name"` = 连上了。
@@ -64,7 +64,7 @@ printf '%s\n%s\n' \
 
 ```yaml
 mcp_servers:
-  seeyon:
+  xiaozhua:
     command: <你的 python>
     args:
       - <你的安装路径>/adapters/mcp/server.py
@@ -76,7 +76,7 @@ mcp_servers:
 `codex/config.toml` → 追加到 `~/.codex/config.toml`：
 
 ```toml
-[mcp_servers.seeyon]
+[mcp_servers.xiaozhua]
 command = "<你的 python>"
 args = ["<你的安装路径>/adapters/mcp/server.py"]
 ```
@@ -88,7 +88,7 @@ args = ["<你的安装路径>/adapters/mcp/server.py"]
 ```json
 {
   "mcpServers": {
-    "seeyon": {
+    "xiaozhua": {
       "command": "<你的 python>",
       "args": ["<你的安装路径>/adapters/mcp/server.py"]
     }
@@ -234,7 +234,7 @@ enableDelete: false  界面上「移除」是灰色禁删  → 删不掉
 
 ```python
 import sys; sys.path.insert(0, ".")
-from seeyon_host_bootstrap import bootstrap
+from xiaozhua_host_bootstrap import bootstrap
 b = bootstrap()
 
 b["enum_category_body"](app_id=8704025620829192834, caption="分类", code="cat1")
@@ -268,7 +268,7 @@ cookie 永远不导出到本地、不在本地重放；不代填登录表单（�
 
 ```python
 import sys; sys.path.insert(0, ".")
-from seeyon_host_bootstrap import bootstrap
+from xiaozhua_host_bootstrap import bootstrap
 from adapters.mcp.server import TOOL_KEYS
 b = bootstrap()
 idx = b["capability_index"]()
@@ -354,8 +354,8 @@ GraphQL 层不校验未知字段：传错字段名和传对，可能返回一模
 ## 7. 打包分发
 
 ```bash
-git archive --format=zip --prefix=seeyon-agent-0.1.0/ \
-  -o dist/seeyon-agent-0.1.0.zip HEAD -- . ':!docs/audit/artifacts'
+git archive --format=zip --prefix=xiaozhua-agent-0.1.0/ \
+  -o dist/xiaozhua-agent-0.1.0.zip HEAD -- . ':!docs/audit/artifacts'
 ```
 
 `docs/audit/artifacts` 是反编译产物与前端 bundle（380MB），不进分发包；其余全在，约 8MB。
@@ -400,44 +400,44 @@ Test collection: `3201 tests collected`。收集数量不等于通过数量。
 
 ```bash
 # 本地 Maven artifact inventory（只读扫描，不连接外部仓库）
-python -m seeyon_cli artifact-inventory --root <maven-repo> --output inv.json
+python -m xiaozhua_cli artifact-inventory --root <maven-repo> --output inv.json
 
 # UDC 证据报告 / 分域分析
-python -m seeyon_cli udc-report --audit-dir <audit-dir> --target demo
-python -m seeyon_cli udc-analyze --audit-dir <audit-dir> --target demo
+python -m xiaozhua_cli udc-report --audit-dir <audit-dir> --target demo
+python -m xiaozhua_cli udc-analyze --audit-dir <audit-dir> --target demo
 
 # Runtime / Integration 本地快照报告（不是实时探测）
-python -m seeyon_cli runtime-report --snapshot runtime.json --target udc
-python -m seeyon_cli integration-report --snapshot integration.json --target invoice
+python -m xiaozhua_cli runtime-report --snapshot runtime.json --target udc
+python -m xiaozhua_cli integration-report --snapshot integration.json --target invoice
 
 # 汇总三类离线审计报告
-python -m seeyon_cli audit-summary --audit-dir <audit-dir> --udc-json udc.json
+python -m xiaozhua_cli audit-summary --audit-dir <audit-dir> --udc-json udc.json
 
 # Probe Summary：分别输出 facts、unverified、blocked
-python -m seeyon_cli probe-summary
+python -m xiaozhua_cli probe-summary
 
 # Evidence Ledger：合并 UDC、Runtime、HTTP 证据并检测冲突
-python -m seeyon_cli evidence-ledger --udc-json udc.json --runtime runtime.json --http http.json
+python -m xiaozhua_cli evidence-ledger --udc-json udc.json --runtime runtime.json --http http.json
 
 # 关键路径矩阵、影响图和客户边界
-python -m seeyon_cli udc-path-matrix --udc-json udc.json --runtime runtime.json --http http.json
-python -m seeyon_cli impact-graph --path-matrix matrix.json
-python -m seeyon_cli extension-boundary --facts-json facts.json --source-dir <source>
+python -m xiaozhua_cli udc-path-matrix --udc-json udc.json --runtime runtime.json --http http.json
+python -m xiaozhua_cli impact-graph --path-matrix matrix.json
+python -m xiaozhua_cli extension-boundary --facts-json facts.json --source-dir <source>
 
 # Dry-run：只生成计划，不执行写操作
-python -m seeyon_cli dry-run --action create-entity --target demo --environment test2
+python -m xiaozhua_cli dry-run --action create-entity --target demo --environment test2
 
 # Platform Operation Layer 只读操作（默认离线 BLOCKED）
-python -m seeyon_cli op-execute --operation udc.application.get --application-id <appId>
+python -m xiaozhua_cli op-execute --operation udc.application.get --application-id <appId>
 
 # 查看已注册组件能力
-python -m seeyon_cli capabilities
+python -m xiaozhua_cli capabilities
 ```
 
 CLI 层的写操作会明确拒绝并返回退出码 2 —— 写平台走 MCP 工具，不走 CLI：
 
 ```bash
-python -m seeyon_cli udc-execute publish demo --audit-dir <audit-dir>
+python -m xiaozhua_cli udc-execute publish demo --audit-dir <audit-dir>
 ```
 
 `Probe Summary` 和 `Evidence Ledger` 都是离线证据投影：它们保留 `UNVERIFIED`/`BLOCKED`，
@@ -458,4 +458,4 @@ CLI 层的写操作会明确拒绝并返回退出码 2 —— 写平台走 MCP �
 **硬规矩**：HTTP 200 或 `BOOT_0000` 不等于成功，必须按 id 回读。
 平台有些字段错名不报错（见 6.8），只能对 DTO 才能发现。
 
-UDC 是 2小爪 Agent 的组件，不是独立总 Agent；Context、Session、Tool 和 LLM 可由宿主注入。
+UDC 是 xiaozhua Agent 的组件，不是独立总 Agent；Context、Session、Tool 和 LLM 可由宿主注入。

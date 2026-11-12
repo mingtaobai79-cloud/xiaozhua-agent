@@ -1,10 +1,10 @@
-# 沉淀归位规则（2小爪 Agent）
+# 沉淀归位规则（xiaozhua Agent）
 
 > **核心要求**（用户 2026-10-20）：
-> 「记住你写的这些东西必须都进 2小爪 agent，保证后续我只要一个需求你能里面实现功能」
+> 「记住你写的这些东西必须都进 xiaozhua agent，保证后续我只要一个需求你能里面实现功能」
 >
 > 即：能力不能只活在 Hermes 的 skill、我的临时脚本、或者对话上下文里，
-> 必须落在 `seeyon-agent` 仓库内，**可被发现、可执行、可复用**。
+> 必须落在 `xiaozhua-agent` 仓库内，**可被发现、可执行、可复用**。
 
 ## 一、判定标准：什么算「必须进仓库」
 
@@ -16,7 +16,7 @@
 | 抓包/反编译/DB 原始证据 | `docs/audit/artifacts/` | **必须**（仓外客户证据除外） |
 | 一次性取证脚本 | `tools/one-off/` | 归档，不维护 |
 | 可复用工具 | `tools/core/<域>/` | **必须** |
-| 使用方法与坑 | `skills/seeyon-udc-<域>-<子模块>/SKILL.md` | **必须** |
+| 使用方法与坑 | `skills/xiaozhua-udc-<域>-<子模块>/SKILL.md` | **必须** |
 | 只在对话里的中间结论 | —— | **不合格**，必须落盘 |
 
 ## 二、四个必须成对存在的东西
@@ -27,7 +27,7 @@
 实现   components/udc/<域>/<子模块>_*.py
 事实   core/facts/udc/<域>/<子模块>/create.md + <子模块>-write-chain.md
 契约   docs/operation-contracts/udc/<域>/<子模块>-contracts.md
-skill  skills/seeyon-udc-<域>-<子模块>/SKILL.md
+skill  skills/xiaozhua-udc-<域>-<子模块>/SKILL.md
 ```
 
 缺一类 = 模块没沉淀完。`tools/core/capability_report.py --check` 会报出缺口。
@@ -47,7 +47,7 @@ skill  skills/seeyon-udc-<域>-<子模块>/SKILL.md
 3. 判断：能复用还是要新建
      能复用 → 用现成构造器 + 校验器，直接走
      要新建 → 按四类资产补齐，落位规范见
-              skills/seeyon-udc-module-landing/SKILL.md
+              skills/xiaozhua-udc-module-landing/SKILL.md
 
 4. 写完做三件事
      a) 事实格更新（新增能力 + 等级；作废的旧说法显式声明）
@@ -93,14 +93,14 @@ skill  skills/seeyon-udc-<域>-<子模块>/SKILL.md
 ```
 
 **只有 id、没有路径与复现方法的证据行，不算沉淀。** 详见
-Hermes skill `seeyon-agent-fact-protocol`（§三）。
+Hermes skill `xiaozhua-agent-fact-protocol`（§三）。
 
 ## 五、仓库与外部的边界
 
 ```
 仓库内   实现 / 事实 / 契约 / skill / 工具 / 脱敏后的证据
 仓库外   客户明细、真实 golden 样本、凭据文件
-         → <EVIDENCE_ROOT>/seeyon-customer-evidence（config/environments.yaml 记路径）
+         → <EVIDENCE_ROOT>/xiaozhua-customer-evidence（config/environments.yaml 记路径）
          → 凭据只从环境变量或仓外文件读，永不入库
 ```
 

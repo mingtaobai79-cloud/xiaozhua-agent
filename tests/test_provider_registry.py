@@ -39,7 +39,7 @@ def test_registry_capabilities_is_json_serializable_and_read_only():
 
 def test_provider_capabilities_cli_returns_registry_projection():
     result = subprocess.run(
-        [sys.executable, "-m", "seeyon_cli", "provider-capabilities"],
+        [sys.executable, "-m", "xiaozhua_cli", "provider-capabilities"],
         cwd=ROOT, capture_output=True, text=True,
     )
     assert result.returncode == 0, result.stderr

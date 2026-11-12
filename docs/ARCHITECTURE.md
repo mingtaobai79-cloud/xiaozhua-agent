@@ -1,4 +1,4 @@
-# 2小爪 Agent 架构
+# xiaozhua Agent 架构
 
 > 架构方向以 `capability/ROADMAP-v2.md` 为基线，目标架构见 `capability/ARCHITECTURE.md`。
 > 本文是仓库实现与职责的视图；`REPO-LAYOUT.md`、`HOST-INTEGRATION.md` 和
@@ -11,11 +11,11 @@
 
 ## 1. 定位与总体目标
 
-【现状】2小爪 Agent 是**嵌入宿主的专业能力组件，不是独立 agent**。宿主负责思考与规划，
-2小爪 Agent 提供致远低代码平台（UDC/BPM/SPI/Integration/Runtime）的专业知识、平台工具、
+【现状】xiaozhua Agent 是**嵌入宿主的专业能力组件，不是独立 agent**。宿主负责思考与规划，
+xiaozhua Agent 提供致远低代码平台（UDC/BPM/SPI/Integration/Runtime）的专业知识、平台工具、
 执行能力和验证体系。
 
-【目标】「一个 2小爪 Agent Core + 多个宿主适配器」——核心独立于宿主，宿主只是运行入口。
+【目标】「一个 xiaozhua Agent Core + 多个宿主适配器」——核心独立于宿主，宿主只是运行入口。
 同一套 Facts / Skills / Components / MCP 工具，Codex / Claude Code / Cursor / Hermes 都能调用，
 不各自复制一套业务实现。
 
@@ -96,7 +96,7 @@
 
 ## 7. adapters 宿主集成
 
-【现状】`seeyon_host_bootstrap.py` 的 `bootstrap()` 是**唯一宿主入口**，返回 4 能力：
+【现状】`xiaozhua_host_bootstrap.py` 的 `bootstrap()` 是**唯一宿主入口**，返回 4 能力：
 `dispatch`（需求归一化→路由→证据化）、`generate`（后端骨架+前端页面）、`live_probe`（test2 只读）、`agent`（本体）。
 
 `adapters/` 已实现：
@@ -162,25 +162,25 @@
 
 ## 13. 本地运行及宿主接入
 
-【现状】`bootstrap()` 唯一入口；CLI `seeyon_cli.py`；MCP `server.py` stdio。
+【现状】`bootstrap()` 唯一入口；CLI `xiaozhua_cli.py`；MCP `server.py` stdio。
 
 ```bash
 # 本地运行
 python -m pytest tests -q          # 2628 passed（离线只读）
 # 宿主接入
-from seeyon_host_bootstrap import bootstrap
+from xiaozhua_host_bootstrap import bootstrap
 host = bootstrap()                 # 离线默认
 host = bootstrap(credential_file=<path>, allow_network=True)  # 活体
 ```
 
-【目标】`seeyon install --host codex --scope user` 统一安装；`seeyon doctor` 诊断；MCP stdio 为第一版传输。
+【目标】`xiaozhua install --host codex --scope user` 统一安装；`xiaozhua doctor` 诊断；MCP stdio 为第一版传输。
 
 ## 14. 当前明确未完成 / 受限模块
 
 | 项 | 状态 |
 |---|---|
 | MCP 工具分层（12 个高层工具） | 【未实现】现 5 个底层工具 |
-| SeeyonAgentFacade 统一门面 | 【未实现】现 bootstrap 直接暴露底层 |
+| XiaozhuaAgentFacade 统一门面 | 【未实现】现 bootstrap 直接暴露底层 |
 | Node Registry 统一节点发现 | 【目标】构造器分散 5 文件 |
 | Skill 分发同步机制 | 【目标】三套目录无同步 |
 | 三宿主实接验收 | 【未实现】MCP server 可起，宿主未实接 |
@@ -200,7 +200,7 @@ MCP server → 5 工具（底层）
 Skill → 三套目录无同步
 
 【目标】
-SeeyonAgentFacade → knowledge/planning/execution 三层 12 工具
+XiaozhuaAgentFacade → knowledge/planning/execution 三层 12 工具
 MCP server → 暴露 Facade 同一套工具
 Node Registry → 统一节点发现
 仓库 skills = 源，Hermes skills = 安装副本（同步脚本）

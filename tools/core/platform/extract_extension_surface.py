@@ -103,7 +103,7 @@ def find_hoisted_top_level(nm: Path) -> dict[str, str]:
 
     ★ 不许设条数上限：实测按字母序截前 400 条时，lodash（第 600+ 位）
       被漏掉 → 已安装的包被判成「不存在」，是最典型的假缺口。
-      只排除 @seeyon 自己的包（另有 seeyon_packages 收录）。
+      只排除 @seeyon 自己的包（另有 xiaozhua_packages 收录）。
     """
     if not nm.is_dir():
         return {}
@@ -489,7 +489,7 @@ def parse_dts_exports(dts: Path, rel_root: Path) -> dict:
     }
 
 
-def find_seeyon_packages(nm: Path) -> list[dict]:
+def find_xiaozhua_packages(nm: Path) -> list[dict]:
     """枚举 node_modules/@seeyon/<pkg>，取其 package.json 与顶层 d.ts 导出面。"""
     scope = nm / "@seeyon"
     if not scope.is_dir():
@@ -577,7 +577,7 @@ def main(argv=None) -> int:
             "compile_classpath": {
                 "source": str((bk / "target" / "compile_args.txt").as_posix()),
                 "jar_count": len(jars),
-                "seeyon_jar_count": sum(1 for j in jars if j["group"]),
+                "xiaozhua_jar_count": sum(1 for j in jars if j["group"]),
                 "jars": jars,
             },
         }
@@ -587,7 +587,7 @@ def main(argv=None) -> int:
         result["sources"]["frontend"] = {
             "root": pc.name,
             "package_json": parse_package_json(pc),
-            "seeyon_packages": find_seeyon_packages(pc / "node_modules"),
+            "xiaozhua_packages": find_xiaozhua_packages(pc / "node_modules"),
             "hoisted_top_level": find_hoisted_top_level(pc / "node_modules"),
         }
 
@@ -602,7 +602,7 @@ def main(argv=None) -> int:
             return 2
         nm = Path(a.frontend) / "node_modules" / "@seeyon"
         sig = {"sources": {"frontend": {"root": Path(a.frontend).name, "packages": {}}}}
-        for x in result["sources"]["frontend"]["seeyon_packages"]:
+        for x in result["sources"]["frontend"]["xiaozhua_packages"]:
             name = x["package"].split("/")[-1]
             pkg_dir = nm / name
             entry_rel = (x.get("symbols") or {}).get("entry")
@@ -633,7 +633,7 @@ def main(argv=None) -> int:
         print(f"backend  pom 自有依赖 {len(b['pom']['own_dependencies'])} / "
               f"parent 依赖 {pdeps} / "
               f"classpath jar {b['compile_classpath']['jar_count']}"
-              f"（seeyon {b['compile_classpath']['seeyon_jar_count']}）")
+              f"（xiaozhua {b['compile_classpath']['xiaozhua_jar_count']}）")
         # ★ parent pom 解析失败会让「平台能力清单」整段变空，但摘要看着正常。
         #   实测：工程 parent 已前进到本地仓库拿不到的版本时，目录里只有 *.lastUpdated，
         #   parent 依赖静默变 0。这里必须显式报错，不能当成功。
@@ -648,7 +648,7 @@ def main(argv=None) -> int:
             return 4
     if a.frontend:
         f = result["sources"]["frontend"]
-        pkgs = f["seeyon_packages"]
+        pkgs = f["xiaozhua_packages"]
         total_sym = sum((p.get("symbols") or {}).get("symbol_count", 0) for p in pkgs)
         no_types = [p["package"] for p in pkgs if not (p.get("symbols") or {}).get("files_scanned")]
         empty = [p["package"] for p in pkgs

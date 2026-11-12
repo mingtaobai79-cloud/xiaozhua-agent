@@ -21,7 +21,7 @@ def test_audit_bundle_subprocess_unifies_all_inputs_and_preserves_gaps(tmp_path)
         "graph": _dump(tmp_path, "graph.json", {"status": "UNVERIFIED", "nodes": [{"id": "runtime_metadata", "status": "UNVERIFIED", "gaps": ["trace missing"]}]}),
         "context": _dump(tmp_path, "context.json", {"status": "UNVERIFIED", "scope": {"environment": "uat"}, "gaps": ["trace_id is unavailable"]}),
     }
-    proc = subprocess.run([sys.executable, "-m", "seeyon_cli", "audit-bundle", "--version-audit", paths["version"], "--runtime", paths["runtime"], "--http", paths["http"], "--path-matrix", paths["matrix"], "--impact-graph", paths["graph"], "--evidence-context", paths["context"]], cwd=ROOT, capture_output=True, text=True)
+    proc = subprocess.run([sys.executable, "-m", "xiaozhua_cli", "audit-bundle", "--version-audit", paths["version"], "--runtime", paths["runtime"], "--http", paths["http"], "--path-matrix", paths["matrix"], "--impact-graph", paths["graph"], "--evidence-context", paths["context"]], cwd=ROOT, capture_output=True, text=True)
     assert proc.returncode == 2
     payload = json.loads(proc.stdout)
     assert payload["schema_version"] == "audit-bundle.v1"
@@ -34,7 +34,7 @@ def test_audit_bundle_subprocess_unifies_all_inputs_and_preserves_gaps(tmp_path)
 
 def test_audit_bundle_missing_input_fails_closed_in_subprocess(tmp_path):
     missing = str(tmp_path / "missing.json")
-    proc = subprocess.run([sys.executable, "-m", "seeyon_cli", "audit-bundle", "--version-audit", missing, "--runtime", missing, "--http", missing, "--path-matrix", missing, "--impact-graph", missing, "--evidence-context", missing], cwd=ROOT, capture_output=True, text=True)
+    proc = subprocess.run([sys.executable, "-m", "xiaozhua_cli", "audit-bundle", "--version-audit", missing, "--runtime", missing, "--http", missing, "--path-matrix", missing, "--impact-graph", missing, "--evidence-context", missing], cwd=ROOT, capture_output=True, text=True)
     assert proc.returncode == 2
     payload = json.loads(proc.stdout)
     assert payload["status"] == "UNVERIFIED"

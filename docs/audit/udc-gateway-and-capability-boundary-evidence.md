@@ -1,11 +1,11 @@
 # UDC Gateway and Capability Boundary Evidence
 
-结论：Gateway 已确认是独立的 2小爪 Agent 平台基础设施组件；UDC 请求不能直接抽象为“直连 UDC Pod”。当前已确认 Gateway 的部署、Artifact、动态服务发现和过滤器构成。UDC Entity/Attribute 契约已进入 operation catalog；菜单、页面、微流程尚未完成可执行契约，只完成入口盘点和部分静态证据。
+结论：Gateway 已确认是独立的 xiaozhua Agent 平台基础设施组件；UDC 请求不能直接抽象为“直连 UDC Pod”。当前已确认 Gateway 的部署、Artifact、动态服务发现和过滤器构成。UDC Entity/Attribute 契约已进入 operation catalog；菜单、页面、微流程尚未完成可执行契约，只完成入口盘点和部分静态证据。
 
 ## 1. Component boundary
 
 ```text
-Seeyon Agent
+xiaozhua Agent
 ├── Core
 ├── Components
 │   ├── UDC
@@ -129,7 +129,7 @@ These remain `UNVERIFIED`; no request is executed merely from class names.
 ```text
 routeId = routeIdPrefix + ServiceInstance.serviceId
 routeIdPrefix = DiscoveryLocatorProperties.routeIdPrefix
-  or default "seeyon-" when empty
+  or default "xiaozhua-" when empty
 uri = DiscoveryLocatorProperties.urlExpression evaluated against ServiceInstance
 metadata = copy(ServiceInstance.metadata)
 order = Integer.MAX_VALUE
@@ -226,7 +226,7 @@ UDC artifacts contain publish, sandbox, build and runtime-related services. The 
 ## 6. Correct implementation layers
 
 ```text
-Seeyon Agent Core
+xiaozhua Agent Core
   → Gateway Access Provider
       → Gateway request contract
           → UDC Operation Adapter

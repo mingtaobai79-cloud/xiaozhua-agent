@@ -7,7 +7,7 @@
 **证据等级**：LIVE（三段写入链全部实跑通过 + DB 回读）
 **验证日期**：2026-10-20
 **目标环境**：test2，`datamigration9000000000000000001`
-**验证方式**：seeyon-agent 自身能力（`build_*` → `validate_*` → 提交 → DB 回读），
+**验证方式**：xiaozhua-agent 自身能力（`build_*` → `validate_*` → 提交 → DB 回读），
 并用设计器真实 UI 抓包交叉证实请求体逐字段同构。
 
 > 本文件是枚举域唯一事实源。旧记录里的「枚举项字段名未定」「枚举走 REST /udc/udc-enum」
@@ -66,7 +66,7 @@ Content-Type: application/json
 | `name` 非 i18n JSON | 实际缺的是 name 的 i18n 形态 | `BOOT_1001` |
 | 分组名重复 | 枚举分类名称重复 | `ENUM_3009` |
 
-**seeyon-agent 能力**
+**xiaozhua-agent 能力**
 
 ```python
 from components.construction.metadata_artifacts import build_enum_category_body
@@ -120,7 +120,7 @@ POST /service/udc/graphql?udcEnumPost
 | `appGuid` 缺失 | — | `BOOT_1001` |
 | `categoryId` 缺失 | — | `BOOT_1001` |
 
-**seeyon-agent 能力**
+**xiaozhua-agent 能力**
 
 ```python
 from components.construction.metadata_artifacts import build_enum_body
@@ -178,7 +178,7 @@ POST /service/udc/graphql?udcEnumItemPost
 | `name` 非大写字母+下划线 | `UDC_ENUM_0002`「The code contains only uppercase letters and underscores」——**报错说 code，实际校验 name** | `BOOT_1001` |
 | `code` 传字符串（旧写法） | `BOOT_3002` Failed to convert String to Int | `BOOT_3002` |
 
-**seeyon-agent 能力**
+**xiaozhua-agent 能力**
 
 ```python
 from components.construction.metadata_artifacts import build_enum_item_body

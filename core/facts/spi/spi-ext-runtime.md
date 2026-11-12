@@ -12,7 +12,7 @@
 主张边界: 仅登记**实际观测到**的通道形态/响应；配置启用 ≠ 插件已加载 ≠ 实现被调用；通道不可达 ≠ 运行态未发生（不可达是探测面问题，非被测系统事实）。
 
 ## 2. Version
-- 观测目标环境: `test2`（网关 `lowcode-test2.example.com`；Nacos `mse-c19f9232` tenant=seeyon-test2 group=seeyon）。
+- 观测目标环境: `test2`（网关 `lowcode-test2.example.com`；Nacos `mse-c19f9232` tenant=xiaozhua-test2 group=xiaozhua）。
 - `udc_image_version: "5.3.496"`（environments.yaml L16）——与本地 5.3.517 为两证据单元；对 P1 客户声明 3.10.1 的适用性仍 UNVERIFIED（承 P1 §4.5 缺口）。
 - 采集时间: 2026-09-30T20:14Z（date -u，UTC，见 e3）；探测时间戳见 e4。
 

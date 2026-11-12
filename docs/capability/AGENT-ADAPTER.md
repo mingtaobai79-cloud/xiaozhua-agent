@@ -19,20 +19,20 @@ ROADMAP-v2 §一 两级兼容 + §一.2 明令"不自研 Agent Loop/记忆/Plann
 
 | 层 | 语义 | 在盘锚点 | 现状 |
 |---|---|---|---|
-| **2小爪 版本兼容（对内）** | 客户当前仓库 = Canonical，能力定义稳定；差异走 **Version Adapter**（adapter-5.3 / 5.4 / …），Agent 不自行判版本分支 | A5 已定 Canonical=5.3.517；`registry.py` 全 5.3.517 锚点 | 目标态（Version Adapter 未建，UNVERIFIED）|
+| **xiaozhua 版本兼容（对内）** | 客户当前仓库 = Canonical，能力定义稳定；差异走 **Version Adapter**（adapter-5.3 / 5.4 / …），Agent 不自行判版本分支 | A5 已定 Canonical=5.3.517；`registry.py` 全 5.3.517 锚点 | 目标态（Version Adapter 未建，UNVERIFIED）|
 | **Agent 角色 + 能力包** | 可安装单元 = **Role + Facts + Skills + Tools + Code + Sandbox**（§二 目录骨架 `core/{role,facts,skills,tools,capabilities}` + `sandbox/`） | `core/registry.py`（ComponentRegistry，在盘）；`components/platform_operations/`（契约/写门，在盘）；`core/{role,facts,skills,tools}` 已在盘，`core/capabilities/` 仍未建 | 部分在盘（registry/契约/role/facts/skills/tools 在），`core/capabilities/` 未建（UNVERIFIED）|
-| **Agent Host 兼容（对外）** | 角色包经 **Adapter** 进入已有宿主（Hermes / Codex / Claude Code），暴露形态=MCP tool 清单 / Skill 文件 / 角色提示词包；**宿主只提供 Loop/记忆/Planner，2小爪 Agent 不自研** | ROADMAP §二 `adapters/{hermes,codex,claude-code}/`（**目录已在盘**，内容为声明级模板/清单）；**v1 adapter = `seeyon_host_bootstrap.py` 在盘**（见 §三） | 目录在盘；v1 bootstrap 在盘 |
+| **Agent Host 兼容（对外）** | 角色包经 **Adapter** 进入已有宿主（Hermes / Codex / Claude Code），暴露形态=MCP tool 清单 / Skill 文件 / 角色提示词包；**宿主只提供 Loop/记忆/Planner，xiaozhua Agent 不自研** | ROADMAP §二 `adapters/{hermes,codex,claude-code}/`（**目录已在盘**，内容为声明级模板/清单）；**v1 adapter = `xiaozhua_host_bootstrap.py` 在盘**（见 §三） | 目录在盘；v1 bootstrap 在盘 |
 
-**定稿口径**：2小爪 Agent 是"可安装角色+能力包"，宿主是"提供 Agent Loop/记忆/Planner 的既有系统"，
+**定稿口径**：xiaozhua Agent 是"可安装角色+能力包"，宿主是"提供 Agent Loop/记忆/Planner 的既有系统"，
 二者经 Adapter 解耦——宿主可换，能力包定义稳定。
 
 ---
 
-## 二、v1 adapter 实例：`seeyon_host_bootstrap`（在盘实测，非转述）
+## 二、v1 adapter 实例：`xiaozhua_host_bootstrap`（在盘实测，非转述）
 
-**位置**：仓库根 `seeyon_host_bootstrap.py`，入口 `bootstrap(*, credential_file=None, allow_network=False, …)`
+**位置**：仓库根 `xiaozhua_host_bootstrap.py`，入口 `bootstrap(*, credential_file=None, allow_network=False, …)`
 （L25）。这是 ROADMAP §一.2 "可安装角色+能力包经 Adapter 进宿主"的**在盘 v1 实例**，宿主（Hermes/CC/Codex）
-拿到它即可调 2小爪 能力。
+拿到它即可调 xiaozhua 能力。
 
 **`bootstrap()` 返回 dict（实测 L136–L149，main 已在 ROUTE L21-25 独立复核一致）**：
 
@@ -45,7 +45,7 @@ ROADMAP-v2 §一 两级兼容 + §一.2 明令"不自研 Agent Loop/记忆/Plann
 | `capabilities.readonly_only` | `True` | 只读纪律 |
 | `capabilities.credential_mode` | `"path-ref-only"` | **凭据仅路径引用，值 0 入仓** |
 | `capabilities.deployment_plan` | `"readonly data; host executes the write steps"` | 写方案 data，宿主执行 |
-| `capabilities.schema` | `"seeyon-host-bootstrap.v1"` | v1 adapter schema 标识 |
+| `capabilities.schema` | `"xiaozhua-host-bootstrap.v1"` | v1 adapter schema 标识 |
 
 **五宿主能力 → 底层契约映射（在盘）**：
 `dispatch`（意图路由）/ `generate`（建实体方案 data）/ `generate_from_requirement`（需求→实体方案）/
@@ -85,7 +85,7 @@ ROADMAP-v2 §一 两级兼容 + §一.2 明令"不自研 Agent Loop/记忆/Plann
 | `capabilities.readonly_only=True` | 宿主侧 **readonly 门禁**（写步由宿主执行） | **可复用** | 写门 `layer.py:22`（A1 §六） |
 | `capabilities.credential_mode="path-ref-only"` | 宿主 **凭据注入机制**（仅路径引用，值 0 入仓） | **可复用**（机制不变）；各宿主**凭据注入实现方式 = UNVERIFIED** | 本文只描述机制，不引凭据值 |
 | `capabilities.deployment_plan="readonly data; host executes the write steps"` | 宿主**执行写步契约**（v2 保留 agent 出 data、宿主执行） | **可复用** | deploy_plan 4 步（A3 §三 / A7 §三） |
-| `capabilities.schema="seeyon-host-bootstrap.v1"` | v2 各宿主 adapter 的 **schema 锚** | v1 schema **可复用为锚**；**v2 宿主专属 schema（hermes/codex/cc）未定义 = UNVERIFIED** | 目标态未建 |
+| `capabilities.schema="xiaozhua-host-bootstrap.v1"` | v2 各宿主 adapter 的 **schema 锚** | v1 schema **可复用为锚**；**v2 宿主专属 schema（hermes/codex/cc）未定义 = UNVERIFIED** | 目标态未建 |
 | `agent`（ComponentRegistry 实例） | 宿主可调的**能力注册/派发面** | **可复用** | `core/registry.py` 在盘 |
 | `allow_network`（默认 False） | 宿主**活体探测开关**（开才实跑） | **可复用** | §二 在盘 |
 
@@ -122,7 +122,7 @@ ROADMAP §二 目标态 `installer/`（**目录已在盘，安装器未实现** 
   "角色包 + Adapter + 暴露形态"，不写宿主 Loop；宿主能力（Loop/记忆/Planner）归宿主，不进本契约。
 - **不实现代码 / 目标态未建全标 UNVERIFIED**：各宿主传输层、`installer/` 的**实现**（目录已存在）、
   MCP 传输层、Skill 文件、角色提示词包——在盘均不存在，本节全标"目标态/未建"，不写成已实现。
-- **v1 只引在盘实测**：`seeyon_host_bootstrap.py` 返回 dict（L136–L149）与 5 能力、registry 3 组件
+- **v1 只引在盘实测**：`xiaozhua_host_bootstrap.py` 返回 dict（L136–L149）与 5 能力、registry 3 组件
   全部本轮脚本/行号实测，非转述；main 已在 ROUTE L21-25 独立复核。
 - **不新增定位/阶段/验收**：三层模型引 ROADMAP §一/§二；占位细化承接 A7 §四；写门/readonly 引 A1 §六。
 - **凭据 0 入仓**：v1 `credential_mode="path-ref-only"`（实测值），本文不引任何 token/凭据值。
@@ -136,8 +136,8 @@ ROADMAP §二 目标态 `installer/`（**目录已在盘，安装器未实现** 
 |---|---|
 | 两级兼容 + "不自研 Agent Loop/记忆/Planner/Agent OS" | ROADMAP-v2 §一.1/§一.2 |
 | 角色包（Role/Facts/Skills/Tools/Code/Sandbox）目录骨架 + `adapters/`、`installer/` | ROADMAP-v2 §二（实测 2026-11-07：`adapters/`、`installer/` **目录在盘**；其中的实现未建） |
-| v1 adapter 返回 dict + 5 宿主能力 + readonly/credential_mode 实测 | `seeyon_host_bootstrap.py` L25/L46/L119/L133/L136–L149 |
+| v1 adapter 返回 dict + 5 宿主能力 + readonly/credential_mode 实测 | `xiaozhua_host_bootstrap.py` L25/L46/L119/L133/L136–L149 |
 | registry 3 组件（integration 3 / runtime 4 / udc 12 capabilities） | `core/registry.py` ComponentRegistry（本轮脚本实测） |
 | Tool 清单→MCP / Skill 文件 / 角色提示词包 占位 | `TOOL-SKILL-MODULE.md` §四（本文细化） |
 | v1→v2 字段映射（可复用 8 项 + UNVERIFIED 未建项） | 本文 §四（v1 dict 字段引 L136–L149 实测，对齐 A7 §四 占位） |
-| 写方案 data、宿主执行写 | `seeyon_host_bootstrap.py` `capabilities.deployment_plan` + `layer.py:22` 写门（A1 §六） |
+| 写方案 data、宿主执行写 | `xiaozhua_host_bootstrap.py` `capabilities.deployment_plan` + `layer.py:22` 写门（A1 §六） |

@@ -27,7 +27,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Any
 
-SCHEMA_ID = "udc.seeyon-agent.deploy-op-catalog.v1"
+SCHEMA_ID = "udc.xiaozhua-agent.deploy-op-catalog.v1"
 
 DEPLOY_STATE_ENUM: tuple[str, ...] = ("NONE", "STOP", "RUNNING", "PENDING", "FAILED", "UNKNOWN")
 

@@ -12,7 +12,7 @@
 **`udc.entity.create`** — 建单据实体。
 - **类型**：CONFIG 型（agent 出**只读方案 data**，宿主执行写步；A3 §三/§五 口径）。
 - **位置**：`components/platform_operations/deployment.py` `build_deployment_plan()` 的 `DeploymentStep`
-  op=`udc.entity.create`（step1），经 `seeyon_host_bootstrap.deploy_plan()` 暴露给宿主。
+  op=`udc.entity.create`（step1），经 `xiaozhua_host_bootstrap.deploy_plan()` 暴露给宿主。
 - **语义**：在指定应用下创建一个 stereotype=`bill` 的单据实体（含完整单据族 features），
   返回实体 id，供后续建属性/建页/构建引用。
 

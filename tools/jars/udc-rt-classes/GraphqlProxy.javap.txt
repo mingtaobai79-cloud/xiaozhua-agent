@@ -1,4 +1,4 @@
-Classfile /<SEEYON_AGENT_ROOT>/tools/jars/udc-rt-classes/com/seeyon/boot/starter/udcrt/controller/GraphqlProxyController.class
+Classfile /<XIAOZHUA_AGENT_ROOT>/tools/jars/udc-rt-classes/com/seeyon/boot/starter/udcrt/controller/GraphqlProxyController.class
   Last modified 2026年10月1日; size 1865 bytes
   SHA-256 checksum a83c2355e040c799eddd152c43ad2d4dbc0ceb3cae444bfb892b785c5a6bcb56
   Compiled from "GraphqlProxyController.java"

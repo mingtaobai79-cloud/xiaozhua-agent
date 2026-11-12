@@ -1,8 +1,8 @@
-"""从 Hermes skills/seeyon 单向镜像到 seeyon-agent/skills。
+"""从 Hermes skills/seeyon 单向镜像到 xiaozhua-agent/skills。
 
 规则：
   权威 = <HERMES_HOME>/skills/seeyon/<层>/<skill>/
-  镜像 = <SEEYON_AGENT_ROOT>/skills/<层>/<skill>/
+  镜像 = <XIAOZHUA_AGENT_ROOT>/skills/<层>/<skill>/
 
 - 只复制 SKILL.md / references / scripts / assets / templates / config*
 - 目标多余项删除（保持结构一致，防止两处漂移）
@@ -20,8 +20,8 @@ import shutil
 import sys
 from pathlib import Path
 
-SRC = Path(r"<HERMES_HOME>\skills\seeyon")
-DST = Path(r"<SEEYON_AGENT_ROOT>\skills")
+SRC = Path(r"<HERMES_HOME>\skills\xiaozhua")
+DST = Path(r"<XIAOZHUA_AGENT_ROOT>\skills")
 
 # 不镜像的内容（Hermes 侧的运行期产物）
 IGNORE_DIRS = {"__pycache__", ".pytest_cache", "node_modules", "backups"}

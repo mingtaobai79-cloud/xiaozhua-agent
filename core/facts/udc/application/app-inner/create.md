@@ -74,5 +74,5 @@
 | 事实 | 本文件 + `app-inner-write-chain.md` |
 | 契约 | `docs/operation-contracts/udc/application/app-inner-contracts.md` |
 | 测试 | `tests/udc/test_application_app_inner_asset_layout.py` |
-| skill | `skills/seeyon-udc-application-app-inner/SKILL.md` |
+| skill | `skills/xiaozhua-udc-application-app-inner/SKILL.md` |
 | 证据 | `core/facts/udc/application/evidence/app-inner-build-2026-10-22/`（4 个 json） |

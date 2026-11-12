@@ -47,7 +47,7 @@ SUSPICIOUS = re.compile(
 
 
 def _env():
-    p = Path(r"<HERMES_HOME>\skills\seeyon\01-platform\seeyon-low-code-environment\.env")
+    p = Path(r"<HERMES_HOME>\skills\xiaozhua\01-platform\xiaozhua-low-code-environment\.env")
     env = {}
     if p.exists():
         for line in p.read_text(encoding="utf-8-sig", errors="replace").splitlines():
@@ -71,10 +71,10 @@ def main() -> int:
     from providers.mysql_readonly import MySQLConnectionAdapter
     env = _env()
     conn = MySQLConnectionAdapter(
-        host=env.get("SEEYON_DB_HOST", ""),
-        port=env.get("SEEYON_DB_PORT") or 3306,
-        user=env.get("SEEYON_DB_USERNAME", ""),
-        password=env.get("SEEYON_DB_PASSWORD", ""))
+        host=env.get("XIAOZHUA_DB_HOST", ""),
+        port=env.get("XIAOZHUA_DB_PORT") or 3306,
+        user=env.get("XIAOZHUA_DB_USERNAME", ""),
+        password=env.get("XIAOZHUA_DB_PASSWORD", ""))
     app = a.app_id
     DB = "udc_test2"
 

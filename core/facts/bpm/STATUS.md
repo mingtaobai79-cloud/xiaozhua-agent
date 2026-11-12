@@ -58,7 +58,7 @@
 
 ## 6. 新任务 bpm-live 两格记账（只增）
 
-> 本任务 = TASK-GOAL（`seeyon-engine-bpm-live`，本会话 `collaboration.json` 目标）。落盘人：implementer。时钟：2026-09-27 19:15 +0800（本机 `date` 实测）。
+> 本任务 = TASK-GOAL（`xiaozhua-engine-bpm-live`，本会话 `collaboration.json` 目标）。落盘人：implementer。时钟：2026-09-27 19:15 +0800（本机 `date` 实测）。
 > 前 5454 B 为上一任务「BPM-flow」既有记账（§1-§5 + 溯源），**逐字未动**：前 5454 B sha256 = `4075dfea56136fcca1cda4861fb16e30d5b9b9c909073073739f04ef9aec50ef`（前缀哈希法，= 本件既有整件 5454 B 整件 sha256 `4075dfea56136fcc…`）。
 
 ### 6.1 本任务新增两格（格3 / 格4）
@@ -77,7 +77,7 @@
 
 ### 6.3 本任务终态口径
 
-- TASK-GOAL（seeyon-engine-bpm-live）完成定义「2 格 + STATUS 更新 + RESULT」：格3/格4 均经 auditor 三判据 PASS（补证链完整）+ 本增记 + RESULT → 本任务达成。
+- TASK-GOAL（xiaozhua-engine-bpm-live）完成定义「2 格 + STATUS 更新 + RESULT」：格3/格4 均经 auditor 三判据 PASS（补证链完整）+ 本增记 + RESULT → 本任务达成。
 - **不写跨任务 FINAL/COMPLETE**（沿用本件 §5 口径：STATUS 为记账件，不代 main 写跨任务终态）。
 - `core/facts/INDEX.md` 对应行归主线收口，本会话不动（沿用本件 §4 既有纪律）。
 

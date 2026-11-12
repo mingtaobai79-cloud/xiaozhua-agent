@@ -30,7 +30,7 @@ TABLE = "ctp_parameter_definition"
 
 
 def env():
-    p = Path(r"<HERMES_HOME>\skills\seeyon\01-platform\seeyon-low-code-environment\.env")
+    p = Path(r"<HERMES_HOME>\skills\xiaozhua\01-platform\xiaozhua-low-code-environment\.env")
     d = {}
     for line in p.read_text(encoding="utf-8-sig", errors="replace").splitlines():
         line = line.strip()
@@ -66,9 +66,9 @@ def main() -> int:
         print(f"续跑：已完成 {len(done)}")
 
     e = env()
-    conn = MySQLConnectionAdapter(host=e.get("SEEYON_DB_HOST", ""), port=e.get("SEEYON_DB_PORT") or 3306,
-                                  user=e.get("SEEYON_DB_USERNAME", ""),
-                                  password=e.get("SEEYON_DB_PASSWORD", ""))
+    conn = MySQLConnectionAdapter(host=e.get("XIAOZHUA_DB_HOST", ""), port=e.get("XIAOZHUA_DB_PORT") or 3306,
+                                  user=e.get("XIAOZHUA_DB_USERNAME", ""),
+                                  password=e.get("XIAOZHUA_DB_PASSWORD", ""))
     client = CdpClient(a.port, allow_network=True, timeout=90)
     client.connect(url_substr="lowcode-test2")
 

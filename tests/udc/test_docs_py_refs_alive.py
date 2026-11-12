@@ -154,7 +154,7 @@ def test_gate_bites_on_a_reintroduced_dead_ref():
 # ────────────────────────────────────────────────────────────────
 # 第二部分：非 .py 资产（.md / .json / .java / .javap.txt / .jar …）
 #
-# 第 60 轮补：`e6268556` 把客户场景证据整体迁出到 `<EVIDENCE_ROOT>/seeyon-customer-evidence/`
+# 第 60 轮补：`e6268556` 把客户场景证据整体迁出到 `<EVIDENCE_ROOT>/xiaozhua-customer-evidence/`
 # （131 件 javap + 71 件前端 chunks + 1543 件元数据 dump），
 # **同样没有任何文档跟着改** —— 11 种路径 / 13 处全部指空。
 # 与 `.py` 那批的区别：这里的文件是真的不在本仓了（迁出是**正确**处置，
@@ -171,7 +171,7 @@ ASSET_REF = re.compile(
 #   ③ **计划里写了但从未产出**（必须写明「从未生成」，否则读者以为能拿到）
 RELOCATED = re.compile(r"已迁出至|已移入 `_attic|从未生成|从未产出")
 # 第 78 轮补：**「已删除」类负引用也有多种中文写法**，只认 `已删除` 会漏。
-# 实测：`seeyon-udc-custom-extension-engine/SKILL.md` 写的是
+# 实测：`xiaozhua-udc-custom-extension-engine/SKILL.md` 写的是
 #   「⚠ 早先落在这两处的资产**已作废并删除**，不要再去读：`core/facts/udc/extension/` 与
 #    `tests/udc/test_udc_extension_asset_layout.py`」
 # —— 三个词都不是 `已删除`，扫描器判成死链。这类「告诫读者别去读」的行，
@@ -182,14 +182,14 @@ ELLIPSIS_PATH = re.compile(r"`[^`]*/\.\.\./[^`]*`")
 
 # 第 74 轮补：**绝对路径形式**此前完全没被扫过。
 # `ASSET_REF` 只认 `` `docs/...` `` 这种以目录名开头的反引号路径；
-# 而代码块里写的是 `python <SEEYON_AGENT_ROOT>/tools/core/b6_x.py` ——
+# 而代码块里写的是 `python <XIAOZHUA_AGENT_ROOT>/tools/core/b6_x.py` ——
 # 既不在反引号里，也不以目录名开头，于是 27 处死引用一直躺着。
 # 实测三种成因，修法相反（同方法论 80）：
 #   ① `tools/core/b5_*.py` → 真的搬到了 `tools/audit/`（**改路径**）
 #   ② `tools/core/b6_*.py` → 进了 `_attic_pending/legacy-audit/`（**改路径到收容桶**）
 #   ③ `docs/audit/frontend/chunks/*.js` → 客户证据迁出（**只能标去向**，不能改回仓库路径）
 ABS_REF = re.compile(
-    r"D:[/\\]work[/\\]chit[/\\]seeyon-agent[/\\]"
+    r"D:[/\\]work[/\\]chit[/\\]xiaozhua-agent[/\\]"
     r"([\w/\-\.\u4e00-\u9fff]+\.(?:md|json|txt|ya?ml|jar|class|java|js|py))")
 
 
@@ -216,8 +216,8 @@ def test_no_unmarked_dead_asset_refs():
     assert not dead, (
         "文档引用了仓库内不存在的资产，且没说明它去哪了：\n  "
         + "\n  ".join("%s L%d: %s" % d for d in dead)
-        + "\n\n客户场景证据已迁出到 `<EVIDENCE_ROOT>/seeyon-customer-evidence/`，"
-          "正确修法是标「（**客户场景证据，已迁出至 `seeyon-customer-evidence/…`**）」——"
+        + "\n\n客户场景证据已迁出到 `<EVIDENCE_ROOT>/xiaozhua-customer-evidence/`，"
+          "正确修法是标「（**客户场景证据，已迁出至 `xiaozhua-customer-evidence/…`**）」——"
           "**不要改回仓库路径**（那些文件不该进分发仓）。")
 
 
@@ -310,7 +310,7 @@ def _tree_dead():
         text = f.read_text(encoding="utf-8", errors="replace")
         # ★ 豁免标记常常写在引用**前一行**（「⚠ 以下资产已作废，不要再去读：」+ 下一行才列路径）。
         #   只判当前行会把最该保留的负证据判成死链 —— 实测
-        #   `seeyon-udc-custom-extension-engine/SKILL.md` L328 是标记、L329 才是路径。
+        #   `xiaozhua-udc-custom-extension-engine/SKILL.md` L328 是标记、L329 才是路径。
         #   所以带一个「上一行的标记是否仍有效」的上下文（空行打断）。
         excuse_above = False
         for i, line in enumerate(text.splitlines(), 1):

@@ -7,7 +7,7 @@
 import re
 from pathlib import Path
 
-REPO = Path(r"<SEEYON_AGENT_ROOT>")
+REPO = Path(r"<XIAOZHUA_AGENT_ROOT>")
 MARKERS = ["docs/audit", "components", "tests"]
 
 

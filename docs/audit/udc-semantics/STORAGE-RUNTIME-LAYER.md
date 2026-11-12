@@ -3,7 +3,7 @@
 **证据**：udc pod（`udc-7cbfc587f5-*`）netstat 实证连接
 - Redis `10.0.0.1:6379`（阿里云 rds：`r-2zertbiuu892wf8jid.redis.rds.aliyuncs.com`）
 - MySQL `10.0.0.1:3306`（阿里云 rds）
-- 配置源：**Nacos**（`NACOS_ADDR=mse-c19f9232-nacos-ans.mse.aliyuncs.com:8848`，tenant `seeyon-test2`）
+- 配置源：**Nacos**（`NACOS_ADDR=mse-c19f9232-nacos-ans.mse.aliyuncs.com:8848`，tenant `xiaozhua-test2`）
 
 ## 1. Redis key 模式（LIVE scan 实证，db0 共 ~15815 key）
 
@@ -42,5 +42,5 @@
 
 ## 4. 配置源
 运行态配置（Redis/MySQL/OSS 地址）来自 **Nacos**（非本地文件、非 K8s env）：
-- 读法：`python scripts/conn.py nacos <dataId> [--group=G] [--tenant=T]`（tenant=`seeyon-test2`，group=`seeyon`）
+- 读法：`python scripts/conn.py nacos <dataId> [--group=G] [--tenant=T]`（tenant=`xiaozhua-test2`，group=`xiaozhua`）
 - 本地只保留连接*引导*信息（`.env` 的 NACOS_ADDR/USERNAME/PASSWORD + `config/environments.yaml`）

@@ -72,7 +72,7 @@ def test_reference_check_returns_validity_and_detail():
 
 
 def test_create_uses_agent_constructor_and_validator():
-    """创建路径必须走 seeyon-agent 的构造器 + 校验器（不自己拼 body）。"""
+    """创建路径必须走 xiaozhua-agent 的构造器 + 校验器（不自己拼 body）。"""
     src = TOOL.read_text(encoding="utf-8")
     assert "build_custom_object_body" in src
     assert "validate_custom_object_body" in src

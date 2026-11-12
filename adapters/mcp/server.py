@@ -1,8 +1,8 @@
-"""adapters/mcp/server.py — seeyon_host_bootstrap 五能力 → MCP 工具（stdio jsonrpc 2.0 最小实现）。
+"""adapters/mcp/server.py — xiaozhua_host_bootstrap 五能力 → MCP 工具（stdio jsonrpc 2.0 最小实现）。
 
 设计源：adapters/mcp/DESIGN.md（S1 PASS，dedupe mcp-s1-verdict）。
 边界（ROUTE）：只写 adapters/mcp/** + tests/test_mcp_server.py；禁改 bootstrap 本体；
-凭据 0 入件（路径载体 SEEYON_CRED_FILE）；默认离线（SEEYON_ALLOW_NETWORK 未设 = False）。
+凭据 0 入件（路径载体 XIAOZHUA_CRED_FILE）；默认离线（XIAOZHUA_ALLOW_NETWORK 未设 = False）。
 
 协议面（DESIGN §1.1）：每行一个 JSON-RPC 2.0 帧（\n 分隔，UTF-8）；
 method 白名单 = initialize / tools/list / tools/call（notifications/initialized 静默 ack）；
@@ -17,9 +17,9 @@ import sys
 from typing import Any, Callable
 
 PROTOCOL_VERSION = "2024-11-05"
-SERVER_INFO = {"name": "seeyon-mcp", "version": "0.1.0"}
+SERVER_INFO = {"name": "xiaozhua-mcp", "version": "0.1.0"}
 
-# bootstrap 能力键（seeyon_host_bootstrap.py 实测返回 dict 的键，DESIGN §2 表）。
+# bootstrap 能力键（xiaozhua_host_bootstrap.py 实测返回 dict 的键，DESIGN §2 表）。
 # 2026-11-08 补：bootstrap 实际返回 15 个能力，此前只接了 5 个 —— 9 个 metadata 构造器
 # （pageSchema / microflow / index / enum / dto / event / filter）全部悬空，宿主看不到。
 # schema 由 inspect 签名自动生成（`_schema_from_callable`），加一个 key 即可，不用手抄。
@@ -60,64 +60,64 @@ TOOL_KEYS = (
 )
 
 MCP_TOOL_NAMES = {
-    "dispatch": "seeyon_dispatch",
-    "generate": "seeyon_generate",
-    "generate_from_requirement": "seeyon_generate_from_requirement",
-    "live_probe": "seeyon_live_probe",
-    "deploy_plan": "seeyon_deploy_plan",
-    "list_page_schema": "seeyon_list_page_schema",
-    "detail_page_schema": "seeyon_detail_page_schema",
-    "microflow_create_body": "seeyon_microflow_create_body",
-    "index_body": "seeyon_index_body",
-    "enum_body": "seeyon_enum_body",
-    "enum_item_body": "seeyon_enum_item_body",
-    "dto_body": "seeyon_dto_body",
-    "event_body": "seeyon_event_body",
-    "filter_plan_body": "seeyon_filter_plan_body",
+    "dispatch": "xiaozhua_dispatch",
+    "generate": "xiaozhua_generate",
+    "generate_from_requirement": "xiaozhua_generate_from_requirement",
+    "live_probe": "xiaozhua_live_probe",
+    "deploy_plan": "xiaozhua_deploy_plan",
+    "list_page_schema": "xiaozhua_list_page_schema",
+    "detail_page_schema": "xiaozhua_detail_page_schema",
+    "microflow_create_body": "xiaozhua_microflow_create_body",
+    "index_body": "xiaozhua_index_body",
+    "enum_body": "xiaozhua_enum_body",
+    "enum_item_body": "xiaozhua_enum_item_body",
+    "dto_body": "xiaozhua_dto_body",
+    "event_body": "xiaozhua_event_body",
+    "filter_plan_body": "xiaozhua_filter_plan_body",
     # ---- 2026-11-09 补齐 ----
-    "enum_category_body": "seeyon_enum_category_body",
-    "event_data_body": "seeyon_event_data_body",
-    "refer_config_body": "seeyon_refer_config_body",
-    "microflow_node": "seeyon_microflow_node",
-    "microflow_gates": "seeyon_microflow_gates",
-    "microflow_capability": "seeyon_microflow_capability",
-    "expression_catalog": "seeyon_expression_catalog",
-    "custom_page_scaffold": "seeyon_custom_page_scaffold",
-    "spi_catalog": "seeyon_spi_catalog",
+    "enum_category_body": "xiaozhua_enum_category_body",
+    "event_data_body": "xiaozhua_event_data_body",
+    "refer_config_body": "xiaozhua_refer_config_body",
+    "microflow_node": "xiaozhua_microflow_node",
+    "microflow_gates": "xiaozhua_microflow_gates",
+    "microflow_capability": "xiaozhua_microflow_capability",
+    "expression_catalog": "xiaozhua_expression_catalog",
+    "custom_page_scaffold": "xiaozhua_custom_page_scaffold",
+    "spi_catalog": "xiaozhua_spi_catalog",
     # ---- 设置域 7 子域 ----
-    "option_set_category_body": "seeyon_option_set_category_body",
-    "option_set_body": "seeyon_option_set_body",
-    "option_set_item_body": "seeyon_option_set_item_body",
-    "attribute_set_body": "seeyon_attribute_set_body",
-    "attribute_set_field_body": "seeyon_attribute_set_field_body",
-    "scalability_option_body": "seeyon_scalability_option_body",
-    "scalability_field_body": "seeyon_scalability_field_body",
-    "qrcode_body": "seeyon_qrcode_body",
-    "serial_scheme_body": "seeyon_serial_scheme_body",
-    "serial_section": "seeyon_serial_section",
-    "parameter_body": "seeyon_parameter_body",
-    "excel_template_body": "seeyon_excel_template_body",
-    "excel_template_column": "seeyon_excel_template_column",
-    "capability_index": "seeyon_capability_index",
+    "option_set_category_body": "xiaozhua_option_set_category_body",
+    "option_set_body": "xiaozhua_option_set_body",
+    "option_set_item_body": "xiaozhua_option_set_item_body",
+    "attribute_set_body": "xiaozhua_attribute_set_body",
+    "attribute_set_field_body": "xiaozhua_attribute_set_field_body",
+    "scalability_option_body": "xiaozhua_scalability_option_body",
+    "scalability_field_body": "xiaozhua_scalability_field_body",
+    "qrcode_body": "xiaozhua_qrcode_body",
+    "serial_scheme_body": "xiaozhua_serial_scheme_body",
+    "serial_section": "xiaozhua_serial_section",
+    "parameter_body": "xiaozhua_parameter_body",
+    "excel_template_body": "xiaozhua_excel_template_body",
+    "excel_template_column": "xiaozhua_excel_template_column",
+    "capability_index": "xiaozhua_capability_index",
     # ---- 微流程触发器 / dataSchema ----
-    "microflow_trigger": "seeyon_microflow_trigger",
-    "microflow_data_schema": "seeyon_microflow_data_schema",
-    "entity_rule_body": "seeyon_entity_rule_body",
-    "repo_state": "seeyon_repo_state",
-    "repo_sync": "seeyon_repo_sync",
-    "code_targets": "seeyon_code_targets",
-    "project_shape": "seeyon_project_shape",
-    "repo_url": "seeyon_repo_url",
-    "app_dependency_body": "seeyon_app_dependency_body",
-    "app_dependency_remove": "seeyon_app_dependency_remove_body",
-    "app_deploy_body": "seeyon_app_deploy_body",
-    "app_version_list": "seeyon_app_version_list",
-    "app_build_info": "seeyon_app_build_info",
+    "microflow_trigger": "xiaozhua_microflow_trigger",
+    "microflow_data_schema": "xiaozhua_microflow_data_schema",
+    "entity_rule_body": "xiaozhua_entity_rule_body",
+    "repo_state": "xiaozhua_repo_state",
+    "repo_sync": "xiaozhua_repo_sync",
+    "code_targets": "xiaozhua_code_targets",
+    "project_shape": "xiaozhua_project_shape",
+    "repo_url": "xiaozhua_repo_url",
+    "app_dependency_body": "xiaozhua_app_dependency_body",
+    "app_dependency_remove": "xiaozhua_app_dependency_remove_body",
+    "app_deploy_body": "xiaozhua_app_deploy_body",
+    "app_version_list": "xiaozhua_app_version_list",
+    "app_build_info": "xiaozhua_app_build_info",
     # ---- 需显式 host+cookie ----
-    "microflow_publish": "seeyon_microflow_publish",
-    "expression_verify": "seeyon_expression_verify",
-    "expression_filter": "seeyon_expression_filter",
-    "entity_rule_publish": "seeyon_entity_rule_publish",
+    "microflow_publish": "xiaozhua_microflow_publish",
+    "expression_verify": "xiaozhua_expression_verify",
+    "expression_filter": "xiaozhua_expression_filter",
+    "entity_rule_publish": "xiaozhua_entity_rule_publish",
 }
 
 # ---- JSON-RPC 错误码（DESIGN §1.1）----
@@ -181,11 +181,11 @@ def build_tool_schemas(caps: dict[str, Callable]) -> list[dict]:
     )
 
     descriptions = {
-        "dispatch": "按 intent 路由到 seeyon-agent 组件（只读）。返回 dict 路由决策+证据（含 status）。",
+        "dispatch": "按 intent 路由到 xiaozhua-agent 组件（只读）。返回 dict 路由决策+证据（含 status）。",
         "generate": "生成 UDC 实体后端骨架+前端页面产物（声明级，方法体 UNVERIFIED；只读出数据不落库）。",
         "generate_from_requirement": "自然语言需求 → 解析(parsed)+后端骨架+前端产物（同上，只读）。",
         "live_probe": "活体只读探测 4 端点。默认离线返回 status=BLOCKED（allow_network=False）；"
-                      "活体需显式 SEEYON_ALLOW_NETWORK=1。任何离线输出不得解读为 LIVE PASS。",
+                      "活体需显式 XIAOZHUA_ALLOW_NETWORK=1。任何离线输出不得解读为 LIVE PASS。",
         "deploy_plan": "生成 4 步部署方案 data（readonly_plan=True，只读出方案；写由宿主执行）。"
                        "steps op 链：entity.create→entity.attribute.create→page.create→deploy.normal"
                        "（page.create 为 registry-gap：链级 OBSERVED_LIVE，registry 未登记）。"
@@ -341,16 +341,16 @@ class McpServer:
                  allow_network: bool | None = None, credential_file: str | None = None,
                  audit_dir: str | None = None):
         self._caps = caps  # None = 惰性 bootstrap（首次 tools/call 才装配）
-        self._allow_network = (os.environ.get("SEEYON_ALLOW_NETWORK", "") in ("1", "true", "True")
+        self._allow_network = (os.environ.get("XIAOZHUA_ALLOW_NETWORK", "") in ("1", "true", "True")
                                if allow_network is None else allow_network)
-        self._credential_file = credential_file or os.environ.get("SEEYON_CRED_FILE") or None
+        self._credential_file = credential_file or os.environ.get("XIAOZHUA_CRED_FILE") or None
         self._audit_dir = audit_dir
         self._initialized = False
 
     # -- bootstrap 惰性装配（tools/list 不触发；首次 tools/call 才要真能力）--
     def _ensure_caps(self) -> dict[str, Callable]:
         if self._caps is None:
-            from seeyon_host_bootstrap import bootstrap
+            from xiaozhua_host_bootstrap import bootstrap
             caps = bootstrap(credential_file=self._credential_file,
                              allow_network=self._allow_network,
                              audit_dir=self._audit_dir)
@@ -366,7 +366,7 @@ class McpServer:
 
     def _on_tools_list(self, params: dict) -> dict:
         # tools/list 不触发 bootstrap：schema 生成只需签名+常量（DESIGN §2.2）
-        from seeyon_host_bootstrap import bootstrap
+        from xiaozhua_host_bootstrap import bootstrap
         dummy = bootstrap(credential_file=None, allow_network=False, audit_dir=None)
         return {"tools": build_tool_schemas({k: dummy[k] for k in TOOL_KEYS})}
 

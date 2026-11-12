@@ -9,9 +9,9 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-ROOT = Path("<SEEYON_AGENT_ROOT>")
+ROOT = Path("<XIAOZHUA_AGENT_ROOT>")
 D = ROOT / "docs/audit/artifacts/extension-surface-20261029"
-OUT = ROOT / "skills/02-udc/seeyon-extension-usage/references/evidence-index.md"
+OUT = ROOT / "skills/02-udc/xiaozhua-extension-usage/references/evidence-index.md"
 
 
 def size(p: Path) -> str:
@@ -94,7 +94,7 @@ def main() -> int:
         "## 三、重跑命令（按依赖顺序）",
         "",
         "```bash",
-        "cd <SEEYON_AGENT_ROOT>",
+        "cd <XIAOZHUA_AGENT_ROOT>",
         "",
         "# 0) 实现 jar（只跑一次；已下到 <MAVEN_REPO>-extra）",
         "python tools/core/platform/fetch_biz_jars.py \\",

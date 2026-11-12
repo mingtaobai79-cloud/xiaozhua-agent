@@ -6,7 +6,7 @@ from typing import Any, Mapping
 
 
 _ALLOWED_METHODS = frozenset({"GET", "POST"})
-# GET=标准只读；POST=Seeyon UDC 只读端点的 HTTP 方法（如 /udc-runtime/meta-data/*），
+# GET=标准只读；POST=xiaozhua UDC 只读端点的 HTTP 方法（如 /udc-runtime/meta-data/*），
 # 业务只读语义由 PlatformOperationLayer 契约(write=False)+调用方保证，非写方法。
 # 写方法 PUT/PATCH/DELETE 仍拒。
 

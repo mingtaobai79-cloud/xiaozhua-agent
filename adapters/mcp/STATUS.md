@@ -3,20 +3,20 @@
 > ## 【当前 2026-11-08 更正】工具面 5 → **14**
 >
 > 本文下半部分（2026-09-28 时点）写的「五工具」是**当时**的实装面。此后发现：
-> `seeyon_host_bootstrap.bootstrap()` 一直返回 **15 个能力**，而 `server.py` 的 `TOOL_KEYS`
+> `xiaozhua_host_bootstrap.bootstrap()` 一直返回 **15 个能力**，而 `server.py` 的 `TOOL_KEYS`
 > 只接了 5 个 —— **9 个 metadata 构造器在宿主侧完全看不见**：
 >
 > | 新增 tool | bootstrap 键 | 实测产出 |
 > |---|---|---|
-> | `seeyon_list_page_schema` | `list_page_schema` | 4,612 B（`pageType=SEARCH_LIST` + 列定义 + `unverified_fields`） |
-> | `seeyon_detail_page_schema` | `detail_page_schema` | 2,966 B（`UdcForm SINGLE` + 子页） |
-> | `seeyon_filter_plan_body` | `filter_plan_body` | 1,150 B（`body` + `note`） |
-> | `seeyon_microflow_create_body` | `microflow_create_body` | 467 B（`dataSchema` 字符串化） |
-> | `seeyon_dto_body` | `dto_body` | 402 B |
-> | `seeyon_enum_body` | `enum_body` | 266 B |
-> | `seeyon_event_body` | `event_body` | 206 B |
-> | `seeyon_enum_item_body` | `enum_item_body` | 197 B（`itemValue`/`parentId` 槽位保留） |
-> | `seeyon_index_body` | `index_body` | 57 B |
+> | `xiaozhua_list_page_schema` | `list_page_schema` | 4,612 B（`pageType=SEARCH_LIST` + 列定义 + `unverified_fields`） |
+> | `xiaozhua_detail_page_schema` | `detail_page_schema` | 2,966 B（`UdcForm SINGLE` + 子页） |
+> | `xiaozhua_filter_plan_body` | `filter_plan_body` | 1,150 B（`body` + `note`） |
+> | `xiaozhua_microflow_create_body` | `microflow_create_body` | 467 B（`dataSchema` 字符串化） |
+> | `xiaozhua_dto_body` | `dto_body` | 402 B |
+> | `xiaozhua_enum_body` | `enum_body` | 266 B |
+> | `xiaozhua_event_body` | `event_body` | 206 B |
+> | `xiaozhua_enum_item_body` | `enum_item_body` | 197 B（`itemValue`/`parentId` 槽位保留） |
+> | `xiaozhua_index_body` | `index_body` | 57 B |
 >
 > schema 仍由 `_schema_from_callable()` 的 inspect 签名自动生成，**没有手抄**；
 > 只对两处做 override：`microflow_create_body.data_schema`（`Any` 会被兜底成 `string`，实际吃 dict）、
@@ -42,16 +42,16 @@
 
 ## 五工具（schema 自动生成，两条源：inspect 签名 + deployment.py 常量）
 
-`seeyon_dispatch` / `seeyon_generate` / `seeyon_generate_from_requirement` / `seeyon_live_probe` / `seeyon_deploy_plan`
+`xiaozhua_dispatch` / `xiaozhua_generate` / `xiaozhua_generate_from_requirement` / `xiaozhua_live_probe` / `xiaozhua_deploy_plan`
 - 枚举非手抄：`stereotype←STEREO_TYPES`、`deploy_type←DEPLOY_TYPES`、`dataType←DATATYPES`（import 常量，非复制）
 - `attributes[]` 元素 schema（name 必填/caption?/dataType? enum+推断说明）
-- 离线默认传导：`SEEYON_ALLOW_NETWORK` 未设=False → `bootstrap(allow_network=False)` → `live_probe` 返回 BLOCKED/SKIPPED（绝不 PASS）
-- 凭据 path-ref-only：`SEEYON_CRED_FILE` 环境变量或 `live_probe(cred_file=)` 参数，值 0 入件
+- 离线默认传导：`XIAOZHUA_ALLOW_NETWORK` 未设=False → `bootstrap(allow_network=False)` → `live_probe` 返回 BLOCKED/SKIPPED（绝不 PASS）
+- 凭据 path-ref-only：`XIAOZHUA_CRED_FILE` 环境变量或 `live_probe(cred_file=)` 参数，值 0 入件
 
 ## 验收证据（实测，非转述）
 
 1. **测试绿**：`pytest tests/test_mcp_server.py -q` → **19 passed**；全仓 `pytest -q` → **395 passed**（376+19，文档计数已同步 8 文件，文档契约测试 PASS）
-2. **server 可起**（stdio 实跑 3 帧）：initialize → protocolVersion=2024-11-05 + serverInfo seeyon-mcp/0.1.0；tools/list → 恰 5 工具名集正确；tools/call(seeyon_dispatch unknown) → `status=UNAVAILABLE`（离线路径，非崩溃）
+2. **server 可起**（stdio 实跑 3 帧）：initialize → protocolVersion=2024-11-05 + serverInfo xiaozhua-mcp/0.1.0；tools/list → 恰 5 工具名集正确；tools/call(xiaozhua_dispatch unknown) → `status=UNAVAILABLE`（离线路径，非崩溃）
 3. **写门不破**：无任何写工具暴露；`deploy_plan` 只返回 `readonly_plan=True` 方案 data
 
 ## 设计偏差如实登记（实码语义优先于设计稿措辞）

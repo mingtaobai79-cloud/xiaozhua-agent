@@ -3,7 +3,7 @@
 > ⚠️ **已被取代**：本文件是 v1（S1–S6，op 数 346）。最新结论见 `FRONTEND-EXTRACTION-STATUS-v2.md`
 > （op 并集 456、action 命名空间 6 个/55 方法）。本文件保留作历史记录，数字勿再引用。
 
-> 日期：2026-10-13 | 主线：`<SEEYON_AGENT_ROOT>`
+> 日期：2026-10-13 | 主线：`<XIAOZHUA_AGENT_ROOT>`
 > 前端资产：`<HERMES_HOME>/cache/scratch/udc-frontend/`（158 chunk + 99 解包目录）
 > 证据：STATIC（chunk 字节码 + wakaru 解包近源码）
 

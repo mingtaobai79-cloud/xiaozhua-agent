@@ -23,7 +23,7 @@ if str(REPO) not in sys.path:
 
 @pytest.fixture(scope="module")
 def caps():
-    from seeyon_host_bootstrap import bootstrap
+    from xiaozhua_host_bootstrap import bootstrap
     return bootstrap()
 
 
@@ -68,7 +68,7 @@ CASES = {
                  ("ok", "url")),
 
     # ---- application（应用内功能页：依赖/构建/版本）----
-    "app_dependency_body": ({"app_id": APP, "dep_app_name": "seeyon-notice",
+    "app_dependency_body": ({"app_id": APP, "dep_app_name": "xiaozhua-notice",
                              "dep_app_caption": "公告应用",
                              "dep_app_version": "5.3.98"},
                             ("op", "body", "dependentAppType")),
@@ -227,7 +227,7 @@ def test_credential_tools_expose_all_auth_entries():
     导出 token 到本地再重放，等于把用户身份复制一份。
     """
     import inspect
-    from seeyon_host_bootstrap import bootstrap
+    from xiaozhua_host_bootstrap import bootstrap
     b = bootstrap()
     for key in ("microflow_publish", "expression_verify", "expression_filter",
                 "entity_rule_publish"):
@@ -238,7 +238,7 @@ def test_credential_tools_expose_all_auth_entries():
 
 def test_entity_rule_publish_refuses_without_any_auth():
     """无 cdp_port 也无 host+cookie 时必须拒绝，不能静默跑。"""
-    from seeyon_host_bootstrap import bootstrap
+    from xiaozhua_host_bootstrap import bootstrap
     b = bootstrap()
     dto = b["entity_rule_body"]("1", "2", "r1", group_type=1)
     r = b["entity_rule_publish"](dto)
@@ -284,7 +284,7 @@ def test_app_dependency_remove_paths_differ(caps):
 def test_app_dependency_remove_rejects_non_numeric_row_id(caps):
     """传 appId / depAppName 当 row_id 必须被拒 —— 平台不报错但删不掉，是实测踩过的坑。"""
     with pytest.raises(ValueError):
-        caps["app_dependency_remove"]("seeyon-notice")
+        caps["app_dependency_remove"]("xiaozhua-notice")
 
 
 def test_repo_url_refuses_without_git_base():
@@ -293,7 +293,7 @@ def test_repo_url_refuses_without_git_base():
     这是 2026-11-10 的实际教训：把 gitlab.<客户域名>/extend-<env> 写死，
     换环境直接 404，且报「仓库不存在」把人带偏。
     """
-    from seeyon_host_bootstrap import bootstrap
+    from xiaozhua_host_bootstrap import bootstrap
     r = bootstrap()["repo_url"]("demo", "")
     assert r["ok"] is False
     assert "git_base" in r["reason"]
@@ -302,7 +302,7 @@ def test_repo_url_refuses_without_git_base():
 
 def test_code_targets_custom_page_path_and_restart_warning():
     """自定义页面必须给出正确路径、路由，并提示重启 dev server。"""
-    from seeyon_host_bootstrap import bootstrap
+    from xiaozhua_host_bootstrap import bootstrap
     t = bootstrap()["code_targets"]("custom_page", "demoApp", page_url="myPage")
     assert t["files"][0]["path"] == "pc/src/pages/myPage/customPage.tsx"
     assert t["route"].endswith("/demoApp/myPage")
@@ -311,7 +311,7 @@ def test_code_targets_custom_page_path_and_restart_warning():
 
 def test_code_targets_spi_points_at_extend_only():
     """SPI 落点只能是 extend/，且必须提示「扩展点要自己注册」。"""
-    from seeyon_host_bootstrap import bootstrap
+    from xiaozhua_host_bootstrap import bootstrap
     t = bootstrap()["code_targets"]("spi", "demoApp", backend_dir=".",
                                     extension_point="Importable")
     assert "extend" in t["files"][0]["path"]
@@ -320,14 +320,14 @@ def test_code_targets_spi_points_at_extend_only():
 
 def test_project_shape_unknown_for_missing_dir():
     """目录不存在时必须回 UNKNOWN，不能崩、不能瞎猜五模块。"""
-    from seeyon_host_bootstrap import bootstrap
+    from xiaozhua_host_bootstrap import bootstrap
     r = bootstrap()["project_shape"]("/nonexistent/path/xyz")
     assert r["shape"] == "UNKNOWN"
 
 
 def test_repo_state_rejects_non_repo():
     """不是 git 仓库时必须回 ok=False + reason，不能假装成功。"""
-    from seeyon_host_bootstrap import bootstrap
+    from xiaozhua_host_bootstrap import bootstrap
     r = bootstrap()["repo_state"]("/nonexistent/repo/xyz")
     assert r["ok"] is False
     assert "reason" in r
@@ -336,7 +336,7 @@ def test_repo_state_rejects_non_repo():
 def test_repo_state_is_readonly():
     """repo_state 不得暴露任何写动作 —— commit/push 必须走单独入口并显式确认。"""
     import inspect
-    from seeyon_host_bootstrap import bootstrap
+    from xiaozhua_host_bootstrap import bootstrap
     sig = inspect.signature(bootstrap()["repo_state"])
     names = set(sig.parameters)
     for forbidden in ("commit", "push", "action", "force", "confirm"):
@@ -346,7 +346,7 @@ def test_repo_state_is_readonly():
 
 def test_repo_sync_requires_confirm():
     """没有 confirm=True 时必须拒绝 —— 写能力不得默认可用。"""
-    from seeyon_host_bootstrap import bootstrap
+    from xiaozhua_host_bootstrap import bootstrap
     r = bootstrap()["repo_sync"](".", "commit", False, "msg", ["x"])
     assert r["ok"] is False
     assert "confirm" in r["reason"]
@@ -354,7 +354,7 @@ def test_repo_sync_requires_confirm():
 
 def test_repo_sync_rejects_bulk_add():
     """commit 拒绝对全量通配 —— 一个 add -A 会把别的会话改动一起带进提交。"""
-    from seeyon_host_bootstrap import bootstrap
+    from xiaozhua_host_bootstrap import bootstrap
     b = bootstrap()
     for bad in (["."], ["-A"], ["*"], []):
         r = b["repo_sync"](".", "commit", True, "msg", bad)
@@ -362,7 +362,7 @@ def test_repo_sync_rejects_bulk_add():
 
 
 def test_repo_sync_rejects_unknown_action():
-    from seeyon_host_bootstrap import bootstrap
+    from xiaozhua_host_bootstrap import bootstrap
     r = bootstrap()["repo_sync"](".", "rm", True)
     assert r["ok"] is False
     assert "pull" in r["reason"]
@@ -370,11 +370,11 @@ def test_repo_sync_rejects_unknown_action():
 
 def test_repo_sync_required_confirm_in_schema():
     """confirm 必须进 inputSchema.required —— 有默认值就等于默认可写。"""
-    from seeyon_host_bootstrap import bootstrap
+    from xiaozhua_host_bootstrap import bootstrap
     from adapters.mcp.server import TOOL_KEYS, build_tool_schemas
     b = bootstrap()
     sch = {s["name"]: s for s in build_tool_schemas({k: b[k] for k in TOOL_KEYS})}
-    req = set(sch["seeyon_repo_sync"]["inputSchema"].get("required") or [])
+    req = set(sch["xiaozhua_repo_sync"]["inputSchema"].get("required") or [])
     assert "confirm" in req, "confirm 必须必填，实际 required=%s" % sorted(req)
 
 
@@ -387,7 +387,7 @@ def test_entity_rule_type_is_entity_rule_not_entity():
 
     这条以前只断言字段存在，没断言值 —— 所以错误的枚举一路进了工具面。
     """
-    from seeyon_host_bootstrap import bootstrap
+    from xiaozhua_host_bootstrap import bootstrap
     dto = bootstrap()["entity_rule_body"]("1", "2", "r1", "规则1", group_type=1)
     assert dto["type"] == "ENTITY_RULE", (
         "type 必须是 ENTITY_RULE，实际 %r —— 写 ENTITY 平台会 BOOT_3002" % dto["type"])
@@ -395,7 +395,7 @@ def test_entity_rule_type_is_entity_rule_not_entity():
 
 def test_entity_rule_group_type_maps_and_state_release():
     """groupType 三种取值 + state 默认 20（RELEASE）。"""
-    from seeyon_host_bootstrap import bootstrap
+    from xiaozhua_host_bootstrap import bootstrap
     b = bootstrap()
     for gt in (1, 2, 3):
         d = b["entity_rule_body"]("1", "2", "r%s" % gt, group_type=gt)
@@ -412,7 +412,7 @@ def test_serial_section_type_rejects_increase():
     自增语义在 SerialSectionDto.increase（Boolean）上，不在 type 上。
     """
     import pytest
-    from seeyon_host_bootstrap import bootstrap
+    from xiaozhua_host_bootstrap import bootstrap
     b = bootstrap()
     with pytest.raises(ValueError) as e:
         b["serial_section"](6, "INCREASE")
@@ -427,7 +427,7 @@ def test_serial_scheme_requires_exactly_one_serial_section():
     实测只传一个 CONSTANT 段就报这个。
     """
     import pytest
-    from seeyon_host_bootstrap import bootstrap
+    from xiaozhua_host_bootstrap import bootstrap
     b = bootstrap()
     const_only = [b["serial_section"](4, "CONSTANT", value="ZZVF")]
     with pytest.raises(ValueError) as e:
@@ -447,7 +447,7 @@ def test_serial_scheme_type_rejects_entity():
     2026-11-10 实测传 ENTITY 报 BOOT_3002 —— ENTITY 是段的类型，不是方案的类型。
     """
     import pytest
-    from seeyon_host_bootstrap import bootstrap
+    from xiaozhua_host_bootstrap import bootstrap
     b = bootstrap()
     secs = [b["serial_section"](4, "CONSTANT", value="ZZVF"),
             b["serial_section"](6, "SERIAL", fill_char="0")]
@@ -462,7 +462,7 @@ def test_refer_config_body_has_no_unknowns_key():
     caption / appId / entityId / type / referConfigDetail / operationLog。
     unknowns 是工具自己的"未确认项"记录，以前被塞进 body 一起发给平台。
     """
-    from seeyon_host_bootstrap import bootstrap
+    from xiaozhua_host_bootstrap import bootstrap
     d = bootstrap()["refer_config_body"](
         "1", "2", "关联1", "List", {"PC": {"config": {}, "display_name": []}})
     assert "unknowns" not in d, "body 不能带 unknowns，平台 DTO 没有这个字段"
@@ -477,7 +477,7 @@ def test_refer_config_type_rejects_entity():
     以前传错值只记 unknowns 不报错，错误的值一路发给平台。
     """
     import pytest
-    from seeyon_host_bootstrap import bootstrap
+    from xiaozhua_host_bootstrap import bootstrap
     with pytest.raises(ValueError) as e:
         bootstrap()["refer_config_body"]("1", "2", "x", "ENTITY", {"PC": {}})
     assert "List" in str(e.value) and "TreeList" in str(e.value)
@@ -491,7 +491,7 @@ def test_dto_attribute_uses_notNull_not_isNotNull():
     无 @JsonProperty（javap -v 查无），所以 key 就是 getter 推出来的 notNull。
     用 isNotNull 平台完全不认，非空约束静默丢失。
     """
-    from seeyon_host_bootstrap import bootstrap
+    from xiaozhua_host_bootstrap import bootstrap
     dto = bootstrap()["dto_body"]("1", "D", "ZzDto",
                                   [{"name": "f1", "caption": "F1", "notNull": True}])[0]
     attr = dto["attributes"][0]
@@ -503,7 +503,7 @@ def test_dto_attribute_uses_notNull_not_isNotNull():
 
 def test_dto_attribute_keeps_parent_class_fields():
     """name / caption / dataType 来自父类 BaseUdcAttributeDto，必须保留。"""
-    from seeyon_host_bootstrap import bootstrap
+    from xiaozhua_host_bootstrap import bootstrap
     d = bootstrap()["dto_body"]("1", "D", "ZzDto",
                                 [{"name": "f2", "caption": "字段2", "dataType": "INTEGER"}])[0]
     a = d["attributes"][0]
