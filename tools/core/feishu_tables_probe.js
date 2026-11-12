@@ -1,6 +1,6 @@
 // 查 base 内其他 table 的名字（block_info / ssr_cache_info / table meta）
 const puppeteer = require('D:/software/hermes/node/node_modules/puppeteer');
-const OUT = 'D:/work/chit/seeyon-agent/docs/audit/evidence/feishu-base';
+const OUT = 'D:/work/chit/xiaozhua-agent/docs/audit/evidence/feishu-base';
 const fs = require('fs');
 const TOKEN = 'VJllbmPzqaApOQsAe5xctJc2nXe';
 const TABLES = ['tblqrIj6UB6kWpGF', 'tblm5rHNgXNkbYCT', 'tblh2Mjfuz5K2VJo', 'tblB3NT2F9gRSJBt'];

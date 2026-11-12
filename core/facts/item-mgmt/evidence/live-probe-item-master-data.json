@@ -1,5 +1,5 @@
 {
-  "probe": "item-mgmt item-master-data readonly (Seeyon UDC 物料/主数据 只读面)",
+  "probe": "item-mgmt item-master-data readonly (Xiaozhua UDC 物料/主数据 只读面)",
   "clock_local": "2026-09-29T12:48:38+0800",
   "clock_epoch": 1790657318,
   "env": "test2",

@@ -13,7 +13,7 @@ metadata:
 
 # V8 平台补丁部署（v8patchctl）
 
-给致远 V8 低代码平台的环境打官方补丁包（如 organization 5.3.601）的完整流程。覆盖：拉包、校验、v8patchctl 上传、skopeo policy.json 修复、工具安装、发布验证。
+给V8 低代码平台的环境打官方补丁包（如 organization 5.3.601）的完整流程。覆盖：拉包、校验、v8patchctl 上传、skopeo policy.json 修复、工具安装、发布验证。
 
 **本 SKILL 不写死环境名/IP/路径**：env 名（如 test2/uat）、目标机器、namespace、kubeconfig 路径、补丁包存放目录，全部以现场实际为准，每次任务先探测再执行（见 §0 现场探测）。流程本身是通用的，任何一套 V8 环境都照这个走。
 

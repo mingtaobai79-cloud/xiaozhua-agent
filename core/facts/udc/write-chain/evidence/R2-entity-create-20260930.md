@@ -2,7 +2,7 @@
 
 > 性质：写路径 R2（建实体）环 LIVE 证据。main 裁定 R1 = 设计态草稿面 PASS 后发 R2 HANDOFF
 > （dedupe=`r2-entity-handoff-v1`，session `session-20260930-152536-efab788e`）。
-> 仓库 `<SEEYON_AGENT_ROOT>`，HEAD `cf45180`。test2 镜像 5.3.496。
+> 仓库 `<XIAOZHUA_AGENT_ROOT>`，HEAD `cf45180`。test2 镜像 5.3.496。
 > **终态：R2 = LIVE PASS**（实体 + ≥1 字段建成，双回读命中同一目标，非空业务样本，traceId 在盘）。
 > 凭据 0 入件（§8 自检）。
 

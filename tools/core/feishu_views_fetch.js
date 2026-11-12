@@ -1,7 +1,7 @@
 // 拉取 待修改-汇总 / 汇总 / 挂起 视图的 clientvars，看分组(by)与顺序
 const puppeteer = require('D:/software/hermes/node/node_modules/puppeteer');
 const fs = require('fs');
-const OUT = 'D:/work/chit/seeyon-agent/docs/audit/evidence/feishu-base';
+const OUT = 'D:/work/chit/xiaozhua-agent/docs/audit/evidence/feishu-base';
 const TOKEN = 'VJllbmPzqaApOQsAe5xctJc2nXe';
 const TBL = 'tblqrIj6UB6kWpGF';
 const VIEWS = { vew2YbbsTY: '待修改-汇总', vewUHHFITx: '汇总', vewQaFD315: '挂起' };

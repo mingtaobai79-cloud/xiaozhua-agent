@@ -1,6 +1,6 @@
 ---
 name: xiaozhua-low-code-environment
-description: 连接并操作致远低代码环境的 Redis、MySQL、Kubernetes、Nacos 与跳板机；统一入口 + 客户配置隔离。
+description: 连接并操作低代码环境的 Redis、MySQL、Kubernetes、Nacos 与跳板机；统一入口 + 客户配置隔离。
 version: 0.3.0
 author: operator-a, Hermes Agent
 license: MIT
@@ -11,13 +11,13 @@ metadata:
     related_skills: [xiaozhua-udc-runtime, xiaozhua-platform-operation]
 ---
 
-本 Skill 是所有「致远低代码环境连接与运维操作」的入口：连服务器、看日志、查库、查缓存、查配置。UDC 运行态/生成机制/版本化 jar 审计用 `xiaozhua-udc-runtime`；平台 API 安全操作见 `xiaozhua-platform-operation`。
+本 Skill 是所有「低代码环境连接与运维操作」的入口：连服务器、看日志、查库、查缓存、查配置。UDC 运行态/生成机制/版本化 jar 审计用 `xiaozhua-udc-runtime`；平台 API 安全操作见 `xiaozhua-platform-operation`。
 
 **设计原则：SKILL.md 不含任何客户/环境字面量。** 主机、端口、账号、认证方式、命名空间、库名、应用 ID 一律来自 `config/`，由 `scripts/` 解析后使用。换客户 = 换配置文件，不改 SKILL.md。
 
 ## When to Use
 
-- 用户要求连接某致远低代码环境的 Redis / MySQL / Kubernetes / Nacos。
+- 用户要求连接某低代码环境的 Redis / MySQL / Kubernetes / Nacos。
 - 用户要求查看某环境的 Pod、日志、配置、资源状态。
 - 用户要求通过 SSH 访问环境跳板机。
 - 用户要求对指定环境执行明确的数据库、缓存或 Kubernetes 操作。

@@ -3,8 +3,8 @@
 > 观测面: Nacos 配置面（本地直连，不经 SSH 跳板）
 > 采集时间: 2026-09-30T19:28Z（`date -u` 实测，UTC）
 > 通道: 本地直连 `mse-c19f9232-nacos-ans.mse.aliyuncs.com:8848`（解析 10.0.0.1；只读 GET，未提供任何 accessToken 亦未抄任何凭据）
-> 端点与请求形态: `GET http://mse-c19f9232-nacos-ans.mse.aliyuncs.com:8848/nacos/v1/cs/configs?dataId=public&group=seeyon&tenant=seeyon-test2` → HTTP 200，正文 13589 B / 225 行
-> 辅助面: `GET /nacos/v1/console/namespaces` → HTTP 200（namespace 列表，`seeyon-test2` configCount=74，坐实 dataId=public/group=seeyon 读取形态有效）
+> 端点与请求形态: `GET http://mse-c19f9232-nacos-ans.mse.aliyuncs.com:8848/nacos/v1/cs/configs?dataId=public&group=seeyon&tenant=xiaozhua-test2` → HTTP 200，正文 13589 B / 225 行
+> 辅助面: `GET /nacos/v1/console/namespaces` → HTTP 200（namespace 列表，`xiaozhua-test2` configCount=74，坐实 dataId=public/group=seeyon 读取形态有效）
 > 凭据纪律: password / username / license-key / license-info / accessToken / artifactory URL 等敏感值一律 `<REDACTED>`，0 值入件（仅保留键名与结构值 true/false/整数/type）。
 
 ## 1. 逐字摘录（仅 SPI 相关键，敏感值脱敏）

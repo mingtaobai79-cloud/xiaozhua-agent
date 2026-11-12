@@ -50,16 +50,16 @@ projects:
         primary: app9000000000000000001
         shared: [udc, public, public-common, public-system]
     key_refs:                       # 键名→来源 dataId（值不入库，运行态经 Nacos 只读取）
-      datasource.database: {value_hint: 9000000000000000001_uat, source: primary/seeyon/seeyon-uat}
-      datasource.url:              {source: public/seeyon/seeyon-uat}
-      datasource.username:         {value_hint: low_code, source: public/seeyon/seeyon-uat}
-      datasource.password:         {redacted: true, source: public/seeyon/seeyon-uat}
-      cache.redis-nodes:           {source: public/seeyon/seeyon-uat}
-      cache.redis-password:        {redacted: true, source: public/seeyon/seeyon-uat}
-      storage.oss.private-bucket-name: {value_hint: xiaozhua-private-uat, source: public/seeyon/seeyon-uat}
-      storage.oss.api-endpoint:    {source: public/seeyon/seeyon-uat}
-      autocode.frontDomain:        {value_hint: http://lowcode-uat.example.com, source: udc/seeyon/seeyon-uat}
-      udc.tenantId:                {value_hint: "-8112660841495312922", source: primary/seeyon/seeyon-uat}
+      datasource.database: {value_hint: 9000000000000000001_uat, source: primary/seeyon/xiaozhua-uat}
+      datasource.url:              {source: public/seeyon/xiaozhua-uat}
+      datasource.username:         {value_hint: low_code, source: public/seeyon/xiaozhua-uat}
+      datasource.password:         {redacted: true, source: public/seeyon/xiaozhua-uat}
+      cache.redis-nodes:           {source: public/seeyon/xiaozhua-uat}
+      cache.redis-password:        {redacted: true, source: public/seeyon/xiaozhua-uat}
+      storage.oss.private-bucket-name: {value_hint: xiaozhua-private-uat, source: public/seeyon/xiaozhua-uat}
+      storage.oss.api-endpoint:    {source: public/seeyon/xiaozhua-uat}
+      autocode.frontDomain:        {value_hint: http://lowcode-uat.example.com, source: udc/seeyon/xiaozhua-uat}
+      udc.tenantId:                {value_hint: "-8112660841495312922", source: primary/seeyon/xiaozhua-uat}
 
   # 对照 app
   znxmglptcopy5791640252914287064:
@@ -74,9 +74,9 @@ projects:
         primary: znxmglptcopy5791640252914287064
         shared: [udc, public, public-common, public-system]
     key_refs:
-      datasource.database: {value_hint: znxmglptcopy5791640252914287064_test2, source: primary/seeyon/seeyon-test2}
-      storage.oss.private-bucket-name: {value_hint: xiaozhua-private-test2, source: public/seeyon/seeyon-test2}
-      autocode.frontDomain: {value_hint: http://lowcode-test2.example.com, source: udc/seeyon/seeyon-test2}
+      datasource.database: {value_hint: znxmglptcopy5791640252914287064_test2, source: primary/seeyon/xiaozhua-test2}
+      storage.oss.private-bucket-name: {value_hint: xiaozhua-private-test2, source: public/seeyon/xiaozhua-test2}
+      autocode.frontDomain: {value_hint: http://lowcode-test2.example.com, source: udc/seeyon/xiaozhua-test2}
 
 # ─── S6-CONFIG-PROJECTS-MERGE: nacos_endpoints 段（U6 建议件配套建议逐字并入）──
 nacos_endpoints:

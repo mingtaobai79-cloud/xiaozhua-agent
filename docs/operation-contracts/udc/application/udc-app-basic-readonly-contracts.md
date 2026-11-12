@@ -27,7 +27,7 @@
    - class: com.seeyon.boot.starter.udcrt.controller.CustomApplicationController, method: selectListByConditions(Map,Sort)
    - class_sha256=d3e82d8bbc65dc92d5f9d30532159f1d10169f2aef1eae6ab67c70d7ad75ae55
    - javap 证据: docs/audit/artifacts/udc-app-basic/CustomApplicationController.javap.txt
-7. LIVE 回读条件（本轮不做，仅写需要；凭据缺口=已解决）: 需可登录的致远 V8 网关环境，凭据引用 config/environments.yaml#environments.test2.credential.file（值不入仓/不入日志），网关基址=同文件 gateway_base，appId=default_app_id，prefix=gateway_prefix_template，test2 镜像版本=udc_image_version（与本地 5.3.517 为两个证据单元，禁混写）；另需 udcAppDesigner/AppAdmin 角色；对同一 conditions Map 回读两次，断言 ListResponse.data 非空且 CustomApplicationDto identity 字段稳定（identity_matches）。
+7. LIVE 回读条件（本轮不做，仅写需要；凭据缺口=已解决）: 需可登录的V8 网关环境，凭据引用 config/environments.yaml#environments.test2.credential.file（值不入仓/不入日志），网关基址=同文件 gateway_base，appId=default_app_id，prefix=gateway_prefix_template，test2 镜像版本=udc_image_version（与本地 5.3.517 为两个证据单元，禁混写）；另需 udcAppDesigner/AppAdmin 角色；对同一 conditions Map 回读两次，断言 ListResponse.data 非空且 CustomApplicationDto identity 字段稳定（identity_matches）。
    【层次】契约 1/2 udc.application.search.* = 应用对象元数据查询面（custom-app 查询）；是否 = 已证 meta-data/* 首选读写面 UNVERIFIED（五层 设计态配置/运行态元数据/生成物/物理表/Redis 不可互相顶替）。
 
 ## 契约 2: udc.application.search.page

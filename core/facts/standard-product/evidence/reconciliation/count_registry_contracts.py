@@ -6,7 +6,7 @@ Pure static/in-process: no network, no host, no HTTP.
 import sys, json
 from collections import Counter, defaultdict
 
-REPO = r"<SEEYON_AGENT_ROOT>"
+REPO = r"<XIAOZHUA_AGENT_ROOT>"
 sys.path.insert(0, REPO)
 
 from components.platform_operations.registry import UdcOperationRegistry

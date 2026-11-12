@@ -11,7 +11,7 @@
 命令（脱敏形态，单条会话内链式只读）:
 
 ```
-ssh -i skills/devops/seeyon-low-code-environment/low-code-test.pem \
+ssh -i skills/devops/xiaozhua-low-code-environment/low-code-test.pem \
     -o BatchMode=yes -o ConnectTimeout=20 <test2 中间服务器> \
   'date -u; POD=$(kubectl --kubeconfig=configtest2 get pods -o name | grep ctp-user | head -1);
    kubectl --kubeconfig=configtest2 get pods -o wide | grep -E "NAME|ctp-user";
@@ -46,7 +46,7 @@ ssh -i skills/devops/seeyon-low-code-environment/low-code-test.pem \
 | §1 | `/app/ctp-user-assemble.jar`（219MB Spring Boot fully-executable）BOOT-INF/lib 含 `boot-starter-spi-5.3.358.jar` + `boot-spi-5.3.260.jar` | 未复现 |
 | §2 | boot-starter-spi `META-INF/spring.factories` = `EnableAutoConfiguration=com.seeyon.boot.starter.spi.SPIAutoConfiguration`；类清单含 `SPIApplicationRunListener.class` / `SpringDynamicRegister` / `plugin/CustomizedSpiInfo` | 未复现 |
 | §3 | jar 内 README 配置键 `seeyon.spi.enable` + `seeyon.spi.spi-plugins`（支持 `maven:`/`file:`/`oss:` 三种 GAV 形态） | 未复现 |
-| §4 | Nacos 实配（tenant=seeyon-test2, dataId=ctp-user, group=seeyon, 793B）: `authenticationType: spisso`；`spi: spi-plugins: - maven:com.seeyon,cip-spi-user-sso-sample,2.0.0` | 未复现（本批未走该面） |
+| §4 | Nacos 实配（tenant=xiaozhua-test2, dataId=ctp-user, group=seeyon, 793B）: `authenticationType: spisso`；`spi: spi-plugins: - maven:com.seeyon,cip-spi-user-sso-sample,2.0.0` | 未复现（本批未走该面） |
 | **§5** | 插件 jar 落盘 = 容器内 `/root/appdata/ctp-user/mvn/com/seeyon/cip-spi-user-sso-sample/2.0.0/cip-spi-user-sso-sample.0.0.jar`，**14686 B**，jar 内 pom Last-Modified 4-16，落盘 mtime 9-20 23:52（= 容器启动同刻），同目录含 `_remote.repositories`、`.sha1`；**原料未记 sha256 数值** | **未复现**（尺寸/mtime/sha256 三项本线均 0 读取） |
 | **§6** | 插件 jar 内 `META-INF/spring.factories` = `com.seeyon.ctp.user.api.sso.CtpUserSsoAuthProviderService=CHNsSsoAuthProviderService`；实现类 `com/seeyon/cip/spi/user/auth/bccastlens/CHNsSsoAuthProviderService.class` | **未复现**（注册对行本线 0 读取） |
 | §7 | 运行期日志 75MB 仅存 10-04 02:52 之后，grep `spi` / `SPIApplicationRunListener` = 0 命中（启动段已轮转，无 previous 容器） | 未复现（批3 未执行）；与原料同为负向命中面 |

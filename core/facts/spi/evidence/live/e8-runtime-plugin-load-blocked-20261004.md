@@ -11,7 +11,7 @@
 
 ## 1. 批1（决定性：pod 定位 + 落盘尺寸/mtime/sha256）— 本线结果 = BLOCKED
 - 采集时点（`date -u` 实测）: 2026-10-04T04:12:29Z（会话发起）。
-- 命令（脱敏形态）: `ssh -i <pem 相对路径 skills/devops/seeyon-low-code-environment/low-code-test.pem> -o BatchMode=yes -o ConnectTimeout=20 <test2 中间服务器> 'date -u; POD=$(kubectl --kubeconfig=configtest2 get pods --no-headers | awk "/ctp-user/{print \$1; exit}"); kubectl --kubeconfig=configtest2 get pods -o wide | grep ctp-user; kubectl --kubeconfig=configtest2 exec "$POD" -- sh -c "ls -l --time-style=long-iso <GAV 目录 com/seeyon/cip-spi-user-sso-sample/2.0.0>/; sha256sum <插件 jar>; echo RREM_RC=$?"'`
+- 命令（脱敏形态）: `ssh -i <pem 相对路径 skills/devops/xiaozhua-low-code-environment/low-code-test.pem> -o BatchMode=yes -o ConnectTimeout=20 <test2 中间服务器> 'date -u; POD=$(kubectl --kubeconfig=configtest2 get pods --no-headers | awk "/ctp-user/{print \$1; exit}"); kubectl --kubeconfig=configtest2 get pods -o wide | grep ctp-user; kubectl --kubeconfig=configtest2 exec "$POD" -- sh -c "ls -l --time-style=long-iso <GAV 目录 com/seeyon/cip-spi-user-sso-sample/2.0.0>/; sha256sum <插件 jar>; echo RREM_RC=$?"'`
 - **ssh 客户端退出码数值（先取到变量再处理输出，未让 `$?` 落 `sed`/管道）: 255**。
 - 客户端输出（全量一行）: `Host key verification failed.`
 - **远端退出码数值: 未取得**（会话未建立，`kubectl`/`ls`/`sha256sum` 均未在远端执行）。

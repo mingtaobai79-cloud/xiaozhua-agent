@@ -63,5 +63,5 @@
 
 ## 6. 脱敏与禁改面自查
 - 本件 0 内网 IP / 0 内网节点主机名 / 0 特权用户前缀真值 / 0 密钥文件绝对盘符 / 0 主机名字面 / 0 键内容 / 0 私钥块 / 0 口令·令牌·接口鉴权串真值 / 0 第三方监控许可密钥串。容器内数据路径、pod 名、GAV 坐标、类名属运行态对象，按 HANDOFF §七 保留。
-- 写面自查: 仅新建本件 + `core/facts/spi/spi-ext-runtime.md` 尾部追加 `## 15.`；e1–e8、§1–§14、INDEX.md、STATUS.md、hashes/inventory、evidence/README.md、registration/loading/live、components/、core/tools/、adapters/、tests/、seeyon_cli.py、seeyon_host_bootstrap.py、docs/audit/** 均未触碰。
+- 写面自查: 仅新建本件 + `core/facts/spi/spi-ext-runtime.md` 尾部追加 `## 15.`；e1–e8、§1–§14、INDEX.md、STATUS.md、hashes/inventory、evidence/README.md、registration/loading/live、components/、core/tools/、adapters/、tests/、xiaozhua_cli.py、xiaozhua_host_bootstrap.py、docs/audit/** 均未触碰。
 - 0 写观测面: 未建 zzprobe 应用、未上传 jar、未改 Nacos、pod 内 0 写/rm/重启/rollout；0 HTTP 探测复用；0 既有测试改动。

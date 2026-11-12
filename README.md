@@ -1,6 +1,6 @@
 # xiaozhua Agent
 
-致远 UDC / SPI 平台的操作能力包（MCP）。给 Hermes、Codex、Claude Code 这类宿主用，
+UDC / SPI 平台的操作能力包（MCP）。给 Hermes、Codex、Claude Code 这类宿主用，
 让 AI 以用户身份经平台接口真实操作 —— 建实体、配枚举、发规则、出报文。
 
 **55 个 MCP 工具**，其中平台侧 42 个（**21 个**在 test2 真机跑过完整闭环 create → 回读 → delete），
@@ -15,7 +15,7 @@ Test collection: `3203 tests collected`
 ### A. pip 装成命令（推荐）
 
 ```bash
-pip install "git+https://github.com/mingtaobai79-cloud/seeyon-agent.git"
+pip install "git+https://github.com/mingtaobai79-cloud/xiaozhua-agent.git"
 pip install "pyyaml>=6.0" "websocket-client>=1.6"
 ```
 
@@ -28,7 +28,7 @@ pip install "pyyaml>=6.0" "websocket-client>=1.6"
 ### B. git clone + installer
 
 ```bash
-git clone https://github.com/mingtaobai79-cloud/seeyon-agent.git && cd xiaozhua-agent
+git clone https://github.com/mingtaobai79-cloud/xiaozhua-agent.git && cd xiaozhua-agent
 pip install "pyyaml>=6.0" "websocket-client>=1.6"
 python installer/install.py --host hermes      --target ~/xiaozhua-pkg --write
 python installer/install.py --host codex       --target ~/xiaozhua-pkg --write

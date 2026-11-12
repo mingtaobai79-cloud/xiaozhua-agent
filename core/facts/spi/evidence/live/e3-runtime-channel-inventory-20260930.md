@@ -22,7 +22,7 @@
 
 ### C2 Nacos 配置面（config 组）
 - 事实: L76–L83 `mse-c19f9232` kind=aliyun-mse / port 8848 / protocol http / **readonly: true** / credential ref=`nacos-mse-credential`（仓库外，本线未持真值）。
-- 已坐实: P2b e2 本地直连 `GET /nacos/v1/cs/configs?dataId=public&group=seeyon&tenant=seeyon-test2` → 200（0 SSH、0 凭据），`seeyon.spi.enable=true`、`spi-plugins`/`spiPlugins` grep **0 命中**。
+- 已坐实: P2b e2 本地直连 `GET /nacos/v1/cs/configs?dataId=public&group=seeyon&tenant=xiaozhua-test2` → 200（0 SSH、0 凭据），`seeyon.spi.enable=true`、`spi-plugins`/`spiPlugins` grep **0 命中**。
 - 能否观测加载链: **否**。属**配置面**，只证开关与（缺失的）插件清单声明，不证运行态加载被执行（main 门4/P2b 已定性）。**本线禁再触碰 spi-ext-live.md 已覆盖的配置面主张（同格两审=禁循环）。**
 
 ### C3 Nacos 命名 / 服务注册面（naming 组，运行态语义）
@@ -33,7 +33,7 @@
 ### C4 在盘审计件 / 日志快照（docs/audit/**，他线面）
 - 本地只读检索（0 网络，2026-09-30T20:14Z）关键串命中计数:
   - `SPIApplicationRunListener` = 0；`SPIJarLoader` = **1**；`registerSingleton` = 0；`SPIProviderRegisterEvent` = 0；`spiPlugins` = 0；`spi-plugins` = 0。
-- 唯一命中件: `<SEEYON_AGENT_ROOT>/docs/audit/udc-gateway-and-capability-boundary-evidence.md`（他线能力边界件，属**静态/设计面**字样提及，**非 test2 运行态日志快照**）。
+- 唯一命中件: `<XIAOZHUA_AGENT_ROOT>/docs/audit/udc-gateway-and-capability-boundary-evidence.md`（他线能力边界件，属**静态/设计面**字样提及，**非 test2 运行态日志快照**）。
 - 能否观测加载链: **否**。①为历史/静态件、非新鲜运行态观测；②`docs/audit/**` 属他线面，本线**禁改**、**禁取其中真值使用**；③未见任何 test2 运行态 SPI 加载/注册日志行。
 
 ### C5 其它不需 SSH 的替代路径（actuator / metrics / 健康）

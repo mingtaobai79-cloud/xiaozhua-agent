@@ -13,7 +13,7 @@ metadata:
 
 # xiaozhua Integration Diagnosis
 
-用于排查致远低代码应用的第三方接口、微流程、实体落库和运行时配置问题。核心原则是证据优先：先确认真实代码链路、真实配置、真实日志，再判断同步是否成功。报告先给结论和证据，避免重复背景。
+用于排查低代码应用的第三方接口、微流程、实体落库和运行时配置问题。核心原则是证据优先：先确认真实代码链路、真实配置、真实日志，再判断同步是否成功。报告先给结论和证据，避免重复背景。
 
 ## Scope
 
@@ -31,7 +31,7 @@ metadata:
    ```
    不因 DTO 或 AppService 名称相似就认定物理表；要结合实体元数据、表注释、字段结构和主子表关系。
 4. **核对 Nacos**：读取目标 namespace/dataId/group 的实际配置，逐项核对代码绑定 key；回读确认地址不是 `default-value`。
-5. **先直连第三方原接口，再测微流程**：用户要求验证集成时，优先用 Nacos 中的 `accessKey`/`secretKey` 和实际 URL 直接 POST 第三方接口，记录 HTTP、耗时、业务 `code`、`msg`、`total`、`data` 和 `requestId`；确认远端确有数据后再调用致远微流程。不要把微流程返回 `true` 当成远端或落库成功。验证「某页面/区块取不到值」时，第三方基线必须**双环境成对打 + 对照组**：测试与生产两套地址都要取（从各环境 thirdinterface/配置取，不能拿一份推另一份），同一业务键两边各打一次，再选一个已知测试侧有数据的键做对照；生产 N 条 / 测试 0 条而对照组测试有数据 ⇒ 结论写「源头测试环境数据缺口」，不得归因为应用缺陷；两边都 0 时先核对必填参数与业务键格式。
+5. **先直连第三方原接口，再测微流程**：用户要求验证集成时，优先用 Nacos 中的 `accessKey`/`secretKey` 和实际 URL 直接 POST 第三方接口，记录 HTTP、耗时、业务 `code`、`msg`、`total`、`data` 和 `requestId`；确认远端确有数据后再调用微流程。不要把微流程返回 `true` 当成远端或落库成功。验证「某页面/区块取不到值」时，第三方基线必须**双环境成对打 + 对照组**：测试与生产两套地址都要取（从各环境 thirdinterface/配置取，不能拿一份推另一份），同一业务键两边各打一次，再选一个已知测试侧有数据的键做对照；生产 N 条 / 测试 0 条而对照组测试有数据 ⇒ 结论写「源头测试环境数据缺口」，不得归因为应用缺陷；两边都 0 时先核对必填参数与业务键格式。
 6. **收票接口按主从两步验证**：收票主接口通常是 `FIND_CHECK_BY_CONTRACT/v1.0`，请求 `contents.startTime/endTime`；拿到主记录 `ID` 后，再调用 `FIND_SI_INFO_BY_SI_ID/v1.0`，请求 `contents.siId` 验证明细。开票 `INVOICE_MESS_LIST/v1.0.0` 与收票接口不可混用。
    - **智税云开票信息同步是独立链路**：先从源码确认 `IntelligentTaxCloudAppServiceImpl`、`mFCUSTOMpOIeVj` 和 `seeyon.zsy.getPiaoJuDataUrl`；它写入 `Kaipiaoxinxi`，不要误走采购合同 `/purchase/contract/invoice`（该接口是采购合同开票金额查询/回写）。完整微流程通常为 `POST /service/{appId}/spxxlby/microflow/MFCUSTOMpOIeVj`。运行时 DTO `Zsysjtbrc` 的 `kaishishijian`/`jieshushijian` 是 `Date`、`shifouquanliang` 是 `Boolean`；REST 请求优先传 epoch milliseconds 和 Boolean，不要直接传日期字符串。反编译证据、已验证远程响应及排查顺序见 `references/intelligent-tax-cloud-invoice-sync.md`。若返回 `The input is not a valid base 64 encoded string`，优先判断请求体字段类型/平台反序列化失败，不能归因于智税云远程接口；要先用日志确认是否进入 `IntelligentTaxCloudAppServiceImpl`。
 7. **从生成 Controller 反查微流程路由（优先于业务扩展 Controller）。** 低代码生成的微流程 Controller 通常位于外部生成包/运行时产物，不一定在项目 `src/main/java`。必须检索源码、`target/classes`、依赖 jar、运行镜像或反编译 class，读取 `@RestApi`、类级 `@RequestMapping`、方法级 `@PostMapping` 的原值并拼接完整 URL。不要把扩展类中的 AppService 方法名直接当成 REST 路径，也不要按业务名猜路径。典型证据形态：`@RestApi("微流程-kaipiaoxinxiliebiao")` + `@RequestMapping("{appId}")` + `@PostMapping("kaipiaoxinxiliebiao/microflow/MFCUSTOMpOIeVj")` → `/service/{appId}/kaipiaoxinxiliebiao/microflow/MFCUSTOMpOIeVj`。

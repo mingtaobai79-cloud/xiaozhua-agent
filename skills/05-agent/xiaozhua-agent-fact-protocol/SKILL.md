@@ -472,7 +472,7 @@ Hermes 侧曾同时存在 `skills/seeyon/`、`skills/xiaozhua-agent/`、`skills/
 `skills/v8/` 四个平行目录，同一域的 skill 分散在多处，`skill_view(name)` 靠 name 解析
 所以能用，但人找起来乱、合并时容易漏。
 
-规矩：**致远相关的一律在 `skills/seeyon/<层>/` 下，不新建平行根目录**。
+规矩：**相关的一律在 `skills/seeyon/<层>/` 下，不新建平行根目录**。
 合并时注意两点：
 
 ```

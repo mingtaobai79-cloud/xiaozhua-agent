@@ -1,6 +1,6 @@
 ---
 name: xiaozhua-constraint-extraction
-description: Use when 从致远 UDC jar/前端 bundle 提取权威约束并落成校验模型。
+description: Use when 从UDC jar/前端 bundle 提取权威约束并落成校验模型。
 version: 1.0.0
 author: 小爪
 license: MIT
@@ -10,7 +10,7 @@ metadata:
     related_skills: [xiaozhua-v8-spi, reverse-engineer-anything, xiaozhua-low-code-environment]
 ---
 
-# 致远 UDC 权威约束提取（jar → 模型 → LIVE 验证）
+# UDC 权威约束提取（jar → 模型 → LIVE 验证）
 
 ## When to Use
 - 需要知道某 UDC 域（微流程/实体/页面/菜单/条件…）的**真实字段约束、枚举值域、必填项**时

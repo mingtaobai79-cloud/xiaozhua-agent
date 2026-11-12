@@ -12,7 +12,7 @@
 | 项 | 实测值 |
 |---|---|
 | 探针时钟 | 2026-09-26 00:46 CST（本机） |
-| 仓库 | `<SEEYON_AGENT_ROOT>`，HEAD `16a384c` |
+| 仓库 | `<XIAOZHUA_AGENT_ROOT>`，HEAD `16a384c` |
 | 凭据引用 | `config/environments.yaml#environments.test2.credential.ref/file`（值不入件） |
 | 窗口余量 | 探针运行期实测 `remaining_s = 83684`（≈23.25 h，未过期） |
 | 客户端复用 | `components/gateway/client.py:38` `GatewayReadonlyClient`（`allow_network=True` 显式开网） |

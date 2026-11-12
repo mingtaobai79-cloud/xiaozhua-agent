@@ -12,7 +12,7 @@
 ## 1. 定位与总体目标
 
 【现状】xiaozhua Agent 是**嵌入宿主的专业能力组件，不是独立 agent**。宿主负责思考与规划，
-xiaozhua Agent 提供致远低代码平台（UDC/BPM/SPI/Integration/Runtime）的专业知识、平台工具、
+xiaozhua Agent 提供低代码平台（UDC/BPM/SPI/Integration/Runtime）的专业知识、平台工具、
 执行能力和验证体系。
 
 【目标】「一个 xiaozhua Agent Core + 多个宿主适配器」——核心独立于宿主，宿主只是运行入口。

@@ -3,7 +3,7 @@ const puppeteer = require('D:/software/hermes/node/node_modules/puppeteer');
 const fs = require('fs');
 const path = require('path');
 
-const OUT = 'D:/work/chit/seeyon-agent/docs/audit/evidence/feishu-base';
+const OUT = 'D:/work/chit/xiaozhua-agent/docs/audit/evidence/feishu-base';
 const TARGET = 'https://changhongit.feishu.cn/base/VJllbmPzqaApOQsAe5xctJc2nXe?table=tblqrIj6UB6kWpGF&view=vewDbKLOB1';
 
 (async () => {

@@ -1,6 +1,6 @@
 # xiaozhua-agent / skills
 
-本目录的 skill 是**给 xiaozhua-agent 仓库自身定规矩的资产**，不是致远工作手册的镜像。
+本目录的 skill 是**给 xiaozhua-agent 仓库自身定规矩的资产**，不是工作手册的镜像。
 
 > **权威方向按目录族分（2026-11-07 裁决，详见 `docs/SKILL-DISTRIBUTION.md` §0）**：
 > `01-platform`/`02-udc`/`03-v8-extension`/`04-integration`/`06-delivery`/`07-office-collaboration`

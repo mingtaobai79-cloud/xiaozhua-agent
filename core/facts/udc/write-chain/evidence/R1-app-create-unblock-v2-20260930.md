@@ -4,7 +4,7 @@
 > `default_app_id` 网关前缀、body hostAppName 却填 test2 码 → 网关把 create 路由到 uat 宿主、绑不到 test2 host → status:2。
 > v2 修正：所有 test2 端点（serial-config 枚举 + create + 回读）的**网关前缀/appName/hostAppName 三者统一走
 > T2 = `znxmglptcopy5791640252914287064`**（config projects L59-73 `running_profile:test2`/`frontDomain:lowcode-test2`）。
-> 仓库 `<SEEYON_AGENT_ROOT>`，HEAD `cf45180`。test2 镜像 5.3.496。
+> 仓库 `<XIAOZHUA_AGENT_ROOT>`，HEAD `cf45180`。test2 镜像 5.3.496。
 > **终态：BLOCKED（环境类 · test2 宿主在 test2 网关下 create 绑不上）** —— T2 前缀下 2/2 create 全 `status:2`，
 > 未建成应用，无 `data` id / `appGuid`。需 main 裁定（见 §5）。凭据 0 入件（§6 自检）。
 

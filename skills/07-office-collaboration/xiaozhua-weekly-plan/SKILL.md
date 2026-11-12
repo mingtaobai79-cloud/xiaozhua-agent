@@ -1,6 +1,6 @@
 ---
 name: xiaozhua-weekly-plan
-description: Fill 致远周工作计划 weekly plan form on xt.seeyon.com.
+description: Fill 周工作计划 weekly plan form on xt.seeyon.com.
 version: 4.0.0
 author: 小爪
 license: MIT
@@ -10,7 +10,7 @@ metadata:
     related_skills: [xiaozhua-manhours]
 ---
 
-# 致远 周工作计划
+# 周工作计划
 
 ## 一键填表
 

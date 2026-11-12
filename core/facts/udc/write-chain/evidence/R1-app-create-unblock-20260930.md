@@ -2,7 +2,7 @@
 
 > 性质：写路径 R1（建应用）环 **unblock 重做**（main 选 option a：供给侧给有效 hostAppName）。
 > spec `main/ROUTE.md`（E7/E8 + 最小动作重发）+ main HANDOFF `r1-app-create-unblock-handoff-v1`。
-> 仓库 `<SEEYON_AGENT_ROOT>`，HEAD `cf45180`。test2 镜像 5.3.496。
+> 仓库 `<XIAOZHUA_AGENT_ROOT>`，HEAD `cf45180`。test2 镜像 5.3.496。
 > **终态：BLOCKED（参数错类 · host 归属未坐实）** —— 3/3 允许 create 探测全 `status:2` 静默业务失败，
 > 未建成任何应用，无 `data` id / `appGuid`。需 main 再裁（见 §5）。凭据 0 入件（§6 自检）。
 

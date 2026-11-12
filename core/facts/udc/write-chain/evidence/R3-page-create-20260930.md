@@ -1,7 +1,7 @@
 # R3 页面环｜证据件（test2 活体 · 2026-09-30 18:44 CST）
 
 > 性质：写路径 R3（建页面）环 LIVE 证据，**第 3 环 = 达成北极星「≥3 环闭环」**。main 裁定 R2=PASS 后发 R3 HANDOFF
-> （dedupe=`r3-page-create-handoff-v1`）。仓库 `<SEEYON_AGENT_ROOT>`，HEAD `cf45180`。test2 镜像 5.3.496。
+> （dedupe=`r3-page-create-handoff-v1`）。仓库 `<XIAOZHUA_AGENT_ROOT>`，HEAD `cf45180`。test2 镜像 5.3.496。
 > **终态：R3 = LIVE PASS**（1 LIST 页建成 + 展平回读命中同一目标，非空业务样本，traceId 在盘）。凭据 0 入件（§8 自检）。
 
 ## 0. 环境与时钟（实测）

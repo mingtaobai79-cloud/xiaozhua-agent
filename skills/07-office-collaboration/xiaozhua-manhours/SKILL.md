@@ -1,6 +1,6 @@
 ---
 name: xiaozhua-manhours
-description: Fill 致远 顾问工时登记/补录 forms, and read past records.
+description: Fill 顾问工时登记/补录 forms, and read past records.
 version: 3.0.0
 author: 小爪
 license: MIT
@@ -10,7 +10,7 @@ metadata:
     related_skills: [xiaozhua-weekly-plan]
 ---
 
-# 致远 顾问工时登记 / 补录
+# 顾问工时登记 / 补录
 
 ## 一键填表
 

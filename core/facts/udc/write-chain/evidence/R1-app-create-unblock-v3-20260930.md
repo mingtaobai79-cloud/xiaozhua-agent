@@ -3,7 +3,7 @@
 > 性质：写路径 R1（建应用）环 **unblock v3**（main 复核 v2 环境类 BLOCKED 后，切两条独立主线：
 > A 静默成功排除（只读）+ B 从未试过的设计态草稿写面 `app-draft/create`）。
 > spec `main/ROUTE.md`（E9/E10 + unblock v3 最小动作）+ main HANDOFF `r1-app-create-unblock-v3-handoff-v1`。
-> 仓库 `<SEEYON_AGENT_ROOT>`，HEAD `cf45180`。test2 镜像 5.3.496。
+> 仓库 `<XIAOZHUA_AGENT_ROOT>`，HEAD `cf45180`。test2 镜像 5.3.496。
 > **终态：B 命中 = R1 LIVE PASS（设计态应用草稿写面 `app-draft/create`）** —— `app-draft/create`
 > 第 4 次探测（T2 前缀 + 正确字段 `dataId`+`draftData`）= **200/BOOT_0000/SUCCESS，`data.content=1`**；
 > 同目标回读 `app-draft/select?dataId=1`（T2 前缀）= **非空草稿样本**（traceId `3253841201584933052`）。

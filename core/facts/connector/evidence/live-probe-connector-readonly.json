@@ -1,5 +1,5 @@
 {
-  "probe": "connector integration readonly live probe (Seeyon UDC 集成连接器/数据流 只读面)",
+  "probe": "connector integration readonly live probe (Xiaozhua UDC 集成连接器/数据流 只读面)",
   "clock_local": "2026-09-29T13:59:40+0800",
   "clock_epoch": 1790661580,
   "env": "test2",

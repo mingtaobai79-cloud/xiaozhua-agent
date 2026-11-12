@@ -1,6 +1,6 @@
 ---
 name: xiaozhua-external-api-testing
-description: "致远低代码应用对外接口联调测试：四轮测试法、字段裸ID转化缺陷定位、DB取证换样本、UDC元数据与物理列配对修复。"
+description: "低代码应用对外接口联调测试：四轮测试法、字段裸ID转化缺陷定位、DB取证换样本、UDC元数据与物理列配对修复。"
 version: 0.2.0
 author: Hermes Agent
 license: MIT
@@ -12,7 +12,7 @@ metadata:
 
 # xiaozhua 外部接口联调测试
 
-Use when 用户要求测试致远低代码应用对外暴露的接口（如 `XmglApiController` 的 ESB/开放接口）、排查接口字段缺值/返回裸ID、或验证接口修复效果。环境连接材料见 `xiaozhua-low-code-environment` skill（本 skill 只管测试方法学，不管凭据）。
+Use when 用户要求测试低代码应用对外暴露的接口（如 `XmglApiController` 的 ESB/开放接口）、排查接口字段缺值/返回裸ID、或验证接口修复效果。环境连接材料见 `xiaozhua-low-code-environment` skill（本 skill 只管测试方法学，不管凭据）。
 
 参考文件：`references/interface-live-test-triage.md`（对外接口实测分类与定位）、`references/udc-write-chain-and-runtime-errors.md`（写链路主键冲突/提交报错取证、前端运行时错误判定、库内清理写操作）。
 
@@ -236,12 +236,12 @@ iframe/postMessage 跳板页方案（三方系统嵌入 V8 单点）：跳板页
 - **必须回读**：INSERT 后 SELECT 同一 id 确认，再 LIVE 调接口闭环；报告里附清理 DELETE 语句。
 - 值域冲突：生成的 ID 用独立区段（如 `-80…`/`-81…` 开头 + 随机尾数），避免与既有 19 位 Long 撞车。
 
-### 18. 法务平台类外部接口：person 入参是 ERP 工号，不是致远人员编码
+### 18. 法务平台类外部接口：person 入参是 ERP 工号，不是人员编码
 
 `法务平台` 系列（`LegalPlatFormAppService`：1.1法务平台模版列表 `MFCUSTOMZS4NAE`、1.4人员名称映射ERPID `mFCUSTOMXFHAYQ`、模版绑定/占用解除）全部**直连外部 OpenAPI**，本地业务库里查不到"有没有数据"，必须真调：
 
 - 端点与凭据在应用 Nacos 配置里（`xiaozhua-uat`/`xiaozhua-test2`, `dataId=<applicationId>`, `group=xiaozhua`；Open API 路径是 `/nacos/v1/cs/configs`，注意是复数）：`seeyon.legalAffairsPlatform.legalContractQueryUrl|orgQueryUrl|templateBindingUrl`、凭据用 `seeyon.sample.accessKey/secretKey`（配置是缩进 YAML，按缩进层级解析，不要用平铺正则）。
-- **erpId ≠ 致远人员编码**：`org_member.code`（如 48181）喂给 `LEGAL_CONTRACT_QUERY` 稳定返回 0 条；正确做法是先调 `ERP_FIND_PER_PEOPLE_HISTORY_V`（body `{accessKey, secretKey, contents:{person_name, primary_flag:"Y"}}`）取 `data[0].ASSIGNMENT_NUMBER`（如 6106）再查模版。查某人"有没有数据"前必须先做这一步映射，否则会误报"无数据"。
+- **erpId ≠ 人员编码**：`org_member.code`（如 48181）喂给 `LEGAL_CONTRACT_QUERY` 稳定返回 0 条；正确做法是先调 `ERP_FIND_PER_PEOPLE_HISTORY_V`（body `{accessKey, secretKey, contents:{person_name, primary_flag:"Y"}}`）取 `data[0].ASSIGNMENT_NUMBER`（如 6106）再查模版。查某人"有没有数据"前必须先做这一步映射，否则会误报"无数据"。
 - **应用层过滤会把有数据筛成空**：`MFCUSTOMZS4NAE` 会把 `lsfwmblb`（历史法务模板列表）里的 `template_id` 全量当"已占用"排除。UAT/test2 该表 35,288 行全部在 9 分钟内一次性灌入（`creator=0`, `batch_id=20260911000000`）⇒ 是迁移批次，命中率 100%，任何人查出来都是 0 条。报"接口没数据"前先查该表的写入形态（时间窗/creator/batch_id）判断是"当前占用"还是"历史全量"，再决定写缺陷还是待产品确认。
 - 外部 OpenAPI 的 `totalElements` 与逐页 `content` 条数可能不一致（实测 totalElements=43，翻页只取回 23），报告里如实标注分页差异，不要用 totalElements 当已取回条数。
 

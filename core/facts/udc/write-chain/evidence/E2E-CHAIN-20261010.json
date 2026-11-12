@@ -34,7 +34,7 @@
   "token续期=POST ctp-user/auth.token 用 ctp-user-login.json, session cookie 全活",
   "deploy-normal 成功形态: deployType=TEST+projectType=ALL+terminalType=ALL (前次失败 deployType=3/business_type=3 错形态)",
   "运行态实体全名规则: com.seeyon.{app_name}.domain.entity.{Entity} — 沙箱 pod biz jar unzip 实证",
-  "udc_deploy_record 成功行 schema_storage_key 指向 OSS seeyon-private-test2 — 与 metadata-storage 机制格互证"
+  "udc_deploy_record 成功行 schema_storage_key 指向 OSS xiaozhua-private-test2 — 与 metadata-storage 机制格互证"
  ],
  "end_to_end": "设计态建实体50字段 → 发布构建 → 物理表DDL → 沙箱pod生成 → 运行态元数据读面回读 全链 LIVE"
 }

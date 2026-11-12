@@ -176,7 +176,7 @@ print(r.stdout)
 UDC 低代码设计器和 UDC 生成的客户微服务不是 SPI 体系，也不调用 SPI。UDC 的设计态、前后端生成物、`web/core/ext/biz` 分层、运行态、数据库和 Redis 由独立的 `xiaozhua-udc-runtime` skill 负责。本 skill 只负责后端可插拔 SPI（组织架构、单点登录、基础组件等）的接口契约、实现、注册、版本差异和调用链。两套体系不得合并；只有用户明确要求同时研究时，才并列汇总，不建立“UDC 调 SPI”的调用链。
 
 
-当 SPI 调用来自致远低代码应用时，必须同时核对 UDC 运行态，不把 SPI 契约和 UDC 业务代码混为一层：
+当 SPI 调用来自低代码应用时，必须同时核对 UDC 运行态，不把 SPI 契约和 UDC 业务代码混为一层：
 
 ```text
 低代码应用 Controller / 微流程

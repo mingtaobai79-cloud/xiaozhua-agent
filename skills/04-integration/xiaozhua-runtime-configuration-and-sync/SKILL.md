@@ -13,7 +13,7 @@ metadata:
 
 # xiaozhua Runtime Configuration and Sync
 
-用于处理致远低代码应用的第三方接口配置、票据/开票同步、Nacos 配置核验、实体字段限制与落库验证。核心原则：把“接口调用成功”“业务逻辑成功”“实体校验成功”“数据库写入成功”分别取证，不能用 HTTP 200 或 `content: true` 代替最终成功。
+用于处理低代码应用的第三方接口配置、票据/开票同步、Nacos 配置核验、实体字段限制与落库验证。核心原则：把“接口调用成功”“业务逻辑成功”“实体校验成功”“数据库写入成功”分别取证，不能用 HTTP 200 或 `content: true` 代替最终成功。
 
 ## Scope and boundaries
 

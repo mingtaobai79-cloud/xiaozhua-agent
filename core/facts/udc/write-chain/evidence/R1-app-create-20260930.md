@@ -2,7 +2,7 @@
 
 > 性质：**写路径 R1（建应用）环探测 + 回读 LIVE 证据**。spec `main/ROUTE.md`（E1–E6）+ main HANDOFF
 > `r1-app-create-handoff-v1`（dedupe=`r1-app-create-handoff-v1`）。
-> 仓库 `<SEEYON_AGENT_ROOT>`，HEAD `cf45180`。test2 镜像版本 5.3.496（`config/environments.yaml` 键）。
+> 仓库 `<XIAOZHUA_AGENT_ROOT>`，HEAD `cf45180`。test2 镜像版本 5.3.496（`config/environments.yaml` 键）。
 > **终态：BLOCKED（参数错类）** —— create 未在 8 次探测预算内收敛到 BOOT_0000；
 > `caption` + `hostAppName` 已被服务端错误字典确认必填，但 `hostAppName` 有效值（真实宿主应用名）未知，
 > 两种猜测形态均返回业务失败（`status:2` 静默）。**需 main 提供有效 `hostAppName` 或放行继续探测，R1 方可闭环。**

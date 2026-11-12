@@ -1,7 +1,7 @@
 // 在已登录页面上下文里直接 fetch 记录接口，拿全量记录 + 字段schema
 const puppeteer = require('D:/software/hermes/node/node_modules/puppeteer');
 const fs = require('fs');
-const OUT = 'D:/work/chit/seeyon-agent/docs/audit/evidence/feishu-base';
+const OUT = 'D:/work/chit/xiaozhua-agent/docs/audit/evidence/feishu-base';
 const TOKEN = 'VJllbmPzqaApOQsAe5xctJc2nXe';
 const TBL = 'tblqrIj6UB6kWpGF';
 const VIEW = 'vewDbKLOB1';

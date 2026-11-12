@@ -41,4 +41,4 @@
 - 四类分写（据实）: **LIVE PASS = 0**；**已调用但业务数据未验证 = 0**；**明确问题 = P2**（0 凭据鉴权墙，非业务数据面）；**未测试 = P3**（缺凭据 ⇒ 人工门）；P1 属通道可达性事实，不入 PASS。
 - 判级依据（不越级）: SPI 运行态**加载链**唯一直接观测载体仍为承载 boot-starter-spi 的平台进程（ctp-user / cip-connector）启动/运行日志（e3 §2、本格 §4），该载体仅 SSH/kubectl 可得；SPI 提供方**调用**需有效 test2 会话凭据。二者本线均未获授权 ⇒ 未绕行、未自决。
 - 所缺人工门（事实登记）: ①可信 host key / 可信 kubeconfig → P4a 后 `kubectl logs` grep 加载链关键串；②`test2-web-credential` 有效会话 → SSO 提供方调用面观测。
-- 边界遵守: 0 SSH、0 host-key 绕过、0 kubectl、0 凭据构造、0 写面（未建 zzprobe 应用、未上传 jar、未改 Nacos 配置）、0 既有测试改动、0 重试；未触碰 e1–e4、`hashes/evidence-inventory.sha256.txt`、`core/facts/INDEX.md`、`components/`、`core/tools/`、`adapters/`、`tests/`、`seeyon_cli.py`、`seeyon_host_bootstrap.py`、`docs/audit/**`。
+- 边界遵守: 0 SSH、0 host-key 绕过、0 kubectl、0 凭据构造、0 写面（未建 zzprobe 应用、未上传 jar、未改 Nacos 配置）、0 既有测试改动、0 重试；未触碰 e1–e4、`hashes/evidence-inventory.sha256.txt`、`core/facts/INDEX.md`、`components/`、`core/tools/`、`adapters/`、`tests/`、`xiaozhua_cli.py`、`xiaozhua_host_bootstrap.py`、`docs/audit/**`。
