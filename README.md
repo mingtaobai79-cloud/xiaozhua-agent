@@ -13,7 +13,7 @@
 ### A. pip 装成命令（推荐）
 
 ```bash
-pip install "git+https://<你的git>/seeyon-agent.git"
+pip install "git+https://github.com/mingtaobai79-cloud/seeyon-agent.git"
 pip install "pyyaml>=6.0" "websocket-client>=1.6"
 ```
 
@@ -26,7 +26,7 @@ pip install "pyyaml>=6.0" "websocket-client>=1.6"
 ### B. git clone + installer
 
 ```bash
-git clone https://<你的git>/seeyon-agent.git && cd seeyon-agent
+git clone https://github.com/mingtaobai79-cloud/seeyon-agent.git && cd seeyon-agent
 pip install "pyyaml>=6.0" "websocket-client>=1.6"
 python installer/install.py --host hermes      --target ~/seeyon-pkg --write
 python installer/install.py --host codex       --target ~/seeyon-pkg --write
@@ -81,7 +81,7 @@ command = "<你的 python>"
 args = ["<你的安装路径>/adapters/mcp/server.py"]
 ```
 
-### [CC]
+### Claude Code
 
 `claude-code/.mcp.json` → 合并进项目或用户级 `.mcp.json`：
 
