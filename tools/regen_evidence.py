@@ -284,6 +284,34 @@ def run_extract(targets: dict, evidence: Path, javap: str, workers: int) -> int:
     return rc
 
 
+def _arg_types(v) -> str:
+    if isinstance(v, str):
+        return v
+    if isinstance(v, list):
+        return ",".join((x.get("type", "") if isinstance(x, dict) else str(x)) for x in v)
+    return ""
+
+
+def write_signature_index(data: dict, out: Path) -> int:
+    """把 classes 摊成一行一成员的可检索文本（gzip）。
+
+    为什么是文本而不是原 JSON：原 interfaces.json 63.9MB，摊平后 33MB，
+    gzip 后 2.3MB —— 差 28 倍，而查询速度一样（解压 0.2s + 内存过滤）。
+    agent 直接 grep 或走 tools/signature_lookup.py 都能用。
+    """
+    import gzip
+    lines: list[str] = []
+    for fqcn, c in data["classes"].items():
+        lines.append(f"{fqcn}\t{c.get('kind', 'class')}")
+        for m in c.get("methods", []):
+            lines.append(f"{fqcn}#{m['name']}({_arg_types(m.get('args'))}):{m.get('returns','')}")
+    out.parent.mkdir(parents=True, exist_ok=True)
+    with gzip.open(out, "wb", 6) as f:
+        f.write("\n".join(lines).encode("utf-8"))
+    print(f"[ok] {out}  {len(lines)} 行 / {out.stat().st_size/1024/1024:.2f} MB")
+    return len(lines)
+
+
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description="一句话重建反编译证据")
     ap.add_argument("--maven", default="D:/repo/CHIT/com/seeyon")
@@ -291,6 +319,8 @@ def main(argv=None) -> int:
     ap.add_argument("--evidence", default=str(EVIDENCE))
     ap.add_argument("--workers", type=int, default=8)
     ap.add_argument("--out", default="", help="interfaces.json 输出路径（默认 <evidence>/interfaces.json）")
+    ap.add_argument("--index", default=str(ROOT / "docs" / "audit" / "signatures.txt.gz"),
+                    help="签名索引输出路径（gzip 文本，供 tools/signature_lookup.py 查）")
     ap.add_argument("--check", action="store_true", help="只检查前置条件")
     ap.add_argument("--aggregate-only", action="store_true", help="跳过抽取，直接聚合")
     a = ap.parse_args(argv)
@@ -343,6 +373,9 @@ def main(argv=None) -> int:
     out.write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
     print(f"[ok] {out}  {len(data['classes'])} 类 / {len(data['method_index'])} 方法名 / "
           f"{len(data['sources'])} 构件  ({out.stat().st_size/1024/1024:.1f} MB, {time.time()-t0:.0f}s)")
+
+    if a.index:
+        write_signature_index(data, Path(a.index))
 
     # 自检：与清单登记的类数比对
     reg = {a["name"]: a["classes"] for a in manifest["artifacts"] if a.get("classes")}

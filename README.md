@@ -50,6 +50,15 @@ python installer/install.py --host claude-code --target ~/xiaozhua-pkg --write
 
 见 `INSTALL.md`。
 
+### 查接口签名（写扩展代码时用）
+
+离线索引随仓库分发，不用连平台、不用 jar：
+
+```bash
+python tools/signature_lookup.py --method saveAs
+python tools/signature_lookup.py --pkg com.seeyon.udc.api --kind interface
+```
+
 ### 装完自检
 
 ```bash

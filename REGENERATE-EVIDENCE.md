@@ -195,3 +195,48 @@ test_contract_probes_compile                探针编译失败，随上面三处
 重建后 14 个构件的类数比清单登记的少（`boot-core` 507 vs 512、
 `boot-starter-dubbo` 48 vs 55 等）。这是**清单基线早于本地 maven 仓库当前版本**，
 不是抽取漏类；脚本结束时会把这些差异逐条列出来，看到它属于正常。
+
+---
+
+# 接口签名索引（随仓库分发，2.1 MB）
+
+写自定义微流程扩展时最常问的一句是「这个 Service 有哪些方法、参数和返回是什么」。
+原先只能翻 `docs/audit/udc-semantics/` 下上百份 md，或者重跑 25 分钟的抽取。
+
+所以仓库里带了一份**摊平的签名索引**：
+
+```text
+docs/audit/signatures.txt.gz     2.1 MB / 245709 行 / 21389 个类 / 92 个构件
+```
+
+格式一行一成员，制表符与冒号分隔：
+
+```text
+com.seeyon.x.YService	interface
+com.seeyon.x.YService#doIt(com.seeyon.x.Req):com.seeyon.x.Resp
+```
+
+查询走 `tools/signature_lookup.py`（解压 + 内存过滤，实测 0.25 秒）：
+
+```bash
+python tools/signature_lookup.py ApprovalAppService          # 类名片段
+python tools/signature_lookup.py --method saveAs             # 方法名片段
+python tools/signature_lookup.py --pkg com.seeyon.udc.api --kind interface
+python tools/signature_lookup.py XxxService --json           # 机器可读
+python tools/signature_lookup.py --method create --raw       # 只打命中行，可直接 grep
+```
+
+## 为什么是 gzip 文本，而不是原 interfaces.json
+
+```text
+interfaces.json（原）      63.9 MB
+同内容紧凑 JSON            33.9 MB
+摊平成文本                 33.0 MB
+文本 gzip                   2.1 MB   ← 选了这条路
+```
+
+摊平只丢 `decl` / `signature` 这些重复度极高的字段（每个方法都重复一遍完整签名），
+类名、方法名、参数类型、返回类型全保留。查询速度不变，仓库少背 61 MB。
+
+原 `interfaces.json` 仍然不进仓库 —— 它只被构建脚本和那 232 个断言测试使用，
+不进运行时。需要它时用上面的一条命令重建。
