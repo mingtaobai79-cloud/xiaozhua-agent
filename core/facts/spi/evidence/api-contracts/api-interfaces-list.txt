@@ -1,0 +1,31 @@
+# command: awk+sed on unzip listing -> FQN list
+# RC=0
+# output sha256_prefix=89d63f5b  output_bytes=1413
+# captured: 2026-10-08T04:29:00Z
+# ---- raw output below ----
+
+
+-l
+com.seeyon.cip.connector.api.affair.CipThirdAffairService
+com.seeyon.cip.connector.api.authentication.LinkerSecurityService
+com.seeyon.cip.connector.api.callback.ConnectorCallbackMessageSendService
+com.seeyon.cip.connector.api.callback.ConnectorCallbackProviderService
+com.seeyon.cip.connector.api.db.DataBaseExecutorService
+com.seeyon.cip.connector.api.midorgsync.MiddleTableOrgSyncSpiListenerService
+com.seeyon.cip.connector.api.midorgsync.MiddleTableOrgSyncSpiPullService
+com.seeyon.cip.connector.api.midorgsync.callback.MiddleTableOrgSyncDataCallbackService
+com.seeyon.cip.connector.api.midorgsync.callback.MiddleTableOrgSyncExecuteCallbackService
+com.seeyon.cip.connector.api.midorgsync.callback.MiddleTableOrgSyncMarkCallbackService
+com.seeyon.cip.connector.api.mobile.MobileApplicationProviderService
+com.seeyon.cip.connector.api.mobile.MobileCallBackProviderService
+com.seeyon.cip.connector.api.mobile.MobileConfigProviderService
+com.seeyon.cip.connector.api.mobile.MobileOrgSyncBatchProviderService
+com.seeyon.cip.connector.api.mobile.MobileOrgSyncProviderService
+com.seeyon.cip.connector.api.mobile.MobileOrgSyncPullProviderService
+com.seeyon.cip.connector.api.mobile.MobileProviderService
+com.seeyon.cip.connector.api.mobile.MobileTodoProviderService
+com.seeyon.cip.connector.api.sign.LinkerSignService
+com.seeyon.cip.connector.api.sso.SsoService
+output
+output_bytes=2078
+RC=0 total_interfaces=25

@@ -1,0 +1,7 @@
+[
+ {
+  "method": "POST",
+  "url": "https://lowcode-test2.example.com/service/udc/graphql?udcApplicationDependentApplicationCreateBatchPost",
+  "postData": "{\"query\":\"mutation graphqlLoader ($params0: [udcApplicationDependentApplicationCreateBatchPostInputBody]) { \\n  data0: udcApplicationDependentApplicationCreateBatchPost(body: $params0) { code data { content } message status } }\",\"variables\":{\"params0\":[]}}"
+ }
+]

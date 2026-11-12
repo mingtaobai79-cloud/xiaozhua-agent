@@ -1,0 +1,15 @@
+{
+ "remove_click": [],
+ "confirm": [
+  {
+   "method": "POST",
+   "url": "https://lowcode-test2.example.com/service/udc/graphql?udcApplicationDependentApplicationDeleteByIdPost",
+   "postData": "{\"query\":\"mutation graphqlLoader ($params0: udcApplicationDependentApplicationDeleteByIdPostInputBody) { \\n  data0: udcApplicationDependentApplicationDeleteByIdPost(body: $params0) { code data { content } message status } }\",\"variables\":{\"params0\":{\"id\":\"642992243049792084\"}}}"
+  },
+  {
+   "method": "POST",
+   "url": "https://lowcode-test2.example.com/service/udc/graphql?udcApplicationSearchDetectionPost",
+   "postData": "{\"query\":\"\\nmutation udcApplicationSearchDetectionPost ($body: udcApplicationSearchDetectionPostInputBody) {\\n  udcApplicationSearchDetectionPost(body: $body) {\\n    code\\n    data{\\n      content{\\n        code\\n        detectionType\\n        domainEntityId\\n        interpolatedDocument\\n        interpolatedElement\\n        interpolatedMessage\\n        moduleType\\n        elementType\\n        moduleProperty\\n        elementProperty\\n        path\\n        interpolatedModuleType\\n        route\\n      }\\n    }\\n    message\\n    status\\n  }\\n}\\n\",\"variables\":{\"body\":{\"appId\":\"8704025620829192834\"}}}"
+  }
+ ]
+}

@@ -1,0 +1,41 @@
+{
+  "phase": "R4 数据写入→回读 同一行 LIVE",
+  "ts": "2026-10-01 04:06 +08",
+  "write_channel": "DB 直插（zzprobenew26419954374508955097_test2.zzprobeen_m2128447441671076182）",
+  "write_row": {
+    "id": 147154,
+    "ziduan1": "ZZPROBE-R4-202610010406",
+    "tenant_id": -8112660841495312922
+  },
+  "readback": {
+    "endpoint": "POST /service/zzprobenew26419954374508955097/udc-runtime/data/query",
+    "body": {
+      "appName": "zzprobenew26419954374508955097",
+      "entityFullName": "com.seeyon.zzprobenew26419954374508955097.domain.entity.ZzprobeEnt1",
+      "dataId": 147154
+    },
+    "result": {
+      "status": 0,
+      "code": "BOOT_0000",
+      "message": "SUCCESS",
+      "traceId": "3254491595596105916"
+    },
+    "assert": "回读 id=147154 与 dataId 同值; ziduan1 逐字一致; validate=true"
+  },
+  "physical_table_facts": {
+    "db": "zzprobenew26419954374508955097_test2 (应用专属 schema, 非 udc_test2)",
+    "table": "zzprobeen_m2128447441671076182",
+    "discovery": "information_schema.COLUMNS 全库搜 ziduan1 列",
+    "zzprobeData_table": "zzprobeda_8660586335710379483"
+  },
+  "api_write_channel": {
+    "status": "UNVERIFIED-进行中",
+    "facts": [
+      "运行时路由按页面类型动态注册: SEARCH_LIST 页只挂 /udc-runtime/data/query; 无 CRUD/DETAIL 页则写入路由 404",
+      "16 个候选写入路径全部 404(仅 /data/query HIT)",
+      "addPage(udcPageInfoBaseInfoCreatePost) 被『页面终端信息为空，请选择』(BOOT_1000)阻断——缺页面终端数组字段, 字段名未解(UDC facade 层校验)",
+      "UdcBaseGeneralController.create(String,String,String,Map) 存在(字节码), URL 由 UdcRestPathParse 动态解析"
+    ]
+  },
+  "lesson": "运行态 REST 路由 = 页面注册的函数节点投影; 建什么页挂什么路由。R4 回读环已 LIVE; API 写入通道依赖 DETAIL 页创建协议补全(终端字段)"
+}

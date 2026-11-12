@@ -1,0 +1,28 @@
+{
+  "phase": "菜单模块 + 页面设计器 闭环",
+  "ts": "2026-09-30 21:35 +08",
+  "verified": [
+    {
+      "step": "菜单创建",
+      "verdict": "LIVE PASS",
+      "flow": "菜单tab → lined-plus(添加菜单) → 表单(页面名称=zzprobe首页, 页面类型=列表页, 页面对应实体=zzprobe测试实体[TreeSelect]) → 确定",
+      "result": "菜单树出现 zzprobe首页(默认,空), 自动打开页面设计器",
+      "auto_gen_code": "zzprobeshouye"
+    },
+    {
+      "step": "页面设计器打开",
+      "verdict": "LIVE PASS",
+      "panels": "标题区/内容区 + 控件(布局控件:网格/容器/分组/页签/面板/子页面; 数据控件:单一记录/重复...)/大纲/数据/规则",
+      "toolbar": "概览/全屏/存模版/暂存草稿/保存并提交"
+    }
+  ],
+  "graphql_apis": {
+    "菜单树": "udcFunctionSelectFunctionTreePost",
+    "应用详情": "udcApplicationGet",
+    "版本": "udcApplicationAppVersionAppGuidPost"
+  },
+  "ui_facts": [
+    "TreeSelect 选项需点击 ant-select-tree-treenode（不是 ant-select-item-option）",
+    "菜单表单字段: 菜单名称/页面名称/页面标识(自动生成)/页面类型(列表页|详情页|全表编辑页|其它)/页面对应实体/适配终端(web端|移动端)/归属(分组)"
+  ]
+}

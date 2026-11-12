@@ -1,0 +1,173 @@
+Compiled from "CtpUserSpiUserDto.java"
+public class com.seeyon.ctp.user.dto.CtpUserSpiUserDto extends com.seeyon.boot.transport.BaseDto {
+  public java.lang.Boolean getEffective();
+    descriptor: ()Ljava/lang/Boolean;
+
+  public boolean isCredentialsNonExpired();
+    descriptor: ()Z
+
+  public static com.seeyon.ctp.user.dto.CtpUserSpiUserDto$CtpUserSpiUserDtoBuilder builder();
+    descriptor: ()Lcom/seeyon/ctp/user/dto/CtpUserSpiUserDto$CtpUserSpiUserDtoBuilder;
+
+  public java.lang.Long getId();
+    descriptor: ()Ljava/lang/Long;
+
+  public java.lang.Long getTenantId();
+    descriptor: ()Ljava/lang/Long;
+
+  public java.lang.String getName();
+    descriptor: ()Ljava/lang/String;
+
+  public java.lang.String getLoginName();
+    descriptor: ()Ljava/lang/String;
+
+  public java.lang.String getPassword();
+    descriptor: ()Ljava/lang/String;
+
+  public java.util.Date getExpiredTime();
+    descriptor: ()Ljava/util/Date;
+
+  public java.lang.String getAvatar();
+    descriptor: ()Ljava/lang/String;
+
+  public java.lang.String getPhoneNumber();
+    descriptor: ()Ljava/lang/String;
+
+  public java.lang.String getEmail();
+    descriptor: ()Ljava/lang/String;
+
+  public java.lang.Boolean getAdmin();
+    descriptor: ()Ljava/lang/Boolean;
+
+  public com.seeyon.ctp.user.enums.CtpUserSpiUserTypeEnum getType();
+    descriptor: ()Lcom/seeyon/ctp/user/enums/CtpUserSpiUserTypeEnum;
+
+  public java.lang.Long getMemberId();
+    descriptor: ()Ljava/lang/Long;
+
+  public java.lang.Long getOrgId();
+    descriptor: ()Ljava/lang/Long;
+
+  public java.lang.String getOrgName();
+    descriptor: ()Ljava/lang/String;
+
+  public java.util.List<java.lang.Long> getAuthOrgIdList();
+    descriptor: ()Ljava/util/List;
+
+  public java.lang.Boolean getEnabled();
+    descriptor: ()Ljava/lang/Boolean;
+
+  public java.lang.String getLocale();
+    descriptor: ()Ljava/lang/String;
+
+  public java.util.Date getEffectiveTime();
+    descriptor: ()Ljava/util/Date;
+
+  public java.util.Date getInvalidTime();
+    descriptor: ()Ljava/util/Date;
+
+  public java.lang.String getLastLoginDevice();
+    descriptor: ()Ljava/lang/String;
+
+  public java.lang.String getLastLoginIp();
+    descriptor: ()Ljava/lang/String;
+
+  public java.util.Date getLastLoginTime();
+    descriptor: ()Ljava/util/Date;
+
+  public java.util.Date getCreateTime();
+    descriptor: ()Ljava/util/Date;
+
+  public java.lang.Long getMemberPostId();
+    descriptor: ()Ljava/lang/Long;
+
+  public java.lang.String getClientLoginTime();
+    descriptor: ()Ljava/lang/String;
+
+  public void setId(java.lang.Long);
+    descriptor: (Ljava/lang/Long;)V
+
+  public void setTenantId(java.lang.Long);
+    descriptor: (Ljava/lang/Long;)V
+
+  public void setName(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+
+  public void setLoginName(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+
+  public void setPassword(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+
+  public void setExpiredTime(java.util.Date);
+    descriptor: (Ljava/util/Date;)V
+
+  public void setAvatar(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+
+  public void setPhoneNumber(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+
+  public void setEmail(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+
+  public void setAdmin(java.lang.Boolean);
+    descriptor: (Ljava/lang/Boolean;)V
+
+  public void setType(com.seeyon.ctp.user.enums.CtpUserSpiUserTypeEnum);
+    descriptor: (Lcom/seeyon/ctp/user/enums/CtpUserSpiUserTypeEnum;)V
+
+  public void setMemberId(java.lang.Long);
+    descriptor: (Ljava/lang/Long;)V
+
+  public void setOrgId(java.lang.Long);
+    descriptor: (Ljava/lang/Long;)V
+
+  public void setOrgName(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+
+  public void setAuthOrgIdList(java.util.List<java.lang.Long>);
+    descriptor: (Ljava/util/List;)V
+
+  public void setEnabled(java.lang.Boolean);
+    descriptor: (Ljava/lang/Boolean;)V
+
+  public void setLocale(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+
+  public void setEffectiveTime(java.util.Date);
+    descriptor: (Ljava/util/Date;)V
+
+  public void setInvalidTime(java.util.Date);
+    descriptor: (Ljava/util/Date;)V
+
+  public void setEffective(java.lang.Boolean);
+    descriptor: (Ljava/lang/Boolean;)V
+
+  public void setLastLoginDevice(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+
+  public void setLastLoginIp(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+
+  public void setLastLoginTime(java.util.Date);
+    descriptor: (Ljava/util/Date;)V
+
+  public void setCreateTime(java.util.Date);
+    descriptor: (Ljava/util/Date;)V
+
+  public void setMemberPostId(java.lang.Long);
+    descriptor: (Ljava/lang/Long;)V
+
+  public void setClientLoginTime(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+
+  public java.lang.String toString();
+    descriptor: ()Ljava/lang/String;
+
+  public com.seeyon.ctp.user.dto.CtpUserSpiUserDto();
+    descriptor: ()V
+
+  public com.seeyon.ctp.user.dto.CtpUserSpiUserDto(java.lang.Long, java.lang.Long, java.lang.String, java.lang.String, java.lang.String, java.util.Date, java.lang.String, java.lang.String, java.lang.String, java.lang.Boolean, com.seeyon.ctp.user.enums.CtpUserSpiUserTypeEnum, java.lang.Long, java.lang.Long, java.lang.String, java.util.List<java.lang.Long>, java.lang.Boolean, java.lang.String, java.util.Date, java.util.Date, java.lang.Boolean, java.lang.String, java.lang.String, java.util.Date, java.util.Date, java.lang.Long, java.lang.String);
+    descriptor: (Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Date;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Lcom/seeyon/ctp/user/enums/CtpUserSpiUserTypeEnum;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/String;Ljava/util/List;Ljava/lang/Boolean;Ljava/lang/String;Ljava/util/Date;Ljava/util/Date;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Ljava/util/Date;Ljava/util/Date;Ljava/lang/Long;Ljava/lang/String;)V
+}

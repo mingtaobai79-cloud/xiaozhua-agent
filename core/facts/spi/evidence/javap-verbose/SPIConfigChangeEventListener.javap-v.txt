@@ -1,0 +1,393 @@
+Classfile jar:file:///D:/repo/CHIT/com/seeyon/boot-starter-spi/5.3.358/boot-starter-spi-5.3.358.jar!/com/seeyon/boot/starter/spi/SPIConfigChangeEventListener.class
+  Last modified 2026年5月25日; size 3274 bytes
+  SHA-256 checksum 2b3885ed23a7d49e3bd4d51c8a1178a8d6d1460ef9696a63ead4c63cb9753170
+  Compiled from "SPIConfigChangeEventListener.java"
+public class com.seeyon.boot.starter.spi.SPIConfigChangeEventListener
+  minor version: 0
+  major version: 52
+  flags: (0x0021) ACC_PUBLIC, ACC_SUPER
+  this_class: #31                         // com/seeyon/boot/starter/spi/SPIConfigChangeEventListener
+  super_class: #33                        // java/lang/Object
+  interfaces: 0, fields: 3, methods: 3, attributes: 2
+Constant pool:
+    #1 = Methodref          #33.#79       // java/lang/Object."<init>":()V
+    #2 = Fieldref           #31.#80       // com/seeyon/boot/starter/spi/SPIConfigChangeEventListener.spiProperties:Lcom/seeyon/boot/starter/spi/SPIProperties;
+    #3 = Methodref          #10.#81       // com/seeyon/boot/starter/spi/SPIProperties.isEnable:()Z
+    #4 = Methodref          #82.#83       // com/seeyon/boot/starter/nacos/event/ConfigItemChangeEvent.getChangeData:()Ljava/util/Map;
+    #5 = InterfaceMethodref #84.#85       // java/util/Map.keySet:()Ljava/util/Set;
+    #6 = InterfaceMethodref #86.#87       // java/util/Set.iterator:()Ljava/util/Iterator;
+    #7 = InterfaceMethodref #88.#89       // java/util/Iterator.hasNext:()Z
+    #8 = InterfaceMethodref #88.#90       // java/util/Iterator.next:()Ljava/lang/Object;
+    #9 = Class              #91           // java/lang/String
+   #10 = Class              #92           // com/seeyon/boot/starter/spi/SPIProperties
+   #11 = String             #93           // seeyon.spi
+   #12 = Methodref          #9.#94        // java/lang/String.startsWith:(Ljava/lang/String;)Z
+   #13 = Class              #95           // java/util/ArrayList
+   #14 = Methodref          #13.#79       // java/util/ArrayList."<init>":()V
+   #15 = String             #96           // seeyon.spi.spiPlugins
+   #16 = String             #97           // seeyon.spi.spi-plugins
+   #17 = InterfaceMethodref #84.#98       // java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+   #18 = Class              #99           // com/seeyon/boot/starter/nacos/event/ChangeItem
+   #19 = Methodref          #18.#100      // com/seeyon/boot/starter/nacos/event/ChangeItem.getNewValue:()Ljava/lang/Object;
+   #20 = Methodref          #33.#101      // java/lang/Object.toString:()Ljava/lang/String;
+   #21 = Methodref          #102.#103     // com/seeyon/boot/util/StringUtils.isEmpty:(Ljava/lang/CharSequence;)Z
+   #22 = InterfaceMethodref #104.#105     // java/util/List.add:(Ljava/lang/Object;)Z
+   #23 = InterfaceMethodref #104.#106     // java/util/List.isEmpty:()Z
+   #24 = Fieldref           #31.#107      // com/seeyon/boot/starter/spi/SPIConfigChangeEventListener.log:Lorg/slf4j/Logger;
+   #25 = String             #108          // 接收到spi配置变化通知，{}， 动态加载spi的插件...
+   #26 = InterfaceMethodref #109.#110     // org/slf4j/Logger.info:(Ljava/lang/String;Ljava/lang/Object;)V
+   #27 = Fieldref           #31.#111      // com/seeyon/boot/starter/spi/SPIConfigChangeEventListener.spiJarLoader:Lcom/seeyon/boot/starter/spi/SPIJarLoader;
+   #28 = Methodref          #112.#113     // com/seeyon/boot/starter/spi/SPIJarLoader.loadSPIPlugins:(Ljava/util/List;)V
+   #29 = String             #114          // 动态加载spi的插件完成。
+   #30 = InterfaceMethodref #109.#115     // org/slf4j/Logger.info:(Ljava/lang/String;)V
+   #31 = Class              #116          // com/seeyon/boot/starter/spi/SPIConfigChangeEventListener
+   #32 = Methodref          #117.#118     // org/slf4j/LoggerFactory.getLogger:(Ljava/lang/Class;)Lorg/slf4j/Logger;
+   #33 = Class              #119          // java/lang/Object
+   #34 = Utf8               log
+   #35 = Utf8               Lorg/slf4j/Logger;
+   #36 = Utf8               spiProperties
+   #37 = Utf8               Lcom/seeyon/boot/starter/spi/SPIProperties;
+   #38 = Utf8               RuntimeVisibleAnnotations
+   #39 = Utf8               Lorg/springframework/beans/factory/annotation/Autowired;
+   #40 = Utf8               required
+   #41 = Integer            0
+   #42 = Utf8               spiJarLoader
+   #43 = Utf8               Lcom/seeyon/boot/starter/spi/SPIJarLoader;
+   #44 = Utf8               <init>
+   #45 = Utf8               ()V
+   #46 = Utf8               Code
+   #47 = Utf8               LineNumberTable
+   #48 = Utf8               LocalVariableTable
+   #49 = Utf8               this
+   #50 = Utf8               Lcom/seeyon/boot/starter/spi/SPIConfigChangeEventListener;
+   #51 = Utf8               onConfigChange
+   #52 = Utf8               (Lcom/seeyon/boot/starter/nacos/event/ConfigItemChangeEvent;)V
+   #53 = Utf8               key
+   #54 = Utf8               Ljava/lang/String;
+   #55 = Utf8               changeItem
+   #56 = Utf8               Lcom/seeyon/boot/starter/nacos/event/ChangeItem;
+   #57 = Utf8               event
+   #58 = Utf8               Lcom/seeyon/boot/starter/nacos/event/ConfigItemChangeEvent;
+   #59 = Utf8               ignore
+   #60 = Utf8               Z
+   #61 = Utf8               spiPlugins
+   #62 = Utf8               Ljava/util/List;
+   #63 = Utf8               changeItems
+   #64 = Utf8               Ljava/util/Map;
+   #65 = Utf8               LocalVariableTypeTable
+   #66 = Utf8               Ljava/util/List<Ljava/lang/String;>;
+   #67 = Utf8               Ljava/util/Map<Ljava/lang/String;Lcom/seeyon/boot/starter/nacos/event/ChangeItem;>;
+   #68 = Utf8               StackMapTable
+   #69 = Class              #120          // java/util/Iterator
+   #70 = Class              #121          // java/util/List
+   #71 = Class              #122          // java/util/Map
+   #72 = Class              #91           // java/lang/String
+   #73 = Class              #99           // com/seeyon/boot/starter/nacos/event/ChangeItem
+   #74 = Utf8               Lcom/seeyon/boot/starter/eventbus/annotation/EventSubscribe;
+   #75 = Utf8               <clinit>
+   #76 = Utf8               SourceFile
+   #77 = Utf8               SPIConfigChangeEventListener.java
+   #78 = Utf8               Lcom/seeyon/boot/starter/eventbus/annotation/EventHandler;
+   #79 = NameAndType        #44:#45       // "<init>":()V
+   #80 = NameAndType        #36:#37       // spiProperties:Lcom/seeyon/boot/starter/spi/SPIProperties;
+   #81 = NameAndType        #123:#124     // isEnable:()Z
+   #82 = Class              #125          // com/seeyon/boot/starter/nacos/event/ConfigItemChangeEvent
+   #83 = NameAndType        #126:#127     // getChangeData:()Ljava/util/Map;
+   #84 = Class              #122          // java/util/Map
+   #85 = NameAndType        #128:#129     // keySet:()Ljava/util/Set;
+   #86 = Class              #130          // java/util/Set
+   #87 = NameAndType        #131:#132     // iterator:()Ljava/util/Iterator;
+   #88 = Class              #120          // java/util/Iterator
+   #89 = NameAndType        #133:#124     // hasNext:()Z
+   #90 = NameAndType        #134:#135     // next:()Ljava/lang/Object;
+   #91 = Utf8               java/lang/String
+   #92 = Utf8               com/seeyon/boot/starter/spi/SPIProperties
+   #93 = Utf8               seeyon.spi
+   #94 = NameAndType        #136:#137     // startsWith:(Ljava/lang/String;)Z
+   #95 = Utf8               java/util/ArrayList
+   #96 = Utf8               seeyon.spi.spiPlugins
+   #97 = Utf8               seeyon.spi.spi-plugins
+   #98 = NameAndType        #138:#139     // get:(Ljava/lang/Object;)Ljava/lang/Object;
+   #99 = Utf8               com/seeyon/boot/starter/nacos/event/ChangeItem
+  #100 = NameAndType        #140:#135     // getNewValue:()Ljava/lang/Object;
+  #101 = NameAndType        #141:#142     // toString:()Ljava/lang/String;
+  #102 = Class              #143          // com/seeyon/boot/util/StringUtils
+  #103 = NameAndType        #144:#145     // isEmpty:(Ljava/lang/CharSequence;)Z
+  #104 = Class              #121          // java/util/List
+  #105 = NameAndType        #146:#147     // add:(Ljava/lang/Object;)Z
+  #106 = NameAndType        #144:#124     // isEmpty:()Z
+  #107 = NameAndType        #34:#35       // log:Lorg/slf4j/Logger;
+  #108 = Utf8               接收到spi配置变化通知，{}， 动态加载spi的插件...
+  #109 = Class              #148          // org/slf4j/Logger
+  #110 = NameAndType        #149:#150     // info:(Ljava/lang/String;Ljava/lang/Object;)V
+  #111 = NameAndType        #42:#43       // spiJarLoader:Lcom/seeyon/boot/starter/spi/SPIJarLoader;
+  #112 = Class              #151          // com/seeyon/boot/starter/spi/SPIJarLoader
+  #113 = NameAndType        #152:#153     // loadSPIPlugins:(Ljava/util/List;)V
+  #114 = Utf8               动态加载spi的插件完成。
+  #115 = NameAndType        #149:#154     // info:(Ljava/lang/String;)V
+  #116 = Utf8               com/seeyon/boot/starter/spi/SPIConfigChangeEventListener
+  #117 = Class              #155          // org/slf4j/LoggerFactory
+  #118 = NameAndType        #156:#157     // getLogger:(Ljava/lang/Class;)Lorg/slf4j/Logger;
+  #119 = Utf8               java/lang/Object
+  #120 = Utf8               java/util/Iterator
+  #121 = Utf8               java/util/List
+  #122 = Utf8               java/util/Map
+  #123 = Utf8               isEnable
+  #124 = Utf8               ()Z
+  #125 = Utf8               com/seeyon/boot/starter/nacos/event/ConfigItemChangeEvent
+  #126 = Utf8               getChangeData
+  #127 = Utf8               ()Ljava/util/Map;
+  #128 = Utf8               keySet
+  #129 = Utf8               ()Ljava/util/Set;
+  #130 = Utf8               java/util/Set
+  #131 = Utf8               iterator
+  #132 = Utf8               ()Ljava/util/Iterator;
+  #133 = Utf8               hasNext
+  #134 = Utf8               next
+  #135 = Utf8               ()Ljava/lang/Object;
+  #136 = Utf8               startsWith
+  #137 = Utf8               (Ljava/lang/String;)Z
+  #138 = Utf8               get
+  #139 = Utf8               (Ljava/lang/Object;)Ljava/lang/Object;
+  #140 = Utf8               getNewValue
+  #141 = Utf8               toString
+  #142 = Utf8               ()Ljava/lang/String;
+  #143 = Utf8               com/seeyon/boot/util/StringUtils
+  #144 = Utf8               isEmpty
+  #145 = Utf8               (Ljava/lang/CharSequence;)Z
+  #146 = Utf8               add
+  #147 = Utf8               (Ljava/lang/Object;)Z
+  #148 = Utf8               org/slf4j/Logger
+  #149 = Utf8               info
+  #150 = Utf8               (Ljava/lang/String;Ljava/lang/Object;)V
+  #151 = Utf8               com/seeyon/boot/starter/spi/SPIJarLoader
+  #152 = Utf8               loadSPIPlugins
+  #153 = Utf8               (Ljava/util/List;)V
+  #154 = Utf8               (Ljava/lang/String;)V
+  #155 = Utf8               org/slf4j/LoggerFactory
+  #156 = Utf8               getLogger
+  #157 = Utf8               (Ljava/lang/Class;)Lorg/slf4j/Logger;
+{
+  private static final org.slf4j.Logger log;
+    descriptor: Lorg/slf4j/Logger;
+    flags: (0x001a) ACC_PRIVATE, ACC_STATIC, ACC_FINAL
+
+  private com.seeyon.boot.starter.spi.SPIProperties spiProperties;
+    descriptor: Lcom/seeyon/boot/starter/spi/SPIProperties;
+    flags: (0x0002) ACC_PRIVATE
+    RuntimeVisibleAnnotations:
+      0: #39(#40=Z#41)
+        org.springframework.beans.factory.annotation.Autowired(
+          required=false
+        )
+
+  private com.seeyon.boot.starter.spi.SPIJarLoader spiJarLoader;
+    descriptor: Lcom/seeyon/boot/starter/spi/SPIJarLoader;
+    flags: (0x0002) ACC_PRIVATE
+    RuntimeVisibleAnnotations:
+      0: #39(#40=Z#41)
+        org.springframework.beans.factory.annotation.Autowired(
+          required=false
+        )
+
+  public com.seeyon.boot.starter.spi.SPIConfigChangeEventListener();
+    descriptor: ()V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: return
+      LineNumberTable:
+        line 17: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lcom/seeyon/boot/starter/spi/SPIConfigChangeEventListener;
+
+  public void onConfigChange(com.seeyon.boot.starter.nacos.event.ConfigItemChangeEvent);
+    descriptor: (Lcom/seeyon/boot/starter/nacos/event/ConfigItemChangeEvent;)V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=3, locals=8, args_size=2
+         0: aload_0
+         1: getfield      #2                  // Field spiProperties:Lcom/seeyon/boot/starter/spi/SPIProperties;
+         4: ifnull        17
+         7: aload_0
+         8: getfield      #2                  // Field spiProperties:Lcom/seeyon/boot/starter/spi/SPIProperties;
+        11: invokevirtual #3                  // Method com/seeyon/boot/starter/spi/SPIProperties.isEnable:()Z
+        14: ifne          18
+        17: return
+        18: iconst_1
+        19: istore_2
+        20: aload_1
+        21: invokevirtual #4                  // Method com/seeyon/boot/starter/nacos/event/ConfigItemChangeEvent.getChangeData:()Ljava/util/Map;
+        24: invokeinterface #5,  1            // InterfaceMethod java/util/Map.keySet:()Ljava/util/Set;
+        29: invokeinterface #6,  1            // InterfaceMethod java/util/Set.iterator:()Ljava/util/Iterator;
+        34: astore_3
+        35: aload_3
+        36: invokeinterface #7,  1            // InterfaceMethod java/util/Iterator.hasNext:()Z
+        41: ifeq          73
+        44: aload_3
+        45: invokeinterface #8,  1            // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+        50: checkcast     #9                  // class java/lang/String
+        53: astore        4
+        55: aload         4
+        57: ldc           #11                 // String seeyon.spi
+        59: invokevirtual #12                 // Method java/lang/String.startsWith:(Ljava/lang/String;)Z
+        62: ifeq          70
+        65: iconst_0
+        66: istore_2
+        67: goto          73
+        70: goto          35
+        73: iload_2
+        74: ifeq          78
+        77: return
+        78: new           #13                 // class java/util/ArrayList
+        81: dup
+        82: invokespecial #14                 // Method java/util/ArrayList."<init>":()V
+        85: astore_3
+        86: aload_1
+        87: invokevirtual #4                  // Method com/seeyon/boot/starter/nacos/event/ConfigItemChangeEvent.getChangeData:()Ljava/util/Map;
+        90: astore        4
+        92: aload         4
+        94: invokeinterface #5,  1            // InterfaceMethod java/util/Map.keySet:()Ljava/util/Set;
+        99: invokeinterface #6,  1            // InterfaceMethod java/util/Set.iterator:()Ljava/util/Iterator;
+       104: astore        5
+       106: aload         5
+       108: invokeinterface #7,  1            // InterfaceMethod java/util/Iterator.hasNext:()Z
+       113: ifeq          208
+       116: aload         5
+       118: invokeinterface #8,  1            // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+       123: checkcast     #9                  // class java/lang/String
+       126: astore        6
+       128: aload         6
+       130: ldc           #15                 // String seeyon.spi.spiPlugins
+       132: invokevirtual #12                 // Method java/lang/String.startsWith:(Ljava/lang/String;)Z
+       135: ifne          148
+       138: aload         6
+       140: ldc           #16                 // String seeyon.spi.spi-plugins
+       142: invokevirtual #12                 // Method java/lang/String.startsWith:(Ljava/lang/String;)Z
+       145: ifeq          205
+       148: aload         4
+       150: aload         6
+       152: invokeinterface #17,  2           // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+       157: checkcast     #18                 // class com/seeyon/boot/starter/nacos/event/ChangeItem
+       160: astore        7
+       162: aload         7
+       164: invokevirtual #19                 // Method com/seeyon/boot/starter/nacos/event/ChangeItem.getNewValue:()Ljava/lang/Object;
+       167: ifnonnull     173
+       170: goto          106
+       173: aload         7
+       175: invokevirtual #19                 // Method com/seeyon/boot/starter/nacos/event/ChangeItem.getNewValue:()Ljava/lang/Object;
+       178: invokevirtual #20                 // Method java/lang/Object.toString:()Ljava/lang/String;
+       181: invokestatic  #21                 // Method com/seeyon/boot/util/StringUtils.isEmpty:(Ljava/lang/CharSequence;)Z
+       184: ifeq          190
+       187: goto          106
+       190: aload_3
+       191: aload         7
+       193: invokevirtual #19                 // Method com/seeyon/boot/starter/nacos/event/ChangeItem.getNewValue:()Ljava/lang/Object;
+       196: invokevirtual #20                 // Method java/lang/Object.toString:()Ljava/lang/String;
+       199: invokeinterface #22,  2           // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+       204: pop
+       205: goto          106
+       208: aload_3
+       209: invokeinterface #23,  1           // InterfaceMethod java/util/List.isEmpty:()Z
+       214: ifne          246
+       217: getstatic     #24                 // Field log:Lorg/slf4j/Logger;
+       220: ldc           #25                 // String 接收到spi配置变化通知，{}， 动态加载spi的插件...
+       222: aload_3
+       223: invokeinterface #26,  3           // InterfaceMethod org/slf4j/Logger.info:(Ljava/lang/String;Ljava/lang/Object;)V
+       228: aload_0
+       229: getfield      #27                 // Field spiJarLoader:Lcom/seeyon/boot/starter/spi/SPIJarLoader;
+       232: aload_3
+       233: invokevirtual #28                 // Method com/seeyon/boot/starter/spi/SPIJarLoader.loadSPIPlugins:(Ljava/util/List;)V
+       236: getstatic     #24                 // Field log:Lorg/slf4j/Logger;
+       239: ldc           #29                 // String 动态加载spi的插件完成。
+       241: invokeinterface #30,  2           // InterfaceMethod org/slf4j/Logger.info:(Ljava/lang/String;)V
+       246: return
+      LineNumberTable:
+        line 26: 0
+        line 27: 17
+        line 29: 18
+        line 30: 20
+        line 31: 55
+        line 32: 65
+        line 33: 67
+        line 35: 70
+        line 36: 73
+        line 37: 77
+        line 40: 78
+        line 41: 86
+        line 42: 92
+        line 43: 128
+        line 44: 148
+        line 45: 162
+        line 46: 170
+        line 48: 173
+        line 49: 187
+        line 51: 190
+        line 53: 205
+        line 55: 208
+        line 56: 217
+        line 57: 228
+        line 58: 236
+        line 60: 246
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+           55      15     4   key   Ljava/lang/String;
+          162      43     7 changeItem   Lcom/seeyon/boot/starter/nacos/event/ChangeItem;
+          128      77     6   key   Ljava/lang/String;
+            0     247     0  this   Lcom/seeyon/boot/starter/spi/SPIConfigChangeEventListener;
+            0     247     1 event   Lcom/seeyon/boot/starter/nacos/event/ConfigItemChangeEvent;
+           20     227     2 ignore   Z
+           86     161     3 spiPlugins   Ljava/util/List;
+           92     155     4 changeItems   Ljava/util/Map;
+      LocalVariableTypeTable:
+        Start  Length  Slot  Name   Signature
+           86     161     3 spiPlugins   Ljava/util/List<Ljava/lang/String;>;
+           92     155     4 changeItems   Ljava/util/Map<Ljava/lang/String;Lcom/seeyon/boot/starter/nacos/event/ChangeItem;>;
+      StackMapTable: number_of_entries = 13
+        frame_type = 17 /* same */
+        frame_type = 0 /* same */
+        frame_type = 253 /* append */
+          offset_delta = 16
+          locals = [ int, class java/util/Iterator ]
+        frame_type = 34 /* same */
+        frame_type = 250 /* chop */
+          offset_delta = 2
+        frame_type = 4 /* same */
+        frame_type = 254 /* append */
+          offset_delta = 27
+          locals = [ class java/util/List, class java/util/Map, class java/util/Iterator ]
+        frame_type = 252 /* append */
+          offset_delta = 41
+          locals = [ class java/lang/String ]
+        frame_type = 252 /* append */
+          offset_delta = 24
+          locals = [ class com/seeyon/boot/starter/nacos/event/ChangeItem ]
+        frame_type = 16 /* same */
+        frame_type = 249 /* chop */
+          offset_delta = 14
+        frame_type = 250 /* chop */
+          offset_delta = 2
+        frame_type = 37 /* same */
+    RuntimeVisibleAnnotations:
+      0: #74()
+        com.seeyon.boot.starter.eventbus.annotation.EventSubscribe
+
+  static {};
+    descriptor: ()V
+    flags: (0x0008) ACC_STATIC
+    Code:
+      stack=1, locals=0, args_size=0
+         0: ldc           #31                 // class com/seeyon/boot/starter/spi/SPIConfigChangeEventListener
+         2: invokestatic  #32                 // Method org/slf4j/LoggerFactory.getLogger:(Ljava/lang/Class;)Lorg/slf4j/Logger;
+         5: putstatic     #24                 // Field log:Lorg/slf4j/Logger;
+         8: return
+      LineNumberTable:
+        line 16: 0
+}
+SourceFile: "SPIConfigChangeEventListener.java"
+RuntimeVisibleAnnotations:
+  0: #78()
+    com.seeyon.boot.starter.eventbus.annotation.EventHandler

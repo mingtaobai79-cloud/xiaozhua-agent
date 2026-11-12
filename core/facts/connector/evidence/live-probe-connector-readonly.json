@@ -1,0 +1,70 @@
+{
+  "probe": "connector integration readonly live probe (Seeyon UDC 集成连接器/数据流 只读面)",
+  "clock_local": "2026-09-29T13:59:40+0800",
+  "clock_epoch": 1790661580,
+  "env": "test2",
+  "base": "https://lowcode-test2.example.com",
+  "gateway_prefix": "/service/app9000000000000000001",
+  "app_id": "app9000000000000000001",
+  "numeric_app_id": "3289082814923688017",
+  "credential": {
+    "ref": "<COLLAB_ROOT>/agent-collaboration/shared-credentials/test2-web-credential.json",
+    "cookie_template_present": true,
+    "cookie_len": 67,
+    "declared_expires_epoch": 1790595614,
+    "declared_expires_gmt8": "2026-09-28 19:40:14",
+    "note": "值 0 入件; 仅键名/长度/时效声明 (cookie 由 resolver 现渲染, 仅 on-wire)"
+  },
+  "bytecode_ref": [
+    "docs/audit/artifacts/udc-flow-5.3.517/DataFlowRtMapController.javap.txt (udc-runtime/data-flow-map)",
+    "docs/audit/artifacts/udc-flow-5.3.517/DataFlowRtMappingController.javap.txt (udc-runtime/data-flow-mapping)",
+    "docs/audit/artifacts/udc-flow-5.3.517/DataFlowForBpmController.javap.txt (udc-runtime/bpm)",
+    "docs/audit/artifacts/udc-assemble-5.3.517-deployed/MicroFlowReadPlane.javap.txt (findCallConnectorAppService design-time)"
+  ],
+  "no_retry_bombing": true,
+  "sends": [
+    {
+      "method": "POST",
+      "path": "/service/app9000000000000000001/udc-runtime/data-flow-map/search",
+      "http": null,
+      "code": null,
+      "biz_status": null,
+      "traceId": null,
+      "bytes": 0,
+      "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "nonempty": false,
+      "sample_len": null,
+      "err": "unavailable",
+      "ts": "2026-09-29T13:59:25+0800"
+    },
+    {
+      "method": "POST",
+      "path": "/service/app9000000000000000001/udc-runtime/data-flow-mapping/search-original",
+      "http": null,
+      "code": null,
+      "biz_status": null,
+      "traceId": null,
+      "bytes": 0,
+      "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "nonempty": false,
+      "sample_len": null,
+      "err": "unavailable",
+      "ts": "2026-09-29T13:59:35+0800"
+    },
+    {
+      "method": "GET",
+      "path": "/service/app9000000000000000001/udc/microflow/select-call-connector-app-service/3289082814923688017",
+      "http": null,
+      "code": null,
+      "biz_status": null,
+      "traceId": null,
+      "bytes": 0,
+      "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "nonempty": false,
+      "sample_len": null,
+      "err": "unavailable",
+      "ts": "2026-09-29T13:59:40+0800"
+    }
+  ]
+}
+

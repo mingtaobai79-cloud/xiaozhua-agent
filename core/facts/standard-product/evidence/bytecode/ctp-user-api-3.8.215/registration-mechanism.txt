@@ -1,0 +1,9 @@
+# registration-mechanism probe — ctp-user-api-3.8.215.jar
+# source sha256 = 5b1ec52abd87ba79abe962453776e54fa9bc27551aa171e76981d211a5950543
+# cmd: unzip -l <jar> | grep -Ei 'META-INF/services|spring.factories|spring/|\.imports'
+(no output) ABSENT — jar 内无 META-INF/services/**、无 spring.factories、无 org.springframework.*.imports
+
+# 实际注册机制（javap -v + cfr 双证）：@Indexed 元注解
+class_count=49
+core/facts/standard-product/evidence/bytecode/ctp-user-api-3.8.215/cfr-jar/com/seeyon/ctp/user/annotation/CtpUserChannelRouter.java
+core/facts/standard-product/evidence/bytecode/ctp-user-api-3.8.215/cfr-jar/com/seeyon/ctp/user/annotation/CtpUserComment.java

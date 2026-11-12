@@ -1,0 +1,45 @@
+{
+ "phase": "补全订单页 pageSchema（用户反馈'页面是空的'→ 列表/详情/管理页全落控件树）",
+ "ts": "2026-10-09 16:0x +08",
+ "root_cause": "上轮只建了 page-info base-info 壳（schemaState=EMPTY）——页面没放任何控件；本次按 page-schema-api-construction 配方从标品模板 deep-copy 构造",
+ "built": {
+  "订单列表": {
+   "pageId": "-4214685795235257124",
+   "url": "dingdanlist",
+   "term": "PC",
+   "schemaState": "FORMAL"
+  },
+  "订单详情": {
+   "pageId": "2859741654987919956",
+   "url": "dingdandetail",
+   "term": "PC",
+   "schemaState": "FORMAL"
+  },
+  "订单管理": {
+   "pageId": "3950893497510429236",
+   "url": "dingdanguanli",
+   "term": "PC",
+   "schemaState": "FORMAL"
+  },
+  "cols": [
+   "orderCode",
+   "orderAmount",
+   "orderDate",
+   "customerName",
+   "orderStatus",
+   "createTime",
+   "updateTime"
+  ],
+  "dataSource": "Dingdan(5678466719436905487, bill) 九键 entity 元数据完整"
+ },
+ "cleanup": {
+  "MOBILE订单管理空壳页 id=-535006340034269497": "udcPageInfoDeletePost content=1（避免 UDC_CE_PAGE_03907 阻断构建）"
+ },
+ "protocol_learnings": [
+  "DesignerSelectDetailList 真实 variables 双层：{params:{appId[,id]},sort:{orders:[...]}}——外层 p 单层会静默返回空 content",
+  "submitPage body 里 pageSchema/draftPageSchema 传字符串化控件树；BOOT_0000 content=1 即落库",
+  "改 pageUrl 需重发整页 update（url 是顶层字段）",
+  "base64+TextDecoder 注入大 payload 到浏览器 fetch——避 shell 转义（skill 已有 curl --data-binary @file 同类手法）"
+ ],
+ "pending": "部署 build 未点火——设计态 schema 已齐，运行态可见需 deploy-normal（state 0/1 轮询）"
+}

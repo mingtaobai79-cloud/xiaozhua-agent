@@ -215,7 +215,7 @@ def test_no_customer_identifiers_in_new_assets():
                FACT_DIR / "create.md", FACT_DIR / "app-inner-write-chain.md",
                CONTRACT, SKILL]
     # 字符串拼起来写，否则本文件自己会命中 tests/test_deidentification.py 的 PII 扫描
-    banned = ("changhong" + "it.com", "8704025620829192" + "834",
+    banned = ("sample" + "it.com", "8704025620829192" + "834",
               "白明" + "涛", "白明" + "泽", "数据" + "迁移")
     for p in targets:
         text = p.read_text(encoding="utf-8")

@@ -1,0 +1,13 @@
+Compiled from "SPIProperties.java"
+public class com.seeyon.boot.starter.spi.SPIProperties {
+  private static final org.slf4j.Logger log;
+  public static final java.lang.String PREFIX;
+  private boolean enable;
+  private java.util.List<java.lang.String> spiPlugins;
+  public com.seeyon.boot.starter.spi.SPIProperties();
+  public boolean isEnable();
+  public java.util.List<java.lang.String> getSpiPlugins();
+  public void setEnable(boolean);
+  public void setSpiPlugins(java.util.List<java.lang.String>);
+  static {};
+}

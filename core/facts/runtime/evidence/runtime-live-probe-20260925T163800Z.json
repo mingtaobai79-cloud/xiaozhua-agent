@@ -1,0 +1,242 @@
+{
+  "env_binding": {
+    "cfg_base": "https://lowcode-test2.example.com",
+    "cred_base_eq_cfg": true,
+    "cfg_app": "app9000000000000000001",
+    "cred_app_eq_cfg": true,
+    "prefix": "/service/app9000000000000000001",
+    "prefix_eq_template": true,
+    "justified_by": "config/environments.yaml: environments.test2 [+ credential ref test2-web-credential]"
+  },
+  "cred_ref": "shared-credentials/test2-web-credential.json (path ref only)",
+  "probes": [
+    {
+      "id": "A",
+      "method": "GET",
+      "url": "https://lowcode-test2.example.com/service/app9000000000000000001/udc-runtime/datatype/getAll",
+      "body_keys": null,
+      "first": {
+        "http": 200,
+        "body_bytes": 1822,
+        "kind": "json",
+        "top_keys": [
+          "code",
+          "data",
+          "message",
+          "status",
+          "traceId"
+        ],
+        "code": "BOOT_0000",
+        "message": "SUCCESS",
+        "traceId": "3247033516839405756",
+        "data_keys": [
+          "content"
+        ],
+        "data.content_len": 13,
+        "data.content_fieldnames": [
+          "caption",
+          "dataFormat",
+          "databaseType",
+          "javaType",
+          "name",
+          "order",
+          "validate"
+        ],
+        "md5_no_trace": "65e685f35e0050c029ffa16475bf9fa4"
+      },
+      "second": {
+        "http": 200,
+        "body_bytes": 1822,
+        "kind": "json",
+        "top_keys": [
+          "code",
+          "data",
+          "message",
+          "status",
+          "traceId"
+        ],
+        "code": "BOOT_0000",
+        "message": "SUCCESS",
+        "traceId": "3247033524305266876",
+        "data_keys": [
+          "content"
+        ],
+        "data.content_len": 13,
+        "data.content_fieldnames": [
+          "caption",
+          "dataFormat",
+          "databaseType",
+          "javaType",
+          "name",
+          "order",
+          "validate"
+        ],
+        "md5_no_trace": "65e685f35e0050c029ffa16475bf9fa4"
+      },
+      "identity_match": true
+    },
+    {
+      "id": "B",
+      "method": "GET",
+      "url": "https://lowcode-test2.example.com/service/app9000000000000000001/udc-runtime/database/query-data",
+      "body_keys": null,
+      "first": {
+        "http": 200,
+        "body_bytes": 90,
+        "kind": "json",
+        "top_keys": [
+          "code",
+          "data",
+          "message",
+          "status",
+          "traceId"
+        ],
+        "code": "BOOT_3000",
+        "message": null,
+        "traceId": "3247033528533125308",
+        "md5_no_trace": "4979bebcd1ae4ceff251114e5195cbf7"
+      },
+      "second": {
+        "http": 200,
+        "body_bytes": 90,
+        "kind": "json",
+        "top_keys": [
+          "code",
+          "data",
+          "message",
+          "status",
+          "traceId"
+        ],
+        "code": "BOOT_3000",
+        "message": null,
+        "traceId": "3247033532727429308",
+        "md5_no_trace": "4979bebcd1ae4ceff251114e5195cbf7"
+      },
+      "identity_match": true
+    },
+    {
+      "id": "C1",
+      "method": "GET",
+      "url": "https://lowcode-test2.example.com/service/app9000000000000000001/udc-runtime/database/query-data",
+      "body_keys": [
+        "dataSource",
+        "table",
+        "condition"
+      ],
+      "first": {
+        "http": 200,
+        "body_bytes": 90,
+        "kind": "json",
+        "top_keys": [
+          "code",
+          "data",
+          "message",
+          "status",
+          "traceId"
+        ],
+        "code": "BOOT_3000",
+        "message": null,
+        "traceId": "3247033536837847228",
+        "md5_no_trace": "4979bebcd1ae4ceff251114e5195cbf7"
+      },
+      "second": {
+        "http": 200,
+        "body_bytes": 90,
+        "kind": "json",
+        "top_keys": [
+          "code",
+          "data",
+          "message",
+          "status",
+          "traceId"
+        ],
+        "code": "BOOT_3000",
+        "message": null,
+        "traceId": "3247033540763715772",
+        "md5_no_trace": "4979bebcd1ae4ceff251114e5195cbf7"
+      },
+      "identity_match": true
+    },
+    {
+      "id": "C2",
+      "method": "GET",
+      "url": "https://lowcode-test2.example.com/service/app9000000000000000001/udc-runtime/database/query-data",
+      "body_keys": [
+        "entityFullName",
+        "ids"
+      ],
+      "first": {
+        "http": 200,
+        "body_bytes": 90,
+        "kind": "json",
+        "top_keys": [
+          "code",
+          "data",
+          "message",
+          "status",
+          "traceId"
+        ],
+        "code": "BOOT_3000",
+        "message": null,
+        "traceId": "3247033544857356476",
+        "md5_no_trace": "4979bebcd1ae4ceff251114e5195cbf7"
+      },
+      "second": {
+        "http": 200,
+        "body_bytes": 90,
+        "kind": "json",
+        "top_keys": [
+          "code",
+          "data",
+          "message",
+          "status",
+          "traceId"
+        ],
+        "code": "BOOT_3000",
+        "message": null,
+        "traceId": "3247033548867111100",
+        "md5_no_trace": "4979bebcd1ae4ceff251114e5195cbf7"
+      },
+      "identity_match": true
+    },
+    {
+      "id": "C3",
+      "method": "GET",
+      "url": "https://lowcode-test2.example.com/service/app9000000000000000001/udc-runtime/database/query-data?entityFullName=x&ids=x",
+      "body_keys": null,
+      "first": {
+        "http": 200,
+        "body_bytes": 118,
+        "kind": "json",
+        "top_keys": [
+          "code",
+          "data",
+          "message",
+          "status",
+          "traceId"
+        ],
+        "code": "BOOT_3000",
+        "message": "String index out of range: -12",
+        "traceId": "3247033552994306236",
+        "md5_no_trace": "20e87a2e236f779c2b243ad162377991"
+      },
+      "second": {
+        "http": 200,
+        "body_bytes": 118,
+        "kind": "json",
+        "top_keys": [
+          "code",
+          "data",
+          "message",
+          "status",
+          "traceId"
+        ],
+        "code": "BOOT_3000",
+        "message": "String index out of range: -12",
+        "traceId": "3247033557205387452",
+        "md5_no_trace": "20e87a2e236f779c2b243ad162377991"
+      },
+      "identity_match": true
+    }
+  ]
+}

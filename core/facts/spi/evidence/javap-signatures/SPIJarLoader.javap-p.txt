@@ -1,0 +1,12 @@
+Compiled from "SPIJarLoader.java"
+public class com.seeyon.boot.starter.spi.SPIJarLoader {
+  private static final org.slf4j.Logger log;
+  private com.seeyon.boot.starter.spi.plugin.SpiArtifactService spiArtifactService;
+  private com.seeyon.boot.starter.eventbus.EventBus eventBus;
+  public com.seeyon.boot.starter.spi.SPIJarLoader();
+  private java.util.List<java.lang.String> getFilePath(java.util.List<java.lang.String>);
+  public synchronized void loadSPIPlugins(java.util.List<java.lang.String>);
+  public synchronized void loadSPIPlugins(java.util.List<java.lang.String>, boolean);
+  public synchronized void loadRemoteSPIPlugins();
+  static {};
+}

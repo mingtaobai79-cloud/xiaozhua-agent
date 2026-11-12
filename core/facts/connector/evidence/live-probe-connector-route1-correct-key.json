@@ -1,0 +1,49 @@
+{
+  "probe": "connector route1 correct-key reprobe LIVE (main HANDOFF evt-1790835845881-p4r1, dedupe phase4-route1-correct-key-reprobe-resend-1790900000)",
+  "phase": "4",
+  "env": "test2",
+  "base": "https://lowcode-test2.example.com",
+  "gateway_prefix": "/service/app9000000000000000001",
+  "app_id": "app9000000000000000001",
+  "param_provenance": "id -1595651527290089449 (record numeric id) exported verbatim from E6 live-probe-connector-dataflow.json data_preview; 0 fabricated; second in-disk id -7296522931834678836 within allowance but unused (first send already PASS)",
+  "credential": {
+    "ref": "<COLLAB_ROOT>/agent-collaboration/shared-credentials/test2-web-credential.json",
+    "note": "value 0 into evidence; cookie rendered on-wire only"
+  },
+  "no_retry_bombing": true,
+  "sends_cap": 2,
+  "total_sends": 1,
+  "zero_write": true,
+  "stop_rule": "first send met LIVE PASS criteria (HTTP 200 + BOOT_0000 + nonempty data + traceId) => second-send allowance unused; batch <=2 sends honored",
+  "sends": [
+    {
+      "method": "GET",
+      "path": "/service/app9000000000000000001/udc-runtime/data-flow-map/-1595651527290089449",
+      "id_used": "-1595651527290089449",
+      "ts_utc": "2026-10-01T06:25:21.874669+00:00",
+      "ts_epoch": 1790835921.874669,
+      "http": 200,
+      "bytes": 336,
+      "body_sha256": "0849832a1f705cd9db3de2925fad96d83afe055e5e7ea54428dcaa2e1581cf6b",
+      "code": "BOOT_0000",
+      "message": "SUCCESS",
+      "traceId": "3255114172781824188",
+      "data_type": "dict",
+      "nonempty": true,
+      "data_preview": "{\"content\": {\"validate\": true, \"id\": \"-1595651527290089449\", \"guid\": \"8128016104943011258\", \"appId\": \"3289082814923688017\", \"caption\": \"合同复制\", \"definition\": null, \"description\": null, \"state\": \"ON\", \"createTime\": 1789806274000, \"updateTime\": 1790764229000}}",
+      "data_keys": [
+        "content"
+      ]
+    }
+  ],
+  "verdict": "route1 GET udc-runtime/data-flow-map/{id} = LIVE PASS",
+  "key_semantics_confirmed": "selectById resolves by numeric record id (E6-exported Long, e.g. -1595651527290089449) -> business body returned (content.id/guid/caption=合同复制/state=ON); contrasts E7 route1 guid 8128016104943011258 -> UDCRT_DATAFLOW_0005 does-not-exist => distinguishes key-type vs record-existence",
+  "boundary_compliance": {
+    "writes": 0,
+    "creds_into_evidence": 0,
+    "b_domain_probed": false,
+    "routes_2345_probed": false,
+    "item_mgmt_touched": false,
+    "existing_evidence_untouched": "E6 f0c1fe48 + E7 be70e8c7 + 6 prior evidence + 5 controller bytecode (append-only)"
+  }
+}

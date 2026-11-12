@@ -1,0 +1,5 @@
+Compiled from "CtpUserComment.java"
+public interface com.seeyon.ctp.user.annotation.CtpUserComment extends java.lang.annotation.Annotation {
+  public abstract java.lang.String value();
+    descriptor: ()Ljava/lang/String;
+}

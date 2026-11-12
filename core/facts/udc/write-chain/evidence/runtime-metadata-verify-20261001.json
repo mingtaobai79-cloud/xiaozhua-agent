@@ -1,0 +1,44 @@
+{
+  "phase": "运行时 metadata 闭环验证 — 重复表查询协议",
+  "ts": "2026-10-01 05:45 +08",
+  "method": "拉部署产物 metadata zip(app-sandbox/file/download?storageKey=metadata/udc/{appId}/{buildVersion}.zip)对照运行时真实渲染 schema",
+  "verified_1.0.9": {
+    "grid_componentName": "重复表查询",
+    "grid_顶层键": [
+      "children",
+      "componentName",
+      "dataSource",
+      "events",
+      "extraChildren",
+      "id",
+      "name",
+      "parentId",
+      "settings",
+      "type",
+      "uiModel",
+      "uiModelSchema"
+    ],
+    "dataSource位置": "控件顶层字段(非settings内!) — 之前放settings=『重复表查询没选实体』根因",
+    "dataSource键": [
+      "type",
+      "subType",
+      "key",
+      "isRoot",
+      "isRef",
+      "dataShape",
+      "entity",
+      "fields",
+      "dataTarget",
+      "fieldBindMap",
+      "hiddenFields"
+    ],
+    "entity_7字段": "id/name/fullName/caption/stereotype/category/supportOrderNo/appName/appId",
+    "dataSourceDtoList": "页面级为 null(标品亦然) — 数据源只在控件级"
+  },
+  "metadata_zip_结构": {
+    "backend/": "生成代码(controller/facade/dto/assemble/ddl.sql) — 写入通道的真实接口在这!",
+    "metadata/{appId}/page/{pageId}.json": "运行时页面(包络+pageSchema字符串)"
+  },
+  "page_envelope_keys": 41,
+  "state枚举更正": "deploy_record.state: 1=成功(此前误判0=成功; msg空+image正常才是复合判据)"
+}

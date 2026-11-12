@@ -1,0 +1,8 @@
+Compiled from "CtpAvoidLoginClientModeProviderService.java"
+public interface com.seeyon.ctp.user.api.avoidlogin.CtpAvoidLoginClientModeProviderService extends com.seeyon.ctp.user.api.CtpSsoAvoidLoginBaseService {
+  public abstract void preCheck(com.seeyon.ctp.user.dto.CtpUserSpiAvoidLoginClientModeDto) throws com.seeyon.ctp.user.exception.CtpUserSpiSsoException;
+    descriptor: (Lcom/seeyon/ctp/user/dto/CtpUserSpiAvoidLoginClientModeDto;)V
+
+  public abstract com.seeyon.ctp.user.dto.CtpAvoidLoginUserInfoDto getUserInfo(com.seeyon.ctp.user.dto.CtpUserSpiAvoidLoginClientModeDto);
+    descriptor: (Lcom/seeyon/ctp/user/dto/CtpUserSpiAvoidLoginClientModeDto;)Lcom/seeyon/ctp/user/dto/CtpAvoidLoginUserInfoDto;
+}

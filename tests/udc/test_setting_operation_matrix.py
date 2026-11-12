@@ -58,7 +58,7 @@ def test_tool_exists_and_parameterized():
     assert TOOL.is_file()
     src = TOOL.read_text(encoding="utf-8")
     # 不允许硬编码客户域名（关键词拼着写，避免本文件自己命中脱敏闸门）
-    assert ("changhong" + "it") not in src
+    assert ("sample" + "it") not in src
     # 端口与页面要能传
     assert "--port" in src
     assert "--url-match" in src

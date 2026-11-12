@@ -1,0 +1,90 @@
+# command: javap -p -cp <jar> <12 non-mobile api FQNs>
+# RC=0
+# output sha256_prefix=47b56176  output_bytes=7483
+# captured: 2026-10-08T04:28:59Z
+# ---- raw output below ----
+Compiled from "CipThirdAffairService.java"
+public interface com.seeyon.cip.connector.api.affair.CipThirdAffairService {
+  public abstract java.util.List<com.seeyon.cip.connector.dto.template.ThirdTemplateDataSpiReturnDto> queryThirdAffairFieldData(com.seeyon.cip.connector.dto.template.ThirdTemplateDataSpiReqDto);
+}
+Compiled from "LinkerSecurityService.java"
+public interface com.seeyon.cip.connector.api.authentication.LinkerSecurityService {
+  public abstract java.lang.String getName();
+  public abstract java.lang.String getTypeCaption();
+  public abstract com.seeyon.cip.connector.enums.AuthInfoModeEnum getMode();
+  public abstract java.util.Map<java.lang.String, java.lang.Object> doAuthentication(com.seeyon.cip.connector.dto.authentication.AuthenticationDto) throws java.lang.Exception;
+  public abstract com.seeyon.cip.connector.dto.authentication.AuthEventDto doDecode(java.lang.String, com.seeyon.cip.connector.dto.authentication.AuthEventDto) throws java.lang.Exception;
+  public abstract java.lang.String getPageJson();
+  public abstract java.lang.Integer getSortNo();
+  public abstract void jsonCheck(java.lang.String);
+  public default java.lang.Boolean doVerification(com.seeyon.cip.connector.dto.authentication.AuthenticationDto);
+}
+Compiled from "ConnectorCallbackMessageSendService.java"
+public interface com.seeyon.cip.connector.api.callback.ConnectorCallbackMessageSendService<T extends com.seeyon.boot.transport.BaseDto> {
+  public abstract void sendMsgAsync(T);
+  public abstract void sendMsgSync(T);
+}
+Compiled from "ConnectorCallbackProviderService.java"
+public interface com.seeyon.cip.connector.api.callback.ConnectorCallbackProviderService<T extends com.seeyon.boot.transport.BaseDto, Res> {
+  public abstract Res doCallback(com.seeyon.cip.connector.dto.callback.ConnectorCallbackRequestDto, com.seeyon.cip.connector.api.callback.ConnectorCallbackMessageSendService<T>);
+}
+Compiled from "DataBaseExecutorService.java"
+public interface com.seeyon.cip.connector.api.db.DataBaseExecutorService {
+  public abstract com.seeyon.cip.connector.enums.DbTypeEnum getDbTypeEnum();
+  public abstract java.lang.String getName();
+  public abstract com.seeyon.cip.connector.dto.db.ExecutorResultApiDto executeDetail(com.seeyon.cip.connector.dto.db.DatabaseInfoApiDto, com.seeyon.cip.connector.dto.db.LinkerDetailApiDto, java.util.Map<java.lang.String, java.lang.Object>);
+  public abstract java.lang.Integer executeDetailForCount(com.seeyon.cip.connector.dto.db.DatabaseInfoApiDto, com.seeyon.cip.connector.dto.db.LinkerDetailApiDto, java.util.Map<java.lang.String, java.lang.Object>);
+  public abstract java.lang.String transformByType(java.lang.Object, java.lang.String);
+  public abstract java.util.List<java.lang.String> getAllTableName(com.seeyon.cip.connector.dto.db.DatabaseInfoApiDto);
+  public abstract com.seeyon.boot.transport.PageData<java.lang.String> getPageTableName(com.seeyon.cip.connector.dto.db.DatabaseInfoApiDto, com.seeyon.cip.connector.dto.db.AppSearchApiDto);
+  public abstract java.lang.String getDriver();
+  public abstract java.util.List<com.seeyon.cip.connector.dto.db.TableInfoApiDto> getAllTableInfo(com.seeyon.cip.connector.dto.db.DatabaseInfoApiDto, java.lang.String);
+  public abstract java.lang.String generateSql(com.seeyon.cip.connector.dto.db.LinkerDetailApiDto);
+  public abstract java.lang.String generateSql(com.seeyon.cip.connector.dto.db.LinkerDetailApiDto, java.lang.Boolean);
+  public abstract java.sql.Connection getConnection(com.seeyon.cip.connector.dto.db.DatabaseInfoApiDto);
+  public abstract java.lang.String getVersion();
+  public default com.seeyon.cip.connector.dto.db.SqlResultApiDto executeSql(com.seeyon.cip.connector.dto.db.ExecuteSqlApiDto, com.seeyon.cip.connector.dto.db.DatabaseInfoApiDto);
+}
+Compiled from "MiddleTableOrgSyncSpiListenerService.java"
+public interface com.seeyon.cip.connector.api.midorgsync.MiddleTableOrgSyncSpiListenerService {
+  public abstract java.lang.Object dataGovernance(com.seeyon.cip.connector.dto.callback.ConnectorCallbackRequestDto, com.seeyon.cip.connector.api.midorgsync.callback.MiddleTableOrgSyncDataCallbackService, com.seeyon.cip.connector.api.midorgsync.callback.MiddleTableOrgSyncMarkCallbackService, com.seeyon.cip.connector.api.midorgsync.callback.MiddleTableOrgSyncExecuteCallbackService);
+}
+Compiled from "MiddleTableOrgSyncSpiPullService.java"
+public interface com.seeyon.cip.connector.api.midorgsync.MiddleTableOrgSyncSpiPullService {
+  public abstract void pullAll(com.seeyon.cip.connector.dto.midorgsync.spi.ConfigInfoApiDto, com.seeyon.cip.connector.api.midorgsync.callback.MiddleTableOrgSyncDataCallbackService, com.seeyon.cip.connector.api.midorgsync.callback.MiddleTableOrgSyncMarkCallbackService, com.seeyon.cip.connector.api.midorgsync.callback.MiddleTableOrgSyncExecuteCallbackService);
+  public abstract void pullIncrement(com.seeyon.cip.connector.dto.midorgsync.spi.ConfigInfoApiDto, com.seeyon.cip.connector.api.midorgsync.callback.MiddleTableOrgSyncDataCallbackService, com.seeyon.cip.connector.api.midorgsync.callback.MiddleTableOrgSyncExecuteCallbackService);
+}
+Compiled from "MiddleTableOrgSyncDataCallbackService.java"
+public interface com.seeyon.cip.connector.api.midorgsync.callback.MiddleTableOrgSyncDataCallbackService {
+  public static final int BATCH_MAX_SIZE;
+  public abstract java.lang.Integer batchSaveOrg(com.seeyon.cip.connector.dto.midorgsync.UnitInfoSpiReqDto);
+  public abstract java.lang.Integer batchSavePosition(com.seeyon.cip.connector.dto.midorgsync.PostInfoSpiReqDto);
+  public abstract java.lang.Integer batchSaveDuty(com.seeyon.cip.connector.dto.midorgsync.DutyInfoSpiReqDto);
+  public abstract java.lang.Integer batchSaveLevel(com.seeyon.cip.connector.dto.midorgsync.LevelInfoSpiReqDto);
+  public abstract java.lang.Integer batchSaveMember(com.seeyon.cip.connector.dto.midorgsync.MemberInfoSpiReqDto);
+}
+Compiled from "MiddleTableOrgSyncExecuteCallbackService.java"
+public interface com.seeyon.cip.connector.api.midorgsync.callback.MiddleTableOrgSyncExecuteCallbackService {
+  public abstract java.lang.Boolean executeSyncToOrgModel(java.lang.String);
+}
+Compiled from "MiddleTableOrgSyncMarkCallbackService.java"
+public interface com.seeyon.cip.connector.api.midorgsync.callback.MiddleTableOrgSyncMarkCallbackService {
+  public abstract java.lang.String markComplete(java.lang.String);
+}
+Compiled from "LinkerSignService.java"
+public interface com.seeyon.cip.connector.api.sign.LinkerSignService {
+  public abstract java.lang.String getName();
+  public abstract java.lang.String getCaption();
+  public abstract com.seeyon.cip.connector.dto.sign.RequestParamDto doSign(com.seeyon.cip.connector.dto.sign.LinkerSignDto, com.seeyon.cip.connector.dto.sign.RequestParamDto);
+  public abstract java.lang.Integer getSortNo();
+}
+Compiled from "SsoService.java"
+public interface com.seeyon.cip.connector.api.sso.SsoService {
+  public abstract java.lang.String getName();
+  public abstract java.lang.String getTypeCaption();
+  public abstract java.lang.String login(java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>, com.seeyon.cip.connector.enums.SsoClientTypeEnum, java.util.Map<java.lang.String, java.lang.Object>);
+  public abstract void check(java.lang.String);
+  public abstract java.lang.String getPageJson();
+  public abstract java.lang.Integer getSortNo();
+  public abstract boolean needUserBind();
+}

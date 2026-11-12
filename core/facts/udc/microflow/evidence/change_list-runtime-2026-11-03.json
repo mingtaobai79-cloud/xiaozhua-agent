@@ -1,0 +1,41 @@
+{
+ "stage": "P6b",
+ "node": "CHANGE_LIST",
+ "date": "2026-11-03",
+ "app_id": "8704025620829192834",
+ "cases": [
+  {
+   "case": "REPLACE dataSource=单元素 OBJECT（用首元素整体替换）",
+   "after": 1,
+   "expect": 1,
+   "pass": true,
+   "evidence": "P6CL01-REPLOBJ=1 @13:21:01"
+  },
+  {
+   "case": "REPLACE dataSource=2 元素 ARRAY",
+   "after": 2,
+   "expect": 2,
+   "pass": true,
+   "evidence": "P6CL01-REPLARR=2 @13:21:01"
+  },
+  {
+   "case": "REMOVE countAttrs=[id, processedRows]（多字段匹配）",
+   "after": 2,
+   "expect": 2,
+   "pass": true,
+   "evidence": "P6CL01-REMMULTI=2 @13:21:01（4 行移除 processedRows>2 的 2 行）"
+  }
+ ],
+ "build": {
+  "state": "SUCCESS",
+  "sec": 132
+ },
+ "not_covered": [
+  "REMOVE 用条件而非 countAttrs 匹配",
+  "多键且部分键不存在的边界"
+ ],
+ "notes": [
+  "REPLACE 的 dataSource 形态不能按动作写死 ARRAY：3 条语料是单元素 OBJECT",
+  "构造器按来源节点出参类型自动选，否则 G31 报「type=ARRAY 与出参声明 OBJECT 不一致」"
+ ]
+}

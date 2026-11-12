@@ -191,7 +191,7 @@ printf '%s\n%s\n' \
 | `spi_catalog` | 本地 | — | ✅ 已验证 | SPI 目录 |
 | `expression_catalog` | 本地 | — | ✅ 已验证 | 表达式函数目录（本地字典） |
 | `deploy_plan` | 本地 | — | ✅ 已验证 | 生成部署方案 body（readonly_plan=True），不提交 |
-| `microflow_node_actions` | 本地 | — | ✅ 已验证 | 列 23 个 action→actionType 映射；纯本地字典，不连平台 |
+| `microflow_node_actions` | 本地 | — | ✅ 已验证 | 本地已跑通：返回 23 条 action→actionType 映射 |
 
 <!-- END GENERATED:TOOL-TABLE -->
 

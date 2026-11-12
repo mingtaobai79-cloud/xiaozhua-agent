@@ -1,0 +1,26 @@
+Compiled from "CtpUserSpiRedirectUrlDto.java"
+public class com.seeyon.ctp.user.dto.CtpUserSpiRedirectUrlDto implements java.io.Serializable {
+  public static com.seeyon.ctp.user.dto.CtpUserSpiRedirectUrlDto$CtpUserSpiRedirectUrlDtoBuilder builder();
+    descriptor: ()Lcom/seeyon/ctp/user/dto/CtpUserSpiRedirectUrlDto$CtpUserSpiRedirectUrlDtoBuilder;
+
+  public java.lang.String getWebRedirectUrl();
+    descriptor: ()Ljava/lang/String;
+
+  public java.lang.String getMobileRedirectUrl();
+    descriptor: ()Ljava/lang/String;
+
+  public void setWebRedirectUrl(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+
+  public void setMobileRedirectUrl(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+
+  public java.lang.String toString();
+    descriptor: ()Ljava/lang/String;
+
+  public com.seeyon.ctp.user.dto.CtpUserSpiRedirectUrlDto();
+    descriptor: ()V
+
+  public com.seeyon.ctp.user.dto.CtpUserSpiRedirectUrlDto(java.lang.String, java.lang.String);
+    descriptor: (Ljava/lang/String;Ljava/lang/String;)V
+}

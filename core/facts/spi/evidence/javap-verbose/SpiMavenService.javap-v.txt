@@ -1,0 +1,779 @@
+Classfile jar:file:///D:/repo/CHIT/com/seeyon/boot-starter-spi/5.3.358/boot-starter-spi-5.3.358.jar!/com/seeyon/boot/starter/spi/plugin/maven/SpiMavenService.class
+  Last modified 2026年5月25日; size 7827 bytes
+  SHA-256 checksum e734ced1b15ca8ca0607159cb8cfb2e01e0d1fb37d389e82e67027e986da8975
+  Compiled from "SpiMavenService.java"
+public class com.seeyon.boot.starter.spi.plugin.maven.SpiMavenService implements com.seeyon.boot.starter.spi.plugin.SpiArtifactService,org.springframework.beans.factory.InitializingBean
+  minor version: 0
+  major version: 52
+  flags: (0x0021) ACC_PUBLIC, ACC_SUPER
+  this_class: #79                         // com/seeyon/boot/starter/spi/plugin/maven/SpiMavenService
+  super_class: #81                        // java/lang/Object
+  interfaces: 2, fields: 4, methods: 8, attributes: 3
+Constant pool:
+    #1 = Methodref          #81.#155      // java/lang/Object."<init>":()V
+    #2 = Methodref          #156.#157     // com/seeyon/boot/starter/spi/plugin/ArtifactInfo.getVersion:()Ljava/lang/String;
+    #3 = Methodref          #79.#158      // com/seeyon/boot/starter/spi/plugin/maven/SpiMavenService.getRemoteRepository:(Ljava/lang/String;)Lorg/eclipse/aether/repository/RemoteRepository;
+    #4 = Methodref          #156.#159     // com/seeyon/boot/starter/spi/plugin/ArtifactInfo.getExtension:()Ljava/lang/String;
+    #5 = Methodref          #160.#161     // com/seeyon/boot/util/StringUtils.isNotBlank:(Ljava/lang/CharSequence;)Z
+    #6 = String             #162          // jar
+    #7 = Class              #163          // org/eclipse/aether/artifact/DefaultArtifact
+    #8 = Methodref          #156.#164     // com/seeyon/boot/starter/spi/plugin/ArtifactInfo.getGroupId:()Ljava/lang/String;
+    #9 = Methodref          #156.#165     // com/seeyon/boot/starter/spi/plugin/ArtifactInfo.getArtifactId:()Ljava/lang/String;
+   #10 = String             #166          //
+   #11 = Methodref          #7.#167       // org/eclipse/aether/artifact/DefaultArtifact."<init>":(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+   #12 = Class              #168          // org/eclipse/aether/resolution/ArtifactRequest
+   #13 = Methodref          #12.#155      // org/eclipse/aether/resolution/ArtifactRequest."<init>":()V
+   #14 = Methodref          #12.#169      // org/eclipse/aether/resolution/ArtifactRequest.addRepository:(Lorg/eclipse/aether/repository/RemoteRepository;)Lorg/eclipse/aether/resolution/ArtifactRequest;
+   #15 = Methodref          #12.#170      // org/eclipse/aether/resolution/ArtifactRequest.setArtifact:(Lorg/eclipse/aether/artifact/Artifact;)Lorg/eclipse/aether/resolution/ArtifactRequest;
+   #16 = Fieldref           #79.#171      // com/seeyon/boot/starter/spi/plugin/maven/SpiMavenService.system:Lorg/eclipse/aether/RepositorySystem;
+   #17 = Fieldref           #79.#172      // com/seeyon/boot/starter/spi/plugin/maven/SpiMavenService.session:Lorg/eclipse/aether/RepositorySystemSession;
+   #18 = InterfaceMethodref #67.#173      // org/eclipse/aether/RepositorySystem.resolveArtifact:(Lorg/eclipse/aether/RepositorySystemSession;Lorg/eclipse/aether/resolution/ArtifactRequest;)Lorg/eclipse/aether/resolution/ArtifactResult;
+   #19 = Methodref          #174.#175     // org/eclipse/aether/resolution/ArtifactResult.getArtifact:()Lorg/eclipse/aether/artifact/Artifact;
+   #20 = InterfaceMethodref #176.#177     // org/eclipse/aether/artifact/Artifact.isSnapshot:()Z
+   #21 = InterfaceMethodref #176.#157     // org/eclipse/aether/artifact/Artifact.getVersion:()Ljava/lang/String;
+   #22 = InterfaceMethodref #176.#178     // org/eclipse/aether/artifact/Artifact.getFile:()Ljava/io/File;
+   #23 = Methodref          #179.#180     // java/io/File.getAbsolutePath:()Ljava/lang/String;
+   #24 = Class              #181          // java/lang/StringBuilder
+   #25 = Methodref          #24.#155      // java/lang/StringBuilder."<init>":()V
+   #26 = Methodref          #24.#182      // java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+   #27 = Class              #183          // com/seeyon/boot/common/Constants
+   #28 = String             #184          // .
+   #29 = InterfaceMethodref #176.#159     // org/eclipse/aether/artifact/Artifact.getExtension:()Ljava/lang/String;
+   #30 = Methodref          #24.#185      // java/lang/StringBuilder.toString:()Ljava/lang/String;
+   #31 = Methodref          #186.#187     // java/lang/String.replaceFirst:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+   #32 = Class              #188          // java/lang/Throwable
+   #33 = Fieldref           #79.#189      // com/seeyon/boot/starter/spi/plugin/maven/SpiMavenService.log:Lorg/slf4j/Logger;
+   #34 = String             #190          // maven私服下载[{}]jar包失败
+   #35 = InterfaceMethodref #191.#192     // org/slf4j/Logger.error:(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V
+   #36 = String             #193          // maven私服下载[
+   #37 = String             #194          // ]jar包失败
+   #38 = Methodref          #195.#196     // com/seeyon/boot/exception/BootException.throwIt:(Ljava/lang/String;)V
+   #39 = Methodref          #156.#197     // com/seeyon/boot/starter/spi/plugin/ArtifactInfo.isSnapshot:(Ljava/lang/String;)Z
+   #40 = Fieldref           #79.#198      // com/seeyon/boot/starter/spi/plugin/maven/SpiMavenService.spiMavenProperties:Lcom/seeyon/boot/starter/spi/plugin/maven/SpiMavenProperties;
+   #41 = Methodref          #199.#200     // com/seeyon/boot/starter/spi/plugin/maven/SpiMavenProperties.getSnapshotUrl:()Ljava/lang/String;
+   #42 = Methodref          #199.#201     // com/seeyon/boot/starter/spi/plugin/maven/SpiMavenProperties.getReleaseUrl:()Ljava/lang/String;
+   #43 = Methodref          #199.#202     // com/seeyon/boot/starter/spi/plugin/maven/SpiMavenProperties.getUsername:()Ljava/lang/String;
+   #44 = Methodref          #160.#203     // com/seeyon/boot/util/StringUtils.isEmpty:(Ljava/lang/CharSequence;)Z
+   #45 = Methodref          #199.#204     // com/seeyon/boot/starter/spi/plugin/maven/SpiMavenProperties.getPassword:()Ljava/lang/String;
+   #46 = Class              #206          // org/eclipse/aether/repository/RemoteRepository$Builder
+   #47 = String             #106          // central
+   #48 = String             #209          // default
+   #49 = Methodref          #46.#210      // org/eclipse/aether/repository/RemoteRepository$Builder."<init>":(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+   #50 = Methodref          #46.#211      // org/eclipse/aether/repository/RemoteRepository$Builder.build:()Lorg/eclipse/aether/repository/RemoteRepository;
+   #51 = Class              #212          // org/eclipse/aether/util/repository/AuthenticationBuilder
+   #52 = Methodref          #51.#155      // org/eclipse/aether/util/repository/AuthenticationBuilder."<init>":()V
+   #53 = Methodref          #51.#213      // org/eclipse/aether/util/repository/AuthenticationBuilder.addUsername:(Ljava/lang/String;)Lorg/eclipse/aether/util/repository/AuthenticationBuilder;
+   #54 = Methodref          #51.#214      // org/eclipse/aether/util/repository/AuthenticationBuilder.addPassword:(Ljava/lang/String;)Lorg/eclipse/aether/util/repository/AuthenticationBuilder;
+   #55 = Methodref          #51.#215      // org/eclipse/aether/util/repository/AuthenticationBuilder.build:()Lorg/eclipse/aether/repository/Authentication;
+   #56 = Methodref          #46.#216      // org/eclipse/aether/repository/RemoteRepository$Builder.setAuthentication:(Lorg/eclipse/aether/repository/Authentication;)Lorg/eclipse/aether/repository/RemoteRepository$Builder;
+   #57 = Methodref          #79.#217      // com/seeyon/boot/starter/spi/plugin/maven/SpiMavenService.getRepositorySystem:()Lorg/eclipse/aether/RepositorySystem;
+   #58 = Methodref          #79.#218      // com/seeyon/boot/starter/spi/plugin/maven/SpiMavenService.getMvnBasePath:()Ljava/lang/String;
+   #59 = Methodref          #79.#219      // com/seeyon/boot/starter/spi/plugin/maven/SpiMavenService.getSession:(Lorg/eclipse/aether/RepositorySystem;Ljava/lang/String;)Lorg/eclipse/aether/RepositorySystemSession;
+   #60 = Methodref          #220.#221     // org/apache/maven/repository/internal/MavenRepositorySystemUtils.newServiceLocator:()Lorg/eclipse/aether/impl/DefaultServiceLocator;
+   #61 = Class              #222          // org/eclipse/aether/spi/connector/RepositoryConnectorFactory
+   #62 = Class              #223          // org/eclipse/aether/connector/basic/BasicRepositoryConnectorFactory
+   #63 = Methodref          #224.#225     // org/eclipse/aether/impl/DefaultServiceLocator.addService:(Ljava/lang/Class;Ljava/lang/Class;)Lorg/eclipse/aether/impl/DefaultServiceLocator;
+   #64 = Class              #226          // org/eclipse/aether/spi/connector/transport/TransporterFactory
+   #65 = Class              #227          // org/eclipse/aether/transport/file/FileTransporterFactory
+   #66 = Class              #228          // org/eclipse/aether/transport/http/HttpTransporterFactory
+   #67 = Class              #229          // org/eclipse/aether/RepositorySystem
+   #68 = Methodref          #224.#230     // org/eclipse/aether/impl/DefaultServiceLocator.getService:(Ljava/lang/Class;)Ljava/lang/Object;
+   #69 = Methodref          #220.#231     // org/apache/maven/repository/internal/MavenRepositorySystemUtils.newSession:()Lorg/eclipse/aether/DefaultRepositorySystemSession;
+   #70 = Class              #232          // org/eclipse/aether/repository/LocalRepository
+   #71 = Methodref          #70.#233      // org/eclipse/aether/repository/LocalRepository."<init>":(Ljava/lang/String;)V
+   #72 = InterfaceMethodref #67.#234      // org/eclipse/aether/RepositorySystem.newLocalRepositoryManager:(Lorg/eclipse/aether/RepositorySystemSession;Lorg/eclipse/aether/repository/LocalRepository;)Lorg/eclipse/aether/repository/LocalRepositoryManager;
+   #73 = Methodref          #235.#236     // org/eclipse/aether/DefaultRepositorySystemSession.setLocalRepositoryManager:(Lorg/eclipse/aether/repository/LocalRepositoryManager;)Lorg/eclipse/aether/DefaultRepositorySystemSession;
+   #74 = String             #237          // always
+   #75 = Methodref          #235.#238     // org/eclipse/aether/DefaultRepositorySystemSession.setUpdatePolicy:(Ljava/lang/String;)Lorg/eclipse/aether/DefaultRepositorySystemSession;
+   #76 = Methodref          #239.#240     // com/seeyon/boot/context/Apps.getAppDataPath:()Ljava/lang/String;
+   #77 = Fieldref           #179.#241     // java/io/File.separator:Ljava/lang/String;
+   #78 = String             #242          // mvn
+   #79 = Class              #243          // com/seeyon/boot/starter/spi/plugin/maven/SpiMavenService
+   #80 = Methodref          #244.#245     // org/slf4j/LoggerFactory.getLogger:(Ljava/lang/Class;)Lorg/slf4j/Logger;
+   #81 = Class              #246          // java/lang/Object
+   #82 = Class              #247          // com/seeyon/boot/starter/spi/plugin/SpiArtifactService
+   #83 = Class              #248          // org/springframework/beans/factory/InitializingBean
+   #84 = Utf8               log
+   #85 = Utf8               Lorg/slf4j/Logger;
+   #86 = Utf8               spiMavenProperties
+   #87 = Utf8               Lcom/seeyon/boot/starter/spi/plugin/maven/SpiMavenProperties;
+   #88 = Utf8               RuntimeVisibleAnnotations
+   #89 = Utf8               Lorg/springframework/beans/factory/annotation/Autowired;
+   #90 = Utf8               system
+   #91 = Utf8               Lorg/eclipse/aether/RepositorySystem;
+   #92 = Utf8               session
+   #93 = Utf8               Lorg/eclipse/aether/RepositorySystemSession;
+   #94 = Utf8               <init>
+   #95 = Utf8               ()V
+   #96 = Utf8               Code
+   #97 = Utf8               LineNumberTable
+   #98 = Utf8               LocalVariableTable
+   #99 = Utf8               this
+  #100 = Utf8               Lcom/seeyon/boot/starter/spi/plugin/maven/SpiMavenService;
+  #101 = Utf8               download
+  #102 = Utf8               (Lcom/seeyon/boot/starter/spi/plugin/ArtifactInfo;)Ljava/lang/String;
+  #103 = Utf8               snapshotVersion
+  #104 = Utf8               Ljava/lang/String;
+  #105 = Utf8               jarPath
+  #106 = Utf8               central
+  #107 = Utf8               Lorg/eclipse/aether/repository/RemoteRepository;
+  #108 = Utf8               extension
+  #109 = Utf8               artifact
+  #110 = Utf8               Lorg/eclipse/aether/artifact/Artifact;
+  #111 = Utf8               artifactRequest
+  #112 = Utf8               Lorg/eclipse/aether/resolution/ArtifactRequest;
+  #113 = Utf8               artifactResult
+  #114 = Utf8               Lorg/eclipse/aether/resolution/ArtifactResult;
+  #115 = Utf8               e
+  #116 = Utf8               Ljava/lang/Throwable;
+  #117 = Utf8               artifactInfo
+  #118 = Utf8               Lcom/seeyon/boot/starter/spi/plugin/ArtifactInfo;
+  #119 = Utf8               StackMapTable
+  #120 = Class              #249          // org/eclipse/aether/repository/RemoteRepository
+  #121 = Class              #250          // java/lang/String
+  #122 = Class              #243          // com/seeyon/boot/starter/spi/plugin/maven/SpiMavenService
+  #123 = Class              #251          // com/seeyon/boot/starter/spi/plugin/ArtifactInfo
+  #124 = Class              #252          // org/eclipse/aether/artifact/Artifact
+  #125 = Class              #168          // org/eclipse/aether/resolution/ArtifactRequest
+  #126 = Class              #253          // org/eclipse/aether/resolution/ArtifactResult
+  #127 = Class              #188          // java/lang/Throwable
+  #128 = Utf8               getRemoteRepository
+  #129 = Utf8               (Ljava/lang/String;)Lorg/eclipse/aether/repository/RemoteRepository;
+  #130 = Utf8               repoUrl
+  #131 = Utf8               authentication
+  #132 = Utf8               Lorg/eclipse/aether/repository/Authentication;
+  #133 = Utf8               version
+  #134 = Utf8               afterPropertiesSet
+  #135 = Utf8               Exceptions
+  #136 = Class              #254          // java/lang/Exception
+  #137 = Utf8               getRepositorySystem
+  #138 = Utf8               ()Lorg/eclipse/aether/RepositorySystem;
+  #139 = Utf8               locator
+  #140 = Utf8               Lorg/eclipse/aether/impl/DefaultServiceLocator;
+  #141 = Utf8               getSession
+  #142 = Utf8               (Lorg/eclipse/aether/RepositorySystem;Ljava/lang/String;)Lorg/eclipse/aether/RepositorySystemSession;
+  #143 = Utf8               target
+  #144 = Utf8               Lorg/eclipse/aether/DefaultRepositorySystemSession;
+  #145 = Utf8               localRepo
+  #146 = Utf8               Lorg/eclipse/aether/repository/LocalRepository;
+  #147 = Utf8               getMvnBasePath
+  #148 = Utf8               ()Ljava/lang/String;
+  #149 = Utf8               <clinit>
+  #150 = Utf8               SourceFile
+  #151 = Utf8               SpiMavenService.java
+  #152 = Utf8               Lorg/springframework/stereotype/Component;
+  #153 = Utf8               Lorg/springframework/boot/autoconfigure/condition/ConditionalOnBean;
+  #154 = Utf8               value
+  #155 = NameAndType        #94:#95       // "<init>":()V
+  #156 = Class              #251          // com/seeyon/boot/starter/spi/plugin/ArtifactInfo
+  #157 = NameAndType        #255:#148     // getVersion:()Ljava/lang/String;
+  #158 = NameAndType        #128:#129     // getRemoteRepository:(Ljava/lang/String;)Lorg/eclipse/aether/repository/RemoteRepository;
+  #159 = NameAndType        #256:#148     // getExtension:()Ljava/lang/String;
+  #160 = Class              #257          // com/seeyon/boot/util/StringUtils
+  #161 = NameAndType        #258:#259     // isNotBlank:(Ljava/lang/CharSequence;)Z
+  #162 = Utf8               jar
+  #163 = Utf8               org/eclipse/aether/artifact/DefaultArtifact
+  #164 = NameAndType        #260:#148     // getGroupId:()Ljava/lang/String;
+  #165 = NameAndType        #261:#148     // getArtifactId:()Ljava/lang/String;
+  #166 = Utf8
+  #167 = NameAndType        #94:#262      // "<init>":(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+  #168 = Utf8               org/eclipse/aether/resolution/ArtifactRequest
+  #169 = NameAndType        #263:#264     // addRepository:(Lorg/eclipse/aether/repository/RemoteRepository;)Lorg/eclipse/aether/resolution/ArtifactRequest;
+  #170 = NameAndType        #265:#266     // setArtifact:(Lorg/eclipse/aether/artifact/Artifact;)Lorg/eclipse/aether/resolution/ArtifactRequest;
+  #171 = NameAndType        #90:#91       // system:Lorg/eclipse/aether/RepositorySystem;
+  #172 = NameAndType        #92:#93       // session:Lorg/eclipse/aether/RepositorySystemSession;
+  #173 = NameAndType        #267:#268     // resolveArtifact:(Lorg/eclipse/aether/RepositorySystemSession;Lorg/eclipse/aether/resolution/ArtifactRequest;)Lorg/eclipse/aether/resolution/ArtifactResult;
+  #174 = Class              #253          // org/eclipse/aether/resolution/ArtifactResult
+  #175 = NameAndType        #269:#270     // getArtifact:()Lorg/eclipse/aether/artifact/Artifact;
+  #176 = Class              #252          // org/eclipse/aether/artifact/Artifact
+  #177 = NameAndType        #271:#272     // isSnapshot:()Z
+  #178 = NameAndType        #273:#274     // getFile:()Ljava/io/File;
+  #179 = Class              #275          // java/io/File
+  #180 = NameAndType        #276:#148     // getAbsolutePath:()Ljava/lang/String;
+  #181 = Utf8               java/lang/StringBuilder
+  #182 = NameAndType        #277:#278     // append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  #183 = Utf8               com/seeyon/boot/common/Constants
+  #184 = Utf8               .
+  #185 = NameAndType        #279:#148     // toString:()Ljava/lang/String;
+  #186 = Class              #250          // java/lang/String
+  #187 = NameAndType        #280:#281     // replaceFirst:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+  #188 = Utf8               java/lang/Throwable
+  #189 = NameAndType        #84:#85       // log:Lorg/slf4j/Logger;
+  #190 = Utf8               maven私服下载[{}]jar包失败
+  #191 = Class              #282          // org/slf4j/Logger
+  #192 = NameAndType        #283:#284     // error:(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V
+  #193 = Utf8               maven私服下载[
+  #194 = Utf8               ]jar包失败
+  #195 = Class              #285          // com/seeyon/boot/exception/BootException
+  #196 = NameAndType        #286:#287     // throwIt:(Ljava/lang/String;)V
+  #197 = NameAndType        #271:#288     // isSnapshot:(Ljava/lang/String;)Z
+  #198 = NameAndType        #86:#87       // spiMavenProperties:Lcom/seeyon/boot/starter/spi/plugin/maven/SpiMavenProperties;
+  #199 = Class              #289          // com/seeyon/boot/starter/spi/plugin/maven/SpiMavenProperties
+  #200 = NameAndType        #290:#148     // getSnapshotUrl:()Ljava/lang/String;
+  #201 = NameAndType        #291:#148     // getReleaseUrl:()Ljava/lang/String;
+  #202 = NameAndType        #292:#148     // getUsername:()Ljava/lang/String;
+  #203 = NameAndType        #293:#259     // isEmpty:(Ljava/lang/CharSequence;)Z
+  #204 = NameAndType        #294:#148     // getPassword:()Ljava/lang/String;
+  #205 = Class              #249          // org/eclipse/aether/repository/RemoteRepository
+  #206 = Utf8               org/eclipse/aether/repository/RemoteRepository$Builder
+  #207 = Utf8               Builder
+  #208 = Utf8               InnerClasses
+  #209 = Utf8               default
+  #210 = NameAndType        #94:#295      // "<init>":(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+  #211 = NameAndType        #296:#297     // build:()Lorg/eclipse/aether/repository/RemoteRepository;
+  #212 = Utf8               org/eclipse/aether/util/repository/AuthenticationBuilder
+  #213 = NameAndType        #298:#299     // addUsername:(Ljava/lang/String;)Lorg/eclipse/aether/util/repository/AuthenticationBuilder;
+  #214 = NameAndType        #300:#299     // addPassword:(Ljava/lang/String;)Lorg/eclipse/aether/util/repository/AuthenticationBuilder;
+  #215 = NameAndType        #296:#301     // build:()Lorg/eclipse/aether/repository/Authentication;
+  #216 = NameAndType        #302:#303     // setAuthentication:(Lorg/eclipse/aether/repository/Authentication;)Lorg/eclipse/aether/repository/RemoteRepository$Builder;
+  #217 = NameAndType        #137:#138     // getRepositorySystem:()Lorg/eclipse/aether/RepositorySystem;
+  #218 = NameAndType        #147:#148     // getMvnBasePath:()Ljava/lang/String;
+  #219 = NameAndType        #141:#142     // getSession:(Lorg/eclipse/aether/RepositorySystem;Ljava/lang/String;)Lorg/eclipse/aether/RepositorySystemSession;
+  #220 = Class              #304          // org/apache/maven/repository/internal/MavenRepositorySystemUtils
+  #221 = NameAndType        #305:#306     // newServiceLocator:()Lorg/eclipse/aether/impl/DefaultServiceLocator;
+  #222 = Utf8               org/eclipse/aether/spi/connector/RepositoryConnectorFactory
+  #223 = Utf8               org/eclipse/aether/connector/basic/BasicRepositoryConnectorFactory
+  #224 = Class              #307          // org/eclipse/aether/impl/DefaultServiceLocator
+  #225 = NameAndType        #308:#309     // addService:(Ljava/lang/Class;Ljava/lang/Class;)Lorg/eclipse/aether/impl/DefaultServiceLocator;
+  #226 = Utf8               org/eclipse/aether/spi/connector/transport/TransporterFactory
+  #227 = Utf8               org/eclipse/aether/transport/file/FileTransporterFactory
+  #228 = Utf8               org/eclipse/aether/transport/http/HttpTransporterFactory
+  #229 = Utf8               org/eclipse/aether/RepositorySystem
+  #230 = NameAndType        #310:#311     // getService:(Ljava/lang/Class;)Ljava/lang/Object;
+  #231 = NameAndType        #312:#313     // newSession:()Lorg/eclipse/aether/DefaultRepositorySystemSession;
+  #232 = Utf8               org/eclipse/aether/repository/LocalRepository
+  #233 = NameAndType        #94:#287      // "<init>":(Ljava/lang/String;)V
+  #234 = NameAndType        #314:#315     // newLocalRepositoryManager:(Lorg/eclipse/aether/RepositorySystemSession;Lorg/eclipse/aether/repository/LocalRepository;)Lorg/eclipse/aether/repository/LocalRepositoryManager;
+  #235 = Class              #316          // org/eclipse/aether/DefaultRepositorySystemSession
+  #236 = NameAndType        #317:#318     // setLocalRepositoryManager:(Lorg/eclipse/aether/repository/LocalRepositoryManager;)Lorg/eclipse/aether/DefaultRepositorySystemSession;
+  #237 = Utf8               always
+  #238 = NameAndType        #319:#320     // setUpdatePolicy:(Ljava/lang/String;)Lorg/eclipse/aether/DefaultRepositorySystemSession;
+  #239 = Class              #321          // com/seeyon/boot/context/Apps
+  #240 = NameAndType        #322:#148     // getAppDataPath:()Ljava/lang/String;
+  #241 = NameAndType        #323:#104     // separator:Ljava/lang/String;
+  #242 = Utf8               mvn
+  #243 = Utf8               com/seeyon/boot/starter/spi/plugin/maven/SpiMavenService
+  #244 = Class              #324          // org/slf4j/LoggerFactory
+  #245 = NameAndType        #325:#326     // getLogger:(Ljava/lang/Class;)Lorg/slf4j/Logger;
+  #246 = Utf8               java/lang/Object
+  #247 = Utf8               com/seeyon/boot/starter/spi/plugin/SpiArtifactService
+  #248 = Utf8               org/springframework/beans/factory/InitializingBean
+  #249 = Utf8               org/eclipse/aether/repository/RemoteRepository
+  #250 = Utf8               java/lang/String
+  #251 = Utf8               com/seeyon/boot/starter/spi/plugin/ArtifactInfo
+  #252 = Utf8               org/eclipse/aether/artifact/Artifact
+  #253 = Utf8               org/eclipse/aether/resolution/ArtifactResult
+  #254 = Utf8               java/lang/Exception
+  #255 = Utf8               getVersion
+  #256 = Utf8               getExtension
+  #257 = Utf8               com/seeyon/boot/util/StringUtils
+  #258 = Utf8               isNotBlank
+  #259 = Utf8               (Ljava/lang/CharSequence;)Z
+  #260 = Utf8               getGroupId
+  #261 = Utf8               getArtifactId
+  #262 = Utf8               (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+  #263 = Utf8               addRepository
+  #264 = Utf8               (Lorg/eclipse/aether/repository/RemoteRepository;)Lorg/eclipse/aether/resolution/ArtifactRequest;
+  #265 = Utf8               setArtifact
+  #266 = Utf8               (Lorg/eclipse/aether/artifact/Artifact;)Lorg/eclipse/aether/resolution/ArtifactRequest;
+  #267 = Utf8               resolveArtifact
+  #268 = Utf8               (Lorg/eclipse/aether/RepositorySystemSession;Lorg/eclipse/aether/resolution/ArtifactRequest;)Lorg/eclipse/aether/resolution/ArtifactResult;
+  #269 = Utf8               getArtifact
+  #270 = Utf8               ()Lorg/eclipse/aether/artifact/Artifact;
+  #271 = Utf8               isSnapshot
+  #272 = Utf8               ()Z
+  #273 = Utf8               getFile
+  #274 = Utf8               ()Ljava/io/File;
+  #275 = Utf8               java/io/File
+  #276 = Utf8               getAbsolutePath
+  #277 = Utf8               append
+  #278 = Utf8               (Ljava/lang/String;)Ljava/lang/StringBuilder;
+  #279 = Utf8               toString
+  #280 = Utf8               replaceFirst
+  #281 = Utf8               (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+  #282 = Utf8               org/slf4j/Logger
+  #283 = Utf8               error
+  #284 = Utf8               (Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V
+  #285 = Utf8               com/seeyon/boot/exception/BootException
+  #286 = Utf8               throwIt
+  #287 = Utf8               (Ljava/lang/String;)V
+  #288 = Utf8               (Ljava/lang/String;)Z
+  #289 = Utf8               com/seeyon/boot/starter/spi/plugin/maven/SpiMavenProperties
+  #290 = Utf8               getSnapshotUrl
+  #291 = Utf8               getReleaseUrl
+  #292 = Utf8               getUsername
+  #293 = Utf8               isEmpty
+  #294 = Utf8               getPassword
+  #295 = Utf8               (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+  #296 = Utf8               build
+  #297 = Utf8               ()Lorg/eclipse/aether/repository/RemoteRepository;
+  #298 = Utf8               addUsername
+  #299 = Utf8               (Ljava/lang/String;)Lorg/eclipse/aether/util/repository/AuthenticationBuilder;
+  #300 = Utf8               addPassword
+  #301 = Utf8               ()Lorg/eclipse/aether/repository/Authentication;
+  #302 = Utf8               setAuthentication
+  #303 = Utf8               (Lorg/eclipse/aether/repository/Authentication;)Lorg/eclipse/aether/repository/RemoteRepository$Builder;
+  #304 = Utf8               org/apache/maven/repository/internal/MavenRepositorySystemUtils
+  #305 = Utf8               newServiceLocator
+  #306 = Utf8               ()Lorg/eclipse/aether/impl/DefaultServiceLocator;
+  #307 = Utf8               org/eclipse/aether/impl/DefaultServiceLocator
+  #308 = Utf8               addService
+  #309 = Utf8               (Ljava/lang/Class;Ljava/lang/Class;)Lorg/eclipse/aether/impl/DefaultServiceLocator;
+  #310 = Utf8               getService
+  #311 = Utf8               (Ljava/lang/Class;)Ljava/lang/Object;
+  #312 = Utf8               newSession
+  #313 = Utf8               ()Lorg/eclipse/aether/DefaultRepositorySystemSession;
+  #314 = Utf8               newLocalRepositoryManager
+  #315 = Utf8               (Lorg/eclipse/aether/RepositorySystemSession;Lorg/eclipse/aether/repository/LocalRepository;)Lorg/eclipse/aether/repository/LocalRepositoryManager;
+  #316 = Utf8               org/eclipse/aether/DefaultRepositorySystemSession
+  #317 = Utf8               setLocalRepositoryManager
+  #318 = Utf8               (Lorg/eclipse/aether/repository/LocalRepositoryManager;)Lorg/eclipse/aether/DefaultRepositorySystemSession;
+  #319 = Utf8               setUpdatePolicy
+  #320 = Utf8               (Ljava/lang/String;)Lorg/eclipse/aether/DefaultRepositorySystemSession;
+  #321 = Utf8               com/seeyon/boot/context/Apps
+  #322 = Utf8               getAppDataPath
+  #323 = Utf8               separator
+  #324 = Utf8               org/slf4j/LoggerFactory
+  #325 = Utf8               getLogger
+  #326 = Utf8               (Ljava/lang/Class;)Lorg/slf4j/Logger;
+{
+  private static final org.slf4j.Logger log;
+    descriptor: Lorg/slf4j/Logger;
+    flags: (0x001a) ACC_PRIVATE, ACC_STATIC, ACC_FINAL
+
+  private com.seeyon.boot.starter.spi.plugin.maven.SpiMavenProperties spiMavenProperties;
+    descriptor: Lcom/seeyon/boot/starter/spi/plugin/maven/SpiMavenProperties;
+    flags: (0x0002) ACC_PRIVATE
+    RuntimeVisibleAnnotations:
+      0: #89()
+        org.springframework.beans.factory.annotation.Autowired
+
+  private org.eclipse.aether.RepositorySystem system;
+    descriptor: Lorg/eclipse/aether/RepositorySystem;
+    flags: (0x0002) ACC_PRIVATE
+
+  private org.eclipse.aether.RepositorySystemSession session;
+    descriptor: Lorg/eclipse/aether/RepositorySystemSession;
+    flags: (0x0002) ACC_PRIVATE
+
+  public com.seeyon.boot.starter.spi.plugin.maven.SpiMavenService();
+    descriptor: ()V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: return
+      LineNumberTable:
+        line 43: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lcom/seeyon/boot/starter/spi/plugin/maven/SpiMavenService;
+
+  public java.lang.String download(com.seeyon.boot.starter.spi.plugin.ArtifactInfo);
+    descriptor: (Lcom/seeyon/boot/starter/spi/plugin/ArtifactInfo;)Ljava/lang/String;
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=7, locals=9, args_size=2
+         0: aload_0
+         1: aload_1
+         2: invokevirtual #2                  // Method com/seeyon/boot/starter/spi/plugin/ArtifactInfo.getVersion:()Ljava/lang/String;
+         5: invokespecial #3                  // Method getRemoteRepository:(Ljava/lang/String;)Lorg/eclipse/aether/repository/RemoteRepository;
+         8: astore_2
+         9: aload_1
+        10: invokevirtual #4                  // Method com/seeyon/boot/starter/spi/plugin/ArtifactInfo.getExtension:()Ljava/lang/String;
+        13: invokestatic  #5                  // Method com/seeyon/boot/util/StringUtils.isNotBlank:(Ljava/lang/CharSequence;)Z
+        16: ifeq          26
+        19: aload_1
+        20: invokevirtual #4                  // Method com/seeyon/boot/starter/spi/plugin/ArtifactInfo.getExtension:()Ljava/lang/String;
+        23: goto          28
+        26: ldc           #6                  // String jar
+        28: astore_3
+        29: new           #7                  // class org/eclipse/aether/artifact/DefaultArtifact
+        32: dup
+        33: aload_1
+        34: invokevirtual #8                  // Method com/seeyon/boot/starter/spi/plugin/ArtifactInfo.getGroupId:()Ljava/lang/String;
+        37: aload_1
+        38: invokevirtual #9                  // Method com/seeyon/boot/starter/spi/plugin/ArtifactInfo.getArtifactId:()Ljava/lang/String;
+        41: ldc           #10                 // String
+        43: aload_3
+        44: aload_1
+        45: invokevirtual #2                  // Method com/seeyon/boot/starter/spi/plugin/ArtifactInfo.getVersion:()Ljava/lang/String;
+        48: invokespecial #11                 // Method org/eclipse/aether/artifact/DefaultArtifact."<init>":(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+        51: astore        4
+        53: new           #12                 // class org/eclipse/aether/resolution/ArtifactRequest
+        56: dup
+        57: invokespecial #13                 // Method org/eclipse/aether/resolution/ArtifactRequest."<init>":()V
+        60: astore        5
+        62: aload         5
+        64: aload_2
+        65: invokevirtual #14                 // Method org/eclipse/aether/resolution/ArtifactRequest.addRepository:(Lorg/eclipse/aether/repository/RemoteRepository;)Lorg/eclipse/aether/resolution/ArtifactRequest;
+        68: pop
+        69: aload         5
+        71: aload         4
+        73: invokevirtual #15                 // Method org/eclipse/aether/resolution/ArtifactRequest.setArtifact:(Lorg/eclipse/aether/artifact/Artifact;)Lorg/eclipse/aether/resolution/ArtifactRequest;
+        76: pop
+        77: aload_0
+        78: getfield      #16                 // Field system:Lorg/eclipse/aether/RepositorySystem;
+        81: aload_0
+        82: getfield      #17                 // Field session:Lorg/eclipse/aether/RepositorySystemSession;
+        85: aload         5
+        87: invokeinterface #18,  3           // InterfaceMethod org/eclipse/aether/RepositorySystem.resolveArtifact:(Lorg/eclipse/aether/RepositorySystemSession;Lorg/eclipse/aether/resolution/ArtifactRequest;)Lorg/eclipse/aether/resolution/ArtifactResult;
+        92: astore        6
+        94: aload         6
+        96: invokevirtual #19                 // Method org/eclipse/aether/resolution/ArtifactResult.getArtifact:()Lorg/eclipse/aether/artifact/Artifact;
+        99: invokeinterface #20,  1           // InterfaceMethod org/eclipse/aether/artifact/Artifact.isSnapshot:()Z
+       104: ifeq          208
+       107: aload         6
+       109: invokevirtual #19                 // Method org/eclipse/aether/resolution/ArtifactResult.getArtifact:()Lorg/eclipse/aether/artifact/Artifact;
+       112: invokeinterface #21,  1           // InterfaceMethod org/eclipse/aether/artifact/Artifact.getVersion:()Ljava/lang/String;
+       117: astore        7
+       119: aload         6
+       121: invokevirtual #19                 // Method org/eclipse/aether/resolution/ArtifactResult.getArtifact:()Lorg/eclipse/aether/artifact/Artifact;
+       124: invokeinterface #22,  1           // InterfaceMethod org/eclipse/aether/artifact/Artifact.getFile:()Ljava/io/File;
+       129: invokevirtual #23                 // Method java/io/File.getAbsolutePath:()Ljava/lang/String;
+       132: astore        8
+       134: aload         8
+       136: new           #24                 // class java/lang/StringBuilder
+       139: dup
+       140: invokespecial #25                 // Method java/lang/StringBuilder."<init>":()V
+       143: aload_1
+       144: invokevirtual #2                  // Method com/seeyon/boot/starter/spi/plugin/ArtifactInfo.getVersion:()Ljava/lang/String;
+       147: invokevirtual #26                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       150: ldc           #28                 // String .
+       152: invokevirtual #26                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       155: aload         6
+       157: invokevirtual #19                 // Method org/eclipse/aether/resolution/ArtifactResult.getArtifact:()Lorg/eclipse/aether/artifact/Artifact;
+       160: invokeinterface #29,  1           // InterfaceMethod org/eclipse/aether/artifact/Artifact.getExtension:()Ljava/lang/String;
+       165: invokevirtual #26                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       168: invokevirtual #30                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+       171: new           #24                 // class java/lang/StringBuilder
+       174: dup
+       175: invokespecial #25                 // Method java/lang/StringBuilder."<init>":()V
+       178: aload         7
+       180: invokevirtual #26                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       183: ldc           #28                 // String .
+       185: invokevirtual #26                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       188: aload         6
+       190: invokevirtual #19                 // Method org/eclipse/aether/resolution/ArtifactResult.getArtifact:()Lorg/eclipse/aether/artifact/Artifact;
+       193: invokeinterface #29,  1           // InterfaceMethod org/eclipse/aether/artifact/Artifact.getExtension:()Ljava/lang/String;
+       198: invokevirtual #26                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       201: invokevirtual #30                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+       204: invokevirtual #31                 // Method java/lang/String.replaceFirst:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+       207: areturn
+       208: aload         6
+       210: invokevirtual #19                 // Method org/eclipse/aether/resolution/ArtifactResult.getArtifact:()Lorg/eclipse/aether/artifact/Artifact;
+       213: invokeinterface #22,  1           // InterfaceMethod org/eclipse/aether/artifact/Artifact.getFile:()Ljava/io/File;
+       218: invokevirtual #23                 // Method java/io/File.getAbsolutePath:()Ljava/lang/String;
+       221: areturn
+       222: astore_2
+       223: getstatic     #33                 // Field log:Lorg/slf4j/Logger;
+       226: ldc           #34                 // String maven私服下载[{}]jar包失败
+       228: aload_1
+       229: invokevirtual #9                  // Method com/seeyon/boot/starter/spi/plugin/ArtifactInfo.getArtifactId:()Ljava/lang/String;
+       232: aload_2
+       233: invokeinterface #35,  4           // InterfaceMethod org/slf4j/Logger.error:(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V
+       238: new           #24                 // class java/lang/StringBuilder
+       241: dup
+       242: invokespecial #25                 // Method java/lang/StringBuilder."<init>":()V
+       245: ldc           #36                 // String maven私服下载[
+       247: invokevirtual #26                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       250: aload_1
+       251: invokevirtual #9                  // Method com/seeyon/boot/starter/spi/plugin/ArtifactInfo.getArtifactId:()Ljava/lang/String;
+       254: invokevirtual #26                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       257: ldc           #37                 // String ]jar包失败
+       259: invokevirtual #26                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       262: invokevirtual #30                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+       265: invokestatic  #38                 // Method com/seeyon/boot/exception/BootException.throwIt:(Ljava/lang/String;)V
+       268: aconst_null
+       269: areturn
+      Exception table:
+         from    to  target type
+             0   207   222   Class java/lang/Throwable
+           208   221   222   Class java/lang/Throwable
+      LineNumberTable:
+        line 53: 0
+        line 55: 9
+        line 56: 29
+        line 57: 53
+        line 58: 62
+        line 59: 69
+        line 60: 77
+        line 62: 94
+        line 63: 107
+        line 64: 119
+        line 65: 134
+        line 67: 208
+        line 68: 222
+        line 69: 223
+        line 70: 238
+        line 72: 268
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+          119      89     7 snapshotVersion   Ljava/lang/String;
+          134      74     8 jarPath   Ljava/lang/String;
+            9     213     2 central   Lorg/eclipse/aether/repository/RemoteRepository;
+           29     193     3 extension   Ljava/lang/String;
+           53     169     4 artifact   Lorg/eclipse/aether/artifact/Artifact;
+           62     160     5 artifactRequest   Lorg/eclipse/aether/resolution/ArtifactRequest;
+           94     128     6 artifactResult   Lorg/eclipse/aether/resolution/ArtifactResult;
+          223      45     2     e   Ljava/lang/Throwable;
+            0     270     0  this   Lcom/seeyon/boot/starter/spi/plugin/maven/SpiMavenService;
+            0     270     1 artifactInfo   Lcom/seeyon/boot/starter/spi/plugin/ArtifactInfo;
+      StackMapTable: number_of_entries = 4
+        frame_type = 252 /* append */
+          offset_delta = 26
+          locals = [ class org/eclipse/aether/repository/RemoteRepository ]
+        frame_type = 65 /* same_locals_1_stack_item */
+          stack = [ class java/lang/String ]
+        frame_type = 255 /* full_frame */
+          offset_delta = 179
+          locals = [ class com/seeyon/boot/starter/spi/plugin/maven/SpiMavenService, class com/seeyon/boot/starter/spi/plugin/ArtifactInfo, class org/eclipse/aether/repository/RemoteRepository, class java/lang/String, class org/eclipse/aether/artifact/Artifact, class org/eclipse/aether/resolution/ArtifactRequest, class org/eclipse/aether/resolution/ArtifactResult ]
+          stack = []
+        frame_type = 255 /* full_frame */
+          offset_delta = 13
+          locals = [ class com/seeyon/boot/starter/spi/plugin/maven/SpiMavenService, class com/seeyon/boot/starter/spi/plugin/ArtifactInfo ]
+          stack = [ class java/lang/Throwable ]
+
+  private org.eclipse.aether.repository.RemoteRepository getRemoteRepository(java.lang.String);
+    descriptor: (Ljava/lang/String;)Lorg/eclipse/aether/repository/RemoteRepository;
+    flags: (0x0002) ACC_PRIVATE
+    Code:
+      stack=5, locals=5, args_size=2
+         0: aload_1
+         1: invokestatic  #39                 // Method com/seeyon/boot/starter/spi/plugin/ArtifactInfo.isSnapshot:(Ljava/lang/String;)Z
+         4: ifeq          18
+         7: aload_0
+         8: getfield      #40                 // Field spiMavenProperties:Lcom/seeyon/boot/starter/spi/plugin/maven/SpiMavenProperties;
+        11: invokevirtual #41                 // Method com/seeyon/boot/starter/spi/plugin/maven/SpiMavenProperties.getSnapshotUrl:()Ljava/lang/String;
+        14: astore_3
+        15: goto          26
+        18: aload_0
+        19: getfield      #40                 // Field spiMavenProperties:Lcom/seeyon/boot/starter/spi/plugin/maven/SpiMavenProperties;
+        22: invokevirtual #42                 // Method com/seeyon/boot/starter/spi/plugin/maven/SpiMavenProperties.getReleaseUrl:()Ljava/lang/String;
+        25: astore_3
+        26: aload_0
+        27: getfield      #40                 // Field spiMavenProperties:Lcom/seeyon/boot/starter/spi/plugin/maven/SpiMavenProperties;
+        30: invokevirtual #43                 // Method com/seeyon/boot/starter/spi/plugin/maven/SpiMavenProperties.getUsername:()Ljava/lang/String;
+        33: invokestatic  #44                 // Method com/seeyon/boot/util/StringUtils.isEmpty:(Ljava/lang/CharSequence;)Z
+        36: ifeq          71
+        39: aload_0
+        40: getfield      #40                 // Field spiMavenProperties:Lcom/seeyon/boot/starter/spi/plugin/maven/SpiMavenProperties;
+        43: invokevirtual #45                 // Method com/seeyon/boot/starter/spi/plugin/maven/SpiMavenProperties.getPassword:()Ljava/lang/String;
+        46: invokestatic  #44                 // Method com/seeyon/boot/util/StringUtils.isEmpty:(Ljava/lang/CharSequence;)Z
+        49: ifeq          71
+        52: new           #46                 // class org/eclipse/aether/repository/RemoteRepository$Builder
+        55: dup
+        56: ldc           #47                 // String central
+        58: ldc           #48                 // String default
+        60: aload_3
+        61: invokespecial #49                 // Method org/eclipse/aether/repository/RemoteRepository$Builder."<init>":(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+        64: invokevirtual #50                 // Method org/eclipse/aether/repository/RemoteRepository$Builder.build:()Lorg/eclipse/aether/repository/RemoteRepository;
+        67: astore_2
+        68: goto          124
+        71: new           #51                 // class org/eclipse/aether/util/repository/AuthenticationBuilder
+        74: dup
+        75: invokespecial #52                 // Method org/eclipse/aether/util/repository/AuthenticationBuilder."<init>":()V
+        78: aload_0
+        79: getfield      #40                 // Field spiMavenProperties:Lcom/seeyon/boot/starter/spi/plugin/maven/SpiMavenProperties;
+        82: invokevirtual #43                 // Method com/seeyon/boot/starter/spi/plugin/maven/SpiMavenProperties.getUsername:()Ljava/lang/String;
+        85: invokevirtual #53                 // Method org/eclipse/aether/util/repository/AuthenticationBuilder.addUsername:(Ljava/lang/String;)Lorg/eclipse/aether/util/repository/AuthenticationBuilder;
+        88: aload_0
+        89: getfield      #40                 // Field spiMavenProperties:Lcom/seeyon/boot/starter/spi/plugin/maven/SpiMavenProperties;
+        92: invokevirtual #45                 // Method com/seeyon/boot/starter/spi/plugin/maven/SpiMavenProperties.getPassword:()Ljava/lang/String;
+        95: invokevirtual #54                 // Method org/eclipse/aether/util/repository/AuthenticationBuilder.addPassword:(Ljava/lang/String;)Lorg/eclipse/aether/util/repository/AuthenticationBuilder;
+        98: invokevirtual #55                 // Method org/eclipse/aether/util/repository/AuthenticationBuilder.build:()Lorg/eclipse/aether/repository/Authentication;
+       101: astore        4
+       103: new           #46                 // class org/eclipse/aether/repository/RemoteRepository$Builder
+       106: dup
+       107: ldc           #47                 // String central
+       109: ldc           #48                 // String default
+       111: aload_3
+       112: invokespecial #49                 // Method org/eclipse/aether/repository/RemoteRepository$Builder."<init>":(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+       115: aload         4
+       117: invokevirtual #56                 // Method org/eclipse/aether/repository/RemoteRepository$Builder.setAuthentication:(Lorg/eclipse/aether/repository/Authentication;)Lorg/eclipse/aether/repository/RemoteRepository$Builder;
+       120: invokevirtual #50                 // Method org/eclipse/aether/repository/RemoteRepository$Builder.build:()Lorg/eclipse/aether/repository/RemoteRepository;
+       123: astore_2
+       124: aload_2
+       125: areturn
+      LineNumberTable:
+        line 78: 0
+        line 79: 7
+        line 81: 18
+        line 83: 26
+        line 84: 52
+        line 86: 71
+        line 87: 82
+        line 88: 92
+        line 89: 103
+        line 90: 117
+        line 92: 124
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+           15       3     3 repoUrl   Ljava/lang/String;
+           68       3     2 central   Lorg/eclipse/aether/repository/RemoteRepository;
+          103      21     4 authentication   Lorg/eclipse/aether/repository/Authentication;
+            0     126     0  this   Lcom/seeyon/boot/starter/spi/plugin/maven/SpiMavenService;
+            0     126     1 version   Ljava/lang/String;
+          124       2     2 central   Lorg/eclipse/aether/repository/RemoteRepository;
+           26     100     3 repoUrl   Ljava/lang/String;
+      StackMapTable: number_of_entries = 4
+        frame_type = 18 /* same */
+        frame_type = 253 /* append */
+          offset_delta = 7
+          locals = [ top, class java/lang/String ]
+        frame_type = 44 /* same */
+        frame_type = 255 /* full_frame */
+          offset_delta = 52
+          locals = [ class com/seeyon/boot/starter/spi/plugin/maven/SpiMavenService, class java/lang/String, class org/eclipse/aether/repository/RemoteRepository, class java/lang/String ]
+          stack = []
+
+  public void afterPropertiesSet() throws java.lang.Exception;
+    descriptor: ()V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=4, locals=1, args_size=1
+         0: aload_0
+         1: aload_0
+         2: invokespecial #57                 // Method getRepositorySystem:()Lorg/eclipse/aether/RepositorySystem;
+         5: putfield      #16                 // Field system:Lorg/eclipse/aether/RepositorySystem;
+         8: aload_0
+         9: aload_0
+        10: aload_0
+        11: getfield      #16                 // Field system:Lorg/eclipse/aether/RepositorySystem;
+        14: aload_0
+        15: invokespecial #58                 // Method getMvnBasePath:()Ljava/lang/String;
+        18: invokespecial #59                 // Method getSession:(Lorg/eclipse/aether/RepositorySystem;Ljava/lang/String;)Lorg/eclipse/aether/RepositorySystemSession;
+        21: putfield      #17                 // Field session:Lorg/eclipse/aether/RepositorySystemSession;
+        24: return
+      LineNumberTable:
+        line 97: 0
+        line 98: 8
+        line 99: 24
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      25     0  this   Lcom/seeyon/boot/starter/spi/plugin/maven/SpiMavenService;
+    Exceptions:
+      throws java.lang.Exception
+
+  private org.eclipse.aether.RepositorySystem getRepositorySystem();
+    descriptor: ()Lorg/eclipse/aether/RepositorySystem;
+    flags: (0x0002) ACC_PRIVATE
+    Code:
+      stack=3, locals=2, args_size=1
+         0: invokestatic  #60                 // Method org/apache/maven/repository/internal/MavenRepositorySystemUtils.newServiceLocator:()Lorg/eclipse/aether/impl/DefaultServiceLocator;
+         3: astore_1
+         4: aload_1
+         5: ldc           #61                 // class org/eclipse/aether/spi/connector/RepositoryConnectorFactory
+         7: ldc           #62                 // class org/eclipse/aether/connector/basic/BasicRepositoryConnectorFactory
+         9: invokevirtual #63                 // Method org/eclipse/aether/impl/DefaultServiceLocator.addService:(Ljava/lang/Class;Ljava/lang/Class;)Lorg/eclipse/aether/impl/DefaultServiceLocator;
+        12: pop
+        13: aload_1
+        14: ldc           #64                 // class org/eclipse/aether/spi/connector/transport/TransporterFactory
+        16: ldc           #65                 // class org/eclipse/aether/transport/file/FileTransporterFactory
+        18: invokevirtual #63                 // Method org/eclipse/aether/impl/DefaultServiceLocator.addService:(Ljava/lang/Class;Ljava/lang/Class;)Lorg/eclipse/aether/impl/DefaultServiceLocator;
+        21: pop
+        22: aload_1
+        23: ldc           #64                 // class org/eclipse/aether/spi/connector/transport/TransporterFactory
+        25: ldc           #66                 // class org/eclipse/aether/transport/http/HttpTransporterFactory
+        27: invokevirtual #63                 // Method org/eclipse/aether/impl/DefaultServiceLocator.addService:(Ljava/lang/Class;Ljava/lang/Class;)Lorg/eclipse/aether/impl/DefaultServiceLocator;
+        30: pop
+        31: aload_1
+        32: ldc           #67                 // class org/eclipse/aether/RepositorySystem
+        34: invokevirtual #68                 // Method org/eclipse/aether/impl/DefaultServiceLocator.getService:(Ljava/lang/Class;)Ljava/lang/Object;
+        37: checkcast     #67                 // class org/eclipse/aether/RepositorySystem
+        40: areturn
+      LineNumberTable:
+        line 107: 0
+        line 108: 4
+        line 109: 13
+        line 110: 22
+        line 111: 31
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      41     0  this   Lcom/seeyon/boot/starter/spi/plugin/maven/SpiMavenService;
+            4      37     1 locator   Lorg/eclipse/aether/impl/DefaultServiceLocator;
+
+  private org.eclipse.aether.RepositorySystemSession getSession(org.eclipse.aether.RepositorySystem, java.lang.String);
+    descriptor: (Lorg/eclipse/aether/RepositorySystem;Ljava/lang/String;)Lorg/eclipse/aether/RepositorySystemSession;
+    flags: (0x0002) ACC_PRIVATE
+    Code:
+      stack=4, locals=5, args_size=3
+         0: invokestatic  #69                 // Method org/apache/maven/repository/internal/MavenRepositorySystemUtils.newSession:()Lorg/eclipse/aether/DefaultRepositorySystemSession;
+         3: astore_3
+         4: new           #70                 // class org/eclipse/aether/repository/LocalRepository
+         7: dup
+         8: aload_2
+         9: invokespecial #71                 // Method org/eclipse/aether/repository/LocalRepository."<init>":(Ljava/lang/String;)V
+        12: astore        4
+        14: aload_3
+        15: aload_1
+        16: aload_3
+        17: aload         4
+        19: invokeinterface #72,  3           // InterfaceMethod org/eclipse/aether/RepositorySystem.newLocalRepositoryManager:(Lorg/eclipse/aether/RepositorySystemSession;Lorg/eclipse/aether/repository/LocalRepository;)Lorg/eclipse/aether/repository/LocalRepositoryManager;
+        24: invokevirtual #73                 // Method org/eclipse/aether/DefaultRepositorySystemSession.setLocalRepositoryManager:(Lorg/eclipse/aether/repository/LocalRepositoryManager;)Lorg/eclipse/aether/DefaultRepositorySystemSession;
+        27: pop
+        28: aload_3
+        29: ldc           #74                 // String always
+        31: invokevirtual #75                 // Method org/eclipse/aether/DefaultRepositorySystemSession.setUpdatePolicy:(Ljava/lang/String;)Lorg/eclipse/aether/DefaultRepositorySystemSession;
+        34: pop
+        35: aload_3
+        36: areturn
+      LineNumberTable:
+        line 122: 0
+        line 123: 4
+        line 124: 14
+        line 125: 28
+        line 126: 35
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      37     0  this   Lcom/seeyon/boot/starter/spi/plugin/maven/SpiMavenService;
+            0      37     1 system   Lorg/eclipse/aether/RepositorySystem;
+            0      37     2 target   Ljava/lang/String;
+            4      33     3 session   Lorg/eclipse/aether/DefaultRepositorySystemSession;
+           14      23     4 localRepo   Lorg/eclipse/aether/repository/LocalRepository;
+
+  private java.lang.String getMvnBasePath();
+    descriptor: ()Ljava/lang/String;
+    flags: (0x0002) ACC_PRIVATE
+    Code:
+      stack=2, locals=1, args_size=1
+         0: new           #24                 // class java/lang/StringBuilder
+         3: dup
+         4: invokespecial #25                 // Method java/lang/StringBuilder."<init>":()V
+         7: invokestatic  #76                 // Method com/seeyon/boot/context/Apps.getAppDataPath:()Ljava/lang/String;
+        10: invokevirtual #26                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        13: getstatic     #77                 // Field java/io/File.separator:Ljava/lang/String;
+        16: invokevirtual #26                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        19: ldc           #78                 // String mvn
+        21: invokevirtual #26                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        24: invokevirtual #30                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+        27: areturn
+      LineNumberTable:
+        line 130: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      28     0  this   Lcom/seeyon/boot/starter/spi/plugin/maven/SpiMavenService;
+
+  static {};
+    descriptor: ()V
+    flags: (0x0008) ACC_STATIC
+    Code:
+      stack=1, locals=0, args_size=0
+         0: ldc           #79                 // class com/seeyon/boot/starter/spi/plugin/maven/SpiMavenService
+         2: invokestatic  #80                 // Method org/slf4j/LoggerFactory.getLogger:(Ljava/lang/Class;)Lorg/slf4j/Logger;
+         5: putstatic     #33                 // Field log:Lorg/slf4j/Logger;
+         8: return
+      LineNumberTable:
+        line 40: 0
+}
+SourceFile: "SpiMavenService.java"
+RuntimeVisibleAnnotations:
+  0: #152()
+    org.springframework.stereotype.Component
+  1: #153(#154=[c#87])
+    org.springframework.boot.autoconfigure.condition.ConditionalOnBean(
+      value=[class Lcom/seeyon/boot/starter/spi/plugin/maven/SpiMavenProperties;]
+    )
+InnerClasses:
+  public static final #207= #46 of #205;  // Builder=class org/eclipse/aether/repository/RemoteRepository$Builder of class org/eclipse/aether/repository/RemoteRepository

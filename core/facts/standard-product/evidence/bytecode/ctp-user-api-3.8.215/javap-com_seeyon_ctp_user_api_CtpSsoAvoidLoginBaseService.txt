@@ -1,0 +1,7 @@
+Compiled from "CtpSsoAvoidLoginBaseService.java"
+public interface com.seeyon.ctp.user.api.CtpSsoAvoidLoginBaseService {
+  public static final java.lang.String TAG;
+    descriptor: Ljava/lang/String;
+  public abstract java.lang.String getClientId();
+    descriptor: ()Ljava/lang/String;
+}

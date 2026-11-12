@@ -1,0 +1,59 @@
+{
+  "phase": "R1-app-create + R2-entity-chain",
+  "ts": "2026-09-30 18:20 +08",
+  "controller": "main-session (用户授权: 建新应用; 边界修正: 不动 znxmglpt 业务, 探测停)",
+  "facts": [
+    {
+      "step": "entity.create",
+      "verdict": "LIVE PASS",
+      "evidence": "POST /service/udc/entity → BOOT_0000; zzprobeEntTest id=6655869284078002850 trace=3253778497914538172; zzprobeSimple id=-9036848312021150932 trace=3253892200966129852",
+      "param_dict": {
+        "appId": "Long 数字(3289082814923688017)",
+        "name": "纯字母数字(下划线/数字结尾被 UDC_ENTITY_0026 拒)",
+        "stereotype": "bill|standard",
+        "features_bill": "basic,approve,organization,billBasic,termination,suspend,nullify"
+      }
+    },
+    {
+      "step": "deploy-normal",
+      "verdict": "LIVE PASS",
+      "evidence": "POST /service/udc/runtime/deploy-normal → BOOT_0000 deployId=-5934667574923322524(trace 3253781746738530492) state=SUCCESS jar=1.0.11175 用时~19min; 第2次 deployId=-3075684243680240588(trace 3253892388032088252) 后端编译完成 18:19:49"
+    },
+    {
+      "step": "meta-data.select-entity",
+      "verdict": "LIVE PASS",
+      "evidence": "POST /service/{app}/udc-runtime/meta-data/select-entity body={fullName, appName} → 部署成功后 ZzprobeEntTest 元数据已注册(45 attrs)",
+      "note": "端点在 extmetadata jar (UdcMetaDataController.selectEntity); 需要 appName+fullName 双键"
+    },
+    {
+      "step": "custom-app.create",
+      "verdict": "BLOCKED-平台NPE",
+      "evidence": "POST /service/{app}/udc-runtime/custom-app/create → status:2 静默失败",
+      "root_cause": "create4CustomPage:892 NPE（stream map→flatMap→toSet 收集页面依赖应用段），双实体复现：bill 模板(45attrs, 含单据族)与 standard 模板(9attrs, 仅 basic) 均 NPE——非实体复杂度问题。实体元数据匹配已通过（selectAggEntity/selectDtoMetadata/selectEnumMetadataByFullNames 全 200 后才炸）。NPE 栈顶 java.util.stream.ReferencePipeline，lambda synthetic 不进栈。定性: 平台侧缺陷或存在未公开前置条件",
+      "param_dict": {
+        "masterEntity": "裸 fullName 字符串(非JSON! UdcEntityMetaDataSearchDto.setFullName(masterEntity) 字节码证实)",
+        "hostAppName": "宿主应用名"
+      },
+      "retry_matrix": [
+        "masterEntity=JSON对象 → BOOT_3002 反序列化错(实为String)",
+        "masterEntity=实体name → 元数据获取不到",
+        "masterEntity=JSON {appName,fullName} → 获取不到(整串被当fullName)",
+        "masterEntity=裸fullName + hostAppName=udc/ctp/lowcode/app自身 → 获取不到→NPE",
+        "masterEntity=裸fullName + pageUrlTypeEnum=PC → NPE",
+        "bill 实体 + standard 实体双复现 → 排除实体模板因素"
+      ]
+    },
+    {
+      "step": "deploy#2 + ZzprobeSimple",
+      "verdict": "LIVE PASS(部署/元数据) + create NPE 复现",
+      "evidence": "deployId=-3075684243680240588 全链 SUCCESS；ZzprobeSimple 元数据注册(9 attrs, trace 3253911308520655036 前查得)；create 同点 NPE 复现 → 定性成立"
+    },
+    {
+      "step": "platform-app-create 端点确诊",
+      "verdict": "端点确诊 + 调用被拦(405) — 待浏览器态或权限复核",
+      "evidence": "udc-web-5.3.517 ApplicationController javap: POST /service/udc/application/create (类级 udc/application + @PostMapping 空value→方法名 create; body=ApplicationDto @RequestBody 平铺; RestApiOperation=【新建】创建应用信息; 类级 @HasRole(udcRootOrgAdmin|udcSystemAdmin|udcAppDesigner); ResourcePermission pageInfo=/udc/apps/create/empty)。实测: POST /service/udc/application/create → 405 Whitelabel(请求已到 udc pod, AppContextFilter 有日志), GET 探针吃进 {id} 路径变量。graphql 面 udcEntityDeletePost 已 LIVE 验证可用(见清理记录)。",
+      "cleanup": "znxmglpt 内 2 个测试实体已删(udcEntityDeletePost GraphQL, 双双回读确认 content=None)"
+    }
+  ],
+  "impact_note": "znxmglpt 内新增 2 个 UNPUBLISH 实体 + 2 轮 TEST 部署(用户已知悉边界修正)"
+}

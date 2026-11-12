@@ -1,0 +1,32 @@
+{
+  "phase": "zzprobe 全链测试 — 阶段性收口（含拖拽工具链限制定性）",
+  "ts": "2026-09-30 23:45 +08",
+  "LIVE_PASS_chain": [
+    "UI建应用(zzprobe测试应用, appId=6419954374508955097)",
+    "设计器建实体(zzprobe测试实体/标准)+字段(标题/文本50)+保存成功",
+    "菜单(zzprobe首页/列表页/绑实体)",
+    "栏目(zzprobe栏目/空白页/web端)",
+    "枚举(zzprobe测试枚举+启用=1/停用=2)",
+    "微流程(zzprobe微流程/标准/服务定义)画布",
+    "角色/BI/流程/设置 接口面测绘"
+  ],
+  "deploy_FAIL": {
+    "error": "一致性检测未通过 UDC_CE_PAGE_03907 (ERROR): zzprobe首页菜单绑定的页面为空",
+    "root_block": "设计器拖控件需真实鼠标手势(isTrusted=true), CDP合成事件被浏览器忽略——已验证: 鼠标序列/合成DragEvent/dispatchDragEvent 三方案均无法触发 dragstart",
+    "fix": "需人工在设计器拖一个网格进 zzprobe首页 画布, 之后自动化接手保存→构建→部署→数据环"
+  },
+  "api_defect": "POST /service/udc/application REST 持久化不完整(BOOT_0000+id 但缺宿主信息, 列表不可见不可部署) — 建应用必须走 UI 表单",
+  "dirty_data": "zzprobenew1 半成品记录1条(管理列表不可见, 低风险; REST删除接口够不到, 需DB清理)",
+  "evidence_files": [
+    "R1-fullchain-UI-20260930.json",
+    "R4-menu-designer-20260930.json",
+    "R5-enum-module-20260930.json",
+    "R6-column-module-20260930.json",
+    "R7-rule-microflow-20260930.json",
+    "designer-modules-map-20260930.json",
+    "designer-full-matrix-20260930.json",
+    "R8-deploy-fail-rootcause-20260930.json",
+    "R9-designer-dnd-limit-20260930.json"
+  ],
+  "url_ledger": "core/facts/udc/write-chain/url-ledger.md (页面路由/网关分发/接口清单/分类纪律)"
+}

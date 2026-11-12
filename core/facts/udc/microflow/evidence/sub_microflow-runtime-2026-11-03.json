@@ -1,0 +1,27 @@
+{
+ "stage": "P6e",
+ "date": "2026-11-03",
+ "app_id": "8704025620829192834",
+ "cases": [
+  {
+   "case": "DTO 入参按字段映射（taskId/processedRows）",
+   "after": "task_id='P6SM03-DTOIN', processed_rows=7",
+   "expect": "同值",
+   "pass": true,
+   "evidence": "库表回读 @15:05"
+  }
+ ],
+ "build": {
+  "state": "SUCCESS"
+ },
+ "not_covered": [
+  "自定义参数 DTO（dtoType=CUSTOM，109 条语料）",
+  "子流程出参回读"
+ ],
+ "notes": [
+  "★ DTO 入参可以无头创建：流程 input 声明成实体 DTO（MASTER_ENTITY）即可，publish=True",
+  "子流程节点 mappingType=attrs，attrType 是**子流程入参 DTO 的字段**，value 是 Simple 或 SelectParam",
+  "★ 坑：整变量引用（position=parent）会让代码生成在同一方法里重复声明同一局部变量 → 「已在方法 ... 中定义了变量 _FLOW_INPUT_xxx」；取字段必须 position=children"
+ ],
+ "node": "SUB_MICROFLOW"
+}

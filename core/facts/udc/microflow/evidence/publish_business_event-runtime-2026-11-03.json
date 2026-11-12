@@ -1,0 +1,55 @@
+{
+ "stage": "P6",
+ "node": "PUBLISH_BUSINESS_EVENT",
+ "date": "2026-11-03",
+ "app_id": "8704025620829192834",
+ "event": {
+  "fullName": "com.seeyon.datamigration8704025620829192834.dto.microflow.event.XzhVerifyEvent",
+  "caption": "小爪验收事件",
+  "fields": [
+   "eventCode",
+   "bizKey",
+   "remark"
+  ]
+ },
+ "flows": {
+  "publisher": {
+   "name": "p6svc6sv01",
+   "mid": "-5211994852897248483"
+  },
+  "subscriber": {
+   "name": "p6evt6sv01",
+   "mid": "-7429355887218296489",
+   "trigger": "BUSINESS_EVENT / MICRO_FLOW_EVENT"
+  }
+ },
+ "cases": [
+  {
+   "case": "订阅者收到投递载荷",
+   "published": {
+    "eventCode": "P6SV01",
+    "bizKey": 20261103,
+    "remark": "p6-svc"
+   },
+   "received": {
+    "task_id": "P6SV01",
+    "source_table": "p6-svc"
+   },
+   "expect": "订阅端写入的字段与投递值逐字相等",
+   "evidence": "09:56:00 同一秒两行：HT2026113/SN + P6SV01/p6-svc",
+   "pass": true
+  }
+ ],
+ "build": {
+  "state": "SUCCESS",
+  "sec": 249
+ },
+ "not_covered": [
+  "应用间 AMONG_APP / MQ 形态",
+  "延迟投递"
+ ],
+ "notes": [
+  "事件在事务提交成功后投递（TRANSACTION_COMMIT_SUCCESS）",
+  "订阅端引用事件字段：position=children、key=<触发output名>_<dto>.<字段>"
+ ]
+}

@@ -1,0 +1,110 @@
+[
+ {
+  "id": 4081173062945185491,
+  "caption": "创建时间",
+  "name": "createTime",
+  "dataType": "DATETIME",
+  "notNull": 0,
+  "order": 2,
+  "dbCol": "create_time"
+ },
+ {
+  "id": -5393338407019240705,
+  "caption": "更新时间",
+  "name": "updateTime",
+  "dataType": "DATETIME",
+  "notNull": 0,
+  "order": 3,
+  "dbCol": "update_time"
+ },
+ {
+  "id": -4185477140447328796,
+  "caption": "创建人",
+  "name": "creator",
+  "dataType": "ENTITY",
+  "notNull": 0,
+  "order": 4,
+  "dbCol": "creator"
+ },
+ {
+  "id": -4824684356086127224,
+  "caption": "创建机构",
+  "name": "creatorInstitution",
+  "dataType": "ENTITY",
+  "notNull": 0,
+  "order": 5,
+  "dbCol": "creator_institution"
+ },
+ {
+  "id": 64652218847364756,
+  "caption": "创建部门",
+  "name": "creatorDepartment",
+  "dataType": "ENTITY",
+  "notNull": 0,
+  "order": 6,
+  "dbCol": "creator_department"
+ },
+ {
+  "id": 8516222446941319880,
+  "caption": "创建岗位",
+  "name": "creatorPost",
+  "dataType": "ENTITY",
+  "notNull": 0,
+  "order": 7,
+  "dbCol": "creator_post"
+ },
+ {
+  "id": -8826987089907753049,
+  "caption": "更新人",
+  "name": "updater",
+  "dataType": "ENTITY",
+  "notNull": 0,
+  "order": 8,
+  "dbCol": "updater"
+ },
+ {
+  "id": 2667087430121200499,
+  "caption": "字段1",
+  "name": "ziduan1",
+  "dataType": "STRING",
+  "notNull": 0,
+  "order": 10,
+  "dbCol": "ziduan1"
+ },
+ {
+  "id": 4954467062446657277,
+  "caption": "ID",
+  "name": "id",
+  "dataType": "BIGINTEGER",
+  "notNull": 0,
+  "order": 10,
+  "dbCol": "id"
+ },
+ {
+  "id": -5547570953837303740,
+  "caption": "租户ID",
+  "name": "tenantId",
+  "dataType": "BIGINTEGER",
+  "notNull": 0,
+  "order": 11,
+  "dbCol": "tenant_id"
+ },
+ {
+  "id": 5913448355513453981,
+  "caption": "版本号",
+  "name": "version",
+  "dataType": "INTEGER",
+  "notNull": 0,
+  "order": 14,
+  "dbCol": "version"
+ },
+ {
+  "id": 2794557340395768462,
+  "caption": "是否草稿",
+  "name": "draft",
+  "dataType": "BOOLEAN",
+  "notNull": 0,
+  "order": 15,
+  "dbCol": "draft"
+ }
+]

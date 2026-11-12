@@ -1,0 +1,29 @@
+{
+  "stage": "P5-S3",
+  "node": "CHANGE_LIST",
+  "date": "2026-11-03",
+  "app_id": "8704025620829192834",
+  "entity": "迁移断点 / migration_1962926556161096741",
+  "seed": {"taskId": "P5CL002312-M", "rows": 3, "sourceTable": ["S-A", "S-B", "S-C"]},
+  "cases": [
+    {"action": "CLEAR", "flow": "p5clclear002312", "mid": "6754755332057212523",
+     "dataSource": "无", "before": 3, "after": 0, "expect": 0, "pass": true,
+     "evidence": "00:29:00 BEFORE=3 / AFTER=0", "build": {"state": "SUCCESS", "sec": 244}},
+    {"action": "ADD", "flow": "p5cladd002312", "mid": "-1171005428436157910",
+     "dataSource": "CREATE_VARIABLE 实体变量（空 DTO 元素）", "before": 3, "after": 4, "expect": 4, "pass": true,
+     "evidence": "00:38:00 BEFORE=3 / AFTER=4", "build": {"state": "SUCCESS", "sec": 233}},
+    {"action": "REPLACE", "flow": "p5clreplace002312", "mid": "6878144499105711250",
+     "dataSource": "查询结果列表（sourceTable=S-A，1 条）", "before": 3, "after": 1, "expect": 1, "pass": true,
+     "evidence": "00:50:00 与 00:55:00 两轮均为 BEFORE=3 / AFTER=1", "build": {"state": "SUCCESS", "sec": 223}},
+    {"action": "REMOVE", "flow": "p5clremove002312", "mid": "2647547875893558877",
+     "dataSource": "查询结果列表（1 条）+ countAttrs=[id]", "before": 3, "after": 2, "expect": 2, "pass": true,
+     "evidence": "01:04:00 BEFORE=3 / AFTER=2", "build": {"state": "SUCCESS", "sec": 264}}
+  ],
+  "findings": [
+    "CHANGE_LIST 的 selectParam 可以直接指向 RETRIEVE_ARRAY 出参，查询结果数组在流程内可变",
+    "action 枚举是 ADD/REPLACE/CLEAR/REMOVE，没有 DELETE",
+    "CLEAR 没有 dataSource（15/15 样本）；REPLACE 25/28、REMOVE 8/8 的 dataSource 是列表（ARRAY）",
+    "ADD 的 dataSource 有元素（OBJECT，125 条）和列表（ARRAY，52 条）两种形态"
+  ],
+  "not_covered": ["ADD 的列表形态（批量追加）", "REMOVE 多字段 countAttrs", "REPLACE 元素形态（1 条样本）"]
+}

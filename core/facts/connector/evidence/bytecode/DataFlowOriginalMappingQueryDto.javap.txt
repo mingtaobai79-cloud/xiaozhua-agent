@@ -1,0 +1,22 @@
+Compiled from "DataFlowOriginalMappingQueryDto.java"
+public class com.seeyon.boot.starter.dataflow.dto.DataFlowOriginalMappingQueryDto extends com.seeyon.boot.transport.BaseDto {
+  private java.lang.Long appId;
+  private java.lang.Long guid;
+  private com.seeyon.udc.common.enums.TerminalTypeEnum terminalType;
+  private java.lang.Boolean convertDetailDto;
+  private java.lang.Boolean transferListSchema;
+  private java.lang.Boolean convertEntityInfo;
+  public com.seeyon.boot.starter.dataflow.dto.DataFlowOriginalMappingQueryDto();
+  public java.lang.Long getAppId();
+  public java.lang.Long getGuid();
+  public com.seeyon.udc.common.enums.TerminalTypeEnum getTerminalType();
+  public java.lang.Boolean getConvertDetailDto();
+  public java.lang.Boolean getTransferListSchema();
+  public java.lang.Boolean getConvertEntityInfo();
+  public void setAppId(java.lang.Long);
+  public void setGuid(java.lang.Long);
+  public void setTerminalType(com.seeyon.udc.common.enums.TerminalTypeEnum);
+  public void setConvertDetailDto(java.lang.Boolean);
+  public void setTransferListSchema(java.lang.Boolean);
+  public void setConvertEntityInfo(java.lang.Boolean);
+}

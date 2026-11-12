@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Implementation-Title: ctp-user-api
+Implementation-Version: 3.8.215
+Archiver-Version: Plexus Archiver
+Built-By: root
+Implementation-Vendor-Id: com.seeyon
+Created-By: Apache Maven 3.6.3
+Build-Jdk: 1.8.0_291
+

@@ -1,0 +1,6 @@
+Compiled from "SPIAutoConfiguration.java"
+public class com.seeyon.boot.starter.spi.SPIAutoConfiguration {
+  private static final org.slf4j.Logger log;
+  public com.seeyon.boot.starter.spi.SPIAutoConfiguration();
+  static {};
+}

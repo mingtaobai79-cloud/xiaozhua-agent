@@ -1,0 +1,15 @@
+{
+  "phase": "页面设计器拖控件 — 自动化不可行性最终定性",
+  "ts": "2026-09-30 23:55 +08",
+  "attempted_all": [
+    "CDP Input.dispatchMouseEvent 完整序列（按下→密集移动→释放，慢速30步）",
+    "Input.setInterceptDrags + dragIntercepted 事件等待（无事件产生）",
+    "页面上下文合成 HTML5 DragEvent（真实 DataTransfer，dragstart/dragenter/dragover/drop/dragend 全序列）",
+    "PointerEvent+MouseEvent 混合序列（pointerdown/pointermove/pointerup）",
+    "双击控件 / 右键画布"
+  ],
+  "root_cause": "设计器 dnd 校验 isTrusted（合成事件全为 false 被忽略）；且 dnd 状态机依赖浏览器原生拖拽管线的真实手势链",
+  "conclusion": "页面画布拖控件 = 必须人工操作（10秒）。其余全部环节已自动化闭环。",
+  "human_step": "浏览器 zzprobe 设计器页面已停在画布前：左侧控件面板 → 布局控件 → 拖'网格'到画布 → 自动化接手保存/发布/数据环",
+  "evidence_url": "设计器页面当前 URL: /main/child-frame/udc/app-design/page-manage/functions/design/PC/79096115"
+}

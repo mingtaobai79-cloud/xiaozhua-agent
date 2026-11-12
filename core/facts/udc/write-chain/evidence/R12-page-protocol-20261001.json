@@ -1,0 +1,57 @@
+{
+  "phase": "页面定义协议突破（保存协议追查第一步）",
+  "ts": "2026-10-01 00:10 +08",
+  "breakthrough": "页面定义查询接口打通",
+  "verified": {
+    "接口": "POST /service/udc/graphql?udcPageInfoSearchNoPagePost",
+    "variables": "body.params.appId = 数字appId",
+    "result": "14 个页面定义全量返回（含用户拖好控件的 zzprobe首页）",
+    "page_def_fields": [
+      "id",
+      "guid",
+      "publishState",
+      "appId",
+      "groupId",
+      "relationGroupId",
+      "layoutId",
+      "layoutInfo",
+      "caption",
+      "pageType(SEARCH_LIST|DETAIL|PORTLET)",
+      "pageUrl",
+      "masterEntityIds",
+      "schemaState(FORMAL)",
+      "sourceType(DESIGNER)"
+    ]
+  },
+  "zzprobe_pages": [
+    {
+      "caption": "zzprobe首页",
+      "id": "-2795971120707411668",
+      "type": "SEARCH_LIST",
+      "masterEntityIds": "1214120700508048602",
+      "schemaState": "FORMAL",
+      "note": "用户拖了控件并保存"
+    },
+    {
+      "caption": "zzprobe列表页",
+      "id": "-3897787119423194137",
+      "type": "SEARCH_LIST",
+      "note": "API辅助创建"
+    },
+    {
+      "caption": "zzprobe栏目",
+      "id": "-8772830694463203667",
+      "type": "PORTLET"
+    }
+  ],
+  "next": "抓设计器加载布局的接口（页面布局 schema 存储），实现 API 直接写页面布局绕过拖拽",
+  "designer_load_apis_observed": [
+    "udcPageInfoRelationInfoRelationGroupIdPost",
+    "udcMetaDataSelectAppByIdPost",
+    "udcDataTypeDataTypesByAppIdAppGet",
+    "udcMetaDataSelectAllPageByAppPost",
+    "udcExpressionSchemaPost",
+    "udcPageInfoSearchNoPagePost",
+    "udcPageInfoDesignerSelectDetailListByConditionsPost"
+  ]
+}

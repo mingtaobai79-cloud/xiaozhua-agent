@@ -1,0 +1,51 @@
+{
+  "probe": "connector REWORK data-flow A-domain single-send (main HANDOFF dedupe phase2-connector-livepass-rework-b-1790679753)",
+  "env": "test2",
+  "base": "https://lowcode-test2.example.com",
+  "gateway_prefix": "/service/app9000000000000000001",
+  "app_id": "app9000000000000000001",
+  "credential": {
+    "ref": "<COLLAB_ROOT>/agent-collaboration/shared-credentials/test2-web-credential.json",
+    "cookie_len": 375,
+    "note": "value 0 into evidence"
+  },
+  "no_retry_bombing": true,
+  "sends": [
+    {
+      "tag": "data-flow-map-search",
+      "method": "POST",
+      "path": "/service/app9000000000000000001/udc-runtime/data-flow-map/search",
+      "http": 200,
+      "code": "BOOT_0000",
+      "message": "SUCCESS",
+      "traceId": "3252497685650868412",
+      "bytes": 901,
+      "body_sha256": "125c34a28b67117ced81c3fde3559b5c7a4f9c9b70b9c270e8513d9124b0222d",
+      "nonempty": true,
+      "data_type": "dict",
+      "data_preview": "{'content': [{'validate': True, 'id': '-1595651527290089449', 'guid': '8128016104943011258', 'appId': '3289082814923688017', 'caption': '合同复制', 'definition': None, 'description': None, 'state': 'ON', 'createTime': 1789806274000, 'updateTime': 1790657435000}, {'validate': True, 'id': '-7296522931834678836', 'guid': '-6959925800297479232', 'appId': '3289082814923688017', 'caption': '华为生单', 'definition': None, 'description': None, 'state': 'ON', 'createTime': 1784795066000, 'updateTime': 1790657435",
+      "err": null,
+      "ts": "2026-09-29T19:06:06+0800",
+      "ts_epoch": 1790679966
+    },
+    {
+      "tag": "data-flow-mapping-search-original",
+      "method": "POST",
+      "path": "/service/app9000000000000000001/udc-runtime/data-flow-mapping/search-original",
+      "http": 200,
+      "code": "BOOT_1001",
+      "message": "dataFlowId must not be null",
+      "traceId": "3252497689257969852",
+      "bytes": 124,
+      "body_sha256": "246c9e97da20ce17632230dcfb70c95bccb4c3b960aa78155cce236ef1cab062",
+      "nonempty": false,
+      "data_type": null,
+      "data_preview": null,
+      "err": null,
+      "ts": "2026-09-29T19:06:07+0800",
+      "ts_epoch": 1790679967
+    }
+  ],
+  "outcome": "A",
+  "outcome_rule": "any send nonempty+traceId+200/BOOT_0000 => A (that route LIVE=PASS); else B (UNVERIFIED, register as-is)"
+}

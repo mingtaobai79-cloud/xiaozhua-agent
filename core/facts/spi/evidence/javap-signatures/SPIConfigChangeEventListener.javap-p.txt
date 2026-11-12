@@ -1,0 +1,9 @@
+Compiled from "SPIConfigChangeEventListener.java"
+public class com.seeyon.boot.starter.spi.SPIConfigChangeEventListener {
+  private static final org.slf4j.Logger log;
+  private com.seeyon.boot.starter.spi.SPIProperties spiProperties;
+  private com.seeyon.boot.starter.spi.SPIJarLoader spiJarLoader;
+  public com.seeyon.boot.starter.spi.SPIConfigChangeEventListener();
+  public void onConfigChange(com.seeyon.boot.starter.nacos.event.ConfigItemChangeEvent);
+  static {};
+}

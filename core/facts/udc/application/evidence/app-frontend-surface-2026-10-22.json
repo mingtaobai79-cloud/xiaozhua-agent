@@ -1,0 +1,38 @@
+{
+ "https://lowcode-test2.example.com/main/static/vendors/seeyon/seeyon.vendor.global.5.3.41-sdk.5.3.7.js": [
+  " /udc/app-design"
+ ],
+ "https://lowcode-test2.example.com/main/ui.b7ba747f.js": [
+  " /udc/file/download?storageKey="
+ ],
+ "https://lowcode-test2.example.com/main/vendors.0c1ffdc5.js": [
+  " /udc/app-design"
+ ],
+ "https://lowcode-test2.example.com/udc/src_constants_design_page-type_ts-src_services_app-design_template_ts-src_services_design_pag-93bb09.6494d14a.js": [
+  " /udc/page-info/select-by-appId/"
+ ],
+ "https://lowcode-test2.example.com/udc/src_redux_store_ts.14dc061e.js": [
+  "POST /udc/runtime/expect-deploy-time",
+  "POST /udc/deployment/app-delta-deploy",
+  " /udc/application/datadictionary/",
+  "POST /udc/microflow/disable-last-version-metadata",
+  "POST /udc/front-log/create",
+  "POST /udc/micro-flow-macro/select-items",
+  "GET /udc/micro-flow-macro/select/",
+  " /udc/graphql",
+  " /udc/page-info/base-info/create",
+  " /udc/page-info/base-info/update",
+  " /udc/page-info/delete-by-conditions",
+  " /udc/refer-config/list",
+  "GET /udc/sandbox/delta-build-info/",
+  "POST /udc/application/search/front-detection",
+  " /udc/file/download?storageKey="
+ ],
+ "https://lowcode-test2.example.com/udc/src_components_app-design_app_components_theme_app-style-designer-model_tsx-src_components_ap-7042b6.f96d7e03.js": [
+  " /udc/file/download?storageKey="
+ ],
+ "https://lowcode-test2.example.com/udc/src_pages_app-design_basic-info_index_tsx-node_modules_seeyon_biz-icon-library_dist_index_css.b24938e1.js": [
+  "POST /udc/deployment/latest-test-info",
+  "POST /udc/application/dependent-application/delete-by-ids"
+ ]
+}

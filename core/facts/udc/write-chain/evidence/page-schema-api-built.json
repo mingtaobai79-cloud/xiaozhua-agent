@@ -1,0 +1,661 @@
+{
+ "id": "-2795971120707411668",
+ "appId": "6419954374508955097",
+ "pageType": "SEARCH_LIST",
+ "pageUrl": "zzprobeshouye",
+ "urlType": "PC",
+ "name": "页面",
+ "guid": "1604419953923735992",
+ "relationGroupId": "7909611546579554281",
+ "sortNo": 10,
+ "masterEntityIds": "1214120700508048602",
+ "version": "2.4.0",
+ "handWritten": false,
+ "originId": "-2795971120707411668",
+ "children": [
+  "udcFilter_eEzz",
+  "udcToolBar_Dset",
+  "udcDataGridView_usOJ"
+ ],
+ "childById": {
+  "udcFilter_eEzz": {
+   "id": "udcFilter_eEzz",
+   "type": "UdcFilter",
+   "parentId": "PAGE",
+   "settings": {
+    "filterSetting": {
+     "relatedComponentId": [
+      "udcDataGridView_usOJ"
+     ],
+     "disableShowSetting": false
+    },
+    "enableList": [
+     "quickSearch"
+    ],
+    "addOperates": [],
+    "advancedSetting": {
+     "1214120700508048602": {
+      "placeMode": "horizontal",
+      "fields": [
+       "2667087430121200499"
+      ]
+     }
+    },
+    "topOperates": [],
+    "actionColumnOperates": [],
+    "operateButtons": []
+   },
+   "events": []
+  },
+  "udcToolBar_Dset": {
+   "id": "udcToolBar_Dset",
+   "type": "UdcToolBar",
+   "parentId": "PAGE",
+   "settings": {
+    "addOperates": [],
+    "operateNum": -1,
+    "align": "right",
+    "topOperates": [],
+    "actionColumnOperates": [],
+    "operateButtons": []
+   },
+   "events": []
+  },
+  "udcDataGridView_usOJ": {
+   "id": "udcDataGridView_usOJ",
+   "type": "UdcDataGridView",
+   "parentId": "PAGE",
+   "settings": {
+    "columns": [
+     {
+      "settings": {},
+      "uiModel": {},
+      "componentName": "列",
+      "hide": {
+       "type": "Simple",
+       "simple": false
+      },
+      "dataType": "STRING",
+      "sorter": false,
+      "calcColumn": {
+       "type": "Simple"
+      },
+      "align": "center",
+      "headerAlign": "",
+      "description": "",
+      "IconColumnOperates": [],
+      "enableList": false,
+      "displayStyleAttachment": "button",
+      "showFormat": "",
+      "dateFormat": "",
+      "displayFormate": "default",
+      "displayFormateTime": "default",
+      "decimalPlace": 2,
+      "amountInWord": false,
+      "displayEmptyWhenValueZero": false,
+      "supportClear": false,
+      "displayStyle": "input",
+      "unit": "",
+      "sliderMin": 0,
+      "sliderMax": 100,
+      "sliderColor": {
+       "type": "Simple",
+       "simple": "brand1-6"
+      },
+      "isGroupEnable": true,
+      "decimalDigits": 2,
+      "positiveNumber": "0",
+      "nagativeNumber": "0",
+      "currencyIcon": "￥",
+      "progress": false,
+      "tagDisplay": false,
+      "autoGrow": "fixed",
+      "rows": 2,
+      "maxRows": 2,
+      "colBgColor": {
+       "type": "Simple"
+      },
+      "colTextColor": {
+       "type": "Simple"
+      },
+      "colTextStyle": {
+       "fontStyle": "",
+       "isEffect": {
+        "type": "Simple",
+        "simple": true
+       }
+      },
+      "lineLimitedContent": "unlimited",
+      "lineNumberContent": 1,
+      "columnId": "78SLth",
+      "parentId": "udcDataGridView_usOJ",
+      "dataFieldCaption": "字段1",
+      "dataFieldId": "2667087430121200499",
+      "dataI18n": false,
+      "dataIndex": "ziduan1",
+      "fieldPath": [
+       "2667087430121200499"
+      ],
+      "fullName": "com.seeyon.zzprobenew26419954374508955097.domain.entity.ZzprobeEnt1.ziduan1",
+      "relationApp": null,
+      "relationEntity": null,
+      "relationType": null,
+      "columnIndex": 0,
+      "multiSelect": false,
+      "title": {
+       "type": "Simple"
+      },
+      "isHorizontalLast": true,
+      "widthType": "pt",
+      "widthValue": 180
+     },
+     {
+      "settings": {},
+      "uiModel": {},
+      "componentName": "列",
+      "hide": {
+       "type": "Simple",
+       "simple": false
+      },
+      "dataType": "DATETIME",
+      "sorter": false,
+      "calcColumn": {
+       "type": "Simple"
+      },
+      "align": "center",
+      "headerAlign": "",
+      "description": "",
+      "IconColumnOperates": [],
+      "enableList": false,
+      "displayStyleAttachment": "button",
+      "showFormat": "",
+      "dateFormat": "",
+      "displayFormate": "default",
+      "displayFormateTime": "default",
+      "decimalPlace": 2,
+      "amountInWord": false,
+      "displayEmptyWhenValueZero": false,
+      "supportClear": false,
+      "displayStyle": "input",
+      "unit": "",
+      "sliderMin": 0,
+      "sliderMax": 100,
+      "sliderColor": {
+       "type": "Simple",
+       "simple": "brand1-6"
+      },
+      "isGroupEnable": true,
+      "decimalDigits": 2,
+      "positiveNumber": "0",
+      "nagativeNumber": "0",
+      "currencyIcon": "￥",
+      "progress": false,
+      "tagDisplay": false,
+      "autoGrow": "fixed",
+      "rows": 2,
+      "maxRows": 2,
+      "colBgColor": {
+       "type": "Simple"
+      },
+      "colTextColor": {
+       "type": "Simple"
+      },
+      "colTextStyle": {
+       "fontStyle": "",
+       "isEffect": {
+        "type": "Simple",
+        "simple": true
+       }
+      },
+      "lineLimitedContent": "unlimited",
+      "lineNumberContent": 1,
+      "columnId": "i0wDfD",
+      "parentId": "udcDataGridView_usOJ",
+      "dataFieldCaption": "创建时间",
+      "dataFieldId": "4081173062945185491",
+      "dataI18n": false,
+      "dataIndex": "createTime",
+      "fieldPath": [
+       "4081173062945185491"
+      ],
+      "fullName": "com.seeyon.zzprobenew26419954374508955097.domain.entity.ZzprobeEnt1.createTime",
+      "relationApp": null,
+      "relationEntity": null,
+      "relationType": null,
+      "columnIndex": 1,
+      "multiSelect": false,
+      "title": {
+       "type": "Simple"
+      },
+      "isHorizontalLast": true,
+      "widthType": "pt",
+      "widthValue": 150
+     },
+     {
+      "settings": {},
+      "uiModel": {},
+      "componentName": "列",
+      "hide": {
+       "type": "Simple",
+       "simple": false
+      },
+      "dataType": "DATETIME",
+      "sorter": false,
+      "calcColumn": {
+       "type": "Simple"
+      },
+      "align": "center",
+      "headerAlign": "",
+      "description": "",
+      "IconColumnOperates": [],
+      "enableList": false,
+      "displayStyleAttachment": "button",
+      "showFormat": "",
+      "dateFormat": "",
+      "displayFormate": "default",
+      "displayFormateTime": "default",
+      "decimalPlace": 2,
+      "amountInWord": false,
+      "displayEmptyWhenValueZero": false,
+      "supportClear": false,
+      "displayStyle": "input",
+      "unit": "",
+      "sliderMin": 0,
+      "sliderMax": 100,
+      "sliderColor": {
+       "type": "Simple",
+       "simple": "brand1-6"
+      },
+      "isGroupEnable": true,
+      "decimalDigits": 2,
+      "positiveNumber": "0",
+      "nagativeNumber": "0",
+      "currencyIcon": "￥",
+      "progress": false,
+      "tagDisplay": false,
+      "autoGrow": "fixed",
+      "rows": 2,
+      "maxRows": 2,
+      "colBgColor": {
+       "type": "Simple"
+      },
+      "colTextColor": {
+       "type": "Simple"
+      },
+      "colTextStyle": {
+       "fontStyle": "",
+       "isEffect": {
+        "type": "Simple",
+        "simple": true
+       }
+      },
+      "lineLimitedContent": "unlimited",
+      "lineNumberContent": 1,
+      "columnId": "SGdAGm",
+      "parentId": "udcDataGridView_usOJ",
+      "dataFieldCaption": "更新时间",
+      "dataFieldId": "-5393338407019240705",
+      "dataI18n": false,
+      "dataIndex": "updateTime",
+      "fieldPath": [
+       "-5393338407019240705"
+      ],
+      "fullName": "com.seeyon.zzprobenew26419954374508955097.domain.entity.ZzprobeEnt1.updateTime",
+      "relationApp": null,
+      "relationEntity": null,
+      "relationType": null,
+      "columnIndex": 2,
+      "multiSelect": false,
+      "title": {
+       "type": "Simple"
+      },
+      "isHorizontalLast": true,
+      "widthType": "pt",
+      "widthValue": 150
+     },
+     {
+      "settings": {},
+      "uiModel": {},
+      "componentName": "列",
+      "hide": {
+       "type": "Simple",
+       "simple": false
+      },
+      "dataType": "ENTITY",
+      "sorter": false,
+      "calcColumn": {
+       "type": "Simple"
+      },
+      "align": "center",
+      "headerAlign": "",
+      "description": "",
+      "IconColumnOperates": [],
+      "enableList": false,
+      "displayStyleAttachment": "button",
+      "showFormat": "",
+      "dateFormat": "",
+      "displayFormate": "default",
+      "displayFormateTime": "default",
+      "decimalPlace": 2,
+      "amountInWord": false,
+      "displayEmptyWhenValueZero": false,
+      "supportClear": false,
+      "displayStyle": "input",
+      "unit": "",
+      "sliderMin": 0,
+      "sliderMax": 100,
+      "sliderColor": {
+       "type": "Simple",
+       "simple": "brand1-6"
+      },
+      "isGroupEnable": true,
+      "decimalDigits": 2,
+      "positiveNumber": "0",
+      "nagativeNumber": "0",
+      "currencyIcon": "￥",
+      "progress": false,
+      "tagDisplay": false,
+      "autoGrow": "fixed",
+      "rows": 2,
+      "maxRows": 2,
+      "colBgColor": {
+       "type": "Simple"
+      },
+      "colTextColor": {
+       "type": "Simple"
+      },
+      "colTextStyle": {
+       "fontStyle": "",
+       "isEffect": {
+        "type": "Simple",
+        "simple": true
+       }
+      },
+      "lineLimitedContent": "unlimited",
+      "lineNumberContent": 1,
+      "columnId": "G7wdUw",
+      "parentId": "udcDataGridView_usOJ",
+      "dataFieldCaption": "创建人",
+      "dataFieldId": "-4185477140447328796",
+      "dataI18n": false,
+      "dataIndex": "creator",
+      "fieldPath": [
+       "-4185477140447328796"
+      ],
+      "fullName": "com.seeyon.zzprobenew26419954374508955097.domain.entity.ZzprobeEnt1.creator",
+      "relationApp": null,
+      "relationEntity": null,
+      "relationType": null,
+      "columnIndex": 3,
+      "multiSelect": false,
+      "title": {
+       "type": "Simple"
+      },
+      "isHorizontalLast": true,
+      "widthType": "pt",
+      "widthValue": 150
+     },
+     {
+      "settings": {},
+      "uiModel": {},
+      "componentName": "列",
+      "hide": {
+       "type": "Simple",
+       "simple": false
+      },
+      "dataType": "BOOLEAN",
+      "sorter": false,
+      "calcColumn": {
+       "type": "Simple"
+      },
+      "align": "center",
+      "headerAlign": "",
+      "description": "",
+      "IconColumnOperates": [],
+      "enableList": false,
+      "displayStyleAttachment": "button",
+      "showFormat": "",
+      "dateFormat": "",
+      "displayFormate": "default",
+      "displayFormateTime": "default",
+      "decimalPlace": 2,
+      "amountInWord": false,
+      "displayEmptyWhenValueZero": false,
+      "supportClear": false,
+      "displayStyle": "input",
+      "unit": "",
+      "sliderMin": 0,
+      "sliderMax": 100,
+      "sliderColor": {
+       "type": "Simple",
+       "simple": "brand1-6"
+      },
+      "isGroupEnable": true,
+      "decimalDigits": 2,
+      "positiveNumber": "0",
+      "nagativeNumber": "0",
+      "currencyIcon": "￥",
+      "progress": false,
+      "tagDisplay": false,
+      "autoGrow": "fixed",
+      "rows": 2,
+      "maxRows": 2,
+      "colBgColor": {
+       "type": "Simple"
+      },
+      "colTextColor": {
+       "type": "Simple"
+      },
+      "colTextStyle": {
+       "fontStyle": "",
+       "isEffect": {
+        "type": "Simple",
+        "simple": true
+       }
+      },
+      "lineLimitedContent": "unlimited",
+      "lineNumberContent": 1,
+      "columnId": "gOOYfk",
+      "parentId": "udcDataGridView_usOJ",
+      "dataFieldCaption": "是否草稿",
+      "dataFieldId": "2794557340395768462",
+      "dataI18n": false,
+      "dataIndex": "draft",
+      "fieldPath": [
+       "2794557340395768462"
+      ],
+      "fullName": "com.seeyon.zzprobenew26419954374508955097.domain.entity.ZzprobeEnt1.draft",
+      "relationApp": null,
+      "relationEntity": null,
+      "relationType": null,
+      "columnIndex": 4,
+      "multiSelect": false,
+      "title": {
+       "type": "Simple"
+      },
+      "isHorizontalLast": true,
+      "widthType": "pt",
+      "widthValue": 150
+     }
+    ],
+    "topOperates": [],
+    "filterSetting": {
+     "type": "single"
+    },
+    "actionColumnOperates": [
+     {
+      "id": "actEdit01",
+      "type": "item",
+      "name": "编辑",
+      "icon": "LinedSmile",
+      "isPlaceHolderColumn": false,
+      "bgColor": "brand1-6",
+      "allowControlled": false,
+      "buttonType": "link",
+      "iconPosition": "left",
+      "showContent": "text",
+      "danger": false,
+      "ghost": false,
+      "status": {
+       "type": "Simple",
+       "simple": "basic"
+      }
+     },
+     {
+      "id": "actDel01",
+      "type": "item",
+      "name": "删除",
+      "icon": "LinedSmile",
+      "isPlaceHolderColumn": false,
+      "bgColor": "brand1-6",
+      "allowControlled": false,
+      "buttonType": "link",
+      "iconPosition": "left",
+      "showContent": "text",
+      "danger": false,
+      "ghost": false,
+      "status": {
+       "type": "Simple",
+       "simple": "basic"
+      }
+     }
+    ],
+    "enableActionColumn": true,
+    "enableTopOperates": false,
+    "rowSelect": "multi",
+    "defaultPageSize": 20,
+    "borderStyles": [
+     "hborder"
+    ],
+    "enableOrderNumber": true,
+    "inputPagenationNum": "5,10,20,50,100",
+    "paginationAlign": "right",
+    "rowBgColor": {
+     "type": "Simple",
+     "simple": ""
+    },
+    "zebra": false,
+    "showSetting": {
+     "fields": [
+      "com.seeyon.zzprobenew26419954374508955097.domain.entity.ZzprobeEnt1.ziduan1",
+      "com.seeyon.zzprobenew26419954374508955097.domain.entity.ZzprobeEnt1.createTime",
+      "com.seeyon.zzprobenew26419954374508955097.domain.entity.ZzprobeEnt1.updateTime",
+      "com.seeyon.zzprobenew26419954374508955097.domain.entity.ZzprobeEnt1.creator",
+      "com.seeyon.zzprobenew26419954374508955097.domain.entity.ZzprobeEnt1.draft"
+     ]
+    }
+   },
+   "events": [
+    {
+     "id": "ckwgfo",
+     "callbackDataType": "ROW_DATA",
+     "eventType": "actEdit01",
+     "condition": false,
+     "actionCaption": "编辑记录",
+     "actionName": "ENTITY_EDIT",
+     "actionType": "widget",
+     "target": "udcDataGridView_usOJ",
+     "condEvents": [],
+     "enableValidate": false
+    },
+    {
+     "id": "zkau0x",
+     "callbackDataType": "ROW_DATA",
+     "eventType": "actDel01",
+     "condition": false,
+     "actionCaption": "删除记录",
+     "actionName": "ENTITY_DELETE",
+     "actionType": "widget",
+     "target": "udcDataGridView_usOJ",
+     "condEvents": [],
+     "enableValidate": false,
+     "noticeEntitys": [
+      "com.seeyon.zzprobenew26419954374508955097.domain.entity.ZzprobeEnt1"
+     ]
+    }
+   ],
+   "dataSource": {
+    "type": "ENTITY",
+    "subType": "NORMAL",
+    "key": "udcDataGridView_usOJ-1214120700508048602",
+    "isRoot": true,
+    "isRef": false,
+    "dataShape": "LIST",
+    "entity": {
+     "id": "1214120700508048602",
+     "name": "zzprobeEnt1",
+     "fullName": "com.seeyon.zzprobenew26419954374508955097.domain.entity.ZzprobeEnt1",
+     "caption": "zzprobe测试实体",
+     "stereotype": "archive",
+     "category": "ENTITY",
+     "supportOrderNo": false,
+     "appName": "zzprobenew26419954374508955097",
+     "appId": "6419954374508955097"
+    },
+    "fields": [
+     {
+      "id": "2667087430121200499",
+      "name": "ziduan1",
+      "fieldPath": [
+       "2667087430121200499"
+      ],
+      "fullName": "com.seeyon.zzprobenew26419954374508955097.domain.entity.ZzprobeEnt1.ziduan1",
+      "parentId": "udcDataGridView_usOJ",
+      "group": "",
+      "readonly": false
+     }
+    ],
+    "dataTarget": "udcDataGridView_usOJ",
+    "fieldBindMap": {},
+    "hiddenFields": []
+   },
+   "componentName": "重复表查询",
+   "name": "",
+   "uiModel": {},
+   "uiModelSchema": {},
+   "extraChildren": [],
+   "children": []
+  }
+ },
+ "inPortletParams": [],
+ "outParameters": [],
+ "pageVariable": [],
+ "pageDefinedEvents": [],
+ "eventDefine": [],
+ "expressSchemaPathMaps": {},
+ "settings": {
+  "styles": {},
+  "title": {
+   "type": "Simple"
+  },
+  "resolutionPower": {
+   "type": "auto",
+   "value": {
+    "per": 100,
+    "minWidth": 1200,
+    "maxWidth": 1920
+   }
+  },
+  "alignment": "center",
+  "backgroundAdapt": "cover",
+  "backgroundColor": "#ffffff",
+  "gap": "20px 0",
+  "boxModel": {
+   "margin": "0 auto 0 auto",
+   "padding": "16px 20px 0 20px"
+  }
+ },
+ "layoutVisibleControl": {
+  "type": "visible"
+ },
+ "pageLayout": false,
+ "defaultOpenType": null,
+ "description": "API构造列表页",
+ "type": "PAGE",
+ "terminal": "PC",
+ "createTime": "1790778823000",
+ "groupId": "0",
+ "inParams": {},
+ "extraChildren": [],
+ "extraConfig": {}
+}

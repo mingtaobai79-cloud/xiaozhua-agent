@@ -1,0 +1,34 @@
+{
+ "op": "udcEntityEntityCopyPost",
+ "url": "/service/udc/graphql?udcEntityEntityCopyPost",
+ "request": {
+  "appId": "<app_id>",
+  "copyInfo": {
+   "caption": "<原名称>_副本",
+   "name": "<原name>copy",
+   "entityId": "<源实体id>"
+  },
+  "entityGroupId": "<目标分组id>",
+  "copyChildEntity": false,
+  "childEntityIds": [],
+  "moduleList": [
+   "ATTRIBUTE",
+   "ENTITY_RULE",
+   "REFER",
+   "EVENT",
+   "INDEX"
+  ]
+ },
+ "response": {
+  "code": "BOOT_0000",
+  "data": {
+   "content": "<新实体id>"
+  }
+ },
+ "live": {
+  "sourceEntityId": "474806313816300867",
+  "newEntityId": "9028197404743977923",
+  "readbackFields": 15,
+  "deleted": true
+ }
+}

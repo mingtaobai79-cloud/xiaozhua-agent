@@ -1,0 +1,43 @@
+{
+ "stage": "P6",
+ "node": "CALL_APP_SERVICE",
+ "date": "2026-11-03",
+ "app_id": "8704025620829192834",
+ "service": {
+  "fullName": "com.seeyon.boot.starter.serialnumber.appservice.SerialNumberAppService.getSerialNumber",
+  "md5": "413b1d849eaae74b9b1f8e292e4d9fc8",
+  "app": "boot-starter-serialnumber",
+  "param": "SingleRequest<SerialNumberDto>",
+  "return": "SingleResponse<String>"
+ },
+ "flow": {
+  "name": "p6svc6sv01",
+  "mid": "-5211994852897248483",
+  "trigger": "SCHEDULE/5min"
+ },
+ "cases": [
+  {
+   "case": "连续三轮各取一个流水号并落库",
+   "values": [
+    "HT2026111 @09:46",
+    "HT2026112 @09:51",
+    "HT2026113 @09:56"
+   ],
+   "expect": "每次调用递增、值来自平台流水号组件",
+   "evidence": "migration_1962926556161096741.source_table='SN'，ctp_serial_history 同刻记录",
+   "pass": true
+  }
+ ],
+ "build": {
+  "state": "SUCCESS",
+  "sec": 249
+ },
+ "not_covered": [
+  "其它 starter 服务（file/enums）",
+  "多参数/复杂 DTO 入参"
+ ],
+ "notes": [
+  "字段级 attrType 必须由调用方给（Dto.serialSchemeCode），不能只按 parameter 推 DTO 级",
+  "starter 服务归属 app=boot-starter-<stem>、inApp=false，写成本应用会让抽屉显示错归属"
+ ]
+}

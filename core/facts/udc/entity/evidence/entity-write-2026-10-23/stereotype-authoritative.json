@@ -1,0 +1,93 @@
+[
+ {
+  "name": "standard",
+  "caption": "标准",
+  "necessaryFeatures": [
+   "basic"
+  ],
+  "availableFeatures": [
+   "secretLevel"
+  ],
+  "features": [],
+  "deprecated": false,
+  "g_l_index": "1"
+ },
+ {
+  "name": "form",
+  "caption": "表单",
+  "necessaryFeatures": [
+   "basic",
+   "formBasic"
+  ],
+  "availableFeatures": [
+   "secretLevel"
+  ],
+  "features": [],
+  "deprecated": false,
+  "g_l_index": "2"
+ },
+ {
+  "name": "basicData",
+  "caption": "基础资料",
+  "necessaryFeatures": [
+   "basic"
+  ],
+  "availableFeatures": [
+   "secretLevel"
+  ],
+  "features": [],
+  "deprecated": false,
+  "g_l_index": "3"
+ },
+ {
+  "name": "bill",
+  "caption": "单据",
+  "necessaryFeatures": [
+   "basic",
+   "approve",
+   "organization",
+   "billBasic",
+   "termination",
+   "suspend",
+   "nullify"
+  ],
+  "availableFeatures": [
+   "secretLevel"
+  ],
+  "features": [],
+  "deprecated": false,
+  "g_l_index": "4"
+ },
+ {
+  "name": "archive",
+  "caption": "平铺档案",
+  "necessaryFeatures": [
+   "basic",
+   "archiveBasic",
+   "approve",
+   "archiveTiled"
+  ],
+  "availableFeatures": [
+   "secretLevel"
+  ],
+  "features": [],
+  "deprecated": false,
+  "g_l_index": "5"
+ },
+ {
+  "name": "archiveTree",
+  "caption": "树形档案",
+  "necessaryFeatures": [
+   "basic",
+   "archiveBasic",
+   "approve",
+   "treeEntity"
+  ],
+  "availableFeatures": [
+   "secretLevel"
+  ],
+  "features": [],
+  "deprecated": false,
+  "g_l_index": "6"
+ }
+]

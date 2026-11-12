@@ -337,7 +337,7 @@
       "write": true,
       "auth": false,
       "status": "UNVERIFIED",
-      "note": "微流程主体；未经真机闭环",
+      "note": "本地构造已跑通：create body type=SERVICE（未真机 checkSchema）",
       "blocker": "需 UI 点「检查」+ 逐节点看红字，成本高"
     },
     {
@@ -346,7 +346,7 @@
       "write": true,
       "auth": false,
       "status": "UNVERIFIED",
-      "note": "节点构造器；未经真机闭环",
+      "note": "本地已跑通：23 个 action 全部可构造（未真机 submit）",
       "blocker": "同上"
     },
     {
@@ -355,7 +355,7 @@
       "write": false,
       "auth": false,
       "status": "VERIFIED",
-      "note": "列 23 个 action→actionType 映射；纯本地字典，不连平台"
+      "note": "本地已跑通：返回 23 条 action→actionType 映射"
     },
     {
       "key": "microflow_gates",
@@ -363,7 +363,7 @@
       "write": true,
       "auth": false,
       "status": "UNVERIFIED",
-      "note": "闸门校验；未经真机闭环",
+      "note": "本地已跑通：G1-G41 闸门，空流程 ok=True/0 problems",
       "blocker": "同上"
     },
     {
@@ -372,7 +372,7 @@
       "write": true,
       "auth": false,
       "status": "UNVERIFIED",
-      "note": "能力声明；未经真机闭环",
+      "note": "本地已跑通：读能力矩阵 22 类 RUNTIME_VERIFIED",
       "blocker": "同上"
     },
     {
@@ -381,7 +381,7 @@
       "write": true,
       "auth": false,
       "status": "UNVERIFIED",
-      "note": "触发器 body；未经真机闭环",
+      "note": "本地构造已跑通：触发节点（未真机 checkSchema）",
       "blocker": "同上"
     },
     {
@@ -390,7 +390,7 @@
       "write": true,
       "auth": false,
       "status": "UNVERIFIED",
-      "note": "数据结构；未经真机闭环",
+      "note": "本地构造已跑通：含 endNode（未真机 checkSchema）",
       "blocker": "同上"
     },
     {
@@ -408,7 +408,7 @@
       "write": true,
       "auth": false,
       "status": "UNVERIFIED",
-      "note": "列表页 pageSchema 骨架",
+      "note": "本地构造已跑通：出 page-schema.v1 readonly_plan（未做 submitPage 真机闭环）",
       "blocker": "宿主需填真实 id 后 submitPage，未闭环"
     },
     {
@@ -417,7 +417,7 @@
       "write": true,
       "auth": false,
       "status": "UNVERIFIED",
-      "note": "详情页 pageSchema 骨架",
+      "note": "本地构造已跑通：出 page-schema.v1 readonly_plan（未做 submitPage 真机闭环）",
       "blocker": "同上"
     },
     {
@@ -426,7 +426,7 @@
       "write": true,
       "auth": false,
       "status": "UNVERIFIED",
-      "note": "自定义页面脚手架",
+      "note": "本地已跑通：生成 customPage.tsx 脚手架（未真机提交）",
       "blocker": "同上"
     },
     {
@@ -435,7 +435,7 @@
       "write": true,
       "auth": false,
       "status": "UNVERIFIED",
-      "note": "筛选方案 body",
+      "note": "本地构造已跑通：出过滤方案 body（未真机提交）",
       "blocker": "未闭环"
     },
     {

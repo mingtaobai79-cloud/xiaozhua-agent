@@ -1,0 +1,24 @@
+{
+  "phase": "zzprobe 全链测试 最终收口",
+  "ts": "2026-10-01 01:20 +08",
+  "final_state": {
+    "应用": "zzprobe测试应用(appId=6419954374508955097, appName=zzprobenew26419954374508955097)",
+    "部署": "SUCCESS ×2 (v1.0.1→FAIL[一致性检测已修复], v1.0.2→SUCCESS 'udc发布成功')",
+    "运行态": "服务已上线(app-info/deploy-info 200 BOOT_0000)",
+    "实体": "zzprobeData(id=-5579155555771704659, 标准类型) + 运行态元数据(fullName/tableName已确认)",
+    "页面": "zzprobe首页(用户拖控件+FORMAL schema) + 空页面已清理(首页MOBILE/列表页PC+MOBILE/栏目PORTLET 共4个)"
+  },
+  "protocol_discoveries": {
+    "建应用": "只能UI表单(REST持久化不完整)",
+    "建实体": "REST POST /service/udc/entity (appId数字+name小写+stereotype)",
+    "部署": "POST /service/udc/runtime/deploy-normal deployDto={appId:13位数字}",
+    "部署记录": "POST /service/udc/application/appVersion/{appGuid}",
+    "部署信息": "GET /service/{appName}/app-info/deploy-info",
+    "页面定义": "graphql udcPageInfoSearchNoPagePost(params.appId)",
+    "删页面": "graphql udcPageInfoDeletePost(body.id) — 空页面会阻断一致性检测",
+    "一致性检测": "ERROR阻断(空页面/菜单不一致) WARN放行(未保存微流程)",
+    "数据查询": "POST /service/{app}/udc-runtime/data/query (appName+entityFullName+dataId)"
+  },
+  "dnd_limitation": "设计器拖拽(页面控件/微流程节点)必须真实手势 isTrusted=true, CDP无法合成——Edge/Chrome一致",
+  "remaining_for_data_write": "需人工在设计器配CRUD页面(拖控件绑实体) 或 微流程加写入节点, 之后 udc-runtime data API 即可读写"
+}

@@ -1,0 +1,8 @@
+Compiled from "CtpAvoidLoginBackendProviderService.java"
+public interface com.seeyon.ctp.user.api.avoidlogin.CtpAvoidLoginBackendProviderService extends com.seeyon.ctp.user.api.CtpSsoAvoidLoginBaseService {
+  public default java.util.Map<java.lang.String, java.lang.Object> doExecuteAvoidLoginBackend(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse);
+    descriptor: (Ljavax/servlet/http/HttpServletRequest;Ljavax/servlet/http/HttpServletResponse;)Ljava/util/Map;
+
+  public default java.lang.Object avoidLoginBackend(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse);
+    descriptor: (Ljavax/servlet/http/HttpServletRequest;Ljavax/servlet/http/HttpServletResponse;)Ljava/lang/Object;
+}

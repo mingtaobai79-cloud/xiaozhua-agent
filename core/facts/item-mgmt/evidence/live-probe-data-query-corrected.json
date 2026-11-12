@@ -1,0 +1,57 @@
+{
+  "probe": "data/query corrected-field addendum",
+  "clock_local": "2026-09-29T12:51:50+0800",
+  "clock_epoch": 1790657510,
+  "env": "test2",
+  "base": "https://lowcode-test2.example.com",
+  "gateway_prefix": "/service/app9000000000000000001",
+  "app_id": "app9000000000000000001",
+  "credential_ref": "config/environments.yaml::environments.test2.credential (值 0 入件)",
+  "cookie_len": 375,
+  "server_revealed_required_fields": "appName / dataId / entityFullName (from first-pass status=3 message, verbatim in live-probe-item-master-data.json)",
+  "first_pass_ref": "core/facts/item-mgmt/evidence/live-probe-item-master-data.json",
+  "sends": [
+    {
+      "endpoint": "data.query.corrected",
+      "purpose": "discriminating: server-revealed required fields (appName+entityFullName, no dataId)",
+      "sent_body_keys": [
+        "appName",
+        "attrKeys",
+        "dataId",
+        "entityFullName"
+      ],
+      "sent_entity_full_name": "com.seeyon.9000000000000000001.domain.entity.Tbfysq1",
+      "sent_dataId": null,
+      "url": "https://lowcode-test2.example.com/service/app9000000000000000001/udc-runtime/data/query",
+      "method": "POST",
+      "http": 200,
+      "bytes": 105,
+      "is_json": true,
+      "top_keys": [
+        "status",
+        "code",
+        "message",
+        "traceId",
+        "data"
+      ],
+      "code": null,
+      "message": "dataId 数据id",
+      "traceId": "3252120935783729340",
+      "redirect_present": false,
+      "transport_error": null,
+      "ts_local": "2026-09-29T12:51:50+0800",
+      "body_sha256": "44c717b54586042915893a0b236f19bf8d9823f61521e7af886905eb1a8f4623",
+      "body": {
+        "status": 3,
+        "code": null,
+        "message": "dataId 数据id",
+        "traceId": "3252120935783729340",
+        "data": null
+      }
+    }
+  ],
+  "send_counts": {
+    "data.query.corrected": 1
+  },
+  "no_retry_bombing": true
+}

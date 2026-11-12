@@ -1,0 +1,14 @@
+{
+ "ctp枚举 udcMetaDataSelectCtpEnumAppGet": {
+  "code": "PARSE_FAIL",
+  "raw": "{\"errors\":[{\"message\":\"Validation error of type FieldUndefined: Field 'id' in type 'UdccomseeyonbootstarterextmetadatadtoUdcApplicationCtpEnumDto' is undefined @ 'udcMetaDataSelectCtpEnumAppGet/data/content/id'\",\"locations\":[{\"line\":1,\"column\":151}],\"extensions\":{\"classification\":\"ValidationError\"}},{\"message\":\"Validation error of type FieldUndefined: Field 'code' in type 'Udccomseeyonbootstartere"
+ },
+ "选项集 udcUdcEnumCategorySelectCategoryAndEnumPost": {
+  "code": "PARSE_FAIL",
+  "raw": "{\"errors\":[{\"message\":\"Validation error of type FieldUndefined: Field 'id' in type 'UdccomseeyonudcdtoUdcEnumCategoryAndEnumDto' is undefined @ 'udcUdcEnumCategorySelectCategoryAndEnumPost/data/content/id'\",\"locations\":[{\"line\":1,\"column\":180}],\"extensions\":{\"classification\":\"ValidationError\"}},{\"message\":\"Validation error of type FieldUndefined: Field 'code' in type 'UdccomseeyonudcdtoUdcEnumCate"
+ },
+ "流水号 udcSerialSchemeSearchNoPagePost": {
+  "code": "PARSE_FAIL",
+  "raw": "{\"errors\":[{\"message\":\"Validation error of type FieldUndefined: Field 'caption' in type 'UdccomseeyonbootstarterserialnumberdomaindtoSerialSchemeDto' is undefined @ 'udcSerialSchemeSearchNoPagePost/data/content/caption'\",\"locations\":[{\"line\":1,\"column\":169}],\"extensions\":{\"classification\":\"ValidationError\"}}],\"traceId\":\"3286710138366331068\",\"data\":{\"error\":{\"status\":3,\"code\":\"GraphQL-3001\",\"messag"
+ }
+}

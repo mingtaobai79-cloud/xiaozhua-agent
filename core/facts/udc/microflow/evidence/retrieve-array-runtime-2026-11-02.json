@@ -1,0 +1,36 @@
+{
+  "stage": "P5-S2",
+  "node": "RETRIEVE_ARRAY",
+  "date": "2026-11-02",
+  "app_id": "8704025620829192834",
+  "entity": "迁移断点 / migration_1962926556161096741",
+  "flow": {"name": "p5ra224626", "mid": "3676846408728062266", "trigger": "SCHEDULE/5min"},
+  "seed_data": [
+    {"task_id": "P5RA224626-M", "count": 3, "source_table": ["S-A", "S-B", "S-C"]},
+    {"task_id": "P5RA224626-O", "count": 1, "source_table": "S-ONE"},
+    {"task_id": "P5RA224626-X", "count": 0}
+  ],
+  "assertions": [
+    {"case": "多条记录", "expect": 3, "actual": 3, "evidence": "R1.processed_rows", "pass": true},
+    {"case": "单条记录（仍为 ARRAY）", "expect": 1, "actual": 1, "evidence": "R2.processed_rows", "pass": true},
+    {"case": "无匹配记录", "expect": 0, "actual": 0, "evidence": "R3.processed_rows", "pass": true},
+    {"case": "条件筛选", "expect": "M=3 / O=1 / X=0", "actual": "3 / 1 / 0", "evidence": "三个 SIZE 各不相同", "pass": true},
+    {"case": "元素字段读取", "expect": "S-ONE", "actual": "S-ONE", "evidence": "ELEM-OK（分支比对 f_one.sourceTable EQ S-ONE 成立）", "pass": true},
+    {"case": "下游消费 ARRAY", "expect": "SIZE/FIRST_ONE 均可作用于出参", "actual": "均可", "evidence": "SIZE→processed_rows；FIRST_ONE→分支条件", "pass": true}
+  ],
+  "node_output_contract": {
+    "RETRIEVE_ARRAY": {"type": "ARRAY", "dataType": "DTO"},
+    "LIST_OPERATION/SIZE": {"type": "OBJECT", "dataType": "INTEGER"},
+    "LIST_OPERATION/FIRST_ONE": {"type": "OBJECT", "dataType": "DTO"}
+  },
+  "failures_found_and_fixed": [
+    {"bug": "条件右值 {\"const\": ...} 未转成 CONSTANT", "symptom": "rightParams value 为空 → 条件静默失效 → 返回整张表 23 条，success=true", "fix": "composer._cond_right() + G39"},
+    {"bug": "SQL 造的种子 tenant_id=0", "symptom": "平台查询带租户过滤 → 三条都查不到（全 0）", "fix": "种子改 tenant_id=-8112660841495312922"}
+  ],
+  "builds": [
+    {"note": "ext 模块编译失败（与本节点无关）", "state": "FAIL", "sec": 41},
+    {"note": "ext 补字段后整包", "state": "SUCCESS", "sec": 395},
+    {"note": "条件修正后重建", "state": "SUCCESS", "sec": 233}
+  ],
+  "run_log": {"code": "p5ra224626", "last_success": true, "log_time": "2026-11-02 23:38:00"}
+}

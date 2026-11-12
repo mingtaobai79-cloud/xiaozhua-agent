@@ -1,0 +1,20 @@
+{
+ "microflowId": -5472409826136842382,
+ "swapped": [
+  {
+   "nodeId": "CALL_APP_SERVICE_6emWKa",
+   "caption": "插入数据(验收实体建档)",
+   "actionType": "CREATE_ENTITY"
+  },
+  {
+   "nodeId": "CALL_APP_SERVICE_uJE4Br",
+   "caption": "插入数据(控制台建档)",
+   "actionType": "CREATE_ENTITY"
+  },
+  {
+   "nodeId": "CALL_APP_SERVICE_VjFBfW",
+   "caption": "插入数据(文件中间表建档)",
+   "actionType": "CREATE_ENTITY"
+  }
+ ]
+}

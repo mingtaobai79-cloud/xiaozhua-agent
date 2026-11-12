@@ -1,0 +1,50 @@
+Classfile jar:file:///<ctp-user-api-3.8.215.jar>!/com/seeyon/ctp/user/annotation/CtpUserChannelRouter.class
+  Last modified 2025��1��10��; size 540 bytes
+  SHA-256 checksum b8a4c671decc00bc6fe4130ad3c7c696ebec95f2330ad869971c17317e13c2cf
+  Compiled from "CtpUserChannelRouter.java"
+public interface com.seeyon.ctp.user.annotation.CtpUserChannelRouter extends java.lang.annotation.Annotation
+  minor version: 0
+  major version: 52
+  flags: (0x2601) ACC_PUBLIC, ACC_INTERFACE, ACC_ABSTRACT, ACC_ANNOTATION
+  this_class: #1                          // com/seeyon/ctp/user/annotation/CtpUserChannelRouter
+  super_class: #2                         // java/lang/Object
+  interfaces: 1, fields: 0, methods: 1, attributes: 2
+Constant pool:
+   #1 = Class              #17            // com/seeyon/ctp/user/annotation/CtpUserChannelRouter
+   #2 = Class              #18            // java/lang/Object
+   #3 = Class              #19            // java/lang/annotation/Annotation
+   #4 = Utf8               value
+   #5 = Utf8               ()Ljava/lang/String;
+   #6 = Utf8               SourceFile
+   #7 = Utf8               CtpUserChannelRouter.java
+   #8 = Utf8               RuntimeVisibleAnnotations
+   #9 = Utf8               Ljava/lang/annotation/Target;
+  #10 = Utf8               Ljava/lang/annotation/ElementType;
+  #11 = Utf8               TYPE
+  #12 = Utf8               Ljava/lang/annotation/Retention;
+  #13 = Utf8               Ljava/lang/annotation/RetentionPolicy;
+  #14 = Utf8               RUNTIME
+  #15 = Utf8               Ljava/lang/annotation/Documented;
+  #16 = Utf8               Lorg/springframework/stereotype/Indexed;
+  #17 = Utf8               com/seeyon/ctp/user/annotation/CtpUserChannelRouter
+  #18 = Utf8               java/lang/Object
+  #19 = Utf8               java/lang/annotation/Annotation
+{
+  public abstract java.lang.String value();
+    descriptor: ()Ljava/lang/String;
+    flags: (0x0401) ACC_PUBLIC, ACC_ABSTRACT
+}
+SourceFile: "CtpUserChannelRouter.java"
+RuntimeVisibleAnnotations:
+  0: #9(#4=[e#10.#11])
+    java.lang.annotation.Target(
+      value=[Ljava/lang/annotation/ElementType;.TYPE]
+    )
+  1: #12(#4=e#13.#14)
+    java.lang.annotation.Retention(
+      value=Ljava/lang/annotation/RetentionPolicy;.RUNTIME
+    )
+  2: #15()
+    java.lang.annotation.Documented
+  3: #16()
+    org.springframework.stereotype.Indexed

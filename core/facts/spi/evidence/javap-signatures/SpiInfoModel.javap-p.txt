@@ -1,0 +1,19 @@
+Compiled from "CustomizedSpiInfo.java"
+public class com.seeyon.boot.starter.spi.plugin.CustomizedSpiInfo$SpiInfoModel {
+  java.lang.String fileFullPath;
+  java.util.List<java.lang.String> thirdJars;
+  java.util.List<java.lang.String> scopes;
+  java.lang.String spiJarKey;
+  java.lang.String thirdJarKey;
+  public com.seeyon.boot.starter.spi.plugin.CustomizedSpiInfo$SpiInfoModel();
+  public void setFileFullPath(java.lang.String);
+  public void setThirdJars(java.util.List<java.lang.String>);
+  public void setScopes(java.util.List<java.lang.String>);
+  public void setSpiJarKey(java.lang.String);
+  public void setThirdJarKey(java.lang.String);
+  public java.lang.String getFileFullPath();
+  public java.util.List<java.lang.String> getThirdJars();
+  public java.util.List<java.lang.String> getScopes();
+  public java.lang.String getSpiJarKey();
+  public java.lang.String getThirdJarKey();
+}

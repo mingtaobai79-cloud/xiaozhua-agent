@@ -1,0 +1,19 @@
+{
+  "phase": "页面设计器控件拖拽 — 工具链限制定性",
+  "ts": "2026-09-30 23:30 +08",
+  "finding": "CDP 合成事件（mouse序列/合成DragEvent/dispatchDragEvent）均无法触发设计器的 HTML5 原生拖拽（dragstart 未发生, setInterceptDrags 无 dragIntercepted）",
+  "cause": "浏览器自动化工具链硬限制: HTML5 dnd 需要真实用户手势 (isTrusted=true), CDP 合成事件 isTrusted=false 被忽略",
+  "attempts": [
+    "鼠标序列按住缓慢移动+长按",
+    "合成 DragEvent(dataTransfer)",
+    "Input.dispatchDragEvent路径",
+    "双击控件",
+    "右键画布"
+  ],
+  "workaround_options": [
+    "① 用户手动在设计器拖一个网格进 zzprobe首页 画布(10秒), 之后自动化接手保存/发布/数据环",
+    "② 用 Chrome DevTools Protocol 的 Input.insertText 无法替代; 无真实手势通道",
+    "③ 研究 udc 页面保存 API 直接注入页面布局 JSON(需反编译页面保存协议——工作量大)"
+  ],
+  "deploy_fail_rootcause_still_open": "UDC_CE_PAGE_03907 菜单-页面一致性 ERROR 仍需修(修好页面内容后重发布即可)"
+}

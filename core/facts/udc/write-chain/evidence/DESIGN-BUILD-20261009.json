@@ -1,0 +1,22 @@
+{
+ "phase": "设计态真实搭建（用户授权推送测试）",
+ "ts": "2026-10-09 13:5x +08",
+ "target_app": "zzprobe测试应用(appId=6419954374508955097)",
+ "business_requirement": "订单实体（编号/金额/日期/客户/状态）+ 列表页 + 详情页",
+ "built": {
+  "实体": "Dingdan(id=5678466719436905487, tableName=dingdan_5990719746137612400, UNPUBLISH)",
+  "属性×5": "orderCode/orderAmount DECIMAL/orderDate DATE/customerName/orderStatus — 全部 entityId 归属正确",
+  "页面×2": "订单列表 LIST(id=-7202653139675606674, url=dingdanlist) + 订单详情 DETAIL(id=5537883539395814559, url=dingdandetail)"
+ },
+ "protocol_learnings": {
+  "建属性body": "单条对象 {appId:Long, entityId:Long, name, caption, dataType}（数组包装报 BOOT_3002 反序列化失败）",
+  "保留字": "orderNo 被 UDC_ENTITY_0002 'system reserved field' 拒 → 改 orderCode 成功（R2 证据 ZzprobeR2FieldA 大写开头可用的对照）",
+  "Decimal类型": "dataType=DECIMAL 直接过（无需额外字段）",
+  "页面body": "deploy_plan step3 body + <entity_id> 替换 masterEntityIds 后直接可用（plan 质量实证）"
+ },
+ "blocked": {
+  "微流程保存": "udc-web MicroFlowController REST 端点未取证（设计器包），graphql 依赖运行态（未部署）",
+  "BI ganttchart-schema": "路由到 udc-web 报'接口错误'（参数形态待取证）",
+  "deploy-normal": "方案就绪未执行（需用户点火的构建动作）"
+ }
+}

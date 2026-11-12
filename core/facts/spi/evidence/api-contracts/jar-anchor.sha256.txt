@@ -1,0 +1,8 @@
+# command: sha256sum + ls -l on repo/CHIT GAV cip-connector-api:5.3.286 jar
+# RC=0
+# output sha256_prefix=09bdf422  output_bytes=276
+# captured: 2026-10-08T04:29:00Z
+# ---- raw output below ----
+de4767da279c6622aef95994d3c657e29b01c33eaea0db55e8fdf45537544f91 *repo/CHIT/com/seeyon/cip-connector-api/5.3.286/cip-connector-api-5.3.286.jar
+-rw-r--r-- 1 <user> <gid> 170420 May 16 14:22 repo/CHIT/com/seeyon/cip-connector-api/5.3.286/cip-connector-api-5.3.286.jar
+# note: 输出取得后对路径做脱敏（/d/repo/CHIT -> repo/CHIT），sha 记录的是脱敏前原始输出

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.seeyon</groupId>
+    <artifactId>boot</artifactId>
+    <version>5.3.293</version>
+  </parent>
+  <artifactId>boot-starter-spi-customized</artifactId>
+  <version>1.0.0-TEST-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>custom-backend</name>
+  <modules>
+    <module>spi-sso</module>
+    <module>spi-mobile</module>
+  </modules>
+  <properties>
+    <platform.version>3.10.1</platform.version>
+  </properties>
+</project>

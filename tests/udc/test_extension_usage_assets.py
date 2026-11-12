@@ -78,7 +78,7 @@ FRONTEND_LAYERS = {
 # 「脱敏规则只能引用不能复写」，凡必须复写处一律打行级标记，不做文件级豁免。
 RE_CUSTOMER_APP = re.compile(r"datamigration(?!9000000000000000\d{3})\d{6,}")  # SYNTHETIC-FIXTURE
 RE_LOCAL_PROJECT = re.compile(r"[A-Za-z]:[/\\](?:work|repo|software)[/\\]", re.I)
-RE_ORG = re.compile("changhong" + "it" + r"|长虹" + "佳华")
+RE_ORG = re.compile("sample" + "it" + r"|客户组织" + "佳华")
 # 本地仓库 / 本地制品路径：结论区只写 Maven 坐标，不写任何本机路径
 RE_LOCAL_REPO = re.compile(r"<repo>|~/\.m2|\.m2[/\\]repository|D:/repo|repo/CHIT", re.I)
 
@@ -419,7 +419,7 @@ def test_all_udc_artifacts_are_indexed():
     import json
     import pytest
 
-    repo = Path("D:/repo/CHIT/com/seeyon")
+    repo = Path("<MAVEN_REPO>/com/seeyon")
     if not repo.exists():
         pytest.skip("本机没有 jar 仓库，跳过构件完整性检查")
     want = {p.name for p in repo.glob("udc-*") if list(p.glob("*/*.jar"))}
@@ -949,8 +949,8 @@ def test_contract_probes_compile():
     javas = sorted(probe_dir.glob("*.java"))
     assert len(javas) >= 2, f"探针只有 {len(javas)} 个"
 
-    javac = Path("D:/software/java/bin/javac.exe")
-    repo = Path("D:/repo/CHIT")
+    javac = Path("<LOCAL_ROOT>/java/bin/javac.exe")
+    repo = Path("<MAVEN_REPO>")
     if not javac.exists() or not repo.is_dir():
         pytest.skip("无 javac 或 jar 仓库（换机器时正常跳过）")
 

@@ -1,0 +1,4 @@
+Compiled from "SpiArtifactService.java"
+public interface com.seeyon.boot.starter.spi.plugin.SpiArtifactService {
+  public abstract java.lang.String download(com.seeyon.boot.starter.spi.plugin.ArtifactInfo);
+}

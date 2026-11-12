@@ -1,0 +1,10 @@
+c01eea62157360ddcfa87046badfb72483e7c82669953ce6147f9428076a6c6f *pom.xml
+b6d6c6c5e3a022586de4341b1f18d537207f389d8bf7eb48abb8b21ae07083b3 *README.md
+8299db4ddfe19255a8fc46a19ed83ef25d838af9bfe4e2ac0eaccb9749d3e85b *spi-mobile/pom.xml
+898ca6ebbe61128028949c6982171dde1cb45e99ca7be84cb0db094d7f63d989 *spi-sso/pom.xml
+dddc9dc2c4c285aaeddeaf8b1b23d909be41cce33d82a10cd635683971105518 *spi-mobile/src/main/resources/META-INF/spring.factories
+dddc9dc2c4c285aaeddeaf8b1b23d909be41cce33d82a10cd635683971105518 *spi-sso/src/main/resources/META-INF/spring.factories
+258a66953210b2f850aa805b21977d77fc7ad7a83c0c2b23cc7abda4ab2079bc *spi-mobile/src/main/resources/metadata/spi_info.json
+258a66953210b2f850aa805b21977d77fc7ad7a83c0c2b23cc7abda4ab2079bc *spi-sso/src/main/resources/metadata/spi_info.json
+ddac7a85b39dfcd01a3f9be304c9f9ab291ed0bb210c815030fc0b54bd535dd5 *spi-mobile/src/main/java/com/seeyon/extend/spi/sso/TemplateSsoServiceImpl.java
+ddac7a85b39dfcd01a3f9be304c9f9ab291ed0bb210c815030fc0b54bd535dd5 *spi-sso/src/main/java/com/seeyon/extend/spi/sso/TemplateSsoServiceImpl.java

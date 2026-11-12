@@ -1,0 +1,42 @@
+{
+ "stage": "P6",
+ "node": "DATA_MAPPING",
+ "date": "2026-11-03",
+ "app_id": "8704025620829192834",
+ "entity": "迁移断点",
+ "flow": {
+  "name": "p6dm6dm01",
+  "mid": "-5323568351974662278",
+  "trigger": "SCHEDULE/5min"
+ },
+ "shape": {
+  "upstream": "RETRIEVE_ARRAY(3 条)",
+  "mappingRows": 1,
+  "map": "sourceTable → taskId",
+  "downstream": "CREATE_BATCH_ENTITY"
+ },
+ "cases": [
+  {
+   "case": "列表映射后批量写库",
+   "before": "3 行 source_table='DM-SRC'",
+   "after": "新增 3 行 task_id='DM-SRC'（source_table 为空，未映射字段）",
+   "expect": "映射值逐字搬运",
+   "pass": true,
+   "evidence": "10:19:00 三行同刻写入，task_id=DM-SRC"
+  }
+ ],
+ "build": {
+  "state": "SUCCESS",
+  "sec": 264
+ },
+ "not_covered": [
+  "多字段映射行",
+  "跨实体映射（源/目标异构）",
+  "子表映射"
+ ],
+ "notes": [
+  "上游必须是列表（G29），输出 type 必须是 ARRAY",
+  "ARRAY 判定必须在 _entity_output 之后 —— 否则被覆盖回 OBJECT，下游引用被 G31 判死",
+  "FIRST_ONE 接手映射输出会丢 javaType（生成 `_LIST_OPERATION_xxx` 当类名 → 编译找不到符号），本轮改用 CREATE_BATCH_ENTITY 避开"
+ ]
+}

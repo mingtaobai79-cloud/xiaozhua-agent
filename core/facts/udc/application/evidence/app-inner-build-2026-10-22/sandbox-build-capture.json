@@ -1,0 +1,572 @@
+{
+ "appId": "8704025620829192834",
+ "capturedAt": "2026-10-22T23:11~23:16+08:00",
+ "trigger": "工具栏 测试 → 弹窗「立即构建」",
+ "http": [
+  {
+   "method": "POST",
+   "path": "/service/udc/graphql?udcRuntimeDeployNormalPost",
+   "postData": "{\"query\":\"query graphqlLoader ($params0: udcRuntimeDeployNormalPostInputBody) { \\n  data0: udcRuntimeDeployNormalPost(body: $params0) { code data { content{appId,deployId,deployType,projectType,terminalType} } message status } }\",\"variables\":{\"params0\":{\"deployDto\":{\"projectType\":\"ALL\",\"terminalType\":\"ALL\",\"deployType\":\"RELEASE\",\"appId\":\"8704025620829192834\",\"generateLog\":true}}}}"
+  },
+  {
+   "method": "POST",
+   "path": "/service/udc/graphql?udcDeploymentAppReadyStatePost",
+   "postData": "{\"query\":\"query graphqlLoader ($params0: udcDeploymentAppReadyStatePostInputBody) { \\n  data0: udcDeploymentAppReadyStatePost(body: $params0) { code data { content } message status } }\",\"variables\":{\"params0\":{\"appId\":\"8704025620829192834\"}}}"
+  },
+  {
+   "method": "POST",
+   "path": "/service/udc/graphql?udcSandboxBuildInfoAppGet",
+   "postData": "{\"query\":\"query graphqlLoader ($params0: udcSandboxBuildInfoAppGetInputPath) { \\n  data0: udcSandboxBuildInfoAppGet(path: $params0) { code data { content } message status } }\",\"variables\":{\"params0\":{\"appId\":\"8704025620829192834\"}}}"
+  },
+  {
+   "method": "POST",
+   "path": "/service/udc/graphql?udcApplicationSearchDetectionPost",
+   "postData": "{\"query\":\"\\nmutation udcApplicationSearchDetectionPost ($body: udcApplicationSearchDetectionPostInputBody) {\\n  udcApplicationSearchDetectionPost(body: $body) {\\n    code\\n    data{\\n      content{\\n        code\\n        detectionType\\n        domainEntityId\\n        interpolatedDocument\\n        interpolatedElement\\n        interpolatedMessage\\n        moduleType\\n        elementType\\n        moduleProperty\\n        elementProperty\\n        path\\n        interpolatedModuleType\\n        route\\n      }\\n    }\\n    message\\n    status\\n  }\\n}\\n\",\"variables\":{\"body\":{\"appId\":\"8704025620829192834\"}}}"
+  },
+  {
+   "method": "POST",
+   "path": "/service/udc/graphql?udcSandboxBuildInfoAppGet",
+   "postData": "{\"query\":\"query graphqlLoader ($params0: udcSandboxBuildInfoAppGetInputPath) { \\n  data0: udcSandboxBuildInfoAppGet(path: $params0) { code data { content } message status } }\",\"variables\":{\"params0\":{\"appId\":\"8704025620829192834\"}}}"
+  },
+  {
+   "method": "POST",
+   "path": "/service/udc/graphql?udcSandboxBuildInfoAppGet",
+   "postData": "{\"query\":\"query graphqlLoader ($params0: udcSandboxBuildInfoAppGetInputPath) { \\n  data0: udcSandboxBuildInfoAppGet(path: $params0) { code data { content } message status } }\",\"variables\":{\"params0\":{\"appId\":\"8704025620829192834\"}}}"
+  },
+  {
+   "method": "POST",
+   "path": "/service/udc/graphql?udcSandboxBuildInfoAppGet",
+   "postData": "{\"query\":\"query graphqlLoader ($params0: udcSandboxBuildInfoAppGetInputPath) { \\n  data0: udcSandboxBuildInfoAppGet(path: $params0) { code data { content } message status } }\",\"variables\":{\"params0\":{\"appId\":\"8704025620829192834\"}}}"
+  },
+  {
+   "method": "POST",
+   "path": "/service/udc/graphql?udcSandboxBuildInfoAppGet",
+   "postData": "{\"query\":\"query graphqlLoader ($params0: udcSandboxBuildInfoAppGetInputPath) { \\n  data0: udcSandboxBuildInfoAppGet(path: $params0) { code data { content } message status } }\",\"variables\":{\"params0\":{\"appId\":\"8704025620829192834\"}}}"
+  },
+  {
+   "method": "POST",
+   "path": "/service/udc/graphql?udcSandboxBuildInfoAppGet",
+   "postData": "{\"query\":\"query graphqlLoader ($params0: udcSandboxBuildInfoAppGetInputPath) { \\n  data0: udcSandboxBuildInfoAppGet(path: $params0) { code data { content } message status } }\",\"variables\":{\"params0\":{\"appId\":\"8704025620829192834\"}}}"
+  },
+  {
+   "method": "GET",
+   "path": "/service/app-common/expression/system/values/date",
+   "postData": ""
+  },
+  {
+   "method": "POST",
+   "path": "/service/udc/graphql?udcSandboxBuildInfoAppGet",
+   "postData": "{\"query\":\"query graphqlLoader ($params0: udcSandboxBuildInfoAppGetInputPath) { \\n  data0: udcSandboxBuildInfoAppGet(path: $params0) { code data { content } message status } }\",\"variables\":{\"params0\":{\"appId\":\"8704025620829192834\"}}}"
+  },
+  {
+   "method": "POST",
+   "path": "/service/udc/graphql?udcSandboxBuildInfoAppGet",
+   "postData": "{\"query\":\"query graphqlLoader ($params0: udcSandboxBuildInfoAppGetInputPath) { \\n  data0: udcSandboxBuildInfoAppGet(path: $params0) { code data { content } message status } }\",\"variables\":{\"params0\":{\"appId\":\"8704025620829192834\"}}}"
+  },
+  {
+   "method": "POST",
+   "path": "/service/udc/graphql?udcSandboxBuildInfoAppGet",
+   "postData": "{\"query\":\"query graphqlLoader ($params0: udcSandboxBuildInfoAppGetInputPath) { \\n  data0: udcSandboxBuildInfoAppGet(path: $params0) { code data { content } message status } }\",\"variables\":{\"params0\":{\"appId\":\"8704025620829192834\"}}}"
+  },
+  {
+   "method": "POST",
+   "path": "/service/udc/graphql?udcSandboxBuildInfoAppGet",
+   "postData": "{\"query\":\"query graphqlLoader ($params0: udcSandboxBuildInfoAppGetInputPath) { \\n  data0: udcSandboxBuildInfoAppGet(path: $params0) { code data { content } message status } }\",\"variables\":{\"params0\":{\"appId\":\"8704025620829192834\"}}}"
+  },
+  {
+   "method": "POST",
+   "path": "/service/udc/graphql?udcSandboxBuildInfoAppGet",
+   "postData": "{\"query\":\"query graphqlLoader ($params0: udcSandboxBuildInfoAppGetInputPath) { \\n  data0: udcSandboxBuildInfoAppGet(path: $params0) { code data { content } message status } }\",\"variables\":{\"params0\":{\"appId\":\"8704025620829192834\"}}}"
+  },
+  {
+   "method": "POST",
+   "path": "/service/udc/graphql?udcSandboxBuildInfoAppGet",
+   "postData": "{\"query\":\"query graphqlLoader ($params0: udcSandboxBuildInfoAppGetInputPath) { \\n  data0: udcSandboxBuildInfoAppGet(path: $params0) { code data { content } message status } }\",\"variables\":{\"params0\":{\"appId\":\"8704025620829192834\"}}}"
+  },
+  {
+   "method": "POST",
+   "path": "/service/udc/graphql?udcSandboxBuildInfoAppGet",
+   "postData": "{\"query\":\"query graphqlLoader ($params0: udcSandboxBuildInfoAppGetInputPath) { \\n  data0: udcSandboxBuildInfoAppGet(path: $params0) { code data { content } message status } }\",\"variables\":{\"params0\":{\"appId\":\"8704025620829192834\"}}}"
+  },
+  {
+   "method": "POST",
+   "path": "/service/udc/graphql?udcSandboxBuildInfoAppGet",
+   "postData": "{\"query\":\"query graphqlLoader ($params0: udcSandboxBuildInfoAppGetInputPath) { \\n  data0: udcSandboxBuildInfoAppGet(path: $params0) { code data { content } message status } }\",\"variables\":{\"params0\":{\"appId\":\"8704025620829192834\"}}}"
+  },
+  {
+   "method": "POST",
+   "path": "/service/udc/graphql?udcSandboxBuildInfoAppGet",
+   "postData": "{\"query\":\"query graphqlLoader ($params0: udcSandboxBuildInfoAppGetInputPath) { \\n  data0: udcSandboxBuildInfoAppGet(path: $params0) { code data { content } message status } }\",\"variables\":{\"params0\":{\"appId\":\"8704025620829192834\"}}}"
+  },
+  {
+   "method": "POST",
+   "path": "/service/udc/graphql?udcSandboxBuildInfoAppGet",
+   "postData": "{\"query\":\"query graphqlLoader ($params0: udcSandboxBuildInfoAppGetInputPath) { \\n  data0: udcSandboxBuildInfoAppGet(path: $params0) { code data { content } message status } }\",\"variables\":{\"params0\":{\"appId\":\"8704025620829192834\"}}}"
+  },
+  {
+   "method": "POST",
+   "path": "/service/udc/graphql?udcSandboxBuildInfoAppGet",
+   "postData": "{\"query\":\"query graphqlLoader ($params0: udcSandboxBuildInfoAppGetInputPath) { \\n  data0: udcSandboxBuildInfoAppGet(path: $params0) { code data { content } message status } }\",\"variables\":{\"params0\":{\"appId\":\"8704025620829192834\"}}}"
+  },
+  {
+   "method": "POST",
+   "path": "/service/udc/graphql?udcSandboxBuildInfoAppGet",
+   "postData": "{\"query\":\"query graphqlLoader ($params0: udcSandboxBuildInfoAppGetInputPath) { \\n  data0: udcSandboxBuildInfoAppGet(path: $params0) { code data { content } message status } }\",\"variables\":{\"params0\":{\"appId\":\"8704025620829192834\"}}}"
+  },
+  {
+   "method": "POST",
+   "path": "/service/udc/graphql?udcSandboxBuildInfoAppGet",
+   "postData": "{\"query\":\"query graphqlLoader ($params0: udcSandboxBuildInfoAppGetInputPath) { \\n  data0: udcSandboxBuildInfoAppGet(path: $params0) { code data { content } message status } }\",\"variables\":{\"params0\":{\"appId\":\"8704025620829192834\"}}}"
+  },
+  {
+   "method": "POST",
+   "path": "/service/udc/graphql?udcSandboxBuildInfoAppGet",
+   "postData": "{\"query\":\"query graphqlLoader ($params0: udcSandboxBuildInfoAppGetInputPath) { \\n  data0: udcSandboxBuildInfoAppGet(path: $params0) { code data { content } message status } }\",\"variables\":{\"params0\":{\"appId\":\"8704025620829192834\"}}}"
+  },
+  {
+   "method": "POST",
+   "path": "/service/udc/graphql?udcSandboxBuildInfoAppGet",
+   "postData": "{\"query\":\"query graphqlLoader ($params0: udcSandboxBuildInfoAppGetInputPath) { \\n  data0: udcSandboxBuildInfoAppGet(path: $params0) { code data { content } message status } }\",\"variables\":{\"params0\":{\"appId\":\"8704025620829192834\"}}}"
+  },
+  {
+   "method": "POST",
+   "path": "/service/udc/graphql?udcSandboxBuildInfoAppGet",
+   "postData": "{\"query\":\"query graphqlLoader ($params0: udcSandboxBuildInfoAppGetInputPath) { \\n  data0: udcSandboxBuildInfoAppGet(path: $params0) { code data { content } message status } }\",\"variables\":{\"params0\":{\"appId\":\"8704025620829192834\"}}}"
+  },
+  {
+   "method": "POST",
+   "path": "/service/udc/graphql?udcSandboxBuildInfoAppGet",
+   "postData": "{\"query\":\"query graphqlLoader ($params0: udcSandboxBuildInfoAppGetInputPath) { \\n  data0: udcSandboxBuildInfoAppGet(path: $params0) { code data { content } message status } }\",\"variables\":{\"params0\":{\"appId\":\"8704025620829192834\"}}}"
+  },
+  {
+   "method": "POST",
+   "path": "/service/udc/graphql?udcSandboxBuildInfoAppGet",
+   "postData": "{\"query\":\"query graphqlLoader ($params0: udcSandboxBuildInfoAppGetInputPath) { \\n  data0: udcSandboxBuildInfoAppGet(path: $params0) { code data { content } message status } }\",\"variables\":{\"params0\":{\"appId\":\"8704025620829192834\"}}}"
+  },
+  {
+   "method": "POST",
+   "path": "/service/udc/graphql?udcSandboxBuildInfoAppGet",
+   "postData": "{\"query\":\"query graphqlLoader ($params0: udcSandboxBuildInfoAppGetInputPath) { \\n  data0: udcSandboxBuildInfoAppGet(path: $params0) { code data { content } message status } }\",\"variables\":{\"params0\":{\"appId\":\"8704025620829192834\"}}}"
+  },
+  {
+   "method": "POST",
+   "path": "/service/udc/graphql?udcSandboxBuildInfoAppGet",
+   "postData": "{\"query\":\"query graphqlLoader ($params0: udcSandboxBuildInfoAppGetInputPath) { \\n  data0: udcSandboxBuildInfoAppGet(path: $params0) { code data { content } message status } }\",\"variables\":{\"params0\":{\"appId\":\"8704025620829192834\"}}}"
+  },
+  {
+   "method": "POST",
+   "path": "/service/udc/graphql?udcSandboxBuildInfoAppGet",
+   "postData": "{\"query\":\"query graphqlLoader ($params0: udcSandboxBuildInfoAppGetInputPath) { \\n  data0: udcSandboxBuildInfoAppGet(path: $params0) { code data { content } message status } }\",\"variables\":{\"params0\":{\"appId\":\"8704025620829192834\"}}}"
+  },
+  {
+   "method": "POST",
+   "path": "/service/udc/graphql?udcSandboxBuildInfoAppGet",
+   "postData": "{\"query\":\"query graphqlLoader ($params0: udcSandboxBuildInfoAppGetInputPath) { \\n  data0: udcSandboxBuildInfoAppGet(path: $params0) { code data { content } message status } }\",\"variables\":{\"params0\":{\"appId\":\"8704025620829192834\"}}}"
+  },
+  {
+   "method": "POST",
+   "path": "/service/udc/graphql?udcSandboxBuildInfoAppGet",
+   "postData": "{\"query\":\"query graphqlLoader ($params0: udcSandboxBuildInfoAppGetInputPath) { \\n  data0: udcSandboxBuildInfoAppGet(path: $params0) { code data { content } message status } }\",\"variables\":{\"params0\":{\"appId\":\"8704025620829192834\"}}}"
+  },
+  {
+   "method": "POST",
+   "path": "/service/udc/graphql?udcSandboxBuildInfoAppGet",
+   "postData": "{\"query\":\"query graphqlLoader ($params0: udcSandboxBuildInfoAppGetInputPath) { \\n  data0: udcSandboxBuildInfoAppGet(path: $params0) { code data { content } message status } }\",\"variables\":{\"params0\":{\"appId\":\"8704025620829192834\"}}}"
+  },
+  {
+   "method": "POST",
+   "path": "/service/udc/graphql?udcSandboxBuildInfoAppGet",
+   "postData": "{\"query\":\"query graphqlLoader ($params0: udcSandboxBuildInfoAppGetInputPath) { \\n  data0: udcSandboxBuildInfoAppGet(path: $params0) { code data { content } message status } }\",\"variables\":{\"params0\":{\"appId\":\"8704025620829192834\"}}}"
+  },
+  {
+   "method": "POST",
+   "path": "/service/udc/graphql?udcSandboxBuildInfoAppGet",
+   "postData": "{\"query\":\"query graphqlLoader ($params0: udcSandboxBuildInfoAppGetInputPath) { \\n  data0: udcSandboxBuildInfoAppGet(path: $params0) { code data { content } message status } }\",\"variables\":{\"params0\":{\"appId\":\"8704025620829192834\"}}}"
+  },
+  {
+   "method": "POST",
+   "path": "/service/udc/graphql?udcSandboxBuildInfoAppGet",
+   "postData": "{\"query\":\"query graphqlLoader ($params0: udcSandboxBuildInfoAppGetInputPath) { \\n  data0: udcSandboxBuildInfoAppGet(path: $params0) { code data { content } message status } }\",\"variables\":{\"params0\":{\"appId\":\"8704025620829192834\"}}}"
+  },
+  {
+   "method": "POST",
+   "path": "/service/udc/graphql?udcSandboxBuildInfoAppGet",
+   "postData": "{\"query\":\"query graphqlLoader ($params0: udcSandboxBuildInfoAppGetInputPath) { \\n  data0: udcSandboxBuildInfoAppGet(path: $params0) { code data { content } message status } }\",\"variables\":{\"params0\":{\"appId\":\"8704025620829192834\"}}}"
+  },
+  {
+   "method": "POST",
+   "path": "/service/udc/graphql?udcSandboxBuildInfoAppGet",
+   "postData": "{\"query\":\"query graphqlLoader ($params0: udcSandboxBuildInfoAppGetInputPath) { \\n  data0: udcSandboxBuildInfoAppGet(path: $params0) { code data { content } message status } }\",\"variables\":{\"params0\":{\"appId\":\"8704025620829192834\"}}}"
+  },
+  {
+   "method": "POST",
+   "path": "/service/udc/graphql?udcSandboxBuildInfoAppGet",
+   "postData": "{\"query\":\"query graphqlLoader ($params0: udcSandboxBuildInfoAppGetInputPath) { \\n  data0: udcSandboxBuildInfoAppGet(path: $params0) { code data { content } message status } }\",\"variables\":{\"params0\":{\"appId\":\"8704025620829192834\"}}}"
+  },
+  {
+   "method": "POST",
+   "path": "/service/udc/graphql?udcSandboxBuildInfoAppGet",
+   "postData": "{\"query\":\"query graphqlLoader ($params0: udcSandboxBuildInfoAppGetInputPath) { \\n  data0: udcSandboxBuildInfoAppGet(path: $params0) { code data { content } message status } }\",\"variables\":{\"params0\":{\"appId\":\"8704025620829192834\"}}}"
+  },
+  {
+   "method": "POST",
+   "path": "/service/udc/graphql?udcSandboxBuildInfoAppGet",
+   "postData": "{\"query\":\"query graphqlLoader ($params0: udcSandboxBuildInfoAppGetInputPath) { \\n  data0: udcSandboxBuildInfoAppGet(path: $params0) { code data { content } message status } }\",\"variables\":{\"params0\":{\"appId\":\"8704025620829192834\"}}}"
+  },
+  {
+   "method": "POST",
+   "path": "/service/udc/graphql?udcSandboxBuildInfoAppGet",
+   "postData": "{\"query\":\"query graphqlLoader ($params0: udcSandboxBuildInfoAppGetInputPath) { \\n  data0: udcSandboxBuildInfoAppGet(path: $params0) { code data { content } message status } }\",\"variables\":{\"params0\":{\"appId\":\"8704025620829192834\"}}}"
+  },
+  {
+   "method": "POST",
+   "path": "/service/ctp-application/appcenter/search-app-edition",
+   "postData": "{\"pageInfo\":{\"needTotal\":false,\"pageNumber\":1,\"pageSize\":20},\"params\":{\"IN_appId\":[\"datamigration8704025620829192834\"],\"clientType\":\"PC\"}}"
+  },
+  {
+   "method": "POST",
+   "path": "/service/udc/graphql?udcSandboxBuildInfoAppGet",
+   "postData": "{\"query\":\"query graphqlLoader ($params0: udcSandboxBuildInfoAppGetInputPath) { \\n  data0: udcSandboxBuildInfoAppGet(path: $params0) { code data { content } message status } }\",\"variables\":{\"params0\":{\"appId\":\"8704025620829192834\"}}}"
+  },
+  {
+   "method": "POST",
+   "path": "/service/udc/graphql?udcSandboxBuildInfoAppGet",
+   "postData": "{\"query\":\"query graphqlLoader ($params0: udcSandboxBuildInfoAppGetInputPath) { \\n  data0: udcSandboxBuildInfoAppGet(path: $params0) { code data { content } message status } }\",\"variables\":{\"params0\":{\"appId\":\"8704025620829192834\"}}}"
+  },
+  {
+   "method": "POST",
+   "path": "/service/udc/graphql?udcSandboxBuildInfoAppGet",
+   "postData": "{\"query\":\"query graphqlLoader ($params0: udcSandboxBuildInfoAppGetInputPath) { \\n  data0: udcSandboxBuildInfoAppGet(path: $params0) { code data { content } message status } }\",\"variables\":{\"params0\":{\"appId\":\"8704025620829192834\"}}}"
+  },
+  {
+   "method": "POST",
+   "path": "/service/udc/graphql?udcSandboxBuildInfoAppGet",
+   "postData": "{\"query\":\"query graphqlLoader ($params0: udcSandboxBuildInfoAppGetInputPath) { \\n  data0: udcSandboxBuildInfoAppGet(path: $params0) { code data { content } message status } }\",\"variables\":{\"params0\":{\"appId\":\"8704025620829192834\"}}}"
+  },
+  {
+   "method": "POST",
+   "path": "/service/udc/graphql?udcDeploymentAppReadyStatePost",
+   "postData": "{\"query\":\"query graphqlLoader ($params0: udcDeploymentAppReadyStatePostInputBody) { \\n  data0: udcDeploymentAppReadyStatePost(body: $params0) { code data { content } message status } }\",\"variables\":{\"params0\":{\"appId\":\"8704025620829192834\"}}}"
+  },
+  {
+   "method": "POST",
+   "path": "/service/udc/graphql?udcSandboxBuildInfoAppGet",
+   "postData": "{\"query\":\"query q($p0: udcSandboxBuildInfoAppGetInputPath){ data0: udcSandboxBuildInfoAppGet(path:$p0){ code data { content } message status } }\",\"variables\":{\"p0\":{\"appId\":\"8704025620829192834\"}}}"
+  },
+  {
+   "method": "POST",
+   "path": "/service/udc/graphql?udcDeploymentAppReadyStatePost",
+   "postData": "{\"query\":\"query q($p0: udcDeploymentAppReadyStatePostInputBody){ data0: udcDeploymentAppReadyStatePost(body:$p0){ code data { content } message status } }\",\"variables\":{\"p0\":{\"appId\":\"8704025620829192834\"}}}"
+  }
+ ],
+ "ws": [
+  {
+   "event": "webSocketFrameReceived",
+   "dir": "in",
+   "len": 1,
+   "data": "1"
+  },
+  {
+   "event": "webSocketFrameSent",
+   "dir": "out",
+   "len": 38,
+   "data": "{\"businessKey\":\"ack-business-service\"}"
+  },
+  {
+   "event": "webSocketFrameReceived",
+   "dir": "in",
+   "len": 1,
+   "data": "1"
+  },
+  {
+   "event": "webSocketFrameReceived",
+   "dir": "in",
+   "len": 219,
+   "data": "{\"operate\":\"udc_detection_channel\",\"data\":\"{\\\"validate\\\":true,\\\"appId\\\":\\\"8704025620829192834\\\",\\\"status\\\":\\\"EXECUTING\\\",\\\"message\\\":null,\\\"count\\\":\\\"0\\\",\\\"errorCount\\\":\\\"0\\\",\\\"seriouCount\\\":\\\"0\\\",\\\"warnCount\\\":\\\"0\\\"}\"}"
+  },
+  {
+   "event": "webSocketFrameReceived",
+   "dir": "in",
+   "len": 219,
+   "data": "{\"operate\":\"udc_detection_channel\",\"data\":\"{\\\"validate\\\":true,\\\"appId\\\":\\\"8704025620829192834\\\",\\\"status\\\":\\\"EXECUTING\\\",\\\"message\\\":null,\\\"count\\\":\\\"0\\\",\\\"errorCount\\\":\\\"0\\\",\\\"seriouCount\\\":\\\"0\\\",\\\"warnCount\\\":\\\"0\\\"}\"}"
+  },
+  {
+   "event": "webSocketFrameReceived",
+   "dir": "in",
+   "len": 217,
+   "data": "{\"operate\":\"udc_detection_channel\",\"data\":\"{\\\"validate\\\":true,\\\"appId\\\":\\\"8704025620829192834\\\",\\\"status\\\":\\\"SUCCESS\\\",\\\"message\\\":null,\\\"count\\\":\\\"0\\\",\\\"errorCount\\\":\\\"0\\\",\\\"seriouCount\\\":\\\"0\\\",\\\"warnCount\\\":\\\"0\\\"}\"}"
+  },
+  {
+   "event": "webSocketFrameReceived",
+   "dir": "in",
+   "len": 217,
+   "data": "{\"operate\":\"udc_detection_channel\",\"data\":\"{\\\"validate\\\":true,\\\"appId\\\":\\\"8704025620829192834\\\",\\\"status\\\":\\\"SUCCESS\\\",\\\"message\\\":null,\\\"count\\\":\\\"0\\\",\\\"errorCount\\\":\\\"0\\\",\\\"seriouCount\\\":\\\"0\\\",\\\"warnCount\\\":\\\"0\\\"}\"}"
+  },
+  {
+   "event": "webSocketFrameSent",
+   "dir": "out",
+   "len": 72,
+   "data": "{\"businessKey\":\"ack-business-service\", \"message\": {\"t_e\": \"1792747377\"}}"
+  },
+  {
+   "event": "webSocketFrameReceived",
+   "dir": "in",
+   "len": 1,
+   "data": "1"
+  },
+  {
+   "event": "webSocketFrameSent",
+   "dir": "out",
+   "len": 38,
+   "data": "{\"businessKey\":\"ack-business-service\"}"
+  },
+  {
+   "event": "webSocketFrameReceived",
+   "dir": "in",
+   "len": 1,
+   "data": "1"
+  },
+  {
+   "event": "webSocketFrameSent",
+   "dir": "out",
+   "len": 72,
+   "data": "{\"businessKey\":\"ack-business-service\", \"message\": {\"t_e\": \"1792747377\"}}"
+  },
+  {
+   "event": "webSocketFrameReceived",
+   "dir": "in",
+   "len": 1,
+   "data": "1"
+  },
+  {
+   "event": "webSocketFrameSent",
+   "dir": "out",
+   "len": 38,
+   "data": "{\"businessKey\":\"ack-business-service\"}"
+  },
+  {
+   "event": "webSocketFrameReceived",
+   "dir": "in",
+   "len": 1,
+   "data": "1"
+  },
+  {
+   "event": "webSocketFrameReceived",
+   "dir": "in",
+   "len": 122,
+   "data": "{\"operate\":\"other-online-message\",\"data\":{\"tenantId\":-8112660841495312922,\"terminal\":\"WEB\",\"userId\":-2638952494757493308}}"
+  },
+  {
+   "event": "webSocketFrameSent",
+   "dir": "out",
+   "len": 72,
+   "data": "{\"businessKey\":\"ack-business-service\", \"message\": {\"t_e\": \"1792747377\"}}"
+  },
+  {
+   "event": "webSocketFrameReceived",
+   "dir": "in",
+   "len": 1,
+   "data": "1"
+  },
+  {
+   "event": "webSocketFrameSent",
+   "dir": "out",
+   "len": 38,
+   "data": "{\"businessKey\":\"ack-business-service\"}"
+  },
+  {
+   "event": "webSocketFrameReceived",
+   "dir": "in",
+   "len": 1,
+   "data": "1"
+  },
+  {
+   "event": "webSocketFrameSent",
+   "dir": "out",
+   "len": 72,
+   "data": "{\"businessKey\":\"ack-business-service\", \"message\": {\"t_e\": \"1792747377\"}}"
+  },
+  {
+   "event": "webSocketFrameReceived",
+   "dir": "in",
+   "len": 1,
+   "data": "1"
+  },
+  {
+   "event": "webSocketFrameSent",
+   "dir": "out",
+   "len": 38,
+   "data": "{\"businessKey\":\"ack-business-service\"}"
+  },
+  {
+   "event": "webSocketFrameReceived",
+   "dir": "in",
+   "len": 1,
+   "data": "1"
+  },
+  {
+   "event": "webSocketFrameReceived",
+   "dir": "in",
+   "len": 122,
+   "data": "{\"operate\":\"other-online-message\",\"data\":{\"tenantId\":-8112660841495312922,\"terminal\":\"WEB\",\"userId\":-2638952494757493308}}"
+  },
+  {
+   "event": "webSocketFrameSent",
+   "dir": "out",
+   "len": 72,
+   "data": "{\"businessKey\":\"ack-business-service\", \"message\": {\"t_e\": \"1792747377\"}}"
+  },
+  {
+   "event": "webSocketFrameReceived",
+   "dir": "in",
+   "len": 1,
+   "data": "1"
+  },
+  {
+   "event": "webSocketFrameSent",
+   "dir": "out",
+   "len": 38,
+   "data": "{\"businessKey\":\"ack-business-service\"}"
+  },
+  {
+   "event": "webSocketFrameReceived",
+   "dir": "in",
+   "len": 1,
+   "data": "1"
+  },
+  {
+   "event": "webSocketFrameReceived",
+   "dir": "in",
+   "len": 122,
+   "data": "{\"operate\":\"other-online-message\",\"data\":{\"tenantId\":-8112660841495312922,\"terminal\":\"WEB\",\"userId\":-2638952494757493308}}"
+  },
+  {
+   "event": "webSocketFrameSent",
+   "dir": "out",
+   "len": 72,
+   "data": "{\"businessKey\":\"ack-business-service\", \"message\": {\"t_e\": \"1792747377\"}}"
+  },
+  {
+   "event": "webSocketFrameReceived",
+   "dir": "in",
+   "len": 1,
+   "data": "1"
+  },
+  {
+   "event": "webSocketFrameSent",
+   "dir": "out",
+   "len": 38,
+   "data": "{\"businessKey\":\"ack-business-service\"}"
+  },
+  {
+   "event": "webSocketFrameReceived",
+   "dir": "in",
+   "len": 1,
+   "data": "1"
+  },
+  {
+   "event": "webSocketFrameReceived",
+   "dir": "in",
+   "len": 111,
+   "data": "{\"operate\":\"common-message\",\"data\":\"{\\\"appName\\\":\\\"datamigration8704025620829192834\\\",\\\"status\\\":\\\"SUCCESS\\\"}\"}"
+  },
+  {
+   "event": "webSocketFrameSent",
+   "dir": "out",
+   "len": 72,
+   "data": "{\"businessKey\":\"ack-business-service\", \"message\": {\"t_e\": \"1792747377\"}}"
+  },
+  {
+   "event": "webSocketFrameReceived",
+   "dir": "in",
+   "len": 1,
+   "data": "1"
+  },
+  {
+   "event": "webSocketFrameSent",
+   "dir": "out",
+   "len": 38,
+   "data": "{\"businessKey\":\"ack-business-service\"}"
+  },
+  {
+   "event": "webSocketFrameReceived",
+   "dir": "in",
+   "len": 1,
+   "data": "1"
+  },
+  {
+   "event": "webSocketFrameReceived",
+   "dir": "in",
+   "len": 326,
+   "data": "{\"operate\":\"udc_deploy_channel\",\"data\":\"{\\\"validate\\\":true,\\\"deployId\\\":\\\"-3639638124447017898\\\",\\\"appId\\\":\\\"8704025620829192834\\\",\\\"appName\\\":\\\"datamigration8704025620829192834\\\",\\\"deployType\\\":\\\"RELEASE\\\",\\\"status\\\":\\\"SUCCESS\\\",\\\"errorMsg\\\":[\\\"udc发布成功\\\"],\\\"stepType\\\":\\\"END\\\",\\\"stepItem\\\":null,\\\"startTime\\\":1792682095506}\"}"
+  },
+  {
+   "event": "webSocketFrameReceived",
+   "dir": "in",
+   "len": 326,
+   "data": "{\"operate\":\"udc_deploy_channel\",\"data\":\"{\\\"validate\\\":true,\\\"deployId\\\":\\\"-3639638124447017898\\\",\\\"appId\\\":\\\"8704025620829192834\\\",\\\"appName\\\":\\\"datamigration8704025620829192834\\\",\\\"deployType\\\":\\\"RELEASE\\\",\\\"status\\\":\\\"SUCCESS\\\",\\\"errorMsg\\\":[\\\"udc发布成功\\\"],\\\"stepType\\\":\\\"END\\\",\\\"stepItem\\\":null,\\\"startTime\\\":1792682095506}\"}"
+  },
+  {
+   "event": "webSocketFrameSent",
+   "dir": "out",
+   "len": 72,
+   "data": "{\"businessKey\":\"ack-business-service\", \"message\": {\"t_e\": \"1792747377\"}}"
+  },
+  {
+   "event": "webSocketFrameReceived",
+   "dir": "in",
+   "len": 1,
+   "data": "1"
+  },
+  {
+   "event": "webSocketFrameSent",
+   "dir": "out",
+   "len": 38,
+   "data": "{\"businessKey\":\"ack-business-service\"}"
+  },
+  {
+   "event": "webSocketFrameReceived",
+   "dir": "in",
+   "len": 1,
+   "data": "1"
+  },
+  {
+   "event": "webSocketFrameSent",
+   "dir": "out",
+   "len": 72,
+   "data": "{\"businessKey\":\"ack-business-service\", \"message\": {\"t_e\": \"1792747377\"}}"
+  },
+  {
+   "event": "webSocketFrameReceived",
+   "dir": "in",
+   "len": 1,
+   "data": "1"
+  },
+  {
+   "event": "webSocketFrameSent",
+   "dir": "out",
+   "len": 38,
+   "data": "{\"businessKey\":\"ack-business-service\"}"
+  },
+  {
+   "event": "webSocketFrameReceived",
+   "dir": "in",
+   "len": 1,
+   "data": "1"
+  },
+  {
+   "event": "webSocketFrameSent",
+   "dir": "out",
+   "len": 72,
+   "data": "{\"businessKey\":\"ack-business-service\", \"message\": {\"t_e\": \"1792747377\"}}"
+  },
+  {
+   "event": "webSocketFrameReceived",
+   "dir": "in",
+   "len": 1,
+   "data": "1"
+  }
+ ],
+ "httpCount": 51,
+ "wsCount": 51
+}

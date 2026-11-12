@@ -1,0 +1,82 @@
+{
+  "phase": "按钮行为绑定 — buildin 内置动作",
+  "ts": "2026-10-01 04:45 +08",
+  "protocol": {
+    "location": "控件 settings.events[] 数组 (page_schema.childById.<ctrl>.events)",
+    "structure": {
+      "id": "nanoId",
+      "eventType": "<按钮的 addOperates[].id> (把事件挂到按钮)",
+      "condition": false,
+      "actionCaption": "显示名",
+      "actionType": "buildin | microflow | page",
+      "actionName": "内置动作枚举(如 ENTITY_NEW)",
+      "microFlow": "(microflow 时)微流程id",
+      "condEvents": [],
+      "enableValidate": false
+    }
+  },
+  "action_enum": [
+    "ENTITY_NEW",
+    "ENTITY_SAVE",
+    "ENTITY_EDIT",
+    "ENTITY_DELETE",
+    "ENTITY_EXPORT",
+    "ENTITY_IMPORT",
+    "ENTITY_REFRESH",
+    "ENTITY_SUBMIT",
+    "ENTITY_VIEW",
+    "ENTITY_COPY",
+    "ENTITY_PRINT",
+    "RELOAD_PAGE",
+    "OPEN_PAGE",
+    "OPEN_REPORT",
+    "OPEN_LINK",
+    "MODAL",
+    "SHOW_MESSAGE",
+    "SET_VALUE",
+    "SET_DATASOURCE",
+    "SET_REQUIRED",
+    "VISIBLE",
+    "RETRIEVE",
+    "WEBHOOK",
+    "SEND_MQ_MESSAGE",
+    "SCAN_CODE",
+    "SCHEDULE",
+    "PUBLISH_BUSINESS_EVENT",
+    "FLOW_ACTION",
+    "LABEL_PRINT",
+    "FOR_EACH",
+    "EXECUTE",
+    "MANUAL",
+    "EVENT 等60+"
+  ],
+  "applied": [
+    {
+      "button": "新增",
+      "action": "ENTITY_NEW"
+    },
+    {
+      "button": "导出",
+      "action": "ENTITY_EXPORT"
+    },
+    {
+      "button": "刷新",
+      "action": "ENTITY_REFRESH"
+    },
+    {
+      "button": "行-编辑",
+      "action": "ENTITY_EDIT"
+    },
+    {
+      "button": "行-删除",
+      "action": "ENTITY_DELETE"
+    }
+  ],
+  "deploy": {
+    "deployId": "-1882938880628010199",
+    "state": 0,
+    "build": "20261001044422",
+    "jar": "1.0.5"
+  },
+  "note": "microflow 类行为需先建微流程拿 id; buildin 类零依赖直接绑。保存/部署协议与列表页构造相同(submitPage + deploy-normal)"
+}

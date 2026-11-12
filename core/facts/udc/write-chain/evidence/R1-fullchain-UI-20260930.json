@@ -1,0 +1,20 @@
+{
+  "phase": "R1 建应用+建实体+字段 全链 UI 闭环",
+  "ts": "2026-09-30 21:20 +08",
+  "final_state": {
+    "app": "zzprobe测试应用 / appName=zzprobenew26419954374508955097 / appId=6419954374508955097",
+    "entity": "zzprobe测试实体(zzprobeEnt1, 标准类型) + 字段[标题(文本50)]",
+    "saved": "保存成功通知确认",
+    "urls": {
+      "app_list": "/main/backstageManage/udc/apps",
+      "designer": "/main/child-frame/udc/app-design/app-basic-info?appId=6419954374508955097"
+    }
+  },
+  "lessons": [
+    "API create(POST /service/udc/application) 持久化不完整——必须走 backstageManage UI 表单(含所属机构/所属人)",
+    "数字 appId 从'去设计'跳转 URL 获得，与 REST create 返回的雪花 id 不同",
+    "设计器建实体: 实体tab → 树顶部 lined-plus 按钮 → 表单(显示名称+编码自动生成拼音)",
+    "React 受控输入必须 CDP Input.insertText 或 execCommand，value setter 无效",
+    "字段默认添加为 ziduan1 文本(50)，点击名称单元格可改名"
+  ]
+}

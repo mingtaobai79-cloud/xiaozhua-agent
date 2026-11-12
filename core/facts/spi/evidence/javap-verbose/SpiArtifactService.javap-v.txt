@@ -1,0 +1,26 @@
+Classfile jar:file:///D:/repo/CHIT/com/seeyon/boot-starter-spi/5.3.358/boot-starter-spi-5.3.358.jar!/com/seeyon/boot/starter/spi/plugin/SpiArtifactService.class
+  Last modified 2026Äê5ÔÂ25ÈÕ; size 243 bytes
+  SHA-256 checksum 1c6b8ca4288a20d95964827745dab72e5cdd82b5d453aab436129b2d5d5837f8
+  Compiled from "SpiArtifactService.java"
+public interface com.seeyon.boot.starter.spi.plugin.SpiArtifactService
+  minor version: 0
+  major version: 52
+  flags: (0x0601) ACC_PUBLIC, ACC_INTERFACE, ACC_ABSTRACT
+  this_class: #1                          // com/seeyon/boot/starter/spi/plugin/SpiArtifactService
+  super_class: #2                         // java/lang/Object
+  interfaces: 0, fields: 0, methods: 1, attributes: 1
+Constant pool:
+  #1 = Class              #7              // com/seeyon/boot/starter/spi/plugin/SpiArtifactService
+  #2 = Class              #8              // java/lang/Object
+  #3 = Utf8               download
+  #4 = Utf8               (Lcom/seeyon/boot/starter/spi/plugin/ArtifactInfo;)Ljava/lang/String;
+  #5 = Utf8               SourceFile
+  #6 = Utf8               SpiArtifactService.java
+  #7 = Utf8               com/seeyon/boot/starter/spi/plugin/SpiArtifactService
+  #8 = Utf8               java/lang/Object
+{
+  public abstract java.lang.String download(com.seeyon.boot.starter.spi.plugin.ArtifactInfo);
+    descriptor: (Lcom/seeyon/boot/starter/spi/plugin/ArtifactInfo;)Ljava/lang/String;
+    flags: (0x0401) ACC_PUBLIC, ACC_ABSTRACT
+}
+SourceFile: "SpiArtifactService.java"

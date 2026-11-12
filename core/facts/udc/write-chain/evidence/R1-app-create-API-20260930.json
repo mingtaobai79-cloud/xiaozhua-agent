@@ -1,0 +1,46 @@
+{
+  "phase": "R1-new-app-create API 闭环",
+  "ts": "2026-09-30 20:15 +08",
+  "channel": "CDP 浏览器态 (Edge 9223 独立实例, test2 账号登录)",
+  "breakthrough": "纯 API 建应用打通",
+  "verified_chain": [
+    {
+      "step": "登录",
+      "verdict": "LIVE PASS",
+      "detail": "CDP 填表登录 test2, cookie 会话建立"
+    },
+    {
+      "step": "application.create",
+      "verdict": "LIVE PASS",
+      "request": "POST /service/udc/application body={caption, name, code, featureType, terminalType}",
+      "response": "BOOT_0000, content=2707349923416592296 (新应用 id)",
+      "traceId": "3254012604250589372",
+      "param_dict": {
+        "caption": "应用名(任意)",
+        "name_code": "小写字母开头, 只含小写字母数字(UDC_APP_0023)",
+        "featureType": "BUSINESS",
+        "terminalType": "ALL (缺省报 BOOT_1001 终端类型不能为null)"
+      }
+    },
+    {
+      "step": "gateway 注册确认",
+      "verdict": "LIVE PASS",
+      "evidence": "GET /service/zzprobenew1/app-info/deploy-info -> 200 '服务不存在，请重启或重新发布' = 网关认识 appName, 应用已注册待发布"
+    },
+    {
+      "step": "deploy-normal",
+      "verdict": "BLOCKED-appId形态",
+      "evidence": "deployDto.appId=2707349923416592296 -> UDC_APP_0001 应用不存在; String形态 -> BOOT_3002 要 Long",
+      "note": "19位雪花id被当guid; deploy要13位appId(参照znxmglpt=9000000000000000001)。appId查询接口未定位"
+    }
+  ],
+  "mgmt_console": {
+    "application_detail": "/main/portal/portalManage/detail/{appId} (LIVE可用, znxmglptcopy=5791640252914287064)",
+    "udc_page": "/main/portal/{appName}/{pageName}",
+    "special_pages": "_dataflow(生单规则), _enum, _excelSetting, _labelPrintTemplateManage",
+    "menu_data_source": "sessionStorage.secondary_nav_data_runner"
+  },
+  "blockers": [
+    "deploy appId形态: 需管理端应用列表或DB查 appId与guid 映射"
+  ]
+}

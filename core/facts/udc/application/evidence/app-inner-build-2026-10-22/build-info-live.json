@@ -1,0 +1,62 @@
+{
+ "path": "/service/udc/graphql?udcSandboxBuildInfoAppGet",
+ "request": {
+  "query": "query graphqlLoader ($params0: udcSandboxBuildInfoAppGetInputPath) { \n  data0: udcSandboxBuildInfoAppGet(path: $params0) { code data { content } message status } }",
+  "variables": {
+   "params0": {
+    "appId": "8704025620829192834"
+   }
+  }
+ },
+ "http": 200,
+ "code": "BOOT_0000",
+ "content": {
+  "validate": true,
+  "appName": "datamigration8704025620829192834",
+  "state": "SUCCESS",
+  "progress": "100",
+  "buildVersion": "",
+  "buildTime": 1792682095490,
+  "startTime": 1792681870742,
+  "totalTime": "224",
+  "logs": [
+   "[INFO]【2026-10-22 23:11:10】[低代码平台] [任务开始] [完成] [耗时:9毫秒]",
+   "[INFO]【2026-10-22 23:11:10】[低代码平台] [应用元数据准备] 开始",
+   "[INFO]【2026-10-22 23:11:13】[低代码平台] [应用元数据准备] [完成] [耗时:2秒]",
+   "[INFO]【2026-10-22 23:11:23】[低代码平台] [应用元数据准备] [DependCodeContextAware] [完成] [耗时:10秒]",
+   "[INFO]【2026-10-22 23:11:13】[低代码平台] [一致性检测] 开始",
+   "[INFO]【2026-10-22 23:11:15】[低代码平台] [一致性检测] [完成] [耗时:2秒]",
+   "[INFO]【2026-10-22 23:11:13】[低代码平台] [生成后端代码] 开始",
+   "[INFO]【2026-10-22 23:11:27】[低代码平台] [生成后端代码] [完成] [耗时:14秒]",
+   "[INFO]【2026-10-22 23:11:27】[低代码平台] [生成后端代码] 当前版本:datamigration8704025620829192834:1.0.32",
+   "[INFO]【2026-10-22 23:11:28】[低代码平台] [生成元数据] 元数据地址:https://lowcode-test2.example.com/service//udc/file/download?storageKey=metadata/udc/8704025620829192834/20261022231110.zip",
+   "[INFO]【2026-10-22 23:11:28】[app-sandbox] [沙箱应用构建] 当前编译由沙箱[-5156856193794012477]完成",
+   "[INFO]【2026-10-22 23:11:29】[app-sandbox] [沙箱应用构建] 环境数据准备完成",
+   "[INFO]【2026-10-22 23:11:29】[app-sandbox] [前端生成依赖] 前端安装依赖详细日志:http://lowcode-test2.example.com/service//udc/file/download?storageKey=install-info/20261022005052/frontInstall.log",
+   "[INFO]【2026-10-22 23:11:29】[app-sandbox] [生成前端代码] 开始",
+   "[INFO]【2026-10-22 23:11:31】[app-sandbox] [生成前端代码] [完成] [耗时:2秒]",
+   "[INFO]【2026-10-22 23:11:29】[app-sandbox] [拉取代码] 开始",
+   "[INFO]【2026-10-22 23:11:29】[app-sandbox] [拉取代码] 开始拉取前端手写代码:datamigration8704025620829192834",
+   "[INFO]【2026-10-22 23:11:29】[app-sandbox] [拉取代码] 开始拉取后端手写代码:datamigration8704025620829192834",
+   "[INFO]【2026-10-22 23:11:31】[app-sandbox] [拉取代码] 拉取后端手写代码:datamigration8704025620829192834,耗时:1589毫秒",
+   "[INFO]【2026-10-22 23:11:31】[app-sandbox] [拉取代码] [完成] [耗时:1秒]",
+   "[INFO]【2026-10-22 23:11:31】[app-sandbox] [拉取代码] 拉取前端手写代码:datamigration8704025620829192834,耗时:1695毫秒",
+   "[INFO]【2026-10-22 23:11:35】[app-sandbox] [推送代码] 前端代码推送完成",
+   "[INFO]【2026-10-22 23:11:37】[app-sandbox] [推送代码] 后端代码推送完成",
+   "[INFO]【2026-10-22 23:11:31】[app-sandbox] [前端PC编译] 开始",
+   "[INFO]【2026-10-22 23:11:45】[app-sandbox] [前端PC编译] [完成] [耗时:13秒]",
+   "[INFO]【2026-10-22 23:11:31】[app-sandbox] [前端MOBILE编译] 开始",
+   "[INFO]【2026-10-22 23:11:40】[app-sandbox] [前端MOBILE编译] [完成] [耗时:9秒]",
+   "[INFO]【2026-10-22 23:11:45】[app-sandbox] [前端编译] 前端构建详细日志:http://lowcode-test2.example.com/service//udc/file/download?storageKey=compile-info/8704025620829192834/20261022231110/frontBuild.log",
+   "[INFO]【2026-10-22 23:11:31】[app-sandbox] [后端编译] 开始",
+   "[INFO]【2026-10-22 23:11:53】[app-sandbox] [后端编译] [完成] [耗时:21秒]",
+   "[INFO]【2026-10-22 23:11:53】[app-sandbox] [后端编译] 后端构建详细日志:http://lowcode-test2.example.com/service//udc/file/download?storageKey=compile-info/8704025620829192834/20261022231110/backBuild.log",
+   "[INFO]【2026-10-22 23:11:53】[app-sandbox] [生成镜像] 开始",
+   "[INFO]【2026-10-22 23:12:26】[app-sandbox] [生成镜像] [完成] [耗时:33秒]",
+   "[INFO]【2026-10-22 23:12:26】[app-sandbox] [生成镜像] 镜像地址:lowcode-test2.example.com/chjh-external/seeyonv8test/datamigration8704025620829192834:datamigration8704025620829192834-1.0.32",
+   "[INFO]【2026-10-22 23:12:27】[app-sandbox] [部署] [datamigration8704025620829192834:1.0.32] [开始]",
+   "[INFO]【2026-10-22 23:14:53】[app-sandbox] [部署] [datamigration8704025620829192834:1.0.32] [完成] [耗时:146秒]",
+   "[INFO]【2026-10-22 23:14:55】[低代码平台] [结束] "
+  ]
+ }
+}

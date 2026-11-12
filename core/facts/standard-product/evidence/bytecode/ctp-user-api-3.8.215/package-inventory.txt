@@ -1,0 +1,21 @@
+# package / class inventory measured from jar body (source sha256 5b1ec52a…0543)
+# cmd: unzip jar -> walk *.class -> struct.unpack('>H', bytes[6:8]) for major version; path segments for package
+classes_total=49  class_file_major_version=52 (all 49 => Java 8 bytecode)
+
+package  class_count  profile_contract_package?
+com.seeyon.ctp.user.annotation  3  no
+com.seeyon.ctp.user.api  1  no
+com.seeyon.ctp.user.api.avoidlogin  3  YES
+com.seeyon.ctp.user.api.menu  1  no
+com.seeyon.ctp.user.api.qrcode  1  no
+com.seeyon.ctp.user.api.sso  1  YES
+com.seeyon.ctp.user.constant  6  no
+com.seeyon.ctp.user.dto  18  YES
+com.seeyon.ctp.user.dto.menu  2  no
+com.seeyon.ctp.user.enums  5  no
+com.seeyon.ctp.user.exception  2  no
+com.seeyon.ctp.user.security.authentication  4  no
+com.seeyon.ctp.user.security.authentication.provider  1  no
+com.seeyon.ctp.user.util  1  no
+
+packages_total=14  profile_registered_packages_hit=3/3  profile_registered_classes=22/49

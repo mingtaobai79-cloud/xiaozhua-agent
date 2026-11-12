@@ -1,0 +1,67 @@
+{
+  "_meta": {
+    "purpose": "P5 写节点运行时验证证据（CHANGE_ENTITY / DELETE_ENTITY）",
+    "date": "2026-11-02",
+    "env": "lowcode-test2",
+    "appId": "8704025620829192834",
+    "entity": "迁移断点 (MigrationCheckpoint)",
+    "physical_table": "migration_1962926556161096741",
+    "note": "该表为实体真实物理表；migration_checkpoint 是另一个实体的表且全空，不能用它做判据"
+  },
+  "flow_full_chain": {
+    "name": "p5wrt607524",
+    "mid": "-2789882774368064327",
+    "deploy_id": "3791034822499556797",
+    "build": "SUCCESS 234s",
+    "run": {
+      "logTime": "2026-11-02 16:24:00",
+      "success": true,
+      "duration_ms": 774,
+      "traceId": "3301619208311278111"
+    },
+    "nodes": [
+      {"caption": "1-插入", "type": "CREATE_ENTITY", "success": true, "output": "插入成功返回ID：-3560250340828831341", "input_lastOffset": 123},
+      {"caption": "2-查初始值", "type": "RETRIEVE", "success": true, "note": "日志显示 999 —— 是对象快照陷阱，见 log_snapshot_trap"},
+      {"caption": "3-改成999", "type": "CHANGE_ENTITY", "success": true, "output": "更新成功"},
+      {"caption": "4-查改后值", "type": "RETRIEVE", "success": true, "version": 1, "updateTime": 1793607840740},
+      {"caption": "5-删除", "type": "DELETE_ENTITY", "success": true, "deleteType": "SELECT_PARAM", "output": "共删除:1条数据"}
+    ]
+  },
+  "change_entity_db_proof": {
+    "flow": "p5chg608177",
+    "mid": "5320699889716593731",
+    "deploy_id": null,
+    "build": "SUCCESS 244s",
+    "run_logTime": "2026-11-02 16:35:00",
+    "row": {
+      "id": -4358467840967823245,
+      "task_id": "P5CHG608177",
+      "last_offset": 999,
+      "processed_rows": 77,
+      "version": 1,
+      "create_time": "2026-11-02 16:35:00.467000",
+      "update_time": "2026-11-02 16:35:00.904000"
+    },
+    "assertion": "CREATE 写入 lastOffset=123/processedRows=7；库内为 999/77，version 0→1，update_time 晚于 create_time → 更新已持久化"
+  },
+  "delete_entity_db_proof": {
+    "deleted_record_id": "-3560250340828831341",
+    "after_delete_row_count": 0,
+    "control_record_id": "-8721202769169562145",
+    "control_row_count": 1,
+    "delete_semantics": "物理删除",
+    "semantics_evidence": "information_schema 查该表 column_name LIKE '%del%' 返回 0 行，表内无任何逻辑删除列"
+  },
+  "log_snapshot_trap": {
+    "finding": "运行日志里节点 output 是流程结束时的对象快照，不是该节点执行时刻的值",
+    "evidence": "「2-查初始值」在 CHANGE 之前执行，日志却显示 lastOffset=999；同一条记录 version=0 而后续 RETRIEVE version=1",
+    "cause": "CHANGE_ENTITY 就地修改 RETRIEVE 返回的同一个 DTO 对象，日志在流程末尾序列化",
+    "consequence": "不能用日志 output 断言任何中间状态；必须用数据库行或独立回读"
+  },
+  "safety": {
+    "created_records": ["P5WRT607524", "P5CHG608177"],
+    "deleted_by_flow": ["P5WRT607524"],
+    "cleaned_manually": ["P5CHG608177", "P5VFY592031"],
+    "touched_business_data": false
+  }
+}

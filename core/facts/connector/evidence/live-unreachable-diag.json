@@ -1,0 +1,13 @@
+{
+  "diag": "connector LIVE gateway TLS reachability",
+  "ts": "2026-09-29T14:02:21+0800",
+  "host": "lowcode-test2.example.com",
+  "dns_ip": "10.0.0.1",
+  "tcp443": "OPEN",
+  "control_http": null,
+  "control_bytes": 0,
+  "verdict": "GATEWAY_TLS_UNREACHABLE (UNEXPECTED_EOF) — 路由级 404/无路由 不可判定",
+  "err": " | control: URLError <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)>",
+  "note": "凭据值 0 入件; 仅 DNS/TCP/控制端点 HTTP 状态"
+}
+

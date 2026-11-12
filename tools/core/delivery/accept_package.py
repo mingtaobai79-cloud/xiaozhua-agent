@@ -8,7 +8,7 @@
 用法（在解压后的包根目录）：
     python tools/core/delivery/accept_package.py
 或指定包路径：
-    python tools/core/delivery/accept_package.py --zip D:/path/to/xiaozhua-agent-0.1.0.zip
+    python tools/core/delivery/accept_package.py --zip <PATH>
 """
 from __future__ import annotations
 
@@ -121,7 +121,7 @@ def main(argv: list[str]) -> int:
     #    由调用方用环境变量给出，或只查通用的 appId 形态。
     leaked = []
     extra = [s for s in os.environ.get("XIAOZHUA_LEAK_PATTERNS", "").split(",") if s.strip()]
-    patterns = extra + ["163126498398523384", "7988886308612688555"]
+    patterns = extra + ["app9000000000000000001", "appGuid0000000000000001"]
     for pat in patterns:
         for f in ("INSTALL.md", "README.md", "CHANGELOG.md"):
             fp = root / f

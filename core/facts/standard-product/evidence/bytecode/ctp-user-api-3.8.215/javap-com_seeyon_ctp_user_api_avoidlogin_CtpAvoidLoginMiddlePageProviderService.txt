@@ -1,0 +1,14 @@
+Compiled from "CtpAvoidLoginMiddlePageProviderService.java"
+public interface com.seeyon.ctp.user.api.avoidlogin.CtpAvoidLoginMiddlePageProviderService extends com.seeyon.ctp.user.api.CtpSsoAvoidLoginBaseService {
+  public default com.seeyon.ctp.user.dto.CtpAvoidLoginUserInfoDto getUserInfo(java.lang.String, java.util.Map<java.lang.String, java.lang.String>);
+    descriptor: (Ljava/lang/String;Ljava/util/Map;)Lcom/seeyon/ctp/user/dto/CtpAvoidLoginUserInfoDto;
+
+  public default java.lang.Object getCtpUserInfo(java.lang.String, java.util.Map<java.lang.String, java.lang.String>);
+    descriptor: (Ljava/lang/String;Ljava/util/Map;)Ljava/lang/Object;
+
+  public default java.lang.Boolean isRefreshTokenCycle();
+    descriptor: ()Ljava/lang/Boolean;
+
+  public default com.seeyon.ctp.user.dto.CtpUserSpiThirdTokenDto doRefreshToken(com.seeyon.ctp.user.dto.ThirdTokenDto);
+    descriptor: (Lcom/seeyon/ctp/user/dto/ThirdTokenDto;)Lcom/seeyon/ctp/user/dto/CtpUserSpiThirdTokenDto;
+}

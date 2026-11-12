@@ -1,0 +1,33 @@
+{
+ "stage": "P6",
+ "node": "MAP_OPERATION",
+ "date": "2026-11-03",
+ "app_id": "8704025620829192834",
+ "flow": {
+  "name": "p6mapp6map1",
+  "mid": "-414876072621584267",
+  "trigger": "SCHEDULE/5min"
+ },
+ "cases": [
+  {
+   "case": "PUT k1=v1",
+   "pass": true,
+   "evidence": "无出参，由后续 GET 证明写入成功"
+  },
+  {
+   "case": "GET k1",
+   "after": "v1",
+   "expect": "v1",
+   "pass": true,
+   "evidence": "P6MAP1-GET.source_table=v1"
+  }
+ ],
+ "build": {
+  "state": "SUCCESS",
+  "sec": 233
+ },
+ "not_covered": [
+  "KEY_SET（6 条样本）",
+  "GET 数组形态（2 条样本）"
+ ]
+}

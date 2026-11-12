@@ -1,0 +1,36 @@
+{
+  "phase": "R1 建应用+建实体 UI 全链闭环",
+  "ts": "2026-09-30 21:10 +08",
+  "channel": "CDP 浏览器态 (Edge 9223)",
+  "verified_chain": [
+    {
+      "step": "后台管理-应用管理-新建",
+      "verdict": "LIVE PASS",
+      "url": "/main/backstageManage/udc/apps",
+      "form": "应用名称=zzprobe测试应用, 编码=zzprobenew2(自动补雪花尾), 机构/所属人默认",
+      "result": "'应用【zzprobe测试应用】创建成功', 列表 10 条(原9+1)"
+    },
+    {
+      "step": "设计器打开",
+      "verdict": "LIVE PASS",
+      "url": "/main/child-frame/udc/app-design/app-basic-info?appId=6419954374508955097",
+      "appId": "6419954374508955097 (数字 appId 从'去设计'跳转 URL 获得)"
+    },
+    {
+      "step": "设计器内建实体",
+      "verdict": "LIVE PASS",
+      "flow": "实体tab → +按钮(新建分组 mistakenly 一次) → lined-plus(新建实体) → 表单(显示名称+编码自动生成) → 确定 → 实体进入树+字段编辑器",
+      "entity": "zzprobe测试实体 / zzprobeEnt1 / 标准类型"
+    },
+    {
+      "step": "API 建应用结论修正",
+      "verdict": "REST create 持久化不完整(BOOT_0000+id 但缺宿主信息落库)",
+      "evidence": "API 建的 zzprobenew1 不出现在管理列表; UI 建的 zzprobenew2 正常显示+可进设计器"
+    }
+  ],
+  "key_urls": {
+    "app_list": "/main/backstageManage/udc/apps",
+    "designer": "/main/child-frame/udc/app-design/app-basic-info?appId={appId}",
+    "app_mgmt_detail": "/main/portal/portalManage/detail/{appId}"
+  }
+}

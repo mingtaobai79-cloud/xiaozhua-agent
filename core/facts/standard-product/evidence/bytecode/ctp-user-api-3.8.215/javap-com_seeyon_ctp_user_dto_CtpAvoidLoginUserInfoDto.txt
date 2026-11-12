@@ -1,0 +1,68 @@
+Compiled from "CtpAvoidLoginUserInfoDto.java"
+public class com.seeyon.ctp.user.dto.CtpAvoidLoginUserInfoDto implements java.io.Serializable {
+  public static com.seeyon.ctp.user.dto.CtpAvoidLoginUserInfoDto$CtpAvoidLoginUserInfoDtoBuilder builder();
+    descriptor: ()Lcom/seeyon/ctp/user/dto/CtpAvoidLoginUserInfoDto$CtpAvoidLoginUserInfoDtoBuilder;
+
+  public java.lang.String getThirdUserId();
+    descriptor: ()Ljava/lang/String;
+
+  public java.lang.String getThirdUserCode();
+    descriptor: ()Ljava/lang/String;
+
+  public java.lang.String getThirdMobile();
+    descriptor: ()Ljava/lang/String;
+
+  public java.lang.String getThirdLoginName();
+    descriptor: ()Ljava/lang/String;
+
+  public java.lang.String getThirdUserEmail();
+    descriptor: ()Ljava/lang/String;
+
+  public java.lang.String getTenantType();
+    descriptor: ()Ljava/lang/String;
+
+  public java.lang.String getTenantData();
+    descriptor: ()Ljava/lang/String;
+
+  public com.seeyon.ctp.user.dto.CtpUserSpiThirdTokenDto getCtpUserSpiThirdTokenDto();
+    descriptor: ()Lcom/seeyon/ctp/user/dto/CtpUserSpiThirdTokenDto;
+
+  public com.seeyon.ctp.user.dto.CtpUserSpiRedirectUrlDto getCtpUserSpiRedirectUrlDto();
+    descriptor: ()Lcom/seeyon/ctp/user/dto/CtpUserSpiRedirectUrlDto;
+
+  public void setThirdUserId(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+
+  public void setThirdUserCode(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+
+  public void setThirdMobile(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+
+  public void setThirdLoginName(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+
+  public void setThirdUserEmail(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+
+  public void setTenantType(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+
+  public void setTenantData(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+
+  public void setCtpUserSpiThirdTokenDto(com.seeyon.ctp.user.dto.CtpUserSpiThirdTokenDto);
+    descriptor: (Lcom/seeyon/ctp/user/dto/CtpUserSpiThirdTokenDto;)V
+
+  public void setCtpUserSpiRedirectUrlDto(com.seeyon.ctp.user.dto.CtpUserSpiRedirectUrlDto);
+    descriptor: (Lcom/seeyon/ctp/user/dto/CtpUserSpiRedirectUrlDto;)V
+
+  public java.lang.String toString();
+    descriptor: ()Ljava/lang/String;
+
+  public com.seeyon.ctp.user.dto.CtpAvoidLoginUserInfoDto();
+    descriptor: ()V
+
+  public com.seeyon.ctp.user.dto.CtpAvoidLoginUserInfoDto(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, com.seeyon.ctp.user.dto.CtpUserSpiThirdTokenDto, com.seeyon.ctp.user.dto.CtpUserSpiRedirectUrlDto);
+    descriptor: (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/seeyon/ctp/user/dto/CtpUserSpiThirdTokenDto;Lcom/seeyon/ctp/user/dto/CtpUserSpiRedirectUrlDto;)V
+}

@@ -1,0 +1,10 @@
+Compiled from "DataFlowMappingInitQueryDto.java"
+public class com.seeyon.udc.common.dto.DataFlowMappingInitQueryDto extends com.seeyon.boot.transport.BaseDto {
+  private com.seeyon.udc.common.dto.EntityInitParam sourceEntity;
+  private com.seeyon.udc.common.dto.EntityInitParam targetEntity;
+  public com.seeyon.udc.common.dto.DataFlowMappingInitQueryDto();
+  public com.seeyon.udc.common.dto.EntityInitParam getSourceEntity();
+  public com.seeyon.udc.common.dto.EntityInitParam getTargetEntity();
+  public void setSourceEntity(com.seeyon.udc.common.dto.EntityInitParam);
+  public void setTargetEntity(com.seeyon.udc.common.dto.EntityInitParam);
+}

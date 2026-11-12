@@ -1,0 +1,58 @@
+Classfile jar:file:///<ctp-user-api-3.8.215.jar>!/com/seeyon/ctp/user/annotation/CtpUserComment.class
+  Last modified 2025��1��10��; size 651 bytes
+  SHA-256 checksum 639d55dbfa677be8dd6a6e9ef9ee6ba5b837381980d97bde6b6b41fee5879a00
+  Compiled from "CtpUserComment.java"
+public interface com.seeyon.ctp.user.annotation.CtpUserComment extends java.lang.annotation.Annotation
+  minor version: 0
+  major version: 52
+  flags: (0x2601) ACC_PUBLIC, ACC_INTERFACE, ACC_ABSTRACT, ACC_ANNOTATION
+  this_class: #1                          // com/seeyon/ctp/user/annotation/CtpUserComment
+  super_class: #2                         // java/lang/Object
+  interfaces: 1, fields: 0, methods: 1, attributes: 2
+Constant pool:
+   #1 = Class              #21            // com/seeyon/ctp/user/annotation/CtpUserComment
+   #2 = Class              #22            // java/lang/Object
+   #3 = Class              #23            // java/lang/annotation/Annotation
+   #4 = Utf8               value
+   #5 = Utf8               ()Ljava/lang/String;
+   #6 = Utf8               SourceFile
+   #7 = Utf8               CtpUserComment.java
+   #8 = Utf8               RuntimeVisibleAnnotations
+   #9 = Utf8               Ljava/lang/annotation/Target;
+  #10 = Utf8               Ljava/lang/annotation/ElementType;
+  #11 = Utf8               TYPE
+  #12 = Utf8               METHOD
+  #13 = Utf8               FIELD
+  #14 = Utf8               Ljava/lang/annotation/Retention;
+  #15 = Utf8               Ljava/lang/annotation/RetentionPolicy;
+  #16 = Utf8               RUNTIME
+  #17 = Utf8               Ljava/lang/annotation/Documented;
+  #18 = Utf8               Lorg/springframework/stereotype/Indexed;
+  #19 = Utf8               Ljava/lang/annotation/Repeatable;
+  #20 = Utf8               Lcom/seeyon/ctp/user/annotation/CtpUserComments;
+  #21 = Utf8               com/seeyon/ctp/user/annotation/CtpUserComment
+  #22 = Utf8               java/lang/Object
+  #23 = Utf8               java/lang/annotation/Annotation
+{
+  public abstract java.lang.String value();
+    descriptor: ()Ljava/lang/String;
+    flags: (0x0401) ACC_PUBLIC, ACC_ABSTRACT
+}
+SourceFile: "CtpUserComment.java"
+RuntimeVisibleAnnotations:
+  0: #9(#4=[e#10.#11,e#10.#12,e#10.#13])
+    java.lang.annotation.Target(
+      value=[Ljava/lang/annotation/ElementType;.TYPE,Ljava/lang/annotation/ElementType;.METHOD,Ljava/lang/annotation/ElementType;.FIELD]
+    )
+  1: #14(#4=e#15.#16)
+    java.lang.annotation.Retention(
+      value=Ljava/lang/annotation/RetentionPolicy;.RUNTIME
+    )
+  2: #17()
+    java.lang.annotation.Documented
+  3: #18()
+    org.springframework.stereotype.Indexed
+  4: #19(#4=c#20)
+    java.lang.annotation.Repeatable(
+      value=class Lcom/seeyon/ctp/user/annotation/CtpUserComments;
+    )

@@ -1,0 +1,26 @@
+Compiled from "ThirdTokenDto.java"
+public class com.seeyon.ctp.user.dto.ThirdTokenDto implements java.io.Serializable {
+  public static com.seeyon.ctp.user.dto.ThirdTokenDto$ThirdTokenDtoBuilder builder();
+    descriptor: ()Lcom/seeyon/ctp/user/dto/ThirdTokenDto$ThirdTokenDtoBuilder;
+
+  public java.lang.String getInnerUserId();
+    descriptor: ()Ljava/lang/String;
+
+  public java.lang.String getThirdToken();
+    descriptor: ()Ljava/lang/String;
+
+  public void setInnerUserId(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+
+  public void setThirdToken(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+
+  public java.lang.String toString();
+    descriptor: ()Ljava/lang/String;
+
+  public com.seeyon.ctp.user.dto.ThirdTokenDto();
+    descriptor: ()V
+
+  public com.seeyon.ctp.user.dto.ThirdTokenDto(java.lang.String, java.lang.String);
+    descriptor: (Ljava/lang/String;Ljava/lang/String;)V
+}

@@ -1,0 +1,374 @@
+{
+ "BaseUdcAttributeDto.java": [
+  {
+   "field": "actionType",
+   "type": "AttributeActionType",
+   "desc": "字段操作类型",
+   "example": ""
+  },
+  {
+   "field": "createTime",
+   "type": "Date",
+   "desc": "创建时间",
+   "example": ""
+  },
+  {
+   "field": "updateTime",
+   "type": "Date",
+   "desc": "修改时间",
+   "example": ""
+  },
+  {
+   "field": "name",
+   "type": "String",
+   "desc": "属性编码",
+   "example": "name"
+  },
+  {
+   "field": "caption",
+   "type": "String",
+   "desc": "属性名称",
+   "example": "名称"
+  },
+  {
+   "field": "dataType",
+   "type": "String",
+   "desc": "数据类型",
+   "example": "String"
+  },
+  {
+   "field": "dataTypeDisplayName",
+   "type": "String",
+   "desc": "数据类型显示名称，仅用作显示",
+   "example": ""
+  },
+  {
+   "field": "notNull",
+   "type": "Boolean",
+   "desc": "是否必填",
+   "example": "true"
+  },
+  {
+   "field": "minLength",
+   "type": "Integer",
+   "desc": "最小长度",
+   "example": "20"
+  },
+  {
+   "field": "maxLength",
+   "type": "Integer",
+   "desc": "最大长度",
+   "example": "20"
+  },
+  {
+   "field": "decimalDigits",
+   "type": "Integer",
+   "desc": "小数位数",
+   "example": "2"
+  },
+  {
+   "field": "multiSelect",
+   "type": "Boolean",
+   "desc": "是否多选",
+   "example": "false"
+  },
+  {
+   "field": "relationEntity",
+   "type": "String",
+   "desc": "关联实体",
+   "example": "31412341"
+  },
+  {
+   "field": "relationEntityCategory",
+   "type": "EntityCategoryEnum",
+   "desc": "关联实体类型",
+   "example": "ENTITY"
+  },
+  {
+   "field": "relationEntityName",
+   "type": "String",
+   "desc": "关联对象的名称",
+   "example": "test"
+  },
+  {
+   "field": "relationCode",
+   "type": "String",
+   "desc": "关联编码",
+   "example": "test"
+  },
+  {
+   "field": "relationType",
+   "type": "RelationType",
+   "desc": "关系",
+   "example": "1"
+  },
+  {
+   "field": "relationApp",
+   "type": "String",
+   "desc": "关联应用",
+   "example": ""
+  },
+  {
+   "field": "relationStarter",
+   "type": "String",
+   "desc": "关联组件",
+   "example": ""
+  },
+  {
+   "field": "defaultValue",
+   "type": "String",
+   "desc": "默认值",
+   "example": ""
+  },
+  {
+   "field": "min",
+   "type": "String",
+   "desc": "最小值",
+   "example": ""
+  },
+  {
+   "field": "max",
+   "type": "String",
+   "desc": "最大值",
+   "example": ""
+  },
+  {
+   "field": "pattern",
+   "type": "String",
+   "desc": "匹配规则",
+   "example": ""
+  },
+  {
+   "field": "patternMessage",
+   "type": "String",
+   "desc": "匹配规则错误提示信息",
+   "example": ""
+  },
+  {
+   "field": "searchable",
+   "type": "Boolean",
+   "desc": "启用全文检索",
+   "example": ""
+  }
+ ],
+ "AttributeDto.java": [
+  {
+   "field": "appId",
+   "type": "Long",
+   "desc": "所属应用ID",
+   "example": "-7393838258752324893"
+  },
+  {
+   "field": "uniqueness",
+   "type": "Boolean",
+   "desc": "是否唯一",
+   "example": "false"
+  },
+  {
+   "field": "dataFormat",
+   "type": "String",
+   "desc": "显示格式，采用java的DecimalFormat和DateFormat的pattern定义。",
+   "example": "yyyy-MM-dd"
+  },
+  {
+   "field": "expressionDesignData",
+   "type": "String",
+   "desc": "表达式设计态schema,用于回显",
+   "example": ""
+  },
+  {
+   "field": "expressionRuntimeData",
+   "type": "String",
+   "desc": "表达式运行态schema,用于代码生成",
+   "example": ""
+  },
+  {
+   "field": "defaultValueExpressionDesignData",
+   "type": "String",
+   "desc": "默认值设计态schema,用于回显",
+   "example": ""
+  },
+  {
+   "field": "defaultValueExpressionRuntimeData",
+   "type": "String",
+   "desc": "默认值运行态schema,用于代码生成",
+   "example": ""
+  },
+  {
+   "field": "defaultValueIsChange",
+   "type": "Boolean",
+   "desc": "默认值是否允许更改",
+   "example": ""
+  },
+  {
+   "field": "defaultValueSystemVariable",
+   "type": "String",
+   "desc": "默认值系统变量",
+   "example": ""
+  },
+  {
+   "field": "defaultValueCaption",
+   "type": "String",
+   "desc": "默认值的显示名称,目前仅支持选项集和枚举,该字段仅作展示处理,数据库不存储",
+   "example": ""
+  },
+  {
+   "field": "valueScopeExpression",
+   "type": "String",
+   "desc": "最大最小值范围表达式",
+   "example": ""
+  },
+  {
+   "field": "calculate",
+   "type": "AttributeCalculateEnum",
+   "desc": "计算属性,普通、计算和聚合,且互斥(表明该属性为计算字段或汇总字段)",
+   "example": "NORMAL"
+  },
+  {
+   "field": "attributeGroupId",
+   "type": "Long",
+   "desc": "字段分组id",
+   "example": ""
+  },
+  {
+   "field": "permission",
+   "type": "Boolean",
+   "desc": "是否权限控制",
+   "example": "false"
+  },
+  {
+   "field": "auditLog",
+   "type": "Boolean",
+   "desc": "是否审计，如果开启审计，对于当前属性的所有变更都记录审计日志",
+   "example": "false"
+  },
+  {
+   "field": "system",
+   "type": "Boolean",
+   "desc": "是否系统属性",
+   "example": "false"
+  },
+  {
+   "field": "entityId",
+   "type": "Long",
+   "desc": "实体主键ID",
+   "example": "60828711522402304"
+  },
+  {
+   "field": "orderNo",
+   "type": "Integer",
+   "desc": "排序号",
+   "example": "1"
+  },
+  {
+   "field": "sourceType",
+   "type": "AttributeSourceTypeEnum",
+   "desc": "字段来源类型",
+   "example": ""
+  },
+  {
+   "field": "sourceId",
+   "type": "Long",
+   "desc": "字段来源Id,如果来源是字段集,则为字段集的id",
+   "example": ""
+  },
+  {
+   "field": "serialNumberName",
+   "type": "String",
+   "desc": "流水号方案名称",
+   "example": ""
+  },
+  {
+   "field": "serialNumberCode",
+   "type": "String",
+   "desc": "流水号编码",
+   "example": ""
+  },
+  {
+   "field": "serialNumberGuid",
+   "type": "Long",
+   "desc": "流水号GUID",
+   "example": ""
+  },
+  {
+   "field": "parentEnumAttributeId",
+   "type": "Long",
+   "desc": "上级枚举字段ID",
+   "example": ""
+  },
+  {
+   "field": "dataI18n",
+   "type": "Boolean",
+   "desc": "是否支持数据国际化",
+   "example": ""
+  },
+  {
+   "field": "attributeFullName",
+   "type": "String",
+   "desc": "字段entity的fullName",
+   "example": ""
+  },
+  {
+   "field": "attribute4DtoFullName",
+   "type": "String",
+   "desc": "字段dto的fullName",
+   "example": ""
+  },
+  {
+   "field": "uniqueKey",
+   "type": "String",
+   "desc": "前端唯一标识，用于自动保存,错误信息标记,不会进行持久化",
+   "example": ""
+  },
+  {
+   "field": "relationCtpEnum",
+   "type": "RelationCtpEnumDto",
+   "desc": "关联ctp枚举信息",
+   "example": ""
+  },
+  {
+   "field": "widgetConfig",
+   "type": "String",
+   "desc": "默认控件设置",
+   "example": "{\\\"pc\\\":\\\"Input\\\",\\\"mobile\\\":\\\"Input\\\",\\\"list\\\":true,\\\"detail\\\":true,\\\"quickSearch\\\":true}"
+  },
+  {
+   "field": "columnName",
+   "type": "String",
+   "desc": "数据库列名",
+   "example": "user_id"
+  }
+ ],
+ "EntityDto.java": [
+  {
+   "field": "fullName",
+   "type": "String",
+   "desc": "实体fullName",
+   "example": ""
+  },
+  {
+   "field": "attributes",
+   "type": "List<AttributeDto>",
+   "desc": "实体属性列表。",
+   "example": ""
+  },
+  {
+   "field": "parent",
+   "type": "EntityDto",
+   "desc": "父实体。",
+   "example": ""
+  },
+  {
+   "field": "children",
+   "type": "List<EntityDto>",
+   "desc": "子实体列表。",
+   "example": ""
+  },
+  {
+   "field": "indexes",
+   "type": "List<IndexDto>",
+   "desc": "索引列表",
+   "example": ""
+  }
+ ]
+}

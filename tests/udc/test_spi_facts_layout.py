@@ -115,6 +115,6 @@ def test_blocked_evidence_not_deleted():
 def test_no_customer_identifiers_in_readme():
     """本层证据件含客开模块名与客户域名，但入口 README 只许写形态、不许写值。"""
     text = _readme()
-    banned = ["changhong", "CHNs", "cip-spi-user", "xiaozhua-test2", "lowcode-test2"]
+    banned = ["sample", "CHNs", "cip-spi-user", "xiaozhua-test2", "lowcode-test2"]
     hit = [b for b in banned if b.lower() in text.lower()]
     assert not hit, "入口 README 里出现了客户标识：%s（本层只写形态不写值）" % hit

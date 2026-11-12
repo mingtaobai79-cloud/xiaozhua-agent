@@ -1,0 +1,190 @@
+Classfile jar:file:///D:/repo/CHIT/com/seeyon/boot-starter-spi/5.3.358/boot-starter-spi-5.3.358.jar!/com/seeyon/boot/starter/spi/SpringDynamicRegister.class
+  Last modified 2026Äê5ÔÂ25ÈÕ; size 2321 bytes
+  SHA-256 checksum 0c27132f56d1c4875364c61c5885d96a445b853427191fc928d031396e8bbd81
+  Compiled from "SpringDynamicRegister.java"
+public class com.seeyon.boot.starter.spi.SpringDynamicRegister implements org.springframework.context.ApplicationContextAware
+  minor version: 0
+  major version: 52
+  flags: (0x0021) ACC_PUBLIC, ACC_SUPER
+  this_class: #11                         // com/seeyon/boot/starter/spi/SpringDynamicRegister
+  super_class: #12                        // java/lang/Object
+  interfaces: 1, fields: 2, methods: 4, attributes: 2
+Constant pool:
+   #1 = Methodref          #12.#49        // java/lang/Object."<init>":()V
+   #2 = Fieldref           #11.#50        // com/seeyon/boot/starter/spi/SpringDynamicRegister.applicationContext:Lorg/springframework/context/ApplicationContext;
+   #3 = Class              #51            // org/springframework/context/ConfigurableApplicationContext
+   #4 = InterfaceMethodref #3.#52         // org/springframework/context/ConfigurableApplicationContext.getBeanFactory:()Lorg/springframework/beans/factory/config/ConfigurableListableBeanFactory;
+   #5 = Class              #53            // org/springframework/beans/factory/support/DefaultListableBeanFactory
+   #6 = Fieldref           #11.#54        // com/seeyon/boot/starter/spi/SpringDynamicRegister.defaultListableBeanFactory:Lorg/springframework/beans/factory/support/DefaultListableBeanFactory;
+   #7 = Methodref          #55.#56        // org/springframework/beans/factory/support/BeanDefinitionBuilder.genericBeanDefinition:(Ljava/lang/Class;)Lorg/springframework/beans/factory/support/BeanDefinitionBuilder;
+   #8 = Methodref          #55.#57        // org/springframework/beans/factory/support/BeanDefinitionBuilder.getRawBeanDefinition:()Lorg/springframework/beans/factory/support/AbstractBeanDefinition;
+   #9 = Methodref          #5.#58         // org/springframework/beans/factory/support/DefaultListableBeanFactory.registerBeanDefinition:(Ljava/lang/String;Lorg/springframework/beans/factory/config/BeanDefinition;)V
+  #10 = InterfaceMethodref #59.#60        // org/springframework/context/ApplicationContext.getBean:(Ljava/lang/String;)Ljava/lang/Object;
+  #11 = Class              #61            // com/seeyon/boot/starter/spi/SpringDynamicRegister
+  #12 = Class              #62            // java/lang/Object
+  #13 = Class              #63            // org/springframework/context/ApplicationContextAware
+  #14 = Utf8               applicationContext
+  #15 = Utf8               Lorg/springframework/context/ApplicationContext;
+  #16 = Utf8               defaultListableBeanFactory
+  #17 = Utf8               Lorg/springframework/beans/factory/support/DefaultListableBeanFactory;
+  #18 = Utf8               <init>
+  #19 = Utf8               ()V
+  #20 = Utf8               Code
+  #21 = Utf8               LineNumberTable
+  #22 = Utf8               LocalVariableTable
+  #23 = Utf8               this
+  #24 = Utf8               Lcom/seeyon/boot/starter/spi/SpringDynamicRegister;
+  #25 = Utf8               setApplicationContext
+  #26 = Utf8               (Lorg/springframework/context/ApplicationContext;)V
+  #27 = Utf8               configurableApplicationContext
+  #28 = Utf8               Lorg/springframework/context/ConfigurableApplicationContext;
+  #29 = Utf8               Exceptions
+  #30 = Class              #64            // org/springframework/beans/BeansException
+  #31 = Utf8               registerBeanDefinition
+  #32 = Utf8               (Ljava/lang/String;Ljava/lang/Class;)V
+  #33 = Utf8               beanName
+  #34 = Utf8               Ljava/lang/String;
+  #35 = Utf8               clazz
+  #36 = Utf8               Ljava/lang/Class;
+  #37 = Utf8               builder
+  #38 = Utf8               Lorg/springframework/beans/factory/support/BeanDefinitionBuilder;
+  #39 = Utf8               LocalVariableTypeTable
+  #40 = Utf8               Ljava/lang/Class<*>;
+  #41 = Utf8               Signature
+  #42 = Utf8               (Ljava/lang/String;Ljava/lang/Class<*>;)V
+  #43 = Utf8               getBean
+  #44 = Utf8               (Ljava/lang/String;)Ljava/lang/Object;
+  #45 = Utf8               SourceFile
+  #46 = Utf8               SpringDynamicRegister.java
+  #47 = Utf8               RuntimeVisibleAnnotations
+  #48 = Utf8               Lorg/springframework/stereotype/Component;
+  #49 = NameAndType        #18:#19        // "<init>":()V
+  #50 = NameAndType        #14:#15        // applicationContext:Lorg/springframework/context/ApplicationContext;
+  #51 = Utf8               org/springframework/context/ConfigurableApplicationContext
+  #52 = NameAndType        #65:#66        // getBeanFactory:()Lorg/springframework/beans/factory/config/ConfigurableListableBeanFactory;
+  #53 = Utf8               org/springframework/beans/factory/support/DefaultListableBeanFactory
+  #54 = NameAndType        #16:#17        // defaultListableBeanFactory:Lorg/springframework/beans/factory/support/DefaultListableBeanFactory;
+  #55 = Class              #67            // org/springframework/beans/factory/support/BeanDefinitionBuilder
+  #56 = NameAndType        #68:#69        // genericBeanDefinition:(Ljava/lang/Class;)Lorg/springframework/beans/factory/support/BeanDefinitionBuilder;
+  #57 = NameAndType        #70:#71        // getRawBeanDefinition:()Lorg/springframework/beans/factory/support/AbstractBeanDefinition;
+  #58 = NameAndType        #31:#72        // registerBeanDefinition:(Ljava/lang/String;Lorg/springframework/beans/factory/config/BeanDefinition;)V
+  #59 = Class              #73            // org/springframework/context/ApplicationContext
+  #60 = NameAndType        #43:#44        // getBean:(Ljava/lang/String;)Ljava/lang/Object;
+  #61 = Utf8               com/seeyon/boot/starter/spi/SpringDynamicRegister
+  #62 = Utf8               java/lang/Object
+  #63 = Utf8               org/springframework/context/ApplicationContextAware
+  #64 = Utf8               org/springframework/beans/BeansException
+  #65 = Utf8               getBeanFactory
+  #66 = Utf8               ()Lorg/springframework/beans/factory/config/ConfigurableListableBeanFactory;
+  #67 = Utf8               org/springframework/beans/factory/support/BeanDefinitionBuilder
+  #68 = Utf8               genericBeanDefinition
+  #69 = Utf8               (Ljava/lang/Class;)Lorg/springframework/beans/factory/support/BeanDefinitionBuilder;
+  #70 = Utf8               getRawBeanDefinition
+  #71 = Utf8               ()Lorg/springframework/beans/factory/support/AbstractBeanDefinition;
+  #72 = Utf8               (Ljava/lang/String;Lorg/springframework/beans/factory/config/BeanDefinition;)V
+  #73 = Utf8               org/springframework/context/ApplicationContext
+{
+  private org.springframework.context.ApplicationContext applicationContext;
+    descriptor: Lorg/springframework/context/ApplicationContext;
+    flags: (0x0002) ACC_PRIVATE
+
+  private org.springframework.beans.factory.support.DefaultListableBeanFactory defaultListableBeanFactory;
+    descriptor: Lorg/springframework/beans/factory/support/DefaultListableBeanFactory;
+    flags: (0x0002) ACC_PRIVATE
+
+  public com.seeyon.boot.starter.spi.SpringDynamicRegister();
+    descriptor: ()V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: return
+      LineNumberTable:
+        line 12: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lcom/seeyon/boot/starter/spi/SpringDynamicRegister;
+
+  public void setApplicationContext(org.springframework.context.ApplicationContext) throws org.springframework.beans.BeansException;
+    descriptor: (Lorg/springframework/context/ApplicationContext;)V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=2, locals=3, args_size=2
+         0: aload_0
+         1: aload_1
+         2: putfield      #2                  // Field applicationContext:Lorg/springframework/context/ApplicationContext;
+         5: aload_0
+         6: getfield      #2                  // Field applicationContext:Lorg/springframework/context/ApplicationContext;
+         9: checkcast     #3                  // class org/springframework/context/ConfigurableApplicationContext
+        12: astore_2
+        13: aload_0
+        14: aload_2
+        15: invokeinterface #4,  1            // InterfaceMethod org/springframework/context/ConfigurableApplicationContext.getBeanFactory:()Lorg/springframework/beans/factory/config/ConfigurableListableBeanFactory;
+        20: checkcast     #5                  // class org/springframework/beans/factory/support/DefaultListableBeanFactory
+        23: putfield      #6                  // Field defaultListableBeanFactory:Lorg/springframework/beans/factory/support/DefaultListableBeanFactory;
+        26: return
+      LineNumberTable:
+        line 19: 0
+        line 20: 5
+        line 21: 13
+        line 22: 26
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      27     0  this   Lcom/seeyon/boot/starter/spi/SpringDynamicRegister;
+            0      27     1 applicationContext   Lorg/springframework/context/ApplicationContext;
+           13      14     2 configurableApplicationContext   Lorg/springframework/context/ConfigurableApplicationContext;
+    Exceptions:
+      throws org.springframework.beans.BeansException
+
+  public void registerBeanDefinition(java.lang.String, java.lang.Class<?>);
+    descriptor: (Ljava/lang/String;Ljava/lang/Class;)V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=3, locals=4, args_size=3
+         0: aload_2
+         1: invokestatic  #7                  // Method org/springframework/beans/factory/support/BeanDefinitionBuilder.genericBeanDefinition:(Ljava/lang/Class;)Lorg/springframework/beans/factory/support/BeanDefinitionBuilder;
+         4: astore_3
+         5: aload_0
+         6: getfield      #6                  // Field defaultListableBeanFactory:Lorg/springframework/beans/factory/support/DefaultListableBeanFactory;
+         9: aload_1
+        10: aload_3
+        11: invokevirtual #8                  // Method org/springframework/beans/factory/support/BeanDefinitionBuilder.getRawBeanDefinition:()Lorg/springframework/beans/factory/support/AbstractBeanDefinition;
+        14: invokevirtual #9                  // Method org/springframework/beans/factory/support/DefaultListableBeanFactory.registerBeanDefinition:(Ljava/lang/String;Lorg/springframework/beans/factory/config/BeanDefinition;)V
+        17: return
+      LineNumberTable:
+        line 25: 0
+        line 26: 5
+        line 27: 17
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      18     0  this   Lcom/seeyon/boot/starter/spi/SpringDynamicRegister;
+            0      18     1 beanName   Ljava/lang/String;
+            0      18     2 clazz   Ljava/lang/Class;
+            5      13     3 builder   Lorg/springframework/beans/factory/support/BeanDefinitionBuilder;
+      LocalVariableTypeTable:
+        Start  Length  Slot  Name   Signature
+            0      18     2 clazz   Ljava/lang/Class<*>;
+    Signature: #42                          // (Ljava/lang/String;Ljava/lang/Class<*>;)V
+
+  public java.lang.Object getBean(java.lang.String);
+    descriptor: (Ljava/lang/String;)Ljava/lang/Object;
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0
+         1: getfield      #2                  // Field applicationContext:Lorg/springframework/context/ApplicationContext;
+         4: aload_1
+         5: invokeinterface #10,  2           // InterfaceMethod org/springframework/context/ApplicationContext.getBean:(Ljava/lang/String;)Ljava/lang/Object;
+        10: areturn
+      LineNumberTable:
+        line 30: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      11     0  this   Lcom/seeyon/boot/starter/spi/SpringDynamicRegister;
+            0      11     1 beanName   Ljava/lang/String;
+}
+SourceFile: "SpringDynamicRegister.java"
+RuntimeVisibleAnnotations:
+  0: #48()
+    org.springframework.stereotype.Component

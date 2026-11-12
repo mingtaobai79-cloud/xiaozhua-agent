@@ -93,7 +93,7 @@ def test_app_guid_helper_has_no_hardcoded_targets():
     import re
     assert not re.search(r"\b\d{16,20}\b", src), "出现 appId 形态字面量"
     # 客户组织关键词拼着写，避免本文件自己命中脱敏闸门
-    assert ("changhong" + "it") not in src
+    assert ("sample" + "it") not in src
     assert "验收" not in src and "zxj" not in src
 
 

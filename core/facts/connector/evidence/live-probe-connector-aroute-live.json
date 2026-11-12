@@ -1,0 +1,118 @@
+{
+  "probe": "connector A-domain per-route LIVE closure (main HANDOFF dedupe phase4-connector-aroute-live-closure-1790797756)",
+  "phase": "4",
+  "env": "test2",
+  "base": "https://lowcode-test2.example.com",
+  "gateway_prefix": "/service/app9000000000000000001",
+  "app_id": "app9000000000000000001",
+  "numeric_app_id": "3289082814923688017",
+  "param_provenance": "MAP_GUID 8128016104943011258 + numeric appId 3289082814923688017 exported from E6 data_preview (in-disk); no fabricated identifiers",
+  "credential": {
+    "ref": "<COLLAB_ROOT>/agent-collaboration/shared-credentials/test2-web-credential.json",
+    "note": "value 0 into evidence; cookie rendered on-wire only"
+  },
+  "no_retry_bombing": true,
+  "sends_cap": 6,
+  "total_sends": 5,
+  "zero_write": true,
+  "gateway_status": "UP (all 5 sends returned HTTP 200 + traceId; no TLS EOF this round)",
+  "sends": [
+    {
+      "tag": "route1-map-get-by-id",
+      "method": "GET",
+      "path": "/service/app9000000000000000001/udc-runtime/data-flow-map/8128016104943011258",
+      "id_used": "8128016104943011258 (E6 guid, per HANDOFF)",
+      "http": 200,
+      "code": "UDCRT_DATAFLOW_0005",
+      "message": "Generation rule diagram does not exist",
+      "traceId": "3254480346657327292",
+      "bytes": 136,
+      "body_sha256": "5a87a3fe358e44fabd63e9d06632f46a3eb12869806b164bc4707c1cb0bf3443",
+      "nonempty": false,
+      "verdict": "UNVERIFIED",
+      "reason": "typed envelope+traceId present but data empty; BOOT_0000+nonempty not met. selectById({id}) keyed on record id not business guid -> guid value resolves 'does not exist'. Not PASS-inflated.",
+      "ts": "2026-10-01T03:55:43"
+    },
+    {
+      "tag": "route2-search-original",
+      "method": "POST",
+      "path": "/service/app9000000000000000001/udc-runtime/data-flow-mapping/search-original",
+      "body_sent": { "dataFlowId": "8128016104943011258" },
+      "http": 200,
+      "code": "BOOT_1001",
+      "message": "sourceEntityId must not be null",
+      "traceId": "3254480556238309564",
+      "bytes": 119,
+      "body_sha256": "9924066fe22e25e64e735a7ed85f1398898251b914fb0777477ec9ffec82dcfb",
+      "nonempty": false,
+      "verdict": "UNVERIFIED",
+      "reason": "NEW required-field坐实: beyond dataFlowId (E6 BOOT_1001 confirmed), sourceEntityId also required. Valid sourceEntityId not exportable from in-disk evidence -> no retry, min body kept legal-only. Not PASS-inflated.",
+      "ts": "2026-10-01T03:55:46"
+    },
+    {
+      "tag": "route3-mapping-get-by-id",
+      "method": "GET",
+      "path": "/service/app9000000000000000001/udc-runtime/data-flow-mapping/8128016104943011258",
+      "id_source": "min_probe_map_guid (route2 returned no mapping id to export)",
+      "http": 200,
+      "code": "UDCRT_DATAFLOW_0008",
+      "message": "Generation rule mapping scheme does not exist",
+      "traceId": "3254480600647600316",
+      "bytes": 143,
+      "body_sha256": "7c8b93cfc7f3ce7ab59fbdbb25f4fb7ea75c02444468cc91f5f42489789c9644",
+      "nonempty": false,
+      "verdict": "UNVERIFIED",
+      "reason": "no mapping id exportable from route1/route2 (both empty) -> 1 min legal probe per HANDOFF allowance; returns typed 'does not exist'. Not PASS-inflated.",
+      "ts": "2026-10-01T03:55:58"
+    },
+    {
+      "tag": "route4-init-data",
+      "method": "POST",
+      "path": "/service/app9000000000000000001/udc-runtime/data-flow-mapping/init-data",
+      "body_sent": {},
+      "http": 200,
+      "code": "BOOT_1001",
+      "message": "sourceEntity must not be null",
+      "traceId": "3254480650996025532",
+      "bytes": 117,
+      "body_sha256": "81cfe872e6cd39c30215635a70f6a2d22c67be78a75f0843eb36c2e15d310ca5",
+      "nonempty": false,
+      "verdict": "UNVERIFIED",
+      "reason": "DTO DataFlowMappingInitQueryDto(javap in evidence/bytecode)={sourceEntity:EntityInitParam,targetEntity:EntityInitParam}; live confirms sourceEntity required. EntityInitParam needs entityFullName not present in-disk -> min body {} kept legal, no fabricated entity full name. Not PASS-inflated.",
+      "ts": "2026-10-01T03:56:00"
+    },
+    {
+      "tag": "route5-detail",
+      "method": "POST",
+      "path": "/service/app9000000000000000001/udc-runtime/data-flow-mapping/detail",
+      "body_sent": { "appId": "3289082814923688017", "guid": "8128016104943011258" },
+      "http": 200,
+      "code": "UDCRT_DATAFLOW_0008",
+      "message": "Generation rule mapping scheme does not exist",
+      "traceId": "3254480734177462460",
+      "bytes": 143,
+      "body_sha256": "0dc7248661137899995bf64f1fb6f4625be154300760263ff8ccbe440d663fc8",
+      "nonempty": false,
+      "verdict": "UNVERIFIED",
+      "reason": "in-disk appId+guid (from E6) exported as legal body; server resolves to typed 'mapping scheme does not exist' (guid is data-flow-map guid, not a data-flow-mapping scheme key). data empty -> not PASS. Not PASS-inflated.",
+      "ts": "2026-10-01T03:56:03"
+    }
+  ],
+  "incremental_facts": {
+    "required_fields_newly_confirmed": {
+      "search-original": ["dataFlowId (E6)", "sourceEntityId (this round BOOT_1001)"],
+      "init-data": ["sourceEntity (this round BOOT_1001)"]
+    },
+    "reachability": "all 5 A-domain read routes reachable on live test2 gateway (HTTP 200 + traceId + typed envelope) — transport/route existence corroborated; business-data sample still NOT obtained.",
+    "id_key_semantics": "data-flow-map/{id} & data-flow-mapping/{id} resolve by 'does not exist' when given E6 guid -> the {id} path value is the numeric record id (e.g. E6 id -1595651527290089449), not the business guid; a valid id could not be exported from in-disk evidence without a further (out-of-boundary) enumeration read."
+  },
+  "outcome": "A-domain remaining 5 routes LIVE=UNVERIFIED (reachable, no non-empty business body); connector interface LIVE PASS remains solely E6 data-flow-map/search (unchanged).",
+  "boundary_compliance": {
+    "writes": 0,
+    "creds_into_evidence": 0,
+    "routes_retry": "<=1 each",
+    "b_domain_probed": false,
+    "item_mgmt_touched": false,
+    "only_new_files": "3 DTO javap (evidence/bytecode/) + this E7 json; existing 6 evidence + 5 controller bytecode untouched"
+  }
+}

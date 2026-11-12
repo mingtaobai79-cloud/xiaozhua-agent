@@ -1,0 +1,437 @@
+{
+  "task": "bpm-live P2 grid2 static evidence (bpm-facade 3.12.101 vs udc-starter-runtime 5.3.517)",
+  "utc_stamp": "20260927T100255Z",
+  "local_clock": "2026-09-27 18:02:55 +0800",
+  "note": "All hashes are SHA-256 over RAW bytes on disk. No live probing, no credential. Two version evidence units kept separate, not merged.",
+  "decompiled_java": [
+    {
+      "file": "bpm-facade-3.12.101-BpmApiProcessAppService.java",
+      "raw_bytes": 781,
+      "crlf": 19,
+      "lf_bytes": 762,
+      "sha256_raw": "40d07249abe01ab7a74d6e1201df93e18d9d57e35e35d8c221612aec390c17c3"
+    },
+    {
+      "file": "bpm-facade-3.12.101-BpmAppService.java",
+      "raw_bytes": 6900,
+      "crlf": 141,
+      "lf_bytes": 6759,
+      "sha256_raw": "56275617d7c23c9b9869297013763881c22adcba6d38db3c1ffa8df426944402"
+    },
+    {
+      "file": "bpm-facade-3.12.101-BpmDeployAppService.java",
+      "raw_bytes": 1406,
+      "crlf": 35,
+      "lf_bytes": 1371,
+      "sha256_raw": "1bb3370091f021aeb974eb7c6b12eab058d2de91277d39cadaeb39a79c159090"
+    },
+    {
+      "file": "bpm-facade-3.12.101-BpmSaveDraftUdcDto.java",
+      "raw_bytes": 6787,
+      "crlf": 182,
+      "lf_bytes": 6605,
+      "sha256_raw": "e467675ebcf6c18a51a13458c777b9d67c5ac3cc61fc4adeef2146c75d12ad8f"
+    },
+    {
+      "file": "bpm-facade-3.12.101-BpmSendUdcDto.java",
+      "raw_bytes": 8713,
+      "crlf": 224,
+      "lf_bytes": 8489,
+      "sha256_raw": "2929db4b348545b81edac439bc5040daa961938353e1eab1503c970ea00ad5ba"
+    },
+    {
+      "file": "bpm-facade-3.12.101-BpmTriggerFlowUdcRequestDto.java",
+      "raw_bytes": 7311,
+      "crlf": 193,
+      "lf_bytes": 7118,
+      "sha256_raw": "557f15820d9950e6fb6422a966eb8ce27fe8a38c854a7487be33dbbd998c3dbf"
+    },
+    {
+      "file": "bpm-facade-3.12.101-BpmUdcApiService.java",
+      "raw_bytes": 3366,
+      "crlf": 73,
+      "lf_bytes": 3293,
+      "sha256_raw": "5028e167dd1309cb4e04dfd20a81f2b2561ebd0a51007627a7a37a0b897cf64e"
+    },
+    {
+      "file": "udcrt-5.3.517-ApprovalStateChangeListener.java",
+      "raw_bytes": 9088,
+      "crlf": 160,
+      "lf_bytes": 8928,
+      "sha256_raw": "15513d47626b6f762f405aeaebdbf9e8117ff7b55a873ebb49bc83db65e06239"
+    },
+    {
+      "file": "udcrt-5.3.517-ApproveFeatureService.java",
+      "raw_bytes": 36002,
+      "crlf": 595,
+      "lf_bytes": 35407,
+      "sha256_raw": "f49a858213c2037001b95ff86ebe94a65fa04ab5bdcaf90c90b512abdc7ceb0d"
+    },
+    {
+      "file": "udcrt-5.3.517-UdcBpmProcessService.java",
+      "raw_bytes": 1944,
+      "crlf": 43,
+      "lf_bytes": 1901,
+      "sha256_raw": "feeec5ce0d7818da4de12634259a8610d9133a155a41ccf0083810557d78c474"
+    },
+    {
+      "file": "udcrt-5.3.517-UdcBpmProcessServiceImpl.java",
+      "raw_bytes": 16641,
+      "crlf": 301,
+      "lf_bytes": 16340,
+      "sha256_raw": "5d324773ff045fe5be03bd73e6f65b191ca25b9aac042ad3e252a464430bdb5f"
+    }
+  ],
+  "bpm_api_decompile_manifest": {
+    "schema_version": "targeted-decompile.v1",
+    "artifact": "bpm-facade",
+    "version": "3.12.101",
+    "source_sha256": "26b312fdd40cc921a4cd8d08239f6b8d857c02a5ac8d4db271d07f6fcbd98af0",
+    "records": [
+      {
+        "class": "com.seeyon.bpm.api.udc.BpmUdcApiService.class",
+        "output": "<PATH>",
+        "sha256": "5028e167dd1309cb4e04dfd20a81f2b2561ebd0a51007627a7a37a0b897cf64e"
+      },
+      {
+        "class": "com.seeyon.bpm.api.udc.BpmApiProcessAppService.class",
+        "output": "<PATH>",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "class": "com.seeyon.bpm.api.common.BpmApiProcessAppService.class",
+        "output": "<PATH>",
+        "sha256": "40d07249abe01ab7a74d6e1201df93e18d9d57e35e35d8c221612aec390c17c3"
+      },
+      {
+        "class": "com.seeyon.bpm.api.common.BpmAppService.class",
+        "output": "<PATH>",
+        "sha256": "56275617d7c23c9b9869297013763881c22adcba6d38db3c1ffa8df426944402"
+      },
+      {
+        "class": "com.seeyon.bpm.api.common.BpmDeployAppService.class",
+        "output": "<PATH>",
+        "sha256": "1bb3370091f021aeb974eb7c6b12eab058d2de91277d39cadaeb39a79c159090"
+      }
+    ]
+  },
+  "bpm_api_decompile_manifest_meta": {
+    "raw_bytes": 1702,
+    "sha256_raw": "4994575664cae56f456b77671374dc1bcd0f7815cb06e3e3e1c79d2038cf5253"
+  },
+  "udcrt_bpm_link_decompile_manifest": {
+    "schema_version": "targeted-decompile.v1",
+    "artifact": "udc-starter-runtime",
+    "version": "5.3.517",
+    "records": [
+      {
+        "class": "com.seeyon.boot.starter.udcrt.domain.service.ApproveFeatureService.class",
+        "output": "udcrt-5.3.517-ApproveFeatureService.java",
+        "sha256": "f49a858213c2037001b95ff86ebe94a65fa04ab5bdcaf90c90b512abdc7ceb0d",
+        "bytes": 35407
+      },
+      {
+        "class": "com.seeyon.boot.starter.udcrt.event.listener.ApprovalStateChangeListener.class",
+        "output": "udcrt-5.3.517-ApprovalStateChangeListener.java",
+        "sha256": "15513d47626b6f762f405aeaebdbf9e8117ff7b55a873ebb49bc83db65e06239",
+        "bytes": 8928
+      },
+      {
+        "class": "com.seeyon.boot.starter.udcrt.appservice.UdcBpmProcessServiceImpl.class",
+        "output": "udcrt-5.3.517-UdcBpmProcessServiceImpl.java",
+        "sha256": "5d324773ff045fe5be03bd73e6f65b191ca25b9aac042ad3e252a464430bdb5f",
+        "bytes": 16340
+      },
+      {
+        "class": "com.seeyon.boot.starter.udcrt.api.UdcBpmProcessService.class",
+        "output": "udcrt-5.3.517-UdcBpmProcessService.java",
+        "sha256": "feeec5ce0d7818da4de12634259a8610d9133a155a41ccf0083810557d78c474",
+        "bytes": 1901
+      }
+    ]
+  },
+  "udcrt_bpm_link_decompile_manifest_meta": {
+    "raw_bytes": 1234,
+    "sha256_raw": "10040733935b83f1cc6df93786328eadbc3770a1d1d1ffe81144c4bb94eab4b9"
+  },
+  "jar": {
+    "path": "<PATH>",
+    "exists": true,
+    "bytes": 861880,
+    "sha256": "74ae50bd8510414113248f0b1d400bca80d2ae2e0022c9dbbb31321a6040a66f"
+  },
+  "bpm_facade_jar_versions_on_disk": [
+    "5.3.374"
+  ],
+  "bpm_facade_3_12_101_jar_present": false,
+  "module_link_evidence": {
+    "path": "<PATH>",
+    "sha256_raw": "f9c6ef7b291b8d0bfeb43b0af2af35e8deb762fb83cd51348dbe917f0b0679a4",
+    "raw_bytes": 4370
+  },
+  "trap_1_empty_output": {
+    "manifest": "bpm-api-decompile-manifest.json",
+    "recorded_class": "com.seeyon.bpm.api.udc.BpmApiProcessAppService",
+    "recorded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "empty_content_sha256_const": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "on_disk_file": "bpm-facade-3.12.101-BpmApiProcessAppService.java",
+    "on_disk_file_sha256_raw": "40d07249abe01ab7a74d6e1201df93e18d9d57e35e35d8c221612aec390c17c3",
+    "on_disk_file_package": "com.seeyon.bpm.api.common",
+    "conclusion": "manifest records the udc-package BpmApiProcessAppService with the EMPTY-content sha (zero-byte decompile output); the on-disk file of the same name is actually the common-package BpmApiProcessAppService. -> the udc-package interface has no valid decompile output. Mark UNVERIFIED; not valid interface evidence."
+  },
+  "trap_2_lf_normalized_bytes": {
+    "manifest": "udcrt-bpm-link-decompile-manifest.json 'bytes' field = LF-normalized count; on-disk files are CRLF",
+    "items": [
+      {
+        "file": "udcrt-5.3.517-ApproveFeatureService.java",
+        "raw": 36002,
+        "lf": 35407,
+        "sha256_raw": "f49a858213c2037001b95ff86ebe94a65fa04ab5bdcaf90c90b512abdc7ceb0d"
+      },
+      {
+        "file": "udcrt-5.3.517-ApprovalStateChangeListener.java",
+        "raw": 9088,
+        "lf": 8928,
+        "sha256_raw": "15513d47626b6f762f405aeaebdbf9e8117ff7b55a873ebb49bc83db65e06239"
+      },
+      {
+        "file": "udcrt-5.3.517-UdcBpmProcessServiceImpl.java",
+        "raw": 16641,
+        "lf": 16340,
+        "sha256_raw": "5d324773ff045fe5be03bd73e6f65b191ca25b9aac042ad3e252a464430bdb5f"
+      },
+      {
+        "file": "udcrt-5.3.517-UdcBpmProcessService.java",
+        "raw": 1944,
+        "lf": 1901,
+        "sha256_raw": "feeec5ce0d7818da4de12634259a8610d9133a155a41ccf0083810557d78c474"
+      }
+    ]
+  },
+  "trap_3_dtos_not_in_manifest": {
+    "note": "three DTOs on disk but NOT in bpm-api-decompile-manifest records; sha256 self-measured (raw), flag manifest-not-covered",
+    "files": [
+      {
+        "file": "bpm-facade-3.12.101-BpmSaveDraftUdcDto.java",
+        "raw": 6787,
+        "sha256_raw": "e467675ebcf6c18a51a13458c777b9d67c5ac3cc61fc4adeef2146c75d12ad8f",
+        "manifest_covered": false
+      },
+      {
+        "file": "bpm-facade-3.12.101-BpmSendUdcDto.java",
+        "raw": 8713,
+        "sha256_raw": "2929db4b348545b81edac439bc5040daa961938353e1eab1503c970ea00ad5ba",
+        "manifest_covered": false
+      },
+      {
+        "file": "bpm-facade-3.12.101-BpmTriggerFlowUdcRequestDto.java",
+        "raw": 7311,
+        "sha256_raw": "557f15820d9950e6fb6422a966eb8ce27fe8a38c854a7487be33dbbd998c3dbf",
+        "manifest_covered": false
+      }
+    ]
+  },
+  "cross_reference": {
+    "facade_interface": {
+      "file": "bpm-facade-3.12.101-BpmUdcApiService.java",
+      "pkg": "com.seeyon.bpm.api.udc",
+      "sha256_raw": "5028e167dd1309cb4e04dfd20a81f2b2561ebd0a51007627a7a37a0b897cf64e",
+      "methods": [
+        {
+          "name": "sendForUdc",
+          "L": 46,
+          "abstract": true,
+          "sig": "SingleResponse<BpmApiSendApiResponseDto> sendForUdc(SingleRequest<BpmSendUdcDto>)"
+        },
+        {
+          "name": "saveDraft",
+          "L": 48,
+          "abstract": false,
+          "default_body": "SingleResponse.ok()",
+          "sig": "SingleResponse<BpmSaveDraftUdcResponseDto> saveDraft(SingleRequest<BpmSaveDraftUdcDto>)"
+        },
+        {
+          "name": "triggerFlowForUdc",
+          "L": 52,
+          "abstract": false,
+          "default_body": "ListResponse.from(new ArrayList())",
+          "sig": "ListResponse<BpmTriggerFlowUdcResponseDto> triggerFlowForUdc(SingleRequest<List<BpmTriggerFlowUdcRequestDto>>)"
+        },
+        {
+          "name": "prefixForUdc",
+          "L": 56,
+          "abstract": false,
+          "default_body": "SingleResponse.from(null)",
+          "sig": "SingleResponse<BpmPrefixForUdcResponseDto> prefixForUdc(SingleRequest<BpmPrefixForUdcDto>)"
+        },
+        {
+          "name": "repealForUdc",
+          "L": 60,
+          "abstract": true,
+          "sig": "SingleResponse<Void> repealForUdc(SingleRequest<BpmOperationRepealUdcDto>)"
+        },
+        {
+          "name": "stopForUdc",
+          "L": 62,
+          "abstract": true,
+          "sig": "SingleResponse<CommonResultDto> stopForUdc(SingleRequest<BpmStopDto>)"
+        },
+        {
+          "name": "deleteCaseByIdForUdc",
+          "L": 64,
+          "abstract": true,
+          "sig": "SingleResponse<Void> deleteCaseByIdForUdc(SingleRequest<Long>, SingleRequest<Long>)"
+        },
+        {
+          "name": "getNodePermissionOperation",
+          "L": 66,
+          "abstract": false
+        },
+        {
+          "name": "getNodePermission",
+          "L": 70,
+          "abstract": false
+        }
+      ]
+    },
+    "udc_rt_injection_outbound": [
+      {
+        "file": "udcrt-5.3.517-ApproveFeatureService.java",
+        "sha256_raw": "f49a858213c2037001b95ff86ebe94a65fa04ab5bdcaf90c90b512abdc7ceb0d",
+        "injection_field": {
+          "L": 109,
+          "text": "private BpmUdcApiService bpmUdcApiService;"
+        },
+        "call_sites": [
+          {
+            "method": "prefixForUdc",
+            "L": 183
+          },
+          {
+            "method": "sendForUdc",
+            "L": 325
+          },
+          {
+            "method": "saveDraft",
+            "L": 421
+          },
+          {
+            "method": "repealForUdc",
+            "L": 465
+          }
+        ]
+      },
+      {
+        "file": "udcrt-5.3.517-ApprovalStateChangeListener.java",
+        "sha256_raw": "15513d47626b6f762f405aeaebdbf9e8117ff7b55a873ebb49bc83db65e06239",
+        "injection_field": {
+          "L": 70,
+          "text": "private BpmUdcApiService bpmUdcApiService;"
+        },
+        "call_sites": [
+          {
+            "method": "deleteCaseByIdForUdc",
+            "L": 114
+          },
+          {
+            "method": "stopForUdc",
+            "L": 138
+          }
+        ]
+      }
+    ],
+    "bpm_to_udc_inbound": {
+      "interface_file": "udcrt-5.3.517-UdcBpmProcessService.java",
+      "interface_sha256_raw": "feeec5ce0d7818da4de12634259a8610d9133a155a41ccf0083810557d78c474",
+      "impl_file": "udcrt-5.3.517-UdcBpmProcessServiceImpl.java",
+      "impl_sha256_raw": "5d324773ff045fe5be03bd73e6f65b191ca25b9aac042ad3e252a464430bdb5f",
+      "methods": [
+        {
+          "name": "processBpmApproval",
+          "L": 267
+        },
+        {
+          "name": "processBpmStop",
+          "L": 271
+        },
+        {
+          "name": "processBpmCancel",
+          "L": 275
+        },
+        {
+          "name": "processBpmTakeBack",
+          "L": 279
+        }
+      ]
+    },
+    "dtos": [
+      {
+        "name": "BpmSendUdcDto",
+        "file": "bpm-facade-3.12.101-BpmSendUdcDto.java",
+        "pkg": "com.seeyon.bpm.dto.approval",
+        "fields_L": [
+          31,
+          33,
+          35,
+          37,
+          40,
+          42,
+          44,
+          46,
+          49,
+          51,
+          53,
+          55,
+          57,
+          59,
+          61,
+          63
+        ]
+      },
+      {
+        "name": "BpmSaveDraftUdcDto",
+        "file": "bpm-facade-3.12.101-BpmSaveDraftUdcDto.java",
+        "pkg": "com.seeyon.bpm.dto.approval",
+        "fields_L": [
+          31,
+          33,
+          35,
+          38,
+          40,
+          42,
+          45,
+          47,
+          49,
+          51,
+          53,
+          55,
+          57,
+          59,
+          61
+        ],
+        "serialVersionUID_L": 29
+      },
+      {
+        "name": "BpmTriggerFlowUdcRequestDto",
+        "file": "bpm-facade-3.12.101-BpmTriggerFlowUdcRequestDto.java",
+        "pkg": "com.seeyon.bpm.dto.approval",
+        "fields_L": [
+          27,
+          29,
+          31,
+          34,
+          36,
+          38,
+          41,
+          43,
+          45,
+          47,
+          49,
+          51,
+          53
+        ],
+        "serialVersionUID_L": 25
+      }
+    ]
+  }
+}

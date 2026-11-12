@@ -1,0 +1,350 @@
+Classfile jar:file:///D:/repo/CHIT/com/seeyon/udc-starter-dataflow/5.3.517/udc-starter-dataflow-5.3.517.jar!/com/seeyon/boot/starter/dataflow/controller/DataFlowRtMappingController.class
+  Last modified 2026年6月17日; size 5270 bytes
+  SHA-256 checksum ee742c7031134a77d5ae0d10b1e3fee06e86335e0985e05d5c845e83951531e8
+  Compiled from "DataFlowRtMappingController.java"
+public class com.seeyon.boot.starter.dataflow.controller.DataFlowRtMappingController extends com.seeyon.boot.starter.web.BaseComponentController
+  minor version: 0
+  major version: 52
+  flags: (0x0021) ACC_PUBLIC, ACC_SUPER
+  this_class: #10                         // com/seeyon/boot/starter/dataflow/controller/DataFlowRtMappingController
+  super_class: #11                        // com/seeyon/boot/starter/web/BaseComponentController
+  interfaces: 0, fields: 1, methods: 7, attributes: 2
+Constant pool:
+    #1 = Methodref          #11.#82       // com/seeyon/boot/starter/web/BaseComponentController."<init>":()V
+    #2 = Fieldref           #10.#83       // com/seeyon/boot/starter/dataflow/controller/DataFlowRtMappingController.dataFlowMappingAppService:Lcom/seeyon/boot/starter/dataflow/api/DataFlowMappingAppService;
+    #3 = Methodref          #84.#85       // com/seeyon/boot/transport/SingleRequest.from:(Ljava/lang/Object;)Lcom/seeyon/boot/transport/SingleRequest;
+    #4 = InterfaceMethodref #86.#87       // com/seeyon/boot/starter/dataflow/api/DataFlowMappingAppService.selectOriginalMappingList:(Lcom/seeyon/boot/transport/SingleRequest;)Lcom/seeyon/boot/transport/ListResponse;
+    #5 = InterfaceMethodref #86.#88       // com/seeyon/boot/starter/dataflow/api/DataFlowMappingAppService.selectById:(Lcom/seeyon/boot/transport/SingleRequest;)Lcom/seeyon/boot/transport/SingleResponse;
+    #6 = InterfaceMethodref #86.#89       // com/seeyon/boot/starter/dataflow/api/DataFlowMappingAppService.selectMappingInitData:(Lcom/seeyon/boot/transport/SingleRequest;)Lcom/seeyon/boot/transport/SingleResponse;
+    #7 = InterfaceMethodref #86.#90       // com/seeyon/boot/starter/dataflow/api/DataFlowMappingAppService.update:(Lcom/seeyon/boot/transport/SingleRequest;)Lcom/seeyon/boot/transport/SingleResponse;
+    #8 = InterfaceMethodref #86.#91       // com/seeyon/boot/starter/dataflow/api/DataFlowMappingAppService.updateMappingState:(Lcom/seeyon/boot/transport/SingleRequest;)Lcom/seeyon/boot/transport/SingleResponse;
+    #9 = InterfaceMethodref #86.#92       // com/seeyon/boot/starter/dataflow/api/DataFlowMappingAppService.selectDetailByCondition:(Lcom/seeyon/boot/transport/SingleRequest;)Lcom/seeyon/boot/transport/SingleResponse;
+   #10 = Class              #93           // com/seeyon/boot/starter/dataflow/controller/DataFlowRtMappingController
+   #11 = Class              #94           // com/seeyon/boot/starter/web/BaseComponentController
+   #12 = Utf8               dataFlowMappingAppService
+   #13 = Utf8               Lcom/seeyon/boot/starter/dataflow/api/DataFlowMappingAppService;
+   #14 = Utf8               RuntimeVisibleAnnotations
+   #15 = Utf8               Lorg/springframework/beans/factory/annotation/Autowired;
+   #16 = Utf8               <init>
+   #17 = Utf8               ()V
+   #18 = Utf8               Code
+   #19 = Utf8               LineNumberTable
+   #20 = Utf8               LocalVariableTable
+   #21 = Utf8               this
+   #22 = Utf8               Lcom/seeyon/boot/starter/dataflow/controller/DataFlowRtMappingController;
+   #23 = Utf8               selectOriginalMappingList
+   #24 = Utf8               (Lcom/seeyon/boot/starter/dataflow/dto/OriginalDataFlowMappingListQueryDto;)Lcom/seeyon/boot/transport/ListResponse;
+   #25 = Utf8               request
+   #26 = Utf8               Lcom/seeyon/boot/starter/dataflow/dto/OriginalDataFlowMappingListQueryDto;
+   #27 = Utf8               Signature
+   #28 = Utf8               (Lcom/seeyon/boot/starter/dataflow/dto/OriginalDataFlowMappingListQueryDto;)Lcom/seeyon/boot/transport/ListResponse<Lcom/seeyon/boot/starter/dataflow/dto/DataFlowRtMappingDto;>;
+   #29 = Utf8               Lcom/seeyon/boot/annotation/RestApiOperation;
+   #30 = Utf8               value
+   #31 = Utf8               查询在设计态所定义的两个实体在同一个生单规则图中的手工类型映射规则
+   #32 = Utf8               description
+   #33 = Utf8               查询在设计态所定义的两个实体在同一个生单规则图中的手工类型映射规则，这些映射是在应用安装初始化的时候预制到应用微服务数据库表中的
+   #34 = Utf8               Lorg/springframework/web/bind/annotation/PostMapping;
+   #35 = Utf8               search-original
+   #36 = Utf8               RuntimeVisibleParameterAnnotations
+   #37 = Utf8               Lorg/springframework/web/bind/annotation/RequestBody;
+   #38 = Utf8               selectById
+   #39 = Utf8               (Ljava/lang/Long;)Lcom/seeyon/boot/transport/SingleResponse;
+   #40 = Utf8               id
+   #41 = Utf8               Ljava/lang/Long;
+   #42 = Utf8               (Ljava/lang/Long;)Lcom/seeyon/boot/transport/SingleResponse<Lcom/seeyon/boot/starter/dataflow/dto/DataFlowRtMappingDto;>;
+   #43 = Utf8               根据id查询映射规则
+   #44 = Utf8               Lorg/springframework/web/bind/annotation/GetMapping;
+   #45 = Utf8               {id}
+   #46 = Utf8               Lorg/springframework/web/bind/annotation/PathVariable;
+   #47 = Utf8               Lcom/seeyon/boot/annotation/ParameterInfo;
+   #48 = Utf8               映射规则id
+   #49 = Utf8               selectMappingInitData
+   #50 = Utf8               (Lcom/seeyon/udc/common/dto/DataFlowMappingInitQueryDto;)Lcom/seeyon/boot/transport/SingleResponse;
+   #51 = Utf8               paramDto
+   #52 = Utf8               Lcom/seeyon/udc/common/dto/DataFlowMappingInitQueryDto;
+   #53 = Utf8               (Lcom/seeyon/udc/common/dto/DataFlowMappingInitQueryDto;)Lcom/seeyon/boot/transport/SingleResponse<Lcom/seeyon/boot/starter/dataflow/dto/DataFlowRtEditInitialDataDto;>;
+   #54 = Utf8               根据实体信息获取编辑映射规则的初始数据
+   #55 = Utf8               init-data
+   #56 = Utf8               update
+   #57 = Utf8               (Lcom/seeyon/boot/starter/dataflow/dto/DataFlowRtMappingSaveDto;)Lcom/seeyon/boot/transport/SingleResponse;
+   #58 = Utf8               Lcom/seeyon/boot/starter/dataflow/dto/DataFlowRtMappingSaveDto;
+   #59 = Utf8               (Lcom/seeyon/boot/starter/dataflow/dto/DataFlowRtMappingSaveDto;)Lcom/seeyon/boot/transport/SingleResponse<Lcom/seeyon/boot/starter/dataflow/dto/DataFlowRtMappingDto;>;
+   #60 = Utf8               更新运行态映射规则
+   #61 = Utf8               updateMappingState
+   #62 = Utf8               (Lcom/seeyon/boot/starter/dataflow/dto/DataFlowMappingStateUpdateDto;)Lcom/seeyon/boot/transport/SingleResponse;
+   #63 = Utf8               dto
+   #64 = Utf8               Lcom/seeyon/boot/starter/dataflow/dto/DataFlowMappingStateUpdateDto;
+   #65 = Utf8               (Lcom/seeyon/boot/starter/dataflow/dto/DataFlowMappingStateUpdateDto;)Lcom/seeyon/boot/transport/SingleResponse<Lcom/seeyon/boot/starter/dataflow/dto/OperationResultDto;>;
+   #66 = Utf8               根据映射id，启停用映射
+   #67 = Utf8               state
+   #68 = Utf8               selectDetailByCondition
+   #69 = Utf8               (Lcom/seeyon/boot/starter/dataflow/dto/DataFlowOriginalMappingQueryDto;)Lcom/seeyon/boot/transport/SingleResponse;
+   #70 = Utf8               queryDto
+   #71 = Utf8               Lcom/seeyon/boot/starter/dataflow/dto/DataFlowOriginalMappingQueryDto;
+   #72 = Utf8               (Lcom/seeyon/boot/starter/dataflow/dto/DataFlowOriginalMappingQueryDto;)Lcom/seeyon/boot/transport/SingleResponse<Lcom/seeyon/boot/starter/dataflow/dto/DataFlowRtMappingDto;>;
+   #73 = Utf8               根据参数查询设计态原始的映射规则详情
+   #74 = Utf8               detail
+   #75 = Utf8               SourceFile
+   #76 = Utf8               DataFlowRtMappingController.java
+   #77 = Utf8               Lorg/springframework/web/bind/annotation/RestController;
+   #78 = Utf8               Lorg/springframework/web/bind/annotation/RequestMapping;
+   #79 = Utf8               udc-runtime/data-flow-mapping
+   #80 = Utf8               Lcom/seeyon/boot/annotation/RestApi;
+   #81 = Utf8               运行态映射方案相关接口
+   #82 = NameAndType        #16:#17       // "<init>":()V
+   #83 = NameAndType        #12:#13       // dataFlowMappingAppService:Lcom/seeyon/boot/starter/dataflow/api/DataFlowMappingAppService;
+   #84 = Class              #95           // com/seeyon/boot/transport/SingleRequest
+   #85 = NameAndType        #96:#97       // from:(Ljava/lang/Object;)Lcom/seeyon/boot/transport/SingleRequest;
+   #86 = Class              #98           // com/seeyon/boot/starter/dataflow/api/DataFlowMappingAppService
+   #87 = NameAndType        #23:#99       // selectOriginalMappingList:(Lcom/seeyon/boot/transport/SingleRequest;)Lcom/seeyon/boot/transport/ListResponse;
+   #88 = NameAndType        #38:#100      // selectById:(Lcom/seeyon/boot/transport/SingleRequest;)Lcom/seeyon/boot/transport/SingleResponse;
+   #89 = NameAndType        #49:#100      // selectMappingInitData:(Lcom/seeyon/boot/transport/SingleRequest;)Lcom/seeyon/boot/transport/SingleResponse;
+   #90 = NameAndType        #56:#100      // update:(Lcom/seeyon/boot/transport/SingleRequest;)Lcom/seeyon/boot/transport/SingleResponse;
+   #91 = NameAndType        #61:#100      // updateMappingState:(Lcom/seeyon/boot/transport/SingleRequest;)Lcom/seeyon/boot/transport/SingleResponse;
+   #92 = NameAndType        #68:#100      // selectDetailByCondition:(Lcom/seeyon/boot/transport/SingleRequest;)Lcom/seeyon/boot/transport/SingleResponse;
+   #93 = Utf8               com/seeyon/boot/starter/dataflow/controller/DataFlowRtMappingController
+   #94 = Utf8               com/seeyon/boot/starter/web/BaseComponentController
+   #95 = Utf8               com/seeyon/boot/transport/SingleRequest
+   #96 = Utf8               from
+   #97 = Utf8               (Ljava/lang/Object;)Lcom/seeyon/boot/transport/SingleRequest;
+   #98 = Utf8               com/seeyon/boot/starter/dataflow/api/DataFlowMappingAppService
+   #99 = Utf8               (Lcom/seeyon/boot/transport/SingleRequest;)Lcom/seeyon/boot/transport/ListResponse;
+  #100 = Utf8               (Lcom/seeyon/boot/transport/SingleRequest;)Lcom/seeyon/boot/transport/SingleResponse;
+{
+  private com.seeyon.boot.starter.dataflow.api.DataFlowMappingAppService dataFlowMappingAppService;
+    descriptor: Lcom/seeyon/boot/starter/dataflow/api/DataFlowMappingAppService;
+    flags: (0x0002) ACC_PRIVATE
+    RuntimeVisibleAnnotations:
+      0: #15()
+        org.springframework.beans.factory.annotation.Autowired
+
+  public com.seeyon.boot.starter.dataflow.controller.DataFlowRtMappingController();
+    descriptor: ()V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method com/seeyon/boot/starter/web/BaseComponentController."<init>":()V
+         4: return
+      LineNumberTable:
+        line 38: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lcom/seeyon/boot/starter/dataflow/controller/DataFlowRtMappingController;
+
+  public com.seeyon.boot.transport.ListResponse<com.seeyon.boot.starter.dataflow.dto.DataFlowRtMappingDto> selectOriginalMappingList(com.seeyon.boot.starter.dataflow.dto.OriginalDataFlowMappingListQueryDto);
+    descriptor: (Lcom/seeyon/boot/starter/dataflow/dto/OriginalDataFlowMappingListQueryDto;)Lcom/seeyon/boot/transport/ListResponse;
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0
+         1: getfield      #2                  // Field dataFlowMappingAppService:Lcom/seeyon/boot/starter/dataflow/api/DataFlowMappingAppService;
+         4: aload_1
+         5: invokestatic  #3                  // Method com/seeyon/boot/transport/SingleRequest.from:(Ljava/lang/Object;)Lcom/seeyon/boot/transport/SingleRequest;
+         8: invokeinterface #4,  2            // InterfaceMethod com/seeyon/boot/starter/dataflow/api/DataFlowMappingAppService.selectOriginalMappingList:(Lcom/seeyon/boot/transport/SingleRequest;)Lcom/seeyon/boot/transport/ListResponse;
+        13: areturn
+      LineNumberTable:
+        line 46: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      14     0  this   Lcom/seeyon/boot/starter/dataflow/controller/DataFlowRtMappingController;
+            0      14     1 request   Lcom/seeyon/boot/starter/dataflow/dto/OriginalDataFlowMappingListQueryDto;
+    Signature: #28                          // (Lcom/seeyon/boot/starter/dataflow/dto/OriginalDataFlowMappingListQueryDto;)Lcom/seeyon/boot/transport/ListResponse<Lcom/seeyon/boot/starter/dataflow/dto/DataFlowRtMappingDto;>;
+    RuntimeVisibleAnnotations:
+      0: #29(#30=s#31,#32=s#33)
+        com.seeyon.boot.annotation.RestApiOperation(
+          value="查询在设计态所定义的两个实体在同一个生单规则图中的手工类型映射规则"
+          description="查询在设计态所定义的两个实体在同一个生单规则图中的手工类型映射规则，这些映射是在应用安装初始化的时候预制到应用微服务数据库表中的"
+        )
+      1: #34(#30=[s#35])
+        org.springframework.web.bind.annotation.PostMapping(
+          value=["search-original"]
+        )
+    RuntimeVisibleParameterAnnotations:
+      parameter 0:
+        0: #37()
+          org.springframework.web.bind.annotation.RequestBody
+
+  public com.seeyon.boot.transport.SingleResponse<com.seeyon.boot.starter.dataflow.dto.DataFlowRtMappingDto> selectById(java.lang.Long);
+    descriptor: (Ljava/lang/Long;)Lcom/seeyon/boot/transport/SingleResponse;
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0
+         1: getfield      #2                  // Field dataFlowMappingAppService:Lcom/seeyon/boot/starter/dataflow/api/DataFlowMappingAppService;
+         4: aload_1
+         5: invokestatic  #3                  // Method com/seeyon/boot/transport/SingleRequest.from:(Ljava/lang/Object;)Lcom/seeyon/boot/transport/SingleRequest;
+         8: invokeinterface #5,  2            // InterfaceMethod com/seeyon/boot/starter/dataflow/api/DataFlowMappingAppService.selectById:(Lcom/seeyon/boot/transport/SingleRequest;)Lcom/seeyon/boot/transport/SingleResponse;
+        13: areturn
+      LineNumberTable:
+        line 53: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      14     0  this   Lcom/seeyon/boot/starter/dataflow/controller/DataFlowRtMappingController;
+            0      14     1    id   Ljava/lang/Long;
+    Signature: #42                          // (Ljava/lang/Long;)Lcom/seeyon/boot/transport/SingleResponse<Lcom/seeyon/boot/starter/dataflow/dto/DataFlowRtMappingDto;>;
+    RuntimeVisibleAnnotations:
+      0: #29(#30=s#43,#32=s#43)
+        com.seeyon.boot.annotation.RestApiOperation(
+          value="根据id查询映射规则"
+          description="根据id查询映射规则"
+        )
+      1: #44(#30=[s#45])
+        org.springframework.web.bind.annotation.GetMapping(
+          value=["{id}"]
+        )
+    RuntimeVisibleParameterAnnotations:
+      parameter 0:
+        0: #46(#30=s#40)
+          org.springframework.web.bind.annotation.PathVariable(
+            value="id"
+          )
+        1: #47(#30=s#48)
+          com.seeyon.boot.annotation.ParameterInfo(
+            value="映射规则id"
+          )
+
+  public com.seeyon.boot.transport.SingleResponse<com.seeyon.boot.starter.dataflow.dto.DataFlowRtEditInitialDataDto> selectMappingInitData(com.seeyon.udc.common.dto.DataFlowMappingInitQueryDto);
+    descriptor: (Lcom/seeyon/udc/common/dto/DataFlowMappingInitQueryDto;)Lcom/seeyon/boot/transport/SingleResponse;
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0
+         1: getfield      #2                  // Field dataFlowMappingAppService:Lcom/seeyon/boot/starter/dataflow/api/DataFlowMappingAppService;
+         4: aload_1
+         5: invokestatic  #3                  // Method com/seeyon/boot/transport/SingleRequest.from:(Ljava/lang/Object;)Lcom/seeyon/boot/transport/SingleRequest;
+         8: invokeinterface #6,  2            // InterfaceMethod com/seeyon/boot/starter/dataflow/api/DataFlowMappingAppService.selectMappingInitData:(Lcom/seeyon/boot/transport/SingleRequest;)Lcom/seeyon/boot/transport/SingleResponse;
+        13: areturn
+      LineNumberTable:
+        line 60: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      14     0  this   Lcom/seeyon/boot/starter/dataflow/controller/DataFlowRtMappingController;
+            0      14     1 paramDto   Lcom/seeyon/udc/common/dto/DataFlowMappingInitQueryDto;
+    Signature: #53                          // (Lcom/seeyon/udc/common/dto/DataFlowMappingInitQueryDto;)Lcom/seeyon/boot/transport/SingleResponse<Lcom/seeyon/boot/starter/dataflow/dto/DataFlowRtEditInitialDataDto;>;
+    RuntimeVisibleAnnotations:
+      0: #29(#30=s#54,#32=s#54)
+        com.seeyon.boot.annotation.RestApiOperation(
+          value="根据实体信息获取编辑映射规则的初始数据"
+          description="根据实体信息获取编辑映射规则的初始数据"
+        )
+      1: #34(#30=[s#55])
+        org.springframework.web.bind.annotation.PostMapping(
+          value=["init-data"]
+        )
+    RuntimeVisibleParameterAnnotations:
+      parameter 0:
+        0: #37()
+          org.springframework.web.bind.annotation.RequestBody
+
+  public com.seeyon.boot.transport.SingleResponse<com.seeyon.boot.starter.dataflow.dto.DataFlowRtMappingDto> update(com.seeyon.boot.starter.dataflow.dto.DataFlowRtMappingSaveDto);
+    descriptor: (Lcom/seeyon/boot/starter/dataflow/dto/DataFlowRtMappingSaveDto;)Lcom/seeyon/boot/transport/SingleResponse;
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0
+         1: getfield      #2                  // Field dataFlowMappingAppService:Lcom/seeyon/boot/starter/dataflow/api/DataFlowMappingAppService;
+         4: aload_1
+         5: invokestatic  #3                  // Method com/seeyon/boot/transport/SingleRequest.from:(Ljava/lang/Object;)Lcom/seeyon/boot/transport/SingleRequest;
+         8: invokeinterface #7,  2            // InterfaceMethod com/seeyon/boot/starter/dataflow/api/DataFlowMappingAppService.update:(Lcom/seeyon/boot/transport/SingleRequest;)Lcom/seeyon/boot/transport/SingleResponse;
+        13: areturn
+      LineNumberTable:
+        line 67: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      14     0  this   Lcom/seeyon/boot/starter/dataflow/controller/DataFlowRtMappingController;
+            0      14     1 request   Lcom/seeyon/boot/starter/dataflow/dto/DataFlowRtMappingSaveDto;
+    Signature: #59                          // (Lcom/seeyon/boot/starter/dataflow/dto/DataFlowRtMappingSaveDto;)Lcom/seeyon/boot/transport/SingleResponse<Lcom/seeyon/boot/starter/dataflow/dto/DataFlowRtMappingDto;>;
+    RuntimeVisibleAnnotations:
+      0: #29(#30=s#60,#32=s#60)
+        com.seeyon.boot.annotation.RestApiOperation(
+          value="更新运行态映射规则"
+          description="更新运行态映射规则"
+        )
+      1: #34(#30=[s#56])
+        org.springframework.web.bind.annotation.PostMapping(
+          value=["update"]
+        )
+    RuntimeVisibleParameterAnnotations:
+      parameter 0:
+        0: #37()
+          org.springframework.web.bind.annotation.RequestBody
+
+  public com.seeyon.boot.transport.SingleResponse<com.seeyon.boot.starter.dataflow.dto.OperationResultDto> updateMappingState(com.seeyon.boot.starter.dataflow.dto.DataFlowMappingStateUpdateDto);
+    descriptor: (Lcom/seeyon/boot/starter/dataflow/dto/DataFlowMappingStateUpdateDto;)Lcom/seeyon/boot/transport/SingleResponse;
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0
+         1: getfield      #2                  // Field dataFlowMappingAppService:Lcom/seeyon/boot/starter/dataflow/api/DataFlowMappingAppService;
+         4: aload_1
+         5: invokestatic  #3                  // Method com/seeyon/boot/transport/SingleRequest.from:(Ljava/lang/Object;)Lcom/seeyon/boot/transport/SingleRequest;
+         8: invokeinterface #8,  2            // InterfaceMethod com/seeyon/boot/starter/dataflow/api/DataFlowMappingAppService.updateMappingState:(Lcom/seeyon/boot/transport/SingleRequest;)Lcom/seeyon/boot/transport/SingleResponse;
+        13: areturn
+      LineNumberTable:
+        line 74: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      14     0  this   Lcom/seeyon/boot/starter/dataflow/controller/DataFlowRtMappingController;
+            0      14     1   dto   Lcom/seeyon/boot/starter/dataflow/dto/DataFlowMappingStateUpdateDto;
+    Signature: #65                          // (Lcom/seeyon/boot/starter/dataflow/dto/DataFlowMappingStateUpdateDto;)Lcom/seeyon/boot/transport/SingleResponse<Lcom/seeyon/boot/starter/dataflow/dto/OperationResultDto;>;
+    RuntimeVisibleAnnotations:
+      0: #29(#30=s#66,#32=s#66)
+        com.seeyon.boot.annotation.RestApiOperation(
+          value="根据映射id，启停用映射"
+          description="根据映射id，启停用映射"
+        )
+      1: #34(#30=[s#67])
+        org.springframework.web.bind.annotation.PostMapping(
+          value=["state"]
+        )
+    RuntimeVisibleParameterAnnotations:
+      parameter 0:
+        0: #37()
+          org.springframework.web.bind.annotation.RequestBody
+
+  public com.seeyon.boot.transport.SingleResponse<com.seeyon.boot.starter.dataflow.dto.DataFlowRtMappingDto> selectDetailByCondition(com.seeyon.boot.starter.dataflow.dto.DataFlowOriginalMappingQueryDto);
+    descriptor: (Lcom/seeyon/boot/starter/dataflow/dto/DataFlowOriginalMappingQueryDto;)Lcom/seeyon/boot/transport/SingleResponse;
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0
+         1: getfield      #2                  // Field dataFlowMappingAppService:Lcom/seeyon/boot/starter/dataflow/api/DataFlowMappingAppService;
+         4: aload_1
+         5: invokestatic  #3                  // Method com/seeyon/boot/transport/SingleRequest.from:(Ljava/lang/Object;)Lcom/seeyon/boot/transport/SingleRequest;
+         8: invokeinterface #9,  2            // InterfaceMethod com/seeyon/boot/starter/dataflow/api/DataFlowMappingAppService.selectDetailByCondition:(Lcom/seeyon/boot/transport/SingleRequest;)Lcom/seeyon/boot/transport/SingleResponse;
+        13: areturn
+      LineNumberTable:
+        line 84: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      14     0  this   Lcom/seeyon/boot/starter/dataflow/controller/DataFlowRtMappingController;
+            0      14     1 queryDto   Lcom/seeyon/boot/starter/dataflow/dto/DataFlowOriginalMappingQueryDto;
+    Signature: #72                          // (Lcom/seeyon/boot/starter/dataflow/dto/DataFlowOriginalMappingQueryDto;)Lcom/seeyon/boot/transport/SingleResponse<Lcom/seeyon/boot/starter/dataflow/dto/DataFlowRtMappingDto;>;
+    RuntimeVisibleAnnotations:
+      0: #29(#30=s#73,#32=s#73)
+        com.seeyon.boot.annotation.RestApiOperation(
+          value="根据参数查询设计态原始的映射规则详情"
+          description="根据参数查询设计态原始的映射规则详情"
+        )
+      1: #34(#30=[s#74])
+        org.springframework.web.bind.annotation.PostMapping(
+          value=["detail"]
+        )
+    RuntimeVisibleParameterAnnotations:
+      parameter 0:
+        0: #37()
+          org.springframework.web.bind.annotation.RequestBody
+}
+SourceFile: "DataFlowRtMappingController.java"
+RuntimeVisibleAnnotations:
+  0: #77()
+    org.springframework.web.bind.annotation.RestController
+  1: #78(#30=[s#79])
+    org.springframework.web.bind.annotation.RequestMapping(
+      value=["udc-runtime/data-flow-mapping"]
+    )
+  2: #80(#30=s#81)
+    com.seeyon.boot.annotation.RestApi(
+      value="运行态映射方案相关接口"
+    )

@@ -1,0 +1,9 @@
+Compiled from "SpringDynamicRegister.java"
+public class com.seeyon.boot.starter.spi.SpringDynamicRegister implements org.springframework.context.ApplicationContextAware {
+  private org.springframework.context.ApplicationContext applicationContext;
+  private org.springframework.beans.factory.support.DefaultListableBeanFactory defaultListableBeanFactory;
+  public com.seeyon.boot.starter.spi.SpringDynamicRegister();
+  public void setApplicationContext(org.springframework.context.ApplicationContext) throws org.springframework.beans.BeansException;
+  public void registerBeanDefinition(java.lang.String, java.lang.Class<?>);
+  public java.lang.Object getBean(java.lang.String);
+}

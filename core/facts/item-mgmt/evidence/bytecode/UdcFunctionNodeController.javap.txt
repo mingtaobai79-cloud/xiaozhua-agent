@@ -1,0 +1,128 @@
+Classfile jar:file:///D:/repo/CHIT/com/seeyon/udc-starter-runtime/5.3.517/udc-starter-runtime-5.3.517.jar!/com/seeyon/boot/starter/udcrt/controller/UdcFunctionNodeController.class
+  Last modified 2026年6月17日; size 1844 bytes
+  SHA-256 checksum efd8f9143d0fd44d4e3033a4bb4877c09e891a1049f66382df1ae1d7d08a7748
+  Compiled from "UdcFunctionNodeController.java"
+public class com.seeyon.boot.starter.udcrt.controller.UdcFunctionNodeController extends com.seeyon.boot.starter.web.BaseComponentController
+  minor version: 0
+  major version: 52
+  flags: (0x0021) ACC_PUBLIC, ACC_SUPER
+  this_class: #5                          // com/seeyon/boot/starter/udcrt/controller/UdcFunctionNodeController
+  super_class: #6                         // com/seeyon/boot/starter/web/BaseComponentController
+  interfaces: 0, fields: 1, methods: 2, attributes: 2
+Constant pool:
+   #1 = Methodref          #6.#38         // com/seeyon/boot/starter/web/BaseComponentController."<init>":()V
+   #2 = Fieldref           #5.#39         // com/seeyon/boot/starter/udcrt/controller/UdcFunctionNodeController.functionNodeAppService:Lcom/seeyon/boot/starter/udcrt/appservice/UdcFunctionNodeAppService;
+   #3 = Methodref          #40.#41        // com/seeyon/boot/transport/SingleRequest.from:(Ljava/lang/Object;)Lcom/seeyon/boot/transport/SingleRequest;
+   #4 = Methodref          #42.#43        // com/seeyon/boot/starter/udcrt/appservice/UdcFunctionNodeAppService.selectFunctionNodeTreeMetaData:(Lcom/seeyon/boot/transport/SingleRequest;)Lcom/seeyon/boot/transport/ListResponse;
+   #5 = Class              #44            // com/seeyon/boot/starter/udcrt/controller/UdcFunctionNodeController
+   #6 = Class              #45            // com/seeyon/boot/starter/web/BaseComponentController
+   #7 = Utf8               functionNodeAppService
+   #8 = Utf8               Lcom/seeyon/boot/starter/udcrt/appservice/UdcFunctionNodeAppService;
+   #9 = Utf8               RuntimeVisibleAnnotations
+  #10 = Utf8               Lorg/springframework/beans/factory/annotation/Autowired;
+  #11 = Utf8               <init>
+  #12 = Utf8               ()V
+  #13 = Utf8               Code
+  #14 = Utf8               LineNumberTable
+  #15 = Utf8               LocalVariableTable
+  #16 = Utf8               this
+  #17 = Utf8               Lcom/seeyon/boot/starter/udcrt/controller/UdcFunctionNodeController;
+  #18 = Utf8               selectFunctionNodeTreeMetaData
+  #19 = Utf8               (Ljava/lang/String;)Lcom/seeyon/boot/transport/ListResponse;
+  #20 = Utf8               appName
+  #21 = Utf8               Ljava/lang/String;
+  #22 = Utf8               Signature
+  #23 = Utf8               (Ljava/lang/String;)Lcom/seeyon/boot/transport/ListResponse<Lcom/seeyon/udc/common/dto/UdcFunctionNodeMetadataDto;>;
+  #24 = Utf8               Lcom/seeyon/boot/annotation/RestApiOperation;
+  #25 = Utf8               value
+  #26 = Utf8               【菜单】根据appName-查询菜单树
+  #27 = Utf8               Lorg/springframework/web/bind/annotation/GetMapping;
+  #28 = Utf8               select-function-node-tree/{appName}
+  #29 = Utf8               RuntimeVisibleParameterAnnotations
+  #30 = Utf8               Lorg/springframework/web/bind/annotation/PathVariable;
+  #31 = Utf8               SourceFile
+  #32 = Utf8               UdcFunctionNodeController.java
+  #33 = Utf8               Lorg/springframework/web/bind/annotation/RestController;
+  #34 = Utf8               Lorg/springframework/web/bind/annotation/RequestMapping;
+  #35 = Utf8               udc-runtime/meta-data
+  #36 = Utf8               Lcom/seeyon/boot/annotation/RestApi;
+  #37 = Utf8               UDC运行态菜单查询接口
+  #38 = NameAndType        #11:#12        // "<init>":()V
+  #39 = NameAndType        #7:#8          // functionNodeAppService:Lcom/seeyon/boot/starter/udcrt/appservice/UdcFunctionNodeAppService;
+  #40 = Class              #46            // com/seeyon/boot/transport/SingleRequest
+  #41 = NameAndType        #47:#48        // from:(Ljava/lang/Object;)Lcom/seeyon/boot/transport/SingleRequest;
+  #42 = Class              #49            // com/seeyon/boot/starter/udcrt/appservice/UdcFunctionNodeAppService
+  #43 = NameAndType        #18:#50        // selectFunctionNodeTreeMetaData:(Lcom/seeyon/boot/transport/SingleRequest;)Lcom/seeyon/boot/transport/ListResponse;
+  #44 = Utf8               com/seeyon/boot/starter/udcrt/controller/UdcFunctionNodeController
+  #45 = Utf8               com/seeyon/boot/starter/web/BaseComponentController
+  #46 = Utf8               com/seeyon/boot/transport/SingleRequest
+  #47 = Utf8               from
+  #48 = Utf8               (Ljava/lang/Object;)Lcom/seeyon/boot/transport/SingleRequest;
+  #49 = Utf8               com/seeyon/boot/starter/udcrt/appservice/UdcFunctionNodeAppService
+  #50 = Utf8               (Lcom/seeyon/boot/transport/SingleRequest;)Lcom/seeyon/boot/transport/ListResponse;
+{
+  private com.seeyon.boot.starter.udcrt.appservice.UdcFunctionNodeAppService functionNodeAppService;
+    descriptor: Lcom/seeyon/boot/starter/udcrt/appservice/UdcFunctionNodeAppService;
+    flags: (0x0002) ACC_PRIVATE
+    RuntimeVisibleAnnotations:
+      0: #10()
+        org.springframework.beans.factory.annotation.Autowired
+
+  public com.seeyon.boot.starter.udcrt.controller.UdcFunctionNodeController();
+    descriptor: ()V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method com/seeyon/boot/starter/web/BaseComponentController."<init>":()V
+         4: return
+      LineNumberTable:
+        line 27: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lcom/seeyon/boot/starter/udcrt/controller/UdcFunctionNodeController;
+
+  public com.seeyon.boot.transport.ListResponse<com.seeyon.udc.common.dto.UdcFunctionNodeMetadataDto> selectFunctionNodeTreeMetaData(java.lang.String);
+    descriptor: (Ljava/lang/String;)Lcom/seeyon/boot/transport/ListResponse;
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0
+         1: getfield      #2                  // Field functionNodeAppService:Lcom/seeyon/boot/starter/udcrt/appservice/UdcFunctionNodeAppService;
+         4: aload_1
+         5: invokestatic  #3                  // Method com/seeyon/boot/transport/SingleRequest.from:(Ljava/lang/Object;)Lcom/seeyon/boot/transport/SingleRequest;
+         8: invokevirtual #4                  // Method com/seeyon/boot/starter/udcrt/appservice/UdcFunctionNodeAppService.selectFunctionNodeTreeMetaData:(Lcom/seeyon/boot/transport/SingleRequest;)Lcom/seeyon/boot/transport/ListResponse;
+        11: areturn
+      LineNumberTable:
+        line 35: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      12     0  this   Lcom/seeyon/boot/starter/udcrt/controller/UdcFunctionNodeController;
+            0      12     1 appName   Ljava/lang/String;
+    Signature: #23                          // (Ljava/lang/String;)Lcom/seeyon/boot/transport/ListResponse<Lcom/seeyon/udc/common/dto/UdcFunctionNodeMetadataDto;>;
+    RuntimeVisibleAnnotations:
+      0: #24(#25=s#26)
+        com.seeyon.boot.annotation.RestApiOperation(
+          value="【菜单】根据appName-查询菜单树"
+        )
+      1: #27(#25=[s#28])
+        org.springframework.web.bind.annotation.GetMapping(
+          value=["select-function-node-tree/{appName}"]
+        )
+    RuntimeVisibleParameterAnnotations:
+      parameter 0:
+        0: #30()
+          org.springframework.web.bind.annotation.PathVariable
+}
+SourceFile: "UdcFunctionNodeController.java"
+RuntimeVisibleAnnotations:
+  0: #33()
+    org.springframework.web.bind.annotation.RestController
+  1: #34(#25=[s#35])
+    org.springframework.web.bind.annotation.RequestMapping(
+      value=["udc-runtime/meta-data"]
+    )
+  2: #36(#25=s#37)
+    com.seeyon.boot.annotation.RestApi(
+      value="UDC运行态菜单查询接口"
+    )

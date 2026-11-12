@@ -1,0 +1,42 @@
+{
+ "页面测试": {
+  "click": "ok",
+  "href": "https://lowcode-test2.example.com/main/child-frame/udc/app-design/app-basic-info/testPage?appId=8704025620829192834",
+  "body": "应用 实体 菜单 规则 流程 BI 栏目 设置 角色 数据迁移(1.0) 应用 检查 页面调试(beta) 测试 更多 数据迁移 编辑 web端移动端设计版本:V1.0创建时间:2026-10-12 17:15:02 页面测试 沙箱测试 发"
+ },
+ "沙箱测试": {
+  "click": "ok",
+  "href": "https://lowcode-test2.example.com/main/child-frame/udc/app-design/app-basic-info/testVersion?appId=8704025620829192834",
+  "body": "应用 实体 菜单 规则 流程 BI 栏目 设置 角色 数据迁移(1.0) 应用 检查 页面调试(beta) 测试 更多 数据迁移 编辑 web端移动端设计版本:V1.0创建时间:2026-10-12 17:15:02 页面测试 沙箱测试 发"
+ },
+ "发布版本": {
+  "click": "ok",
+  "href": "https://lowcode-test2.example.com/main/child-frame/udc/app-design/app-basic-info/version?appId=8704025620829192834",
+  "body": "应用 实体 菜单 规则 流程 BI 栏目 设置 角色 数据迁移(1.0) 应用 检查 页面调试(beta) 测试 更多 数据迁移 编辑 web端移动端设计版本:V1.0创建时间:2026-10-12 17:15:02 页面测试 沙箱测试 发"
+ },
+ "依赖设置": {
+  "click": "ok",
+  "href": "https://lowcode-test2.example.com/main/child-frame/udc/app-design/app-basic-info/version?appId=8704025620829192834",
+  "body": "应用 实体 菜单 规则 流程 BI 栏目 设置 角色 数据迁移(1.0) 应用 检查 页面调试(beta) 测试 更多 数据迁移 编辑 web端移动端设计版本:V1.0创建时间:2026-10-12 17:15:02 页面测试 沙箱测试 发"
+ },
+ "应用依赖": {
+  "click": "ok",
+  "href": "https://lowcode-test2.example.com/main/child-frame/udc/app-design/app-basic-info/dependentApp?appId=8704025620829192834",
+  "body": "应用 实体 菜单 规则 流程 BI 栏目 设置 角色 数据迁移(1.0) 应用 检查 页面调试(beta) 测试 更多 数据迁移 编辑 web端移动端设计版本:V1.0创建时间:2026-10-12 17:15:02 页面测试 沙箱测试 发"
+ },
+ "组件依赖": {
+  "click": "ok",
+  "href": "https://lowcode-test2.example.com/main/child-frame/udc/app-design/app-basic-info/dependentCmp?appId=8704025620829192834",
+  "body": "应用 实体 菜单 规则 流程 BI 栏目 设置 角色 数据迁移(1.0) 应用 检查 页面调试(beta) 测试 更多 数据迁移 编辑 web端移动端设计版本:V1.0创建时间:2026-10-12 17:15:02 页面测试 沙箱测试 发"
+ },
+ "团队设置": {
+  "click": "ok",
+  "href": "https://lowcode-test2.example.com/main/child-frame/udc/app-design/app-basic-info/team?appId=8704025620829192834",
+  "body": "应用 实体 菜单 规则 流程 BI 栏目 设置 角色 数据迁移(1.0) 应用 检查 页面调试(beta) 测试 更多 数据迁移 编辑 web端移动端设计版本:V1.0创建时间:2026-10-12 17:15:02 页面测试 沙箱测试 发"
+ },
+ "应用主题": {
+  "click": "ok",
+  "href": "https://lowcode-test2.example.com/main/child-frame/udc/app-design/app-basic-info/appTheme?appId=8704025620829192834",
+  "body": "应用 实体 菜单 规则 流程 BI 栏目 设置 角色 数据迁移(1.0) 应用 检查 页面调试(beta) 测试 更多 数据迁移 编辑 web端移动端设计版本:V1.0创建时间:2026-10-12 17:15:02 页面测试 沙箱测试 发"
+ }
+}

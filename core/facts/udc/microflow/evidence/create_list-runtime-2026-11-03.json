@@ -1,0 +1,38 @@
+{
+ "stage": "P6",
+ "node": "CREATE_LIST",
+ "date": "2026-11-03",
+ "app_id": "8704025620829192834",
+ "entity": "迁移断点",
+ "flow": {
+  "name": "p6clcvp6cv01",
+  "mid": "-7549646798639718130",
+  "trigger": "SCHEDULE/5min"
+ },
+ "cases": [
+  {
+   "case": "建实体列表后条数",
+   "before": null,
+   "after": 0,
+   "expect": 0,
+   "pass": true,
+   "evidence": "P6CV01-CL0.processed_rows=0"
+  },
+  {
+   "case": "ADD 列表形态追加 3 条",
+   "before": 0,
+   "after": 3,
+   "expect": 3,
+   "pass": true,
+   "evidence": "P6CV01-CL1.processed_rows=3（dataSource=查询结果列表，52 条样本形态）"
+  }
+ ],
+ "build": {
+  "state": "SUCCESS",
+  "sec": 243
+ },
+ "not_covered": [
+  "BASIC 类型列表（paramType=BASIC）",
+  "带初值列表"
+ ]
+}

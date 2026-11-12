@@ -1,0 +1,265 @@
+{
+  "children": [
+    "udcDataGridView_iPdx"
+  ],
+  "id": "-2795971120707411668",
+  "appId": "6419954374508955097",
+  "pageType": "SEARCH_LIST",
+  "pageUrl": "zzprobeshouye",
+  "urlType": "PC",
+  "defaultOpenType": null,
+  "description": "",
+  "groupId": "0",
+  "guid": "1604419953923735992",
+  "relationGroupId": "7909611546579554281",
+  "sortNo": 10,
+  "masterEntityIds": "1214120700508048602",
+  "createTime": "1790778823000",
+  "version": "2.4.0",
+  "handWritten": false,
+  "inPortletParams": [],
+  "settings": {
+    "styles": {},
+    "title": {
+      "type": "Simple"
+    },
+    "resolutionPower": {
+      "type": "auto",
+      "value": {
+        "per": 100,
+        "minWidth": 1200,
+        "maxWidth": 1920
+      }
+    },
+    "alignment": "center",
+    "backgroundAdapt": "cover",
+    "backgroundColor": "#ffffff",
+    "gap": "20px 0",
+    "boxModel": {
+      "margin": "0 auto 0 auto",
+      "padding": "16px 20px 0 20px"
+    }
+  },
+  "layoutVisibleControl": {
+    "type": "visible"
+  },
+  "pageLayout": false,
+  "outParameters": [],
+  "pageVariable": [],
+  "pageDefinedEvents": [],
+  "originId": "-2795971120707411668",
+  "name": "页面",
+  "type": "PAGE",
+  "terminal": "PC",
+  "childById": {
+    "udcDataGridView_iPdx": {
+      "id": "udcDataGridView_iPdx",
+      "type": "UdcDataGridView",
+      "parentId": "PAGE",
+      "settings": {
+        "columns": [
+          {
+            "columnId": "ONcJej",
+            "columnIndex": 0,
+            "parentId": "udcDataGridView_iPdx",
+            "dataIndex": "ziduan1",
+            "dataFieldId": "2667087430121200499",
+            "fieldPath": [
+              "2667087430121200499"
+            ],
+            "dataFieldCaption": "字段1",
+            "dataI18n": false,
+            "fullName": "com.seeyon.zzprobenew26419954374508955097.domain.entity.ZzprobeEnt1.ziduan1",
+            "dataType": "STRING",
+            "customs": {
+              "useSnapshot": false,
+              "guid": "-5417297856742406826"
+            },
+            "status": "default",
+            "align": "left",
+            "widthType": "pt",
+            "widthValue": 100,
+            "relationType": null,
+            "relationEntity": null,
+            "relationApp": null,
+            "displayFormate": "default",
+            "displayFormateTime": "default",
+            "decimalPlace": 0,
+            "amountInWord": false,
+            "isGroupEnable": true,
+            "decimalDigits": 0,
+            "positiveNumber": "0",
+            "nagativeNumber": "0",
+            "currencyIcon": "￥",
+            "displayStyle": "input",
+            "enableList": false,
+            "displayStyleAttachment": "button",
+            "sliderMin": 0,
+            "sliderMax": 100,
+            "sliderColor": {
+              "type": "Simple",
+              "simple": "brand1-6"
+            },
+            "multiSelect": false
+          }
+        ],
+        "topOperates": [
+          {
+            "id": "K76cM3lSTR",
+            "type": "item",
+            "name": "操作1",
+            "allowControlled": false,
+            "buttonType": "default",
+            "danger": false,
+            "ghost": false,
+            "onlyIcon": false,
+            "icon": "",
+            "iconPosition": "left",
+            "status": {
+              "type": "Simple",
+              "simple": "basic"
+            },
+            "isPlaceHolderColumn": false,
+            "showContent": "text"
+          },
+          {
+            "id": "cZ7L3HpDc5",
+            "type": "item",
+            "name": "操作2",
+            "allowControlled": false,
+            "buttonType": "default",
+            "danger": false,
+            "ghost": false,
+            "onlyIcon": false,
+            "icon": "",
+            "iconPosition": "left",
+            "status": {
+              "type": "Simple",
+              "simple": "basic"
+            },
+            "isPlaceHolderColumn": false,
+            "showContent": "text"
+          }
+        ],
+        "filterSetting": {
+          "type": "single"
+        }
+      },
+      "uiModel": {
+        "title": {
+          "type": "Simple",
+          "simple": "zzprobe测试实体"
+        },
+        "flowAuthKeys": [
+          {
+            "key": "topOperates",
+            "childOperateStatusOptions": [
+              {
+                "label": "正常 ",
+                "key": "basic"
+              },
+              {
+                "label": "禁用",
+                "key": "disabled"
+              },
+              {
+                "label": "隐藏",
+                "key": "invisible"
+              }
+            ],
+            "resolveType": "normalListAuth"
+          },
+          {
+            "key": "actionColumnOperates",
+            "childOperateStatusOptions": [
+              {
+                "label": "正常 ",
+                "key": "basic"
+              },
+              {
+                "label": "禁用",
+                "key": "disabled"
+              },
+              {
+                "label": "隐藏",
+                "key": "invisible"
+              }
+            ],
+            "resolveType": "normalListAuth"
+          }
+        ]
+      },
+      "uiModelSchema": [
+        {
+          "label": "标题",
+          "key": "title",
+          "dataType": "STRING"
+        },
+        {
+          "label": "状态",
+          "key": "status",
+          "dataType": "STRING",
+          "options": [
+            {
+              "label": "正常 ",
+              "key": "basic"
+            },
+            {
+              "label": "禁用",
+              "key": "disabled"
+            },
+            {
+              "label": "隐藏",
+              "key": "invisible"
+            }
+          ]
+        }
+      ],
+      "componentName": "重复表查询",
+      "dataSource": {
+        "type": "ENTITY",
+        "subType": "NORMAL",
+        "key": "udcDataGridView_iPdx-1214120700508048602",
+        "isRoot": true,
+        "isRef": false,
+        "dataShape": "LIST",
+        "entity": {
+          "id": "1214120700508048602",
+          "name": "zzprobeEnt1",
+          "fullName": "com.seeyon.zzprobenew26419954374508955097.domain.entity.ZzprobeEnt1",
+          "caption": "zzprobe测试实体",
+          "stereotype": "standard",
+          "category": "ENTITY",
+          "supportOrderNo": false,
+          "appName": "zzprobenew26419954374508955097",
+          "appId": "6419954374508955097"
+        },
+        "fields": [
+          {
+            "id": "2667087430121200499",
+            "name": "ziduan1",
+            "fieldPath": [
+              "2667087430121200499"
+            ],
+            "fullName": "com.seeyon.zzprobenew26419954374508955097.domain.entity.ZzprobeEnt1.ziduan1",
+            "parentId": "udcDataGridView_iPdx",
+            "readonly": false
+          }
+        ],
+        "dataTarget": "udcDataGridView_iPdx",
+        "fieldBindMap": {
+          "ONcJej": "ziduan1"
+        },
+        "hiddenFields": []
+      },
+      "name": "zzprobe测试实体",
+      "events": [],
+      "children": [],
+      "extraChildren": {
+        "columnChildren": []
+      }
+    }
+  },
+  "eventDefine": [],
+  "expressSchemaPathMaps": {}
+}

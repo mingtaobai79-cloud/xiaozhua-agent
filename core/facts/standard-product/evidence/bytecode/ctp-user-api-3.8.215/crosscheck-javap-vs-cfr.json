@@ -1,0 +1,112 @@
+{
+  "tool": "javap 1.21 (<LOCAL_ROOT>/java/bin/javap.exe -public -s) vs CFR 0.152 (java -jar cfr.jar <jar>)",
+  "note": "method-name set comparison per contract interface",
+  "results": [
+    {
+      "fqcn": "com.seeyon.ctp.user.api.sso.CtpUserSsoAuthProviderService",
+      "javap_count": 19,
+      "cfr_count": 19,
+      "javap_names": [
+        "get4aTokenKey",
+        "getEncodeLogoutRedirectUrl",
+        "getRequestParaKey",
+        "getSsoLoginUrl",
+        "getSuccessAuthTokenEnum",
+        "getTidCode",
+        "getUserLoginInfo",
+        "getUserLoginInfoForMobile",
+        "isRedirectShortLink",
+        "mapSupportsAuthTokenEnum",
+        "rebuildCtpUserDtoList",
+        "refreshThirdToken",
+        "refreshThirdTokenByConfig",
+        "sendVerifyCode",
+        "setServerDomain",
+        "setServerEnv",
+        "shortLinkMode",
+        "thirdSsoLogout",
+        "tokenExpiredSetNull"
+      ],
+      "cfr_names": [
+        "get4aTokenKey",
+        "getEncodeLogoutRedirectUrl",
+        "getRequestParaKey",
+        "getSsoLoginUrl",
+        "getSuccessAuthTokenEnum",
+        "getTidCode",
+        "getUserLoginInfo",
+        "getUserLoginInfoForMobile",
+        "isRedirectShortLink",
+        "mapSupportsAuthTokenEnum",
+        "rebuildCtpUserDtoList",
+        "refreshThirdToken",
+        "refreshThirdTokenByConfig",
+        "sendVerifyCode",
+        "setServerDomain",
+        "setServerEnv",
+        "shortLinkMode",
+        "thirdSsoLogout",
+        "tokenExpiredSetNull"
+      ],
+      "set_equal": true
+    },
+    {
+      "fqcn": "com.seeyon.ctp.user.api.avoidlogin.CtpAvoidLoginMiddlePageProviderService",
+      "javap_count": 4,
+      "cfr_count": 4,
+      "javap_names": [
+        "doRefreshToken",
+        "getCtpUserInfo",
+        "getUserInfo",
+        "isRefreshTokenCycle"
+      ],
+      "cfr_names": [
+        "doRefreshToken",
+        "getCtpUserInfo",
+        "getUserInfo",
+        "isRefreshTokenCycle"
+      ],
+      "set_equal": true
+    },
+    {
+      "fqcn": "com.seeyon.ctp.user.api.avoidlogin.CtpAvoidLoginClientModeProviderService",
+      "javap_count": 2,
+      "cfr_count": 2,
+      "javap_names": [
+        "getUserInfo",
+        "preCheck"
+      ],
+      "cfr_names": [
+        "getUserInfo",
+        "preCheck"
+      ],
+      "set_equal": true
+    },
+    {
+      "fqcn": "com.seeyon.ctp.user.api.avoidlogin.CtpAvoidLoginBackendProviderService",
+      "javap_count": 2,
+      "cfr_count": 2,
+      "javap_names": [
+        "avoidLoginBackend",
+        "doExecuteAvoidLoginBackend"
+      ],
+      "cfr_names": [
+        "avoidLoginBackend",
+        "doExecuteAvoidLoginBackend"
+      ],
+      "set_equal": true
+    },
+    {
+      "fqcn": "com.seeyon.ctp.user.api.CtpSsoAvoidLoginBaseService",
+      "javap_count": 1,
+      "cfr_count": 1,
+      "javap_names": [
+        "getClientId"
+      ],
+      "cfr_names": [
+        "getClientId"
+      ],
+      "set_equal": true
+    }
+  ]
+}

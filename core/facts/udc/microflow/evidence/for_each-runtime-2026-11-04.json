@@ -1,0 +1,40 @@
+{
+ "stage": "P7",
+ "node": "FOR_EACH",
+ "date": "2026-11-04",
+ "app_id": "8704025620829192834",
+ "flow": {
+  "name": "bizflow（采购申请汇总）",
+  "mid": "8829826666857991107",
+  "trigger": "SCHEDULE/5min",
+  "shape": "循环内累加（循环项字段 × 表达式）"
+ },
+ "cases": [
+  {
+   "case": "循环项字段引用 loop.quantity / loop.estimatedPrice",
+   "pass": true,
+   "evidence": "累加结果 totalAmount=1000 = 10×50 + 5×100（两条明细），循环项字段运行时正确取到"
+  },
+  {
+   "case": "循环内累加 totalAmt += quantity×estimatedPrice",
+   "pass": true,
+   "evidence": "采购申请 total_amount 回写 = 1000.0，累加器跨迭代保持正确"
+  },
+  {
+   "case": "明细 requestId 引用父记录 id（主子关联）",
+   "pass": true,
+   "evidence": "明细数=2，均关联到本条申请（requestId 非硬编码）"
+  },
+  {
+   "case": "change_entity 回写父记录（totalAmount/bizStatus）",
+   "pass": true,
+   "evidence": "biz_status=已汇总，total_amount=1000，先 RETRIEVE 成 DTO 再 change_entity"
+  },
+  {
+   "case": "字段级引用 reqDto2.totalAmount 回读落库",
+   "pass": true,
+   "evidence": "迁移断点 processed_rows=1000，children/DECIMAL 字段引用正确"
+  }
+ ],
+ "build": {"state": "SUCCESS", "sec": 307, "jarVersion": "1.0.233"}
+}

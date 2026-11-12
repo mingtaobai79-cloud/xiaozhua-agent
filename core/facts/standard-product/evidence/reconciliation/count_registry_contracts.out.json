@@ -1,0 +1,103 @@
+{
+  "measured_by": "components.platform_operations.registry.UdcOperationRegistry.default() (in-process)",
+  "total_entries": 64,
+  "alias_groups": [
+    [
+      "udc.attribute.list",
+      "udc.entity.attribute.all_by_entity"
+    ],
+    [
+      "udc.entity.all.by_app",
+      "udc.entity.list"
+    ],
+    [
+      "udc.entity.get",
+      "udc.entity.select"
+    ]
+  ],
+  "alias_count": 3,
+  "declared_alias_ids": [
+    "udc.entity.get",
+    "udc.entity.list",
+    "udc.attribute.list"
+  ],
+  "declared_alias_group_of": {
+    "udc.entity.get": [
+      "udc.entity.get",
+      "udc.entity.select"
+    ],
+    "udc.entity.list": [
+      "udc.entity.all.by_app",
+      "udc.entity.list"
+    ],
+    "udc.attribute.list": [
+      "udc.attribute.list",
+      "udc.entity.attribute.all_by_entity"
+    ]
+  },
+  "deploy_ids": [
+    "udc.deploy.normal",
+    "udc.deploy.search_status"
+  ],
+  "deploy_count": 2,
+  "base_count": 59,
+  "formula": "64 - 3 alias - 2 deploy = 59",
+  "segment_census_all64": {
+    "appinfo": 1,
+    "application": 6,
+    "applog": 6,
+    "attribute": 1,
+    "database": 1,
+    "datatype": 1,
+    "deploy": 2,
+    "entity": 27,
+    "entity_data": 1,
+    "flow": 8,
+    "metadata": 2,
+    "microflow": 1,
+    "page_info": 2,
+    "page_log": 2,
+    "role": 1,
+    "serial": 2
+  },
+  "segment_census_non_alias61": {
+    "appinfo": 1,
+    "application": 6,
+    "applog": 6,
+    "database": 1,
+    "datatype": 1,
+    "deploy": 2,
+    "entity": 25,
+    "entity_data": 1,
+    "flow": 8,
+    "metadata": 2,
+    "microflow": 1,
+    "page_info": 2,
+    "page_log": 2,
+    "role": 1,
+    "serial": 2
+  },
+  "non_alias_total": 61,
+  "non_udc_prefix_entries": [],
+  "standard_product_registry_count": 0,
+  "write_count": 7,
+  "read_count": 57,
+  "write_ids": [
+    "udc.deploy.normal",
+    "udc.entity.attribute.create",
+    "udc.entity.attribute.create_batch",
+    "udc.entity.attribute.delete",
+    "udc.entity.attribute.update",
+    "udc.entity.create",
+    "udc.entity.update"
+  ],
+  "status_census": {
+    "VERIFIED_STATIC_BYTECODE": 53,
+    "OBSERVED": 2,
+    "UNKNOWN": 9
+  },
+  "evidence_level_census": {
+    "VERIFIED_STATIC_BYTECODE": 62,
+    "OBSERVED_LIVE": 2
+  }
+}

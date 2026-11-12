@@ -1,0 +1,14 @@
+Compiled from "CtpUserSpiServerEnvDto.java"
+public class com.seeyon.ctp.user.dto.CtpUserSpiServerEnvDto implements java.io.Serializable {
+  public static com.seeyon.ctp.user.dto.CtpUserSpiServerEnvDto$CtpUserSpiServerEnvDtoBuilder builder();
+    descriptor: ()Lcom/seeyon/ctp/user/dto/CtpUserSpiServerEnvDto$CtpUserSpiServerEnvDtoBuilder;
+
+  public java.lang.String getServerDomain();
+    descriptor: ()Ljava/lang/String;
+
+  public java.lang.String getFrontBaseRoute();
+    descriptor: ()Ljava/lang/String;
+
+  public java.lang.String toString();
+    descriptor: ()Ljava/lang/String;
+}

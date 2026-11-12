@@ -1,0 +1,25 @@
+{
+  "phase": "zzprobe 应用部署 FAIL 根因",
+  "ts": "2026-09-30 23:10 +08",
+  "result": "FAIL — 一致性检测未通过",
+  "error": "发布失败: 业务异常[一致性检测未通过], AbstractDeployService.doParallel:242",
+  "detections": [
+    {
+      "code": "UDC_CE_PAGE_03907",
+      "level": "ERROR(阻断)",
+      "detail": "zzprobe首页:WEB端 [菜单] —— 菜单引用的页面与页面定义不一致"
+    },
+    {
+      "code": "UDC_CE_MICRO_FLOW_04003",
+      "level": "WARN(不阻断)",
+      "detail": "zzprobe微流程 未保存的微流程或页面规则（我建了微流程但没添加动作节点就走了）"
+    }
+  ],
+  "app_ids": {
+    "appGuid": 6660473041757421838,
+    "appId": 6419954374508955097,
+    "appName": "zzprobenew26419954374508955097",
+    "version": "1.0.0"
+  },
+  "fix_plan": "进设计器把 zzprobe首页 页面重新保存/修正菜单绑定，或删除该菜单项，再重新构建"
+}

@@ -1,0 +1,30 @@
+{
+ "stage": "P6",
+ "node": "CONVERT_DATA",
+ "date": "2026-11-03",
+ "app_id": "8704025620829192834",
+ "flow": {
+  "name": "p6clcvp6cv01",
+  "mid": "-7549646798639718130"
+ },
+ "cases": [
+  {
+   "case": "String2Long：\"42\" → 42",
+   "before": "42",
+   "after": 42,
+   "expect": 42,
+   "pass": true,
+   "evidence": "P6CV01-CV.processed_rows=42"
+  }
+ ],
+ "build": {
+  "state": "SUCCESS",
+  "sec": 243
+ },
+ "not_covered": [
+  "Split",
+  "multiAssociation2List",
+  "List2multiAssociation",
+  "BasicData2String"
+ ]
+}

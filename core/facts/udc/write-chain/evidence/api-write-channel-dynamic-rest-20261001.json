@@ -1,0 +1,31 @@
+{
+  "phase": "API 写入通道突破 — dynamic-rest 前缀确认",
+  "ts": "2026-10-01 05:45 +08",
+  "breakthrough": {
+    "endpoint_pattern": "POST /service/{app}/dynamic-rest/com-seeyon/{EntityName}/create",
+    "evidence": "UdcRestPathParse.class 常量 '/dynamic-rest/com-seeyon/' (udc-starter-runtime 5.3.517)",
+    "status": "路径 HIT(BOOT_4002), 差『应用坐标』请求上下文",
+    "tried_headers": [
+      "X-App-Coordinates",
+      "hostAppName",
+      "?hostAppName=",
+      "X-Forwarded-App",
+      "appCoordinates",
+      "X-App-Name",
+      "SY_APP_COORDINATES"
+    ],
+    "next": "从浏览器真实会话抓一次页面保存的请求头(应用坐标是网关/前端注入的 header 或 body 段)"
+  },
+  "metadata_zip_facts": {
+    "下载": "GET /service/app-sandbox/file/download?storageKey=metadata/udc/{appId}/{buildVersion}.zip",
+    "backend/": "生成代码全文! Abstract{Entity}Controller 23端点(create/create-batch/update/delete-by-id/search/export/validate...)",
+    "真实controller": "Abstract 里 @RestController 被注释, 沙箱编译时生成子类启用",
+    "create签名": "SingleResponse<Long> create(@RequestBody {Entity}Dto dto) — body 即 DTO JSON",
+    "ddl.sql": "backend/.../init/1.0.0-10000000000000/ddl.sql"
+  },
+  "runtime_metadata_verify": {
+    "1.0.9 grid": "componentName=重复表查询 + dataSource 11键在控件顶层 — 与标品逐键一致",
+    "dataSourceDtoList": "页面级 null(标品亦然)"
+  },
+  "deploy_state枚举": "state=1 才是成功终态(此前0的判断有误), msg空为辅证"
+}

@@ -1,0 +1,32 @@
+Compiled from "CtpUserSpiThirdTokenDto.java"
+public class com.seeyon.ctp.user.dto.CtpUserSpiThirdTokenDto implements java.io.Serializable {
+  public static com.seeyon.ctp.user.dto.CtpUserSpiThirdTokenDto$CtpUserSpiThirdTokenDtoBuilder builder();
+    descriptor: ()Lcom/seeyon/ctp/user/dto/CtpUserSpiThirdTokenDto$CtpUserSpiThirdTokenDtoBuilder;
+
+  public java.lang.String getThirdToken();
+    descriptor: ()Ljava/lang/String;
+
+  public java.lang.Long getExpired();
+    descriptor: ()Ljava/lang/Long;
+
+  public java.util.Map<java.lang.String, java.lang.Object> getExtData();
+    descriptor: ()Ljava/util/Map;
+
+  public void setThirdToken(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+
+  public void setExpired(java.lang.Long);
+    descriptor: (Ljava/lang/Long;)V
+
+  public void setExtData(java.util.Map<java.lang.String, java.lang.Object>);
+    descriptor: (Ljava/util/Map;)V
+
+  public java.lang.String toString();
+    descriptor: ()Ljava/lang/String;
+
+  public com.seeyon.ctp.user.dto.CtpUserSpiThirdTokenDto();
+    descriptor: ()V
+
+  public com.seeyon.ctp.user.dto.CtpUserSpiThirdTokenDto(java.lang.String, java.lang.Long, java.util.Map<java.lang.String, java.lang.Object>);
+    descriptor: (Ljava/lang/String;Ljava/lang/Long;Ljava/util/Map;)V
+}

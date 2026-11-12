@@ -1,0 +1,4 @@
+Compiled from "SPIClassloader.java"
+public class com.seeyon.boot.starter.spi.SPIClassloader extends java.net.URLClassLoader {
+  public com.seeyon.boot.starter.spi.SPIClassloader(java.net.URL[], java.lang.ClassLoader);
+}

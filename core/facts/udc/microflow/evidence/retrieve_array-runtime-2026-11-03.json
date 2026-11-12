@@ -1,0 +1,83 @@
+{
+ "date": "2026-11-03",
+ "cases": [
+  {
+   "case": "page_number=2/page_size=2 翻页返回第 2 页 2 条（5 行种子）",
+   "pass": true
+  },
+  {
+   "case": "无分页对照返回全量 5 条",
+   "pass": true
+  },
+  {
+   "case": "分页 page_size=2（种子 5 行）",
+   "after": 2,
+   "expect": 2,
+   "pass": true,
+   "evidence": "P6PG01-PAGED=2 @14:39"
+  },
+  {
+   "case": "无分页对照（同批种子 5 行）",
+   "after": 5,
+   "expect": 5,
+   "pass": true,
+   "evidence": "P6PG01-NOPAGE=5 @14:39"
+  },
+  {
+   "case": "CONDITION 单条件 → SIZE",
+   "after": 4,
+   "expect": 4,
+   "pass": true,
+   "evidence": "P6RA02-SIZE=4"
+  },
+  {
+   "case": "fetchType=COUNT",
+   "after": 4,
+   "expect": 4,
+   "pass": true,
+   "evidence": "P6RA02-COUNT=4"
+  },
+  {
+   "case": "fetchType=IDS（MAP(id) → 按 id 查）",
+   "after": 4,
+   "expect": 4,
+   "pass": true,
+   "evidence": "P6RA02-IDS=4"
+  },
+  {
+   "case": "多条件 AND",
+   "after": 2,
+   "expect": 2,
+   "pass": true,
+   "evidence": "P6RA02-MULTI=2"
+  },
+  {
+   "case": "sortParams(processedRows DESC) → FIRST_ONE",
+   "after": 4,
+   "expect": 4,
+   "pass": true,
+   "evidence": "P6FX01-SORT=4 @13:00:01（构造器原先写死 sortParams=[]）"
+  }
+ ],
+ "not_covered": [
+  "needTotal 回读",
+  "page_number>1 的翻页",
+  "needTotal 回读总条数",
+  "分页（pageSearch/pageInfo 需 PageInfo 对象）",
+  "OTHERS 1 条",
+  "多条件 OR 语义"
+ ],
+ "node": "RETRIEVE_ARRAY",
+ "stage": "P6d",
+ "app_id": "8704025620829192834",
+ "build": {
+  "state": "SUCCESS"
+ },
+ "notes": [
+  "★ 分页不是 UI 阻塞：pageSearch=\"true\" + pageInfo 指向一个 CREATE_VARIABLE 造的 PageInfo 对象",
+  "PageInfo 变量真实形态：paramType=OTHER, otherType=SYSTEM_PAGE_INFO, dataType=DTO, mappingType=attrs, attrs=[pageNumber,pageSize,needTotal]",
+  "pageInfo.selectParam 必须带 type/dataType/dtoType/udcApp/appName/javaType/path，缺一个就 PROPERTY_IS_REQUIRED（实测连拦两轮）"
+ ],
+ "supersedes": [],
+ "runs": 4
+}

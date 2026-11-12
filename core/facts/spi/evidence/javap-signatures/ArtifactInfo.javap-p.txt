@@ -1,0 +1,31 @@
+Compiled from "ArtifactInfo.java"
+public class com.seeyon.boot.starter.spi.plugin.ArtifactInfo implements java.io.Serializable {
+  private static final java.lang.String SNAPSHOT;
+  private static final java.util.regex.Pattern SNAPSHOT_TIMESTAMP;
+  private static final long serialVersionUID;
+  java.lang.String appId;
+  java.lang.String groupId;
+  java.lang.String artifactId;
+  java.lang.String version;
+  java.lang.String extension;
+  java.lang.String fileFullPath;
+  java.io.File file;
+  public com.seeyon.boot.starter.spi.plugin.ArtifactInfo();
+  public boolean isSnapshot();
+  public static boolean isSnapshot(java.lang.String);
+  public void setAppId(java.lang.String);
+  public void setGroupId(java.lang.String);
+  public void setArtifactId(java.lang.String);
+  public void setVersion(java.lang.String);
+  public void setExtension(java.lang.String);
+  public void setFileFullPath(java.lang.String);
+  public void setFile(java.io.File);
+  public java.lang.String getAppId();
+  public java.lang.String getGroupId();
+  public java.lang.String getArtifactId();
+  public java.lang.String getVersion();
+  public java.lang.String getExtension();
+  public java.lang.String getFileFullPath();
+  public java.io.File getFile();
+  static {};
+}

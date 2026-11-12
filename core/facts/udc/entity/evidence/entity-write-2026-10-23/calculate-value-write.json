@@ -1,0 +1,33 @@
+{
+ "title": "字段计算值/默认值表达式保存契约（LIVE）",
+ "op": "udcEntityAttributeUpdatePost (mutation, body=udcEntityAttributeUpdatePostInputBody)",
+ "key_fields": {
+  "calculate": "AttributeCalculateEnum，NORMAL=无计算",
+  "expressionDesignData": "计算值表达式设计态文本，形如 '字段 = 表达式'",
+  "expressionRuntimeData": "计算值表达式运行态文本",
+  "defaultValueExpressionDesignData/RuntimeData": "默认值表达式对",
+  "defaultValueIsChange": "bool，默认值可修改开关（UI「默认值修改」复选框）",
+  "defaultValueCaption": "默认值显示标题",
+  "valueScopeExpression": "值域表达式"
+ },
+ "live_evidence": {
+  "request": {
+   "id": "<attr_id>",
+   "appId": "<app_id>",
+   "entityId": "<entity_id>",
+   "attributeGroupId": "<group_id>",
+   "name": "ruleField",
+   "expressionDesignData": "实验字段 = \"测试文本\"",
+   "expressionRuntimeData": "实验字段 = \"测试文本\""
+  },
+  "response": "BOOT_0000 SUCCESS",
+  "readback": {
+   "calculate": "NORMAL",
+   "expressionDesignData": "实验字段 = \"测试文本\"",
+   "expressionRuntimeData": "实验字段 = \"测试文本\""
+  }
+ },
+ "ui_chain": "计算值 cell 点「请设置」→出现 input→input 上 Enter→「计算设置」弹窗（变量/函数树+验证/确定）→确定保存",
+ "validation": "弹窗内「验证」做类型检查：实验已证 STRING 字段表达式结果为对象类型时拒绝（『计算结果为: 对象 类型, 无法赋值给: 文本 类型』）",
+ "note": "udcEntityAttributeGroupBathUpdatePost 对单个属性更新报 BOOT_1000 更新数据不存在——属性级更新走 udcEntityAttributeUpdatePost；组级替换走 GroupBathUpdate。"
+}

@@ -1,0 +1,28 @@
+{
+ "stage": "P6",
+ "node": "CREATE_MAP",
+ "date": "2026-11-03",
+ "app_id": "8704025620829192834",
+ "flow": {
+  "name": "p6mapp6map1",
+  "mid": "-414876072621584267",
+  "trigger": "SCHEDULE/5min"
+ },
+ "cases": [
+  {
+   "case": "建 Map 后 PUT k1=v1 再 GET k1",
+   "after": "v1",
+   "expect": "v1",
+   "pass": true,
+   "evidence": "P6MAP1-GET.source_table=v1"
+  }
+ ],
+ "build": {
+  "state": "SUCCESS",
+  "sec": 233
+ },
+ "not_covered": [
+  "keyType/valueType 非 STRING 的组合",
+  "MAP 作为子微流程出参"
+ ]
+}

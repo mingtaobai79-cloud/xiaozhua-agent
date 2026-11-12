@@ -1,0 +1,2 @@
+com.seeyon.cip.connector.api.sso.SsoService=\
+com.seeyon.extend.spi.sso.TemplateSsoServiceImpl

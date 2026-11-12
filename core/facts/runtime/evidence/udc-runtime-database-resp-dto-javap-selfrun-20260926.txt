@@ -1,0 +1,11 @@
+Compiled from "UdcRuntimeDatabaseQueryRespDto.java"
+public class com.seeyon.boot.starter.udcrt.dto.UdcRuntimeDatabaseQueryRespDto extends com.seeyon.boot.transport.BaseDto {
+  private static final long serialVersionUID;
+  private java.util.List<com.seeyon.boot.starter.udcrt.dto.UdcRuntimeDataBaseColumnMetadataDto> columnMetadata;
+  private java.util.List<java.lang.Object> dataList;
+  public com.seeyon.boot.starter.udcrt.dto.UdcRuntimeDatabaseQueryRespDto();
+  public java.util.List<com.seeyon.boot.starter.udcrt.dto.UdcRuntimeDataBaseColumnMetadataDto> getColumnMetadata();
+  public java.util.List<java.lang.Object> getDataList();
+  public void setColumnMetadata(java.util.List<com.seeyon.boot.starter.udcrt.dto.UdcRuntimeDataBaseColumnMetadataDto>);
+  public void setDataList(java.util.List<java.lang.Object>);
+}

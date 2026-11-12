@@ -1,0 +1,23 @@
+{
+  "phase": "R1-app-create API 验证与清理",
+  "ts": "2026-09-30 21:00 +08",
+  "finding": "create 返回 BOOT_0000+id 但应用未持久化到主表（管理列表 9 条全是老应用，无 zzprobenew1）",
+  "residue": {
+    "what": "一条半成品记录：GET /service/udc/application/{id} 与 deleteById 能定位到它（报'宿主应用信息不能为空'），但主表删除接口全部 content:0 够不到",
+    "risk": "低——不出现在任何管理列表；仅 GET/{id} 与 deleteById 内部联查时可见",
+    "cleanup_tried": [
+      "delete-by-guid(guid)=0行",
+      "delete(裸数字/对象)=0行",
+      "delete-rename(id)=业务校验炸",
+      "delete-rename(query)=0行"
+    ],
+    "root_block": "记录缺宿主应用信息行，删除接口内部联查先炸；需要 DB 层清理或等平台自清理"
+  },
+  "verified_params": {
+    "create": "POST /service/udc/application {caption,name/code小写,featureType,terminalType} → BOOT_0000+id（但持久化不完整!）",
+    "delete_endpoints": "delete-rename(被人改名过,字节码注释:'有人在删除应用,暂时改名'), delete(Long)裸体, delete-by-guid",
+    "list_api": "backstageManage/udc/apps 页面, 共9条",
+    "app_list_url": "https://lowcode-test2.example.com/main/backstageManage/udc/apps"
+  },
+  "conclusion": "REST create 不能用于建应用（持久化不完整）; 建应用必须走 backstageManage UI 的表单（含所属机构/所属人字段, API 版缺这些导致半成品）"
+}

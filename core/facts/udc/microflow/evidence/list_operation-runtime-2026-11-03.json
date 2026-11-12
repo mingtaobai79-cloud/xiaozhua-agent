@@ -1,0 +1,129 @@
+{
+ "date": "2026-11-03",
+ "cases": [
+  {
+   "case": "GROUP_AND_SUM 多分组键（sourceTable+batchStatus 双键）→ 3 组",
+   "pass": true
+  },
+  {
+   "case": "GROUP_AND_SUM 按 sourceTable 分组，汇总 processedRows",
+   "after": "组数=1，汇总=8",
+   "expect": "组数=1（3 行同组），汇总=8（1+2+5）",
+   "pass": true,
+   "evidence": "P6GS02 @16:15"
+  },
+  {
+   "case": "FILTER processedRows > 2",
+   "after": 2,
+   "expect": 2,
+   "pass": true,
+   "evidence": "P6FL01-FLGT=2 @14:15（种子 4 行 1..4）"
+  },
+  {
+   "case": "FILTER taskId == '<MARK>-S3'",
+   "after": 1,
+   "expect": 1,
+   "pass": true,
+   "evidence": "P6FL01-FLEQ=1 @14:15"
+  },
+  {
+   "case": "SIZE",
+   "after": 3,
+   "expect": 3,
+   "pass": true,
+   "evidence": "P6LO02-SIZE=3"
+  },
+  {
+   "case": "SORT(processedRows DESC) → FIRST_ONE",
+   "after": 3,
+   "expect": 3,
+   "pass": true,
+   "evidence": "P6LO02-SORTDROP=3"
+  },
+  {
+   "case": "SORT(processedRows DESC) → LAST_ONE",
+   "after": 1,
+   "expect": 1,
+   "pass": true,
+   "evidence": "P6LO02-LAST=1"
+  },
+  {
+   "case": "SUM(processedRows)",
+   "after": 6,
+   "expect": 6,
+   "pass": true,
+   "evidence": "P6LO02-SUM=6"
+  },
+  {
+   "case": "MIN(processedRows)",
+   "after": 1,
+   "expect": 1,
+   "pass": true,
+   "evidence": "P6LO02-MIN=1"
+  },
+  {
+   "case": "MAX(processedRows)",
+   "after": 3,
+   "expect": 3,
+   "pass": true,
+   "evidence": "P6LO02-MAX=3"
+  },
+  {
+   "case": "MAP(processedRows) → SIZE",
+   "after": 3,
+   "expect": 3,
+   "pass": true,
+   "evidence": "P6LO02-MAP=3"
+  },
+  {
+   "case": "DISTINCT(sourceTable)，3 行同值",
+   "after": 1,
+   "expect": 1,
+   "pass": true,
+   "evidence": "P6LO02-DIST=1"
+  },
+  {
+   "case": "PICK_ONE 索引语义",
+   "after": {
+    "1": 3,
+    "2": 2,
+    "3": 1
+   },
+   "expect": "1 基索引 + 检索顺序",
+   "pass": true,
+   "evidence": "P6PK01-PICK1=3/PICK2=2/PICK3=1；index=0 被拒 LIST_OPERATION_PICK_ONE_LESS_THAN_ONE"
+  },
+  {
+   "case": "SUBTRACT(MAP(id)全量, MAP(id)>2)，按 id 差集",
+   "after": 2,
+   "expect": 2,
+   "pass": true,
+   "evidence": "P6FX01-SUB=2 @13:00:01"
+  },
+  {
+   "case": "INTERSECT(同上)，标量列表交集",
+   "after": 2,
+   "expect": 2,
+   "pass": true,
+   "evidence": "P6FX01-INT=2 @13:00:01"
+  }
+ ],
+ "node": "LIST_OPERATION",
+ "stage": "P6f",
+ "app_id": "8704025620829192834",
+ "build": {
+  "state": "SUCCESS"
+ },
+ "not_covered": [
+  "多分组键",
+  "GROUP_AND_SUM 与其他聚合混用",
+  "GROUP_AND_SUM 1 条",
+  "FILTER 多条件(and/or 组合)",
+  "FILTER（需设计器确认表达式）"
+ ],
+ "notes": [
+  "GROUP_AND_SUM 形态：selectParam=源列表、groupByAttrs=分组字段、countAttrs=汇总字段，出参仍是 ARRAY（元素 DTO 不变）"
+ ],
+ "supersedes": [],
+ "runs": 5
+}

@@ -1,0 +1,1191 @@
+# javap -p -v com.seeyon.boot.starter.udcrt.controller.UdcSerialConfigController
+# source jar: D:/repo/CHIT/com/seeyon/udc-starter-runtime/5.3.517/udc-starter-runtime-5.3.517.jar
+Classfile jar:file:///D:/repo/CHIT/com/seeyon/udc-starter-runtime/5.3.517/udc-starter-runtime-5.3.517.jar!/com/seeyon/boot/starter/udcrt/controller/UdcSerialConfigController.class
+  Last modified 2026年6月17日; size 13081 bytes
+  SHA-256 checksum fe1e5a72d7a25b34c566a9f49dbd47461c0abe54735dbd190b62203b07f81658
+  Compiled from "UdcSerialConfigController.java"
+public class com.seeyon.boot.starter.udcrt.controller.UdcSerialConfigController extends com.seeyon.boot.starter.web.BaseComponentController
+  minor version: 0
+  major version: 52
+  flags: (0x0021) ACC_PUBLIC, ACC_SUPER
+  this_class: #95                         // com/seeyon/boot/starter/udcrt/controller/UdcSerialConfigController
+  super_class: #97                        // com/seeyon/boot/starter/web/BaseComponentController
+  interfaces: 0, fields: 8, methods: 13, attributes: 4
+Constant pool:
+    #1 = Methodref          #97.#233      // com/seeyon/boot/starter/web/BaseComponentController."<init>":()V
+    #2 = Methodref          #95.#234      // com/seeyon/boot/starter/udcrt/controller/UdcSerialConfigController.checkSerialConfigResourcePermission:()Z
+    #3 = Methodref          #95.#235      // com/seeyon/boot/starter/udcrt/controller/UdcSerialConfigController.handlerErrorResponse:()Lcom/seeyon/boot/transport/SingleResponse;
+    #4 = Fieldref           #95.#236      // com/seeyon/boot/starter/udcrt/controller/UdcSerialConfigController.appService:Lcom/seeyon/boot/starter/udcrt/api/UdcSerialConfigAppService;
+    #5 = Methodref          #237.#238     // com/seeyon/boot/transport/SingleRequest.from:(Ljava/lang/Object;)Lcom/seeyon/boot/transport/SingleRequest;
+    #6 = InterfaceMethodref #239.#240     // com/seeyon/boot/starter/udcrt/api/UdcSerialConfigAppService.update:(Lcom/seeyon/boot/transport/SingleRequest;)Lcom/seeyon/boot/transport/SingleResponse;
+    #7 = Methodref          #95.#241      // com/seeyon/boot/starter/udcrt/controller/UdcSerialConfigController.handlerErrorListResponse:()Lcom/seeyon/boot/transport/ListResponse;
+    #8 = Methodref          #242.#243     // com/seeyon/boot/transport/ListRequest.from:(Ljava/util/Map;)Lcom/seeyon/boot/transport/ListRequest;
+    #9 = Methodref          #242.#244     // com/seeyon/boot/transport/ListRequest.sort:(Lcom/seeyon/boot/transport/Sort;)Lcom/seeyon/boot/transport/ListRequest;
+   #10 = InterfaceMethodref #239.#245     // com/seeyon/boot/starter/udcrt/api/UdcSerialConfigAppService.selectListByConditions:(Lcom/seeyon/boot/transport/ListRequest;)Lcom/seeyon/boot/transport/ListResponse;
+   #11 = InterfaceMethodref #239.#246     // com/seeyon/boot/starter/udcrt/api/UdcSerialConfigAppService.selectEntityList:(Lcom/seeyon/boot/transport/SingleRequest;)Lcom/seeyon/boot/transport/SingleResponse;
+   #12 = InterfaceMethodref #239.#247     // com/seeyon/boot/starter/udcrt/api/UdcSerialConfigAppService.selectEntityBySerialId:(Lcom/seeyon/boot/transport/ListRequest;)Lcom/seeyon/boot/transport/ListResponse;
+   #13 = InterfaceMethodref #239.#248     // com/seeyon/boot/starter/udcrt/api/UdcSerialConfigAppService.refreshHistoricalData:(Lcom/seeyon/boot/transport/SingleRequest;)Lcom/seeyon/boot/transport/SingleResponse;
+   #14 = InterfaceMethodref #239.#249     // com/seeyon/boot/starter/udcrt/api/UdcSerialConfigAppService.cacheEvict:(Lcom/seeyon/boot/transport/SingleRequest;)Lcom/seeyon/boot/transport/SingleResponse;
+   #15 = Methodref          #250.#251     // com/seeyon/boot/context/Apps.isMonolithic:()Z
+   #16 = Methodref          #252.#253     // com/seeyon/boot/context/RequestContext.get:()Lcom/seeyon/boot/context/RequestContext;
+   #17 = Methodref          #252.#254     // com/seeyon/boot/context/RequestContext.getSourceAppName:()Ljava/lang/String;
+   #18 = Methodref          #250.#255     // com/seeyon/boot/context/Apps.getAppName:()Ljava/lang/String;
+   #19 = Methodref          #256.#257     // com/seeyon/boot/util/StringUtils.isEmpty:(Ljava/lang/CharSequence;)Z
+   #20 = Fieldref           #95.#258      // com/seeyon/boot/starter/udcrt/controller/UdcSerialConfigController.log:Lorg/slf4j/Logger;
+   #21 = String             #259          // 获取AppName 为空，不进行权限校验！
+   #22 = InterfaceMethodref #260.#261     // org/slf4j/Logger.warn:(Ljava/lang/String;)V
+   #23 = Class              #262          // com/seeyon/boot/enums/StandardAppId
+   #24 = String             #263          // app-approval
+   #25 = Methodref          #53.#264      // java/lang/String.equals:(Ljava/lang/Object;)Z
+   #26 = Fieldref           #95.#265      // com/seeyon/boot/starter/udcrt/controller/UdcSerialConfigController.ctpUserPermissionCommonAppService:Lcom/seeyon/ctp/user/api/common/CtpUserPermissionCommonAppService;
+   #27 = Methodref          #252.#266     // com/seeyon/boot/context/RequestContext.getUserId:()Ljava/lang/Long;
+   #28 = InterfaceMethodref #267.#268     // com/seeyon/ctp/user/api/common/CtpUserPermissionCommonAppService.selectUserRoleCode:(Lcom/seeyon/boot/transport/SingleRequest;)Lcom/seeyon/boot/transport/ListResponse;
+   #29 = String             #269          // ctp-user
+   #30 = Methodref          #270.#271     // com/seeyon/udc/common/utils/ResponseUtils.listResponseResolve:(Lcom/seeyon/boot/transport/ListResponse;Ljava/lang/String;)Ljava/util/List;
+   #31 = Methodref          #272.#273     // com/google/common/collect/Sets.newHashSet:(Ljava/lang/Iterable;)Ljava/util/HashSet;
+   #32 = Class              #274          // com/seeyon/ctp/user/constants/RoleName
+   #33 = String             #275          // BpmDesigner
+   #34 = InterfaceMethodref #276.#277     // java/util/Set.contains:(Ljava/lang/Object;)Z
+   #35 = String             #278          // BpmSystemManager
+   #36 = Fieldref           #95.#279      // com/seeyon/boot/starter/udcrt/controller/UdcSerialConfigController.metadataQueryAppService:Lcom/seeyon/ctp/metadata/api/MetadataQueryAppService;
+   #37 = Methodref          #280.#281     // com/seeyon/ctp/metadata/api/MetadataQueryAppService.selectServiceMetadataByName:(Lcom/seeyon/boot/transport/SingleRequest;)Lcom/seeyon/boot/transport/SingleResponse;
+   #38 = String             #282          // selectServiceMetadataByName
+   #39 = Methodref          #270.#283     // com/seeyon/udc/common/utils/ResponseUtils.responseResolve:(Lcom/seeyon/boot/transport/SingleResponse;Ljava/lang/String;)Ljava/lang/Object;
+   #40 = Methodref          #284.#285     // java/util/Optional.ofNullable:(Ljava/lang/Object;)Ljava/util/Optional;
+   #41 = InvokeDynamic      #0:#291       // #0:test:()Ljava/util/function/Predicate;
+   #42 = Methodref          #284.#292     // java/util/Optional.filter:(Ljava/util/function/Predicate;)Ljava/util/Optional;
+   #43 = Methodref          #284.#293     // java/util/Optional.isPresent:()Z
+   #44 = Fieldref           #95.#294      // com/seeyon/boot/starter/udcrt/controller/UdcSerialConfigController.serialConfigResourceId:Ljava/lang/String;
+   #45 = Class              #295          // com/seeyon/ctp/metadata/dto/request/SearchJsonMetadataDto
+   #46 = Methodref          #45.#233      // com/seeyon/ctp/metadata/dto/request/SearchJsonMetadataDto."<init>":()V
+   #47 = Methodref          #45.#296      // com/seeyon/ctp/metadata/dto/request/SearchJsonMetadataDto.setAppName:(Ljava/lang/String;)V
+   #48 = String             #297          // udc@com.seeyon.udc.page.domain.entity.PageInfoEntity.json
+   #49 = Methodref          #45.#298      // com/seeyon/ctp/metadata/dto/request/SearchJsonMetadataDto.setJsonFileName:(Ljava/lang/String;)V
+   #50 = Fieldref           #95.#299      // com/seeyon/boot/starter/udcrt/controller/UdcSerialConfigController.udcLoadJarResourceAppService:Lcom/seeyon/ctp/metadata/api/LoadJarResourceAppService;
+   #51 = InterfaceMethodref #300.#301     // com/seeyon/ctp/metadata/api/LoadJarResourceAppService.getJsonMetadataData:(Lcom/seeyon/boot/transport/SingleRequest;)Lcom/seeyon/boot/transport/SingleResponse;
+   #52 = String             #302          // getJsonMetadataData
+   #53 = Class              #303          // java/lang/String
+   #54 = String             #304          // jar包中查询页面基本信息内容为空!
+   #55 = Methodref          #305.#306     // com/seeyon/boot/exception/BusinessException.message:(Ljava/lang/String;)Lcom/seeyon/boot/exception/BusinessException;
+   #56 = Class              #307          // com/seeyon/boot/starter/extmetadata/dto/PageInfoItemOssDto
+   #57 = Methodref          #308.#309     // com/seeyon/udc/common/utils/UdcJsonUtils.toList:(Ljava/lang/String;Ljava/lang/Class;)Ljava/util/List;
+   #58 = InterfaceMethodref #310.#311     // java/util/List.stream:()Ljava/util/stream/Stream;
+   #59 = InvokeDynamic      #1:#291       // #1:test:()Ljava/util/function/Predicate;
+   #60 = InterfaceMethodref #314.#315     // java/util/stream/Stream.filter:(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
+   #61 = InvokeDynamic      #2:#319       // #2:apply:()Ljava/util/function/Function;
+   #62 = InterfaceMethodref #314.#320     // java/util/stream/Stream.map:(Ljava/util/function/Function;)Ljava/util/stream/Stream;
+   #63 = InterfaceMethodref #314.#321     // java/util/stream/Stream.findAny:()Ljava/util/Optional;
+   #64 = String             #322          // 页面资源注册错误：{}
+   #65 = InterfaceMethodref #260.#323     // org/slf4j/Logger.error:(Ljava/lang/String;Ljava/lang/Object;)V
+   #66 = String             #324          // 页面资源注册错误：查询不到对应页面资源(_serialNumber)
+   #67 = Methodref          #284.#325     // java/util/Optional.get:()Ljava/lang/Object;
+   #68 = Class              #326          // java/lang/Long
+   #69 = Methodref          #68.#327      // java/lang/Long.toString:()Ljava/lang/String;
+   #70 = Fieldref           #95.#328      // com/seeyon/boot/starter/udcrt/controller/UdcSerialConfigController.securityResourcePermissionService:Lcom/seeyon/boot/starter/security/SecurityResourcePermissionService;
+   #71 = Methodref          #95.#266      // com/seeyon/boot/starter/udcrt/controller/UdcSerialConfigController.getUserId:()Ljava/lang/Long;
+   #72 = Fieldref           #95.#329      // com/seeyon/boot/starter/udcrt/controller/UdcSerialConfigController.request:Ljavax/servlet/http/HttpServletRequest;
+   #73 = InterfaceMethodref #330.#331     // javax/servlet/http/HttpServletRequest.getRequestURI:()Ljava/lang/String;
+   #74 = Methodref          #332.#333     // com/seeyon/boot/starter/security/SecurityResourcePermissionService.checkResourcePermission:(Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljavax/servlet/http/HttpServletRequest;)Z
+   #75 = Class              #334          // com/seeyon/boot/transport/ListResponse
+   #76 = Methodref          #75.#233      // com/seeyon/boot/transport/ListResponse."<init>":()V
+   #77 = Methodref          #75.#335      // com/seeyon/boot/transport/ListResponse.setStatus:(I)V
+   #78 = String             #336          // BOOT_1004
+   #79 = Methodref          #75.#337      // com/seeyon/boot/transport/ListResponse.setCode:(Ljava/lang/String;)V
+   #80 = Fieldref           #95.#338      // com/seeyon/boot/starter/udcrt/controller/UdcSerialConfigController.messageRepository:Lcom/seeyon/boot/starter/i18n/MessageRepository;
+   #81 = String             #339          // error.code.BOOT_1004
+   #82 = InterfaceMethodref #340.#341     // com/seeyon/boot/starter/i18n/MessageRepository.getMessage:(Ljava/lang/String;)Ljava/lang/String;
+   #83 = Methodref          #75.#342      // com/seeyon/boot/transport/ListResponse.setMessage:(Ljava/lang/String;)V
+   #84 = Class              #343          // com/seeyon/boot/transport/SingleResponse
+   #85 = Methodref          #84.#233      // com/seeyon/boot/transport/SingleResponse."<init>":()V
+   #86 = Methodref          #84.#335      // com/seeyon/boot/transport/SingleResponse.setStatus:(I)V
+   #87 = Methodref          #84.#337      // com/seeyon/boot/transport/SingleResponse.setCode:(Ljava/lang/String;)V
+   #88 = Methodref          #84.#342      // com/seeyon/boot/transport/SingleResponse.setMessage:(Ljava/lang/String;)V
+   #89 = Methodref          #56.#344      // com/seeyon/boot/starter/extmetadata/dto/PageInfoItemOssDto.getPageUrl:()Ljava/lang/String;
+   #90 = String             #345          // _serialNumber
+   #91 = Methodref          #53.#346      // java/lang/String.contains:(Ljava/lang/CharSequence;)Z
+   #92 = Methodref          #347.#348     // com/seeyon/ctp/metadata/dto/ServiceMetadataDto.getDynamicFeatureType:()Ljava/lang/String;
+   #93 = Methodref          #256.#349     // com/seeyon/boot/util/StringUtils.isNotEmpty:(Ljava/lang/CharSequence;)Z
+   #94 = Methodref          #347.#350     // com/seeyon/ctp/metadata/dto/ServiceMetadataDto.getHostAppName:()Ljava/lang/String;
+   #95 = Class              #351          // com/seeyon/boot/starter/udcrt/controller/UdcSerialConfigController
+   #96 = Methodref          #352.#353     // org/slf4j/LoggerFactory.getLogger:(Ljava/lang/Class;)Lorg/slf4j/Logger;
+   #97 = Class              #354          // com/seeyon/boot/starter/web/BaseComponentController
+   #98 = Utf8               log
+   #99 = Utf8               Lorg/slf4j/Logger;
+  #100 = Utf8               appService
+  #101 = Utf8               Lcom/seeyon/boot/starter/udcrt/api/UdcSerialConfigAppService;
+  #102 = Utf8               RuntimeVisibleAnnotations
+  #103 = Utf8               Lorg/springframework/beans/factory/annotation/Autowired;
+  #104 = Utf8               udcLoadJarResourceAppService
+  #105 = Utf8               Lcom/seeyon/ctp/metadata/api/LoadJarResourceAppService;
+  #106 = Utf8               securityResourcePermissionService
+  #107 = Utf8               Lcom/seeyon/boot/starter/security/SecurityResourcePermissionService;
+  #108 = Utf8               messageRepository
+  #109 = Utf8               Lcom/seeyon/boot/starter/i18n/MessageRepository;
+  #110 = Utf8               metadataQueryAppService
+  #111 = Utf8               Lcom/seeyon/ctp/metadata/api/MetadataQueryAppService;
+  #112 = Utf8               ctpUserPermissionCommonAppService
+  #113 = Utf8               Lcom/seeyon/ctp/user/api/common/CtpUserPermissionCommonAppService;
+  #114 = Utf8               Lorg/apache/dubbo/config/annotation/DubboReference;
+  #115 = Utf8               serialConfigResourceId
+  #116 = Utf8               Ljava/lang/String;
+  #117 = Utf8               <init>
+  #118 = Utf8               ()V
+  #119 = Utf8               Code
+  #120 = Utf8               LineNumberTable
+  #121 = Utf8               LocalVariableTable
+  #122 = Utf8               this
+  #123 = Utf8               Lcom/seeyon/boot/starter/udcrt/controller/UdcSerialConfigController;
+  #124 = Utf8               update
+  #125 = Utf8               (Lcom/seeyon/boot/starter/udcrt/dto/UdcSerialConfigDto;)Lcom/seeyon/boot/transport/SingleResponse;
+  #126 = Utf8               configDto
+  #127 = Utf8               Lcom/seeyon/boot/starter/udcrt/dto/UdcSerialConfigDto;
+  #128 = Utf8               StackMapTable
+  #129 = Utf8               Signature
+  #130 = Utf8               (Lcom/seeyon/boot/starter/udcrt/dto/UdcSerialConfigDto;)Lcom/seeyon/boot/transport/SingleResponse<Ljava/lang/Integer;>;
+  #131 = Utf8               Lorg/springframework/web/bind/annotation/PostMapping;
+  #132 = Utf8               value
+  #133 = Utf8               Lcom/seeyon/boot/annotation/RestApiOperation;
+  #134 = Utf8               1.1 更新流水号配置
+  #135 = Utf8               description
+  #136 = Utf8               更新流水号配置
+  #137 = Utf8               RuntimeVisibleParameterAnnotations
+  #138 = Utf8               Lorg/springframework/web/bind/annotation/RequestBody;
+  #139 = Utf8               selectListByConditions
+  #140 = Utf8               (Ljava/util/Map;Lcom/seeyon/boot/transport/Sort;)Lcom/seeyon/boot/transport/ListResponse;
+  #141 = Utf8               params
+  #142 = Utf8               Ljava/util/Map;
+  #143 = Utf8               sort
+  #144 = Utf8               Lcom/seeyon/boot/transport/Sort;
+  #145 = Utf8               LocalVariableTypeTable
+  #146 = Utf8               Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;
+  #147 = Utf8               (Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;Lcom/seeyon/boot/transport/Sort;)Lcom/seeyon/boot/transport/ListResponse<Lcom/seeyon/boot/starter/udcrt/dto/UdcSerialConfigDto;>;
+  #148 = Utf8               list
+  #149 = Utf8               2.1 根据条件查询(不分页)
+  #150 = Utf8               根据条件查询(不分页)
+  #151 = Utf8               Lcom/seeyon/boot/annotation/MultiRequestBody;
+  #152 = Utf8               selectEntityList
+  #153 = Utf8               (Ljava/lang/String;)Lcom/seeyon/boot/transport/SingleResponse;
+  #154 = Utf8               appName
+  #155 = Utf8               (Ljava/lang/String;)Lcom/seeyon/boot/transport/SingleResponse<Lcom/seeyon/boot/starter/udcrt/dto/EntityGroupAndItemDto;>;
+  #156 = Utf8               Lorg/springframework/web/bind/annotation/GetMapping;
+  #157 = Utf8               select-entity-list
+  #158 = Utf8               3.1 查询有流水号配置的实体列表
+  #159 = Utf8               查询有流水号配置的实体列表
+  #160 = Utf8               selectEntityBySerial
+  #161 = Utf8               (Ljava/util/Map;)Lcom/seeyon/boot/transport/ListResponse;
+  #162 = Utf8               (Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;)Lcom/seeyon/boot/transport/ListResponse<Lcom/seeyon/boot/starter/extmetadata/dto/UdcEntityMetaDataDto;>;
+  #163 = Utf8               select-entity-by-serial-id
+  #164 = Utf8               3.2 根据流水号Id获取使用的实体字段
+  #165 = Utf8               根据流水号Id获取使用的实体字段
+  #166 = Utf8               refreshHistoricalData
+  #167 = Utf8               (Ljava/lang/String;)Lcom/seeyon/boot/transport/SingleResponse<Ljava/lang/String;>;
+  #168 = Utf8               refresh-historical-data/{appName}
+  #169 = Utf8               3.3 清理应用的流水号配置信息
+  #170 = Utf8               清理应用的流水号配置信息
+  #171 = Utf8               Lorg/springframework/web/bind/annotation/PathVariable;
+  #172 = Utf8               cacheEvict
+  #173 = Utf8               (Ljava/lang/String;)Lcom/seeyon/boot/transport/SingleResponse<Ljava/lang/Boolean;>;
+  #174 = Utf8               cache-evict/{appName}
+  #175 = Utf8               3.4 清理流水号配置缓存
+  #176 = Utf8               清理流水号配置缓存
+  #177 = Utf8               checkSerialConfigResourcePermission
+  #178 = Utf8               ()Z
+  #179 = Utf8               roleCodes
+  #180 = Utf8               Ljava/util/List;
+  #181 = Utf8               userRoles
+  #182 = Utf8               Ljava/util/Set;
+  #183 = Utf8               searchJsonMetadataDto
+  #184 = Utf8               Lcom/seeyon/ctp/metadata/dto/request/SearchJsonMetadataDto;
+  #185 = Utf8               singleResponse
+  #186 = Utf8               Lcom/seeyon/boot/transport/SingleResponse;
+  #187 = Utf8               pageLists
+  #188 = Utf8               pageInfoItemDtoList
+  #189 = Utf8               optional
+  #190 = Utf8               Ljava/util/Optional;
+  #191 = Utf8               serviceResp
+  #192 = Utf8               isDynamicApp
+  #193 = Utf8               Z
+  #194 = Utf8               Ljava/util/List<Ljava/lang/String;>;
+  #195 = Utf8               Ljava/util/Set<Ljava/lang/String;>;
+  #196 = Utf8               Lcom/seeyon/boot/transport/SingleResponse<Ljava/lang/String;>;
+  #197 = Utf8               Ljava/util/List<Lcom/seeyon/boot/starter/extmetadata/dto/PageInfoItemOssDto;>;
+  #198 = Utf8               Ljava/util/Optional<Ljava/lang/Long;>;
+  #199 = Utf8               Lcom/seeyon/boot/transport/SingleResponse<Lcom/seeyon/ctp/metadata/dto/ServiceMetadataDto;>;
+  #200 = Class              #303          // java/lang/String
+  #201 = Class              #355          // java/util/List
+  #202 = Class              #356          // java/util/Set
+  #203 = Class              #343          // com/seeyon/boot/transport/SingleResponse
+  #204 = Class              #295          // com/seeyon/ctp/metadata/dto/request/SearchJsonMetadataDto
+  #205 = Class              #357          // java/util/Optional
+  #206 = Class              #351          // com/seeyon/boot/starter/udcrt/controller/UdcSerialConfigController
+  #207 = Utf8               handlerErrorListResponse
+  #208 = Utf8               ()Lcom/seeyon/boot/transport/ListResponse;
+  #209 = Utf8               response1
+  #210 = Utf8               Lcom/seeyon/boot/transport/ListResponse;
+  #211 = Utf8               Lcom/seeyon/boot/transport/ListResponse<TT;>;
+  #212 = Utf8               <T:Ljava/lang/Object;>()Lcom/seeyon/boot/transport/ListResponse<TT;>;
+  #213 = Utf8               handlerErrorResponse
+  #214 = Utf8               ()Lcom/seeyon/boot/transport/SingleResponse;
+  #215 = Utf8               Lcom/seeyon/boot/transport/SingleResponse<TT;>;
+  #216 = Utf8               <T:Ljava/lang/Object;>()Lcom/seeyon/boot/transport/SingleResponse<TT;>;
+  #217 = Utf8               lambda$checkSerialConfigResourcePermission$1
+  #218 = Utf8               (Lcom/seeyon/boot/starter/extmetadata/dto/PageInfoItemOssDto;)Z
+  #219 = Utf8               item
+  #220 = Utf8               Lcom/seeyon/boot/starter/extmetadata/dto/PageInfoItemOssDto;
+  #221 = Utf8               lambda$checkSerialConfigResourcePermission$0
+  #222 = Utf8               (Lcom/seeyon/ctp/metadata/dto/ServiceMetadataDto;)Z
+  #223 = Utf8               i
+  #224 = Utf8               Lcom/seeyon/ctp/metadata/dto/ServiceMetadataDto;
+  #225 = Utf8               <clinit>
+  #226 = Utf8               SourceFile
+  #227 = Utf8               UdcSerialConfigController.java
+  #228 = Utf8               Lorg/springframework/web/bind/annotation/RestController;
+  #229 = Utf8               Lorg/springframework/web/bind/annotation/RequestMapping;
+  #230 = Utf8               udc-runtime/serial-config
+  #231 = Utf8               Lcom/seeyon/boot/annotation/RestApi;
+  #232 = Utf8               流水号配置接口
+  #233 = NameAndType        #117:#118     // "<init>":()V
+  #234 = NameAndType        #177:#178     // checkSerialConfigResourcePermission:()Z
+  #235 = NameAndType        #213:#214     // handlerErrorResponse:()Lcom/seeyon/boot/transport/SingleResponse;
+  #236 = NameAndType        #100:#101     // appService:Lcom/seeyon/boot/starter/udcrt/api/UdcSerialConfigAppService;
+  #237 = Class              #358          // com/seeyon/boot/transport/SingleRequest
+  #238 = NameAndType        #359:#360     // from:(Ljava/lang/Object;)Lcom/seeyon/boot/transport/SingleRequest;
+  #239 = Class              #361          // com/seeyon/boot/starter/udcrt/api/UdcSerialConfigAppService
+  #240 = NameAndType        #124:#362     // update:(Lcom/seeyon/boot/transport/SingleRequest;)Lcom/seeyon/boot/transport/SingleResponse;
+  #241 = NameAndType        #207:#208     // handlerErrorListResponse:()Lcom/seeyon/boot/transport/ListResponse;
+  #242 = Class              #363          // com/seeyon/boot/transport/ListRequest
+  #243 = NameAndType        #359:#364     // from:(Ljava/util/Map;)Lcom/seeyon/boot/transport/ListRequest;
+  #244 = NameAndType        #143:#365     // sort:(Lcom/seeyon/boot/transport/Sort;)Lcom/seeyon/boot/transport/ListRequest;
+  #245 = NameAndType        #139:#366     // selectListByConditions:(Lcom/seeyon/boot/transport/ListRequest;)Lcom/seeyon/boot/transport/ListResponse;
+  #246 = NameAndType        #152:#362     // selectEntityList:(Lcom/seeyon/boot/transport/SingleRequest;)Lcom/seeyon/boot/transport/SingleResponse;
+  #247 = NameAndType        #367:#366     // selectEntityBySerialId:(Lcom/seeyon/boot/transport/ListRequest;)Lcom/seeyon/boot/transport/ListResponse;
+  #248 = NameAndType        #166:#362     // refreshHistoricalData:(Lcom/seeyon/boot/transport/SingleRequest;)Lcom/seeyon/boot/transport/SingleResponse;
+  #249 = NameAndType        #172:#362     // cacheEvict:(Lcom/seeyon/boot/transport/SingleRequest;)Lcom/seeyon/boot/transport/SingleResponse;
+  #250 = Class              #368          // com/seeyon/boot/context/Apps
+  #251 = NameAndType        #369:#178     // isMonolithic:()Z
+  #252 = Class              #370          // com/seeyon/boot/context/RequestContext
+  #253 = NameAndType        #371:#372     // get:()Lcom/seeyon/boot/context/RequestContext;
+  #254 = NameAndType        #373:#374     // getSourceAppName:()Ljava/lang/String;
+  #255 = NameAndType        #375:#374     // getAppName:()Ljava/lang/String;
+  #256 = Class              #376          // com/seeyon/boot/util/StringUtils
+  #257 = NameAndType        #377:#378     // isEmpty:(Ljava/lang/CharSequence;)Z
+  #258 = NameAndType        #98:#99       // log:Lorg/slf4j/Logger;
+  #259 = Utf8               获取AppName 为空，不进行权限校验！
+  #260 = Class              #379          // org/slf4j/Logger
+  #261 = NameAndType        #380:#381     // warn:(Ljava/lang/String;)V
+  #262 = Utf8               com/seeyon/boot/enums/StandardAppId
+  #263 = Utf8               app-approval
+  #264 = NameAndType        #382:#383     // equals:(Ljava/lang/Object;)Z
+  #265 = NameAndType        #112:#113     // ctpUserPermissionCommonAppService:Lcom/seeyon/ctp/user/api/common/CtpUserPermissionCommonAppService;
+  #266 = NameAndType        #384:#385     // getUserId:()Ljava/lang/Long;
+  #267 = Class              #386          // com/seeyon/ctp/user/api/common/CtpUserPermissionCommonAppService
+  #268 = NameAndType        #387:#388     // selectUserRoleCode:(Lcom/seeyon/boot/transport/SingleRequest;)Lcom/seeyon/boot/transport/ListResponse;
+  #269 = Utf8               ctp-user
+  #270 = Class              #389          // com/seeyon/udc/common/utils/ResponseUtils
+  #271 = NameAndType        #390:#391     // listResponseResolve:(Lcom/seeyon/boot/transport/ListResponse;Ljava/lang/String;)Ljava/util/List;
+  #272 = Class              #392          // com/google/common/collect/Sets
+  #273 = NameAndType        #393:#394     // newHashSet:(Ljava/lang/Iterable;)Ljava/util/HashSet;
+  #274 = Utf8               com/seeyon/ctp/user/constants/RoleName
+  #275 = Utf8               BpmDesigner
+  #276 = Class              #356          // java/util/Set
+  #277 = NameAndType        #395:#383     // contains:(Ljava/lang/Object;)Z
+  #278 = Utf8               BpmSystemManager
+  #279 = NameAndType        #110:#111     // metadataQueryAppService:Lcom/seeyon/ctp/metadata/api/MetadataQueryAppService;
+  #280 = Class              #396          // com/seeyon/ctp/metadata/api/MetadataQueryAppService
+  #281 = NameAndType        #282:#362     // selectServiceMetadataByName:(Lcom/seeyon/boot/transport/SingleRequest;)Lcom/seeyon/boot/transport/SingleResponse;
+  #282 = Utf8               selectServiceMetadataByName
+  #283 = NameAndType        #397:#398     // responseResolve:(Lcom/seeyon/boot/transport/SingleResponse;Ljava/lang/String;)Ljava/lang/Object;
+  #284 = Class              #357          // java/util/Optional
+  #285 = NameAndType        #399:#400     // ofNullable:(Ljava/lang/Object;)Ljava/util/Optional;
+  #286 = Utf8               BootstrapMethods
+  #287 = MethodHandle       6:#401        // REF_invokeStatic java/lang/invoke/LambdaMetafactory.metafactory:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+  #288 = MethodType         #383          //  (Ljava/lang/Object;)Z
+  #289 = MethodHandle       6:#402        // REF_invokeStatic com/seeyon/boot/starter/udcrt/controller/UdcSerialConfigController.lambda$checkSerialConfigResourcePermission$0:(Lcom/seeyon/ctp/metadata/dto/ServiceMetadataDto;)Z
+  #290 = MethodType         #222          //  (Lcom/seeyon/ctp/metadata/dto/ServiceMetadataDto;)Z
+  #291 = NameAndType        #403:#404     // test:()Ljava/util/function/Predicate;
+  #292 = NameAndType        #405:#406     // filter:(Ljava/util/function/Predicate;)Ljava/util/Optional;
+  #293 = NameAndType        #407:#178     // isPresent:()Z
+  #294 = NameAndType        #115:#116     // serialConfigResourceId:Ljava/lang/String;
+  #295 = Utf8               com/seeyon/ctp/metadata/dto/request/SearchJsonMetadataDto
+  #296 = NameAndType        #408:#381     // setAppName:(Ljava/lang/String;)V
+  #297 = Utf8               udc@com.seeyon.udc.page.domain.entity.PageInfoEntity.json
+  #298 = NameAndType        #409:#381     // setJsonFileName:(Ljava/lang/String;)V
+  #299 = NameAndType        #104:#105     // udcLoadJarResourceAppService:Lcom/seeyon/ctp/metadata/api/LoadJarResourceAppService;
+  #300 = Class              #410          // com/seeyon/ctp/metadata/api/LoadJarResourceAppService
+  #301 = NameAndType        #302:#362     // getJsonMetadataData:(Lcom/seeyon/boot/transport/SingleRequest;)Lcom/seeyon/boot/transport/SingleResponse;
+  #302 = Utf8               getJsonMetadataData
+  #303 = Utf8               java/lang/String
+  #304 = Utf8               jar包中查询页面基本信息内容为空!
+  #305 = Class              #411          // com/seeyon/boot/exception/BusinessException
+  #306 = NameAndType        #412:#413     // message:(Ljava/lang/String;)Lcom/seeyon/boot/exception/BusinessException;
+  #307 = Utf8               com/seeyon/boot/starter/extmetadata/dto/PageInfoItemOssDto
+  #308 = Class              #414          // com/seeyon/udc/common/utils/UdcJsonUtils
+  #309 = NameAndType        #415:#416     // toList:(Ljava/lang/String;Ljava/lang/Class;)Ljava/util/List;
+  #310 = Class              #355          // java/util/List
+  #311 = NameAndType        #417:#418     // stream:()Ljava/util/stream/Stream;
+  #312 = MethodHandle       6:#419        // REF_invokeStatic com/seeyon/boot/starter/udcrt/controller/UdcSerialConfigController.lambda$checkSerialConfigResourcePermission$1:(Lcom/seeyon/boot/starter/extmetadata/dto/PageInfoItemOssDto;)Z
+  #313 = MethodType         #218          //  (Lcom/seeyon/boot/starter/extmetadata/dto/PageInfoItemOssDto;)Z
+  #314 = Class              #420          // java/util/stream/Stream
+  #315 = NameAndType        #405:#421     // filter:(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
+  #316 = MethodType         #422          //  (Ljava/lang/Object;)Ljava/lang/Object;
+  #317 = MethodHandle       5:#423        // REF_invokeVirtual com/seeyon/boot/starter/extmetadata/dto/UdcBaseOssMetadataDto.getId:()Ljava/lang/Long;
+  #318 = MethodType         #424          //  (Lcom/seeyon/boot/starter/extmetadata/dto/PageInfoItemOssDto;)Ljava/lang/Long;
+  #319 = NameAndType        #425:#426     // apply:()Ljava/util/function/Function;
+  #320 = NameAndType        #427:#428     // map:(Ljava/util/function/Function;)Ljava/util/stream/Stream;
+  #321 = NameAndType        #429:#430     // findAny:()Ljava/util/Optional;
+  #322 = Utf8               页面资源注册错误：{}
+  #323 = NameAndType        #431:#432     // error:(Ljava/lang/String;Ljava/lang/Object;)V
+  #324 = Utf8               页面资源注册错误：查询不到对应页面资源(_serialNumber)
+  #325 = NameAndType        #371:#433     // get:()Ljava/lang/Object;
+  #326 = Utf8               java/lang/Long
+  #327 = NameAndType        #434:#374     // toString:()Ljava/lang/String;
+  #328 = NameAndType        #106:#107     // securityResourcePermissionService:Lcom/seeyon/boot/starter/security/SecurityResourcePermissionService;
+  #329 = NameAndType        #435:#436     // request:Ljavax/servlet/http/HttpServletRequest;
+  #330 = Class              #437          // javax/servlet/http/HttpServletRequest
+  #331 = NameAndType        #438:#374     // getRequestURI:()Ljava/lang/String;
+  #332 = Class              #439          // com/seeyon/boot/starter/security/SecurityResourcePermissionService
+  #333 = NameAndType        #440:#441     // checkResourcePermission:(Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljavax/servlet/http/HttpServletRequest;)Z
+  #334 = Utf8               com/seeyon/boot/transport/ListResponse
+  #335 = NameAndType        #442:#443     // setStatus:(I)V
+  #336 = Utf8               BOOT_1004
+  #337 = NameAndType        #444:#381     // setCode:(Ljava/lang/String;)V
+  #338 = NameAndType        #108:#109     // messageRepository:Lcom/seeyon/boot/starter/i18n/MessageRepository;
+  #339 = Utf8               error.code.BOOT_1004
+  #340 = Class              #445          // com/seeyon/boot/starter/i18n/MessageRepository
+  #341 = NameAndType        #446:#447     // getMessage:(Ljava/lang/String;)Ljava/lang/String;
+  #342 = NameAndType        #448:#381     // setMessage:(Ljava/lang/String;)V
+  #343 = Utf8               com/seeyon/boot/transport/SingleResponse
+  #344 = NameAndType        #449:#374     // getPageUrl:()Ljava/lang/String;
+  #345 = Utf8               _serialNumber
+  #346 = NameAndType        #395:#378     // contains:(Ljava/lang/CharSequence;)Z
+  #347 = Class              #450          // com/seeyon/ctp/metadata/dto/ServiceMetadataDto
+  #348 = NameAndType        #451:#374     // getDynamicFeatureType:()Ljava/lang/String;
+  #349 = NameAndType        #452:#378     // isNotEmpty:(Ljava/lang/CharSequence;)Z
+  #350 = NameAndType        #453:#374     // getHostAppName:()Ljava/lang/String;
+  #351 = Utf8               com/seeyon/boot/starter/udcrt/controller/UdcSerialConfigController
+  #352 = Class              #454          // org/slf4j/LoggerFactory
+  #353 = NameAndType        #455:#456     // getLogger:(Ljava/lang/Class;)Lorg/slf4j/Logger;
+  #354 = Utf8               com/seeyon/boot/starter/web/BaseComponentController
+  #355 = Utf8               java/util/List
+  #356 = Utf8               java/util/Set
+  #357 = Utf8               java/util/Optional
+  #358 = Utf8               com/seeyon/boot/transport/SingleRequest
+  #359 = Utf8               from
+  #360 = Utf8               (Ljava/lang/Object;)Lcom/seeyon/boot/transport/SingleRequest;
+  #361 = Utf8               com/seeyon/boot/starter/udcrt/api/UdcSerialConfigAppService
+  #362 = Utf8               (Lcom/seeyon/boot/transport/SingleRequest;)Lcom/seeyon/boot/transport/SingleResponse;
+  #363 = Utf8               com/seeyon/boot/transport/ListRequest
+  #364 = Utf8               (Ljava/util/Map;)Lcom/seeyon/boot/transport/ListRequest;
+  #365 = Utf8               (Lcom/seeyon/boot/transport/Sort;)Lcom/seeyon/boot/transport/ListRequest;
+  #366 = Utf8               (Lcom/seeyon/boot/transport/ListRequest;)Lcom/seeyon/boot/transport/ListResponse;
+  #367 = Utf8               selectEntityBySerialId
+  #368 = Utf8               com/seeyon/boot/context/Apps
+  #369 = Utf8               isMonolithic
+  #370 = Utf8               com/seeyon/boot/context/RequestContext
+  #371 = Utf8               get
+  #372 = Utf8               ()Lcom/seeyon/boot/context/RequestContext;
+  #373 = Utf8               getSourceAppName
+  #374 = Utf8               ()Ljava/lang/String;
+  #375 = Utf8               getAppName
+  #376 = Utf8               com/seeyon/boot/util/StringUtils
+  #377 = Utf8               isEmpty
+  #378 = Utf8               (Ljava/lang/CharSequence;)Z
+  #379 = Utf8               org/slf4j/Logger
+  #380 = Utf8               warn
+  #381 = Utf8               (Ljava/lang/String;)V
+  #382 = Utf8               equals
+  #383 = Utf8               (Ljava/lang/Object;)Z
+  #384 = Utf8               getUserId
+  #385 = Utf8               ()Ljava/lang/Long;
+  #386 = Utf8               com/seeyon/ctp/user/api/common/CtpUserPermissionCommonAppService
+  #387 = Utf8               selectUserRoleCode
+  #388 = Utf8               (Lcom/seeyon/boot/transport/SingleRequest;)Lcom/seeyon/boot/transport/ListResponse;
+  #389 = Utf8               com/seeyon/udc/common/utils/ResponseUtils
+  #390 = Utf8               listResponseResolve
+  #391 = Utf8               (Lcom/seeyon/boot/transport/ListResponse;Ljava/lang/String;)Ljava/util/List;
+  #392 = Utf8               com/google/common/collect/Sets
+  #393 = Utf8               newHashSet
+  #394 = Utf8               (Ljava/lang/Iterable;)Ljava/util/HashSet;
+  #395 = Utf8               contains
+  #396 = Utf8               com/seeyon/ctp/metadata/api/MetadataQueryAppService
+  #397 = Utf8               responseResolve
+  #398 = Utf8               (Lcom/seeyon/boot/transport/SingleResponse;Ljava/lang/String;)Ljava/lang/Object;
+  #399 = Utf8               ofNullable
+  #400 = Utf8               (Ljava/lang/Object;)Ljava/util/Optional;
+  #401 = Methodref          #457.#458     // java/lang/invoke/LambdaMetafactory.metafactory:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+  #402 = Methodref          #95.#459      // com/seeyon/boot/starter/udcrt/controller/UdcSerialConfigController.lambda$checkSerialConfigResourcePermission$0:(Lcom/seeyon/ctp/metadata/dto/ServiceMetadataDto;)Z
+  #403 = Utf8               test
+  #404 = Utf8               ()Ljava/util/function/Predicate;
+  #405 = Utf8               filter
+  #406 = Utf8               (Ljava/util/function/Predicate;)Ljava/util/Optional;
+  #407 = Utf8               isPresent
+  #408 = Utf8               setAppName
+  #409 = Utf8               setJsonFileName
+  #410 = Utf8               com/seeyon/ctp/metadata/api/LoadJarResourceAppService
+  #411 = Utf8               com/seeyon/boot/exception/BusinessException
+  #412 = Utf8               message
+  #413 = Utf8               (Ljava/lang/String;)Lcom/seeyon/boot/exception/BusinessException;
+  #414 = Utf8               com/seeyon/udc/common/utils/UdcJsonUtils
+  #415 = Utf8               toList
+  #416 = Utf8               (Ljava/lang/String;Ljava/lang/Class;)Ljava/util/List;
+  #417 = Utf8               stream
+  #418 = Utf8               ()Ljava/util/stream/Stream;
+  #419 = Methodref          #95.#460      // com/seeyon/boot/starter/udcrt/controller/UdcSerialConfigController.lambda$checkSerialConfigResourcePermission$1:(Lcom/seeyon/boot/starter/extmetadata/dto/PageInfoItemOssDto;)Z
+  #420 = Utf8               java/util/stream/Stream
+  #421 = Utf8               (Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
+  #422 = Utf8               (Ljava/lang/Object;)Ljava/lang/Object;
+  #423 = Methodref          #461.#462     // com/seeyon/boot/starter/extmetadata/dto/UdcBaseOssMetadataDto.getId:()Ljava/lang/Long;
+  #424 = Utf8               (Lcom/seeyon/boot/starter/extmetadata/dto/PageInfoItemOssDto;)Ljava/lang/Long;
+  #425 = Utf8               apply
+  #426 = Utf8               ()Ljava/util/function/Function;
+  #427 = Utf8               map
+  #428 = Utf8               (Ljava/util/function/Function;)Ljava/util/stream/Stream;
+  #429 = Utf8               findAny
+  #430 = Utf8               ()Ljava/util/Optional;
+  #431 = Utf8               error
+  #432 = Utf8               (Ljava/lang/String;Ljava/lang/Object;)V
+  #433 = Utf8               ()Ljava/lang/Object;
+  #434 = Utf8               toString
+  #435 = Utf8               request
+  #436 = Utf8               Ljavax/servlet/http/HttpServletRequest;
+  #437 = Utf8               javax/servlet/http/HttpServletRequest
+  #438 = Utf8               getRequestURI
+  #439 = Utf8               com/seeyon/boot/starter/security/SecurityResourcePermissionService
+  #440 = Utf8               checkResourcePermission
+  #441 = Utf8               (Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljavax/servlet/http/HttpServletRequest;)Z
+  #442 = Utf8               setStatus
+  #443 = Utf8               (I)V
+  #444 = Utf8               setCode
+  #445 = Utf8               com/seeyon/boot/starter/i18n/MessageRepository
+  #446 = Utf8               getMessage
+  #447 = Utf8               (Ljava/lang/String;)Ljava/lang/String;
+  #448 = Utf8               setMessage
+  #449 = Utf8               getPageUrl
+  #450 = Utf8               com/seeyon/ctp/metadata/dto/ServiceMetadataDto
+  #451 = Utf8               getDynamicFeatureType
+  #452 = Utf8               isNotEmpty
+  #453 = Utf8               getHostAppName
+  #454 = Utf8               org/slf4j/LoggerFactory
+  #455 = Utf8               getLogger
+  #456 = Utf8               (Ljava/lang/Class;)Lorg/slf4j/Logger;
+  #457 = Class              #463          // java/lang/invoke/LambdaMetafactory
+  #458 = NameAndType        #464:#468     // metafactory:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+  #459 = NameAndType        #221:#222     // lambda$checkSerialConfigResourcePermission$0:(Lcom/seeyon/ctp/metadata/dto/ServiceMetadataDto;)Z
+  #460 = NameAndType        #217:#218     // lambda$checkSerialConfigResourcePermission$1:(Lcom/seeyon/boot/starter/extmetadata/dto/PageInfoItemOssDto;)Z
+  #461 = Class              #469          // com/seeyon/boot/starter/extmetadata/dto/UdcBaseOssMetadataDto
+  #462 = NameAndType        #470:#385     // getId:()Ljava/lang/Long;
+  #463 = Utf8               java/lang/invoke/LambdaMetafactory
+  #464 = Utf8               metafactory
+  #465 = Class              #472          // java/lang/invoke/MethodHandles$Lookup
+  #466 = Utf8               Lookup
+  #467 = Utf8               InnerClasses
+  #468 = Utf8               (Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+  #469 = Utf8               com/seeyon/boot/starter/extmetadata/dto/UdcBaseOssMetadataDto
+  #470 = Utf8               getId
+  #471 = Class              #473          // java/lang/invoke/MethodHandles
+  #472 = Utf8               java/lang/invoke/MethodHandles$Lookup
+  #473 = Utf8               java/lang/invoke/MethodHandles
+{
+  private static final org.slf4j.Logger log;
+    descriptor: Lorg/slf4j/Logger;
+    flags: (0x001a) ACC_PRIVATE, ACC_STATIC, ACC_FINAL
+
+  private com.seeyon.boot.starter.udcrt.api.UdcSerialConfigAppService appService;
+    descriptor: Lcom/seeyon/boot/starter/udcrt/api/UdcSerialConfigAppService;
+    flags: (0x0002) ACC_PRIVATE
+    RuntimeVisibleAnnotations:
+      0: #103()
+        org.springframework.beans.factory.annotation.Autowired
+
+  private com.seeyon.ctp.metadata.api.LoadJarResourceAppService udcLoadJarResourceAppService;
+    descriptor: Lcom/seeyon/ctp/metadata/api/LoadJarResourceAppService;
+    flags: (0x0002) ACC_PRIVATE
+    RuntimeVisibleAnnotations:
+      0: #103()
+        org.springframework.beans.factory.annotation.Autowired
+
+  private com.seeyon.boot.starter.security.SecurityResourcePermissionService securityResourcePermissionService;
+    descriptor: Lcom/seeyon/boot/starter/security/SecurityResourcePermissionService;
+    flags: (0x0002) ACC_PRIVATE
+    RuntimeVisibleAnnotations:
+      0: #103()
+        org.springframework.beans.factory.annotation.Autowired
+
+  private com.seeyon.boot.starter.i18n.MessageRepository messageRepository;
+    descriptor: Lcom/seeyon/boot/starter/i18n/MessageRepository;
+    flags: (0x0002) ACC_PRIVATE
+    RuntimeVisibleAnnotations:
+      0: #103()
+        org.springframework.beans.factory.annotation.Autowired
+
+  private com.seeyon.ctp.metadata.api.MetadataQueryAppService metadataQueryAppService;
+    descriptor: Lcom/seeyon/ctp/metadata/api/MetadataQueryAppService;
+    flags: (0x0002) ACC_PRIVATE
+    RuntimeVisibleAnnotations:
+      0: #103()
+        org.springframework.beans.factory.annotation.Autowired
+
+  private com.seeyon.ctp.user.api.common.CtpUserPermissionCommonAppService ctpUserPermissionCommonAppService;
+    descriptor: Lcom/seeyon/ctp/user/api/common/CtpUserPermissionCommonAppService;
+    flags: (0x0002) ACC_PRIVATE
+    RuntimeVisibleAnnotations:
+      0: #114()
+        org.apache.dubbo.config.annotation.DubboReference
+
+  private java.lang.String serialConfigResourceId;
+    descriptor: Ljava/lang/String;
+    flags: (0x0002) ACC_PRIVATE
+
+  public com.seeyon.boot.starter.udcrt.controller.UdcSerialConfigController();
+    descriptor: ()V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method com/seeyon/boot/starter/web/BaseComponentController."<init>":()V
+         4: return
+      LineNumberTable:
+        line 62: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lcom/seeyon/boot/starter/udcrt/controller/UdcSerialConfigController;
+
+  public com.seeyon.boot.transport.SingleResponse<java.lang.Integer> update(com.seeyon.boot.starter.udcrt.dto.UdcSerialConfigDto);
+    descriptor: (Lcom/seeyon/boot/starter/udcrt/dto/UdcSerialConfigDto;)Lcom/seeyon/boot/transport/SingleResponse;
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0
+         1: invokespecial #2                  // Method checkSerialConfigResourcePermission:()Z
+         4: ifne          12
+         7: aload_0
+         8: invokespecial #3                  // Method handlerErrorResponse:()Lcom/seeyon/boot/transport/SingleResponse;
+        11: areturn
+        12: aload_0
+        13: getfield      #4                  // Field appService:Lcom/seeyon/boot/starter/udcrt/api/UdcSerialConfigAppService;
+        16: aload_1
+        17: invokestatic  #5                  // Method com/seeyon/boot/transport/SingleRequest.from:(Ljava/lang/Object;)Lcom/seeyon/boot/transport/SingleRequest;
+        20: invokeinterface #6,  2            // InterfaceMethod com/seeyon/boot/starter/udcrt/api/UdcSerialConfigAppService.update:(Lcom/seeyon/boot/transport/SingleRequest;)Lcom/seeyon/boot/transport/SingleResponse;
+        25: areturn
+      LineNumberTable:
+        line 79: 0
+        line 80: 7
+        line 82: 12
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      26     0  this   Lcom/seeyon/boot/starter/udcrt/controller/UdcSerialConfigController;
+            0      26     1 configDto   Lcom/seeyon/boot/starter/udcrt/dto/UdcSerialConfigDto;
+      StackMapTable: number_of_entries = 1
+        frame_type = 12 /* same */
+    Signature: #130                         // (Lcom/seeyon/boot/starter/udcrt/dto/UdcSerialConfigDto;)Lcom/seeyon/boot/transport/SingleResponse<Ljava/lang/Integer;>;
+    RuntimeVisibleAnnotations:
+      0: #131(#132=[s#124])
+        org.springframework.web.bind.annotation.PostMapping(
+          value=["update"]
+        )
+      1: #133(#132=s#134,#135=s#136)
+        com.seeyon.boot.annotation.RestApiOperation(
+          value="1.1 更新流水号配置"
+          description="更新流水号配置"
+        )
+    RuntimeVisibleParameterAnnotations:
+      parameter 0:
+        0: #138()
+          org.springframework.web.bind.annotation.RequestBody
+
+  public com.seeyon.boot.transport.ListResponse<com.seeyon.boot.starter.udcrt.dto.UdcSerialConfigDto> selectListByConditions(java.util.Map<java.lang.String, java.lang.Object>, com.seeyon.boot.transport.Sort);
+    descriptor: (Ljava/util/Map;Lcom/seeyon/boot/transport/Sort;)Lcom/seeyon/boot/transport/ListResponse;
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=3, locals=3, args_size=3
+         0: aload_0
+         1: invokespecial #2                  // Method checkSerialConfigResourcePermission:()Z
+         4: ifne          12
+         7: aload_0
+         8: invokespecial #7                  // Method handlerErrorListResponse:()Lcom/seeyon/boot/transport/ListResponse;
+        11: areturn
+        12: aload_0
+        13: getfield      #4                  // Field appService:Lcom/seeyon/boot/starter/udcrt/api/UdcSerialConfigAppService;
+        16: aload_1
+        17: invokestatic  #8                  // Method com/seeyon/boot/transport/ListRequest.from:(Ljava/util/Map;)Lcom/seeyon/boot/transport/ListRequest;
+        20: aload_2
+        21: invokevirtual #9                  // Method com/seeyon/boot/transport/ListRequest.sort:(Lcom/seeyon/boot/transport/Sort;)Lcom/seeyon/boot/transport/ListRequest;
+        24: invokeinterface #10,  2           // InterfaceMethod com/seeyon/boot/starter/udcrt/api/UdcSerialConfigAppService.selectListByConditions:(Lcom/seeyon/boot/transport/ListRequest;)Lcom/seeyon/boot/transport/ListResponse;
+        29: areturn
+      LineNumberTable:
+        line 88: 0
+        line 89: 7
+        line 91: 12
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      30     0  this   Lcom/seeyon/boot/starter/udcrt/controller/UdcSerialConfigController;
+            0      30     1 params   Ljava/util/Map;
+            0      30     2  sort   Lcom/seeyon/boot/transport/Sort;
+      LocalVariableTypeTable:
+        Start  Length  Slot  Name   Signature
+            0      30     1 params   Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;
+      StackMapTable: number_of_entries = 1
+        frame_type = 12 /* same */
+    Signature: #147                         // (Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;Lcom/seeyon/boot/transport/Sort;)Lcom/seeyon/boot/transport/ListResponse<Lcom/seeyon/boot/starter/udcrt/dto/UdcSerialConfigDto;>;
+    RuntimeVisibleAnnotations:
+      0: #131(#132=[s#148])
+        org.springframework.web.bind.annotation.PostMapping(
+          value=["list"]
+        )
+      1: #133(#132=s#149,#135=s#150)
+        com.seeyon.boot.annotation.RestApiOperation(
+          value="2.1 根据条件查询(不分页)"
+          description="根据条件查询(不分页)"
+        )
+    RuntimeVisibleParameterAnnotations:
+      parameter 0:
+        0: #151()
+          com.seeyon.boot.annotation.MultiRequestBody
+      parameter 1:
+        0: #151()
+          com.seeyon.boot.annotation.MultiRequestBody
+
+  public com.seeyon.boot.transport.SingleResponse<com.seeyon.boot.starter.udcrt.dto.EntityGroupAndItemDto> selectEntityList(java.lang.String);
+    descriptor: (Ljava/lang/String;)Lcom/seeyon/boot/transport/SingleResponse;
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0
+         1: invokespecial #2                  // Method checkSerialConfigResourcePermission:()Z
+         4: ifne          12
+         7: aload_0
+         8: invokespecial #3                  // Method handlerErrorResponse:()Lcom/seeyon/boot/transport/SingleResponse;
+        11: areturn
+        12: aload_0
+        13: getfield      #4                  // Field appService:Lcom/seeyon/boot/starter/udcrt/api/UdcSerialConfigAppService;
+        16: aload_1
+        17: invokestatic  #5                  // Method com/seeyon/boot/transport/SingleRequest.from:(Ljava/lang/Object;)Lcom/seeyon/boot/transport/SingleRequest;
+        20: invokeinterface #11,  2           // InterfaceMethod com/seeyon/boot/starter/udcrt/api/UdcSerialConfigAppService.selectEntityList:(Lcom/seeyon/boot/transport/SingleRequest;)Lcom/seeyon/boot/transport/SingleResponse;
+        25: areturn
+      LineNumberTable:
+        line 97: 0
+        line 98: 7
+        line 100: 12
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      26     0  this   Lcom/seeyon/boot/starter/udcrt/controller/UdcSerialConfigController;
+            0      26     1 appName   Ljava/lang/String;
+      StackMapTable: number_of_entries = 1
+        frame_type = 12 /* same */
+    Signature: #155                         // (Ljava/lang/String;)Lcom/seeyon/boot/transport/SingleResponse<Lcom/seeyon/boot/starter/udcrt/dto/EntityGroupAndItemDto;>;
+    RuntimeVisibleAnnotations:
+      0: #156(#132=[s#157])
+        org.springframework.web.bind.annotation.GetMapping(
+          value=["select-entity-list"]
+        )
+      1: #133(#132=s#158,#135=s#159)
+        com.seeyon.boot.annotation.RestApiOperation(
+          value="3.1 查询有流水号配置的实体列表"
+          description="查询有流水号配置的实体列表"
+        )
+    RuntimeVisibleParameterAnnotations:
+      parameter 0:
+        0: #151()
+          com.seeyon.boot.annotation.MultiRequestBody
+
+  public com.seeyon.boot.transport.ListResponse<com.seeyon.boot.starter.extmetadata.dto.UdcEntityMetaDataDto> selectEntityBySerial(java.util.Map<java.lang.String, java.lang.Object>);
+    descriptor: (Ljava/util/Map;)Lcom/seeyon/boot/transport/ListResponse;
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0
+         1: invokespecial #2                  // Method checkSerialConfigResourcePermission:()Z
+         4: ifne          12
+         7: aload_0
+         8: invokespecial #7                  // Method handlerErrorListResponse:()Lcom/seeyon/boot/transport/ListResponse;
+        11: areturn
+        12: aload_0
+        13: getfield      #4                  // Field appService:Lcom/seeyon/boot/starter/udcrt/api/UdcSerialConfigAppService;
+        16: aload_1
+        17: invokestatic  #8                  // Method com/seeyon/boot/transport/ListRequest.from:(Ljava/util/Map;)Lcom/seeyon/boot/transport/ListRequest;
+        20: invokeinterface #12,  2           // InterfaceMethod com/seeyon/boot/starter/udcrt/api/UdcSerialConfigAppService.selectEntityBySerialId:(Lcom/seeyon/boot/transport/ListRequest;)Lcom/seeyon/boot/transport/ListResponse;
+        25: areturn
+      LineNumberTable:
+        line 106: 0
+        line 107: 7
+        line 109: 12
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      26     0  this   Lcom/seeyon/boot/starter/udcrt/controller/UdcSerialConfigController;
+            0      26     1 params   Ljava/util/Map;
+      LocalVariableTypeTable:
+        Start  Length  Slot  Name   Signature
+            0      26     1 params   Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;
+      StackMapTable: number_of_entries = 1
+        frame_type = 12 /* same */
+    Signature: #162                         // (Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;)Lcom/seeyon/boot/transport/ListResponse<Lcom/seeyon/boot/starter/extmetadata/dto/UdcEntityMetaDataDto;>;
+    RuntimeVisibleAnnotations:
+      0: #131(#132=[s#163])
+        org.springframework.web.bind.annotation.PostMapping(
+          value=["select-entity-by-serial-id"]
+        )
+      1: #133(#132=s#164,#135=s#165)
+        com.seeyon.boot.annotation.RestApiOperation(
+          value="3.2 根据流水号Id获取使用的实体字段"
+          description="根据流水号Id获取使用的实体字段"
+        )
+    RuntimeVisibleParameterAnnotations:
+      parameter 0:
+        0: #151()
+          com.seeyon.boot.annotation.MultiRequestBody
+
+  public com.seeyon.boot.transport.SingleResponse<java.lang.String> refreshHistoricalData(java.lang.String);
+    descriptor: (Ljava/lang/String;)Lcom/seeyon/boot/transport/SingleResponse;
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0
+         1: getfield      #4                  // Field appService:Lcom/seeyon/boot/starter/udcrt/api/UdcSerialConfigAppService;
+         4: aload_1
+         5: invokestatic  #5                  // Method com/seeyon/boot/transport/SingleRequest.from:(Ljava/lang/Object;)Lcom/seeyon/boot/transport/SingleRequest;
+         8: invokeinterface #13,  2           // InterfaceMethod com/seeyon/boot/starter/udcrt/api/UdcSerialConfigAppService.refreshHistoricalData:(Lcom/seeyon/boot/transport/SingleRequest;)Lcom/seeyon/boot/transport/SingleResponse;
+        13: areturn
+      LineNumberTable:
+        line 115: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      14     0  this   Lcom/seeyon/boot/starter/udcrt/controller/UdcSerialConfigController;
+            0      14     1 appName   Ljava/lang/String;
+    Signature: #167                         // (Ljava/lang/String;)Lcom/seeyon/boot/transport/SingleResponse<Ljava/lang/String;>;
+    RuntimeVisibleAnnotations:
+      0: #156(#132=[s#168])
+        org.springframework.web.bind.annotation.GetMapping(
+          value=["refresh-historical-data/{appName}"]
+        )
+      1: #133(#132=s#169,#135=s#170)
+        com.seeyon.boot.annotation.RestApiOperation(
+          value="3.3 清理应用的流水号配置信息"
+          description="清理应用的流水号配置信息"
+        )
+    RuntimeVisibleParameterAnnotations:
+      parameter 0:
+        0: #171(#132=s#154)
+          org.springframework.web.bind.annotation.PathVariable(
+            value="appName"
+          )
+
+  public com.seeyon.boot.transport.SingleResponse<java.lang.Boolean> cacheEvict(java.lang.String);
+    descriptor: (Ljava/lang/String;)Lcom/seeyon/boot/transport/SingleResponse;
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0
+         1: getfield      #4                  // Field appService:Lcom/seeyon/boot/starter/udcrt/api/UdcSerialConfigAppService;
+         4: aload_1
+         5: invokestatic  #5                  // Method com/seeyon/boot/transport/SingleRequest.from:(Ljava/lang/Object;)Lcom/seeyon/boot/transport/SingleRequest;
+         8: invokeinterface #14,  2           // InterfaceMethod com/seeyon/boot/starter/udcrt/api/UdcSerialConfigAppService.cacheEvict:(Lcom/seeyon/boot/transport/SingleRequest;)Lcom/seeyon/boot/transport/SingleResponse;
+        13: areturn
+      LineNumberTable:
+        line 121: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      14     0  this   Lcom/seeyon/boot/starter/udcrt/controller/UdcSerialConfigController;
+            0      14     1 appName   Ljava/lang/String;
+    Signature: #173                         // (Ljava/lang/String;)Lcom/seeyon/boot/transport/SingleResponse<Ljava/lang/Boolean;>;
+    RuntimeVisibleAnnotations:
+      0: #156(#132=[s#174])
+        org.springframework.web.bind.annotation.GetMapping(
+          value=["cache-evict/{appName}"]
+        )
+      1: #133(#132=s#175,#135=s#176)
+        com.seeyon.boot.annotation.RestApiOperation(
+          value="3.4 清理流水号配置缓存"
+          description="清理流水号配置缓存"
+        )
+    RuntimeVisibleParameterAnnotations:
+      parameter 0:
+        0: #171(#132=s#154)
+          org.springframework.web.bind.annotation.PathVariable(
+            value="appName"
+          )
+
+  private boolean checkSerialConfigResourcePermission();
+    descriptor: ()Z
+    flags: (0x0002) ACC_PRIVATE
+    Code:
+      stack=8, locals=9, args_size=1
+         0: invokestatic  #15                 // Method com/seeyon/boot/context/Apps.isMonolithic:()Z
+         3: ifeq          16
+         6: invokestatic  #16                 // Method com/seeyon/boot/context/RequestContext.get:()Lcom/seeyon/boot/context/RequestContext;
+         9: invokevirtual #17                 // Method com/seeyon/boot/context/RequestContext.getSourceAppName:()Ljava/lang/String;
+        12: astore_1
+        13: goto          20
+        16: invokestatic  #18                 // Method com/seeyon/boot/context/Apps.getAppName:()Ljava/lang/String;
+        19: astore_1
+        20: aload_1
+        21: invokestatic  #19                 // Method com/seeyon/boot/util/StringUtils.isEmpty:(Ljava/lang/CharSequence;)Z
+        24: ifeq          39
+        27: getstatic     #20                 // Field log:Lorg/slf4j/Logger;
+        30: ldc           #21                 // String 获取AppName 为空，不进行权限校验！
+        32: invokeinterface #22,  2           // InterfaceMethod org/slf4j/Logger.warn:(Ljava/lang/String;)V
+        37: iconst_1
+        38: ireturn
+        39: ldc           #24                 // String app-approval
+        41: aload_1
+        42: invokevirtual #25                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+        45: ifeq          105
+        48: aload_0
+        49: getfield      #26                 // Field ctpUserPermissionCommonAppService:Lcom/seeyon/ctp/user/api/common/CtpUserPermissionCommonAppService;
+        52: invokestatic  #16                 // Method com/seeyon/boot/context/RequestContext.get:()Lcom/seeyon/boot/context/RequestContext;
+        55: invokevirtual #27                 // Method com/seeyon/boot/context/RequestContext.getUserId:()Ljava/lang/Long;
+        58: invokestatic  #5                  // Method com/seeyon/boot/transport/SingleRequest.from:(Ljava/lang/Object;)Lcom/seeyon/boot/transport/SingleRequest;
+        61: invokeinterface #28,  2           // InterfaceMethod com/seeyon/ctp/user/api/common/CtpUserPermissionCommonAppService.selectUserRoleCode:(Lcom/seeyon/boot/transport/SingleRequest;)Lcom/seeyon/boot/transport/ListResponse;
+        66: ldc           #29                 // String ctp-user
+        68: invokestatic  #30                 // Method com/seeyon/udc/common/utils/ResponseUtils.listResponseResolve:(Lcom/seeyon/boot/transport/ListResponse;Ljava/lang/String;)Ljava/util/List;
+        71: astore_2
+        72: aload_2
+        73: invokestatic  #31                 // Method com/google/common/collect/Sets.newHashSet:(Ljava/lang/Iterable;)Ljava/util/HashSet;
+        76: astore_3
+        77: aload_3
+        78: ldc           #33                 // String BpmDesigner
+        80: invokeinterface #34,  2           // InterfaceMethod java/util/Set.contains:(Ljava/lang/Object;)Z
+        85: ifne          99
+        88: aload_3
+        89: ldc           #35                 // String BpmSystemManager
+        91: invokeinterface #34,  2           // InterfaceMethod java/util/Set.contains:(Ljava/lang/Object;)Z
+        96: ifeq          103
+        99: iconst_1
+       100: goto          104
+       103: iconst_0
+       104: ireturn
+       105: aload_0
+       106: getfield      #36                 // Field metadataQueryAppService:Lcom/seeyon/ctp/metadata/api/MetadataQueryAppService;
+       109: aload_1
+       110: invokestatic  #5                  // Method com/seeyon/boot/transport/SingleRequest.from:(Ljava/lang/Object;)Lcom/seeyon/boot/transport/SingleRequest;
+       113: invokevirtual #37                 // Method com/seeyon/ctp/metadata/api/MetadataQueryAppService.selectServiceMetadataByName:(Lcom/seeyon/boot/transport/SingleRequest;)Lcom/seeyon/boot/transport/SingleResponse;
+       116: astore_2
+       117: aload_2
+       118: ldc           #38                 // String selectServiceMetadataByName
+       120: invokestatic  #39                 // Method com/seeyon/udc/common/utils/ResponseUtils.responseResolve:(Lcom/seeyon/boot/transport/SingleResponse;Ljava/lang/String;)Ljava/lang/Object;
+       123: invokestatic  #40                 // Method java/util/Optional.ofNullable:(Ljava/lang/Object;)Ljava/util/Optional;
+       126: invokedynamic #41,  0             // InvokeDynamic #0:test:()Ljava/util/function/Predicate;
+       131: invokevirtual #42                 // Method java/util/Optional.filter:(Ljava/util/function/Predicate;)Ljava/util/Optional;
+       134: invokevirtual #43                 // Method java/util/Optional.isPresent:()Z
+       137: istore_3
+       138: iload_3
+       139: ifeq          144
+       142: iconst_1
+       143: ireturn
+       144: aload_0
+       145: getfield      #44                 // Field serialConfigResourceId:Ljava/lang/String;
+       148: invokestatic  #19                 // Method com/seeyon/boot/util/StringUtils.isEmpty:(Ljava/lang/CharSequence;)Z
+       151: ifeq          302
+       154: new           #45                 // class com/seeyon/ctp/metadata/dto/request/SearchJsonMetadataDto
+       157: dup
+       158: invokespecial #46                 // Method com/seeyon/ctp/metadata/dto/request/SearchJsonMetadataDto."<init>":()V
+       161: astore        4
+       163: aload         4
+       165: aload_1
+       166: invokevirtual #47                 // Method com/seeyon/ctp/metadata/dto/request/SearchJsonMetadataDto.setAppName:(Ljava/lang/String;)V
+       169: aload         4
+       171: ldc           #48                 // String udc@com.seeyon.udc.page.domain.entity.PageInfoEntity.json
+       173: invokevirtual #49                 // Method com/seeyon/ctp/metadata/dto/request/SearchJsonMetadataDto.setJsonFileName:(Ljava/lang/String;)V
+       176: aload_0
+       177: getfield      #50                 // Field udcLoadJarResourceAppService:Lcom/seeyon/ctp/metadata/api/LoadJarResourceAppService;
+       180: aload         4
+       182: invokestatic  #5                  // Method com/seeyon/boot/transport/SingleRequest.from:(Ljava/lang/Object;)Lcom/seeyon/boot/transport/SingleRequest;
+       185: invokeinterface #51,  2           // InterfaceMethod com/seeyon/ctp/metadata/api/LoadJarResourceAppService.getJsonMetadataData:(Lcom/seeyon/boot/transport/SingleRequest;)Lcom/seeyon/boot/transport/SingleResponse;
+       190: astore        5
+       192: aload         5
+       194: ldc           #52                 // String getJsonMetadataData
+       196: invokestatic  #39                 // Method com/seeyon/udc/common/utils/ResponseUtils.responseResolve:(Lcom/seeyon/boot/transport/SingleResponse;Ljava/lang/String;)Ljava/lang/Object;
+       199: checkcast     #53                 // class java/lang/String
+       202: astore        6
+       204: aload         6
+       206: invokestatic  #19                 // Method com/seeyon/boot/util/StringUtils.isEmpty:(Ljava/lang/CharSequence;)Z
+       209: ifeq          218
+       212: ldc           #54                 // String jar包中查询页面基本信息内容为空!
+       214: invokestatic  #55                 // Method com/seeyon/boot/exception/BusinessException.message:(Ljava/lang/String;)Lcom/seeyon/boot/exception/BusinessException;
+       217: athrow
+       218: aload         6
+       220: ldc           #56                 // class com/seeyon/boot/starter/extmetadata/dto/PageInfoItemOssDto
+       222: invokestatic  #57                 // Method com/seeyon/udc/common/utils/UdcJsonUtils.toList:(Ljava/lang/String;Ljava/lang/Class;)Ljava/util/List;
+       225: astore        7
+       227: aload         7
+       229: invokeinterface #58,  1           // InterfaceMethod java/util/List.stream:()Ljava/util/stream/Stream;
+       234: invokedynamic #59,  0             // InvokeDynamic #1:test:()Ljava/util/function/Predicate;
+       239: invokeinterface #60,  2           // InterfaceMethod java/util/stream/Stream.filter:(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
+       244: invokedynamic #61,  0             // InvokeDynamic #2:apply:()Ljava/util/function/Function;
+       249: invokeinterface #62,  2           // InterfaceMethod java/util/stream/Stream.map:(Ljava/util/function/Function;)Ljava/util/stream/Stream;
+       254: invokeinterface #63,  1           // InterfaceMethod java/util/stream/Stream.findAny:()Ljava/util/Optional;
+       259: astore        8
+       261: aload         8
+       263: invokevirtual #43                 // Method java/util/Optional.isPresent:()Z
+       266: ifne          287
+       269: getstatic     #20                 // Field log:Lorg/slf4j/Logger;
+       272: ldc           #64                 // String 页面资源注册错误：{}
+       274: aload         6
+       276: invokeinterface #65,  3           // InterfaceMethod org/slf4j/Logger.error:(Ljava/lang/String;Ljava/lang/Object;)V
+       281: ldc           #66                 // String 页面资源注册错误：查询不到对应页面资源(_serialNumber)
+       283: invokestatic  #55                 // Method com/seeyon/boot/exception/BusinessException.message:(Ljava/lang/String;)Lcom/seeyon/boot/exception/BusinessException;
+       286: athrow
+       287: aload_0
+       288: aload         8
+       290: invokevirtual #67                 // Method java/util/Optional.get:()Ljava/lang/Object;
+       293: checkcast     #68                 // class java/lang/Long
+       296: invokevirtual #69                 // Method java/lang/Long.toString:()Ljava/lang/String;
+       299: putfield      #44                 // Field serialConfigResourceId:Ljava/lang/String;
+       302: aload_0
+       303: getfield      #70                 // Field securityResourcePermissionService:Lcom/seeyon/boot/starter/security/SecurityResourcePermissionService;
+       306: aload_1
+       307: aload_0
+       308: invokevirtual #71                 // Method getUserId:()Ljava/lang/Long;
+       311: aload_0
+       312: getfield      #44                 // Field serialConfigResourceId:Ljava/lang/String;
+       315: aload_0
+       316: getfield      #72                 // Field request:Ljavax/servlet/http/HttpServletRequest;
+       319: invokeinterface #73,  1           // InterfaceMethod javax/servlet/http/HttpServletRequest.getRequestURI:()Ljava/lang/String;
+       324: aconst_null
+       325: aconst_null
+       326: aload_0
+       327: getfield      #72                 // Field request:Ljavax/servlet/http/HttpServletRequest;
+       330: invokevirtual #74                 // Method com/seeyon/boot/starter/security/SecurityResourcePermissionService.checkResourcePermission:(Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljavax/servlet/http/HttpServletRequest;)Z
+       333: ireturn
+      LineNumberTable:
+        line 128: 0
+        line 129: 6
+        line 131: 16
+        line 133: 20
+        line 134: 27
+        line 135: 37
+        line 138: 39
+        line 139: 48
+        line 140: 72
+        line 141: 77
+        line 143: 105
+        line 144: 117
+        line 145: 131
+        line 146: 134
+        line 148: 138
+        line 149: 142
+        line 151: 144
+        line 152: 154
+        line 153: 163
+        line 154: 169
+        line 155: 176
+        line 156: 192
+        line 157: 204
+        line 158: 212
+        line 160: 218
+        line 161: 227
+        line 162: 261
+        line 163: 269
+        line 164: 281
+        line 166: 287
+        line 168: 302
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+           13       3     1 appName   Ljava/lang/String;
+           72      33     2 roleCodes   Ljava/util/List;
+           77      28     3 userRoles   Ljava/util/Set;
+          163     139     4 searchJsonMetadataDto   Lcom/seeyon/ctp/metadata/dto/request/SearchJsonMetadataDto;
+          192     110     5 singleResponse   Lcom/seeyon/boot/transport/SingleResponse;
+          204      98     6 pageLists   Ljava/lang/String;
+          227      75     7 pageInfoItemDtoList   Ljava/util/List;
+          261      41     8 optional   Ljava/util/Optional;
+            0     334     0  this   Lcom/seeyon/boot/starter/udcrt/controller/UdcSerialConfigController;
+           20     314     1 appName   Ljava/lang/String;
+          117     217     2 serviceResp   Lcom/seeyon/boot/transport/SingleResponse;
+          138     196     3 isDynamicApp   Z
+      LocalVariableTypeTable:
+        Start  Length  Slot  Name   Signature
+           72      33     2 roleCodes   Ljava/util/List<Ljava/lang/String;>;
+           77      28     3 userRoles   Ljava/util/Set<Ljava/lang/String;>;
+          192     110     5 singleResponse   Lcom/seeyon/boot/transport/SingleResponse<Ljava/lang/String;>;
+          227      75     7 pageInfoItemDtoList   Ljava/util/List<Lcom/seeyon/boot/starter/extmetadata/dto/PageInfoItemOssDto;>;
+          261      41     8 optional   Ljava/util/Optional<Ljava/lang/Long;>;
+          117     217     2 serviceResp   Lcom/seeyon/boot/transport/SingleResponse<Lcom/seeyon/ctp/metadata/dto/ServiceMetadataDto;>;
+      StackMapTable: number_of_entries = 11
+        frame_type = 16 /* same */
+        frame_type = 252 /* append */
+          offset_delta = 3
+          locals = [ class java/lang/String ]
+        frame_type = 18 /* same */
+        frame_type = 253 /* append */
+          offset_delta = 59
+          locals = [ class java/util/List, class java/util/Set ]
+        frame_type = 3 /* same */
+        frame_type = 64 /* same_locals_1_stack_item */
+          stack = [ int ]
+        frame_type = 249 /* chop */
+          offset_delta = 0
+        frame_type = 253 /* append */
+          offset_delta = 38
+          locals = [ class com/seeyon/boot/transport/SingleResponse, int ]
+        frame_type = 254 /* append */
+          offset_delta = 73
+          locals = [ class com/seeyon/ctp/metadata/dto/request/SearchJsonMetadataDto, class com/seeyon/boot/transport/SingleResponse, class java/lang/String ]
+        frame_type = 253 /* append */
+          offset_delta = 68
+          locals = [ class java/util/List, class java/util/Optional ]
+        frame_type = 255 /* full_frame */
+          offset_delta = 14
+          locals = [ class com/seeyon/boot/starter/udcrt/controller/UdcSerialConfigController, class java/lang/String, class com/seeyon/boot/transport/SingleResponse, int ]
+          stack = []
+
+  private <T extends java.lang.Object> com.seeyon.boot.transport.ListResponse<T> handlerErrorListResponse();
+    descriptor: ()Lcom/seeyon/boot/transport/ListResponse;
+    flags: (0x0002) ACC_PRIVATE
+    Code:
+      stack=3, locals=2, args_size=1
+         0: new           #75                 // class com/seeyon/boot/transport/ListResponse
+         3: dup
+         4: invokespecial #76                 // Method com/seeyon/boot/transport/ListResponse."<init>":()V
+         7: astore_1
+         8: aload_1
+         9: iconst_2
+        10: invokevirtual #77                 // Method com/seeyon/boot/transport/ListResponse.setStatus:(I)V
+        13: aload_1
+        14: ldc           #78                 // String BOOT_1004
+        16: invokevirtual #79                 // Method com/seeyon/boot/transport/ListResponse.setCode:(Ljava/lang/String;)V
+        19: aload_1
+        20: aload_0
+        21: getfield      #80                 // Field messageRepository:Lcom/seeyon/boot/starter/i18n/MessageRepository;
+        24: ldc           #81                 // String error.code.BOOT_1004
+        26: invokeinterface #82,  2           // InterfaceMethod com/seeyon/boot/starter/i18n/MessageRepository.getMessage:(Ljava/lang/String;)Ljava/lang/String;
+        31: invokevirtual #83                 // Method com/seeyon/boot/transport/ListResponse.setMessage:(Ljava/lang/String;)V
+        34: aload_1
+        35: areturn
+      LineNumberTable:
+        line 172: 0
+        line 173: 8
+        line 174: 13
+        line 175: 19
+        line 176: 34
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      36     0  this   Lcom/seeyon/boot/starter/udcrt/controller/UdcSerialConfigController;
+            8      28     1 response1   Lcom/seeyon/boot/transport/ListResponse;
+      LocalVariableTypeTable:
+        Start  Length  Slot  Name   Signature
+            8      28     1 response1   Lcom/seeyon/boot/transport/ListResponse<TT;>;
+    Signature: #212                         // <T:Ljava/lang/Object;>()Lcom/seeyon/boot/transport/ListResponse<TT;>;
+
+  private <T extends java.lang.Object> com.seeyon.boot.transport.SingleResponse<T> handlerErrorResponse();
+    descriptor: ()Lcom/seeyon/boot/transport/SingleResponse;
+    flags: (0x0002) ACC_PRIVATE
+    Code:
+      stack=3, locals=2, args_size=1
+         0: new           #84                 // class com/seeyon/boot/transport/SingleResponse
+         3: dup
+         4: invokespecial #85                 // Method com/seeyon/boot/transport/SingleResponse."<init>":()V
+         7: astore_1
+         8: aload_1
+         9: iconst_2
+        10: invokevirtual #86                 // Method com/seeyon/boot/transport/SingleResponse.setStatus:(I)V
+        13: aload_1
+        14: ldc           #78                 // String BOOT_1004
+        16: invokevirtual #87                 // Method com/seeyon/boot/transport/SingleResponse.setCode:(Ljava/lang/String;)V
+        19: aload_1
+        20: aload_0
+        21: getfield      #80                 // Field messageRepository:Lcom/seeyon/boot/starter/i18n/MessageRepository;
+        24: ldc           #81                 // String error.code.BOOT_1004
+        26: invokeinterface #82,  2           // InterfaceMethod com/seeyon/boot/starter/i18n/MessageRepository.getMessage:(Ljava/lang/String;)Ljava/lang/String;
+        31: invokevirtual #88                 // Method com/seeyon/boot/transport/SingleResponse.setMessage:(Ljava/lang/String;)V
+        34: aload_1
+        35: areturn
+      LineNumberTable:
+        line 180: 0
+        line 181: 8
+        line 182: 13
+        line 183: 19
+        line 184: 34
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      36     0  this   Lcom/seeyon/boot/starter/udcrt/controller/UdcSerialConfigController;
+            8      28     1 response1   Lcom/seeyon/boot/transport/SingleResponse;
+      LocalVariableTypeTable:
+        Start  Length  Slot  Name   Signature
+            8      28     1 response1   Lcom/seeyon/boot/transport/SingleResponse<TT;>;
+    Signature: #216                         // <T:Ljava/lang/Object;>()Lcom/seeyon/boot/transport/SingleResponse<TT;>;
+
+  private static boolean lambda$checkSerialConfigResourcePermission$1(com.seeyon.boot.starter.extmetadata.dto.PageInfoItemOssDto);
+    descriptor: (Lcom/seeyon/boot/starter/extmetadata/dto/PageInfoItemOssDto;)Z
+    flags: (0x100a) ACC_PRIVATE, ACC_STATIC, ACC_SYNTHETIC
+    Code:
+      stack=2, locals=1, args_size=1
+         0: aload_0
+         1: invokevirtual #89                 // Method com/seeyon/boot/starter/extmetadata/dto/PageInfoItemOssDto.getPageUrl:()Ljava/lang/String;
+         4: ldc           #90                 // String _serialNumber
+         6: invokevirtual #91                 // Method java/lang/String.contains:(Ljava/lang/CharSequence;)Z
+         9: ireturn
+      LineNumberTable:
+        line 161: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      10     0  item   Lcom/seeyon/boot/starter/extmetadata/dto/PageInfoItemOssDto;
+
+  private static boolean lambda$checkSerialConfigResourcePermission$0(com.seeyon.ctp.metadata.dto.ServiceMetadataDto);
+    descriptor: (Lcom/seeyon/ctp/metadata/dto/ServiceMetadataDto;)Z
+    flags: (0x100a) ACC_PRIVATE, ACC_STATIC, ACC_SYNTHETIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokevirtual #92                 // Method com/seeyon/ctp/metadata/dto/ServiceMetadataDto.getDynamicFeatureType:()Ljava/lang/String;
+         4: invokestatic  #93                 // Method com/seeyon/boot/util/StringUtils.isNotEmpty:(Ljava/lang/CharSequence;)Z
+         7: ifeq          24
+        10: aload_0
+        11: invokevirtual #94                 // Method com/seeyon/ctp/metadata/dto/ServiceMetadataDto.getHostAppName:()Ljava/lang/String;
+        14: invokestatic  #93                 // Method com/seeyon/boot/util/StringUtils.isNotEmpty:(Ljava/lang/CharSequence;)Z
+        17: ifeq          24
+        20: iconst_1
+        21: goto          25
+        24: iconst_0
+        25: ireturn
+      LineNumberTable:
+        line 145: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      26     0     i   Lcom/seeyon/ctp/metadata/dto/ServiceMetadataDto;
+      StackMapTable: number_of_entries = 2
+        frame_type = 24 /* same */
+        frame_type = 64 /* same_locals_1_stack_item */
+          stack = [ int ]
+
+  static {};
+    descriptor: ()V
+    flags: (0x0008) ACC_STATIC
+    Code:
+      stack=1, locals=0, args_size=0
+         0: ldc           #95                 // class com/seeyon/boot/starter/udcrt/controller/UdcSerialConfigController
+         2: invokestatic  #96                 // Method org/slf4j/LoggerFactory.getLogger:(Ljava/lang/Class;)Lorg/slf4j/Logger;
+         5: putstatic     #20                 // Field log:Lorg/slf4j/Logger;
+         8: return
+      LineNumberTable:
+        line 58: 0
+}
+SourceFile: "UdcSerialConfigController.java"
+RuntimeVisibleAnnotations:
+  0: #228()
+    org.springframework.web.bind.annotation.RestController
+  1: #229(#132=[s#230])
+    org.springframework.web.bind.annotation.RequestMapping(
+      value=["udc-runtime/serial-config"]
+    )
+  2: #231(#132=s#232)
+    com.seeyon.boot.annotation.RestApi(
+      value="流水号配置接口"
+    )
+InnerClasses:
+  public static final #466= #465 of #471; // Lookup=class java/lang/invoke/MethodHandles$Lookup of class java/lang/invoke/MethodHandles
+BootstrapMethods:
+  0: #287 REF_invokeStatic java/lang/invoke/LambdaMetafactory.metafactory:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+    Method arguments:
+      #288 (Ljava/lang/Object;)Z
+      #289 REF_invokeStatic com/seeyon/boot/starter/udcrt/controller/UdcSerialConfigController.lambda$checkSerialConfigResourcePermission$0:(Lcom/seeyon/ctp/metadata/dto/ServiceMetadataDto;)Z
+      #290 (Lcom/seeyon/ctp/metadata/dto/ServiceMetadataDto;)Z
+  1: #287 REF_invokeStatic java/lang/invoke/LambdaMetafactory.metafactory:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+    Method arguments:
+      #288 (Ljava/lang/Object;)Z
+      #312 REF_invokeStatic com/seeyon/boot/starter/udcrt/controller/UdcSerialConfigController.lambda$checkSerialConfigResourcePermission$1:(Lcom/seeyon/boot/starter/extmetadata/dto/PageInfoItemOssDto;)Z
+      #313 (Lcom/seeyon/boot/starter/extmetadata/dto/PageInfoItemOssDto;)Z
+  2: #287 REF_invokeStatic java/lang/invoke/LambdaMetafactory.metafactory:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+    Method arguments:
+      #316 (Ljava/lang/Object;)Ljava/lang/Object;
+      #317 REF_invokeVirtual com/seeyon/boot/starter/extmetadata/dto/UdcBaseOssMetadataDto.getId:()Ljava/lang/Long;
+      #318 (Lcom/seeyon/boot/starter/extmetadata/dto/PageInfoItemOssDto;)Ljava/lang/Long;

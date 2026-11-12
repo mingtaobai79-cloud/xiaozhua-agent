@@ -1,0 +1,20 @@
+Compiled from "CtpUserSpiAuthTokenEnum.java"
+public final class com.seeyon.ctp.user.enums.CtpUserSpiAuthTokenEnum extends java.lang.Enum<com.seeyon.ctp.user.enums.CtpUserSpiAuthTokenEnum> implements com.seeyon.boot.enums.Messageable {
+  public static final com.seeyon.ctp.user.enums.CtpUserSpiAuthTokenEnum SPI_SSO;
+    descriptor: Lcom/seeyon/ctp/user/enums/CtpUserSpiAuthTokenEnum;
+  public static final com.seeyon.ctp.user.enums.CtpUserSpiAuthTokenEnum USERNAME_PASSWORD;
+    descriptor: Lcom/seeyon/ctp/user/enums/CtpUserSpiAuthTokenEnum;
+  public static final com.seeyon.ctp.user.enums.CtpUserSpiAuthTokenEnum PHONE_VERIFY_CODE;
+    descriptor: Lcom/seeyon/ctp/user/enums/CtpUserSpiAuthTokenEnum;
+  public static com.seeyon.ctp.user.enums.CtpUserSpiAuthTokenEnum[] values();
+    descriptor: ()[Lcom/seeyon/ctp/user/enums/CtpUserSpiAuthTokenEnum;
+
+  public static com.seeyon.ctp.user.enums.CtpUserSpiAuthTokenEnum valueOf(java.lang.String);
+    descriptor: (Ljava/lang/String;)Lcom/seeyon/ctp/user/enums/CtpUserSpiAuthTokenEnum;
+
+  public int code();
+    descriptor: ()I
+
+  public java.lang.String getClassName();
+    descriptor: ()Ljava/lang/String;
+}

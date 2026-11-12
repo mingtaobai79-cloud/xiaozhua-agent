@@ -21,7 +21,7 @@
       --name xiaozhua-udc-entity-domain \
       --facts core/facts/udc/entity --facts core/facts/udc/expression \
       --constraints components/udc/rule_domain_scope.py \
-      --out "D:/software/hermes/skills/seeyon/02-udc/xiaozhua-udc-entity-domain"
+      --out "<HERMES_HOME>/skills/seeyon/02-udc/xiaozhua-udc-entity-domain"
 
 ★ 生成后必须跑 `--check`：文档计数、PII、事实路径存在性三项自检。
 """
@@ -51,7 +51,7 @@ PII_HINTS = [
     (r"datamigration\d{16,}", "客户应用名"),
     (r"znxmglpt\d{6,}", "客户实例名"),
     # 域名拆成两段拼接：源码里不能出现完整客户域名，否则本文件自身会被 PII 闸门拦下
-    ("changhong" + r"it\.com", "客户组织域名"),
+    ("sample" + r"it\.com", "客户组织域名"),
     (r"[A-Za-z]{1,3}\d{3}\b", "疑似工号"),
 ]
 

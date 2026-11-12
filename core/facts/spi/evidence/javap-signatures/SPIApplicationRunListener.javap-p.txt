@@ -1,0 +1,9 @@
+Compiled from "SPIApplicationRunListener.java"
+public class com.seeyon.boot.starter.spi.SPIApplicationRunListener implements com.seeyon.boot.init.SeeyonApplicationRunner {
+  private static final org.slf4j.Logger log;
+  public com.seeyon.boot.starter.spi.SPIApplicationRunListener();
+  public void run() throws java.lang.Exception;
+  public void initialize();
+  public void loadExtendsSpi();
+  static {};
+}

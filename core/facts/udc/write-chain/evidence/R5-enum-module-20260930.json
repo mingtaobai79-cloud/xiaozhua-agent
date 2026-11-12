@@ -1,0 +1,39 @@
+{
+  "phase": "设置-枚举模块 全链闭环",
+  "ts": "2026-09-30 22:00 +08",
+  "verified_chain": [
+    {
+      "step": "新建枚举",
+      "verdict": "LIVE PASS",
+      "flow": "设置tab → 枚举管理 → lined-plus(267,127) → 表单(名称=zzprobe测试枚举, 编码=zzprobe_enum, 分类可空, 状态启用, 可扩展)",
+      "result": "枚举列表出现 zzprobe测试枚举(删除/批量导出/Excel导入)"
+    },
+    {
+      "step": "枚举项",
+      "verdict": "LIVE PASS ×2",
+      "flow": "选中枚举 → 新建按钮 → 弹窗(枚举项名称/枚举项值/排序号, 三个'请输入'按序) → 确定",
+      "items": [
+        {
+          "名称": "启用",
+          "值": "1",
+          "排序": 1
+        },
+        {
+          "名称": "停用",
+          "值": "2",
+          "排序": 1
+        }
+      ],
+      "result": "共 2 条, 操作有 编辑/停用/删除"
+    }
+  ],
+  "ui_facts": [
+    "枚举弹窗表单输入框 placeholder 全是'请输入'，按 DOM 顺序定位(0=名称,1=值,2=排序号)",
+    "枚举分类下拉可为空(新应用无分类)",
+    "枚举项提交后弹窗自动关闭并刷新列表"
+  ],
+  "graphql_apis_observed": [
+    "udcEnumCategorySearch",
+    "udcEnumSearchNoPagePost"
+  ]
+}

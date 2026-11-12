@@ -1,0 +1,7 @@
+Compiled from "CtpUserSpiConstants.java"
+public class com.seeyon.ctp.user.constant.CtpUserSpiConstants {
+  public static final java.lang.String QR_CODE;
+    descriptor: Ljava/lang/String;
+  public com.seeyon.ctp.user.constant.CtpUserSpiConstants();
+    descriptor: ()V
+}

@@ -1,0 +1,100 @@
+{
+  "phase": "设计器全模块接口面测绘",
+  "ts": "2026-09-30 21:50 +08",
+  "appId": 6419954374508955097,
+  "modules": {
+    "规则": {
+      "subtabs": [
+        "微流程",
+        "生单规则",
+        "扣减规则"
+      ],
+      "apis": [
+        "udcMicroflowSearch",
+        "udcMicroFlowGroupSelectByTypePost"
+      ],
+      "state": "空(请创建微流程)",
+      "channel": "GraphQL"
+    },
+    "流程": {
+      "subtabs": [
+        "流程模板",
+        "流程配置"
+      ],
+      "apis": [
+        "bpm/graphql bpmTemplateSelectByAppIdGroupByTagPost",
+        "udcMultiEditLockPost"
+      ],
+      "state": "空(请选择类型创建: 固定流程...)",
+      "channel": "BPM服务(graphql bpm)——跨服务!",
+      "note": "流程走 bpm 微服务不是 udc"
+    },
+    "BI": {
+      "subtabs": [
+        "数据集",
+        "数据流",
+        "指标管理",
+        "报表管理"
+      ],
+      "apis": [
+        "cdp-data/env/variable",
+        "cdp-data/udc/dataset/get-list-page"
+      ],
+      "state": "空",
+      "channel": "cdp-data 服务——又一个跨服务"
+    },
+    "栏目": {
+      "subtabs": [
+        "栏目列表(默认分组)"
+      ],
+      "apis": [
+        "udc/page-info/select-by-appId/{appId}",
+        "udcPortletSelectByAppIdAppGet",
+        "udcMultiEditUnlockPost"
+      ],
+      "state": "空(请创建栏目)",
+      "channel": "REST + GraphQL"
+    },
+    "设置": {
+      "subtabs": [
+        "枚举",
+        "选项集",
+        "自定义对象",
+        "字段集",
+        "参数",
+        "扩展实体",
+        "流水号",
+        "导入导出模板",
+        "二维码",
+        "页面模板",
+        "外框模板"
+      ],
+      "apis": [
+        "udcEnumCategorySearch",
+        "udcEnumSearchNoPagePost"
+      ],
+      "state": "枚举管理打开",
+      "channel": "GraphQL"
+    },
+    "角色": {
+      "subtabs": [
+        "应用角色",
+        "web端功能权限",
+        "移动端功能权限"
+      ],
+      "apis": [
+        "udc/ctp-user/role/create-system-admin",
+        "udcCtpUserRoleAppResourceGet",
+        "udcCtpUserRoleSelectListPost"
+      ],
+      "state": "预置角色'普通人员角色'",
+      "channel": "REST+GraphQL(跨 ctp-user)"
+    }
+  },
+  "architecture_facts": [
+    "设计器 8 个模块涉及 6 个后端服务: udc / bpm / cdp-data / ctp-user / portal / app-common",
+    "网关按服务名分发: /service/{serviceName}/graphql 或 /service/{serviceName}/rest-path",
+    "BI 的 cdp-data 是独立数据分析服务(数据集/数据流/指标/报表)",
+    "流程的 bpm 是独立流程引擎(与 udc 的 bpm-facade 呼应)"
+  ]
+}

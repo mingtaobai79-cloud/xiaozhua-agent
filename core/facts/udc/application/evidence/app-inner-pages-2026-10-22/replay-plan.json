@@ -1,0 +1,39 @@
+{
+ "页面测试": [
+  {
+   "label": "页面测试",
+   "method": "POST",
+   "url": "https://lowcode-test2.example.com/service/udc/deployment/latest-test-info",
+   "postData": "{\"appId\":\"8704025620829192834\"}"
+  },
+  {
+   "label": "页面测试",
+   "method": "POST",
+   "url": "https://lowcode-test2.example.com/service/udc/graphql?udcDeploymentAppReadyStatePost",
+   "postData": "{\"query\":\"query graphqlLoader ($params0: udcDeploymentAppReadyStatePostInputBody) { \\n  data0: udcDeploymentAppReadyStatePost(body: $params0) { code data { content } message status } }\",\"variables\":{\"params0\":{\"appId\":\"8704025620829192834\"}}}"
+  }
+ ],
+ "团队设置": [
+  {
+   "label": "团队设置",
+   "method": "POST",
+   "url": "https://lowcode-test2.example.com/service/udc/graphql?udcCollaborationAppGet",
+   "postData": "{\"query\":\"\\nquery udcCollaborationAppGet ($path: udcCollaborationAppGetInputPath) {\\n  udcCollaborationAppGet(path: $path) {\\n    code\\n    data{\\n      content{\\n        appId\\n        guid\\n        id\\n        isCreator\\n        memberId\\n        memberName\\n        role\\n      }\\n    }\\n    message\\n    status\\n  }\\n}\\n\",\"variables\":{\"path\":{\"appId\":\"8704025620829192834\"}}}"
+  }
+ ],
+ "设计日志": [
+  {
+   "label": "设计日志",
+   "method": "POST",
+   "url": "https://lowcode-test2.example.com/service/udc/graphql?udcOperationLogSearchInitDataAppGet",
+   "postData": "{\"query\":\"query graphqlLoader ($params0: udcOperationLogSearchInitDataAppGetInputPath) { \\n  data0: udcOperationLogSearchInitDataAppGet(path: $params0) { code data { \\n      content{\\n        subModuleMap\\n        moduleMap\\n        members\\n      }\\n     } message status } }\",\"variables\":{\"params0\":{\"appId\":\"8704025620829192834\"}}}"
+  },
+  {
+   "label": "设计日志",
+   "method": "POST",
+   "url": "https://lowcode-test2.example.com/service/udc/graphql?udcOperationLogSearch",
+   "postData": "{\"query\":\"mutation graphqlLoader ($params0: udcOperationLogSearchInputBody) { \\n  data0: udcOperationLogSearch(body: $params0) { code data { \\n      content{\\n        appId\\n        operatorId\\n        operatorCaption\\n        module\\n        subModule\\n        moduleCaption\\n        subModuleCaption\\n        logElement\\n        elementsSize\\n        recordVersion\\n        logPath\\n        actionType\\n        domainId\\n        storageKey\\n        createTime\\n        domainCaption\\n        operations\\n        traceId\\n        publishState\\n        originalId\\n        id\\n        guid\\n        extraJson\\n      }\\n      pageInfo{\\n        pageNumber\\n        pageSize\\n        pages\\n        total\\n        needTotal\\n      }\\n     } message status } }\",\"variables\":{\"params0\":{\"pageInfo\":{\"needTotal\":true,\"pageNumber\":1,\"pageSize\":20,\"pages\":0,\"total\":0},\"params\":{\"appId\":\"8704025620829192834\",\"startTime\":null,\"endTime\":null,\"operatorId\":null,\"module\":null,\"subModule\":null},\"sort\":{\"orders\":[{\"direction\":\"DESC\",\"property\":\"createTime\"}]}}}}"
+  }
+ ],
+ "微流程运行日志": []
+}

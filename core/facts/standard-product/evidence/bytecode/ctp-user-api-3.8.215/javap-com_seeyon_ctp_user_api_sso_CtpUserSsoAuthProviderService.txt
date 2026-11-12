@@ -1,0 +1,59 @@
+Compiled from "CtpUserSsoAuthProviderService.java"
+public interface com.seeyon.ctp.user.api.sso.CtpUserSsoAuthProviderService {
+  public default void setServerDomain(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+
+  public default void setServerEnv(com.seeyon.ctp.user.dto.CtpUserSpiServerEnvDto);
+    descriptor: (Lcom/seeyon/ctp/user/dto/CtpUserSpiServerEnvDto;)V
+
+  public abstract java.lang.String getRequestParaKey();
+    descriptor: ()Ljava/lang/String;
+
+  public abstract java.lang.String getSsoLoginUrl(javax.servlet.http.HttpServletRequest, java.lang.String);
+    descriptor: (Ljavax/servlet/http/HttpServletRequest;Ljava/lang/String;)Ljava/lang/String;
+
+  public default java.lang.Boolean sendVerifyCode(java.lang.String);
+    descriptor: (Ljava/lang/String;)Ljava/lang/Boolean;
+
+  public default java.lang.Boolean isRedirectShortLink();
+    descriptor: ()Ljava/lang/Boolean;
+
+  public default com.seeyon.ctp.user.enums.ShortLinkModeEnum shortLinkMode();
+    descriptor: ()Lcom/seeyon/ctp/user/enums/ShortLinkModeEnum;
+
+  public abstract com.seeyon.ctp.user.dto.CtpUserSpiLoginUserInfoDto getUserLoginInfo(javax.servlet.http.HttpServletRequest, java.lang.String) throws com.seeyon.ctp.user.exception.CtpUserSpiSsoException, com.seeyon.ctp.user.exception.SpiAuthContinueException;
+    descriptor: (Ljavax/servlet/http/HttpServletRequest;Ljava/lang/String;)Lcom/seeyon/ctp/user/dto/CtpUserSpiLoginUserInfoDto;
+
+  public default java.lang.String getEncodeLogoutRedirectUrl();
+    descriptor: ()Ljava/lang/String;
+
+  public default void thirdSsoLogout(javax.servlet.http.HttpServletRequest, java.lang.String);
+    descriptor: (Ljavax/servlet/http/HttpServletRequest;Ljava/lang/String;)V
+
+  public default com.seeyon.ctp.user.dto.CtpUserSpiLoginUserInfoDto getUserLoginInfoForMobile(java.lang.String, java.util.Map<java.lang.String, java.lang.Object>, com.seeyon.ctp.user.enums.CtpUserSpiAuthTokenEnum) throws com.seeyon.ctp.user.exception.CtpUserSpiSsoException;
+    descriptor: (Ljava/lang/String;Ljava/util/Map;Lcom/seeyon/ctp/user/enums/CtpUserSpiAuthTokenEnum;)Lcom/seeyon/ctp/user/dto/CtpUserSpiLoginUserInfoDto;
+
+  public default boolean tokenExpiredSetNull();
+    descriptor: ()Z
+
+  public default java.lang.Long rebuildCtpUserDtoList(java.util.List<com.seeyon.ctp.user.dto.CtpUserSpiUserDto>);
+    descriptor: (Ljava/util/List;)Ljava/lang/Long;
+
+  public default com.seeyon.ctp.user.dto.CtpUserSpiThirdTokenDto refreshThirdToken(java.lang.String, long);
+    descriptor: (Ljava/lang/String;J)Lcom/seeyon/ctp/user/dto/CtpUserSpiThirdTokenDto;
+
+  public default com.seeyon.ctp.user.dto.CtpUserSpiThirdTokenDto refreshThirdTokenByConfig(java.lang.String, java.util.Map<java.lang.String, java.lang.Object>);
+    descriptor: (Ljava/lang/String;Ljava/util/Map;)Lcom/seeyon/ctp/user/dto/CtpUserSpiThirdTokenDto;
+
+  public default java.lang.String get4aTokenKey();
+    descriptor: ()Ljava/lang/String;
+
+  public default java.lang.String getTidCode();
+    descriptor: ()Ljava/lang/String;
+
+  public default java.util.Map<java.lang.String, com.seeyon.ctp.user.enums.CtpUserSpiAuthTokenEnum[]> mapSupportsAuthTokenEnum();
+    descriptor: ()Ljava/util/Map;
+
+  public default com.seeyon.ctp.user.enums.CtpUserSpiAuthTokenEnum getSuccessAuthTokenEnum();
+    descriptor: ()Lcom/seeyon/ctp/user/enums/CtpUserSpiAuthTokenEnum;
+}

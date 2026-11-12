@@ -1,0 +1,140 @@
+Classfile jar:file:///D:/repo/CHIT/com/seeyon/udc-starter-dataflow/5.3.517/udc-starter-dataflow-5.3.517.jar!/com/seeyon/boot/starter/dataflow/controller/DataFlowForBpmController.class
+  Last modified 2026年6月17日; size 1918 bytes
+  SHA-256 checksum 8b31f788f981eaa9a1ee025b72410f9bf71b4dd214b6a8cb3e41d566103ba5e4
+  Compiled from "DataFlowForBpmController.java"
+public class com.seeyon.boot.starter.dataflow.controller.DataFlowForBpmController
+  minor version: 0
+  major version: 52
+  flags: (0x0021) ACC_PUBLIC, ACC_SUPER
+  this_class: #7                          // com/seeyon/boot/starter/dataflow/controller/DataFlowForBpmController
+  super_class: #8                         // java/lang/Object
+  interfaces: 0, fields: 1, methods: 2, attributes: 2
+Constant pool:
+   #1 = Methodref          #8.#39         // java/lang/Object."<init>":()V
+   #2 = Fieldref           #7.#40         // com/seeyon/boot/starter/dataflow/controller/DataFlowForBpmController.dataFlowForBpmAppService:Lcom/seeyon/boot/starter/dataflow/api/DataFlowForBpmAppService;
+   #3 = Methodref          #41.#42        // com/seeyon/boot/transport/SingleRequest.from:(Ljava/lang/Object;)Lcom/seeyon/boot/transport/SingleRequest;
+   #4 = InterfaceMethodref #43.#44        // com/seeyon/boot/starter/dataflow/api/DataFlowForBpmAppService.fillErrorFlowData:(Lcom/seeyon/boot/transport/SingleRequest;)Lcom/seeyon/boot/transport/SingleResponse;
+   #5 = Methodref          #45.#46        // java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+   #6 = Methodref          #47.#48        // com/seeyon/boot/transport/SingleResponse.from:(Ljava/lang/Object;)Lcom/seeyon/boot/transport/SingleResponse;
+   #7 = Class              #49            // com/seeyon/boot/starter/dataflow/controller/DataFlowForBpmController
+   #8 = Class              #50            // java/lang/Object
+   #9 = Utf8               dataFlowForBpmAppService
+  #10 = Utf8               Lcom/seeyon/boot/starter/dataflow/api/DataFlowForBpmAppService;
+  #11 = Utf8               RuntimeVisibleAnnotations
+  #12 = Utf8               Lorg/springframework/beans/factory/annotation/Autowired;
+  #13 = Utf8               <init>
+  #14 = Utf8               ()V
+  #15 = Utf8               Code
+  #16 = Utf8               LineNumberTable
+  #17 = Utf8               LocalVariableTable
+  #18 = Utf8               this
+  #19 = Utf8               Lcom/seeyon/boot/starter/dataflow/controller/DataFlowForBpmController;
+  #20 = Utf8               fillErrorFlowData
+  #21 = Utf8               (Lcom/seeyon/boot/starter/dataflow/dto/FillFlowReqDto;)Lcom/seeyon/boot/transport/SingleResponse;
+  #22 = Utf8               reqDto
+  #23 = Utf8               Lcom/seeyon/boot/starter/dataflow/dto/FillFlowReqDto;
+  #24 = Utf8               Signature
+  #25 = Utf8               (Lcom/seeyon/boot/starter/dataflow/dto/FillFlowReqDto;)Lcom/seeyon/boot/transport/SingleResponse<Ljava/lang/Boolean;>;
+  #26 = Utf8               Lcom/seeyon/boot/annotation/RestApiOperation;
+  #27 = Utf8               value
+  #28 = Utf8               补生单异常数据
+  #29 = Utf8               description
+  #30 = Utf8               Lorg/springframework/web/bind/annotation/PostMapping;
+  #31 = Utf8               fill-data
+  #32 = Utf8               SourceFile
+  #33 = Utf8               DataFlowForBpmController.java
+  #34 = Utf8               Lorg/springframework/web/bind/annotation/RestController;
+  #35 = Utf8               Lorg/springframework/web/bind/annotation/RequestMapping;
+  #36 = Utf8               udc-runtime/bpm
+  #37 = Utf8               Lcom/seeyon/boot/annotation/RestApi;
+  #38 = Utf8               生单数据处理
+  #39 = NameAndType        #13:#14        // "<init>":()V
+  #40 = NameAndType        #9:#10         // dataFlowForBpmAppService:Lcom/seeyon/boot/starter/dataflow/api/DataFlowForBpmAppService;
+  #41 = Class              #51            // com/seeyon/boot/transport/SingleRequest
+  #42 = NameAndType        #52:#53        // from:(Ljava/lang/Object;)Lcom/seeyon/boot/transport/SingleRequest;
+  #43 = Class              #54            // com/seeyon/boot/starter/dataflow/api/DataFlowForBpmAppService
+  #44 = NameAndType        #20:#55        // fillErrorFlowData:(Lcom/seeyon/boot/transport/SingleRequest;)Lcom/seeyon/boot/transport/SingleResponse;
+  #45 = Class              #56            // java/lang/Boolean
+  #46 = NameAndType        #57:#58        // valueOf:(Z)Ljava/lang/Boolean;
+  #47 = Class              #59            // com/seeyon/boot/transport/SingleResponse
+  #48 = NameAndType        #52:#60        // from:(Ljava/lang/Object;)Lcom/seeyon/boot/transport/SingleResponse;
+  #49 = Utf8               com/seeyon/boot/starter/dataflow/controller/DataFlowForBpmController
+  #50 = Utf8               java/lang/Object
+  #51 = Utf8               com/seeyon/boot/transport/SingleRequest
+  #52 = Utf8               from
+  #53 = Utf8               (Ljava/lang/Object;)Lcom/seeyon/boot/transport/SingleRequest;
+  #54 = Utf8               com/seeyon/boot/starter/dataflow/api/DataFlowForBpmAppService
+  #55 = Utf8               (Lcom/seeyon/boot/transport/SingleRequest;)Lcom/seeyon/boot/transport/SingleResponse;
+  #56 = Utf8               java/lang/Boolean
+  #57 = Utf8               valueOf
+  #58 = Utf8               (Z)Ljava/lang/Boolean;
+  #59 = Utf8               com/seeyon/boot/transport/SingleResponse
+  #60 = Utf8               (Ljava/lang/Object;)Lcom/seeyon/boot/transport/SingleResponse;
+{
+  private com.seeyon.boot.starter.dataflow.api.DataFlowForBpmAppService dataFlowForBpmAppService;
+    descriptor: Lcom/seeyon/boot/starter/dataflow/api/DataFlowForBpmAppService;
+    flags: (0x0002) ACC_PRIVATE
+    RuntimeVisibleAnnotations:
+      0: #12()
+        org.springframework.beans.factory.annotation.Autowired
+
+  public com.seeyon.boot.starter.dataflow.controller.DataFlowForBpmController();
+    descriptor: ()V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: return
+      LineNumberTable:
+        line 19: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lcom/seeyon/boot/starter/dataflow/controller/DataFlowForBpmController;
+
+  public com.seeyon.boot.transport.SingleResponse<java.lang.Boolean> fillErrorFlowData(com.seeyon.boot.starter.dataflow.dto.FillFlowReqDto);
+    descriptor: (Lcom/seeyon/boot/starter/dataflow/dto/FillFlowReqDto;)Lcom/seeyon/boot/transport/SingleResponse;
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0
+         1: getfield      #2                  // Field dataFlowForBpmAppService:Lcom/seeyon/boot/starter/dataflow/api/DataFlowForBpmAppService;
+         4: aload_1
+         5: invokestatic  #3                  // Method com/seeyon/boot/transport/SingleRequest.from:(Ljava/lang/Object;)Lcom/seeyon/boot/transport/SingleRequest;
+         8: invokeinterface #4,  2            // InterfaceMethod com/seeyon/boot/starter/dataflow/api/DataFlowForBpmAppService.fillErrorFlowData:(Lcom/seeyon/boot/transport/SingleRequest;)Lcom/seeyon/boot/transport/SingleResponse;
+        13: pop
+        14: iconst_1
+        15: invokestatic  #5                  // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+        18: invokestatic  #6                  // Method com/seeyon/boot/transport/SingleResponse.from:(Ljava/lang/Object;)Lcom/seeyon/boot/transport/SingleResponse;
+        21: areturn
+      LineNumberTable:
+        line 26: 0
+        line 27: 14
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      22     0  this   Lcom/seeyon/boot/starter/dataflow/controller/DataFlowForBpmController;
+            0      22     1 reqDto   Lcom/seeyon/boot/starter/dataflow/dto/FillFlowReqDto;
+    Signature: #25                          // (Lcom/seeyon/boot/starter/dataflow/dto/FillFlowReqDto;)Lcom/seeyon/boot/transport/SingleResponse<Ljava/lang/Boolean;>;
+    RuntimeVisibleAnnotations:
+      0: #26(#27=s#28,#29=s#28)
+        com.seeyon.boot.annotation.RestApiOperation(
+          value="补生单异常数据"
+          description="补生单异常数据"
+        )
+      1: #30(#27=[s#31])
+        org.springframework.web.bind.annotation.PostMapping(
+          value=["fill-data"]
+        )
+}
+SourceFile: "DataFlowForBpmController.java"
+RuntimeVisibleAnnotations:
+  0: #34()
+    org.springframework.web.bind.annotation.RestController
+  1: #35(#27=[s#36])
+    org.springframework.web.bind.annotation.RequestMapping(
+      value=["udc-runtime/bpm"]
+    )
+  2: #37(#27=s#38)
+    com.seeyon.boot.annotation.RestApi(
+      value="生单数据处理"
+    )

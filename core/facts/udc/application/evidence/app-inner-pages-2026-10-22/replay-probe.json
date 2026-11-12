@@ -1,0 +1,175 @@
+{
+ "captured_at": "2026-10-22T22:20:56",
+ "base": "https://lowcode-test2.example.com",
+ "auth": "browser session cookie (not persisted)",
+ "summary": {
+  "LIVE_PASS": 5,
+  "SKIPPED": 1,
+  "CALLED_EMPTY": 2,
+  "FAIL": 3
+ },
+ "probes": [
+  {
+   "http": 200,
+   "code": "BOOT_0000",
+   "message": "SUCCESS",
+   "traceId": "3286033422731970748",
+   "bytes": 357,
+   "ms": 116,
+   "content_type": "dict",
+   "content_size": 10,
+   "content_head": "{\"validate\": true, \"appId\": \"8704025620829192834\", \"appName\": \"datamigration8704025620829192834\", \"caption\": \"数据迁移\", \"appVersion\": \"1.0.0\", \"buildTime\": 1792678373000, \"leastTestVersion\": \"1.0.31\", \"leastTester\": \"张三\", \"testSuccess\": true, \"keepAlive\": true}",
+   "label": "页面测试",
+   "method": "POST",
+   "path": "/service/udc/deployment/latest-test-info",
+   "body_head": "{\"appId\":\"8704025620829192834\"}",
+   "verdict": "LIVE_PASS",
+   "derived": false
+  },
+  {
+   "http": 200,
+   "ms": 87,
+   "bytes": 345,
+   "content_type": "graphql",
+   "content_size": 1,
+   "content_head": "{\"data0\": {\"code\": \"BOOT_0000\", \"data\": {\"content\": {\"validate\": true, \"appName\": \"datamigration8704025620829192834\", \"appVersion\": \"1.0.0\", \"appId\": \"8704025620829192834\", \"terminalType\": null, \"enableLoginEntry\": false, \"enableClearEntry\": true, \"state\": \"RUNNING\", \"msg\": \"DEPLOY_SUCCESS\"}}, \"message\": \"SUCCESS\", \"status\": 0}}",
+   "gql_keys": [
+    "data0"
+   ],
+   "label": "页面测试",
+   "method": "POST",
+   "path": "/service/udc/graphql?udcDeploymentAppReadyStatePost",
+   "body_head": "{\"query\":\"query graphqlLoader ($params0: udcDeploymentAppReadyStatePostInputBody) { \\n  data0: udcDeploymentAppReadyStatePost(body: $params0) { code data { content } message status } }\",\"variables\":{\"params0\":{\"appId\":\"8704025620829192834\"}}}",
+   "verdict": "LIVE_PASS",
+   "derived": false
+  },
+  {
+   "http": 200,
+   "ms": 62,
+   "bytes": 347,
+   "content_type": "graphql",
+   "content_size": 1,
+   "content_head": "{\"udcCollaborationAppGet\": {\"code\": \"BOOT_0000\", \"data\": {\"content\": [{\"appId\": \"8704025620829192834\", \"guid\": \"-8563032555667111211\", \"id\": \"-1412157640991572146\", \"isCreator\": true, \"memberId\": \"-2638952494757493308\", \"memberName\": \"张三\", \"role\": \"应用设计师\", \"g_l_index\": \"1\"}]}, \"message\": \"SUCCESS\", \"status\": 0}}",
+   "gql_keys": [
+    "udcCollaborationAppGet"
+   ],
+   "label": "团队设置",
+   "method": "POST",
+   "path": "/service/udc/graphql?udcCollaborationAppGet",
+   "body_head": "{\"query\":\"\\nquery udcCollaborationAppGet ($path: udcCollaborationAppGetInputPath) {\\n  udcCollaborationAppGet(path: $path) {\\n    code\\n    data{\\n      content{\\n        appId\\n        guid\\n        id\\n        isCreator\\n        memberId\\n        memberName\\n        role\\n      }\\n    }\\n    messa",
+   "verdict": "LIVE_PASS",
+   "derived": false
+  },
+  {
+   "http": 200,
+   "ms": 79,
+   "bytes": 2621,
+   "content_type": "graphql",
+   "content_size": 1,
+   "content_head": "{\"data0\": {\"code\": \"BOOT_0000\", \"data\": {\"content\": {\"subModuleMap\": {\"全部\": \"ALL\", \"生单规则\": \"DATAFLOW\", \"扣减规则\": \"DEDUCTION\", \"菜单节点\": \"FUNCTION_NODE\", \"控件\": \"WIDGET\", \"栏目节点\": \"PORTLET\", \"栏目分组\": \"PORTLET_GROUP\", \"页面\": \"PAGE\", \"外框\": \"LAYOUT\", \"实体分组\": \"ENTITY_GROUP\", \"实体\": \"ENTITY_BASE\", \"实体字段\": \"ENTITY_ATTR\", \"实体规则\": \"ENTITY_RULE\", \"实体参照\": \"ENTITY_REFER\", \"实体事件\": \"ENTITY_EVENT\", \"实体索引\": \"ENTITY_INDEX\"",
+   "gql_keys": [
+    "data0"
+   ],
+   "label": "设计日志",
+   "method": "POST",
+   "path": "/service/udc/graphql?udcOperationLogSearchInitDataAppGet",
+   "body_head": "{\"query\":\"query graphqlLoader ($params0: udcOperationLogSearchInitDataAppGetInputPath) { \\n  data0: udcOperationLogSearchInitDataAppGet(path: $params0) { code data { \\n      content{\\n        subModuleMap\\n        moduleMap\\n        members\\n      }\\n     } message status } }\",\"variables\":{\"params0\"",
+   "verdict": "LIVE_PASS",
+   "derived": false
+  },
+  {
+   "label": "设计日志",
+   "method": "POST",
+   "url": "https://lowcode-test2.example.com/service/udc/graphql?udcOperationLogSearch",
+   "skipped": "MUTATION_NOT_REPLAYED",
+   "verdict": "SKIPPED"
+  },
+  {
+   "http": 200,
+   "code": "BOOT_0000",
+   "message": "SUCCESS",
+   "traceId": "3286033428637550780",
+   "bytes": 201,
+   "ms": 85,
+   "content_type": "list",
+   "content_size": 0,
+   "content_head": "[]",
+   "label": "app-log/dataflow",
+   "method": "POST",
+   "path": "/service/datamigration8704025620829192834/udc-runtime/app-log/search/dataflow",
+   "body_head": "{\"params\": {\"appName\": \"datamigration8704025620829192834\", \"appId\": \"8704025620829192834\", \"logType\": \"dataflow\"}, \"pageInfo\": {\"pageNumber\": 1, \"pageSize\": 10, \"needTotal\": true, \"total\": 0}}",
+   "verdict": "CALLED_EMPTY",
+   "derived": false
+  },
+  {
+   "http": 200,
+   "code": "BOOT_0000",
+   "message": "SUCCESS",
+   "traceId": "3286033430449490108",
+   "bytes": 201,
+   "ms": 108,
+   "content_type": "list",
+   "content_size": 0,
+   "content_head": "[]",
+   "label": "app-log/deduction",
+   "method": "POST",
+   "path": "/service/datamigration8704025620829192834/udc-runtime/app-log/search/deduction",
+   "body_head": "{\"params\": {\"appName\": \"datamigration8704025620829192834\", \"appId\": \"8704025620829192834\", \"logType\": \"deduction\"}, \"pageInfo\": {\"pageNumber\": 1, \"pageSize\": 10, \"needTotal\": true, \"total\": 0}}",
+   "verdict": "CALLED_EMPTY",
+   "derived": false
+  },
+  {
+   "http": 404,
+   "error": "NON_JSON",
+   "bytes": 275,
+   "ms": 77,
+   "body_head": "{\"params\": {\"appName\": \"datamigration8704025620829192834\", \"appId\": \"8704025620829192834\", \"logType\": \"design\"}, \"pageInfo\": {\"pageNumber\": 1, \"pageSize\": 10, \"needTotal\": true, \"total\": 0}}",
+   "label": "app-log/design",
+   "method": "POST",
+   "path": "/service/datamigration8704025620829192834/udc-runtime/app-log/search/design",
+   "verdict": "FAIL",
+   "derived": true
+  },
+  {
+   "http": 200,
+   "code": "BOOT_0000",
+   "message": "SUCCESS",
+   "traceId": "3286033433318394044",
+   "bytes": 5447,
+   "ms": 107,
+   "content_type": "list",
+   "content_size": 10,
+   "content_head": "[{\"validate\": true, \"id\": \"-335828098732793686\", \"traceId\": \"-1\", \"requestId\": \"cd8304eb-58df-4ce8-8b71-137ac5140a80\", \"moduleType\": \"MICRO_FLOW\", \"success\": true, \"logTime\": \"2026-10-22 15:36:13\", \"subModuleType\": \"MICRO_FLOW_FRONTEND\", \"subModuleTypeName\": \"前端微流程\", \"moduleId\": \"-1\", \"caption\": \"查看",
+   "label": "app-log/microflow",
+   "method": "POST",
+   "path": "/service/datamigration8704025620829192834/udc-runtime/app-log/search/microflow",
+   "body_head": "{\"params\": {\"appName\": \"datamigration8704025620829192834\", \"appId\": \"8704025620829192834\", \"logType\": \"microflow\"}, \"pageInfo\": {\"pageNumber\": 1, \"pageSize\": 10, \"needTotal\": true, \"total\": 0}}",
+   "verdict": "LIVE_PASS",
+   "derived": true
+  },
+  {
+   "http": 404,
+   "error": "NON_JSON",
+   "bytes": 275,
+   "ms": 91,
+   "body_head": "{\"params\": {\"appName\": \"datamigration8704025620829192834\", \"appId\": \"8704025620829192834\", \"logType\": \"page\"}, \"pageInfo\": {\"pageNumber\": 1, \"pageSize\": 10, \"needTotal\": true, \"total\": 0}}",
+   "label": "app-log/page",
+   "method": "POST",
+   "path": "/service/datamigration8704025620829192834/udc-runtime/app-log/search/page",
+   "verdict": "FAIL",
+   "derived": true
+  },
+  {
+   "http": 404,
+   "error": "NON_JSON",
+   "bytes": 275,
+   "ms": 81,
+   "body_head": "{\"params\": {\"appName\": \"datamigration8704025620829192834\", \"appId\": \"8704025620829192834\", \"logType\": \"bizrule\"}, \"pageInfo\": {\"pageNumber\": 1, \"pageSize\": 10, \"needTotal\": true, \"total\": 0}}",
+   "label": "app-log/bizrule",
+   "method": "POST",
+   "path": "/service/datamigration8704025620829192834/udc-runtime/app-log/search/bizrule",
+   "verdict": "FAIL",
+   "derived": true
+  }
+ ]
+}

@@ -1,0 +1,40 @@
+{
+ "phase": "样板链端到端 LIVE 补全（order50 50字段 + deploy-normal 点火 + 运行态回读）",
+ "ts": "2026-10-10 16:0x~16:2x +08",
+ "steps": {
+  "1_补齐order50业务字段": {
+   "通道": "POST /service/udc/entity/attribute 单对象×49循环(field02-50)+前置field01",
+   "结果": "50/50 BOOT_0000, DB回读 field%=50, 总属性97(50业务+47系统)",
+   "types": "STRING20/DECIMAL6/DATETIME6/INTEGER6/BOOLEAN6/MULTILINESTRING6"
+  },
+  "2_deploy_normal点火": {
+   "body": "deployDto{appId,TEST,ALL,ALL}",
+   "result": "BOOT_0000 deployId=-7022133094645218286 → 约4min后 state=1 内部流水线构建成功 jar_version=1.0.10",
+   "sandbox_pod": "zzprobenew-7445b494d4-z2vcm(构建后新建)"
+  },
+  "3_物理表落库": {
+   "db": "zzprobenew26419954374508955097_test2(应用自身库)",
+   "tables": [
+    "order50_m8429057153986474250(97列=50field+47系统)",
+    "dingdan_5990719746137612400"
+   ]
+  },
+  "4_运行态读面回读": {
+   "路由": "udc-runtime 按appName路由沙箱pod: /service/{appName}/udc-runtime/*; 裸 /service/udc-runtime/* = server_404(修正旧认知)",
+   "select-host": "BOOT_0000 页面元数据回读成功",
+   "page-log": "BOOT_0000",
+   "data/query": {
+    "form": "dataId必填",
+    "fullname": "com.seeyon.{app_name}.domain.entity.Order50(biz jar domain/entity 包实证)",
+    "result": "全名对上后 BOOT_3000 接口错误(空表无行键) → 空表场景读面可用性=UNVERIFIED 不冒充PASS"
+   }
+  }
+ },
+ "protocol_learnings": [
+  "token续期=POST ctp-user/auth.token 用 ctp-user-login.json, session cookie 全活",
+  "deploy-normal 成功形态: deployType=TEST+projectType=ALL+terminalType=ALL (前次失败 deployType=3/business_type=3 错形态)",
+  "运行态实体全名规则: com.seeyon.{app_name}.domain.entity.{Entity} — 沙箱 pod biz jar unzip 实证",
+  "udc_deploy_record 成功行 schema_storage_key 指向 OSS seeyon-private-test2 — 与 metadata-storage 机制格互证"
+ ],
+ "end_to_end": "设计态建实体50字段 → 发布构建 → 物理表DDL → 沙箱pod生成 → 运行态元数据读面回读 全链 LIVE"
+}

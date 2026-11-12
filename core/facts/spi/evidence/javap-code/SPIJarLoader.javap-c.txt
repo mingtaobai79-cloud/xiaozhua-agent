@@ -1,0 +1,419 @@
+Compiled from "SPIJarLoader.java"
+public class com.seeyon.boot.starter.spi.SPIJarLoader {
+  private static final org.slf4j.Logger log;
+
+  private com.seeyon.boot.starter.spi.plugin.SpiArtifactService spiArtifactService;
+
+  private com.seeyon.boot.starter.eventbus.EventBus eventBus;
+
+  public com.seeyon.boot.starter.spi.SPIJarLoader();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  private java.util.List<java.lang.String> getFilePath(java.util.List<java.lang.String>);
+    Code:
+       0: aload_1
+       1: ifnull        13
+       4: aload_1
+       5: invokeinterface #2,  1            // InterfaceMethod java/util/List.size:()I
+      10: ifne          17
+      13: invokestatic  #3                  // Method java/util/Collections.emptyList:()Ljava/util/List;
+      16: areturn
+      17: new           #4                  // class java/util/ArrayList
+      20: dup
+      21: invokespecial #5                  // Method java/util/ArrayList."<init>":()V
+      24: astore_2
+      25: aload_1
+      26: invokeinterface #6,  1            // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+      31: astore_3
+      32: aload_3
+      33: invokeinterface #7,  1            // InterfaceMethod java/util/Iterator.hasNext:()Z
+      38: ifeq          324
+      41: aload_3
+      42: invokeinterface #8,  1            // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      47: checkcast     #9                  // class java/lang/String
+      50: astore        4
+      52: aload         4
+      54: ldc           #10                 // String maven:
+      56: invokevirtual #11                 // Method java/lang/String.startsWith:(Ljava/lang/String;)Z
+      59: ifeq          150
+      62: aload         4
+      64: bipush        6
+      66: invokevirtual #12                 // Method java/lang/String.substring:(I)Ljava/lang/String;
+      69: ldc           #13                 // String ,
+      71: invokevirtual #14                 // Method java/lang/String.split:(Ljava/lang/String;)[Ljava/lang/String;
+      74: astore        5
+      76: new           #15                 // class com/seeyon/boot/starter/spi/plugin/ArtifactInfo
+      79: dup
+      80: invokespecial #16                 // Method com/seeyon/boot/starter/spi/plugin/ArtifactInfo."<init>":()V
+      83: astore        6
+      85: aload         6
+      87: invokestatic  #17                 // Method com/seeyon/boot/context/Apps.getAppName:()Ljava/lang/String;
+      90: invokevirtual #18                 // Method com/seeyon/boot/starter/spi/plugin/ArtifactInfo.setAppId:(Ljava/lang/String;)V
+      93: aload         6
+      95: aload         5
+      97: iconst_0
+      98: aaload
+      99: invokevirtual #19                 // Method java/lang/String.trim:()Ljava/lang/String;
+     102: invokevirtual #20                 // Method com/seeyon/boot/starter/spi/plugin/ArtifactInfo.setGroupId:(Ljava/lang/String;)V
+     105: aload         6
+     107: aload         5
+     109: iconst_1
+     110: aaload
+     111: invokevirtual #19                 // Method java/lang/String.trim:()Ljava/lang/String;
+     114: invokevirtual #21                 // Method com/seeyon/boot/starter/spi/plugin/ArtifactInfo.setArtifactId:(Ljava/lang/String;)V
+     117: aload         6
+     119: aload         5
+     121: iconst_2
+     122: aaload
+     123: invokevirtual #19                 // Method java/lang/String.trim:()Ljava/lang/String;
+     126: invokevirtual #22                 // Method com/seeyon/boot/starter/spi/plugin/ArtifactInfo.setVersion:(Ljava/lang/String;)V
+     129: aload_2
+     130: aload_0
+     131: getfield      #23                 // Field spiArtifactService:Lcom/seeyon/boot/starter/spi/plugin/SpiArtifactService;
+     134: aload         6
+     136: invokeinterface #24,  2           // InterfaceMethod com/seeyon/boot/starter/spi/plugin/SpiArtifactService.download:(Lcom/seeyon/boot/starter/spi/plugin/ArtifactInfo;)Ljava/lang/String;
+     141: invokeinterface #25,  2           // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     146: pop
+     147: goto          276
+     150: aload         4
+     152: ldc           #26                 // String file:
+     154: invokevirtual #11                 // Method java/lang/String.startsWith:(Ljava/lang/String;)Z
+     157: ifeq          179
+     160: aload_2
+     161: aload         4
+     163: iconst_5
+     164: invokevirtual #12                 // Method java/lang/String.substring:(I)Ljava/lang/String;
+     167: invokevirtual #19                 // Method java/lang/String.trim:()Ljava/lang/String;
+     170: invokeinterface #25,  2           // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     175: pop
+     176: goto          276
+     179: aload         4
+     181: ldc           #27                 // String oss
+     183: invokevirtual #11                 // Method java/lang/String.startsWith:(Ljava/lang/String;)Z
+     186: ifeq          276
+     189: aload         4
+     191: iconst_4
+     192: invokevirtual #12                 // Method java/lang/String.substring:(I)Ljava/lang/String;
+     195: ldc           #13                 // String ,
+     197: invokevirtual #14                 // Method java/lang/String.split:(Ljava/lang/String;)[Ljava/lang/String;
+     200: astore        5
+     202: new           #15                 // class com/seeyon/boot/starter/spi/plugin/ArtifactInfo
+     205: dup
+     206: invokespecial #16                 // Method com/seeyon/boot/starter/spi/plugin/ArtifactInfo."<init>":()V
+     209: astore        6
+     211: aload         6
+     213: invokestatic  #17                 // Method com/seeyon/boot/context/Apps.getAppName:()Ljava/lang/String;
+     216: invokevirtual #18                 // Method com/seeyon/boot/starter/spi/plugin/ArtifactInfo.setAppId:(Ljava/lang/String;)V
+     219: aload         6
+     221: aload         5
+     223: iconst_0
+     224: aaload
+     225: invokevirtual #19                 // Method java/lang/String.trim:()Ljava/lang/String;
+     228: invokevirtual #20                 // Method com/seeyon/boot/starter/spi/plugin/ArtifactInfo.setGroupId:(Ljava/lang/String;)V
+     231: aload         6
+     233: aload         5
+     235: iconst_1
+     236: aaload
+     237: invokevirtual #19                 // Method java/lang/String.trim:()Ljava/lang/String;
+     240: invokevirtual #21                 // Method com/seeyon/boot/starter/spi/plugin/ArtifactInfo.setArtifactId:(Ljava/lang/String;)V
+     243: aload         6
+     245: aload         5
+     247: iconst_2
+     248: aaload
+     249: invokevirtual #19                 // Method java/lang/String.trim:()Ljava/lang/String;
+     252: invokevirtual #22                 // Method com/seeyon/boot/starter/spi/plugin/ArtifactInfo.setVersion:(Ljava/lang/String;)V
+     255: aload_0
+     256: getfield      #28                 // Field eventBus:Lcom/seeyon/boot/starter/eventbus/EventBus;
+     259: aload         6
+     261: invokevirtual #29                 // Method com/seeyon/boot/starter/eventbus/EventBus.publish:(Ljava/io/Serializable;)V
+     264: aload_2
+     265: aload         6
+     267: invokevirtual #30                 // Method com/seeyon/boot/starter/spi/plugin/ArtifactInfo.getFileFullPath:()Ljava/lang/String;
+     270: invokeinterface #25,  2           // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     275: pop
+     276: aload_2
+     277: aload_2
+     278: invokeinterface #2,  1            // InterfaceMethod java/util/List.size:()I
+     283: iconst_1
+     284: isub
+     285: invokeinterface #31,  2           // InterfaceMethod java/util/List.get:(I)Ljava/lang/Object;
+     290: ifnonnull     321
+     293: getstatic     #32                 // Field log:Lorg/slf4j/Logger;
+     296: ldc           #33                 // String 获取的spiPlugins数据有错 spiPluginUrl: [{}]
+     298: aload_1
+     299: aload_2
+     300: invokeinterface #2,  1            // InterfaceMethod java/util/List.size:()I
+     305: iconst_1
+     306: isub
+     307: invokeinterface #31,  2           // InterfaceMethod java/util/List.get:(I)Ljava/lang/Object;
+     312: invokeinterface #34,  3           // InterfaceMethod org/slf4j/Logger.error:(Ljava/lang/String;Ljava/lang/Object;)V
+     317: invokestatic  #3                  // Method java/util/Collections.emptyList:()Ljava/util/List;
+     320: areturn
+     321: goto          32
+     324: aload_2
+     325: areturn
+
+  public synchronized void loadSPIPlugins(java.util.List<java.lang.String>);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: iconst_1
+       3: invokevirtual #35                 // Method loadSPIPlugins:(Ljava/util/List;Z)V
+       6: return
+
+  public synchronized void loadSPIPlugins(java.util.List<java.lang.String>, boolean);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokespecial #36                 // Method getFilePath:(Ljava/util/List;)Ljava/util/List;
+       5: astore_3
+       6: aload_3
+       7: invokeinterface #2,  1            // InterfaceMethod java/util/List.size:()I
+      12: anewarray     #37                 // class java/net/URL
+      15: astore        4
+      17: iconst_0
+      18: istore        5
+      20: aload_3
+      21: invokeinterface #6,  1            // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+      26: astore        6
+      28: aload         6
+      30: invokeinterface #7,  1            // InterfaceMethod java/util/Iterator.hasNext:()Z
+      35: ifeq          100
+      38: aload         6
+      40: invokeinterface #8,  1            // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      45: checkcast     #9                  // class java/lang/String
+      48: astore        7
+      50: new           #38                 // class java/io/File
+      53: dup
+      54: aload         7
+      56: invokespecial #39                 // Method java/io/File."<init>":(Ljava/lang/String;)V
+      59: astore        8
+      61: aload         4
+      63: iload         5
+      65: iinc          5, 1
+      68: aload         8
+      70: invokevirtual #40                 // Method java/io/File.toURI:()Ljava/net/URI;
+      73: invokevirtual #41                 // Method java/net/URI.toURL:()Ljava/net/URL;
+      76: aastore
+      77: goto          97
+      80: astore        9
+      82: getstatic     #32                 // Field log:Lorg/slf4j/Logger;
+      85: aload         9
+      87: invokevirtual #43                 // Method java/lang/Throwable.getMessage:()Ljava/lang/String;
+      90: aload         9
+      92: invokeinterface #44,  3           // InterfaceMethod org/slf4j/Logger.error:(Ljava/lang/String;Ljava/lang/Throwable;)V
+      97: goto          28
+     100: invokestatic  #45                 // Method java/lang/Thread.currentThread:()Ljava/lang/Thread;
+     103: invokevirtual #46                 // Method java/lang/Thread.getContextClassLoader:()Ljava/lang/ClassLoader;
+     106: astore        6
+     108: new           #47                 // class com/seeyon/boot/starter/spi/SPIClassloader
+     111: dup
+     112: aload         4
+     114: aload         6
+     116: invokespecial #48                 // Method com/seeyon/boot/starter/spi/SPIClassloader."<init>":([Ljava/net/URL;Ljava/lang/ClassLoader;)V
+     119: astore        7
+     121: new           #49                 // class java/util/HashSet
+     124: dup
+     125: invokespecial #50                 // Method java/util/HashSet."<init>":()V
+     128: astore        8
+     130: aload         7
+     132: ldc           #52                 // String META-INF/spring.factories
+     134: invokevirtual #53                 // Method com/seeyon/boot/starter/spi/SPIClassloader.findResources:(Ljava/lang/String;)Ljava/util/Enumeration;
+     137: astore        9
+     139: aload         9
+     141: invokeinterface #54,  1           // InterfaceMethod java/util/Enumeration.hasMoreElements:()Z
+     146: ifeq          191
+     149: aload         9
+     151: invokeinterface #55,  1           // InterfaceMethod java/util/Enumeration.nextElement:()Ljava/lang/Object;
+     156: checkcast     #37                 // class java/net/URL
+     159: astore        10
+     161: new           #56                 // class org/springframework/core/io/FileUrlResource
+     164: dup
+     165: aload         10
+     167: invokespecial #57                 // Method org/springframework/core/io/FileUrlResource."<init>":(Ljava/net/URL;)V
+     170: invokestatic  #58                 // Method org/springframework/core/io/support/PropertiesLoaderUtils.loadProperties:(Lorg/springframework/core/io/Resource;)Ljava/util/Properties;
+     173: astore        11
+     175: aload         8
+     177: aload         11
+     179: invokevirtual #59                 // Method java/util/Properties.keySet:()Ljava/util/Set;
+     182: invokeinterface #60,  2           // InterfaceMethod java/util/Set.addAll:(Ljava/util/Collection;)Z
+     187: pop
+     188: goto          139
+     191: aload         8
+     193: invokeinterface #61,  1           // InterfaceMethod java/util/Set.size:()I
+     198: ifne          213
+     201: getstatic     #32                 // Field log:Lorg/slf4j/Logger;
+     204: ldc           #62                 // String 没有发现任何spi接口定义[{}]
+     206: aload         9
+     208: invokeinterface #34,  3           // InterfaceMethod org/slf4j/Logger.error:(Ljava/lang/String;Ljava/lang/Object;)V
+     213: aload         8
+     215: invokeinterface #63,  1           // InterfaceMethod java/util/Set.iterator:()Ljava/util/Iterator;
+     220: astore        10
+     222: aload         10
+     224: invokeinterface #7,  1            // InterfaceMethod java/util/Iterator.hasNext:()Z
+     229: ifeq          364
+     232: aload         10
+     234: invokeinterface #8,  1            // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+     239: astore        11
+     241: aload         7
+     243: aload         11
+     245: checkcast     #9                  // class java/lang/String
+     248: invokevirtual #64                 // Method com/seeyon/boot/starter/spi/SPIClassloader.loadClass:(Ljava/lang/String;)Ljava/lang/Class;
+     251: aload         7
+     253: invokestatic  #65                 // Method org/springframework/core/io/support/SpringFactoriesLoader.loadFactories:(Ljava/lang/Class;Ljava/lang/ClassLoader;)Ljava/util/List;
+     256: astore        12
+     258: aload         12
+     260: invokeinterface #6,  1            // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+     265: astore        13
+     267: aload         13
+     269: invokeinterface #7,  1            // InterfaceMethod java/util/Iterator.hasNext:()Z
+     274: ifeq          305
+     277: aload         13
+     279: invokeinterface #8,  1            // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+     284: astore        14
+     286: invokestatic  #66                 // Method com/seeyon/boot/context/Apps.getBeanFactory:()Lorg/springframework/beans/factory/support/DefaultListableBeanFactory;
+     289: aload         14
+     291: invokevirtual #67                 // Method java/lang/Object.getClass:()Ljava/lang/Class;
+     294: invokevirtual #68                 // Method java/lang/Class.getName:()Ljava/lang/String;
+     297: aload         14
+     299: invokevirtual #69                 // Method org/springframework/beans/factory/support/DefaultListableBeanFactory.registerSingleton:(Ljava/lang/String;Ljava/lang/Object;)V
+     302: goto          267
+     305: iload_2
+     306: ifeq          344
+     309: new           #70                 // class com/seeyon/boot/starter/spi/event/SPIProviderRegisterEvent
+     312: dup
+     313: invokespecial #71                 // Method com/seeyon/boot/starter/spi/event/SPIProviderRegisterEvent."<init>":()V
+     316: astore        13
+     318: aload         13
+     320: aload         11
+     322: invokevirtual #72                 // Method java/lang/Object.toString:()Ljava/lang/String;
+     325: invokevirtual #73                 // Method com/seeyon/boot/starter/spi/event/SPIProviderRegisterEvent.setInterfaceName:(Ljava/lang/String;)V
+     328: aload         13
+     330: aload         12
+     332: invokevirtual #74                 // Method com/seeyon/boot/starter/spi/event/SPIProviderRegisterEvent.setSpiProviders:(Ljava/util/List;)V
+     335: aload_0
+     336: getfield      #28                 // Field eventBus:Lcom/seeyon/boot/starter/eventbus/EventBus;
+     339: aload         13
+     341: invokevirtual #29                 // Method com/seeyon/boot/starter/eventbus/EventBus.publish:(Ljava/io/Serializable;)V
+     344: goto          361
+     347: astore        12
+     349: getstatic     #32                 // Field log:Lorg/slf4j/Logger;
+     352: ldc           #76                 // String 加载SPI失败：
+     354: aload         12
+     356: invokeinterface #44,  3           // InterfaceMethod org/slf4j/Logger.error:(Ljava/lang/String;Ljava/lang/Throwable;)V
+     361: goto          222
+     364: goto          381
+     367: astore        7
+     369: getstatic     #32                 // Field log:Lorg/slf4j/Logger;
+     372: ldc           #77                 // String SPI插件加载失败
+     374: aload         7
+     376: invokeinterface #44,  3           // InterfaceMethod org/slf4j/Logger.error:(Ljava/lang/String;Ljava/lang/Throwable;)V
+     381: return
+    Exception table:
+       from    to  target type
+          61    77    80   Class java/lang/Throwable
+         241   344   347   Class java/lang/ClassNotFoundException
+         108   364   367   Class java/lang/Throwable
+
+  public synchronized void loadRemoteSPIPlugins();
+    Code:
+       0: new           #78                 // class com/seeyon/boot/starter/spi/plugin/CustomizedSpiInfo
+       3: dup
+       4: invokespecial #79                 // Method com/seeyon/boot/starter/spi/plugin/CustomizedSpiInfo."<init>":()V
+       7: astore_1
+       8: aload_0
+       9: getfield      #28                 // Field eventBus:Lcom/seeyon/boot/starter/eventbus/EventBus;
+      12: aload_1
+      13: invokevirtual #29                 // Method com/seeyon/boot/starter/eventbus/EventBus.publish:(Ljava/io/Serializable;)V
+      16: aload_1
+      17: invokevirtual #80                 // Method com/seeyon/boot/starter/spi/plugin/CustomizedSpiInfo.getSpiInfoModels:()Ljava/util/List;
+      20: invokestatic  #81                 // Method cn/hutool/core/collection/CollUtil.isNotEmpty:(Ljava/util/Collection;)Z
+      23: ifeq          199
+      26: getstatic     #32                 // Field log:Lorg/slf4j/Logger;
+      29: ldc           #82                 // String load custom spi :{}
+      31: aload_1
+      32: invokevirtual #80                 // Method com/seeyon/boot/starter/spi/plugin/CustomizedSpiInfo.getSpiInfoModels:()Ljava/util/List;
+      35: invokestatic  #83                 // Method com/seeyon/boot/util/JsonUtils.toJson:(Ljava/lang/Object;)Ljava/lang/String;
+      38: invokeinterface #84,  3           // InterfaceMethod org/slf4j/Logger.info:(Ljava/lang/String;Ljava/lang/Object;)V
+      43: invokestatic  #85                 // Method com/google/common/collect/Lists.newArrayList:()Ljava/util/ArrayList;
+      46: astore_2
+      47: aload_1
+      48: invokevirtual #80                 // Method com/seeyon/boot/starter/spi/plugin/CustomizedSpiInfo.getSpiInfoModels:()Ljava/util/List;
+      51: invokeinterface #6,  1            // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+      56: astore_3
+      57: aload_3
+      58: invokeinterface #7,  1            // InterfaceMethod java/util/Iterator.hasNext:()Z
+      63: ifeq          193
+      66: aload_3
+      67: invokeinterface #8,  1            // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      72: checkcast     #86                 // class com/seeyon/boot/starter/spi/plugin/CustomizedSpiInfo$SpiInfoModel
+      75: astore        4
+      77: new           #87                 // class java/lang/StringBuilder
+      80: dup
+      81: invokespecial #88                 // Method java/lang/StringBuilder."<init>":()V
+      84: ldc           #26                 // String file:
+      86: invokevirtual #89                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      89: aload         4
+      91: invokevirtual #90                 // Method com/seeyon/boot/starter/spi/plugin/CustomizedSpiInfo$SpiInfoModel.getFileFullPath:()Ljava/lang/String;
+      94: invokevirtual #89                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      97: invokevirtual #91                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     100: astore        5
+     102: aload_2
+     103: aload         5
+     105: invokeinterface #25,  2           // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     110: pop
+     111: aload         4
+     113: invokevirtual #92                 // Method com/seeyon/boot/starter/spi/plugin/CustomizedSpiInfo$SpiInfoModel.getThirdJars:()Ljava/util/List;
+     116: invokestatic  #81                 // Method cn/hutool/core/collection/CollUtil.isNotEmpty:(Ljava/util/Collection;)Z
+     119: ifeq          190
+     122: aload         4
+     124: invokevirtual #92                 // Method com/seeyon/boot/starter/spi/plugin/CustomizedSpiInfo$SpiInfoModel.getThirdJars:()Ljava/util/List;
+     127: invokeinterface #6,  1            // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+     132: astore        6
+     134: aload         6
+     136: invokeinterface #7,  1            // InterfaceMethod java/util/Iterator.hasNext:()Z
+     141: ifeq          190
+     144: aload         6
+     146: invokeinterface #8,  1            // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+     151: checkcast     #9                  // class java/lang/String
+     154: astore        7
+     156: new           #87                 // class java/lang/StringBuilder
+     159: dup
+     160: invokespecial #88                 // Method java/lang/StringBuilder."<init>":()V
+     163: ldc           #26                 // String file:
+     165: invokevirtual #89                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     168: aload         7
+     170: invokevirtual #89                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     173: invokevirtual #91                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     176: astore        8
+     178: aload_2
+     179: aload         8
+     181: invokeinterface #25,  2           // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     186: pop
+     187: goto          134
+     190: goto          57
+     193: aload_0
+     194: aload_2
+     195: iconst_1
+     196: invokevirtual #35                 // Method loadSPIPlugins:(Ljava/util/List;Z)V
+     199: goto          214
+     202: astore_1
+     203: getstatic     #32                 // Field log:Lorg/slf4j/Logger;
+     206: ldc           #94                 // String load remote spi error
+     208: aload_1
+     209: invokeinterface #44,  3           // InterfaceMethod org/slf4j/Logger.error:(Ljava/lang/String;Ljava/lang/Throwable;)V
+     214: return
+    Exception table:
+       from    to  target type
+           0   199   202   Class java/lang/Exception
+
+  static {};
+    Code:
+       0: ldc           #95                 // class com/seeyon/boot/starter/spi/SPIJarLoader
+       2: invokestatic  #96                 // Method org/slf4j/LoggerFactory.getLogger:(Ljava/lang/Class;)Lorg/slf4j/Logger;
+       5: putstatic     #32                 // Field log:Lorg/slf4j/Logger;
+       8: return
+}

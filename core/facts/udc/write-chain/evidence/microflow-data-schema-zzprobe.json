@@ -1,0 +1,18 @@
+{
+  "id": "",
+  "appId": "6419954374508955097",
+  "sourceId": "",
+  "version": "0",
+  "versionCode": 0,
+  "name": "zzprobemf",
+  "caption": "zzprobe微流程",
+  "description": "",
+  "type": "SERVICE",
+  "triggerType": "MANUAL",
+  "entityId": "",
+  "eventId": "",
+  "input": null,
+  "output": null,
+  "nodes": [],
+  "sourceType": "PAGE"
+}

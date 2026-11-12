@@ -1,0 +1,96 @@
+{
+ "action": "EXPRESSION",
+ "stage": "P6g",
+ "date": "2026-11-03",
+ "app_id": "8704025620829192834",
+ "env": "test2",
+ "seed": {
+  "说明": "5 行 sourceTable=<MARK>-M，processedRows=1/2/5/8/9，taskId=<MARK>-S1..S5",
+  "断言方式": "FILTER(表达式) → SIZE → 写库，读库比对命中数"
+ },
+ "cases": [
+  {
+   "case": "算术 ADD：processedRows + 3 > 5",
+   "expect": 3,
+   "after": 3,
+   "pass": true,
+   "evidence": "P6EX01-ARITH @16:55"
+  },
+  {
+   "case": "逻辑 AND：pr>2 && pr<9",
+   "expect": 2,
+   "after": 2,
+   "pass": true,
+   "evidence": "P6EX01-AND"
+  },
+  {
+   "case": "逻辑 OR：pr<2 || pr>8",
+   "expect": 2,
+   "after": 2,
+   "pass": true,
+   "evidence": "P6EX01-OR"
+  },
+  {
+   "case": "比较 NE：taskId != S3",
+   "expect": 4,
+   "after": 4,
+   "pass": true,
+   "evidence": "P6EX01-NE"
+  },
+  {
+   "case": "日期函数 year(createTime)=2026",
+   "expect": 5,
+   "after": 5,
+   "pass": true,
+   "evidence": "P6EX01-DATE"
+  },
+  {
+   "case": "条件表达式 IF(pr>5,1,0)=1",
+   "expect": 2,
+   "after": 2,
+   "pass": true,
+   "evidence": "P6EX01-COND"
+  },
+  {
+   "case": "文本函数 containsText(taskId,'-S3')（裸函数）",
+   "expect": 1,
+   "after": 1,
+   "pass": true,
+   "evidence": "P6EX03-T3 @17:46"
+  },
+  {
+   "case": "布尔函数 isNotNull(taskId)",
+   "expect": 5,
+   "after": 5,
+   "pass": true,
+   "evidence": "P6EX03-T5"
+  },
+  {
+   "case": "反例：containsText(子串, 字段) 顺序颠倒",
+   "expect": 0,
+   "after": 0,
+   "pass": true,
+   "evidence": "P6EX03-T4（证明参数顺序 = 先被查文本、后子串）"
+  },
+  {
+   "case": "反例：containsText(...) == true 包裹",
+   "expect": 1,
+   "after": 0,
+   "pass": false,
+   "evidence": "P6EX01-TEXT（← 布尔函数不能套 == true，已改为自动解包）"
+  }
+ ],
+ "not_covered": [
+  "SUB/MUL/DIV 运行时",
+  "DATETIME 之外的日期函数（addDay/dateDiff/dateToString）",
+  "文本函数除 containsText 外",
+  "聚合函数（sum/avg/count，需明细表上下文）",
+  "枚举函数、变化函数、组织隶属类"
+ ],
+ "notes": [
+  "FILTER 现在支持任意布尔表达式：filter={'expr': {...}}（const/field/op/logic/arith/fn/cond）",
+  "★★ 布尔函数不要包 == true：恒为 false。parse_filter_spec 已自动解包。",
+  "★★ containsText 参数顺序：(被查文本, 子串)，不是 (子串, 文本)。",
+  "函数目录只有 paramCount/argDescs，无参数类型 —— 类型必须按 argDescs 中文推断，或直接用真实字段试编译。"
+ ]
+}

@@ -1,0 +1,49 @@
+Compiled from "SpringDynamicRegister.java"
+public class com.seeyon.boot.starter.spi.SpringDynamicRegister implements org.springframework.context.ApplicationContextAware {
+  private org.springframework.context.ApplicationContext applicationContext;
+
+  private org.springframework.beans.factory.support.DefaultListableBeanFactory defaultListableBeanFactory;
+
+  public com.seeyon.boot.starter.spi.SpringDynamicRegister();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public void setApplicationContext(org.springframework.context.ApplicationContext) throws org.springframework.beans.BeansException;
+    Code:
+       0: aload_0
+       1: aload_1
+       2: putfield      #2                  // Field applicationContext:Lorg/springframework/context/ApplicationContext;
+       5: aload_0
+       6: getfield      #2                  // Field applicationContext:Lorg/springframework/context/ApplicationContext;
+       9: checkcast     #3                  // class org/springframework/context/ConfigurableApplicationContext
+      12: astore_2
+      13: aload_0
+      14: aload_2
+      15: invokeinterface #4,  1            // InterfaceMethod org/springframework/context/ConfigurableApplicationContext.getBeanFactory:()Lorg/springframework/beans/factory/config/ConfigurableListableBeanFactory;
+      20: checkcast     #5                  // class org/springframework/beans/factory/support/DefaultListableBeanFactory
+      23: putfield      #6                  // Field defaultListableBeanFactory:Lorg/springframework/beans/factory/support/DefaultListableBeanFactory;
+      26: return
+
+  public void registerBeanDefinition(java.lang.String, java.lang.Class<?>);
+    Code:
+       0: aload_2
+       1: invokestatic  #7                  // Method org/springframework/beans/factory/support/BeanDefinitionBuilder.genericBeanDefinition:(Ljava/lang/Class;)Lorg/springframework/beans/factory/support/BeanDefinitionBuilder;
+       4: astore_3
+       5: aload_0
+       6: getfield      #6                  // Field defaultListableBeanFactory:Lorg/springframework/beans/factory/support/DefaultListableBeanFactory;
+       9: aload_1
+      10: aload_3
+      11: invokevirtual #8                  // Method org/springframework/beans/factory/support/BeanDefinitionBuilder.getRawBeanDefinition:()Lorg/springframework/beans/factory/support/AbstractBeanDefinition;
+      14: invokevirtual #9                  // Method org/springframework/beans/factory/support/DefaultListableBeanFactory.registerBeanDefinition:(Ljava/lang/String;Lorg/springframework/beans/factory/config/BeanDefinition;)V
+      17: return
+
+  public java.lang.Object getBean(java.lang.String);
+    Code:
+       0: aload_0
+       1: getfield      #2                  // Field applicationContext:Lorg/springframework/context/ApplicationContext;
+       4: aload_1
+       5: invokeinterface #10,  2           // InterfaceMethod org/springframework/context/ApplicationContext.getBean:(Ljava/lang/String;)Ljava/lang/Object;
+      10: areturn
+}

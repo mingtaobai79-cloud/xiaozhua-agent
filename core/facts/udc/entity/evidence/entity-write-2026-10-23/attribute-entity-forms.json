@@ -1,0 +1,105 @@
+{
+ "entityId": "5703544490057088372",
+ "rows": [
+  {
+   "name": "r10localSingle",
+   "sent": {
+    "relationApp": "8704025620829192834",
+    "relationEntity": "474806313816300867",
+    "relationEntityName": "关联目标实体",
+    "multiSelect": false
+   },
+   "code": "BOOT_0000",
+   "msg": "SUCCESS",
+   "stored": {
+    "name": "r10localSingle",
+    "dataType": "ENTITY",
+    "relationType": "Many2OneAssociation",
+    "relationApp": "8704025620829192834",
+    "relationEntity": "474806313816300867",
+    "relationEntityName": "关联目标实体",
+    "relationEntityCategory": "ENTITY",
+    "multiSelect": false,
+    "maxLength": 50,
+    "columnName": "r10local_single",
+    "widgetConfig": "{\"pc\":\"UdcReference\",\"mobile\":\"UdcReference\",\"list\":true,\"detail\":true,\"quickSearch\":true}",
+    "g_l_index": "18"
+   }
+  },
+  {
+   "name": "r11localMulti",
+   "sent": {
+    "relationApp": "8704025620829192834",
+    "relationEntity": "474806313816300867",
+    "relationEntityName": "关联目标实体",
+    "multiSelect": true
+   },
+   "code": "BOOT_0000",
+   "msg": "SUCCESS",
+   "stored": {
+    "name": "r11localMulti",
+    "dataType": "ENTITY",
+    "relationType": "Many2OneAssociation",
+    "relationApp": "8704025620829192834",
+    "relationEntity": "474806313816300867",
+    "relationEntityName": "关联目标实体",
+    "relationEntityCategory": "ENTITY",
+    "multiSelect": true,
+    "maxLength": 4000,
+    "columnName": "r11local_multi",
+    "widgetConfig": "{\"pc\":\"UdcReference\",\"mobile\":\"UdcReference\",\"list\":true,\"detail\":true,\"quickSearch\":true}",
+    "g_l_index": "19"
+   }
+  },
+  {
+   "name": "r12orgSingle",
+   "sent": {
+    "relationApp": "organization",
+    "relationEntity": "com.seeyon.organization.domain.core.entity.OrgMember",
+    "relationEntityName": "人员",
+    "multiSelect": false
+   },
+   "code": "BOOT_0000",
+   "msg": "SUCCESS",
+   "stored": {
+    "name": "r12orgSingle",
+    "dataType": "ENTITY",
+    "relationType": "Many2OneAssociation",
+    "relationApp": "organization",
+    "relationEntity": "com.seeyon.organization.domain.core.entity.OrgMember",
+    "relationEntityName": "人员",
+    "relationEntityCategory": "ENTITY",
+    "multiSelect": false,
+    "maxLength": 50,
+    "columnName": "r12org_single",
+    "widgetConfig": "{\"pc\":\"UdcReference\",\"mobile\":\"UdcReference\",\"list\":true,\"detail\":true,\"quickSearch\":true}",
+    "g_l_index": "20"
+   }
+  },
+  {
+   "name": "r13orgMulti",
+   "sent": {
+    "relationApp": "organization",
+    "relationEntity": "com.seeyon.organization.domain.core.entity.OrgMemberMetadata",
+    "relationEntityName": "人员",
+    "multiSelect": true
+   },
+   "code": "BOOT_0000",
+   "msg": "SUCCESS",
+   "stored": {
+    "name": "r13orgMulti",
+    "dataType": "ENTITY",
+    "relationType": "Many2OneAssociation",
+    "relationApp": "organization",
+    "relationEntity": "com.seeyon.organization.domain.core.entity.OrgMemberMetadata",
+    "relationEntityName": "人员",
+    "relationEntityCategory": "ENTITY",
+    "multiSelect": true,
+    "maxLength": 4000,
+    "columnName": "r13org_multi",
+    "widgetConfig": "{\"pc\":\"UdcReference\",\"mobile\":\"UdcReference\",\"list\":true,\"detail\":true,\"quickSearch\":true}",
+    "g_l_index": "21"
+   }
+  }
+ ]
+}

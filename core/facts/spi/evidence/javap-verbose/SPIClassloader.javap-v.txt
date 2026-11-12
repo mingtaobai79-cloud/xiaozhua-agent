@@ -1,0 +1,52 @@
+Classfile jar:file:///D:/repo/CHIT/com/seeyon/boot-starter-spi/5.3.358/boot-starter-spi-5.3.358.jar!/com/seeyon/boot/starter/spi/SPIClassloader.class
+  Last modified 2026Äê5ÔÂ25ÈÕ; size 454 bytes
+  SHA-256 checksum 85c0a2a04d5ae0818477e9bd9778c7139dae83933b712153ecb9a6b12d399483
+  Compiled from "SPIClassloader.java"
+public class com.seeyon.boot.starter.spi.SPIClassloader extends java.net.URLClassLoader
+  minor version: 0
+  major version: 52
+  flags: (0x0021) ACC_PUBLIC, ACC_SUPER
+  this_class: #2                          // com/seeyon/boot/starter/spi/SPIClassloader
+  super_class: #3                         // java/net/URLClassLoader
+  interfaces: 0, fields: 0, methods: 1, attributes: 1
+Constant pool:
+   #1 = Methodref          #3.#17         // java/net/URLClassLoader."<init>":([Ljava/net/URL;Ljava/lang/ClassLoader;)V
+   #2 = Class              #18            // com/seeyon/boot/starter/spi/SPIClassloader
+   #3 = Class              #19            // java/net/URLClassLoader
+   #4 = Utf8               <init>
+   #5 = Utf8               ([Ljava/net/URL;Ljava/lang/ClassLoader;)V
+   #6 = Utf8               Code
+   #7 = Utf8               LineNumberTable
+   #8 = Utf8               LocalVariableTable
+   #9 = Utf8               this
+  #10 = Utf8               Lcom/seeyon/boot/starter/spi/SPIClassloader;
+  #11 = Utf8               urls
+  #12 = Utf8               [Ljava/net/URL;
+  #13 = Utf8               parent
+  #14 = Utf8               Ljava/lang/ClassLoader;
+  #15 = Utf8               SourceFile
+  #16 = Utf8               SPIClassloader.java
+  #17 = NameAndType        #4:#5          // "<init>":([Ljava/net/URL;Ljava/lang/ClassLoader;)V
+  #18 = Utf8               com/seeyon/boot/starter/spi/SPIClassloader
+  #19 = Utf8               java/net/URLClassLoader
+{
+  public com.seeyon.boot.starter.spi.SPIClassloader(java.net.URL[], java.lang.ClassLoader);
+    descriptor: ([Ljava/net/URL;Ljava/lang/ClassLoader;)V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=3, locals=3, args_size=3
+         0: aload_0
+         1: aload_1
+         2: aload_2
+         3: invokespecial #1                  // Method java/net/URLClassLoader."<init>":([Ljava/net/URL;Ljava/lang/ClassLoader;)V
+         6: return
+      LineNumberTable:
+        line 9: 0
+        line 10: 6
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       7     0  this   Lcom/seeyon/boot/starter/spi/SPIClassloader;
+            0       7     1  urls   [Ljava/net/URL;
+            0       7     2 parent   Ljava/lang/ClassLoader;
+}
+SourceFile: "SPIClassloader.java"

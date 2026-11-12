@@ -1,0 +1,434 @@
+{
+  "schema_version": "standard-product-bytecode-evidence.v1",
+  "generated_at_local": "2026-09-29 18:56:40 +08:00",
+  "generated_by": "implementer@session-20260929-184027-7f85bd1f (HANDOFF-1)",
+  "scope": "P1 bytecode verification; P2 reconciliation and P3 INDEX/STATUS explicitly out of scope",
+  "toolchain": {
+    "cfr": {
+      "path": "<EVIDENCE_ROOT>/leaving-blank-space-agent/leaving-blank-space-agent/agents/seeyon-custom-dev/skills/software-development/seeyon-v8-spi/references/contract-index/tools/cfr.jar",
+      "version": "CFR 0.152",
+      "version_command": "java -jar <cfr.jar> --version",
+      "read_only_reference": true
+    },
+    "java": "21.0.10 LTS (java -version)",
+    "javap": "NOT on PATH (javapath shims: java/javac/javaw/jshell only); cfr used as the verification tool"
+  },
+  "decompile_command_template": "java -jar <cfr.jar> <source_jar> --outputdir <tmpdir>",
+  "sources": [
+    {
+      "artifact": "cip-connector-api",
+      "version": "5.3.286",
+      "evidence_class": "VERIFIED_STATIC_BYTECODE",
+      "evidence_class_basis": "source jar present on disk; sha256 re-measured live and byte-identical to profile registration; cfr output re-derivable",
+      "source_jar_measured_sha256": "de4767da279c6622aef95994d3c657e29b01c33eaea0db55e8fdf45537544f91",
+      "profile_path": "docs/audit/modules/standard-product-module-profile.json",
+      "profile_registered_sha256": "de4767da279c6622aef95994d3c657e29b01c33eaea0db55e8fdf45537544f91",
+      "profile_class_count": 124,
+      "measured_class_entry_count": 124,
+      "profile_class_count_matches_measured": true,
+      "profile_contract_packages": [
+        "com.seeyon.cip.connector.api.sso",
+        "com.seeyon.cip.connector.api.mobile",
+        "com.seeyon.cip.connector.api.midorgsync",
+        "com.seeyon.cip.connector.api.db",
+        "com.seeyon.cip.connector.api.authentication"
+      ],
+      "sha256_matches_profile": true,
+      "reproducible_live": true,
+      "class_file_major_version": 52,
+      "class_file_target": "Java 8",
+      "jar_entry_count": 165,
+      "derived_files": [
+        {
+          "file": "cip-connector-api-5.3.286-SsoService.java",
+          "source_class": "com.seeyon.cip.connector.api.sso.SsoService.class",
+          "sha256": "fa08f8636237eb89f1465eb3063ede31eba0796a131703ec1941a97dac749fd3",
+          "bytes": 1206,
+          "cr_count": 0,
+          "lf_count": 32,
+          "in_jar_class_entry_sha256": "f181b43f069eebf40e91601a0ba1c9e4f66fc37c2a498f91b37bba1cbc0e2f2a"
+        },
+        {
+          "file": "cip-connector-api-5.3.286-MobileOrgSyncProviderService.java",
+          "source_class": "com.seeyon.cip.connector.api.mobile.MobileOrgSyncProviderService.class",
+          "sha256": "551b9e01aeafcf00e21bea68c330addeb7815e8ac34865155ca18df00317afa7",
+          "bytes": 2744,
+          "cr_count": 0,
+          "lf_count": 45,
+          "in_jar_class_entry_sha256": "e5550dec578ae21a075e800557ca1c985ba892acacf47bd6d81561cbb70aeea8"
+        },
+        {
+          "file": "cip-connector-api-5.3.286-MobileProviderService.java",
+          "source_class": "com.seeyon.cip.connector.api.mobile.MobileProviderService.class",
+          "sha256": "1b78ddec336bcaab1abecef999ef785dc90847076ffd60ef87d1616ec906eab0",
+          "bytes": 127,
+          "cr_count": 0,
+          "lf_count": 8,
+          "in_jar_class_entry_sha256": "36f118e1ea1f2c758f7f853d4541aaceabfedc6d3657b9e5c8377ec70ca2720d"
+        },
+        {
+          "file": "cip-connector-api-5.3.286-CipConnectorComment.java",
+          "source_class": "com.seeyon.cip.connector.annotation.CipConnectorComment.class",
+          "sha256": "a46123b612205c38458b207df84ddd54fc896fbb10e01e2c4db1218f7d017fa3",
+          "bytes": 678,
+          "cr_count": 0,
+          "lf_count": 25,
+          "in_jar_class_entry_sha256": "109c02471342420c59c7210b1963d74f6ddc483130fdfa663dd11ab5ba0495cf"
+        },
+        {
+          "file": "cip-connector-api-5.3.286-ConnectorChannelRouter.java",
+          "source_class": "com.seeyon.cip.connector.annotation.ConnectorChannelRouter.class",
+          "sha256": "e6a0c8dfe8f45111875743eceb7dac1e5967d2e138fd52fc3bf7695ef87d9a55",
+          "bytes": 630,
+          "cr_count": 0,
+          "lf_count": 25,
+          "in_jar_class_entry_sha256": "e759550aa990772d9c251c6d5633beecab47cb2a9e8e72fbafe44d3ae942059e"
+        },
+        {
+          "file": "cip-connector-api-5.3.286-MiddleTableChannelRouter.java",
+          "source_class": "com.seeyon.cip.connector.annotation.MiddleTableChannelRouter.class",
+          "sha256": "bc9bcb5fd5694ff00b43c4cf707d007700b442c24958753e4619bbdb35a298ce",
+          "bytes": 628,
+          "cr_count": 0,
+          "lf_count": 25,
+          "in_jar_class_entry_sha256": "cd583cd0ab2bd486bc545806c0e16db3b2553604d4284f9543706a2ee6db825d"
+        },
+        {
+          "file": "cip-connector-api-5.3.286-CipConnectorSpiUtils.java",
+          "source_class": "com.seeyon.cip.connector.common.CipConnectorSpiUtils.class",
+          "sha256": "d6a31b175271f7de09712cfb929ce2488c8e7329ccb7eb90a44e2b81a5b5e240",
+          "bytes": 3258,
+          "cr_count": 0,
+          "lf_count": 83,
+          "in_jar_class_entry_sha256": "1a6a32c1be1f6a4a5817a2ef701fe764ed3a2bda3584e1669f02cdead4fe25c8"
+        }
+      ],
+      "raw_files_verbatim_from_jar": [
+        {
+          "file": "cip-connector-api-5.3.286-META-INF-MANIFEST.MF",
+          "in_jar_entry": "META-INF/MANIFEST.MF",
+          "sha256": "a00dbe7db97770f0eef0b58f12cbc3a88ff10a0b946501f2600963d531d314fb",
+          "bytes": 242,
+          "cr_count": 9,
+          "lf_count": 9
+        },
+        {
+          "file": "cip-connector-api-5.3.286-pom.properties",
+          "in_jar_entry": "META-INF/maven/com.seeyon/cip-connector-api/pom.properties",
+          "sha256": "33e705b48008e4b5070fea099d4ff85b9f72cab3bf8a8fa7b3e9a545bb46a76c",
+          "bytes": 121,
+          "cr_count": 0,
+          "lf_count": 5
+        },
+        {
+          "file": "cip-connector-api-5.3.286-pom.xml",
+          "in_jar_entry": "META-INF/maven/com.seeyon/cip-connector-api/pom.xml",
+          "sha256": "0570e3d703285b18d23cf68bf5cc78fe8a453c1396cd681038e5b49fa015230c",
+          "bytes": 1048,
+          "cr_count": 0,
+          "lf_count": 31
+        }
+      ],
+      "registration_mechanism": {
+        "method": "jar-internal registration artefact probe + raw constant-pool scan of all 124 .class entries",
+        "META-INF/services": "ABSENT",
+        "spring.factories": "ABSENT",
+        "spring.components (spring-context-indexer output)": "ABSENT",
+        "meta_annotations_present": {
+          "note": "raw constant-pool marker org/springframework/stereotype/Indexed found in exactly 3 class entries",
+          "entries": [
+            "com/seeyon/cip/connector/annotation/CipConnectorComment.class",
+            "com/seeyon/cip/connector/annotation/ConnectorChannelRouter.class",
+            "com/seeyon/cip/connector/annotation/MiddleTableChannelRouter.class"
+          ]
+        },
+        "jsr303_marker": {
+          "marker": "javax/validation",
+          "class_entries_with_marker": 15,
+          "note": "javax/validation appears in the raw constant pool of 15 DTO class entries; consistent with SsoService#check whose @CipConnectorComment value reads 'jsr303' + U+6821 U+9A8C (jsr303 validation)"
+        },
+        "runtime_resolution_helper": {
+          "class": "com.seeyon.cip.connector.common.CipConnectorSpiUtils",
+          "evidence": "decompiled; resolves via Spring ApplicationContext (com.seeyon.boot.context.Apps#getApplicationContext().getBean(...)) or no-arg reflective instantiation cached in a static ConcurrentHashMap"
+        },
+        "verdict": "VERIFIED_STATIC_BYTECODE: this API jar ships NO service-loader registry file (META-INF/services/** and spring.factories are ABSENT). Registration/activation is annotation-driven via the three @Indexed Spring-stereotype annotations plus runtime lookup through the Spring ApplicationContext. Consumer-side index files (e.g. META-INF/spring.components) are generated in consuming modules, not in this jar -> any claim that this jar self-registers via ServiceLoader is UNVERIFIED and contradicted by the on-disk listing."
+      },
+      "source_jar_coordinate": "com.seeyon:cip-connector-api:5.3.286",
+      "resolve_hint": "按 Maven 坐标从 Artifactory 或本地仓库解析该 jar；解析后用 source_jar_measured_sha256 校验，不一致即视为不同制品"
+    },
+    {
+      "artifact": "bpm-facade",
+      "version": "3.12.101",
+      "evidence_class": "VERIFIED_STATIC_BYTECODE (supplementary cell)",
+      "evidence_class_basis": "jar body ABSENT from disk; based on on-disk decompiled artefacts + manifest source_sha256 binding to the profile registration",
+      "source_jar_present": false,
+      "reproducible_live": false,
+      "must_annotate_verbatim": "jar 本体缺失、不可现场重跑，依据=在盘反编译件 + manifest source_sha256",
+      "on_disk_manifest": "docs/audit/modules/decompiled/bpm-api-decompile-manifest.json",
+      "on_disk_manifest_source_sha256": "26b312fdd40cc921a4cd8d08239f6b8d857c02a5ac8d4db271d07f6fcbd98af0",
+      "profile_registered_sha256": "26b312fdd40cc921a4cd8d08239f6b8d857c02a5ac8d4db271d07f6fcbd98af0",
+      "source_sha256_matches_profile": true,
+      "recomputed_alignment": [
+        {
+          "class": "com.seeyon.bpm.api.udc.BpmUdcApiService.class",
+          "file": "bpm-facade-3.12.101-BpmUdcApiService.java",
+          "manifest_sha256": "5028e167dd1309cb4e04dfd20a81f2b2561ebd0a51007627a7a37a0b897cf64e",
+          "actual_sha256": "5028e167dd1309cb4e04dfd20a81f2b2561ebd0a51007627a7a37a0b897cf64e",
+          "exists": true,
+          "match": true,
+          "bytes": 3366
+        },
+        {
+          "class": "com.seeyon.bpm.api.udc.BpmApiProcessAppService.class",
+          "file": "bpm-facade-3.12.101-BpmApiProcessAppService.java",
+          "manifest_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "actual_sha256": "40d07249abe01ab7a74d6e1201df93e18d9d57e35e35d8c221612aec390c17c3",
+          "exists": true,
+          "match": false,
+          "bytes": 781
+        },
+        {
+          "class": "com.seeyon.bpm.api.common.BpmApiProcessAppService.class",
+          "file": "bpm-facade-3.12.101-BpmApiProcessAppService.java",
+          "manifest_sha256": "40d07249abe01ab7a74d6e1201df93e18d9d57e35e35d8c221612aec390c17c3",
+          "actual_sha256": "40d07249abe01ab7a74d6e1201df93e18d9d57e35e35d8c221612aec390c17c3",
+          "exists": true,
+          "match": true,
+          "bytes": 781
+        },
+        {
+          "class": "com.seeyon.bpm.api.common.BpmAppService.class",
+          "file": "bpm-facade-3.12.101-BpmAppService.java",
+          "manifest_sha256": "56275617d7c23c9b9869297013763881c22adcba6d38db3c1ffa8df426944402",
+          "actual_sha256": "56275617d7c23c9b9869297013763881c22adcba6d38db3c1ffa8df426944402",
+          "exists": true,
+          "match": true,
+          "bytes": 6900
+        },
+        {
+          "class": "com.seeyon.bpm.api.common.BpmDeployAppService.class",
+          "file": "bpm-facade-3.12.101-BpmDeployAppService.java",
+          "manifest_sha256": "1bb3370091f021aeb974eb7c6b12eab058d2de91277d39cadaeb39a79c159090",
+          "actual_sha256": "1bb3370091f021aeb974eb7c6b12eab058d2de91277d39cadaeb39a79c159090",
+          "exists": true,
+          "match": true,
+          "bytes": 1406
+        }
+      ],
+      "alignment_summary": {
+        "manifest_records": 5,
+        "distinct_output_files_in_manifest": 4,
+        "records_matching_disk": 4,
+        "records_mismatching_disk": 1,
+        "mismatch_detail": "record for class com.seeyon.bpm.api.udc.BpmApiProcessAppService.class declares sha256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 = sha256 of an EMPTY file (0 bytes); the on-disk file bpm-facade-3.12.101-BpmApiProcessAppService.java is 781 bytes with sha256 40d07249... So that one record cannot match and is reported as MISMATCH, not silently aligned.",
+        "on_disk_files_total": 7,
+        "on_disk_files_registered_in_manifest": 4,
+        "on_disk_files_unregistered_in_manifest": [
+          {
+            "file": "bpm-facade-3.12.101-BpmSaveDraftUdcDto.java",
+            "sha256": "e467675ebcf6c18a51a13458c777b9d67c5ac3cc61fc4adeef2146c75d12ad8f"
+          },
+          {
+            "file": "bpm-facade-3.12.101-BpmSendUdcDto.java",
+            "sha256": "2929db4b348545b81edac439bc5040daa961938353e1eab1503c970ea00ad5ba"
+          },
+          {
+            "file": "bpm-facade-3.12.101-BpmTriggerFlowUdcRequestDto.java",
+            "sha256": "557f15820d9950e6fb6422a966eb8ce27fe8a38c854a7487be33dbbd998c3dbf"
+          }
+        ]
+      },
+      "jar_absence_evidence": "仓库内 com.seeyon:bpm-facade:3.12.101 仅存在 5.3.374/，不存在 3.12.101 制品（任取一仓库解析该坐标即可复核）",
+      "source_jar_coordinate": "com.seeyon:bpm-facade:3.12.101",
+      "note": "该坐标在所用仓库中不存在制品（仅有 5.3.374），故本格为「本体缺失」结论"
+    },
+    {
+      "artifact": "ctp-user-api",
+      "version": "3.8.215",
+      "evidence_class": "UNVERIFIED",
+      "evidence_class_basis": "jar body ABSENT and no decompiled artefact on disk; no bytecode evidence obtainable -> recorded as UNVERIFIED, nothing invented",
+      "source_jar_present": false,
+      "profile_path": "docs/audit/modules/standard-product-module-profile.json",
+      "profile_registered_sha256": "5b1ec52abd87ba79abe962453776e54fa9bc27551aa171e76981d211a5950543",
+      "profile_class_count": 49,
+      "profile_contract_packages": [
+        "com.seeyon.ctp.user.api.sso",
+        "com.seeyon.ctp.user.api.avoidlogin",
+        "com.seeyon.ctp.user.dto"
+      ],
+      "sha256_matches_profile": "NOT_APPLICABLE_NO_ARTEFACT",
+      "recorded_for_traceability_only": "profile sha256 recorded verbatim from docs/audit/modules/standard-product-module-profile.json line 20 for traceability; no artefact exists to bind it to, so it is NOT claimed as verified",
+      "source_jar_coordinate": "com.seeyon:ctp-user-api:3.8.215"
+    },
+    {
+      "artifact": "ctp-user-api",
+      "version": "3.8.215",
+      "evidence_class": "VERIFIED_STATIC_BYTECODE",
+      "evidence_class_basis": "source jar obtained read-only from internal Artifactory (HUMAN authorization 2026-10-01, main/ROUTE.md section 7.0.1); sha256 re-measured byte-identical to the profile registration; signatures extracted by javap and cross-checked against a full-jar CFR decompile",
+      "acquisition": "Artifactory read-only GET http://10.0.0.1/artifactory/libs-release/com/seeyon/ctp-user-api/3.8.215/ctp-user-api-3.8.215.jar (curl -sS -O, HTTP 200, 55669 bytes, anonymous, no credential used; the only network request on this line)",
+      "supersedes": "sources[2] (ctp-user-api 3.8.215 recorded UNVERIFIED while the jar body was absent). sources[0..2] and gaps_and_deviations are kept unmodified as the historical record.",
+      "source_jar_measured_sha256": "5b1ec52abd87ba79abe962453776e54fa9bc27551aa171e76981d211a5950543",
+      "source_jar_present": true,
+      "source_jar_size_bytes": 55669,
+      "profile_path": "docs/audit/modules/standard-product-module-profile.json",
+      "profile_registered_sha256": "5b1ec52abd87ba79abe962453776e54fa9bc27551aa171e76981d211a5950543",
+      "sha256_matches_profile": true,
+      "profile_class_count": 49,
+      "measured_class_count": 49,
+      "class_count_matches_profile": true,
+      "class_file_major_version": 52,
+      "class_file_major_version_note": "all 49 .class files measured major=52 => Java 8 bytecode; jar META-INF/MANIFEST.MF Build-Jdk 1.8.0_291, Created-By Apache Maven 3.6.3; pom.properties version=3.8.215 groupId=com.seeyon artifactId=ctp-user-api",
+      "tools": {
+        "javap": "<LOCAL_ROOT>/java/bin/javap.exe (JDK 21.0.10), flags -public -s and -p -v",
+        "cfr": "CFR 0.152, full-jar decompile to cfr-jar/ (38 .java outputs for 49 classes; 11 nested builder classes fold into their outer files)",
+        "unzip": "unzip -l (inventory) / unzip -p (META-INF originals)"
+      },
+      "commands": [
+        "curl -sS -O http://10.0.0.1/artifactory/libs-release/com/seeyon/ctp-user-api/3.8.215/ctp-user-api-3.8.215.jar",
+        "sha256sum ctp-user-api-3.8.215.jar",
+        "unzip -l <resolved-ctp-user-api-3.8.215.jar>",
+        "<LOCAL_ROOT>/java/bin/javap.exe -cp <jar> -public -s <fqcn>   (5 contract interfaces + 8 DTO/enum/annotation/constant classes)",
+        "<LOCAL_ROOT>/java/bin/javap.exe -cp <jar> -p -v com.seeyon.ctp.user.annotation.CtpUserChannelRouter / .CtpUserComment   (meta-annotation evidence)",
+        "<LOCAL_ROOT>/java/bin/javap.exe -cp <jar> -v com.seeyon.ctp.user.api.sso.CtpUserSsoAuthProviderService   (bytecode header)",
+        "java -jar <cfr.jar> <jar> --outputdir core/facts/standard-product/evidence/bytecode/ctp-user-api-3.8.215/cfr-jar",
+        "unzip -p <jar> META-INF/MANIFEST.MF | META-INF/maven/com.seeyon/ctp-user-api/pom.xml | .../pom.properties",
+        "unzip -l <jar> | grep -Ei 'META-INF/services|spring.factories|spring/|\\.imports'   -> no match"
+      ],
+      "registration_mechanism": {
+        "META-INF_services": "ABSENT - jar listing has no META-INF/services/** entry",
+        "spring.factories": "ABSENT",
+        "org.springframework.Aot-Modern/legacy .imports": "ABSENT",
+        "actual_mechanism": "annotation-driven Spring routing: @CtpUserChannelRouter (Target=TYPE, Retention=RUNTIME, @Documented, meta-annotated @org.springframework.stereotype.Indexed, single String value()); the class-level @CtpUserComment on CtpUserSsoAuthProviderService states verbatim that implementing classes must carry @CtpUserChannelRouter; @CtpUserComment (TYPE/METHOD/FIELD, RUNTIME, @Repeatable(CtpUserComments.class), also @Indexed) carries contract documentation; CtpUserSpiUtils supplies getInstance/getBean(String,Class)/invokeBean/getPropertyByName/getRequest against Apps.getApplicationContext()",
+        "evidence": [
+          "registration-mechanism.txt",
+          "cfr-jar/com/seeyon/ctp/user/annotation/CtpUserChannelRouter.java",
+          "cfr-jar/com/seeyon/ctp/user/annotation/CtpUserComment.java",
+          "cfr-jar/com/seeyon/ctp/user/util/CtpUserSpiUtils.java",
+          "javap-verbose-annotation-CtpUserChannelRouter.txt",
+          "javap-verbose-annotation-CtpUserComment.txt"
+        ]
+      },
+      "profile_package_coverage": {
+        "profile_contract_packages": [
+          "com.seeyon.ctp.user.api.sso",
+          "com.seeyon.ctp.user.api.avoidlogin",
+          "com.seeyon.ctp.user.dto"
+        ],
+        "all_three_present": true,
+        "packages_in_jar": 14,
+        "classes_in_profile_packages": "22 of 49",
+        "evidence": "package-inventory.txt"
+      },
+      "crosscheck_javap_vs_cfr": {
+        "file": "crosscheck-javap-vs-cfr.json",
+        "interfaces_compared": 5,
+        "method_name_sets_equal": 5,
+        "sso_interface_method_count": 19,
+        "result": "javap -public -s and CFR full-jar output agree on the method-name set for all 5 contract interfaces"
+      },
+      "evidence_dir": "core/facts/standard-product/evidence/bytecode/ctp-user-api-3.8.215/",
+      "evidence_file_count": 67,
+      "evidence_files_sha256": {
+        "META-INF-MANIFEST.MF": "b7b059690da612caa9f4b373a6641a70263dbe6c65e9464567542e0d9784d12f",
+        "cfr-jar-stderr.txt": "2acc0737663b475623a44082ba20558d1eec2ad2d313e2871fd4e8dfc14cbfb0",
+        "cfr-jar/com/seeyon/ctp/user/annotation/CtpUserChannelRouter.java": "fb231c2f3f9e3a28d5268e94e3fa261b694e3c21c74e27b773866edd2a6faa35",
+        "cfr-jar/com/seeyon/ctp/user/annotation/CtpUserComment.java": "0ef47a5ee96d269eafe2b527717bae7386109c5c19035c18084cb99a0743cd9a",
+        "cfr-jar/com/seeyon/ctp/user/annotation/CtpUserComments.java": "897df5c102fb48efe2f858fb23ac38fccefe791ae2cc9442453050d2b442a9ad",
+        "cfr-jar/com/seeyon/ctp/user/api/CtpSsoAvoidLoginBaseService.java": "f0e17bb5b38a7034aa9c3e2b35fd927b7770e929d741a196f8e041780944974b",
+        "cfr-jar/com/seeyon/ctp/user/api/avoidlogin/CtpAvoidLoginBackendProviderService.java": "99a521ae6e8be7fcfba829d6a4cb6f6c107c66e785ae4a90c3657fdeac5e6211",
+        "cfr-jar/com/seeyon/ctp/user/api/avoidlogin/CtpAvoidLoginClientModeProviderService.java": "78b4852ed505ef4f5c59c995fd3cd90b655cf967803dd3542b8cc7356e47b7ba",
+        "cfr-jar/com/seeyon/ctp/user/api/avoidlogin/CtpAvoidLoginMiddlePageProviderService.java": "4dbd4a5a0c9d9ca0de8cc9828dc6be64fa5889a95c0a96ee12835d46c92ee1ca",
+        "cfr-jar/com/seeyon/ctp/user/api/menu/AbstractThirdMenuService.java": "b382be3065914cf9eec90ae1bbc0e0c132ebc20b8841bf5f40c7e890b9bbb00a",
+        "cfr-jar/com/seeyon/ctp/user/api/qrcode/AbstractLoginQrCodeService.java": "c1d79a257dd468bfe5f43ea0c8356d0a80a5a0cdab04f17d3683c30052811a5d",
+        "cfr-jar/com/seeyon/ctp/user/api/sso/CtpUserSsoAuthProviderService.java": "4c3b6c155c5b286e0f0faf43ccd3424eee9ce6002e7d80b3a58723f1be83c0d7",
+        "cfr-jar/com/seeyon/ctp/user/constant/CtpUserSpiAvoidConstants.java": "c3d31de8c706e199e9064a5752b91a054267bf8191dd7170c97642730aea3815",
+        "cfr-jar/com/seeyon/ctp/user/constant/CtpUserSpiConstants.java": "4a581bf5f58082cd3db1c1949dc6fda7a4aaf0c170280bc49dcd6f6b78b4f911",
+        "cfr-jar/com/seeyon/ctp/user/dto/AvoidLoginConfigProperties.java": "92fe555cf79fd256a133676d871b65d371908b3a0b9be2f97cb487abd3926e48",
+        "cfr-jar/com/seeyon/ctp/user/dto/CtpAvoidLoginUserInfoDto.java": "513a4094c750eb17148fd50f80719c22a26e04aa872eba329457e41a0189936e",
+        "cfr-jar/com/seeyon/ctp/user/dto/CtpLoginQrCodeDto.java": "90e2cbb27b726c41cbceb49234fdcc22bf6b286561b0b7996ef403d2742427bc",
+        "cfr-jar/com/seeyon/ctp/user/dto/CtpUserSpiAvoidLoginClientModeDto.java": "d9984102715366ec4fed2f1ef9cc5fb69e43d34ee18dd6f6b3003503fa7355e1",
+        "cfr-jar/com/seeyon/ctp/user/dto/CtpUserSpiLoginUserInfoDto.java": "0f382108b0742bb55b209ec8378c5e14d5fc1e89b0d41b480088429b078ecbc4",
+        "cfr-jar/com/seeyon/ctp/user/dto/CtpUserSpiRedirectUrlDto.java": "67de8c3400f0ba89587e83845a494b0355ffeaaab3892056f7c6dd8ef6302460",
+        "cfr-jar/com/seeyon/ctp/user/dto/CtpUserSpiServerEnvDto.java": "8707be4e5186877e01963786766bb11682243c3ecaf3ecc199a10a01d1f64f2f",
+        "cfr-jar/com/seeyon/ctp/user/dto/CtpUserSpiThirdTokenDto.java": "0fcf85033338831ca3aacbf0df182d5deb60537a0c8c9c0acfc790485a16734f",
+        "cfr-jar/com/seeyon/ctp/user/dto/CtpUserSpiUserDto.java": "be31b22186f01be4d95671a6ad3ff76081e9288569de0a80a159cc08bb371f6e",
+        "cfr-jar/com/seeyon/ctp/user/dto/QrcodeResultDto.java": "4bd9bf51c3d6d46c78db99c27f969fc1f824932cc7545de72b1fff6dd95189c1",
+        "cfr-jar/com/seeyon/ctp/user/dto/ThirdTokenDto.java": "7a6f0c89c8568159e254343b87b3aa7588c67b9fd8235749ca8664aab2564c7e",
+        "cfr-jar/com/seeyon/ctp/user/dto/menu/CtpUserThirdNavFrontDto.java": "6da1b517434579b942ab433196798a69d3ff8f673f345d41793e7a7bb70d2a56",
+        "cfr-jar/com/seeyon/ctp/user/dto/menu/ThirdMenuParamDto.java": "945a8b1df4f12ccf1744b07d244b008d5ba979f952878e30266de4b57a801f67",
+        "cfr-jar/com/seeyon/ctp/user/enums/CtpUserSpiAuthTokenEnum.java": "e531cde4827c059b30f70719f0aa84ad64fafa2c5dfce297f080a8eb18e379d0",
+        "cfr-jar/com/seeyon/ctp/user/enums/CtpUserSpiUserTypeEnum.java": "fde39d1595a191180b9216e2f4368e42de4fb26aa8ef36393fc8649da3215bdb",
+        "cfr-jar/com/seeyon/ctp/user/enums/MenuPositionEnum.java": "74788669674af4bd934a736fc1f4d6eff2e35b9b66d60f80744a35bef5f6dc96",
+        "cfr-jar/com/seeyon/ctp/user/enums/QrcodeStatusEnum.java": "6e245029febbccc969a79be5f05244ce82d9fc252eb2d392e14e7f3b377ca9a0",
+        "cfr-jar/com/seeyon/ctp/user/enums/ShortLinkModeEnum.java": "f1fc90d8d9c4bf7533dc8728f81d0f6a53cbb17c0cd41dc4d480c75db09cc73b",
+        "cfr-jar/com/seeyon/ctp/user/exception/CtpUserSpiSsoException.java": "9fc646139397884ba29f5c24a129afc89e67ba69470baa80ad662876a13d5d78",
+        "cfr-jar/com/seeyon/ctp/user/exception/SpiAuthContinueException.java": "3ae1e09d9bdf643a84937762b0f987009ec8640f4666910a067674e35c4368ea",
+        "cfr-jar/com/seeyon/ctp/user/security/authentication/AbstractAuthenticationToken.java": "99746125c265759867053ebde0421de329f59b920204b9abc88ab9ae4203b8e5",
+        "cfr-jar/com/seeyon/ctp/user/security/authentication/Authentication.java": "90155f05e27a1356994c4c208386164e2e34467ffb780da94502e2286561ec85",
+        "cfr-jar/com/seeyon/ctp/user/security/authentication/DeviceLoginAuthenticationToken.java": "086a3ddd8aca367f4ab174de9324b4a260ffba0c8750311dbfd7600e11fb0277",
+        "cfr-jar/com/seeyon/ctp/user/security/authentication/LoginQrCodeAuthenticationToken.java": "bf99268d0be0cb4b95df749c26e38765a2c9858aa64f6bbf89a86ab9905e87c1",
+        "cfr-jar/com/seeyon/ctp/user/security/authentication/provider/AbstractAuthenticationProvider.java": "5238ab28332616607de13731c0080c49e5d9cbf0ba42a75fffdb584e8128d97b",
+        "cfr-jar/com/seeyon/ctp/user/util/CtpUserSpiUtils.java": "4b7a6fd0b951e3cadf73f9891819a4f55c06b3a0c8468853f396373266d5f9b2",
+        "cfr-jar/summary.txt": "1e232794b182eaa75ffa6d0f81af8122b652ffd279aeef0dbf4954854d42f19c",
+        "class-inventory-unzip-l.txt": "c30ea5a6fc5c0979380f4c38d42c67bb85f4dc5af942e7a6cca835f4027a333b",
+        "crosscheck-javap-vs-cfr.json": "f09eb13136c39ec8fa3b84742c77b07fca8e6a7ee8520682567da8d52a95a6ff",
+        "javap-com_seeyon_ctp_user_annotation_CtpUserChannelRouter.txt": "f43abe25ce49e5feb0e7ab063e042d065a263bfa79d014311747036ac4de6c55",
+        "javap-com_seeyon_ctp_user_annotation_CtpUserComment.txt": "ae60915547ab7a3f20f9707d1e1b6245f82e1016f3bf20438816451eb3cd988b",
+        "javap-com_seeyon_ctp_user_api_CtpSsoAvoidLoginBaseService.txt": "050fc182afa864aa5804e3f277c0c963b7691aa937001d59aee7ea5b7ffbe9a1",
+        "javap-com_seeyon_ctp_user_api_avoidlogin_CtpAvoidLoginBackendProviderService.txt": "1421b924da98b15612b033506575c88d71269f4252b8565c6eafdbc2c6f0786a",
+        "javap-com_seeyon_ctp_user_api_avoidlogin_CtpAvoidLoginClientModeProviderService.txt": "f30f1c4aa30e0574856ef71342e1e7e06f2876158dbd9ef096d383c870b355be",
+        "javap-com_seeyon_ctp_user_api_avoidlogin_CtpAvoidLoginMiddlePageProviderService.txt": "16cdfcb7e97b156d64f338b80ae7bee9fba721a673bcc8b2f557aa2a858cedb6",
+        "javap-com_seeyon_ctp_user_api_sso_CtpUserSsoAuthProviderService.txt": "c5741d241f54352d4281ad3349c26ef29dbf2b179c2bbe661934b9e889db5df1",
+        "javap-com_seeyon_ctp_user_constant_CtpUserSpiConstants.txt": "c7bf22c25ffffc73b30713bd7ad01fc4261256d82fa48efe0969fefb9f8c9d5a",
+        "javap-com_seeyon_ctp_user_dto_CtpAvoidLoginUserInfoDto.txt": "9d7df686066ef144bc6f249b587fc9c24c23cc6a8a787459776ef6a73cc7fddc",
+        "javap-com_seeyon_ctp_user_dto_CtpUserSpiAvoidLoginClientModeDto.txt": "6ecc653da97acc37296d94693a56efc8f800b809bdfe293b3195fa990139e365",
+        "javap-com_seeyon_ctp_user_dto_CtpUserSpiLoginUserInfoDto.txt": "5aa9a49287805bb33d8beed7a5303a0f4e64e6ce31eb80ad227299148d9c16d8",
+        "javap-com_seeyon_ctp_user_dto_CtpUserSpiRedirectUrlDto.txt": "b995ba65df9d19b9b501006502789fe60c2e570c894db16a396d20cd86e89de3",
+        "javap-com_seeyon_ctp_user_dto_CtpUserSpiServerEnvDto.txt": "aff4657e7148cdce51c304413e96aa0e0dd8ff6c1d8653d43bef9a8a46fe9ba0",
+        "javap-com_seeyon_ctp_user_dto_CtpUserSpiThirdTokenDto.txt": "8956643a52af8a7d385911059dd99cd1d59029fa541a4ed2d96cf56713331d31",
+        "javap-com_seeyon_ctp_user_dto_CtpUserSpiUserDto.txt": "34453ea8b43b32bce5e44d1876fa31e52b4d41b10b99c2c7f0d715cc61dfaaef",
+        "javap-com_seeyon_ctp_user_dto_ThirdTokenDto.txt": "21bc83a0b094b2f44dcaef8ecbd1ca98ef1ebf6b08c101a8ad7afd183b4dbbff",
+        "javap-com_seeyon_ctp_user_enums_CtpUserSpiAuthTokenEnum.txt": "7807e5efb321cb59cb2024777b14e3c0ce6e26b7a4a821c1e9ee78fa65915a9a",
+        "javap-verbose-annotation-CtpUserChannelRouter.txt": "9fac71024a5a7beacf95acd919d97e0ac1bbfbc1437deb4ae8e081e9b1ac440a",
+        "javap-verbose-annotation-CtpUserComment.txt": "6365a66e6115785aae1dc91fe88237e90ac98a1132d4d1c504b46f297d034f42",
+        "javap-verbose-sso-interface-header.txt": "3ae8b8ad3ca4f5c46acffcc14e8178f728e87dfbc863afd67e5cbd4254aaae25",
+        "package-inventory.txt": "40a780d46d5095963ef577d7f277709167030af530bda9de6a7da9182ad3d138",
+        "pom.properties": "9f80a36cc1ece01f4bddbf0aba50fdf11eb7abc484efef908ecd94aeeab4b4cd",
+        "pom.xml": "27ccba8fb545dffea8010a081b68d131832ff7baaab28c37e81586921e400953",
+        "registration-mechanism.txt": "0d19372243ea861817a6c3d572ddead2b0757f55e1c4635ce953fa467e6c3861"
+      },
+      "network_discipline": "read-only GET against Artifactory libs-release only (HUMAN-granted exception, main/ROUTE.md section 7.0.1); no test2 gateway, no POST/PUT/DELETE, no other HTTP request; credentials 0 in artefacts",
+      "extraction_timestamp_local": "2026-10-01 03:4x +08:00",
+      "recorded_by": "implementer@session-20260929-184027-7f85bd1f (HANDOFF-5, dedupe_key=p5-ctp-user-api-e-grid)",
+      "source_jar_coordinate": "com.seeyon:ctp-user-api:3.8.215",
+      "resolve_hint": "按 Maven 坐标从 Artifactory 或本地仓库解析该 jar；解析后用 source_jar_measured_sha256 校验，不一致即视为不同制品",
+      "evidence_path_sanitization": {
+        "applied": true,
+        "rule": "工具输出中出现的制品绝对路径已替换为 <ctp-user-api-3.8.215.jar>；除此替换外内容逐字未改",
+        "files_affected": [
+          "cfr-jar/summary.txt",
+          "cfr-jar-stderr.txt",
+          "class-inventory-unzip-l.txt",
+          "javap-verbose-annotation-CtpUserChannelRouter.txt",
+          "javap-verbose-annotation-CtpUserComment.txt",
+          "javap-verbose-sso-interface-header.txt"
+        ],
+        "why": "不记录本机路径；替换后 sha256 已同步更新，复算时须应用同一替换规则"
+      }
+    }
+  ],
+  "gaps_and_deviations": [
+    "cfr --jarfilter for per-class selection did not match (only summary.txt emitted); fallback = decompile the whole 165-entry jar into a temp dir and select the needed classes. Selection is by byte-identical class file, not by filter re-run.",
+    "bpm-facade manifest record for com.seeyon.bpm.api.udc.BpmApiProcessAppService.class is internally inconsistent (declares the empty-file sha256). Reported as MISMATCH.",
+    "3 bpm-facade decompiled .java files on disk are not registered in the manifest; their sha256 are recorded here for traceability.",
+    "ctp-user-api 3.8.215 has no obtainable evidence: UNVERIFIED."
+  ],
+  "handoff5_append_20261001": {
+    "note": "Appended by HANDOFF-5. sources[0..2] and gaps_and_deviations above remain the unchanged HANDOFF-1 record; sources[3] supersedes the ctp-user-api 3.8.215 UNVERIFIED status and supersedes gaps_and_deviations item 4, which is retained verbatim as history."
+  },
+  "artifact_resolution_policy": {
+    "rule": "本证据集不记录本机仓库路径；制品以 Maven 坐标 + sha256 定位。",
+    "how": "按 source_jar_coordinate 解析制品，再用 source_jar_measured_sha256 校验一致性；校验不过即视为不同制品。本证据集不保存任何本机路径。",
+    "why": "路径随机器变化且不可移植；坐标+哈希可在任一台机器上复核。"
+  }
+}

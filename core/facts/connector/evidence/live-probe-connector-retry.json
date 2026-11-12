@@ -1,0 +1,87 @@
+{
+  "probe": "connector retry (main 14:17 判网关抖动; 结果A升级LIVE / 结果B冻结) — 1次重发, 0写, 凭据0入件",
+  "clock_local": "2026-09-29T14:26:24+0800",
+  "clock_epoch": 1790663184,
+  "env": "test2",
+  "base": "https://lowcode-test2.example.com",
+  "gateway_prefix": "/service/app9000000000000000001",
+  "app_id": "app9000000000000000001",
+  "numeric_app_id": "3289082814923688017",
+  "credential": {
+    "ref": "<COLLAB_ROOT>/agent-collaboration/shared-credentials/test2-web-credential.json",
+    "cookie_template_present": true,
+    "cookie_len": 67,
+    "declared_expires_epoch": 1790595614,
+    "declared_expires_gmt8": "2026-09-28 19:40:14",
+    "note": "值 0 入件; 仅键名/长度/时效声明"
+  },
+  "no_retry_bombing": true,
+  "outcome_rule": "任一 send nonempty=true 且 traceId 非空 => A(升级LIVE); 否则全 UNEXPECTED_EOF/无HTTP => B(冻结UNVERIFIED); 2xx但空样本 => 如实标无非空样本 UNVERIFIED",
+  "sends": [
+    {
+      "tag": "control-node-tree",
+      "method": "GET",
+      "path": "/service/app9000000000000000001/udc-runtime/meta-data/select-function-node-tree/app9000000000000000001",
+      "http": null,
+      "code": null,
+      "biz_status": null,
+      "msg": null,
+      "traceId": null,
+      "bytes": 0,
+      "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "nonempty": false,
+      "sample_len": null,
+      "err": "unavailable",
+      "ts": "2026-09-29T14:26:14+0800"
+    },
+    {
+      "tag": "data-flow-map-search",
+      "method": "POST",
+      "path": "/service/app9000000000000000001/udc-runtime/data-flow-map/search",
+      "http": null,
+      "code": null,
+      "biz_status": null,
+      "msg": null,
+      "traceId": null,
+      "bytes": 0,
+      "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "nonempty": false,
+      "sample_len": null,
+      "err": "unavailable",
+      "ts": "2026-09-29T14:26:18+0800"
+    },
+    {
+      "tag": "data-flow-mapping-search-original",
+      "method": "POST",
+      "path": "/service/app9000000000000000001/udc-runtime/data-flow-mapping/search-original",
+      "http": null,
+      "code": null,
+      "biz_status": null,
+      "msg": null,
+      "traceId": null,
+      "bytes": 0,
+      "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "nonempty": false,
+      "sample_len": null,
+      "err": "unavailable",
+      "ts": "2026-09-29T14:26:21+0800"
+    },
+    {
+      "tag": "design-connector-enum",
+      "method": "GET",
+      "path": "/service/app9000000000000000001/udc/microflow/select-call-connector-app-service/3289082814923688017",
+      "http": null,
+      "code": null,
+      "biz_status": null,
+      "msg": null,
+      "traceId": null,
+      "bytes": 0,
+      "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "nonempty": false,
+      "sample_len": null,
+      "err": "unavailable",
+      "ts": "2026-09-29T14:26:24+0800"
+    }
+  ]
+}
+

@@ -1,0 +1,57 @@
+Compiled from "SPIProperties.java"
+public class com.seeyon.boot.starter.spi.SPIProperties {
+  private static final org.slf4j.Logger log;
+
+  public static final java.lang.String PREFIX;
+
+  private boolean enable;
+
+  private java.util.List<java.lang.String> spiPlugins;
+
+  public com.seeyon.boot.starter.spi.SPIProperties();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: aload_0
+       5: iconst_1
+       6: putfield      #2                  // Field enable:Z
+       9: aload_0
+      10: new           #3                  // class java/util/ArrayList
+      13: dup
+      14: invokespecial #4                  // Method java/util/ArrayList."<init>":()V
+      17: putfield      #5                  // Field spiPlugins:Ljava/util/List;
+      20: return
+
+  public boolean isEnable();
+    Code:
+       0: aload_0
+       1: getfield      #2                  // Field enable:Z
+       4: ireturn
+
+  public java.util.List<java.lang.String> getSpiPlugins();
+    Code:
+       0: aload_0
+       1: getfield      #5                  // Field spiPlugins:Ljava/util/List;
+       4: areturn
+
+  public void setEnable(boolean);
+    Code:
+       0: aload_0
+       1: iload_1
+       2: putfield      #2                  // Field enable:Z
+       5: return
+
+  public void setSpiPlugins(java.util.List<java.lang.String>);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: putfield      #5                  // Field spiPlugins:Ljava/util/List;
+       5: return
+
+  static {};
+    Code:
+       0: ldc           #6                  // class com/seeyon/boot/starter/spi/SPIProperties
+       2: invokestatic  #7                  // Method org/slf4j/LoggerFactory.getLogger:(Ljava/lang/Class;)Lorg/slf4j/Logger;
+       5: putstatic     #8                  // Field log:Lorg/slf4j/Logger;
+       8: return
+}

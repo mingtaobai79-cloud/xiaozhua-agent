@@ -1,0 +1,64 @@
+{
+ "页面测试": {
+  "click": "ok",
+  "reqs": [
+   {
+    "m": "POST",
+    "u": "/service/udc/deployment/latest-test-info",
+    "q": "",
+    "d": "{\"appId\":\"8704025620829192834\"}"
+   },
+   {
+    "m": "POST",
+    "u": "/service/udc/graphql",
+    "q": "udcDeploymentAppReadyStatePost",
+    "d": "{\"query\":\"query graphqlLoader ($params0: udcDeploymentAppReadyStatePostInputBody) { \\n  data0: udcDeploymentAppReadyStatePost(body: $params0) { code data { content } message status } }\",\"variables\":{\"params0\":{\"appId\":\"8704025620829192834\"}}}"
+   }
+  ]
+ },
+ "沙箱测试": {
+  "click": "ok",
+  "reqs": []
+ },
+ "发布版本": {
+  "click": "ok",
+  "reqs": [
+   {
+    "m": "POST",
+    "u": "/service/udc/deployment/latest-test-info",
+    "q": "",
+    "d": "{\"appId\":\"8704025620829192834\"}"
+   }
+  ]
+ },
+ "应用依赖": {
+  "click": "ok",
+  "reqs": []
+ },
+ "组件依赖": {
+  "click": "ok",
+  "reqs": []
+ },
+ "团队设置": {
+  "click": "ok",
+  "reqs": [
+   {
+    "m": "POST",
+    "u": "/service/udc/graphql",
+    "q": "udcCollaborationAppGet",
+    "d": "{\"query\":\"\\nquery udcCollaborationAppGet ($path: udcCollaborationAppGetInputPath) {\\n  udcCollaborationAppGet(path: $path) {\\n    code\\n    data{\\n      content{\\n        appId\\n        guid\\n        id\\n        isCreator\\n        memberId\\n        memberName\\n        role\\n      }\\n    }\\n    message\\n    status\\n  }\\n}\\n\",\"variables\":{\"path\":{\"appId\":\"8704025620829192834\"}}}"
+   }
+  ]
+ },
+ "应用主题": {
+  "click": "ok",
+  "reqs": [
+   {
+    "m": "POST",
+    "u": "/service/app-common/graphql",
+    "q": "appCommonThemeSelectDefaultBrandPost",
+    "d": "{\"query\":\"mutation graphqlLoader ($params0: appCommonThemeSelectDefaultBrandPostInputBody) { \\n  data0: appCommonThemeSelectDefaultBrandPost(body: $params0) { code data { content{\\n      id\\n      name\\n      data {\\n        id\\n        name\\n        storageKey\\n        mobileStorageKey\\n        publishStatus\\n        desktop\\n        mobile\\n      }\\n    } } message status } }\",\"variables\":{\"para"
+   }
+  ]
+ }
+}

@@ -1,0 +1,16 @@
+{
+ "url": "https://lowcode-test2.example.com/service/udc/graphql?udcApplicationDependentApplicationSelectByConditionPost",
+ "path": "/service/udc/graphql?udcApplicationDependentApplicationSelectByConditionPost",
+ "replay": {
+  "http": 200,
+  "verdict": "LIVE_PASS",
+  "ms": 113,
+  "bytes": 23576,
+  "content_type": "graphql",
+  "content_size": 1,
+  "content_head": "{\"data0\": {\"code\": \"BOOT_0000\", \"data\": {\"content\": [{\"appId\": \"8704025620829192834\", \"depAppBasePackage\": \"com.seeyon\", \"depAppCaption\": \"门户\", \"depAppName\": \"portal\", \"depAppVersion\": \"5.3.392\", \"id\": \"615819729649418753\", \"dependentAppType\": \"SERVICE\", \"enableDelete\": false, \"dynamicModuleGroup\": \"\", \"supportUpgrade\": false, \"defaultLastVersion\": false, \"enable\": true, \"updateTime\": 179179650200",
+  "gql_keys": [
+   "data0"
+  ]
+ }
+}

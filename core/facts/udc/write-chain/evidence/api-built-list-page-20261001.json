@@ -1,0 +1,96 @@
+{
+  "phase": "API 构造列表页 —— 全链闭环",
+  "ts": "2026-10-01 03:00 +08",
+  "app": {
+    "appId": 6419954374508955097,
+    "appName": "zzprobenew26419954374508955097",
+    "entityId": "1214120700508048602",
+    "entityName": "zzprobeEnt1",
+    "pageId": "-2795971120707411668",
+    "pageUrl": "zzprobeshouye"
+  },
+  "schema_constructed": {
+    "controls": [
+      "udcFilter_eEzz (UdcFilter 搜索区)",
+      "udcToolBar_Dset (UdcToolBar 按钮区: 新增/导出/刷新)",
+      "udcDataGridView_usOJ (UdcDataGridView 表格: 5列 + 行操作 编辑/删除)"
+    ],
+    "columns": [
+      "创建时间",
+      "更新时间",
+      "创建人",
+      "字段1",
+      "是否草稿"
+    ],
+    "size_bytes": 9614
+  },
+  "save_protocol": {
+    "channel": "POST https://lowcode-test2.example.com/service/udc/graphql",
+    "auth": "Cookie: SY_ACCESS_TOKEN / TK_EXP / SY_UID  (❌ accessToken header 无效, 报 BOOT_1006)",
+    "token_refresh": "POST /service/ctp-user/auth/token → content['access-token'] + Set-Cookie",
+    "mutation": "submitPage($body: udcPageInfoUpdatePostInputBody) { udcPageInfoUpdatePost(body: $body) }",
+    "body_required": [
+      "appId",
+      "id(=originId)",
+      "urlType",
+      "pageSchema(JSON)",
+      "draftPageSchema(JSON)",
+      "publicAccess",
+      "pageUrl",
+      "pageType",
+      "groupId",
+      "guid",
+      "relationGroupId",
+      "sortNo",
+      "layoutId",
+      "layoutInfo",
+      "eventDefine",
+      "outParameters",
+      "inPortletParams",
+      "pageVariable"
+    ],
+    "result": {
+      "status": 0,
+      "code": "BOOT_0000",
+      "message": "SUCCESS",
+      "content": 1
+    }
+  },
+  "deploy_protocol": {
+    "channel": "POST /service/udc/runtime/deploy-normal",
+    "body": {
+      "deployDto": {
+        "appId": "<13位数字appId>"
+      }
+    },
+    "verify": "udc_deploy_record.state==0 且 msg 为空 → 成功",
+    "results": [
+      {
+        "deployId": "2225823792145598695",
+        "jar": "1.0.2",
+        "state": 2,
+        "fail": "前端代码生成 TypeError: undefined.topOperates"
+      },
+      {
+        "deployId": "-5715439604816083046",
+        "jar": "1.0.3",
+        "state": 2,
+        "fail": "TypeError: undefined.actionColumnOperates"
+      },
+      {
+        "deployId": "-1650043294083294531",
+        "jar": "1.0.4",
+        "state": 0,
+        "msg": "空=成功",
+        "build": "20261001025632"
+      }
+    ]
+  },
+  "code_engine_contract": {
+    "file": "@seeyon/udc-code-engine parse-page/component-status-deps.js:166",
+    "requirement": "每个控件 settings 必须含 topOperates[] + actionColumnOperates[] + operateButtons[] (undefined 会 TypeError 崩前端代码生成)",
+    "data_source": "UdcDataGridView 需 settings.dataSource.entity.{id,name,fullName,appName,caption}",
+    "lesson": "settings 里放非标字段(rowSelection/pagination/scroll...)不影响，但缺少上述3个必崩"
+  },
+  "lesson": "页面设计态 100% API 可自动化 —— 拖拽只是前端 Redux 状态, 保存即 udcPageInfoUpdatePost"
+}

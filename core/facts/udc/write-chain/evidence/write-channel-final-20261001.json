@@ -1,0 +1,26 @@
+{
+  "phase": "写入通道终局定位 — test2 环境边界确认",
+  "ts": "2026-10-01 08:00 +08",
+  "protocol_complete": {
+    "dynamic-rest_templates": "19个URL模板全部提取: {entityAppName}/{entityName}/{controlId}/create|update|delete-by-id|export|search... (UdcBaseGeneralController 字节码)",
+    "路由已验证": "/service/{app}/dynamic-rest/com-seeyon/... 命中(非404)",
+    "deployTypeEnum": "TEST(0)/RELEASE(1)/ON_ONLINE(2)/DELTA(3)",
+    "appOnline参数": "{appId: Long} (controller setAppId 字节码确认)"
+  },
+  "blocker_root_cause": {
+    "现象": "dynamic-rest 全部端点 BOOT_4002 应用坐标数据不存在",
+    "根因": "应用 publishState=UNPUBLISH(应用坐标表无记录), 需要 app-online 发布",
+    "环境限制": "app-online 报『发布失败,目标环境为空』= test2 沙箱未配置 push 目标环境(u dc_deploy_record 里只有 implement/development 的历史值, test2 无) → 在 test2 上 ON_ONLINE/RELEASE 不可达",
+    "性质判定": "环境限制, 非协议缺口; 坐标校验对标注品应用同样报错(调用方式无关)"
+  },
+  "test2 可用写入通道(现实结论)": [
+    "① 微流程执行: 建『数据保存』节点微流程 + 运行时微流程执行端点(需画布配置, 唯一剩余人工步骤)",
+    "② CRUD 表单页 TEST 部署: 页面级 RestApi 随 TEST 部署注册(u dc-runtime/data 系列已通, create 类待页面)",
+    "③ DB 直插(已通, id=147154 已回读验证)"
+  ],
+  "browser_session": {
+    "登录": "用户已登录 Chrome 调试实例(9224), cookie 与 API 相同(3个)",
+    "dynamic-rest 页面内 fetch": "同样 BOOT_4002 — 坐标非 header 非 cookie, 是服务端发布态",
+    "SSO提示": "被顶号/未登录会重定向到 lowcode-test2.example.com/esc-sso/login/page"
+  }
+}

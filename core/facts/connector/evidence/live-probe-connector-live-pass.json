@@ -1,0 +1,42 @@
+{
+  "probe": "connector LIVE single-pass (main HANDOFF phase2-connector-live-pass-1790677996, HTTP_LAYER_UP 18:32)",
+  "clock_local": "2026-09-29T18:37:51+0800",
+  "clock_epoch": 1790678271,
+  "env": "test2",
+  "base": "https://lowcode-test2.example.com",
+  "gateway_prefix": "/service/app9000000000000000001",
+  "app_id": "app9000000000000000001",
+  "credential": {
+    "ref": "<COLLAB_ROOT>/agent-collaboration/shared-credentials/test2-web-credential.json",
+    "cookie_template_present": true,
+    "cookie_len": 375,
+    "declared_expires_epoch": 1790595614,
+    "note": "value 0 into evidence; only key names/length/expiry declared"
+  },
+  "no_retry_bombing": true,
+  "sends": [
+    {
+      "tag": "node-tree-control",
+      "method": "GET",
+      "path": "/service/app9000000000000000001/udc-runtime/meta-data/select-function-node-tree/app9000000000000000001",
+      "url": "https://lowcode-test2.example.com/service/app9000000000000000001/udc-runtime/meta-data/select-function-node-tree/app9000000000000000001",
+      "http": 200,
+      "code": "BOOT_0000",
+      "message": "SUCCESS",
+      "traceId": "3252469236123044028",
+      "bytes": 205298,
+      "body_sha256": "04ec76fb15d801ff8cc771a628a18c6953f1c29e241134efab76a0ecbe5e3046",
+      "nonempty": true,
+      "sample_summary": {
+        "data_keys": [
+          "content"
+        ],
+        "sample_type": "list"
+      },
+      "err": null,
+      "ts": "2026-09-29T18:37:51+0800"
+    }
+  ],
+  "outcome": "A",
+  "outcome_detail": "node-tree 200/BOOT_0000 + nonempty + traceId => upgrade LIVE, close result-B note"
+}

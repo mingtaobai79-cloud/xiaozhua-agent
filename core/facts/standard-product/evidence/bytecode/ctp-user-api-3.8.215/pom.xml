@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.seeyon</groupId>
+    <artifactId>boot</artifactId>
+    <version>3.8.210</version>
+  </parent>
+  <groupId>com.seeyon</groupId>
+  <artifactId>ctp-user-api</artifactId>
+  <version>3.8.215</version>
+  <dependencies>
+    <dependency>
+      <groupId>com.seeyon</groupId>
+      <artifactId>boot-core</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-web</artifactId>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
+</project>

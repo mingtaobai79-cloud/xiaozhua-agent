@@ -1,0 +1,2722 @@
+{
+  "id": "-7497738785613535861",
+  "children": [
+    "udcFilter_D5LH",
+    "udcToolBar_3cMy",
+    "udcRepeatNode_Qpx4",
+    "udcPanel_4bDc",
+    "udcPanel_s8MM"
+  ],
+  "appId": "5791640252914287064",
+  "pageType": "SEARCH_LIST",
+  "pageUrl": "jidukaoheliebiaoPage",
+  "urlType": "MOBILE",
+  "defaultOpenType": null,
+  "description": "",
+  "groupId": "0",
+  "guid": "6492054028714227730",
+  "relationGroupId": "948389319429770535",
+  "sortNo": 445,
+  "masterEntityIds": "-2447254715332863206",
+  "createTime": "1787218642000",
+  "version": null,
+  "handWritten": false,
+  "inPortletParams": [],
+  "settings": {
+    "styles": {},
+    "title": {
+      "type": "Simple"
+    },
+    "backgroundAdapt": "cover",
+    "backgroundColor": "#ffffff",
+    "backgroundThemeColor": "light",
+    "gap": "12px 0",
+    "boxModel": {
+      "margin": "0 auto 0 auto",
+      "padding": "16px 16px 96px 16px"
+    },
+    "alignment": "center",
+    "printDesign": {
+      "notTargetKeys": []
+    }
+  },
+  "pageLayout": false,
+  "outParameters": [],
+  "pageVariable": [
+    {
+      "required": false,
+      "id": "uve5ZFphSJ7TUaAa",
+      "label": "事业部",
+      "code": "canshumingcheng1",
+      "dataType": "STRING",
+      "expressionValue": [],
+      "list": false,
+      "inKey": "canshumingcheng1"
+    }
+  ],
+  "pageDefinedEvents": [],
+  "originId": "-7497738785613535861",
+  "name": "页面",
+  "type": "PAGE",
+  "extraChildren": {},
+  "extraConfig": {},
+  "eventDefine": [],
+  "childById": {
+    "udcFilter_D5LH": {
+      "id": "udcFilter_D5LH",
+      "type": "UdcFilter",
+      "parentId": "PAGE",
+      "settings": {
+        "filterSetting": {
+          "relatedComponentId": [
+            "udcRepeatNode_Qpx4"
+          ],
+          "disableShowSetting": true
+        },
+        "enableList": [
+          "quickSearch"
+        ],
+        "addOperates": [],
+        "advancedSetting": {
+          "8042990501659587833": {
+            "placeMode": "horizontal",
+            "fields": [
+              "JdkhlcbDto_billCode",
+              "JdkhlcbDto_applicant",
+              "JdkhlcbDto_billDate",
+              "JdkhlcbDto_kaohenianfen",
+              "JdkhlcbDto_benbu"
+            ]
+          }
+        }
+      },
+      "uiModel": {},
+      "uiModelSchema": [
+        {
+          "label": "标题",
+          "key": "title",
+          "dataType": "STRING"
+        },
+        {
+          "label": "状态",
+          "key": "status",
+          "dataType": "STRING",
+          "options": [
+            {
+              "label": "正常 ",
+              "key": "basic"
+            },
+            {
+              "label": "禁用",
+              "key": "disabled"
+            },
+            {
+              "label": "隐藏",
+              "key": "invisible"
+            }
+          ]
+        }
+      ],
+      "componentName": "筛选",
+      "children": []
+    },
+    "udcToolBar_3cMy": {
+      "id": "udcToolBar_3cMy",
+      "type": "UdcToolBar",
+      "parentId": "PAGE",
+      "settings": {
+        "addOperates": [
+          {
+            "id": "M348qrS8x3",
+            "type": "item",
+            "name": "下发季度考核流程",
+            "allowControlled": true,
+            "buttonType": "primary",
+            "danger": false,
+            "ghost": false,
+            "defaultNanoId": "M348qrS8x3",
+            "icon": "LinedSmile",
+            "iconPosition": "left",
+            "showContent": "text",
+            "status": {
+              "type": "Simple",
+              "simple": "basic"
+            },
+            "widthType": "auto",
+            "widthUnit": "px"
+          },
+          {
+            "id": "2JlHJbFbbC",
+            "type": "item",
+            "name": "导出结果数据",
+            "icon": "LinedSmile",
+            "isPlaceHolderColumn": false,
+            "bgColor": "brand1-6",
+            "allowControlled": false,
+            "status": {
+              "type": "Simple",
+              "simple": "basic"
+            },
+            "buttonType": "primary",
+            "showContent": "text",
+            "iconPosition": "left",
+            "widthType": "auto",
+            "widthUnit": "px",
+            "autoDraw": false,
+            "danger": false,
+            "ghost": false
+          },
+          {
+            "id": "CyuxVRuIRF",
+            "type": "item",
+            "name": "季度考核数据初始化报表",
+            "icon": "LinedSmile",
+            "isPlaceHolderColumn": false,
+            "bgColor": "brand1-6",
+            "allowControlled": false,
+            "status": {
+              "type": "Simple",
+              "simple": "basic"
+            },
+            "buttonType": "primary",
+            "showContent": "text",
+            "iconPosition": "left",
+            "widthType": "auto",
+            "widthUnit": "px",
+            "autoDraw": false,
+            "danger": false,
+            "ghost": false
+          },
+          {
+            "id": "7s3ZsTYxDj",
+            "type": "item",
+            "name": "未下发成功邮件（测试使用）",
+            "icon": "LinedSmile",
+            "isPlaceHolderColumn": false,
+            "bgColor": "brand1-6",
+            "allowControlled": false,
+            "status": {
+              "type": "Simple",
+              "simple": "invisible"
+            },
+            "buttonType": "default",
+            "showContent": "text",
+            "iconPosition": "left",
+            "widthType": "auto",
+            "widthUnit": "px",
+            "autoDraw": false,
+            "danger": false,
+            "ghost": false
+          },
+          {
+            "id": "mpkC2kuqhx",
+            "type": "item",
+            "name": "导出测试",
+            "icon": "LinedSmile",
+            "isPlaceHolderColumn": false,
+            "bgColor": "brand1-6",
+            "allowControlled": false,
+            "status": {
+              "type": "Simple",
+              "simple": "invisible"
+            },
+            "buttonType": "default",
+            "showContent": "text",
+            "iconPosition": "left",
+            "widthType": "auto",
+            "widthUnit": "px",
+            "autoDraw": false,
+            "danger": false,
+            "ghost": false
+          }
+        ],
+        "operateNum": -1
+      },
+      "uiModel": {
+        "controlledProps": [
+          {
+            "key": "M348qrS8x3",
+            "type": "Button",
+            "name": "下发季度考核流程",
+            "parentCode": "addOperates",
+            "allowControlled": true
+          },
+          {
+            "key": "2JlHJbFbbC",
+            "type": "Button",
+            "name": "导出结果数据",
+            "parentCode": "addOperates",
+            "allowControlled": false
+          },
+          {
+            "key": "CyuxVRuIRF",
+            "type": "Button",
+            "name": "季度考核数据初始化报表",
+            "parentCode": "addOperates",
+            "allowControlled": false
+          },
+          {
+            "key": "7s3ZsTYxDj",
+            "type": "Button",
+            "name": "未下发成功邮件（测试使用）",
+            "parentCode": "addOperates",
+            "allowControlled": false
+          },
+          {
+            "key": "mpkC2kuqhx",
+            "type": "Button",
+            "name": "导出测试",
+            "parentCode": "addOperates",
+            "allowControlled": false
+          }
+        ],
+        "flowAuthKeys": [
+          {
+            "key": "addOperates",
+            "resolveType": "filterFlowEvents"
+          }
+        ]
+      },
+      "uiModelSchema": [
+        {
+          "label": "标题",
+          "key": "title",
+          "dataType": "STRING"
+        },
+        {
+          "label": "状态",
+          "key": "status",
+          "dataType": "STRING",
+          "options": [
+            {
+              "label": "正常 ",
+              "key": "basic"
+            },
+            {
+              "label": "禁用",
+              "key": "disabled"
+            },
+            {
+              "label": "隐藏",
+              "key": "invisible"
+            }
+          ]
+        }
+      ],
+      "componentName": "工具栏",
+      "name": "工具栏",
+      "events": [
+        {
+          "id": "bbOv0I",
+          "callbackDataType": "ROW_DATA",
+          "eventType": "M348qrS8x3",
+          "condition": false,
+          "actionCaption": "执行页面规则",
+          "actionType": "microflow",
+          "actionName": "microflow",
+          "microFlow": "-8946945148123878818",
+          "noticeEntitys": [
+            "com.seeyon.znxmglptcopy5791640252914287064.domain.entity.Jdkhlcb"
+          ],
+          "condEvents": [
+            {
+              "id": "QS9gR6"
+            },
+            {
+              "id": "aeq6xG"
+            }
+          ],
+          "enableValidate": false
+        },
+        {
+          "id": "XTvXIf",
+          "callbackDataType": "ROW_DATA",
+          "eventType": "2JlHJbFbbC",
+          "condition": false,
+          "actionCaption": "控件动作",
+          "actionType": "widget",
+          "actionName": "CONTROL",
+          "target": "udcPanel_s8MM",
+          "targetAction": "panel_openPanel",
+          "afterAction": "noOperation",
+          "condEvents": [
+            {
+              "id": "PuimYb"
+            },
+            {
+              "id": "l2hves"
+            }
+          ],
+          "enableValidate": false
+        },
+        {
+          "id": "X0KUYb",
+          "callbackDataType": "ROW_DATA",
+          "eventType": "CyuxVRuIRF",
+          "condition": false,
+          "actionCaption": "打开链接",
+          "actionType": "buildin",
+          "actionName": "openLink",
+          "url": {
+            "expression": "{\"designData\":{\"expressionTranslation\":\"应用参数.季度考核报表链接 \",\"resultTypeInfo\":\"STRING\",\"resultTypeFullName\":null,\"terminalType\":\"FRONTEND\",\"isMultiSelect\":false,\"context\":[{\"name\":\"__appparams__\",\"description\":\"应用参数\",\"type\":\"OBJECT\",\"selectable\":false,\"enableDataI18n\":false,\"properties\":[{\"name\":\"APP_PARAMETERS_p_jdkhbblj\",\"description\":\"季度考核报表链接\",\"type\":\"STRING\",\"selectable\":true,\"enableDataI18n\":false,\"uniformityParams\":{\"paramId\":null,\"paramCategory\":\"UIModel\",\"extensionProperties\":\"{\\\"id\\\":\\\"undefined\\\"}\",\"pageNodeExtension\":null}}]}],\"tokens\":[{\"uid\":\"7d2e5059-3226-472f-a73e-c5bff8ba233c\",\"type\":\"VARIABLE\",\"value\":\"__appparams__.APP_PARAMETERS_p_jdkhbblj\",\"desc\":\"应用参数.季度考核报表链接\"}],\"sourceAppName\":null},\"runtimeData\":{\"executableExpr\":\"93gDaq3/nXB1+C8j4AjYNEVRRY+GX/DRejGmES20GvQ=__appparams__.APP_PARAMETERS_p_jdkhbblj\"}}",
+            "type": "Expression",
+            "simple": "/cdp-data/report/-8998988203715967862"
+          },
+          "openType": "page",
+          "afterAction": "noOperation",
+          "condEvents": [
+            {
+              "id": "98Grrj"
+            },
+            {
+              "id": "uPOqtv"
+            }
+          ],
+          "enableValidate": false
+        },
+        {
+          "id": "vhGtID",
+          "callbackDataType": "ROW_DATA",
+          "eventType": "7s3ZsTYxDj",
+          "condition": false,
+          "actionCaption": "执行页面规则",
+          "actionType": "microflow",
+          "actionName": "microflow",
+          "microFlow": "954709110734603769",
+          "condEvents": [
+            {
+              "id": "RwMElY"
+            },
+            {
+              "id": "EOETGh"
+            }
+          ],
+          "enableValidate": false
+        }
+      ],
+      "children": []
+    },
+    "udcRepeatNode_Qpx4": {
+      "id": "udcRepeatNode_Qpx4",
+      "type": "UdcRepeatNode",
+      "parentId": "PAGE",
+      "settings": {
+        "titleDisplay": "top",
+        "topOperateList": [
+          {
+            "id": "addDetail",
+            "name": "添加明细",
+            "type": "item",
+            "icon": "LinedAdds",
+            "preset": true,
+            "allowControlled": false,
+            "status": {
+              "type": "Simple",
+              "simple": "basic"
+            },
+            "mapAuthOperateId": "EpKPTM",
+            "buttonType": "default",
+            "showContent": "icon"
+          }
+        ],
+        "operateButtons": [
+          {
+            "id": "insert",
+            "name": "插入",
+            "type": "item",
+            "icon": "LinedAdds",
+            "preset": true,
+            "allowControlled": false,
+            "status": {
+              "type": "Simple",
+              "simple": "basic"
+            },
+            "mapAuthOperateId": "FQ2xB9",
+            "buttonType": "default",
+            "showContent": "icon",
+            "bgColor": "brand1-6"
+          },
+          {
+            "id": "copy",
+            "name": "复制",
+            "type": "item",
+            "icon": "LinedCopyFrom",
+            "preset": true,
+            "allowControlled": false,
+            "status": {
+              "type": "Simple",
+              "simple": "basic"
+            },
+            "buttonType": "default",
+            "mapAuthOperateId": "U6g77z",
+            "showContent": "icon",
+            "bgColor": "brand1-6"
+          },
+          {
+            "id": "delete",
+            "name": "删除",
+            "type": "item",
+            "icon": "LinedDelete",
+            "preset": true,
+            "allowControlled": false,
+            "status": {
+              "type": "Simple",
+              "simple": "basic"
+            },
+            "mapAuthOperateId": "sR0Sgc",
+            "buttonType": "default",
+            "showContent": "icon",
+            "bgColor": "brand1-6"
+          }
+        ],
+        "enableFilter": false
+      },
+      "uiModel": {
+        "title": {
+          "type": "Simple",
+          "simple": "季度考核流程表"
+        },
+        "flowAuthKeys": [
+          {
+            "key": "mobileRepeatNodeOperateBtn",
+            "childOperateStatusOptions": [
+              {
+                "label": "正常 ",
+                "key": "basic"
+              },
+              {
+                "label": "禁用",
+                "key": "disabled"
+              },
+              {
+                "label": "隐藏",
+                "key": "invisible"
+              }
+            ],
+            "resolveType": "normalListAuth"
+          },
+          {
+            "key": "topOperateList",
+            "childOperateStatusOptions": [
+              {
+                "label": "正常 ",
+                "key": "basic"
+              },
+              {
+                "label": "禁用",
+                "key": "disabled"
+              },
+              {
+                "label": "隐藏",
+                "key": "invisible"
+              }
+            ],
+            "resolveType": "normalListAuth"
+          },
+          {
+            "key": "operateButtons",
+            "childOperateStatusOptions": [
+              {
+                "label": "正常 ",
+                "key": "basic"
+              },
+              {
+                "label": "禁用",
+                "key": "disabled"
+              },
+              {
+                "label": "隐藏",
+                "key": "invisible"
+              }
+            ],
+            "resolveType": "normalListAuth"
+          }
+        ],
+        "status": {
+          "type": "Simple",
+          "simple": "basic"
+        }
+      },
+      "uiModelSchema": [
+        {
+          "label": "标题",
+          "key": "title",
+          "dataType": "STRING"
+        },
+        {
+          "label": "状态",
+          "key": "status",
+          "dataType": "STRING",
+          "options": [
+            {
+              "label": "正常 ",
+              "key": "basic"
+            },
+            {
+              "label": "只读",
+              "key": "readonly"
+            },
+            {
+              "label": "禁用",
+              "key": "disabled"
+            },
+            {
+              "label": "隐藏",
+              "key": "invisible"
+            }
+          ]
+        }
+      ],
+      "componentName": "重复节",
+      "dataSource": {
+        "type": "ENTITY",
+        "subType": "NORMAL",
+        "key": "udcRepeatNode_Qpx4--2447254715332863206",
+        "isRoot": true,
+        "isRef": false,
+        "dataShape": "LIST",
+        "entity": {
+          "id": "-2447254715332863206",
+          "name": "jdkhlcb",
+          "fullName": "com.seeyon.znxmglptcopy5791640252914287064.domain.entity.Jdkhlcb",
+          "caption": "季度考核流程表",
+          "stereotype": "bill",
+          "category": "ENTITY",
+          "supportOrderNo": false,
+          "appName": "znxmglptcopy5791640252914287064",
+          "appId": "5791640252914287064"
+        },
+        "fields": [
+          {
+            "id": "com.seeyon.bpm.domain.entity.BpmCase.currentPendingMemberName",
+            "name": "caseId___displayname.currentPendingMemberName",
+            "fieldPath": [
+              "8058773647609644916",
+              "com.seeyon.bpm.domain.entity.BpmCase.currentPendingMemberName"
+            ],
+            "fullName": "com.seeyon.bpm.domain.entity.BpmCase.currentPendingMemberName",
+            "parentId": "udcRepeatNode_Qpx4",
+            "group": {
+              "title": "流程",
+              "id": "ftOQAHx2pIRrw148vQ5Gi"
+            },
+            "readonly": true
+          },
+          {
+            "id": "com.seeyon.bpm.domain.entity.BpmCase.currentPendingNodeName",
+            "name": "caseId___displayname.currentPendingNodeName",
+            "fieldPath": [
+              "8058773647609644916",
+              "com.seeyon.bpm.domain.entity.BpmCase.currentPendingNodeName"
+            ],
+            "fullName": "com.seeyon.bpm.domain.entity.BpmCase.currentPendingNodeName",
+            "parentId": "udcRepeatNode_Qpx4",
+            "group": {
+              "title": "流程",
+              "id": "ftOQAHx2pIRrw148vQ5Gi"
+            },
+            "readonly": true
+          },
+          {
+            "id": "-3232082796027623375",
+            "name": "kaohenianfen",
+            "fieldPath": [
+              "-3232082796027623375"
+            ],
+            "fullName": "com.seeyon.znxmglptcopy5791640252914287064.domain.entity.Jdkhlcb.kaohenianfen",
+            "parentId": "udcRepeatNode_Qpx4",
+            "readonly": false
+          },
+          {
+            "id": "2932636925624207870",
+            "name": "kaohejidu1",
+            "fieldPath": [
+              "2932636925624207870"
+            ],
+            "fullName": "com.seeyon.znxmglptcopy5791640252914287064.domain.entity.Jdkhlcb.kaohejidu1",
+            "parentId": "udcRepeatNode_Qpx4",
+            "readonly": false
+          },
+          {
+            "id": "290806686949698504",
+            "name": "benbuwenben",
+            "fieldPath": [
+              "290806686949698504"
+            ],
+            "fullName": "com.seeyon.znxmglptcopy5791640252914287064.domain.entity.Jdkhlcb.benbuwenben",
+            "parentId": "udcRepeatNode_Qpx4",
+            "readonly": false
+          },
+          {
+            "id": "5600531418407546206",
+            "name": "shiyebuwenben",
+            "fieldPath": [
+              "5600531418407546206"
+            ],
+            "fullName": "com.seeyon.znxmglptcopy5791640252914287064.domain.entity.Jdkhlcb.shiyebuwenben",
+            "parentId": "udcRepeatNode_Qpx4",
+            "readonly": false
+          },
+          {
+            "id": "-8846182039221522739",
+            "name": "huanjiemingcheng",
+            "fieldPath": [
+              "-8846182039221522739"
+            ],
+            "fullName": "com.seeyon.znxmglptcopy5791640252914287064.domain.entity.Jdkhlcb.huanjiemingcheng",
+            "parentId": "udcRepeatNode_Qpx4",
+            "readonly": false
+          },
+          {
+            "id": "7939880014101803413",
+            "name": "dangqianchuliren",
+            "fieldPath": [
+              "7939880014101803413"
+            ],
+            "fullName": "com.seeyon.znxmglptcopy5791640252914287064.domain.entity.Jdkhlcb.dangqianchuliren",
+            "parentId": "udcRepeatNode_Qpx4",
+            "readonly": false
+          },
+          {
+            "id": "-2421111449899714545",
+            "name": "jidukaohepaixu",
+            "fieldPath": [
+              "-2421111449899714545"
+            ],
+            "fullName": "com.seeyon.znxmglptcopy5791640252914287064.domain.entity.Jdkhlcb.jidukaohepaixu",
+            "parentId": "udcRepeatNode_Qpx4",
+            "readonly": false
+          }
+        ],
+        "dataTarget": "udcRepeatNode_Qpx4",
+        "hiddenFields": [
+          {
+            "id": "590244707262962684",
+            "key": "createTime",
+            "name": "createTime",
+            "dataTarget": "udcRepeatNode_Qpx4",
+            "parentDataContainer": "udcRepeatNode_Qpx4",
+            "isFormItem": false,
+            "title": "创建时间[日期时间]",
+            "fieldPath": [
+              "590244707262962684"
+            ],
+            "fullName": "com.seeyon.znxmglptcopy5791640252914287064.domain.entity.Jdkhlcb.createTime",
+            "fullTitle": "创建时间",
+            "caption": "创建时间",
+            "dataType": "DATETIME",
+            "customs": {
+              "useSnapshot": false,
+              "guid": "1830747670864875361"
+            },
+            "dataI18n": false,
+            "multiSelect": false,
+            "relationType": null,
+            "relationEntity": null,
+            "relationApp": null,
+            "readonly": true,
+            "group": {
+              "title": "系统",
+              "id": "yitmjI01cJpO4noa4R3i6"
+            }
+          },
+          {
+            "id": "-1619906937814086740",
+            "key": "chaifenbiaozhi",
+            "name": "chaifenbiaozhi",
+            "dataTarget": "udcRepeatNode_Qpx4",
+            "parentDataContainer": "udcRepeatNode_Qpx4",
+            "isFormItem": false,
+            "title": "拆分标识[文本]",
+            "fieldPath": [
+              "-1619906937814086740"
+            ],
+            "fullName": "com.seeyon.znxmglptcopy5791640252914287064.domain.entity.Jdkhlcb.chaifenbiaozhi",
+            "fullTitle": "拆分标识",
+            "caption": "拆分标识",
+            "dataType": "STRING",
+            "customs": {
+              "useSnapshot": false,
+              "guid": "-8461271272745185803"
+            },
+            "dataI18n": false,
+            "multiSelect": false,
+            "relationType": null,
+            "relationEntity": null,
+            "relationApp": null,
+            "readonly": false
+          },
+          {
+            "id": "-4410210930130910265",
+            "key": "batchId",
+            "name": "batchId",
+            "dataTarget": "udcRepeatNode_Qpx4",
+            "parentDataContainer": "udcRepeatNode_Qpx4",
+            "isFormItem": false,
+            "title": "batchId[长整数]",
+            "fieldPath": [
+              "-4410210930130910265"
+            ],
+            "fullName": "com.seeyon.znxmglptcopy5791640252914287064.domain.entity.Jdkhlcb.batchId",
+            "fullTitle": "batchId",
+            "caption": "batchId",
+            "dataType": "BIGINTEGER",
+            "customs": {
+              "useSnapshot": false,
+              "guid": "-8665445612660832972"
+            },
+            "dataI18n": false,
+            "multiSelect": false,
+            "relationType": null,
+            "relationEntity": "",
+            "relationApp": "",
+            "readonly": false
+          },
+          {
+            "id": "-6539835428822539298",
+            "key": "jidubiaozhi",
+            "name": "jidubiaozhi",
+            "dataTarget": "udcRepeatNode_Qpx4",
+            "parentDataContainer": "udcRepeatNode_Qpx4",
+            "isFormItem": false,
+            "title": "季度标识[文本]",
+            "fieldPath": [
+              "-6539835428822539298"
+            ],
+            "fullName": "com.seeyon.znxmglptcopy5791640252914287064.domain.entity.Jdkhlcb.jidubiaozhi",
+            "fullTitle": "季度标识",
+            "caption": "季度标识",
+            "dataType": "STRING",
+            "customs": {
+              "useSnapshot": false,
+              "guid": "1035115025852352081"
+            },
+            "dataI18n": false,
+            "multiSelect": false,
+            "relationType": null,
+            "relationEntity": null,
+            "relationApp": null,
+            "readonly": false
+          }
+        ],
+        "fieldBindMap": {
+          "dateTimePicker_4pYO": "kaohenianfen",
+          "cascaderSelect_N9Dd": "kaohejidu1",
+          "input_4pEb": "benbuwenben",
+          "input_ZqlH": "shiyebuwenben",
+          "input_ODAK": "huanjiemingcheng",
+          "input_ArOc": "dangqianchuliren",
+          "input_H0Lt": "jidukaohepaixu",
+          "input_yFpF": "caseId___displayname.currentPendingMemberName",
+          "input_gBua": "caseId___displayname.currentPendingNodeName"
+        }
+      },
+      "name": "季度考核流程表",
+      "events": [],
+      "children": [
+        "udcContainer_emUA"
+      ],
+      "extraChildren": {
+        "columnChildren": []
+      }
+    },
+    "udcContainer_emUA": {
+      "id": "udcContainer_emUA",
+      "type": "UdcContainer",
+      "parentId": "udcRepeatNode_Qpx4",
+      "settings": {
+        "flexDirection": "column",
+        "alignItems": "stretch",
+        "gap": "0px 0px",
+        "bgColor": "#fff",
+        "borderRadius": "8px"
+      },
+      "uiModel": {
+        "status": {
+          "type": "Simple",
+          "simple": "basic"
+        }
+      },
+      "uiModelSchema": [
+        {
+          "label": "标题",
+          "key": "title",
+          "dataType": "STRING"
+        },
+        {
+          "label": "状态",
+          "key": "status",
+          "dataType": "STRING",
+          "options": [
+            {
+              "label": "正常 ",
+              "key": "basic"
+            },
+            {
+              "label": "只读",
+              "key": "readonly"
+            },
+            {
+              "label": "禁用",
+              "key": "disabled"
+            },
+            {
+              "label": "隐藏",
+              "key": "invisible"
+            }
+          ]
+        }
+      ],
+      "componentName": "容器",
+      "children": [
+        "dateTimePicker_4pYO",
+        "cascaderSelect_N9Dd",
+        "input_4pEb",
+        "input_ZqlH",
+        "input_ODAK",
+        "input_ArOc",
+        "input_H0Lt",
+        "input_yFpF",
+        "input_gBua"
+      ],
+      "extraChildren": {
+        "columnChildren": []
+      }
+    },
+    "dateTimePicker_4pYO": {
+      "id": "dateTimePicker_4pYO",
+      "type": "DateTimePicker",
+      "parentId": "udcContainer_emUA",
+      "settings": {
+        "validation": {}
+      },
+      "uiModel": {
+        "title": {
+          "type": "Simple"
+        },
+        "status": {
+          "type": "Simple",
+          "simple": "basic"
+        }
+      },
+      "uiModelSchema": [
+        {
+          "label": "标题",
+          "key": "title",
+          "dataType": "STRING"
+        },
+        {
+          "label": "必填",
+          "key": "required",
+          "dataType": "BOOLEAN"
+        },
+        {
+          "label": "状态",
+          "key": "status",
+          "dataType": "STRING",
+          "options": [
+            {
+              "label": "正常 ",
+              "key": "basic"
+            },
+            {
+              "label": "只读",
+              "key": "readonly"
+            },
+            {
+              "label": "禁用",
+              "key": "disabled"
+            },
+            {
+              "label": "隐藏",
+              "key": "invisible"
+            }
+          ]
+        }
+      ],
+      "componentName": "日期",
+      "isFormItem": true,
+      "defaultDataType": "DATETIME",
+      "dataSource": {
+        "dataFieldId": "-3232082796027623375",
+        "type": "INPUT",
+        "dataField": "kaohenianfen",
+        "fullName": "com.seeyon.znxmglptcopy5791640252914287064.domain.entity.Jdkhlcb.kaohenianfen",
+        "readonly": false,
+        "key": "udcRepeatNode_Qpx4--2447254715332863206.kaohenianfen",
+        "dataTarget": "udcRepeatNode_Qpx4",
+        "fieldPath": [
+          "-3232082796027623375"
+        ],
+        "dataPath": ""
+      },
+      "children": []
+    },
+    "cascaderSelect_N9Dd": {
+      "id": "cascaderSelect_N9Dd",
+      "type": "CascaderSelect",
+      "parentId": "udcContainer_emUA",
+      "settings": {
+        "validation": {},
+        "relationCtpEnumCode": "jidu",
+        "relationEntity": "6298016411831124243",
+        "enumType": "SAME_LEVEL",
+        "enumLevel": 0,
+        "enumCode": "jidu"
+      },
+      "uiModel": {
+        "title": {
+          "type": "Simple"
+        },
+        "status": {
+          "type": "Simple",
+          "simple": "basic"
+        }
+      },
+      "uiModelSchema": [
+        {
+          "label": "标题",
+          "key": "title",
+          "dataType": "STRING"
+        },
+        {
+          "label": "必填",
+          "key": "required",
+          "dataType": "BOOLEAN"
+        },
+        {
+          "label": "状态",
+          "key": "status",
+          "dataType": "STRING",
+          "options": [
+            {
+              "label": "正常 ",
+              "key": "basic"
+            },
+            {
+              "label": "只读",
+              "key": "readonly"
+            },
+            {
+              "label": "禁用",
+              "key": "disabled"
+            },
+            {
+              "label": "隐藏",
+              "key": "invisible"
+            }
+          ]
+        }
+      ],
+      "componentName": "下拉",
+      "isFormItem": true,
+      "defaultDataType": "CTPENUM",
+      "dataSource": {
+        "dataFieldId": "2932636925624207870",
+        "type": "INPUT",
+        "dataField": "kaohejidu1",
+        "fullName": "com.seeyon.znxmglptcopy5791640252914287064.domain.entity.Jdkhlcb.kaohejidu1",
+        "readonly": false,
+        "key": "udcRepeatNode_Qpx4--2447254715332863206.kaohejidu1",
+        "dataTarget": "udcRepeatNode_Qpx4",
+        "fieldPath": [
+          "2932636925624207870"
+        ],
+        "dataPath": "",
+        "enumType": "SAME_LEVEL",
+        "enumLevel": 0
+      },
+      "children": []
+    },
+    "input_4pEb": {
+      "id": "input_4pEb",
+      "type": "Input",
+      "parentId": "udcContainer_emUA",
+      "settings": {
+        "validation": {
+          "maxLength": {
+            "validate": true,
+            "value": "50",
+            "message": null
+          },
+          "minLength": {
+            "validate": true,
+            "value": "0",
+            "message": null
+          }
+        }
+      },
+      "uiModel": {
+        "title": {
+          "type": "Simple",
+          "simple": "本部"
+        },
+        "status": {
+          "type": "Simple",
+          "simple": "basic"
+        }
+      },
+      "uiModelSchema": [
+        {
+          "label": "标题",
+          "key": "title",
+          "dataType": "STRING"
+        },
+        {
+          "label": "必填",
+          "key": "required",
+          "dataType": "BOOLEAN"
+        },
+        {
+          "label": "状态",
+          "key": "status",
+          "dataType": "STRING",
+          "options": [
+            {
+              "label": "正常 ",
+              "key": "basic"
+            },
+            {
+              "label": "只读",
+              "key": "readonly"
+            },
+            {
+              "label": "禁用",
+              "key": "disabled"
+            },
+            {
+              "label": "隐藏",
+              "key": "invisible"
+            }
+          ]
+        }
+      ],
+      "componentName": "单行文本",
+      "isFormItem": true,
+      "defaultDataType": "STRING",
+      "dataSource": {
+        "dataFieldId": "290806686949698504",
+        "type": "INPUT",
+        "dataField": "benbuwenben",
+        "fullName": "com.seeyon.znxmglptcopy5791640252914287064.domain.entity.Jdkhlcb.benbuwenben",
+        "readonly": false,
+        "key": "udcRepeatNode_Qpx4--2447254715332863206.benbuwenben",
+        "dataTarget": "udcRepeatNode_Qpx4",
+        "fieldPath": [
+          "290806686949698504"
+        ],
+        "dataPath": ""
+      },
+      "name": "本部",
+      "children": []
+    },
+    "input_ZqlH": {
+      "id": "input_ZqlH",
+      "type": "Input",
+      "parentId": "udcContainer_emUA",
+      "settings": {
+        "validation": {
+          "maxLength": {
+            "validate": true,
+            "value": "200",
+            "message": null
+          },
+          "minLength": {
+            "validate": true,
+            "value": "0",
+            "message": null
+          }
+        }
+      },
+      "uiModel": {
+        "title": {
+          "type": "Simple",
+          "simple": "事业部"
+        },
+        "status": {
+          "type": "Simple",
+          "simple": "basic"
+        }
+      },
+      "uiModelSchema": [
+        {
+          "label": "标题",
+          "key": "title",
+          "dataType": "STRING"
+        },
+        {
+          "label": "必填",
+          "key": "required",
+          "dataType": "BOOLEAN"
+        },
+        {
+          "label": "状态",
+          "key": "status",
+          "dataType": "STRING",
+          "options": [
+            {
+              "label": "正常 ",
+              "key": "basic"
+            },
+            {
+              "label": "只读",
+              "key": "readonly"
+            },
+            {
+              "label": "禁用",
+              "key": "disabled"
+            },
+            {
+              "label": "隐藏",
+              "key": "invisible"
+            }
+          ]
+        }
+      ],
+      "componentName": "单行文本",
+      "isFormItem": true,
+      "defaultDataType": "STRING",
+      "dataSource": {
+        "dataFieldId": "5600531418407546206",
+        "type": "INPUT",
+        "dataField": "shiyebuwenben",
+        "fullName": "com.seeyon.znxmglptcopy5791640252914287064.domain.entity.Jdkhlcb.shiyebuwenben",
+        "readonly": false,
+        "key": "udcRepeatNode_Qpx4--2447254715332863206.shiyebuwenben",
+        "dataTarget": "udcRepeatNode_Qpx4",
+        "fieldPath": [
+          "5600531418407546206"
+        ],
+        "dataPath": ""
+      },
+      "name": "事业部",
+      "children": []
+    },
+    "input_ODAK": {
+      "id": "input_ODAK",
+      "type": "Input",
+      "parentId": "udcContainer_emUA",
+      "settings": {
+        "validation": {
+          "maxLength": {
+            "validate": true,
+            "value": "50",
+            "message": null
+          },
+          "minLength": {
+            "validate": true,
+            "value": "0",
+            "message": null
+          }
+        }
+      },
+      "uiModel": {
+        "title": {
+          "type": "Simple"
+        },
+        "status": {
+          "type": "Simple",
+          "simple": "basic"
+        }
+      },
+      "uiModelSchema": [
+        {
+          "label": "标题",
+          "key": "title",
+          "dataType": "STRING"
+        },
+        {
+          "label": "必填",
+          "key": "required",
+          "dataType": "BOOLEAN"
+        },
+        {
+          "label": "状态",
+          "key": "status",
+          "dataType": "STRING",
+          "options": [
+            {
+              "label": "正常 ",
+              "key": "basic"
+            },
+            {
+              "label": "只读",
+              "key": "readonly"
+            },
+            {
+              "label": "禁用",
+              "key": "disabled"
+            },
+            {
+              "label": "隐藏",
+              "key": "invisible"
+            }
+          ]
+        }
+      ],
+      "componentName": "单行文本",
+      "isFormItem": true,
+      "defaultDataType": "STRING",
+      "dataSource": {
+        "dataFieldId": "-8846182039221522739",
+        "type": "INPUT",
+        "dataField": "huanjiemingcheng",
+        "fullName": "com.seeyon.znxmglptcopy5791640252914287064.domain.entity.Jdkhlcb.huanjiemingcheng",
+        "readonly": false,
+        "key": "udcRepeatNode_Qpx4--2447254715332863206.huanjiemingcheng",
+        "dataTarget": "udcRepeatNode_Qpx4",
+        "fieldPath": [
+          "-8846182039221522739"
+        ],
+        "dataPath": ""
+      },
+      "children": []
+    },
+    "input_ArOc": {
+      "id": "input_ArOc",
+      "type": "Input",
+      "parentId": "udcContainer_emUA",
+      "settings": {
+        "validation": {
+          "maxLength": {
+            "validate": true,
+            "value": "50",
+            "message": null
+          },
+          "minLength": {
+            "validate": true,
+            "value": "0",
+            "message": null
+          }
+        }
+      },
+      "uiModel": {
+        "title": {
+          "type": "Simple"
+        },
+        "status": {
+          "type": "Simple",
+          "simple": "basic"
+        }
+      },
+      "uiModelSchema": [
+        {
+          "label": "标题",
+          "key": "title",
+          "dataType": "STRING"
+        },
+        {
+          "label": "必填",
+          "key": "required",
+          "dataType": "BOOLEAN"
+        },
+        {
+          "label": "状态",
+          "key": "status",
+          "dataType": "STRING",
+          "options": [
+            {
+              "label": "正常 ",
+              "key": "basic"
+            },
+            {
+              "label": "只读",
+              "key": "readonly"
+            },
+            {
+              "label": "禁用",
+              "key": "disabled"
+            },
+            {
+              "label": "隐藏",
+              "key": "invisible"
+            }
+          ]
+        }
+      ],
+      "componentName": "单行文本",
+      "isFormItem": true,
+      "defaultDataType": "STRING",
+      "dataSource": {
+        "dataFieldId": "7939880014101803413",
+        "type": "INPUT",
+        "dataField": "dangqianchuliren",
+        "fullName": "com.seeyon.znxmglptcopy5791640252914287064.domain.entity.Jdkhlcb.dangqianchuliren",
+        "readonly": false,
+        "key": "udcRepeatNode_Qpx4--2447254715332863206.dangqianchuliren",
+        "dataTarget": "udcRepeatNode_Qpx4",
+        "fieldPath": [
+          "7939880014101803413"
+        ],
+        "dataPath": ""
+      },
+      "children": []
+    },
+    "input_H0Lt": {
+      "id": "input_H0Lt",
+      "type": "Input",
+      "parentId": "udcContainer_emUA",
+      "settings": {
+        "validation": {
+          "maxLength": {
+            "validate": true,
+            "value": "50",
+            "message": null
+          },
+          "minLength": {
+            "validate": true,
+            "value": "0",
+            "message": null
+          }
+        }
+      },
+      "uiModel": {
+        "title": {
+          "type": "Simple"
+        },
+        "status": {
+          "type": "Simple",
+          "simple": "basic"
+        }
+      },
+      "uiModelSchema": [
+        {
+          "label": "标题",
+          "key": "title",
+          "dataType": "STRING"
+        },
+        {
+          "label": "必填",
+          "key": "required",
+          "dataType": "BOOLEAN"
+        },
+        {
+          "label": "状态",
+          "key": "status",
+          "dataType": "STRING",
+          "options": [
+            {
+              "label": "正常 ",
+              "key": "basic"
+            },
+            {
+              "label": "只读",
+              "key": "readonly"
+            },
+            {
+              "label": "禁用",
+              "key": "disabled"
+            },
+            {
+              "label": "隐藏",
+              "key": "invisible"
+            }
+          ]
+        }
+      ],
+      "componentName": "单行文本",
+      "isFormItem": true,
+      "defaultDataType": "STRING",
+      "dataSource": {
+        "dataFieldId": "-2421111449899714545",
+        "type": "INPUT",
+        "dataField": "jidukaohepaixu",
+        "fullName": "com.seeyon.znxmglptcopy5791640252914287064.domain.entity.Jdkhlcb.jidukaohepaixu",
+        "readonly": false,
+        "key": "udcRepeatNode_Qpx4--2447254715332863206.jidukaohepaixu",
+        "dataTarget": "udcRepeatNode_Qpx4",
+        "fieldPath": [
+          "-2421111449899714545"
+        ],
+        "dataPath": ""
+      },
+      "children": []
+    },
+    "input_yFpF": {
+      "id": "input_yFpF",
+      "type": "Input",
+      "parentId": "udcContainer_emUA",
+      "settings": {
+        "validation": {}
+      },
+      "uiModel": {
+        "title": {
+          "type": "Simple"
+        },
+        "status": {
+          "type": "Simple",
+          "simple": "readonly"
+        }
+      },
+      "uiModelSchema": [
+        {
+          "label": "标题",
+          "key": "title",
+          "dataType": "STRING"
+        },
+        {
+          "label": "必填",
+          "key": "required",
+          "dataType": "BOOLEAN"
+        },
+        {
+          "label": "状态",
+          "key": "status",
+          "dataType": "STRING",
+          "options": [
+            {
+              "label": "正常 ",
+              "key": "basic"
+            },
+            {
+              "label": "只读",
+              "key": "readonly"
+            },
+            {
+              "label": "禁用",
+              "key": "disabled"
+            },
+            {
+              "label": "隐藏",
+              "key": "invisible"
+            }
+          ]
+        }
+      ],
+      "componentName": "单行文本",
+      "isFormItem": true,
+      "defaultDataType": "STRING",
+      "dataSource": {
+        "dataFieldId": "com.seeyon.bpm.domain.entity.BpmCase.currentPendingMemberName",
+        "type": "INPUT",
+        "dataField": "caseId___displayname.currentPendingMemberName",
+        "fullName": "com.seeyon.bpm.domain.entity.BpmCase.currentPendingMemberName",
+        "readonly": true,
+        "key": "udcRepeatNode_Qpx4--2447254715332863206.caseId___displayname.currentPendingMemberName",
+        "dataTarget": "udcRepeatNode_Qpx4",
+        "fieldPath": [
+          "8058773647609644916",
+          "com.seeyon.bpm.domain.entity.BpmCase.currentPendingMemberName"
+        ],
+        "dataPath": ""
+      },
+      "children": []
+    },
+    "input_gBua": {
+      "id": "input_gBua",
+      "type": "Input",
+      "parentId": "udcContainer_emUA",
+      "settings": {
+        "validation": {}
+      },
+      "uiModel": {
+        "title": {
+          "type": "Simple"
+        },
+        "status": {
+          "type": "Simple",
+          "simple": "readonly"
+        }
+      },
+      "uiModelSchema": [
+        {
+          "label": "标题",
+          "key": "title",
+          "dataType": "STRING"
+        },
+        {
+          "label": "必填",
+          "key": "required",
+          "dataType": "BOOLEAN"
+        },
+        {
+          "label": "状态",
+          "key": "status",
+          "dataType": "STRING",
+          "options": [
+            {
+              "label": "正常 ",
+              "key": "basic"
+            },
+            {
+              "label": "只读",
+              "key": "readonly"
+            },
+            {
+              "label": "禁用",
+              "key": "disabled"
+            },
+            {
+              "label": "隐藏",
+              "key": "invisible"
+            }
+          ]
+        }
+      ],
+      "componentName": "单行文本",
+      "isFormItem": true,
+      "defaultDataType": "STRING",
+      "dataSource": {
+        "dataFieldId": "com.seeyon.bpm.domain.entity.BpmCase.currentPendingNodeName",
+        "type": "INPUT",
+        "dataField": "caseId___displayname.currentPendingNodeName",
+        "fullName": "com.seeyon.bpm.domain.entity.BpmCase.currentPendingNodeName",
+        "readonly": true,
+        "key": "udcRepeatNode_Qpx4--2447254715332863206.caseId___displayname.currentPendingNodeName",
+        "dataTarget": "udcRepeatNode_Qpx4",
+        "fieldPath": [
+          "8058773647609644916",
+          "com.seeyon.bpm.domain.entity.BpmCase.currentPendingNodeName"
+        ],
+        "dataPath": ""
+      },
+      "children": []
+    },
+    "udcPanel_4bDc": {
+      "id": "udcPanel_4bDc",
+      "type": "UdcPanel",
+      "parentId": "PAGE",
+      "settings": {
+        "visible": false,
+        "panelTitle": "作废确认",
+        "showTitle": false,
+        "positionType": "fixed",
+        "width": "500px",
+        "height": "250px"
+      },
+      "uiModel": {
+        "status": {
+          "type": "Simple",
+          "simple": "basic"
+        }
+      },
+      "uiModelSchema": [
+        {
+          "label": "标题",
+          "key": "title",
+          "dataType": "STRING"
+        },
+        {
+          "label": "状态",
+          "key": "status",
+          "dataType": "STRING",
+          "options": [
+            {
+              "label": "正常 ",
+              "key": "basic"
+            },
+            {
+              "label": "只读",
+              "key": "readonly"
+            },
+            {
+              "label": "禁用",
+              "key": "disabled"
+            },
+            {
+              "label": "隐藏",
+              "key": "invisible"
+            }
+          ]
+        }
+      ],
+      "componentName": "面板",
+      "name": "作废面板",
+      "children": [
+        "label_4V1H",
+        "label_zdAf",
+        "textArea_wcfb",
+        "udcToolBar_w91B"
+      ],
+      "extraChildren": {
+        "columnChildren": []
+      }
+    },
+    "label_4V1H": {
+      "id": "label_4V1H",
+      "type": "Label",
+      "parentId": "udcPanel_4bDc",
+      "settings": {
+        "contentSource": "custom",
+        "content": {
+          "type": "Simple",
+          "simple": "作废确认"
+        },
+        "boxModel": {
+          "margin": "0 0 0 0",
+          "padding": "0 0 0 0"
+        },
+        "textColor": "rgba(0, 0, 0, 1)",
+        "textStyle": {
+          "fontStyle": ",bold",
+          "isEffect": {
+            "type": "Simple",
+            "simple": true
+          }
+        },
+        "textFontSize": {
+          "type": "Simple",
+          "simple": "font-2"
+        },
+        "lineLimited": "unlimited"
+      },
+      "uiModel": {},
+      "uiModelSchema": [
+        {
+          "label": "标题",
+          "key": "title",
+          "dataType": "STRING"
+        },
+        {
+          "label": "状态",
+          "key": "status",
+          "dataType": "STRING",
+          "options": [
+            {
+              "label": "正常 ",
+              "key": "basic"
+            },
+            {
+              "label": "禁用",
+              "key": "disabled"
+            },
+            {
+              "label": "隐藏",
+              "key": "invisible"
+            }
+          ]
+        }
+      ],
+      "componentName": "文字标签",
+      "isFormItem": true,
+      "defaultDataType": "STRING",
+      "children": []
+    },
+    "label_zdAf": {
+      "id": "label_zdAf",
+      "type": "Label",
+      "parentId": "udcPanel_4bDc",
+      "settings": {
+        "contentSource": "custom",
+        "content": {
+          "type": "Simple",
+          "simple": "作废需谨慎，请填写作废原因"
+        },
+        "boxModel": {
+          "margin": "0 0 0 0",
+          "padding": "0 0 0 0"
+        },
+        "textFontSize": {
+          "type": "Simple",
+          "simple": "font-2"
+        },
+        "lineLimited": "unlimited"
+      },
+      "uiModel": {},
+      "uiModelSchema": [
+        {
+          "label": "标题",
+          "key": "title",
+          "dataType": "STRING"
+        },
+        {
+          "label": "状态",
+          "key": "status",
+          "dataType": "STRING",
+          "options": [
+            {
+              "label": "正常 ",
+              "key": "basic"
+            },
+            {
+              "label": "禁用",
+              "key": "disabled"
+            },
+            {
+              "label": "隐藏",
+              "key": "invisible"
+            }
+          ]
+        }
+      ],
+      "componentName": "文字标签",
+      "isFormItem": true,
+      "defaultDataType": "STRING",
+      "children": []
+    },
+    "textArea_wcfb": {
+      "id": "textArea_wcfb",
+      "type": "TextArea",
+      "parentId": "udcPanel_4bDc",
+      "settings": {
+        "titleDisplay": "none",
+        "labelPosition": "top",
+        "rows": 2,
+        "textStyle": {
+          "fontStyle": "",
+          "isEffect": {
+            "type": "Simple",
+            "simple": true
+          }
+        },
+        "readonlyFontSize": 14
+      },
+      "uiModel": {
+        "title": {
+          "type": "Simple"
+        },
+        "status": {
+          "type": "Simple",
+          "simple": "basic"
+        }
+      },
+      "uiModelSchema": [
+        {
+          "label": "标题",
+          "key": "title",
+          "dataType": "STRING"
+        },
+        {
+          "label": "必填",
+          "key": "required",
+          "dataType": "BOOLEAN"
+        },
+        {
+          "label": "状态",
+          "key": "status",
+          "dataType": "STRING",
+          "options": [
+            {
+              "label": "正常 ",
+              "key": "basic"
+            },
+            {
+              "label": "只读",
+              "key": "readonly"
+            },
+            {
+              "label": "禁用",
+              "key": "disabled"
+            },
+            {
+              "label": "隐藏",
+              "key": "invisible"
+            }
+          ]
+        }
+      ],
+      "componentName": "多行文本",
+      "isFormItem": true,
+      "defaultDataType": "STRING",
+      "name": "作废原因",
+      "children": []
+    },
+    "udcToolBar_w91B": {
+      "id": "udcToolBar_w91B",
+      "type": "UdcToolBar",
+      "parentId": "udcPanel_4bDc",
+      "settings": {
+        "align": "center",
+        "addOperates": [
+          {
+            "id": "dCoeryuGdQ",
+            "type": "item",
+            "name": "确认",
+            "allowControlled": true,
+            "buttonType": "primary",
+            "danger": false,
+            "ghost": false,
+            "defaultNanoId": "dCoeryuGdQ",
+            "icon": "LinedSmile",
+            "iconPosition": "left",
+            "showContent": "text",
+            "status": {
+              "type": "Simple",
+              "simple": "basic"
+            },
+            "widthType": "auto",
+            "widthUnit": "px"
+          },
+          {
+            "id": "k1S4enTjTi",
+            "type": "item",
+            "name": "取消",
+            "allowControlled": false,
+            "buttonType": "default",
+            "danger": false,
+            "ghost": false,
+            "defaultNanoId": "k1S4enTjTi",
+            "icon": "LinedSmile",
+            "iconPosition": "left",
+            "showContent": "text",
+            "status": {
+              "type": "Simple",
+              "simple": "basic"
+            },
+            "widthType": "auto",
+            "widthUnit": "px"
+          }
+        ],
+        "operateNum": -1
+      },
+      "uiModel": {
+        "controlledProps": [
+          {
+            "key": "dCoeryuGdQ",
+            "type": "Button",
+            "name": "确认",
+            "parentCode": "addOperates",
+            "allowControlled": true
+          },
+          {
+            "key": "k1S4enTjTi",
+            "type": "Button",
+            "name": "取消",
+            "parentCode": "addOperates",
+            "allowControlled": false
+          }
+        ],
+        "flowAuthKeys": [
+          {
+            "key": "addOperates",
+            "resolveType": "filterFlowEvents"
+          }
+        ]
+      },
+      "uiModelSchema": [
+        {
+          "label": "标题",
+          "key": "title",
+          "dataType": "STRING"
+        },
+        {
+          "label": "状态",
+          "key": "status",
+          "dataType": "STRING",
+          "options": [
+            {
+              "label": "正常 ",
+              "key": "basic"
+            },
+            {
+              "label": "禁用",
+              "key": "disabled"
+            },
+            {
+              "label": "隐藏",
+              "key": "invisible"
+            }
+          ]
+        }
+      ],
+      "componentName": "工具栏",
+      "name": "工具栏",
+      "events": [
+        {
+          "id": "KAXtR4",
+          "callbackDataType": "ROW_DATA",
+          "eventType": "k1S4enTjTi",
+          "condition": false,
+          "actionCaption": "控件动作",
+          "actionType": "widget",
+          "actionName": "CONTROL",
+          "target": "udcPanel_4bDc",
+          "targetAction": "panel_closePanel",
+          "afterAction": "noOperation",
+          "condEvents": [
+            {
+              "id": "UGxM77"
+            },
+            {
+              "id": "L4qm4x"
+            }
+          ],
+          "enableValidate": false
+        },
+        {
+          "id": "0a5aPv",
+          "callbackDataType": "ROW_DATA",
+          "eventType": "dCoeryuGdQ",
+          "condition": false,
+          "actionCaption": "执行页面规则",
+          "actionType": "microflow",
+          "actionName": "microflow",
+          "microFlow": "5160406377977163789",
+          "condEvents": [
+            {
+              "id": "RbUUnC"
+            },
+            {
+              "id": "xAHMDa"
+            }
+          ],
+          "enableValidate": false
+        }
+      ],
+      "children": []
+    },
+    "udcPanel_s8MM": {
+      "id": "udcPanel_s8MM",
+      "type": "UdcPanel",
+      "parentId": "PAGE",
+      "settings": {
+        "visible": false,
+        "panelTitle": "导出",
+        "positionType": "fixed",
+        "width": "600px",
+        "height": "500px"
+      },
+      "uiModel": {
+        "status": {
+          "type": "Simple",
+          "simple": "basic"
+        }
+      },
+      "uiModelSchema": [
+        {
+          "label": "标题",
+          "key": "title",
+          "dataType": "STRING"
+        },
+        {
+          "label": "状态",
+          "key": "status",
+          "dataType": "STRING",
+          "options": [
+            {
+              "label": "正常 ",
+              "key": "basic"
+            },
+            {
+              "label": "只读",
+              "key": "readonly"
+            },
+            {
+              "label": "禁用",
+              "key": "disabled"
+            },
+            {
+              "label": "隐藏",
+              "key": "invisible"
+            }
+          ]
+        }
+      ],
+      "componentName": "面板",
+      "name": "导出面板",
+      "children": [
+        "input_Sw6v",
+        "input_zhJe",
+        "input_Ldlq",
+        "datePicker_wDie",
+        "udcForm_Be93",
+        "udcToolBar_mM3M"
+      ],
+      "extraChildren": {
+        "columnChildren": []
+      }
+    },
+    "input_Sw6v": {
+      "id": "input_Sw6v",
+      "type": "Input",
+      "parentId": "udcPanel_s8MM",
+      "settings": {
+        "labelLength": 108,
+        "textStyle": {
+          "fontStyle": "",
+          "isEffect": {
+            "type": "Simple",
+            "simple": true
+          }
+        },
+        "readonlyFontSize": 14
+      },
+      "uiModel": {
+        "title": {
+          "type": "Simple",
+          "simple": "拆分标识"
+        },
+        "status": {
+          "type": "Simple",
+          "simple": "basic"
+        }
+      },
+      "uiModelSchema": [
+        {
+          "label": "标题",
+          "key": "title",
+          "dataType": "STRING"
+        },
+        {
+          "label": "必填",
+          "key": "required",
+          "dataType": "BOOLEAN"
+        },
+        {
+          "label": "状态",
+          "key": "status",
+          "dataType": "STRING",
+          "options": [
+            {
+              "label": "正常 ",
+              "key": "basic"
+            },
+            {
+              "label": "只读",
+              "key": "readonly"
+            },
+            {
+              "label": "禁用",
+              "key": "disabled"
+            },
+            {
+              "label": "隐藏",
+              "key": "invisible"
+            }
+          ]
+        }
+      ],
+      "componentName": "单行文本",
+      "isFormItem": true,
+      "defaultDataType": "STRING",
+      "name": "拆分标识",
+      "children": []
+    },
+    "input_zhJe": {
+      "id": "input_zhJe",
+      "type": "Input",
+      "parentId": "udcPanel_s8MM",
+      "settings": {
+        "titleDisplay": "left",
+        "labelLength": 108,
+        "labelAlignment": "left",
+        "textStyle": {
+          "fontStyle": "",
+          "isEffect": {
+            "type": "Simple",
+            "simple": true
+          }
+        },
+        "readonlyFontSize": 14
+      },
+      "uiModel": {
+        "title": {
+          "type": "Simple",
+          "simple": "本部"
+        },
+        "status": {
+          "type": "Simple",
+          "simple": "basic"
+        }
+      },
+      "uiModelSchema": [
+        {
+          "label": "标题",
+          "key": "title",
+          "dataType": "STRING"
+        },
+        {
+          "label": "必填",
+          "key": "required",
+          "dataType": "BOOLEAN"
+        },
+        {
+          "label": "状态",
+          "key": "status",
+          "dataType": "STRING",
+          "options": [
+            {
+              "label": "正常 ",
+              "key": "basic"
+            },
+            {
+              "label": "只读",
+              "key": "readonly"
+            },
+            {
+              "label": "禁用",
+              "key": "disabled"
+            },
+            {
+              "label": "隐藏",
+              "key": "invisible"
+            }
+          ]
+        }
+      ],
+      "componentName": "单行文本",
+      "isFormItem": true,
+      "defaultDataType": "STRING",
+      "name": "本部",
+      "children": []
+    },
+    "input_Ldlq": {
+      "id": "input_Ldlq",
+      "type": "Input",
+      "parentId": "udcPanel_s8MM",
+      "settings": {
+        "titleDisplay": "left",
+        "labelLength": 108,
+        "labelAlignment": "left",
+        "textStyle": {
+          "fontStyle": "",
+          "isEffect": {
+            "type": "Simple",
+            "simple": true
+          }
+        },
+        "readonlyFontSize": 14
+      },
+      "uiModel": {
+        "title": {
+          "type": "Simple",
+          "simple": "事业部"
+        },
+        "status": {
+          "type": "Simple",
+          "simple": "basic"
+        }
+      },
+      "uiModelSchema": [
+        {
+          "label": "标题",
+          "key": "title",
+          "dataType": "STRING"
+        },
+        {
+          "label": "必填",
+          "key": "required",
+          "dataType": "BOOLEAN"
+        },
+        {
+          "label": "状态",
+          "key": "status",
+          "dataType": "STRING",
+          "options": [
+            {
+              "label": "正常 ",
+              "key": "basic"
+            },
+            {
+              "label": "只读",
+              "key": "readonly"
+            },
+            {
+              "label": "禁用",
+              "key": "disabled"
+            },
+            {
+              "label": "隐藏",
+              "key": "invisible"
+            }
+          ]
+        }
+      ],
+      "componentName": "单行文本",
+      "isFormItem": true,
+      "defaultDataType": "STRING",
+      "name": "事业部",
+      "children": []
+    },
+    "datePicker_wDie": {
+      "id": "datePicker_wDie",
+      "type": "DateTimePicker",
+      "parentId": "udcPanel_s8MM",
+      "settings": {
+        "labelLength": 108,
+        "labelAlignment": "left",
+        "precision": "year",
+        "textStyle": {
+          "fontStyle": "",
+          "isEffect": {
+            "type": "Simple",
+            "simple": true
+          }
+        },
+        "readonlyFontSize": 14
+      },
+      "uiModel": {
+        "title": {
+          "type": "Simple",
+          "simple": "年份"
+        },
+        "status": {
+          "type": "Simple",
+          "simple": "basic"
+        }
+      },
+      "uiModelSchema": [
+        {
+          "label": "标题",
+          "key": "title",
+          "dataType": "STRING"
+        },
+        {
+          "label": "必填",
+          "key": "required",
+          "dataType": "BOOLEAN"
+        },
+        {
+          "label": "状态",
+          "key": "status",
+          "dataType": "STRING",
+          "options": [
+            {
+              "label": "正常 ",
+              "key": "basic"
+            },
+            {
+              "label": "只读",
+              "key": "readonly"
+            },
+            {
+              "label": "禁用",
+              "key": "disabled"
+            },
+            {
+              "label": "隐藏",
+              "key": "invisible"
+            }
+          ]
+        }
+      ],
+      "componentName": "日期",
+      "isFormItem": true,
+      "defaultDataType": "DATETIME",
+      "name": "年份",
+      "children": []
+    },
+    "udcForm_Be93": {
+      "id": "udcForm_Be93",
+      "type": "UdcForm",
+      "parentId": "udcPanel_s8MM",
+      "settings": {},
+      "uiModel": {
+        "status": {
+          "type": "Simple",
+          "simple": "basic"
+        }
+      },
+      "uiModelSchema": [
+        {
+          "label": "标题",
+          "key": "title",
+          "dataType": "STRING"
+        },
+        {
+          "label": "状态",
+          "key": "status",
+          "dataType": "STRING",
+          "options": [
+            {
+              "label": "正常 ",
+              "key": "basic"
+            },
+            {
+              "label": "只读",
+              "key": "readonly"
+            },
+            {
+              "label": "禁用",
+              "key": "disabled"
+            },
+            {
+              "label": "隐藏",
+              "key": "invisible"
+            }
+          ]
+        }
+      ],
+      "componentName": "单一记录",
+      "dataSource": {
+        "type": "ENTITY",
+        "subType": "NORMAL",
+        "key": "udcForm_Be93--2447254715332863206",
+        "isRoot": true,
+        "isRef": false,
+        "dataShape": "SINGLE",
+        "entity": {
+          "id": "-2447254715332863206",
+          "name": "jdkhlcb",
+          "fullName": "com.seeyon.znxmglptcopy5791640252914287064.domain.entity.Jdkhlcb",
+          "caption": "季度考核流程表",
+          "stereotype": "bill",
+          "category": "ENTITY",
+          "supportOrderNo": false,
+          "appName": "znxmglptcopy5791640252914287064",
+          "appId": "5791640252914287064"
+        },
+        "fields": [
+          {
+            "id": "2932636925624207870",
+            "name": "kaohejidu1",
+            "fullName": "com.seeyon.znxmglptcopy5791640252914287064.domain.entity.Jdkhlcb.kaohejidu1",
+            "readonly": false,
+            "enumType": "SAME_LEVEL",
+            "enumLevel": 0
+          },
+          {
+            "id": "3981037268348256193",
+            "name": "liuchengzhuangtai",
+            "fullName": "com.seeyon.znxmglptcopy5791640252914287064.domain.entity.Jdkhlcb.liuchengzhuangtai",
+            "readonly": false,
+            "enumType": "SAME_LEVEL",
+            "enumLevel": 0
+          }
+        ],
+        "dataTarget": "udcForm_Be93",
+        "hiddenFields": [],
+        "fieldBindMap": {
+          "radio_H1LK": "kaohejidu1",
+          "radio_dJyj": "liuchengzhuangtai"
+        }
+      },
+      "name": "季度考核流程表",
+      "events": [],
+      "children": [
+        "radio_H1LK",
+        "radio_dJyj"
+      ],
+      "extraChildren": {
+        "columnChildren": []
+      }
+    },
+    "radio_H1LK": {
+      "id": "radio_H1LK",
+      "type": "GroupRadio",
+      "parentId": "udcForm_Be93",
+      "settings": {
+        "relationEntity": "6298016411831124243",
+        "relationCtpEnumCode": "jidu",
+        "labelPosition": "top",
+        "labelLength": 108,
+        "labelAlignment": "left",
+        "displayStyle": "horizontal",
+        "initialValue": {
+          "type": "Simple",
+          "simple": null
+        },
+        "enumCode": "jidu",
+        "validation": {},
+        "textStyle": {
+          "fontStyle": "",
+          "isEffect": {
+            "type": "Simple",
+            "simple": true
+          }
+        },
+        "readonlyFontSize": 14,
+        "enumType": "SAME_LEVEL",
+        "enumLevel": 0
+      },
+      "uiModel": {
+        "title": {
+          "type": "Simple"
+        },
+        "status": {
+          "type": "Simple",
+          "simple": "basic"
+        }
+      },
+      "uiModelSchema": [
+        {
+          "label": "标题",
+          "key": "title",
+          "dataType": "STRING"
+        },
+        {
+          "label": "必填",
+          "key": "required",
+          "dataType": "BOOLEAN"
+        },
+        {
+          "label": "状态",
+          "key": "status",
+          "dataType": "STRING",
+          "options": [
+            {
+              "label": "正常 ",
+              "key": "basic"
+            },
+            {
+              "label": "只读",
+              "key": "readonly"
+            },
+            {
+              "label": "禁用",
+              "key": "disabled"
+            },
+            {
+              "label": "隐藏",
+              "key": "invisible"
+            }
+          ]
+        }
+      ],
+      "componentName": "单选",
+      "isFormItem": true,
+      "defaultDataType": "CTPENUM",
+      "dataSource": {
+        "dataFieldId": "2932636925624207870",
+        "type": "INPUT",
+        "dataField": "kaohejidu1",
+        "fullName": "com.seeyon.znxmglptcopy5791640252914287064.domain.entity.Jdkhlcb.kaohejidu1",
+        "readonly": false,
+        "key": "udcForm_Be93--2447254715332863206.kaohejidu1",
+        "dataTarget": "udcForm_Be93",
+        "fieldPath": [
+          "2932636925624207870"
+        ],
+        "dataPath": "",
+        "enumType": "SAME_LEVEL",
+        "enumLevel": 0
+      },
+      "children": []
+    },
+    "radio_dJyj": {
+      "id": "radio_dJyj",
+      "type": "GroupRadio",
+      "parentId": "udcForm_Be93",
+      "settings": {
+        "relationEntity": "8480150035064179406",
+        "relationCtpEnumCode": "liuchengzhuangtai",
+        "labelPosition": "top",
+        "labelLength": 108,
+        "labelAlignment": "left",
+        "displayStyle": "horizontal",
+        "initialValue": {
+          "type": "Simple",
+          "simple": null
+        },
+        "enumCode": "liuchengzhuangtai",
+        "validation": {},
+        "textStyle": {
+          "fontStyle": "",
+          "isEffect": {
+            "type": "Simple",
+            "simple": true
+          }
+        },
+        "readonlyFontSize": 14,
+        "enumType": "SAME_LEVEL",
+        "enumLevel": 0
+      },
+      "uiModel": {
+        "title": {
+          "type": "Simple"
+        },
+        "status": {
+          "type": "Simple",
+          "simple": "basic"
+        }
+      },
+      "uiModelSchema": [
+        {
+          "label": "标题",
+          "key": "title",
+          "dataType": "STRING"
+        },
+        {
+          "label": "必填",
+          "key": "required",
+          "dataType": "BOOLEAN"
+        },
+        {
+          "label": "状态",
+          "key": "status",
+          "dataType": "STRING",
+          "options": [
+            {
+              "label": "正常 ",
+              "key": "basic"
+            },
+            {
+              "label": "只读",
+              "key": "readonly"
+            },
+            {
+              "label": "禁用",
+              "key": "disabled"
+            },
+            {
+              "label": "隐藏",
+              "key": "invisible"
+            }
+          ]
+        }
+      ],
+      "componentName": "单选",
+      "isFormItem": true,
+      "defaultDataType": "CTPENUM",
+      "dataSource": {
+        "dataFieldId": "3981037268348256193",
+        "type": "INPUT",
+        "dataField": "liuchengzhuangtai",
+        "fullName": "com.seeyon.znxmglptcopy5791640252914287064.domain.entity.Jdkhlcb.liuchengzhuangtai",
+        "readonly": false,
+        "key": "udcForm_Be93--2447254715332863206.liuchengzhuangtai",
+        "dataTarget": "udcForm_Be93",
+        "fieldPath": [
+          "3981037268348256193"
+        ],
+        "dataPath": "",
+        "enumType": "SAME_LEVEL",
+        "enumLevel": 0
+      },
+      "children": []
+    },
+    "udcToolBar_mM3M": {
+      "id": "udcToolBar_mM3M",
+      "type": "UdcToolBar",
+      "parentId": "udcPanel_s8MM",
+      "settings": {
+        "align": "center",
+        "addOperates": [
+          {
+            "id": "r0Z9X9euC1",
+            "type": "item",
+            "name": "确认",
+            "allowControlled": true,
+            "buttonType": "primary",
+            "danger": false,
+            "ghost": false,
+            "defaultNanoId": "r0Z9X9euC1",
+            "icon": "LinedSmile",
+            "iconPosition": "left",
+            "showContent": "text",
+            "status": {
+              "type": "Simple",
+              "simple": "basic"
+            },
+            "widthType": "auto",
+            "widthUnit": "px"
+          },
+          {
+            "id": "q6o7SgE5wg",
+            "type": "item",
+            "name": "取消",
+            "allowControlled": false,
+            "buttonType": "default",
+            "danger": false,
+            "ghost": false,
+            "defaultNanoId": "q6o7SgE5wg",
+            "icon": "LinedSmile",
+            "iconPosition": "left",
+            "showContent": "text",
+            "status": {
+              "type": "Simple",
+              "simple": "basic"
+            },
+            "widthType": "auto",
+            "widthUnit": "px"
+          }
+        ],
+        "operateNum": -1
+      },
+      "uiModel": {
+        "controlledProps": [
+          {
+            "key": "r0Z9X9euC1",
+            "type": "Button",
+            "name": "确认",
+            "parentCode": "addOperates",
+            "allowControlled": true
+          },
+          {
+            "key": "q6o7SgE5wg",
+            "type": "Button",
+            "name": "取消",
+            "parentCode": "addOperates",
+            "allowControlled": false
+          }
+        ],
+        "flowAuthKeys": [
+          {
+            "key": "addOperates",
+            "resolveType": "filterFlowEvents"
+          }
+        ]
+      },
+      "uiModelSchema": [
+        {
+          "label": "标题",
+          "key": "title",
+          "dataType": "STRING"
+        },
+        {
+          "label": "状态",
+          "key": "status",
+          "dataType": "STRING",
+          "options": [
+            {
+              "label": "正常 ",
+              "key": "basic"
+            },
+            {
+              "label": "禁用",
+              "key": "disabled"
+            },
+            {
+              "label": "隐藏",
+              "key": "invisible"
+            }
+          ]
+        }
+      ],
+      "componentName": "工具栏",
+      "name": "工具栏",
+      "events": [
+        {
+          "id": "NDb1ey",
+          "callbackDataType": "ROW_DATA",
+          "eventType": "q6o7SgE5wg",
+          "condition": false,
+          "actionCaption": "控件动作",
+          "actionType": "widget",
+          "actionName": "CONTROL",
+          "target": "udcPanel_s8MM",
+          "targetAction": "panel_closePanel",
+          "afterAction": "noOperation",
+          "condEvents": [
+            {
+              "id": "E6q3sH"
+            },
+            {
+              "id": "wu2FFj"
+            }
+          ],
+          "enableValidate": false
+        },
+        {
+          "id": "M2JO14",
+          "callbackDataType": "ROW_DATA",
+          "eventType": "r0Z9X9euC1",
+          "condition": false,
+          "actionCaption": "执行页面规则",
+          "actionType": "microflow",
+          "actionName": "microflow",
+          "microFlow": "-133966397748798346",
+          "condEvents": [
+            {
+              "id": "BnbRt5"
+            },
+            {
+              "id": "OMFoKB"
+            }
+          ],
+          "enableValidate": false
+        }
+      ],
+      "children": []
+    }
+  },
+  "terminal": "MOBILE",
+  "expressSchemaPathMaps": {
+    "childById.udcToolBar_3cMy.events[2].url.expression": [
+      {
+        "key": "id",
+        "value": "X0KUYb"
+      }
+    ]
+  }
+}

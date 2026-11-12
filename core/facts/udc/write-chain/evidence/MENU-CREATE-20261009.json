@@ -1,0 +1,17 @@
+{
+ "phase": "菜单创建 UI 驱动（受控浏览器 chrome_p21）",
+ "ts": "2026-10-09 14:3x +08",
+ "target_app": "zzprobe(appId=6419954374508955097)",
+ "built": {
+  "菜单": "订单管理(页面名称) url=dingdanguanli pageType=SEARCH_LIST(列表页) 实体=zzprobe数据实体 归属=基础设置",
+  "设计器页面树": "订单管理 在菜单树区域可见"
+ },
+ "protocol_discoveries": {
+  "cookie注入": "chrome_p21 profile 无SSO登录态 → Network.setCookie 注入 SY_ACCESS_TOKEN/TK_EXP/SY_UID (lowcode-test2.example.com) 即获得设计器登录态（绕过SSO MFA）",
+  "设计器URL": "/main/child-frame/udc/app-design/app-basic-info?appId={appId}（tabs: 应用/实体/菜单/规则/流程/BI/栏目/设置/角色）",
+  "菜单创建表单": "菜单tab → lined-plus → ant-design表单(caption/pageUrl自动/pageType select/实体TreeSelect/归属) → 确定",
+  "创建graphql": "mutation udcPageInfoBaseInfoCreatePost(addPage) + udcFunctionSelectFunctionTreePost(树刷新) 走 /service/udc/graphql 平台级（无需部署!）",
+  "ant表单自动化": "ant-select 键盘事件失效 → 需 mousedown 触发 dropdown 渲染（appear-prepare 动画期高度0）→ 直接 dispatch click 选项；TreeSelect 展开父节点后点 content-wrapper"
+ },
+ "blocked_note": "运行态 select-function-node-tree 未显示订单管理 = UNPUBLISH 应用的运行态视图延迟，非失败"
+}

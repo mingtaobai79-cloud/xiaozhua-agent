@@ -1,0 +1,75 @@
+{
+  "jar": {
+    "path": "<PATH>",
+    "exists": true,
+    "size_bytes": 861880,
+    "sha256": "74ae50bd8510414113248f0b1d400bca80d2ae2e0022c9dbbb31321a6040a66f",
+    "sidecar_sha1_file": "e3e27271fab53b0610a954d83dadab003cabad62",
+    "entry_count": 472
+  },
+  "classes": {
+    "UdcDataTypeController": {
+      "entry": "com/seeyon/boot/starter/udcrt/controller/UdcDataTypeController.class",
+      "present": true,
+      "class_bytes": 1787,
+      "class_sha256": "03b3977b50574208eaad2b1925a80520a4686b268a56bacd35b87a144854bc38"
+    },
+    "UdcRuntimeDatabaseController": {
+      "entry": "com/seeyon/boot/starter/udcrt/controller/UdcRuntimeDatabaseController.class",
+      "present": true,
+      "class_bytes": 1876,
+      "class_sha256": "588bc1cf97cf53357ce0a851d16eb28244b6a9607aa5c813b80e4c2c8d4b3c48"
+    }
+  },
+  "javap_files": {
+    "UdcDataTypeController": {
+      "path": "<PATH>",
+      "exists": true,
+      "size_bytes": 8297,
+      "sha256": "4fc1d31545ec8d4a3a934b5ba97cecaf8008653d67201a2efc1b64125916f72e",
+      "lines": 138,
+      "routes": [
+        "#25 = Utf8               Lorg/springframework/web/bind/annotation/GetMapping;",
+        "#27 = Utf8               getAll",
+        "#35 = Utf8               Lorg/springframework/web/bind/annotation/RequestMapping;",
+        "org.springframework.web.bind.annotation.GetMapping(",
+        "value=[\"getAll\"]",
+        "org.springframework.web.bind.annotation.RequestMapping("
+      ],
+      "class_header": [
+        "# javap -p -v com.seeyon.boot.starter.udcrt.controller.UdcDataTypeController",
+        "# source jar: <MAVEN_REPO>/com/seeyon/udc-starter-runtime/5.3.517/udc-starter-runtime-5.3.517.jar",
+        "Classfile jar:file:///<MAVEN_REPO>/com/seeyon/udc-starter-runtime/5.3.517/udc-starter-runtime-5.3.517.jar!/com/seeyon/boot/starter/udcrt/controller/UdcDataTypeController.class",
+        "Last modified 2026��6��17��; size 1787 bytes",
+        "SHA-256 checksum 03b3977b50574208eaad2b1925a80520a4686b268a56bacd35b87a144854bc38",
+        "Compiled from \"UdcDataTypeController.java\""
+      ]
+    },
+    "UdcRuntimeDatabaseController": {
+      "path": "<PATH>",
+      "exists": true,
+      "size_bytes": 8345,
+      "sha256": "beab8baaaa53f6475212e5ef28a0c0faa52b3355d7d3f3386ecf25ae7cd171dc",
+      "lines": 125,
+      "routes": [
+        "#4 = Methodref          #40.#41        // com/seeyon/boot/starter/udcrt/appservice/UdcRuntimeDatabaseQueryAppService.queryData:(Lcom/seeyon/boot/transport/SingleRequest;)Lcom/seeyon/boot/transport/SingleResponse;",
+        "#18 = Utf8               queryData",
+        "#27 = Utf8               Lorg/springframework/web/bind/annotation/GetMapping;",
+        "#32 = Utf8               Lorg/springframework/web/bind/annotation/RequestMapping;",
+        "#41 = NameAndType        #18:#48        // queryData:(Lcom/seeyon/boot/transport/SingleRequest;)Lcom/seeyon/boot/transport/SingleResponse;",
+        "public com.seeyon.boot.transport.SingleResponse<com.seeyon.boot.starter.udcrt.dto.UdcRuntimeDatabaseQueryRespDto> queryData(com.seeyon.boot.starter.udcrt.dto.RuntimeDataBaseQueryDataReqDto);",
+        "8: invokevirtual #4                  // Method com/seeyon/boot/starter/udcrt/appservice/UdcRuntimeDatabaseQueryAppService.queryData:(Lcom/seeyon/boot/transport/SingleRequest;)Lcom/seeyon/boot/transport/SingleResponse;",
+        "org.springframework.web.bind.annotation.GetMapping(",
+        "org.springframework.web.bind.annotation.RequestMapping("
+      ],
+      "class_header": [
+        "# javap -p -v com.seeyon.boot.starter.udcrt.controller.UdcRuntimeDatabaseController",
+        "# source jar: <MAVEN_REPO>/com/seeyon/udc-starter-runtime/5.3.517/udc-starter-runtime-5.3.517.jar",
+        "Classfile jar:file:///<MAVEN_REPO>/com/seeyon/udc-starter-runtime/5.3.517/udc-starter-runtime-5.3.517.jar!/com/seeyon/boot/starter/udcrt/controller/UdcRuntimeDatabaseController.class",
+        "Last modified 2026��6��17��; size 1876 bytes",
+        "SHA-256 checksum 588bc1cf97cf53357ce0a851d16eb28244b6a9607aa5c813b80e4c2c8d4b3c48",
+        "Compiled from \"UdcRuntimeDatabaseController.java\""
+      ]
+    }
+  }
+}

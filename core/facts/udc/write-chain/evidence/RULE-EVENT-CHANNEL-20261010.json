@@ -1,0 +1,23 @@
+{
+ "phase": "页面规则/事件 + 微流程保存通道 取证与实建（四件套收口）",
+ "ts": "2026-10-10 16:5x-17:0x +08",
+ "done": {
+  "1_订单管理菜单_formalize": {
+   "op": "submitPage(udcPageInfoUpdatePost) 重提交页面(绑 order50)",
+   "result": "BOOT_0000, 页面 schema_state=2 FORMAL; 菜单 7024179934883295546 指向 3950893497510429236 正式页; 草稿残行 -5015985132053944508 指向已删MOBILE页(脏数据,不影响运行态)"
+  },
+  "2_微流程保存通道取证+实建": {
+   "mutation": "udcMicroflowUpdatePost(body) @ /service/udc/graphql — 前端 chunk fieldType 实证(src_redux_store_ts)",
+   "body": "{id,guid,appId,name,caption,description,dataSchema(JSON串),sourceId,orderNum,type,triggerType,versionCode,groupType,state,microFlowGroupId,serviceInterface}",
+   "坑": "不带 id → BOOT_4002 无权限; type/triggerType 传数字枚举(DB实值 type=0,triggerType=2)",
+   "dataSchema结构": "{sourceType,trigger(MFStartNode/MANUAL),endNode(END_NODE),nodes[]} — 参照非客户应用 MF015 结构",
+   "result": "BOOT_0000, DB回读 data_schema 819B nodes=[MESSAGE_INFO] — zzprobemf 从空壳变有动作节点"
+  },
+  "3_页面事件绑定取证+实建": {
+   "结构": "事件绑定在 childById[控件id].events[] = {id,eventCaption,eventType,condition,actionCaption,actionType:microflow,actionName,microFlow}; eventDefine[] 登记元数据(key/name/params/paramsKeys)",
+   "实建": "订单列表 grid 加 onDataLoad→microflow(6975738061203605503), submitPage BOOT_0000, DB回读 events 3条含新绑定"
+  }
+ },
+ "channel_verdict": "微流程/页面规则保存通道从 BLOCKED 转 API-可 (udcMicroflowUpdatePost + submitPage eventDefine), 全程无浏览器",
+ "remaining_unverified": "微流程运行态执行(需触发入口); 草稿菜单脏行清理(删除端点未取证)"
+}

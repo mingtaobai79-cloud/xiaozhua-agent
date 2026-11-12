@@ -1,0 +1,66 @@
+Compiled from "CtpUserSpiAvoidLoginClientModeDto.java"
+public class com.seeyon.ctp.user.dto.CtpUserSpiAvoidLoginClientModeDto implements java.io.Serializable {
+  public java.lang.String timestamp;
+    descriptor: Ljava/lang/String;
+  public java.lang.String sign;
+    descriptor: Ljava/lang/String;
+  public java.lang.String webUrl;
+    descriptor: Ljava/lang/String;
+  public java.lang.String mobileUrl;
+    descriptor: Ljava/lang/String;
+  public java.lang.String encryptData;
+    descriptor: Ljava/lang/String;
+  public com.seeyon.ctp.user.dto.CtpUserSpiAvoidLoginClientModeDto();
+    descriptor: ()V
+
+  public java.lang.String getThirdType();
+    descriptor: ()Ljava/lang/String;
+
+  public java.lang.String getClientType();
+    descriptor: ()Ljava/lang/String;
+
+  public java.lang.String getTimestamp();
+    descriptor: ()Ljava/lang/String;
+
+  public java.lang.String getSign();
+    descriptor: ()Ljava/lang/String;
+
+  public java.lang.String getWebUrl();
+    descriptor: ()Ljava/lang/String;
+
+  public java.lang.String getMobileUrl();
+    descriptor: ()Ljava/lang/String;
+
+  public java.lang.String getEncryptData();
+    descriptor: ()Ljava/lang/String;
+
+  public java.util.Map<java.lang.String, java.lang.String> getExtData();
+    descriptor: ()Ljava/util/Map;
+
+  public void setThirdType(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+
+  public void setClientType(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+
+  public void setTimestamp(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+
+  public void setSign(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+
+  public void setWebUrl(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+
+  public void setMobileUrl(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+
+  public void setEncryptData(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+
+  public void setExtData(java.util.Map<java.lang.String, java.lang.String>);
+    descriptor: (Ljava/util/Map;)V
+
+  public java.lang.String toString();
+    descriptor: ()Ljava/lang/String;
+}

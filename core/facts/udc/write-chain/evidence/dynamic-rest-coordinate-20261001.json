@@ -1,0 +1,17 @@
+{
+  "phase": "dynamic-rest 坐标攻坚 — 阶段收口",
+  "ts": "2026-10-01 07:00 +08",
+  "结论": {
+    "endpoint_confirmed": "POST /service/{app}/dynamic-rest/com-seeyon/{Entity}/{create|update|search-list-by-conditions|...} — 路径 HIT",
+    "blocker": "BOOT_4002 应用坐标数据不存在 — boot 框架会话级上下文, 7种常见header无效, 标品应用同报(调用方式问题非应用问题)",
+    "app-online_discovered": "POST /service/udc/deployment/app-online(+app-online-new/app-ready-state) — 端点命中, 待解pushEnv参数格式(『发布失败,目标环境为空』)",
+    "app_ready_state": "state=RUNNING msg=DEPLOY_SUCCESS — 沙箱本身健康, data/query 读链路正常"
+  },
+  "artifact_sources": {
+    "DeployNormalDto": "udc-common 5.3.517 (extends DeployParamDto: deployId/appId/deployType/projectType/terminalType/pushEnv:String)",
+    "DeployEnvInfoDto": "{currentEnv, pushEnv, gitBranch, hasHandWrittenPage}",
+    "错误文本检索": "『目标环境为空』/『应用坐标』不在已盘 jar(boot-core 5.3.281-358/udc-common/udc-biz/gateway-biz) — 在未下载的网关或框架层"
+  },
+  "next_action": "需浏览器真实会话登录(SSO页在9224调试实例, 自动登录不可行-有动态口令)后抓 dynamic-rest 请求头 → 一发定位坐标格式",
+  "chrome_debug": "9224端口 --remote-allow-origins=* 已配, CDP可连, 等人工SSO登录"
+}

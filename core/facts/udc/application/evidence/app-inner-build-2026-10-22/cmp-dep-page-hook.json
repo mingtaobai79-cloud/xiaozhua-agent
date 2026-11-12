@@ -1,0 +1,32 @@
+[
+ {
+  "t": "fetch",
+  "url": "/service/udc/graphql?udcApplicationDependentApplicationSelectByConditionPost",
+  "method": "POST",
+  "body": "{\"query\":\"mutation graphqlLoader ($params0: udcApplicationDependentApplicationSelectByConditionPostInputBody) { \\n  data0: udcApplicationDependentApplicationSelectByConditionPost(body: $params0) { code data { content{\\n        appId,\\n        depAppBasePackage,\\n        depAppCaption,\\n        depAppName,\\n        depAppVersion,\\n        id,\\n        dependentAppType,\\n        enableDelete,\\n        dynamicModuleGroup,\\n        supportUpgrade,\\n        defaultLastVersion\\n        enable\\n        updateTime\\n        versionTypeEnum\\n        preSet\\n        depAppName\\n        terminalType\\n        versionEdit\\n        belongToPlatform\\n        sourceType\\n        packageType\\n      } } message status } }\",\"variables\":{\"params0\":{\"params\":{\"appId\":\"8704025620829192834\",\"dependentAppType\":\"FRONTEND\"},\"sort\":{\"orders\":[{\"direction\":\"ASC\",\"property\":\"createTime\"}]}}}}"
+ },
+ {
+  "t": "fetch",
+  "url": "/service/udc/graphql?udcApplicationDependentApplicationCreateBatchPost",
+  "method": "POST",
+  "body": "{\"query\":\"mutation graphqlLoader ($params0: [udcApplicationDependentApplicationCreateBatchPostInputBody]) { \\n  data0: udcApplicationDependentApplicationCreateBatchPost(body: $params0) { code data { content } message status } }\",\"variables\":{\"params0\":[{\"appId\":\"8704025620829192834\",\"defaultLastVersion\":true,\"depAppBasePackage\":\"@seeyon/biz-lock-sign\",\"depAppCaption\":\"电子签章\",\"depAppName\":\"UiBusinessLockSign\",\"depAppVersion\":\"5.3.1\",\"dependentAppType\":\"FRONTEND\",\"description\":\"电子签章组件\",\"dynamicModuleGroup\":\"UiBusinessLockSign\",\"dynamicService\":true,\"enableDelete\":true,\"needGenerate\":true,\"sort\":0,\"supportUpgrade\":false,\"terminalType\":\"PC\",\"sourceType\":\"CUSTOMIZE\",\"packageType\":\"CONTROL\"}]}}"
+ },
+ {
+  "t": "fetch",
+  "url": "/service/udc/graphql?udcApplicationDependentApplicationSelectByConditionPost",
+  "method": "POST",
+  "body": "{\"query\":\"mutation graphqlLoader ($params0: udcApplicationDependentApplicationSelectByConditionPostInputBody) { \\n  data0: udcApplicationDependentApplicationSelectByConditionPost(body: $params0) { code data { content{\\n        appId,\\n        depAppBasePackage,\\n        depAppCaption,\\n        depAppName,\\n        depAppVersion,\\n        id,\\n        dependentAppType,\\n        enableDelete,\\n        dynamicModuleGroup,\\n        supportUpgrade,\\n        defaultLastVersion\\n        enable\\n        updateTime\\n        versionTypeEnum\\n        preSet\\n        depAppName\\n        terminalType\\n        versionEdit\\n        belongToPlatform\\n        sourceType\\n        packageType\\n      } } message status } }\",\"variables\":{\"params0\":{\"params\":{\"appId\":\"8704025620829192834\"},\"sort\":{\"orders\":[{\"direction\":\"ASC\",\"property\":\"createTime\"}]}}}}"
+ },
+ {
+  "t": "fetch",
+  "url": "/service/udc/application/dependent-application/delete-by-ids",
+  "method": "POST",
+  "body": "{\"ids\":[\"-8375770234550740457\"]}"
+ },
+ {
+  "t": "fetch",
+  "url": "/service/udc/graphql?udcApplicationDependentApplicationSelectByConditionPost",
+  "method": "POST",
+  "body": "{\"query\":\"mutation graphqlLoader ($params0: udcApplicationDependentApplicationSelectByConditionPostInputBody) { \\n  data0: udcApplicationDependentApplicationSelectByConditionPost(body: $params0) { code data { content{\\n        appId,\\n        depAppBasePackage,\\n        depAppCaption,\\n        depAppName,\\n        depAppVersion,\\n        id,\\n        dependentAppType,\\n        enableDelete,\\n        dynamicModuleGroup,\\n        supportUpgrade,\\n        defaultLastVersion\\n        enable\\n        updateTime\\n        versionTypeEnum\\n        preSet\\n        depAppName\\n        terminalType\\n        versionEdit\\n        belongToPlatform\\n        sourceType\\n        packageType\\n      } } message status } }\",\"variables\":{\"params0\":{\"params\":{\"appId\":\"8704025620829192834\",\"dependentAppType\":\"FRONTEND\"},\"sort\":{\"orders\":[{\"direction\":\"ASC\",\"property\":\"createTime\"}]}}}}"
+ }
+]

@@ -1,0 +1,11 @@
+Compiled from "RuntimeDataBaseQueryDataReqDto.java"
+public class com.seeyon.boot.starter.udcrt.dto.RuntimeDataBaseQueryDataReqDto extends com.seeyon.boot.transport.BaseDto {
+  private static final long serialVersionUID;
+  private java.lang.String entityFullName;
+  private java.lang.String ids;
+  public com.seeyon.boot.starter.udcrt.dto.RuntimeDataBaseQueryDataReqDto();
+  public java.lang.String getEntityFullName();
+  public java.lang.String getIds();
+  public void setEntityFullName(java.lang.String);
+  public void setIds(java.lang.String);
+}

@@ -12,7 +12,7 @@ import re
 from collections import Counter
 from pathlib import Path
 
-REPO = Path(r"D:\work\chit\xiaozhua-agent")
+REPO = Path(r"<EVIDENCE_ROOT>\xiaozhua-agent")
 TEXT_EXT = {".py", ".md", ".yaml", ".yml", ".json", ".txt", ".js", ".sh", ".bat", ".toml"}
 
 EVIDENCE_MARKERS = ("/artifacts/", "/artifacts\\")
@@ -26,7 +26,7 @@ PATTERNS = {
     "人名": re.compile(r"白" + "明" + "涛"),
     "客户应用": re.compile(r"datami" + r"gration\d{6,}"),
     "客户实例": re.compile(r"\bznxm" + r"glpt\d{6,}\b"),
-    "客户组织": re.compile(r"chang" + r"hongit|" + "长虹" + "|" + "佳华"),
+    "客户组织": re.compile(r"chang" + r"hongit|" + "客户组织" + "|" + "佳华"),
 }
 
 zones = {"evidence": Counter(), "conclusion": Counter()}
@@ -75,6 +75,6 @@ for rel in sorted(byfile, key=lambda r: -sum(byfile[r].values())):
     print(f"  {rel}")
     print(f"      {dict(c)}  合计 {sum(c.values())}")
 
-Path(r"D:\software\hermes\cache\scratch\deident-plan.json").write_text(
+Path(r"<HERMES_HOME>\cache\scratch\deident-plan.json").write_text(
     json.dumps({"byfile": {k: dict(v) for k, v in byfile.items()}},
                ensure_ascii=False, indent=1), encoding="utf-8")

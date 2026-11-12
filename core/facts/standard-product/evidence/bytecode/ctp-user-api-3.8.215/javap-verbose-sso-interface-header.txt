@@ -1,0 +1,559 @@
+Classfile jar:file:///<ctp-user-api-3.8.215.jar>!/com/seeyon/ctp/user/api/sso/CtpUserSsoAuthProviderService.class
+  Last modified 2025��1��10��; size 7481 bytes
+  SHA-256 checksum 10f4ca56625d3d324827dfddc82cb32633215f9a63b4f6bbd9dc72f17258a9ea
+  Compiled from "CtpUserSsoAuthProviderService.java"
+public interface com.seeyon.ctp.user.api.sso.CtpUserSsoAuthProviderService
+  minor version: 0
+  major version: 52
+  flags: (0x0601) ACC_PUBLIC, ACC_INTERFACE, ACC_ABSTRACT
+  this_class: #14                         // com/seeyon/ctp/user/api/sso/CtpUserSsoAuthProviderService
+  super_class: #15                        // java/lang/Object
+  interfaces: 0, fields: 0, methods: 19, attributes: 3
+Constant pool:
+    #1 = Methodref          #115.#116     // java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+    #2 = Methodref          #117.#118     // org/apache/commons/collections/CollectionUtils.isEmpty:(Ljava/util/Collection;)Z
+    #3 = InterfaceMethodref #119.#120     // java/util/List.get:(I)Ljava/lang/Object;
+    #4 = Class              #121          // com/seeyon/ctp/user/dto/CtpUserSpiUserDto
+    #5 = Methodref          #4.#122       // com/seeyon/ctp/user/dto/CtpUserSpiUserDto.getId:()Ljava/lang/Long;
+    #6 = Class              #123          // java/util/HashMap
+    #7 = Methodref          #6.#124       // java/util/HashMap."<init>":()V
+    #8 = Class              #126          // com/seeyon/ctp/user/constant/CtpUserSpiConstants$ClientType
+    #9 = String             #129          // WEB
+   #10 = Class              #130          // com/seeyon/ctp/user/enums/CtpUserSpiAuthTokenEnum
+   #11 = Fieldref           #10.#131      // com/seeyon/ctp/user/enums/CtpUserSpiAuthTokenEnum.SPI_SSO:Lcom/seeyon/ctp/user/enums/CtpUserSpiAuthTokenEnum;
+   #12 = InterfaceMethodref #132.#133     // java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+   #13 = Fieldref           #10.#134      // com/seeyon/ctp/user/enums/CtpUserSpiAuthTokenEnum.USERNAME_PASSWORD:Lcom/seeyon/ctp/user/enums/CtpUserSpiAuthTokenEnum;
+   #14 = Class              #135          // com/seeyon/ctp/user/api/sso/CtpUserSsoAuthProviderService
+   #15 = Class              #136          // java/lang/Object
+   #16 = Utf8               setServerDomain
+   #17 = Utf8               (Ljava/lang/String;)V
+   #18 = Utf8               Code
+   #19 = Utf8               LineNumberTable
+   #20 = Utf8               LocalVariableTable
+   #21 = Utf8               this
+   #22 = Utf8               Lcom/seeyon/ctp/user/api/sso/CtpUserSsoAuthProviderService;
+   #23 = Utf8               serverDomain
+   #24 = Utf8               Ljava/lang/String;
+   #25 = Utf8               Deprecated
+   #26 = Utf8               RuntimeVisibleAnnotations
+   #27 = Utf8               Ljava/lang/Deprecated;
+   #28 = Utf8               Lcom/seeyon/ctp/user/annotation/CtpUserComment;
+   #29 = Utf8               value
+   #30 = Utf8               ���÷�����������
+   #31 = Utf8               setServerEnv
+   #32 = Utf8               (Lcom/seeyon/ctp/user/dto/CtpUserSpiServerEnvDto;)V
+   #33 = Utf8               ctpUserSpiServerEnvDto
+   #34 = Utf8               Lcom/seeyon/ctp/user/dto/CtpUserSpiServerEnvDto;
+   #35 = Utf8               ���÷��񻷾�������Ϣ, ��������ǰ�˵�ַ·�ɵ�
+   #36 = Utf8               getRequestParaKey
+   #37 = Utf8               ()Ljava/lang/String;
+   #38 = Utf8               �� request �л�ȡ��ʱ code �� ticket �� key, �����¼�����ض����ַ��׷�ӵ� key �� code�����ﷵ�� code�� ���׷��ֵ key �� ticket�� ���ﷵ�� ticket
+   #39 = Utf8               getSsoLoginUrl
+   #40 = Utf8               (Ljavax/servlet/http/HttpServletRequest;Ljava/lang/String;)Ljava/lang/String;
+   #41 = Utf8               ������֤ sso ��¼��ַ
+   #42 = Utf8               sendVerifyCode
+   #43 = Utf8               (Ljava/lang/String;)Ljava/lang/Boolean;
+   #44 = Utf8               mobile
+   #45 = Utf8               ������֤���Ͷ�����֤��
+   #46 = Utf8               isRedirectShortLink
+   #47 = Utf8               ()Ljava/lang/Boolean;
+   #48 = Utf8               ��¼�����ɹ�����ض����ַ�Ƿ�ʹ�ö�����
+   #49 = Utf8               shortLinkMode
+   #50 = Utf8               ()Lcom/seeyon/ctp/user/enums/ShortLinkModeEnum;
+   #51 = Utf8               ��¼�����ɹ�����ض����ַ�Ƿ�ʹ�ö����Ӽ�������ģʽ�����������ģʽ���Զ���������
+   #52 = Utf8               getUserLoginInfo
+   #53 = Utf8               (Ljavax/servlet/http/HttpServletRequest;Ljava/lang/String;)Lcom/seeyon/ctp/user/dto/CtpUserSpiLoginUserInfoDto;
+   #54 = Utf8               Exceptions
+   #55 = Class              #137          // com/seeyon/ctp/user/exception/CtpUserSpiSsoException
+   #56 = Class              #138          // com/seeyon/ctp/user/exception/SpiAuthContinueException
+   #57 = Utf8               ��������֤�ӿ��л�ȡ�û���Ϣ���� oauth2 ģʽ�£� �� request ���ȡ�� code��ͨ�� code ��ȡ����������֤�� token��ͨ�� token ��ȡ��˫��һ�µ��û���Ϣ�������¼�쳣��ʾ��Ҫ��ʾ��ҳ���ϣ���ʹ�� CtpUserSpiSsoException �׳�����ʾ����Ϊ CtpUserSpiSsoException ��� message ��ֵ
+   #58 = Utf8               getEncodeLogoutRedirectUrl
+   #59 = Utf8               �����ǳ��ض����ַ�� ������֤���Ŀ�ͨ���˵�ַ�����û���¼���������û�д˽ӿڣ�����ʵ��
+   #60 = Utf8               thirdSsoLogout
+   #61 = Utf8               (Ljavax/servlet/http/HttpServletRequest;Ljava/lang/String;)V
+   #62 = Utf8               request
+   #63 = Utf8               Ljavax/servlet/http/HttpServletRequest;
+   #64 = Utf8               thirdUserInfoJson
+   #65 = Utf8               ������֤ sso �ǳ��߼��� ������ʵ�֡� �����Ҫ��¼����֤��ͬʱ getEncodeLogoutRedirectUrl ��������ʹ�ã���˷�������ʵ��
+   #66 = Utf8               getUserLoginInfoForMobile
+   #67 = Utf8               (Ljava/lang/String;Ljava/util/Map;Lcom/seeyon/ctp/user/enums/CtpUserSpiAuthTokenEnum;)Lcom/seeyon/ctp/user/dto/CtpUserSpiLoginUserInfoDto;
+   #68 = Utf8               userLoginName
+   #69 = Utf8               extData
+   #70 = Utf8               Ljava/util/Map;
+   #71 = Utf8               ctpUserSpiAuthTokenEnum
+   #72 = Utf8               Lcom/seeyon/ctp/user/enums/CtpUserSpiAuthTokenEnum;
+   #73 = Utf8               LocalVariableTypeTable
+   #74 = Utf8               Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;
+   #75 = Utf8               Signature
+   #76 = Utf8               (Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;Lcom/seeyon/ctp/user/enums/CtpUserSpiAuthTokenEnum;)Lcom/seeyon/ctp/user/dto/CtpUserSpiLoginUserInfoDto;
+   #77 = Utf8               �ֻ��˵�¼ʹ�ã�ͨ���û����������Ϣ��֤����ȡ��¼���� �ֻ���ֱ�ӵ�������������ݡ������¼�쳣��ʾ��Ҫ��ʾ��ҳ���ϣ���ʹ�� CtpUserSpiSsoException �׳�����ʾ����Ϊ CtpUserSpiSsoException ��� message ��ֵ
+   #78 = Utf8               tokenExpiredSetNull
+   #79 = Utf8               ()Z
+   #80 = Utf8               ��� v8 token ���ڣ���ֵ�գ� ��������ʹ��������֤���ĵ�¼ҳ��¼
+   #81 = Utf8               rebuildCtpUserDtoList
+   #82 = Utf8               (Ljava/util/List;)Ljava/lang/Long;
+   #83 = Utf8               ctpUserSpiUserDtoList
+   #84 = Utf8               Ljava/util/List;
+   #85 = Utf8               Ljava/util/List<Lcom/seeyon/ctp/user/dto/CtpUserSpiUserDto;>;
+   #86 = Utf8               StackMapTable
+   #87 = Utf8               (Ljava/util/List<Lcom/seeyon/ctp/user/dto/CtpUserSpiUserDto;>;)Ljava/lang/Long;
+   #88 = Utf8               �����ȡ����� ctpUserDto ����ҵ���ж�ȡ�ĸ��� Ĭ��ȡ��һ��
+   #89 = Utf8               refreshThirdToken
+   #90 = Utf8               (Ljava/lang/String;J)Lcom/seeyon/ctp/user/dto/CtpUserSpiThirdTokenDto;
+   #91 = Utf8               thirdToken
+   #92 = Utf8               expired
+   #93 = Utf8               J
+   #94 = Utf8               refreshThirdTokenByConfig
+   #95 = Utf8               (Ljava/lang/String;Ljava/util/Map;)Lcom/seeyon/ctp/user/dto/CtpUserSpiThirdTokenDto;
+   #96 = Utf8               thirdTokenConfigMap
+   #97 = Utf8               (Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;)Lcom/seeyon/ctp/user/dto/CtpUserSpiThirdTokenDto;
+   #98 = Utf8               ˢ������ token
+   #99 = Utf8               get4aTokenKey
+  #100 = Utf8               �����Ҫ���� 4a token���򷵻� key
+  #101 = Utf8               getTidCode
+  #102 = Utf8               Ϊ�������⻧��ֵ�� ͨ��code ��ȡ�������⻧
+  #103 = Utf8               mapSupportsAuthTokenEnum
+  #104 = Utf8               ()Ljava/util/Map;
+  #105 = Utf8               loginTokenEnumMap
+  #106 = Utf8               Ljava/util/Map<Ljava/lang/String;[Lcom/seeyon/ctp/user/enums/CtpUserSpiAuthTokenEnum;>;
+  #107 = Utf8               ()Ljava/util/Map<Ljava/lang/String;[Lcom/seeyon/ctp/user/enums/CtpUserSpiAuthTokenEnum;>;
+  #108 = Utf8               ��¼��֤����, ����ֵ map: key ��¼�豸���͵�ֵ(WEB/PC/MOBILE), value: ��¼��ʽ�� Ĭ�ϴ��� pc:CtpUserSpiAuthTokenEnum.SPI_SSO ����
+  #109 = Utf8               getSuccessAuthTokenEnum
+  #110 = Utf8               ()Lcom/seeyon/ctp/user/enums/CtpUserSpiAuthTokenEnum;
+  #111 = Utf8               Ĭ�Ϸ��� CtpUserSpiAuthToken.USERNAME_PASSWORD
+  #112 = Utf8               SourceFile
+  #113 = Utf8               CtpUserSsoAuthProviderService.java
+  #114 = Utf8               ͳһ������֤ SPI ��չ�ӿ�, ʵ������Ҫ���� @CtpUserChannelRouter ע��
+  #115 = Class              #139          // java/lang/Boolean
+  #116 = NameAndType        #140:#141     // valueOf:(Z)Ljava/lang/Boolean;
+  #117 = Class              #142          // org/apache/commons/collections/CollectionUtils
+  #118 = NameAndType        #143:#144     // isEmpty:(Ljava/util/Collection;)Z
+  #119 = Class              #145          // java/util/List
+  #120 = NameAndType        #146:#147     // get:(I)Ljava/lang/Object;
+  #121 = Utf8               com/seeyon/ctp/user/dto/CtpUserSpiUserDto
+  #122 = NameAndType        #148:#149     // getId:()Ljava/lang/Long;
+  #123 = Utf8               java/util/HashMap
+  #124 = NameAndType        #150:#151     // "<init>":()V
+  #125 = Class              #152          // com/seeyon/ctp/user/constant/CtpUserSpiConstants
+  #126 = Utf8               com/seeyon/ctp/user/constant/CtpUserSpiConstants$ClientType
+  #127 = Utf8               ClientType
+  #128 = Utf8               InnerClasses
+  #129 = Utf8               WEB
+  #130 = Utf8               com/seeyon/ctp/user/enums/CtpUserSpiAuthTokenEnum
+  #131 = NameAndType        #153:#72      // SPI_SSO:Lcom/seeyon/ctp/user/enums/CtpUserSpiAuthTokenEnum;
+  #132 = Class              #154          // java/util/Map
+  #133 = NameAndType        #155:#156     // put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+  #134 = NameAndType        #157:#72      // USERNAME_PASSWORD:Lcom/seeyon/ctp/user/enums/CtpUserSpiAuthTokenEnum;
+  #135 = Utf8               com/seeyon/ctp/user/api/sso/CtpUserSsoAuthProviderService
+  #136 = Utf8               java/lang/Object
+  #137 = Utf8               com/seeyon/ctp/user/exception/CtpUserSpiSsoException
+  #138 = Utf8               com/seeyon/ctp/user/exception/SpiAuthContinueException
+  #139 = Utf8               java/lang/Boolean
+  #140 = Utf8               valueOf
+  #141 = Utf8               (Z)Ljava/lang/Boolean;
+  #142 = Utf8               org/apache/commons/collections/CollectionUtils
+  #143 = Utf8               isEmpty
+  #144 = Utf8               (Ljava/util/Collection;)Z
+  #145 = Utf8               java/util/List
+  #146 = Utf8               get
+  #147 = Utf8               (I)Ljava/lang/Object;
+  #148 = Utf8               getId
+  #149 = Utf8               ()Ljava/lang/Long;
+  #150 = Utf8               <init>
+  #151 = Utf8               ()V
+  #152 = Utf8               com/seeyon/ctp/user/constant/CtpUserSpiConstants
+  #153 = Utf8               SPI_SSO
+  #154 = Utf8               java/util/Map
+  #155 = Utf8               put
+  #156 = Utf8               (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+  #157 = Utf8               USERNAME_PASSWORD
+{
+  public default void setServerDomain(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=0, locals=2, args_size=2
+         0: return
+      LineNumberTable:
+        line 34: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       1     0  this   Lcom/seeyon/ctp/user/api/sso/CtpUserSsoAuthProviderService;
+            0       1     1 serverDomain   Ljava/lang/String;
+    Deprecated: true
+    RuntimeVisibleAnnotations:
+      0: #27()
+        java.lang.Deprecated
+      1: #28(#29=s#30)
+        com.seeyon.ctp.user.annotation.CtpUserComment(
+          value="���÷�����������"
+        )
+
+  public default void setServerEnv(com.seeyon.ctp.user.dto.CtpUserSpiServerEnvDto);
+    descriptor: (Lcom/seeyon/ctp/user/dto/CtpUserSpiServerEnvDto;)V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=0, locals=2, args_size=2
+         0: return
+      LineNumberTable:
+        line 39: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       1     0  this   Lcom/seeyon/ctp/user/api/sso/CtpUserSsoAuthProviderService;
+            0       1     1 ctpUserSpiServerEnvDto   Lcom/seeyon/ctp/user/dto/CtpUserSpiServerEnvDto;
+    RuntimeVisibleAnnotations:
+      0: #28(#29=s#35)
+        com.seeyon.ctp.user.annotation.CtpUserComment(
+          value="���÷��񻷾�������Ϣ, ��������ǰ�˵�ַ·�ɵ�"
+        )
+
+  public abstract java.lang.String getRequestParaKey();
+    descriptor: ()Ljava/lang/String;
+    flags: (0x0401) ACC_PUBLIC, ACC_ABSTRACT
+    RuntimeVisibleAnnotations:
+      0: #28(#29=s#38)
+        com.seeyon.ctp.user.annotation.CtpUserComment(
+          value="�� request �л�ȡ��ʱ code �� ticket �� key, �����¼�����ض����ַ��׷�ӵ� key �� code�����ﷵ�� code�� ���׷��ֵ key �� ticket�� ���ﷵ�� ticket"
+        )
+
+  public abstract java.lang.String getSsoLoginUrl(javax.servlet.http.HttpServletRequest, java.lang.String);
+    descriptor: (Ljavax/servlet/http/HttpServletRequest;Ljava/lang/String;)Ljava/lang/String;
+    flags: (0x0401) ACC_PUBLIC, ACC_ABSTRACT
+    RuntimeVisibleAnnotations:
+      0: #28(#29=s#41)
+        com.seeyon.ctp.user.annotation.CtpUserComment(
+          value="������֤ sso ��¼��ַ"
+        )
+
+  public default java.lang.Boolean sendVerifyCode(java.lang.String);
+    descriptor: (Ljava/lang/String;)Ljava/lang/Boolean;
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=2, args_size=2
+         0: aconst_null
+         1: areturn
+      LineNumberTable:
+        line 60: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       2     0  this   Lcom/seeyon/ctp/user/api/sso/CtpUserSsoAuthProviderService;
+            0       2     1 mobile   Ljava/lang/String;
+    RuntimeVisibleAnnotations:
+      0: #28(#29=s#45)
+        com.seeyon.ctp.user.annotation.CtpUserComment(
+          value="������֤���Ͷ�����֤��"
+        )
+
+  public default java.lang.Boolean isRedirectShortLink();
+    descriptor: ()Ljava/lang/Boolean;
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: iconst_0
+         1: invokestatic  #1                  // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+         4: areturn
+      LineNumberTable:
+        line 69: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lcom/seeyon/ctp/user/api/sso/CtpUserSsoAuthProviderService;
+    Deprecated: true
+    RuntimeVisibleAnnotations:
+      0: #27()
+        java.lang.Deprecated
+      1: #28(#29=s#48)
+        com.seeyon.ctp.user.annotation.CtpUserComment(
+          value="��¼�����ɹ�����ض����ַ�Ƿ�ʹ�ö�����"
+        )
+
+  public default com.seeyon.ctp.user.enums.ShortLinkModeEnum shortLinkMode();
+    descriptor: ()Lcom/seeyon/ctp/user/enums/ShortLinkModeEnum;
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aconst_null
+         1: areturn
+      LineNumberTable:
+        line 74: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       2     0  this   Lcom/seeyon/ctp/user/api/sso/CtpUserSsoAuthProviderService;
+    RuntimeVisibleAnnotations:
+      0: #28(#29=s#51)
+        com.seeyon.ctp.user.annotation.CtpUserComment(
+          value="��¼�����ɹ�����ض����ַ�Ƿ�ʹ�ö����Ӽ�������ģʽ�����������ģʽ���Զ���������"
+        )
+
+  public abstract com.seeyon.ctp.user.dto.CtpUserSpiLoginUserInfoDto getUserLoginInfo(javax.servlet.http.HttpServletRequest, java.lang.String) throws com.seeyon.ctp.user.exception.CtpUserSpiSsoException, com.seeyon.ctp.user.exception.SpiAuthContinueException;
+    descriptor: (Ljavax/servlet/http/HttpServletRequest;Ljava/lang/String;)Lcom/seeyon/ctp/user/dto/CtpUserSpiLoginUserInfoDto;
+    flags: (0x0401) ACC_PUBLIC, ACC_ABSTRACT
+    Exceptions:
+      throws com.seeyon.ctp.user.exception.CtpUserSpiSsoException, com.seeyon.ctp.user.exception.SpiAuthContinueException
+    RuntimeVisibleAnnotations:
+      0: #28(#29=s#57)
+        com.seeyon.ctp.user.annotation.CtpUserComment(
+          value="��������֤�ӿ��л�ȡ�û���Ϣ���� oauth2 ģʽ�£� �� request ���ȡ�� code��ͨ�� code ��ȡ����������֤�� token��ͨ�� token ��ȡ��˫��һ�µ��û���Ϣ�������¼�쳣��ʾ��Ҫ��ʾ��ҳ���ϣ���ʹ�� CtpUserSpiSsoException �׳�����ʾ����Ϊ CtpUserSpiSsoException ��� message ��ֵ"
+        )
+
+  public default java.lang.String getEncodeLogoutRedirectUrl();
+    descriptor: ()Ljava/lang/String;
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aconst_null
+         1: areturn
+      LineNumberTable:
+        line 91: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       2     0  this   Lcom/seeyon/ctp/user/api/sso/CtpUserSsoAuthProviderService;
+    RuntimeVisibleAnnotations:
+      0: #28(#29=s#59)
+        com.seeyon.ctp.user.annotation.CtpUserComment(
+          value="�����ǳ��ض����ַ�� ������֤���Ŀ�ͨ���˵�ַ�����û���¼���������û�д˽ӿڣ�����ʵ��"
+        )
+
+  public default void thirdSsoLogout(javax.servlet.http.HttpServletRequest, java.lang.String);
+    descriptor: (Ljavax/servlet/http/HttpServletRequest;Ljava/lang/String;)V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=0, locals=3, args_size=3
+         0: return
+      LineNumberTable:
+        line 100: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       1     0  this   Lcom/seeyon/ctp/user/api/sso/CtpUserSsoAuthProviderService;
+            0       1     1 request   Ljavax/servlet/http/HttpServletRequest;
+            0       1     2 thirdUserInfoJson   Ljava/lang/String;
+    RuntimeVisibleAnnotations:
+      0: #28(#29=s#65)
+        com.seeyon.ctp.user.annotation.CtpUserComment(
+          value="������֤ sso �ǳ��߼��� ������ʵ�֡� �����Ҫ��¼����֤��ͬʱ getEncodeLogoutRedirectUrl ��������ʹ�ã���˷�������ʵ��"
+        )
+
+  public default com.seeyon.ctp.user.dto.CtpUserSpiLoginUserInfoDto getUserLoginInfoForMobile(java.lang.String, java.util.Map<java.lang.String, java.lang.Object>, com.seeyon.ctp.user.enums.CtpUserSpiAuthTokenEnum) throws com.seeyon.ctp.user.exception.CtpUserSpiSsoException;
+    descriptor: (Ljava/lang/String;Ljava/util/Map;Lcom/seeyon/ctp/user/enums/CtpUserSpiAuthTokenEnum;)Lcom/seeyon/ctp/user/dto/CtpUserSpiLoginUserInfoDto;
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=4, args_size=4
+         0: aconst_null
+         1: areturn
+      LineNumberTable:
+        line 110: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       2     0  this   Lcom/seeyon/ctp/user/api/sso/CtpUserSsoAuthProviderService;
+            0       2     1 userLoginName   Ljava/lang/String;
+            0       2     2 extData   Ljava/util/Map;
+            0       2     3 ctpUserSpiAuthTokenEnum   Lcom/seeyon/ctp/user/enums/CtpUserSpiAuthTokenEnum;
+      LocalVariableTypeTable:
+        Start  Length  Slot  Name   Signature
+            0       2     2 extData   Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;
+    Exceptions:
+      throws com.seeyon.ctp.user.exception.CtpUserSpiSsoException
+    Signature: #76                          // (Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;Lcom/seeyon/ctp/user/enums/CtpUserSpiAuthTokenEnum;)Lcom/seeyon/ctp/user/dto/CtpUserSpiLoginUserInfoDto;
+    RuntimeVisibleAnnotations:
+      0: #28(#29=s#77)
+        com.seeyon.ctp.user.annotation.CtpUserComment(
+          value="�ֻ��˵�¼ʹ�ã�ͨ���û����������Ϣ��֤����ȡ��¼���� �ֻ���ֱ�ӵ�������������ݡ������¼�쳣��ʾ��Ҫ��ʾ��ҳ���ϣ���ʹ�� CtpUserSpiSsoException �׳�����ʾ����Ϊ CtpUserSpiSsoException ��� message ��ֵ"
+        )
+
+  public default boolean tokenExpiredSetNull();
+    descriptor: ()Z
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: iconst_0
+         1: ireturn
+      LineNumberTable:
+        line 115: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       2     0  this   Lcom/seeyon/ctp/user/api/sso/CtpUserSsoAuthProviderService;
+    RuntimeVisibleAnnotations:
+      0: #28(#29=s#80)
+        com.seeyon.ctp.user.annotation.CtpUserComment(
+          value="��� v8 token ���ڣ���ֵ�գ� ��������ʹ��������֤���ĵ�¼ҳ��¼"
+        )
+
+  public default java.lang.Long rebuildCtpUserDtoList(java.util.List<com.seeyon.ctp.user.dto.CtpUserSpiUserDto>);
+    descriptor: (Ljava/util/List;)Ljava/lang/Long;
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_1
+         1: invokestatic  #2                  // Method org/apache/commons/collections/CollectionUtils.isEmpty:(Ljava/util/Collection;)Z
+         4: ifeq          9
+         7: aconst_null
+         8: areturn
+         9: aload_1
+        10: iconst_0
+        11: invokeinterface #3,  2            // InterfaceMethod java/util/List.get:(I)Ljava/lang/Object;
+        16: checkcast     #4                  // class com/seeyon/ctp/user/dto/CtpUserSpiUserDto
+        19: invokevirtual #5                  // Method com/seeyon/ctp/user/dto/CtpUserSpiUserDto.getId:()Ljava/lang/Long;
+        22: areturn
+      LineNumberTable:
+        line 123: 0
+        line 124: 7
+        line 126: 9
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      23     0  this   Lcom/seeyon/ctp/user/api/sso/CtpUserSsoAuthProviderService;
+            0      23     1 ctpUserSpiUserDtoList   Ljava/util/List;
+      LocalVariableTypeTable:
+        Start  Length  Slot  Name   Signature
+            0      23     1 ctpUserSpiUserDtoList   Ljava/util/List<Lcom/seeyon/ctp/user/dto/CtpUserSpiUserDto;>;
+      StackMapTable: number_of_entries = 1
+        frame_type = 9 /* same */
+    Signature: #87                          // (Ljava/util/List<Lcom/seeyon/ctp/user/dto/CtpUserSpiUserDto;>;)Ljava/lang/Long;
+    RuntimeVisibleAnnotations:
+      0: #28(#29=s#88)
+        com.seeyon.ctp.user.annotation.CtpUserComment(
+          value="�����ȡ����� ctpUserDto ����ҵ���ж�ȡ�ĸ��� Ĭ��ȡ��һ��"
+        )
+
+  public default com.seeyon.ctp.user.dto.CtpUserSpiThirdTokenDto refreshThirdToken(java.lang.String, long);
+    descriptor: (Ljava/lang/String;J)Lcom/seeyon/ctp/user/dto/CtpUserSpiThirdTokenDto;
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=4, args_size=3
+         0: aconst_null
+         1: areturn
+      LineNumberTable:
+        line 135: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       2     0  this   Lcom/seeyon/ctp/user/api/sso/CtpUserSsoAuthProviderService;
+            0       2     1 thirdToken   Ljava/lang/String;
+            0       2     2 expired   J
+    Deprecated: true
+    RuntimeVisibleAnnotations:
+      0: #27()
+        java.lang.Deprecated
+
+  public default com.seeyon.ctp.user.dto.CtpUserSpiThirdTokenDto refreshThirdTokenByConfig(java.lang.String, java.util.Map<java.lang.String, java.lang.Object>);
+    descriptor: (Ljava/lang/String;Ljava/util/Map;)Lcom/seeyon/ctp/user/dto/CtpUserSpiThirdTokenDto;
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=3, args_size=3
+         0: aconst_null
+         1: areturn
+      LineNumberTable:
+        line 143: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       2     0  this   Lcom/seeyon/ctp/user/api/sso/CtpUserSsoAuthProviderService;
+            0       2     1 thirdToken   Ljava/lang/String;
+            0       2     2 thirdTokenConfigMap   Ljava/util/Map;
+      LocalVariableTypeTable:
+        Start  Length  Slot  Name   Signature
+            0       2     2 thirdTokenConfigMap   Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;
+    Signature: #97                          // (Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;)Lcom/seeyon/ctp/user/dto/CtpUserSpiThirdTokenDto;
+    RuntimeVisibleAnnotations:
+      0: #28(#29=s#98)
+        com.seeyon.ctp.user.annotation.CtpUserComment(
+          value="ˢ������ token"
+        )
+
+  public default java.lang.String get4aTokenKey();
+    descriptor: ()Ljava/lang/String;
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aconst_null
+         1: areturn
+      LineNumberTable:
+        line 151: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       2     0  this   Lcom/seeyon/ctp/user/api/sso/CtpUserSsoAuthProviderService;
+    RuntimeVisibleAnnotations:
+      0: #28(#29=s#100)
+        com.seeyon.ctp.user.annotation.CtpUserComment(
+          value="�����Ҫ���� 4a token���򷵻� key"
+        )
+
+  public default java.lang.String getTidCode();
+    descriptor: ()Ljava/lang/String;
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aconst_null
+         1: areturn
+      LineNumberTable:
+        line 159: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       2     0  this   Lcom/seeyon/ctp/user/api/sso/CtpUserSsoAuthProviderService;
+    RuntimeVisibleAnnotations:
+      0: #28(#29=s#102)
+        com.seeyon.ctp.user.annotation.CtpUserComment(
+          value="Ϊ�������⻧��ֵ�� ͨ��code ��ȡ�������⻧"
+        )
+
+  public default java.util.Map<java.lang.String, com.seeyon.ctp.user.enums.CtpUserSpiAuthTokenEnum[]> mapSupportsAuthTokenEnum();
+    descriptor: ()Ljava/util/Map;
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=6, locals=2, args_size=1
+         0: new           #6                  // class java/util/HashMap
+         3: dup
+         4: invokespecial #7                  // Method java/util/HashMap."<init>":()V
+         7: astore_1
+         8: aload_1
+         9: ldc           #9                  // String WEB
+        11: iconst_1
+        12: anewarray     #10                 // class com/seeyon/ctp/user/enums/CtpUserSpiAuthTokenEnum
+        15: dup
+        16: iconst_0
+        17: getstatic     #11                 // Field com/seeyon/ctp/user/enums/CtpUserSpiAuthTokenEnum.SPI_SSO:Lcom/seeyon/ctp/user/enums/CtpUserSpiAuthTokenEnum;
+        20: aastore
+        21: invokeinterface #12,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+        26: pop
+        27: aload_1
+        28: areturn
+      LineNumberTable:
+        line 176: 0
+        line 177: 8
+        line 178: 27
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      29     0  this   Lcom/seeyon/ctp/user/api/sso/CtpUserSsoAuthProviderService;
+            8      21     1 loginTokenEnumMap   Ljava/util/Map;
+      LocalVariableTypeTable:
+        Start  Length  Slot  Name   Signature
+            8      21     1 loginTokenEnumMap   Ljava/util/Map<Ljava/lang/String;[Lcom/seeyon/ctp/user/enums/CtpUserSpiAuthTokenEnum;>;
+    Signature: #107                         // ()Ljava/util/Map<Ljava/lang/String;[Lcom/seeyon/ctp/user/enums/CtpUserSpiAuthTokenEnum;>;
+    RuntimeVisibleAnnotations:
+      0: #28(#29=s#108)
+        com.seeyon.ctp.user.annotation.CtpUserComment(
+          value="��¼��֤����, ����ֵ map: key ��¼�豸���͵�ֵ(WEB/PC/MOBILE), value: ��¼��ʽ�� Ĭ�ϴ��� pc:CtpUserSpiAuthTokenEnum.SPI_SSO ����"
+        )
+
+  public default com.seeyon.ctp.user.enums.CtpUserSpiAuthTokenEnum getSuccessAuthTokenEnum();
+    descriptor: ()Lcom/seeyon/ctp/user/enums/CtpUserSpiAuthTokenEnum;
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: getstatic     #13                 // Field com/seeyon/ctp/user/enums/CtpUserSpiAuthTokenEnum.USERNAME_PASSWORD:Lcom/seeyon/ctp/user/enums/CtpUserSpiAuthTokenEnum;
+         3: areturn
+      LineNumberTable:
+        line 186: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       4     0  this   Lcom/seeyon/ctp/user/api/sso/CtpUserSsoAuthProviderService;
+    RuntimeVisibleAnnotations:
+      0: #28(#29=s#111)
+        com.seeyon.ctp.user.annotation.CtpUserComment(
+          value="Ĭ�Ϸ��� CtpUserSpiAuthToken.USERNAME_PASSWORD"
+        )
+}
+SourceFile: "CtpUserSsoAuthProviderService.java"
+RuntimeVisibleAnnotations:
+  0: #28(#29=s#114)
+    com.seeyon.ctp.user.annotation.CtpUserComment(
+      value="ͳһ������֤ SPI ��չ�ӿ�, ʵ������Ҫ���� @CtpUserChannelRouter ע��"
+    )
+InnerClasses:
+  public static #127= #8 of #125;         // ClientType=class com/seeyon/ctp/user/constant/CtpUserSpiConstants$ClientType of class com/seeyon/ctp/user/constant/CtpUserSpiConstants

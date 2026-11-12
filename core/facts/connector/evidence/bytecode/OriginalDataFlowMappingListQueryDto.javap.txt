@@ -1,0 +1,16 @@
+Compiled from "OriginalDataFlowMappingListQueryDto.java"
+public class com.seeyon.boot.starter.dataflow.dto.OriginalDataFlowMappingListQueryDto extends com.seeyon.boot.transport.BaseDto {
+  private java.lang.Long dataFlowId;
+  private java.lang.Long sourceEntityId;
+  private java.lang.Long targetEntityId;
+  private java.lang.String caption;
+  public com.seeyon.boot.starter.dataflow.dto.OriginalDataFlowMappingListQueryDto();
+  public java.lang.Long getDataFlowId();
+  public java.lang.Long getSourceEntityId();
+  public java.lang.Long getTargetEntityId();
+  public java.lang.String getCaption();
+  public void setDataFlowId(java.lang.Long);
+  public void setSourceEntityId(java.lang.Long);
+  public void setTargetEntityId(java.lang.Long);
+  public void setCaption(java.lang.String);
+}

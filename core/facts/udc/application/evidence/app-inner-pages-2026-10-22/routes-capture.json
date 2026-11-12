@@ -1,0 +1,1731 @@
+{
+ "页面测试": {
+  "route": "testPage",
+  "url": "https://lowcode-test2.example.com/main/child-frame/udc/app-design/app-basic-info/testPage?appId=8704025620829192834",
+  "requests": [
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/main/child-frame/udc/app-design/app-basic-info/testPage",
+    "query": "appId=8704025620829192834",
+    "postData": "",
+    "type": "Document"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/service/portal/file/download",
+    "query": "storageKey=/assets/1110658959014828545/sy-theme-mobile/20260126211951.css",
+    "postData": "",
+    "type": "Fetch"
+   },
+   {
+    "method": "POST",
+    "url": "https://lowcode-test2.example.com/service/ctp-application/appcenter/search-app-edition",
+    "query": "",
+    "postData": "{\"pageInfo\":{\"needTotal\":false,\"pageNumber\":1,\"pageSize\":20},\"params\":{\"IN_appId\":[\"faccountsreceivable2378987216360786643\",\"datamigration8704025620829192834\",\"znxmglpt3289082814923688017\",\"xiangmuguanli1656355078954763084\"],\"clientType\":\"PC\"}}",
+    "type": "Fetch"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/service/app-common/i18n/resource",
+    "query": "bundleName=udc%2Fweb-pages&full=false&localeName=zh_CN",
+    "postData": "",
+    "type": "Fetch"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/service/app-common/expression/system/values/date",
+    "query": "",
+    "postData": "",
+    "type": "Fetch"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/remoteEntry.js",
+    "query": "",
+    "postData": "",
+    "type": "Fetch"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/vendors-node_modules_query-string_index_js.d52513b5.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/028f7f7a.ck.css",
+    "query": "",
+    "postData": "",
+    "type": "Stylesheet"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/vendors-node_modules_reduxjs_toolkit_dist_redux-toolkit_esm_js-node_modules_antd_es_modal_ind-3dfba8.d68972e5.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/src_constants_design_page-type_ts-src_services_app-design_template_ts-src_services_design_pag-93bb09.6494d14a.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/d2c92ad8.ck.css",
+    "query": "",
+    "postData": "",
+    "type": "Stylesheet"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/src_redux_store_ts.14dc061e.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/618795cf.ck.css",
+    "query": "",
+    "postData": "",
+    "type": "Stylesheet"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/src_app4Exposes_tsx.1714867c.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/vendors-node_modules_resize-observer-polyfill_dist_ResizeObserver_es_js.3c36221f.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/vendors-node_modules_rc-resize-observer_es_index_js-node_modules_seeyon_biz-quick-search_dist-e64df4.df1da074.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/1ad4213c.ck.css",
+    "query": "",
+    "postData": "",
+    "type": "Stylesheet"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/vendors-node_modules_popperjs_core_lib_popper_js-node_modules_rc-table_es_index_js-node_modul-9a9ba6.53ff1b26.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/src_components_app-design_app_components_theme_index_ts-src_components_design_cmps_pc_common_-37bd17.61b75a70.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/58fc21ec.ck.css",
+    "query": "",
+    "postData": "",
+    "type": "Stylesheet"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/src_components_app-design_app_components_theme_app-style-designer-model_tsx-src_components_ap-7042b6.f96d7e03.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "POST",
+    "url": "https://lowcode-test2.example.com/service/udc/graphql",
+    "query": "udcDeploymentAppReadyStatePost",
+    "postData": "{\"query\":\"query graphqlLoader ($params0: udcDeploymentAppReadyStatePostInputBody) { \\n  data0: udcDeploymentAppReadyStatePost(body: $params0) { code data { content } message status } }\",\"variables\":{\"params0\":{\"appId\":\"8704025620829192834\"}}}",
+    "type": "Fetch"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/38a2a330.ck.css",
+    "query": "",
+    "postData": "",
+    "type": "Stylesheet"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/src_components_unify-console_items_operation-log_index_tsx.f29f0868.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/vendors-node_modules_seeyon_biz-icon-library_dist_index_js.72b83ae6.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/vendors-node_modules_semver_index_js.b4521c8e.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/c2bee152.ck.css",
+    "query": "",
+    "postData": "",
+    "type": "Stylesheet"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/src_pages_app-design_basic-info_index_tsx-node_modules_seeyon_biz-icon-library_dist_index_css.b24938e1.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "POST",
+    "url": "https://lowcode-test2.example.com/service/udc/deployment/latest-test-info",
+    "query": "",
+    "postData": "{\"appId\":\"8704025620829192834\"}",
+    "type": "Fetch"
+   },
+   {
+    "method": "POST",
+    "url": "https://lowcode-test2.example.com/service/app-common/graphql",
+    "query": "appCommonThemeSelectDefaultGet",
+    "postData": "{\"query\":\"query {\\n        appCommonThemeSelectDefaultGet{\\n          code\\n          status\\n          message\\n          data {\\n          content\\n        }\\n      }\\n    }\",\"variables\":{}}",
+    "type": "Fetch"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/service/udc/application/user-role",
+    "query": "appName=udc",
+    "postData": "",
+    "type": "Fetch"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/service/app-common/theme/style",
+    "query": "id=1110658959014828545",
+    "postData": "",
+    "type": "Fetch"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/v8logo.1ec019ec.png",
+    "query": "",
+    "postData": "",
+    "type": "Image"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/service/udc/sandbox/delta-build-info/8704025620829192834",
+    "query": "",
+    "postData": "",
+    "type": "Fetch"
+   },
+   {
+    "method": "POST",
+    "url": "https://lowcode-test2.example.com/service/udc/application/search/front-detection",
+    "query": "",
+    "postData": "{\"appId\":\"8704025620829192834\"}",
+    "type": "Fetch"
+   }
+  ]
+ },
+ "沙箱测试": {
+  "route": "testVersion",
+  "url": "https://lowcode-test2.example.com/main/child-frame/udc/app-design/app-basic-info/testVersion?appId=8704025620829192834",
+  "requests": [
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/main/child-frame/udc/app-design/app-basic-info/testVersion",
+    "query": "appId=8704025620829192834",
+    "postData": "",
+    "type": "Document"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/service/portal/file/download",
+    "query": "storageKey=/assets/1110658959014828545/sy-theme-mobile/20260126211951.css",
+    "postData": "",
+    "type": "Fetch"
+   },
+   {
+    "method": "POST",
+    "url": "https://lowcode-test2.example.com/service/ctp-application/appcenter/search-app-edition",
+    "query": "",
+    "postData": "{\"pageInfo\":{\"needTotal\":false,\"pageNumber\":1,\"pageSize\":20},\"params\":{\"IN_appId\":[\"faccountsreceivable2378987216360786643\",\"datamigration8704025620829192834\",\"znxmglpt3289082814923688017\",\"xiangmuguanli1656355078954763084\"],\"clientType\":\"PC\"}}",
+    "type": "Fetch"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/service/app-common/i18n/resource",
+    "query": "bundleName=udc%2Fweb-pages&full=false&localeName=zh_CN",
+    "postData": "",
+    "type": "Fetch"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/service/app-common/expression/system/values/date",
+    "query": "",
+    "postData": "",
+    "type": "Fetch"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/remoteEntry.js",
+    "query": "",
+    "postData": "",
+    "type": "Fetch"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/vendors-node_modules_query-string_index_js.d52513b5.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/028f7f7a.ck.css",
+    "query": "",
+    "postData": "",
+    "type": "Stylesheet"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/vendors-node_modules_reduxjs_toolkit_dist_redux-toolkit_esm_js-node_modules_antd_es_modal_ind-3dfba8.d68972e5.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/src_constants_design_page-type_ts-src_services_app-design_template_ts-src_services_design_pag-93bb09.6494d14a.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/d2c92ad8.ck.css",
+    "query": "",
+    "postData": "",
+    "type": "Stylesheet"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/src_redux_store_ts.14dc061e.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/618795cf.ck.css",
+    "query": "",
+    "postData": "",
+    "type": "Stylesheet"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/src_app4Exposes_tsx.1714867c.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/vendors-node_modules_resize-observer-polyfill_dist_ResizeObserver_es_js.3c36221f.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/vendors-node_modules_rc-resize-observer_es_index_js-node_modules_seeyon_biz-quick-search_dist-e64df4.df1da074.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/1ad4213c.ck.css",
+    "query": "",
+    "postData": "",
+    "type": "Stylesheet"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/vendors-node_modules_popperjs_core_lib_popper_js-node_modules_rc-table_es_index_js-node_modul-9a9ba6.53ff1b26.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/src_components_app-design_app_components_theme_index_ts-src_components_design_cmps_pc_common_-37bd17.61b75a70.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/58fc21ec.ck.css",
+    "query": "",
+    "postData": "",
+    "type": "Stylesheet"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/src_components_app-design_app_components_theme_app-style-designer-model_tsx-src_components_ap-7042b6.f96d7e03.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "POST",
+    "url": "https://lowcode-test2.example.com/service/udc/graphql",
+    "query": "udcDeploymentAppReadyStatePost",
+    "postData": "{\"query\":\"query graphqlLoader ($params0: udcDeploymentAppReadyStatePostInputBody) { \\n  data0: udcDeploymentAppReadyStatePost(body: $params0) { code data { content } message status } }\",\"variables\":{\"params0\":{\"appId\":\"8704025620829192834\"}}}",
+    "type": "Fetch"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/38a2a330.ck.css",
+    "query": "",
+    "postData": "",
+    "type": "Stylesheet"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/src_components_unify-console_items_operation-log_index_tsx.f29f0868.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/vendors-node_modules_seeyon_biz-icon-library_dist_index_js.72b83ae6.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/vendors-node_modules_semver_index_js.b4521c8e.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/c2bee152.ck.css",
+    "query": "",
+    "postData": "",
+    "type": "Stylesheet"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/src_pages_app-design_basic-info_index_tsx-node_modules_seeyon_biz-icon-library_dist_index_css.b24938e1.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "POST",
+    "url": "https://lowcode-test2.example.com/service/udc/deployment/latest-test-info",
+    "query": "",
+    "postData": "{\"appId\":\"8704025620829192834\"}",
+    "type": "Fetch"
+   },
+   {
+    "method": "POST",
+    "url": "https://lowcode-test2.example.com/service/app-common/graphql",
+    "query": "appCommonThemeSelectDefaultGet",
+    "postData": "{\"query\":\"query {\\n        appCommonThemeSelectDefaultGet{\\n          code\\n          status\\n          message\\n          data {\\n          content\\n        }\\n      }\\n    }\",\"variables\":{}}",
+    "type": "Fetch"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/service/udc/application/user-role",
+    "query": "appName=udc",
+    "postData": "",
+    "type": "Fetch"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/service/app-common/theme/style",
+    "query": "id=1110658959014828545",
+    "postData": "",
+    "type": "Fetch"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/v8logo.1ec019ec.png",
+    "query": "",
+    "postData": "",
+    "type": "Image"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/service/udc/sandbox/delta-build-info/8704025620829192834",
+    "query": "",
+    "postData": "",
+    "type": "Fetch"
+   },
+   {
+    "method": "POST",
+    "url": "https://lowcode-test2.example.com/service/udc/application/search/front-detection",
+    "query": "",
+    "postData": "{\"appId\":\"8704025620829192834\"}",
+    "type": "Fetch"
+   }
+  ]
+ },
+ "发布版本": {
+  "route": "version",
+  "url": "https://lowcode-test2.example.com/main/child-frame/udc/app-design/app-basic-info/version?appId=8704025620829192834",
+  "requests": [
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/main/child-frame/udc/app-design/app-basic-info/version",
+    "query": "appId=8704025620829192834",
+    "postData": "",
+    "type": "Document"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/service/portal/file/download",
+    "query": "storageKey=/assets/1110658959014828545/sy-theme/20260126211951.css",
+    "postData": "",
+    "type": "Fetch"
+   },
+   {
+    "method": "POST",
+    "url": "https://lowcode-test2.example.com/service/ctp-application/appcenter/search-app-edition",
+    "query": "",
+    "postData": "{\"pageInfo\":{\"needTotal\":false,\"pageNumber\":1,\"pageSize\":20},\"params\":{\"IN_appId\":[\"faccountsreceivable2378987216360786643\",\"datamigration8704025620829192834\",\"znxmglpt3289082814923688017\",\"xiangmuguanli1656355078954763084\"],\"clientType\":\"PC\"}}",
+    "type": "Fetch"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/service/app-common/i18n/resource",
+    "query": "bundleName=udc%2Fweb-pages&full=false&localeName=zh_CN",
+    "postData": "",
+    "type": "Fetch"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/service/app-common/expression/system/values/date",
+    "query": "",
+    "postData": "",
+    "type": "Fetch"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/remoteEntry.js",
+    "query": "",
+    "postData": "",
+    "type": "Fetch"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/vendors-node_modules_query-string_index_js.d52513b5.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/028f7f7a.ck.css",
+    "query": "",
+    "postData": "",
+    "type": "Stylesheet"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/vendors-node_modules_reduxjs_toolkit_dist_redux-toolkit_esm_js-node_modules_antd_es_modal_ind-3dfba8.d68972e5.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/src_constants_design_page-type_ts-src_services_app-design_template_ts-src_services_design_pag-93bb09.6494d14a.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/d2c92ad8.ck.css",
+    "query": "",
+    "postData": "",
+    "type": "Stylesheet"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/src_redux_store_ts.14dc061e.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/618795cf.ck.css",
+    "query": "",
+    "postData": "",
+    "type": "Stylesheet"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/src_app4Exposes_tsx.1714867c.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/vendors-node_modules_resize-observer-polyfill_dist_ResizeObserver_es_js.3c36221f.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/vendors-node_modules_rc-resize-observer_es_index_js-node_modules_seeyon_biz-quick-search_dist-e64df4.df1da074.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/1ad4213c.ck.css",
+    "query": "",
+    "postData": "",
+    "type": "Stylesheet"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/vendors-node_modules_popperjs_core_lib_popper_js-node_modules_rc-table_es_index_js-node_modul-9a9ba6.53ff1b26.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/src_components_app-design_app_components_theme_index_ts-src_components_design_cmps_pc_common_-37bd17.61b75a70.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/58fc21ec.ck.css",
+    "query": "",
+    "postData": "",
+    "type": "Stylesheet"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/src_components_app-design_app_components_theme_app-style-designer-model_tsx-src_components_ap-7042b6.f96d7e03.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "POST",
+    "url": "https://lowcode-test2.example.com/service/udc/graphql",
+    "query": "udcDeploymentAppReadyStatePost",
+    "postData": "{\"query\":\"query graphqlLoader ($params0: udcDeploymentAppReadyStatePostInputBody) { \\n  data0: udcDeploymentAppReadyStatePost(body: $params0) { code data { content } message status } }\",\"variables\":{\"params0\":{\"appId\":\"8704025620829192834\"}}}",
+    "type": "Fetch"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/38a2a330.ck.css",
+    "query": "",
+    "postData": "",
+    "type": "Stylesheet"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/src_components_unify-console_items_operation-log_index_tsx.f29f0868.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/vendors-node_modules_seeyon_biz-icon-library_dist_index_js.72b83ae6.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/vendors-node_modules_semver_index_js.b4521c8e.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/c2bee152.ck.css",
+    "query": "",
+    "postData": "",
+    "type": "Stylesheet"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/src_pages_app-design_basic-info_index_tsx-node_modules_seeyon_biz-icon-library_dist_index_css.b24938e1.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "POST",
+    "url": "https://lowcode-test2.example.com/service/udc/deployment/latest-test-info",
+    "query": "",
+    "postData": "{\"appId\":\"8704025620829192834\"}",
+    "type": "Fetch"
+   },
+   {
+    "method": "POST",
+    "url": "https://lowcode-test2.example.com/service/app-common/graphql",
+    "query": "appCommonThemeSelectDefaultGet",
+    "postData": "{\"query\":\"query {\\n        appCommonThemeSelectDefaultGet{\\n          code\\n          status\\n          message\\n          data {\\n          content\\n        }\\n      }\\n    }\",\"variables\":{}}",
+    "type": "Fetch"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/service/app-common/theme/style",
+    "query": "id=1110658959014828545",
+    "postData": "",
+    "type": "Fetch"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/service/udc/application/user-role",
+    "query": "appName=udc",
+    "postData": "",
+    "type": "Fetch"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/v8logo.1ec019ec.png",
+    "query": "",
+    "postData": "",
+    "type": "Image"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/service/udc/sandbox/delta-build-info/8704025620829192834",
+    "query": "",
+    "postData": "",
+    "type": "Fetch"
+   },
+   {
+    "method": "POST",
+    "url": "https://lowcode-test2.example.com/service/udc/application/search/front-detection",
+    "query": "",
+    "postData": "{\"appId\":\"8704025620829192834\"}",
+    "type": "Fetch"
+   }
+  ]
+ },
+ "应用依赖": {
+  "route": "dependentApp",
+  "url": "https://lowcode-test2.example.com/main/child-frame/udc/app-design/app-basic-info/dependentApp?appId=8704025620829192834",
+  "requests": [
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/main/child-frame/udc/app-design/app-basic-info/dependentApp",
+    "query": "appId=8704025620829192834",
+    "postData": "",
+    "type": "Document"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/service/portal/file/download",
+    "query": "storageKey=/assets/1110658959014828545/sy-theme/20260126211951.css",
+    "postData": "",
+    "type": "Fetch"
+   },
+   {
+    "method": "POST",
+    "url": "https://lowcode-test2.example.com/service/ctp-application/appcenter/search-app-edition",
+    "query": "",
+    "postData": "{\"pageInfo\":{\"needTotal\":false,\"pageNumber\":1,\"pageSize\":20},\"params\":{\"IN_appId\":[\"datamigration8704025620829192834\"],\"clientType\":\"PC\"}}",
+    "type": "Fetch"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/service/app-common/i18n/resource",
+    "query": "bundleName=udc%2Fweb-pages&full=false&localeName=zh_CN",
+    "postData": "",
+    "type": "Fetch"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/service/app-common/expression/system/values/date",
+    "query": "",
+    "postData": "",
+    "type": "Fetch"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/remoteEntry.js",
+    "query": "",
+    "postData": "",
+    "type": "Fetch"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/vendors-node_modules_query-string_index_js.d52513b5.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/028f7f7a.ck.css",
+    "query": "",
+    "postData": "",
+    "type": "Stylesheet"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/vendors-node_modules_reduxjs_toolkit_dist_redux-toolkit_esm_js-node_modules_antd_es_modal_ind-3dfba8.d68972e5.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/src_constants_design_page-type_ts-src_services_app-design_template_ts-src_services_design_pag-93bb09.6494d14a.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/d2c92ad8.ck.css",
+    "query": "",
+    "postData": "",
+    "type": "Stylesheet"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/src_redux_store_ts.14dc061e.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/618795cf.ck.css",
+    "query": "",
+    "postData": "",
+    "type": "Stylesheet"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/src_app4Exposes_tsx.1714867c.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/vendors-node_modules_resize-observer-polyfill_dist_ResizeObserver_es_js.3c36221f.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/vendors-node_modules_rc-resize-observer_es_index_js-node_modules_seeyon_biz-quick-search_dist-e64df4.df1da074.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/1ad4213c.ck.css",
+    "query": "",
+    "postData": "",
+    "type": "Stylesheet"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/vendors-node_modules_popperjs_core_lib_popper_js-node_modules_rc-table_es_index_js-node_modul-9a9ba6.53ff1b26.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/src_components_app-design_app_components_theme_index_ts-src_components_design_cmps_pc_common_-37bd17.61b75a70.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/58fc21ec.ck.css",
+    "query": "",
+    "postData": "",
+    "type": "Stylesheet"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/src_components_app-design_app_components_theme_app-style-designer-model_tsx-src_components_ap-7042b6.f96d7e03.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "POST",
+    "url": "https://lowcode-test2.example.com/service/udc/graphql",
+    "query": "udcDeploymentAppReadyStatePost",
+    "postData": "{\"query\":\"query graphqlLoader ($params0: udcDeploymentAppReadyStatePostInputBody) { \\n  data0: udcDeploymentAppReadyStatePost(body: $params0) { code data { content } message status } }\",\"variables\":{\"params0\":{\"appId\":\"8704025620829192834\"}}}",
+    "type": "Fetch"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/38a2a330.ck.css",
+    "query": "",
+    "postData": "",
+    "type": "Stylesheet"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/src_components_unify-console_items_operation-log_index_tsx.f29f0868.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/vendors-node_modules_seeyon_biz-icon-library_dist_index_js.72b83ae6.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/vendors-node_modules_semver_index_js.b4521c8e.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/c2bee152.ck.css",
+    "query": "",
+    "postData": "",
+    "type": "Stylesheet"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/src_pages_app-design_basic-info_index_tsx-node_modules_seeyon_biz-icon-library_dist_index_css.b24938e1.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "POST",
+    "url": "https://lowcode-test2.example.com/service/app-common/graphql",
+    "query": "appCommonThemeSelectDefaultGet",
+    "postData": "{\"query\":\"query {\\n        appCommonThemeSelectDefaultGet{\\n          code\\n          status\\n          message\\n          data {\\n          content\\n        }\\n      }\\n    }\",\"variables\":{}}",
+    "type": "Fetch"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/service/udc/application/user-role",
+    "query": "appName=udc",
+    "postData": "",
+    "type": "Fetch"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/service/app-common/theme/style",
+    "query": "id=1110658959014828545",
+    "postData": "",
+    "type": "Fetch"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/v8logo.1ec019ec.png",
+    "query": "",
+    "postData": "",
+    "type": "Image"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/service/udc/sandbox/delta-build-info/8704025620829192834",
+    "query": "",
+    "postData": "",
+    "type": "Fetch"
+   },
+   {
+    "method": "POST",
+    "url": "https://lowcode-test2.example.com/service/udc/application/search/front-detection",
+    "query": "",
+    "postData": "{\"appId\":\"8704025620829192834\"}",
+    "type": "Fetch"
+   }
+  ]
+ },
+ "组件依赖": {
+  "route": "dependentCmp",
+  "url": "https://lowcode-test2.example.com/main/child-frame/udc/app-design/app-basic-info/dependentCmp?appId=8704025620829192834",
+  "requests": [
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/main/child-frame/udc/app-design/app-basic-info/dependentCmp",
+    "query": "appId=8704025620829192834",
+    "postData": "",
+    "type": "Document"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/service/portal/file/download",
+    "query": "storageKey=/assets/1110658959014828545/sy-theme/20260126211951.css",
+    "postData": "",
+    "type": "Fetch"
+   },
+   {
+    "method": "POST",
+    "url": "https://lowcode-test2.example.com/service/ctp-application/appcenter/search-app-edition",
+    "query": "",
+    "postData": "{\"pageInfo\":{\"needTotal\":false,\"pageNumber\":1,\"pageSize\":20},\"params\":{\"IN_appId\":[\"faccountsreceivable2378987216360786643\",\"datamigration8704025620829192834\",\"znxmglpt3289082814923688017\",\"xiangmuguanli1656355078954763084\"],\"clientType\":\"PC\"}}",
+    "type": "Fetch"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/service/app-common/i18n/resource",
+    "query": "bundleName=udc%2Fweb-pages&full=false&localeName=zh_CN",
+    "postData": "",
+    "type": "Fetch"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/service/app-common/expression/system/values/date",
+    "query": "",
+    "postData": "",
+    "type": "Fetch"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/remoteEntry.js",
+    "query": "",
+    "postData": "",
+    "type": "Fetch"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/vendors-node_modules_query-string_index_js.d52513b5.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/028f7f7a.ck.css",
+    "query": "",
+    "postData": "",
+    "type": "Stylesheet"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/vendors-node_modules_reduxjs_toolkit_dist_redux-toolkit_esm_js-node_modules_antd_es_modal_ind-3dfba8.d68972e5.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/src_constants_design_page-type_ts-src_services_app-design_template_ts-src_services_design_pag-93bb09.6494d14a.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/d2c92ad8.ck.css",
+    "query": "",
+    "postData": "",
+    "type": "Stylesheet"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/src_redux_store_ts.14dc061e.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/618795cf.ck.css",
+    "query": "",
+    "postData": "",
+    "type": "Stylesheet"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/src_app4Exposes_tsx.1714867c.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/vendors-node_modules_resize-observer-polyfill_dist_ResizeObserver_es_js.3c36221f.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/vendors-node_modules_rc-resize-observer_es_index_js-node_modules_seeyon_biz-quick-search_dist-e64df4.df1da074.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/1ad4213c.ck.css",
+    "query": "",
+    "postData": "",
+    "type": "Stylesheet"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/vendors-node_modules_popperjs_core_lib_popper_js-node_modules_rc-table_es_index_js-node_modul-9a9ba6.53ff1b26.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/src_components_app-design_app_components_theme_index_ts-src_components_design_cmps_pc_common_-37bd17.61b75a70.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/58fc21ec.ck.css",
+    "query": "",
+    "postData": "",
+    "type": "Stylesheet"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/src_components_app-design_app_components_theme_app-style-designer-model_tsx-src_components_ap-7042b6.f96d7e03.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "POST",
+    "url": "https://lowcode-test2.example.com/service/udc/graphql",
+    "query": "udcDeploymentAppReadyStatePost",
+    "postData": "{\"query\":\"query graphqlLoader ($params0: udcDeploymentAppReadyStatePostInputBody) { \\n  data0: udcDeploymentAppReadyStatePost(body: $params0) { code data { content } message status } }\",\"variables\":{\"params0\":{\"appId\":\"8704025620829192834\"}}}",
+    "type": "Fetch"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/38a2a330.ck.css",
+    "query": "",
+    "postData": "",
+    "type": "Stylesheet"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/src_components_unify-console_items_operation-log_index_tsx.f29f0868.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/vendors-node_modules_seeyon_biz-icon-library_dist_index_js.72b83ae6.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/vendors-node_modules_semver_index_js.b4521c8e.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/c2bee152.ck.css",
+    "query": "",
+    "postData": "",
+    "type": "Stylesheet"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/src_pages_app-design_basic-info_index_tsx-node_modules_seeyon_biz-icon-library_dist_index_css.b24938e1.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "POST",
+    "url": "https://lowcode-test2.example.com/service/app-common/graphql",
+    "query": "appCommonThemeSelectDefaultGet",
+    "postData": "{\"query\":\"query {\\n        appCommonThemeSelectDefaultGet{\\n          code\\n          status\\n          message\\n          data {\\n          content\\n        }\\n      }\\n    }\",\"variables\":{}}",
+    "type": "Fetch"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/service/udc/application/user-role",
+    "query": "appName=udc",
+    "postData": "",
+    "type": "Fetch"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/service/app-common/theme/style",
+    "query": "id=1110658959014828545",
+    "postData": "",
+    "type": "Fetch"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/v8logo.1ec019ec.png",
+    "query": "",
+    "postData": "",
+    "type": "Image"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/service/udc/sandbox/delta-build-info/8704025620829192834",
+    "query": "",
+    "postData": "",
+    "type": "Fetch"
+   },
+   {
+    "method": "POST",
+    "url": "https://lowcode-test2.example.com/service/udc/application/search/front-detection",
+    "query": "",
+    "postData": "{\"appId\":\"8704025620829192834\"}",
+    "type": "Fetch"
+   }
+  ]
+ },
+ "团队设置": {
+  "route": "team",
+  "url": "https://lowcode-test2.example.com/main/child-frame/udc/app-design/app-basic-info/team?appId=8704025620829192834",
+  "requests": [
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/main/child-frame/udc/app-design/app-basic-info/team",
+    "query": "appId=8704025620829192834",
+    "postData": "",
+    "type": "Document"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/service/portal/file/download",
+    "query": "storageKey=/assets/1110658959014828545/sy-theme/20260126211951.css",
+    "postData": "",
+    "type": "Fetch"
+   },
+   {
+    "method": "POST",
+    "url": "https://lowcode-test2.example.com/service/ctp-application/appcenter/search-app-edition",
+    "query": "",
+    "postData": "{\"pageInfo\":{\"needTotal\":false,\"pageNumber\":1,\"pageSize\":20},\"params\":{\"IN_appId\":[\"faccountsreceivable2378987216360786643\",\"datamigration8704025620829192834\",\"znxmglpt3289082814923688017\",\"xiangmuguanli1656355078954763084\"],\"clientType\":\"PC\"}}",
+    "type": "Fetch"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/service/app-common/i18n/resource",
+    "query": "bundleName=udc%2Fweb-pages&full=false&localeName=zh_CN",
+    "postData": "",
+    "type": "Fetch"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/service/app-common/expression/system/values/date",
+    "query": "",
+    "postData": "",
+    "type": "Fetch"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/remoteEntry.js",
+    "query": "",
+    "postData": "",
+    "type": "Fetch"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/vendors-node_modules_query-string_index_js.d52513b5.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/028f7f7a.ck.css",
+    "query": "",
+    "postData": "",
+    "type": "Stylesheet"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/vendors-node_modules_reduxjs_toolkit_dist_redux-toolkit_esm_js-node_modules_antd_es_modal_ind-3dfba8.d68972e5.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/src_constants_design_page-type_ts-src_services_app-design_template_ts-src_services_design_pag-93bb09.6494d14a.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/d2c92ad8.ck.css",
+    "query": "",
+    "postData": "",
+    "type": "Stylesheet"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/src_redux_store_ts.14dc061e.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/618795cf.ck.css",
+    "query": "",
+    "postData": "",
+    "type": "Stylesheet"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/src_app4Exposes_tsx.1714867c.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/vendors-node_modules_resize-observer-polyfill_dist_ResizeObserver_es_js.3c36221f.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/vendors-node_modules_rc-resize-observer_es_index_js-node_modules_seeyon_biz-quick-search_dist-e64df4.df1da074.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/1ad4213c.ck.css",
+    "query": "",
+    "postData": "",
+    "type": "Stylesheet"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/vendors-node_modules_popperjs_core_lib_popper_js-node_modules_rc-table_es_index_js-node_modul-9a9ba6.53ff1b26.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/src_components_app-design_app_components_theme_index_ts-src_components_design_cmps_pc_common_-37bd17.61b75a70.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/58fc21ec.ck.css",
+    "query": "",
+    "postData": "",
+    "type": "Stylesheet"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/src_components_app-design_app_components_theme_app-style-designer-model_tsx-src_components_ap-7042b6.f96d7e03.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "POST",
+    "url": "https://lowcode-test2.example.com/service/udc/graphql",
+    "query": "udcDeploymentAppReadyStatePost",
+    "postData": "{\"query\":\"query graphqlLoader ($params0: udcDeploymentAppReadyStatePostInputBody) { \\n  data0: udcDeploymentAppReadyStatePost(body: $params0) { code data { content } message status } }\",\"variables\":{\"params0\":{\"appId\":\"8704025620829192834\"}}}",
+    "type": "Fetch"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/38a2a330.ck.css",
+    "query": "",
+    "postData": "",
+    "type": "Stylesheet"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/src_components_unify-console_items_operation-log_index_tsx.f29f0868.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/vendors-node_modules_seeyon_biz-icon-library_dist_index_js.72b83ae6.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/vendors-node_modules_semver_index_js.b4521c8e.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/c2bee152.ck.css",
+    "query": "",
+    "postData": "",
+    "type": "Stylesheet"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/src_pages_app-design_basic-info_index_tsx-node_modules_seeyon_biz-icon-library_dist_index_css.b24938e1.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "POST",
+    "url": "https://lowcode-test2.example.com/service/app-common/graphql",
+    "query": "appCommonThemeSelectDefaultGet",
+    "postData": "{\"query\":\"query {\\n        appCommonThemeSelectDefaultGet{\\n          code\\n          status\\n          message\\n          data {\\n          content\\n        }\\n      }\\n    }\",\"variables\":{}}",
+    "type": "Fetch"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/service/udc/application/user-role",
+    "query": "appName=udc",
+    "postData": "",
+    "type": "Fetch"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/service/app-common/theme/style",
+    "query": "id=1110658959014828545",
+    "postData": "",
+    "type": "Fetch"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/v8logo.1ec019ec.png",
+    "query": "",
+    "postData": "",
+    "type": "Image"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/service/udc/sandbox/delta-build-info/8704025620829192834",
+    "query": "",
+    "postData": "",
+    "type": "Fetch"
+   },
+   {
+    "method": "POST",
+    "url": "https://lowcode-test2.example.com/service/udc/application/search/front-detection",
+    "query": "",
+    "postData": "{\"appId\":\"8704025620829192834\"}",
+    "type": "Fetch"
+   }
+  ]
+ },
+ "应用主题": {
+  "route": "appTheme",
+  "url": "https://lowcode-test2.example.com/main/child-frame/udc/app-design/app-basic-info/appTheme?appId=8704025620829192834",
+  "requests": [
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/main/child-frame/udc/app-design/app-basic-info/appTheme",
+    "query": "appId=8704025620829192834",
+    "postData": "",
+    "type": "Document"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/service/portal/file/download",
+    "query": "storageKey=/assets/1110658959014828545/sy-theme-mobile/20260126211951.css",
+    "postData": "",
+    "type": "Fetch"
+   },
+   {
+    "method": "POST",
+    "url": "https://lowcode-test2.example.com/service/ctp-application/appcenter/search-app-edition",
+    "query": "",
+    "postData": "{\"pageInfo\":{\"needTotal\":false,\"pageNumber\":1,\"pageSize\":20},\"params\":{\"IN_appId\":[\"faccountsreceivable2378987216360786643\",\"datamigration8704025620829192834\",\"znxmglpt3289082814923688017\",\"xiangmuguanli1656355078954763084\"],\"clientType\":\"PC\"}}",
+    "type": "Fetch"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/service/app-common/i18n/resource",
+    "query": "bundleName=udc%2Fweb-pages&full=false&localeName=zh_CN",
+    "postData": "",
+    "type": "Fetch"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/service/app-common/expression/system/values/date",
+    "query": "",
+    "postData": "",
+    "type": "Fetch"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/remoteEntry.js",
+    "query": "",
+    "postData": "",
+    "type": "Fetch"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/vendors-node_modules_query-string_index_js.d52513b5.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/028f7f7a.ck.css",
+    "query": "",
+    "postData": "",
+    "type": "Stylesheet"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/vendors-node_modules_reduxjs_toolkit_dist_redux-toolkit_esm_js-node_modules_antd_es_modal_ind-3dfba8.d68972e5.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/src_constants_design_page-type_ts-src_services_app-design_template_ts-src_services_design_pag-93bb09.6494d14a.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/d2c92ad8.ck.css",
+    "query": "",
+    "postData": "",
+    "type": "Stylesheet"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/src_redux_store_ts.14dc061e.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/618795cf.ck.css",
+    "query": "",
+    "postData": "",
+    "type": "Stylesheet"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/src_app4Exposes_tsx.1714867c.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/vendors-node_modules_resize-observer-polyfill_dist_ResizeObserver_es_js.3c36221f.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/vendors-node_modules_rc-resize-observer_es_index_js-node_modules_seeyon_biz-quick-search_dist-e64df4.df1da074.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/1ad4213c.ck.css",
+    "query": "",
+    "postData": "",
+    "type": "Stylesheet"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/vendors-node_modules_popperjs_core_lib_popper_js-node_modules_rc-table_es_index_js-node_modul-9a9ba6.53ff1b26.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/src_components_app-design_app_components_theme_index_ts-src_components_design_cmps_pc_common_-37bd17.61b75a70.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/58fc21ec.ck.css",
+    "query": "",
+    "postData": "",
+    "type": "Stylesheet"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/src_components_app-design_app_components_theme_app-style-designer-model_tsx-src_components_ap-7042b6.f96d7e03.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "POST",
+    "url": "https://lowcode-test2.example.com/service/udc/graphql",
+    "query": "udcDeploymentAppReadyStatePost",
+    "postData": "{\"query\":\"query graphqlLoader ($params0: udcDeploymentAppReadyStatePostInputBody) { \\n  data0: udcDeploymentAppReadyStatePost(body: $params0) { code data { content } message status } }\",\"variables\":{\"params0\":{\"appId\":\"8704025620829192834\"}}}",
+    "type": "Fetch"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/38a2a330.ck.css",
+    "query": "",
+    "postData": "",
+    "type": "Stylesheet"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/src_components_unify-console_items_operation-log_index_tsx.f29f0868.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/vendors-node_modules_seeyon_biz-icon-library_dist_index_js.72b83ae6.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/vendors-node_modules_semver_index_js.b4521c8e.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/c2bee152.ck.css",
+    "query": "",
+    "postData": "",
+    "type": "Stylesheet"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/src_pages_app-design_basic-info_index_tsx-node_modules_seeyon_biz-icon-library_dist_index_css.b24938e1.js",
+    "query": "",
+    "postData": "",
+    "type": "Script"
+   },
+   {
+    "method": "POST",
+    "url": "https://lowcode-test2.example.com/service/app-common/graphql",
+    "query": "appCommonThemeSelectDefaultBrandPost",
+    "postData": "{\"query\":\"mutation graphqlLoader ($params0: appCommonThemeSelectDefaultBrandPostInputBody) { \\n  data0: appCommonThemeSelectDefaultBrandPost(body: $params0) { code data { content{\\n      id\\n      name\\n      data {\\n        id\\n        name\\n        storageKey\\n        mobileStorageKey\\n        publishStatus\\n        desktop\\n        mobile\\n      }\\n    } } message status } }\",\"variables\":{\"params0\":{\"device\":\"desktop\"}}}",
+    "type": "Fetch"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/service/udc/application/user-role",
+    "query": "appName=udc",
+    "postData": "",
+    "type": "Fetch"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/service/app-common/theme/style",
+    "query": "id=1110658959014828545",
+    "postData": "",
+    "type": "Fetch"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/service/udc/sandbox/delta-build-info/8704025620829192834",
+    "query": "",
+    "postData": "",
+    "type": "Fetch"
+   },
+   {
+    "method": "POST",
+    "url": "https://lowcode-test2.example.com/service/udc/application/search/front-detection",
+    "query": "",
+    "postData": "{\"appId\":\"8704025620829192834\"}",
+    "type": "Fetch"
+   },
+   {
+    "method": "GET",
+    "url": "https://lowcode-test2.example.com/udc/v8logo.1ec019ec.png",
+    "query": "",
+    "postData": "",
+    "type": "Image"
+   }
+  ]
+ }
+}
