@@ -20,7 +20,13 @@ def test_readme_matches_current_contract():
     assert f"Test collection: `{_pytest_collected_count()} tests collected`" in readme
 
     # 必须声明真实工具面，不能只说"只读"
-    assert "54 个 MCP 工具" in readme
+    # 数字随 TOOL_KEYS 变化，从代码取而不是硬编码（本轮加了 microflow_node_actions：54→55）
+    import sys as _sys
+    if str(ROOT) not in _sys.path:
+        _sys.path.insert(0, str(ROOT))
+    from adapters.mcp.server import TOOL_KEYS as _TK
+    assert "%d 个 MCP 工具" % len(_TK) in readme, (
+        "README 开头写的工具数与 TOOL_KEYS 不一致（应为 %d）" % len(_TK))
     assert "当前版本是可测试的只读骨架" not in readme
 
     # CLI 命令必须都还在

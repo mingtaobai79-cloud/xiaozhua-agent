@@ -35,6 +35,8 @@ EXPECTED_TOOL_NAMES = {
     "xiaozhua_dto_body", "xiaozhua_event_body", "xiaozhua_filter_plan_body",
     # 2026-11-09 补齐的 9 个：设置域 3 + 微流程 3 + 表达式/自定义页/SPI 各 1
     "xiaozhua_enum_category_body", "xiaozhua_event_data_body", "xiaozhua_refer_config_body",
+    # 能力发现：microflow_node 支持的 23 个 action → actionType
+    "xiaozhua_microflow_node_actions",
     "xiaozhua_microflow_node", "xiaozhua_microflow_gates", "xiaozhua_microflow_capability",
     "xiaozhua_expression_catalog", "xiaozhua_custom_page_scaffold", "xiaozhua_spi_catalog",
     # 2026-11-09 第二批：需显式 host+cookie（不传不联网）

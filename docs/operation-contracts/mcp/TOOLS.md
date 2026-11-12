@@ -7,8 +7,8 @@
 ## 概览
 
 ```
-bootstrap 可调用能力  57
-MCP 工具总数          54
+bootstrap 可调用能力  58
+MCP 工具总数          55
 需要凭据的工具        4（xiaozhua_microflow_publish / xiaozhua_expression_verify / xiaozhua_expression_filter / xiaozhua_entity_rule_publish）
 ```
 
@@ -26,6 +26,7 @@ MCP 工具总数          54
 | expression | 3 |
 | page | 4 |
 | SPI | 1 |
+| microflow | 1 |
 
 ## 全部工具
 
@@ -132,6 +133,12 @@ MCP 工具总数          54
 | 工具 | 必填参数 | 可选参数 | 说明 |
 |---|---|---|---|
 | `xiaozhua_spi_catalog` | — | — | SPI 扩展点事实目录 |
+
+### microflow（1）
+
+| 工具 | 必填参数 | 可选参数 | 说明 |
+|---|---|---|---|
+| `xiaozhua_microflow_node_actions` | — | — | 列出 microflow_node 支持的 23 个 action → actionType 映射 |
 
 ## 凭据边界
 

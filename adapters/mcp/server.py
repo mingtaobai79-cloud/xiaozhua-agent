@@ -31,7 +31,7 @@ TOOL_KEYS = (
     "event_body", "filter_plan_body",
     # ---- 2026-11-09 补齐：设置/实体/微流程/表达式/自定义页/SPI ----
     "enum_category_body", "event_data_body", "refer_config_body",
-    "microflow_node", "microflow_gates", "microflow_capability",
+    "microflow_node", "microflow_node_actions", "microflow_gates", "microflow_capability",
     "expression_catalog", "custom_page_scaffold", "spi_catalog",
     # ---- 设置域 7 子域（八大模块 setting/）----
     "option_set_category_body",
@@ -79,6 +79,7 @@ MCP_TOOL_NAMES = {
     "event_data_body": "xiaozhua_event_data_body",
     "refer_config_body": "xiaozhua_refer_config_body",
     "microflow_node": "xiaozhua_microflow_node",
+    "microflow_node_actions": "xiaozhua_microflow_node_actions",
     "microflow_gates": "xiaozhua_microflow_gates",
     "microflow_capability": "xiaozhua_microflow_capability",
     "expression_catalog": "xiaozhua_expression_catalog",
@@ -207,9 +208,17 @@ def build_tool_schemas(caps: dict[str, Callable]) -> list[dict]:
         "event_data_body": "带数据的事件 body。★事件绑的是 DTO 不是实体；实体无 DTO 时创建会静默成功但页面 0 条。",
         "refer_config_body": "实体「参照」tab 配置 body。★groupId 不传会静默落 0，参照列表看不到。",
         "microflow_node": "构造单个微流程节点（结构级 dict，可直接放进 dataSchema.nodes）。"
-                          "action ∈ retrieve/retrieve_array/create_entity/change_entity/delete_entity/"
-                          "call_app_service/sub_microflow/create_variable/change_variable/for_each/custom_error。"
+                          "action 共 23 个，覆盖事实层 22 种 actionType："
+                          "实体 retrieve/retrieve_array/create_entity/change_entity/delete_entity/"
+                          "create_batch_entity/change_batch_entity/data_mapping；"
+                          "变量列表 create_variable/change_variable/create_list/change_list/"
+                          "list_operation/create_map/map_operation/convert_data；"
+                          "调用 call_app_service/sub_microflow/call_data_flow/publish_business_event；"
+                          "控制流 for_each/custom_error/break。逐个映射见 microflow_node_actions()。"
+                          "★ 引用参数收「前序节点的完整 dict」，不要传别名。"
                           "★app/structure 必须来自 udcMicroflowSearchTreeEntityPost 的真实返回，不能手拼。",
+        "microflow_node_actions": "列出 microflow_node 支持的 23 个 action → actionType 映射（能力发现，不构造节点）。"
+                                  "★ 事实层认定微流程域有 22 种 actionType；本工具把「支持哪些」变成可查询事实。",
         "microflow_gates": "对完整 dataSchema 跑 G1–G41 静态闸门（0 浏览器）。"
                            "判据：problems 为空才算过；非空时逐条形如 `G<n> [节点] 说明`。",
         "microflow_capability": "微流程节点能力矩阵：每个 actionType 的验证等级（CONSTRUCTED/"

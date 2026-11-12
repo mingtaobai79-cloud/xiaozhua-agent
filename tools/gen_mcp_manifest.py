@@ -79,6 +79,7 @@ DOMAIN_OF = {
     # flow
     "microflow_create_body": ("flow", False, "微流程 create/checkSchema body"),
     "microflow_node": ("flow", False, "单节点构造（11 种 action）"),
+    "microflow_node_actions": ("microflow", False, "列出 microflow_node 支持的 23 个 action → actionType 映射"),
     "microflow_gates": ("flow", False, "G1–G41 静态闸门"),
     "microflow_capability": ("flow", False, "节点能力矩阵"),
     "microflow_trigger": ("flow", False, "触发器（MANUAL/SCHEDULE/EVENT/MF_EVENT）"),

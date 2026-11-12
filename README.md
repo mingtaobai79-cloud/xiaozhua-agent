@@ -3,8 +3,10 @@
 致远 UDC / SPI 平台的操作能力包（MCP）。给 Hermes、Codex、Claude Code 这类宿主用，
 让 AI 以用户身份经平台接口真实操作 —— 建实体、配枚举、发规则、出报文。
 
-**54 个 MCP 工具**，其中 **21 个**在真实环境跑过完整闭环（create → 回读 → delete），
-12 个本地工具装上即可用，其余逐项标注状态与阻塞原因（见第 2 节生成的清单）。
+**55 个 MCP 工具**，其中平台侧 42 个（**21 个**在 test2 真机跑过完整闭环 create → 回读 → delete），
+本地工具 13 个装上即可用。其余逐项标注状态与阻塞原因（见第 2 节生成的清单）。
+
+Test collection: `3203 tests collected`
 
 ---
 
@@ -48,7 +50,7 @@ printf '%s\n%s\n' \
   | xiaozhua-mcp
 ```
 
-输出两行 JSON，第二个里有 **54** 个 `"name"` = 连上了。
+输出两行 JSON，第二个里有 **55** 个 `"name"` = 连上了。
 
 ---
 
@@ -105,8 +107,8 @@ printf '%s\n%s\n' \
   | python adapters/mcp/server.py
 ```
 
-两行 JSON，第二行里有 **54** 个 `"name"` = 连上了。
-少于 54 或直接报错，先查 `INSTALL.md` 的故障表。
+两行 JSON，第二行里有 **55** 个 `"name"` = 连上了。
+少于 55 或直接报错，先查 `INSTALL.md` 的故障表。
 
 ---
 
@@ -116,11 +118,11 @@ printf '%s\n%s\n' \
 
 > 本表由 `tools/core/delivery/gen_tool_table.py` 从 `docs/delivery/tool-status.json` 生成，**不要手改**。
 
-合计 **54** 个工具：平台侧 42 个（其中 **21** 个真机验证过），本地工具 12 个。
+合计 **55** 个工具：平台侧 42 个（其中 **21** 个真机验证过），本地工具 13 个。
 
 | 状态 | 数量 |
 |---|---:|
-| ✅ 已验证 | 33 |
+| ✅ 已验证 | 34 |
 | ◐ 部分验证 | 2 |
 | ⚠ 未验证 | 16 |
 | 🔒 需授权 | 1 |
@@ -189,6 +191,7 @@ printf '%s\n%s\n' \
 | `spi_catalog` | 本地 | — | ✅ 已验证 | SPI 目录 |
 | `expression_catalog` | 本地 | — | ✅ 已验证 | 表达式函数目录（本地字典） |
 | `deploy_plan` | 本地 | — | ✅ 已验证 | 生成部署方案 body（readonly_plan=True），不提交 |
+| `microflow_node_actions` | 本地 | — | ✅ 已验证 | 列 23 个 action→actionType 映射；纯本地字典，不连平台 |
 
 <!-- END GENERATED:TOOL-TABLE -->
 
@@ -272,10 +275,10 @@ from xiaozhua_host_bootstrap import bootstrap
 from adapters.mcp.server import TOOL_KEYS
 b = bootstrap()
 idx = b["capability_index"]()
-print(len(TOOL_KEYS), idx["domain_count"], len(b))   # 54 9 57
+print(len(TOOL_KEYS), idx["domain_count"], len(b))   # 55 9 58
 ```
 
-`54` = MCP 工具数，`9` = 域数，`57` = bootstrap 暴露的可调用项（含 3 个非 MCP 内部件）。
+`55` = MCP 工具数，`9` = 域数，`58` = bootstrap 暴露的可调用项（含 3 个非 MCP 内部件）。
 
 ---
 
@@ -377,7 +380,7 @@ python -m pytest tests -m "offline and acceptance" -q
 **注意区分两层**：CLI 层是只读的（写操作返回 `DENIED`，规划只能 `dry-run`），
 但 MCP 工具层有真写面（见第 3 节）。任何离线输出都不能被解读为 `LIVE PASS`。
 
-Test collection: `3201 tests collected`。收集数量不等于通过数量。
+Test collection: `3203 tests collected`。收集数量不等于通过数量。
 真机验证记录在 `docs/audit/mcp-*-live-*.md`。
 
 ---

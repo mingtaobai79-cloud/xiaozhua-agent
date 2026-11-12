@@ -146,6 +146,7 @@ CASES = {
     "microflow_node": ({"action": "create_variable", "title": "冒烟变量",
                         "data_type": "STRING"},
                        ("nodeId", "actionType", "type")),
+    "microflow_node_actions": ({}, ("count", "actions")),
     "microflow_gates": ({"schema": {"nodes": [],
                                     "endNode": {"type": "END", "actionType": "END_NODE",
                                                 "nodeId": "MFEndNode"}}},

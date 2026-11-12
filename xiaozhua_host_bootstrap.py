@@ -434,10 +434,137 @@ def bootstrap(*, credential_file: str | None = None, allow_network: bool = False
             return N.for_each(for_end, nodes or [], **kw)
         if a == "custom_error":
             return N.custom_error(title or "错误", level=level, **kw)
+
+        # ── 以下是 22 种里原先没接进本入口的 12 种 ──────────────────
+        # 为什么另起一段：完整 22 种构造器在 components/construction/
+        # microflow_nodes_*.py（走 MicroflowComposer 的 _st_<kind> 分派），
+        # 而 components/udc/microflow/nodes.py 只有 11 个。两套并存，
+        # 本入口原先只绑了少的那套 → MCP 侧只能造 11 种节点。
+        # 事实：core/facts/udc/microflow/node-catalog.md（前端面板只有 5 个分组）
+        #       core/facts/udc/microflow/all-nodes-coverage.md（真实落库 22 种）
+        from components.construction.microflow_composer import MicroflowComposer
+        from components.construction.node_builder import NodeBuilder
+
+        def _compose(kind: str, **cw):
+            """借 MicroflowComposer._st_<kind> 造单个节点。
+
+            LiveRefs 传 None：这些 action 的实体/列表/服务引用都由调用方
+            以已构造好的节点 dict 传入（select_param / list_node），
+            不需要组装器去活取。
+
+            ★ 关键：composer 的引用参数收的是**别名**（str），不是节点 dict。
+              外部调用方手上是上一步返回的节点 dict，所以这里把 dict 里的
+              nodeId/输出名注册成临时别名，再把别名传给 composer。
+              不这样做会 `TypeError: cannot use 'dict' as a dict key`。
+            """
+            cb = NodeBuilder(app_id=cw.pop("app_id", 0) or 0,
+                             app_name=cw.pop("app_name", "") or "")
+            mc = MicroflowComposer(cb, None, app_id=0, app_name="")
+
+            def _alias_of(obj, default="prev"):
+                """节点 dict → 可被 composer 解析的别名，并登记进 by_alias。"""
+                if not isinstance(obj, dict):
+                    return obj
+                name = (obj.get("nodeId") or obj.get("outputName")
+                        or obj.get("id") or default)
+                mc.by_alias[str(name)] = obj
+                return str(name)
+
+            for key in ("list_node", "from_node", "map_node", "select_param"):
+                if key in cw and isinstance(cw[key], dict):
+                    cw[key] = _alias_of(cw[key], default=key)
+
+            # entity 也收别名：composer.entity(label) 先查 _entities 再回落 LiveRefs。
+            # 调用方给的是实体选择器返回的 dict（含 attributes），直接登记进去即可，
+            # 不查 LiveRefs（这里没有活引用通道）。
+            ent = cw.get("entity")
+            if isinstance(ent, dict):
+                ek = (ent.get("fullName") or ent.get("name")
+                      or ent.get("dtoShortName") or ent.get("id") or "entity")
+                ek = str(ek)
+                if not ent.get("attributes"):
+                    ent = dict(ent)
+                    ent.setdefault("attributes", {})
+                mc._entities[ek] = ent
+                cw["entity"] = ek
+            return mc.step(kind, cw.pop("alias", title or kind), **cw)
+
+        _mt = mapping_type if mapping_type != "attrs" else None
+
+        if a == "create_list":
+            return _compose("CREATE_LIST", title=title or "vList",
+                            data_type=data_type, default_value=value)
+        if a == "create_map":
+            return _compose("CREATE_MAP", title=title or "vMap",
+                            key_type="STRING",
+                            value_type=data_type if _mt is None else _mt)
+        if a == "list_operation":
+            # select_param 传前序 CREATE_LIST / RETRIEVE_ARRAY 的节点 dict
+            return _compose("LIST_OPERATION", list_node=select_param or {},
+                            op_type=_mt or "SIZE",
+                            title=title or "列表处理后结果")
+        if a == "map_operation":
+            return _compose("MAP_OPERATION", map_node=select_param or {},
+                            op_type=_mt or "PUT",
+                            result_title=title or "映射取值", data_type=data_type)
+        if a == "change_list":
+            return _compose("CHANGE_LIST", list_node=select_param or {},
+                            action=_mt or "ADD")
+        if a == "convert_data":
+            return _compose("CONVERT_DATA", from_node=select_param or {},
+                            convert_type=_mt or "BasicData2String",
+                            title=title or "数据转换")
+        if a == "data_mapping":
+            return _compose("DATA_MAPPING", entity=entity or {},
+                            from_node=select_param or {},
+                            src_field=_mt or "name")
+        if a == "create_batch_entity":
+            return _compose("CREATE_BATCH_ENTITY", entity=entity or {},
+                            list_node=select_param or {})
+        if a == "change_batch_entity":
+            return _compose("CHANGE_BATCH_ENTITY", entity=entity or {},
+                            list_node=select_param or {})
+        if a == "publish_business_event":
+            return _compose("PUBLISH_BUSINESS_EVENT", event=value or {},
+                            attrs=mapping or None)
+        if a == "break":
+            return _compose("BREAK")
+        if a == "call_data_flow":
+            return _compose("CALL_DATA_FLOW", entity=entity or {},
+                            rule=value or {}, condition=condition_)
+
         raise ValueError(
-            "未知 action %r；可用：retrieve / retrieve_array / create_entity / "
-            "change_entity / delete_entity / call_app_service / sub_microflow / "
-            "create_variable / change_variable / for_each / custom_error" % action)
+            "未知 action %r；可用 23 个（含 FOR 结构节点），"
+            "逐个清单见 microflow_node_actions()" % action)
+
+    def microflow_node_actions() -> dict[str, Any]:
+        """列出 microflow_node 支持的 action → actionType 映射（能力发现）。
+
+        为什么需要：之前 docstring 写 11 个、实现也是 11 个，
+        而事实层认定微流程域有 22 种 actionType，外部只能靠猜。
+        现在把「支持哪些」变成可查询事实，不用翻代码。
+        """
+        table = {
+            "retrieve": "RETRIEVE", "retrieve_array": "RETRIEVE_ARRAY",
+            "create_entity": "CREATE_ENTITY", "change_entity": "CHANGE_ENTITY",
+            "delete_entity": "DELETE_ENTITY",
+            "create_batch_entity": "CREATE_BATCH_ENTITY",
+            "change_batch_entity": "CHANGE_BATCH_ENTITY",
+            "data_mapping": "DATA_MAPPING",
+            "create_variable": "CREATE_VARIABLE", "change_variable": "CHANGE_VARIABLE",
+            "create_list": "CREATE_LIST", "change_list": "CHANGE_LIST",
+            "list_operation": "LIST_OPERATION",
+            "create_map": "CREATE_MAP", "map_operation": "MAP_OPERATION",
+            "convert_data": "CONVERT_DATA",
+            "call_app_service": "CALL_APP_SERVICE",
+            "sub_microflow": "SUB_MICROFLOW",
+            "call_data_flow": "CALL_DATA_FLOW",
+            "publish_business_event": "PUBLISH_BUSINESS_EVENT",
+            "for_each": "FOR", "custom_error": "CUSTOM_ERROR", "break": "BREAK",
+        }
+        return {"ok": True, "count": len(table), "actions": table,
+                "note": "22 种微流程 actionType 全覆盖；FOR 是结构节点（循环容器），"
+                        "BREAK 恒在 BRANCH 分支内。"}
 
     def microflow_gates(schema: dict, app_name: str | None = None) -> dict[str, Any]:
         """对完整 dataSchema 跑 G1–G41 静态闸门（0 浏览器，生成期最后一道）。
@@ -1458,6 +1585,7 @@ def bootstrap(*, credential_file: str | None = None, allow_network: bool = False
         "event_data_body": event_data_body,
         "refer_config_body": refer_config_body,
         "microflow_node": microflow_node,
+        "microflow_node_actions": microflow_node_actions,
         "microflow_gates": microflow_gates,
         "microflow_capability": microflow_capability,
         "expression_catalog": expression_catalog,

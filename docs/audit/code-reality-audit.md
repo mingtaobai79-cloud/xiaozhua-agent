@@ -1,6 +1,6 @@
 # xiaozhua Agent Code Reality Audit
 
-Test collection: `3201 tests collected`. Historical counts below are not current execution results; see `docs/plans/xiaozhua-distribution-progress.md` for the latest run.
+Test collection: `3203 tests collected`. Historical counts below are not current execution results; see `docs/plans/xiaozhua-distribution-progress.md` for the latest run.
 
 > **正文是 2026-09-03 那次审计的现场快照，不是当前状态。**
 > 其中的 `183 passing tests` / `183 collected` / `total of 59` 都是**当时**的数值（仓库后来从
@@ -104,7 +104,7 @@ Fresh commands executed in the target checkout:
 
 ```text
 python -m pytest tests --collect-only -q
-# 3201 tests collected in 0.74s   【当前 2026-11-07 实测】
+# 3203 tests collected in 0.74s   【当前 2026-11-07 实测】
 
 python -m pytest tests -q
 # 3172 passed, 23 skipped in 72.38s   【当前 2026-11-07 实测】
@@ -114,7 +114,7 @@ python -m py_compile <all Python files under the repository>
 ```
 
 > 收集数 2714 = 通过 2691 + 跳过 23，口径自洽。下方 `Commands and raw-result summary`
-> 表里的 `3201 tests collected` 是同一批数据，已补上对应通过数，以本节为准。
+> 表里的 `3203 tests collected` 是同一批数据，已补上对应通过数，以本节为准。
 
 ## OBSERVATION — behavior seen in current runs
 
@@ -177,7 +177,7 @@ python -m py_compile <all Python files under the repository>
 | `git status --short --branch` | **BLOCKED**: target is not a Git repository |
 | `git log -5 --oneline --decorate` | **BLOCKED**: target is not a Git repository |
 | `git diff --check` | **BLOCKED**: target is not a Git repository |
-| `pytest --collect-only -q` | **3201 tests collected** |
+| `pytest --collect-only -q` | **3203 tests collected** |
 | `pytest -q` | 【当前 2026-11-07】**3172 passed, 23 skipped**（原表此行留空，已补） |
 | `py_compile` all repository Python files | **RC 0** |
 | `xiaozhua_cli.py --help` | **RC 0**, dependency-light help |

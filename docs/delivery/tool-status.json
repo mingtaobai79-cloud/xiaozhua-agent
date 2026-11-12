@@ -350,6 +350,14 @@
       "blocker": "同上"
     },
     {
+      "key": "microflow_node_actions",
+      "kind": "local",
+      "write": false,
+      "auth": false,
+      "status": "VERIFIED",
+      "note": "列 23 个 action→actionType 映射；纯本地字典，不连平台"
+    },
+    {
       "key": "microflow_gates",
       "kind": "write",
       "write": true,
