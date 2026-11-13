@@ -63,6 +63,8 @@ EXPECTED_TOOL_NAMES = {
     "xiaozhua_app_dependency_body", "xiaozhua_app_dependency_remove_body",
     "xiaozhua_app_deploy_body", "xiaozhua_app_version_list",
     "xiaozhua_app_build_info",
+    "xiaozhua_signature_search", "xiaozhua_microflow_service_catalog",
+    "xiaozhua_ui_component_catalog",
 }
 
 

@@ -537,6 +537,101 @@ def bootstrap(*, credential_file: str | None = None, allow_network: bool = False
             "未知 action %r；可用 23 个（含 FOR 结构节点），"
             "逐个清单见 microflow_node_actions()" % action)
 
+    # ---- 离线参考索引（不连平台）：标品签名 / 自定义微流程可调服务 / 前端组件 ----
+    def _ref_load(name: str):
+        import gzip
+        from pathlib import Path as _P
+        here = _P(__file__).resolve().parent
+        for base in (here, here / "xiaozhua_agent_data"):
+            for cand in (base / "docs" / "audit" / "reference" / name,
+                         base / "docs" / "audit" / name,          # signatures.txt.gz 在这层
+                         base / "reference" / name,
+                         base / name):
+                if cand.exists():
+                    with gzip.open(cand, "rt", encoding="utf-8") as fh:
+                        return [ln.split("\t") for ln in fh.read().splitlines() if ln]
+        raise FileNotFoundError(
+            f"缺参考索引 {name}；重建命令见 docs/audit/ASSET-INVENTORY.md 末节")
+
+    def signature_search(query: str = "", pkg: str = "", kind: str = "",
+                         limit: int = 20) -> dict[str, Any]:
+        rows = _ref_load("signatures.txt.gz")
+        q, pk, kd = query.lower(), pkg.lower(), kind.lower()
+        kinds = {r[0]: r[1] for r in rows if len(r) >= 2}
+        classes: dict[str, list] = {}
+        for row in rows:
+            head = row[0]
+            low = "\t".join(row).lower()
+            if q and q not in low:
+                continue
+            if pk and not low.startswith(pk):
+                continue
+            if "#" in head:
+                fq, rest = head.split("#", 1)
+            else:
+                fq, rest = head, ""
+            if kd and kinds.get(fq, "").lower() != kd:
+                continue
+            classes.setdefault(fq, [])
+            if rest:
+                classes[fq].append(rest)
+        out = [{"class": fq, "kind": kinds.get(fq, ""), "members": m}
+               for fq, m in sorted(classes.items())[: int(limit)]]
+        return {"query": query, "pkg": pkg, "kind": kind,
+                "matched_classes": len(classes), "classes": out}
+
+    def microflow_service_catalog(query: str = "", dep: str = "",
+                                  limit: int = 10) -> dict[str, Any]:
+        rows = _ref_load("svc-app-service.txt.gz")
+        q, dp = query.lower(), dep.lower()
+        svc: dict[str, dict] = {}
+        for row in rows:
+            head = row[0]
+            jar = row[1] if len(row) > 1 else ""
+            if dp and dp not in jar.lower():
+                continue
+            if q and q not in head.lower():
+                continue
+            if "#" in head:
+                fq, rest = head.split("#", 1)
+            else:
+                fq, rest = head, ""
+            d = svc.setdefault(fq, {"service": fq, "dependency": jar, "methods": []})
+            if rest:
+                d["methods"].append(rest)
+        picked = sorted(svc.values(), key=lambda x: x["service"])[: int(limit)]
+        return {"query": query, "dep": dep, "matched_services": len(svc),
+                "services": picked,
+                "note": "dependency 是该方法所在构件 jar；客户自定义 AppServiceImpl 不在索引里，"
+                        "走 udcMicroflowSearchAppServiceByAppNamePost 链路现查"}
+
+    def ui_component_catalog(query: str = "", pkg: str = "",
+                             limit: int = 10) -> dict[str, Any]:
+        rows = _ref_load("ui-components.txt.gz")
+        q, pk = query.lower(), pkg.lower()
+
+        def rank(name: str):
+            n = name.lower()
+            return (0 if n == q else 1 if n.startswith(q) else 2, n)
+
+        comps: dict[tuple, dict] = {}
+        for row in rows:
+            r = (list(row) + ["", "", "", ""])[:5]
+            p_, ver, comp, prop, typ = r
+            if pk and pk not in p_.lower():
+                continue
+            if q and q not in comp.lower():
+                continue
+            d = comps.setdefault((comp, p_), {"component": comp, "package": p_,
+                                              "version": ver, "props": []})
+            if prop and prop != "-":
+                d["props"].append({"name": prop, "type": typ})
+        picked = [comps[k] for k in sorted(comps, key=lambda k: rank(k[0]))[: int(limit)]]
+        return {"query": query, "pkg": pkg, "matched_components": len(comps),
+                "components": picked,
+                "note": "属性名来自 .d.ts 可信；type=any 是组件透传，类型不可信；"
+                        "antd 派生组件的属性在 antd 侧"}
+
     def microflow_node_actions() -> dict[str, Any]:
         """列出 microflow_node 支持的 action → actionType 映射（能力发现）。
 
@@ -1586,6 +1681,9 @@ def bootstrap(*, credential_file: str | None = None, allow_network: bool = False
         "refer_config_body": refer_config_body,
         "microflow_node": microflow_node,
         "microflow_node_actions": microflow_node_actions,
+        "signature_search": signature_search,
+        "microflow_service_catalog": microflow_service_catalog,
+        "ui_component_catalog": ui_component_catalog,
         "microflow_gates": microflow_gates,
         "microflow_capability": microflow_capability,
         "expression_catalog": expression_catalog,

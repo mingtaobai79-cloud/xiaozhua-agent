@@ -1,0 +1,545 @@
+{
+ "artifacts": [
+  {
+   "name": "api-usage",
+   "kind": "dir",
+   "files": 11,
+   "size_mb": 3.3,
+   "hits": {
+    "内网IP": 2
+   },
+   "policy": "不收录",
+   "reason": "含内网 IP 与客户侧字段示例，可重跑 emit_api_usage.py 得到"
+  },
+  {
+   "name": "decompiled",
+   "kind": "dir",
+   "files": 7540,
+   "size_mb": 43.69,
+   "hits": {
+    "真人名": 11,
+    "客户组织": 91,
+    "客户名(中文)": 12,
+    "环境域名": 91,
+    "appId": 178,
+    "内网IP": 10
+   },
+   "policy": "不收录",
+   "reason": "50 个临时 CFR 目录、版本重复，混客户组织名 / 环境域名 / 178 处真实 appId / 11 处真人名；需要源码用 cfr-0.152.jar 重跑"
+  },
+  {
+   "name": "extension-surface-20261029",
+   "kind": "dir",
+   "files": 341,
+   "size_mb": 293.74,
+   "hits": {
+    "内网IP": 2,
+    "客户组织": 1,
+    "appId": 1
+   },
+   "policy": "可重建",
+   "reason": "原始反编译面 293 MB；签名已由 signatures.txt.gz 覆盖，契约/字段/实现类已由 surface-index.tar.gz + udc-platform 包覆盖"
+  },
+  {
+   "name": "extmetadata-5.3.318",
+   "kind": "dir",
+   "files": 31,
+   "size_mb": 1.62,
+   "hits": {},
+   "policy": "随仓库",
+   "reason": "在 udc-platform-*.tar.gz 中：UdcEntityMetaDataService 元数据契约"
+  },
+  {
+   "name": "frontend-surface-20261102",
+   "kind": "dir",
+   "files": 2,
+   "size_mb": 1.48,
+   "hits": {
+    "appId": 1
+   },
+   "policy": "不收录",
+   "reason": "客户应用自己的前端快照（appId + @seeyon 依赖版本）"
+  },
+  {
+   "name": "metadata-5.3.358",
+   "kind": "dir",
+   "files": 10,
+   "size_mb": 0.78,
+   "hits": {},
+   "policy": "随仓库",
+   "reason": "在 udc-platform-*.tar.gz 中：MetadataService / MetadataController"
+  },
+  {
+   "name": "mf_realdataschema.json",
+   "kind": "file",
+   "files": 1,
+   "size_mb": 0.0,
+   "hits": {
+    "appId": 1
+   },
+   "policy": "随仓库",
+   "reason": "在 udc-platform-*.tar.gz 中：微流程节点真实 io schema"
+  },
+  {
+   "name": "README.md",
+   "kind": "file",
+   "files": 1,
+   "size_mb": 0.01,
+   "hits": {},
+   "policy": "不收录",
+   "reason": "描述的是完整 409 MB 证据根，与分发形态不符；分发说明见 REGENERATE-EVIDENCE.md"
+  },
+  {
+   "name": "runtime-lowcode-5.3.517",
+   "kind": "dir",
+   "files": 1,
+   "size_mb": 0.51,
+   "hits": {},
+   "policy": "随仓库",
+   "reason": "在 udc-platform-*.tar.gz 中"
+  },
+  {
+   "name": "s7_w1_result.json",
+   "kind": "file",
+   "files": 1,
+   "size_mb": 0.01,
+   "hits": {
+    "appId": 1
+   },
+   "policy": "不收录",
+   "reason": "一次性实测返回（建单结果 id），结论已入 core/facts"
+  },
+  {
+   "name": "s7_w3_result.json",
+   "kind": "file",
+   "files": 1,
+   "size_mb": 0.0,
+   "hits": {
+    "appId": 1
+   },
+   "policy": "不收录",
+   "reason": "一次性实测返回（建页结果 id），结论已入 core/facts"
+  },
+  {
+   "name": "scratch-migrated",
+   "kind": "dir",
+   "files": 176,
+   "size_mb": 13.25,
+   "hits": {
+    "appId": 56,
+    "客户组织": 11,
+    "环境域名": 10,
+    "客户名(中文)": 4
+   },
+   "policy": "不收录",
+   "reason": "迁移过程草稿，无稳定结构，无代码引用"
+  },
+  {
+   "name": "service-flow-20261103",
+   "kind": "dir",
+   "files": 18,
+   "size_mb": 5.13,
+   "hits": {
+    "appId": 1
+   },
+   "policy": "不收录",
+   "reason": "文件名即含真实 appId 与手机号，客户业务流证据"
+  },
+  {
+   "name": "u4-gateway",
+   "kind": "dir",
+   "files": 2,
+   "size_mb": 0.02,
+   "hits": {
+    "客户组织": 2,
+    "环境域名": 2,
+    "内网IP": 1
+   },
+   "policy": "不收录",
+   "reason": "含客户组织名 + 内网 IP"
+  },
+  {
+   "name": "u5-storage",
+   "kind": "dir",
+   "files": 20,
+   "size_mb": 0.11,
+   "hits": {},
+   "policy": "不收录",
+   "reason": "含环境域名 + 5 处内网 IP"
+  },
+  {
+   "name": "u6-nacos-config",
+   "kind": "dir",
+   "files": 6,
+   "size_mb": 0.16,
+   "hits": {
+    "客户组织": 4,
+    "内网IP": 2,
+    "客户名(中文)": 2,
+    "环境域名": 2
+   },
+   "policy": "不收录",
+   "reason": "含客户组织名、环境域名、内网 IP"
+  },
+  {
+   "name": "udc-app-basic",
+   "kind": "dir",
+   "files": 7,
+   "size_mb": 0.12,
+   "hits": {},
+   "policy": "随仓库",
+   "reason": "在 udc-platform-*.tar.gz 中"
+  },
+  {
+   "name": "udc-app-deploy-info-5.3.496",
+   "kind": "dir",
+   "files": 34,
+   "size_mb": 0.54,
+   "hits": {
+    "客户组织": 19,
+    "环境域名": 19,
+    "appId": 20,
+    "真人名": 1
+   },
+   "policy": "不收录",
+   "reason": "20 处真实 appId + 真人名"
+  },
+  {
+   "name": "udc-assemble-5.3.517-deployed",
+   "kind": "dir",
+   "files": 2,
+   "size_mb": 0.27,
+   "hits": {
+    "客户组织": 1
+   },
+   "policy": "不收录",
+   "reason": "含客户组织名与环境域名"
+  },
+  {
+   "name": "udc-bi-5.3.260",
+   "kind": "dir",
+   "files": 104,
+   "size_mb": 2.01,
+   "hits": {
+    "appId": 17
+   },
+   "policy": "不收录",
+   "reason": "含环境域名与 17 处真实 appId"
+  },
+  {
+   "name": "udc-bi-5.3.517",
+   "kind": "dir",
+   "files": 68,
+   "size_mb": 2.01,
+   "hits": {
+    "客户组织": 3,
+    "环境域名": 2,
+    "appId": 3
+   },
+   "policy": "不收录",
+   "reason": "含 CDP 抓包原文与客户组织名"
+  },
+  {
+   "name": "udc-biz-5.3.517",
+   "kind": "dir",
+   "files": 65,
+   "size_mb": 0.33,
+   "hits": {},
+   "policy": "随仓库",
+   "reason": "在 udc-platform-*.tar.gz 中"
+  },
+  {
+   "name": "udc-common-5.3.517",
+   "kind": "dir",
+   "files": 2,
+   "size_mb": 0.04,
+   "hits": {},
+   "policy": "随仓库",
+   "reason": "在 udc-platform-*.tar.gz 中"
+  },
+  {
+   "name": "udc-entity-5.3.517",
+   "kind": "dir",
+   "files": 16,
+   "size_mb": 0.29,
+   "hits": {},
+   "policy": "不收录",
+   "reason": "含环境域名；实体域已有 core/facts/udc/entity 事实"
+  },
+  {
+   "name": "udc-entity-customplan-5.3.517",
+   "kind": "dir",
+   "files": 3,
+   "size_mb": 0.07,
+   "hits": {},
+   "policy": "不收录",
+   "reason": "含环境域名"
+  },
+  {
+   "name": "udc-entity-to-ctpenum-mechanism-20261013.md",
+   "kind": "file",
+   "files": 1,
+   "size_mb": 0.01,
+   "hits": {},
+   "policy": "随仓库",
+   "reason": "在 udc-platform-*.tar.gz 中：关联字段→枚举切换机制"
+  },
+  {
+   "name": "udc-expression-contracts.json",
+   "kind": "file",
+   "files": 1,
+   "size_mb": 0.02,
+   "hits": {
+    "appId": 1
+   },
+   "policy": "随仓库",
+   "reason": "在 udc-platform-*.tar.gz 中：token 类型与可执行判定"
+  },
+  {
+   "name": "udc-expression-functions-raw.json",
+   "kind": "file",
+   "files": 1,
+   "size_mb": 0.01,
+   "hits": {},
+   "policy": "不收录",
+   "reason": "函数树原始中间件，已由 functions.json 结构化版本覆盖"
+  },
+  {
+   "name": "udc-expression-functions.json",
+   "kind": "file",
+   "files": 1,
+   "size_mb": 0.06,
+   "hits": {},
+   "policy": "随仓库",
+   "reason": "在 udc-platform-*.tar.gz 中：表达式函数树"
+  },
+  {
+   "name": "udc-expression-samples.json",
+   "kind": "file",
+   "files": 1,
+   "size_mb": 0.06,
+   "hits": {},
+   "policy": "随仓库",
+   "reason": "在 udc-platform-*.tar.gz 中：真实样本"
+  },
+  {
+   "name": "udc-expression-schema-full.json",
+   "kind": "file",
+   "files": 1,
+   "size_mb": 0.02,
+   "hits": {
+    "appId": 1
+   },
+   "policy": "随仓库",
+   "reason": "在 udc-platform-*.tar.gz 中：ENTITY / CONFIG_PARAM 结构"
+  },
+  {
+   "name": "udc-expression-schema-paramtypes.json",
+   "kind": "file",
+   "files": 1,
+   "size_mb": 0.01,
+   "hits": {},
+   "policy": "随仓库",
+   "reason": "在 udc-platform-*.tar.gz 中：参数类型"
+  },
+  {
+   "name": "udc-expression-system-variables.json",
+   "kind": "file",
+   "files": 1,
+   "size_mb": 0.03,
+   "hits": {},
+   "policy": "随仓库",
+   "reason": "在 udc-platform-*.tar.gz 中：系统变量"
+  },
+  {
+   "name": "udc-flow-5.3.517",
+   "kind": "dir",
+   "files": 20,
+   "size_mb": 0.15,
+   "hits": {},
+   "policy": "随仓库",
+   "reason": "在 udc-platform-*.tar.gz 中"
+  },
+  {
+   "name": "udc-frontend-5.3.496",
+   "kind": "dir",
+   "files": 1,
+   "size_mb": 2.41,
+   "hits": {},
+   "policy": "不收录",
+   "reason": "单个 2.4 MB 压缩后的 redux store chunk，噪声大于信息"
+  },
+  {
+   "name": "udc-frontend-ops",
+   "kind": "dir",
+   "files": 5,
+   "size_mb": 0.4,
+   "hits": {
+    "appId": 2,
+    "客户组织": 1
+   },
+   "policy": "不收录",
+   "reason": "含真实 appId 与客户组织名"
+  },
+  {
+   "name": "udc-menu-5.3.517",
+   "kind": "dir",
+   "files": 14,
+   "size_mb": 0.31,
+   "hits": {
+    "客户组织": 1,
+    "环境域名": 1
+   },
+   "policy": "不收录",
+   "reason": "含客户组织名；且菜单域按既定边界不推进"
+  },
+  {
+   "name": "udc-node-evidence",
+   "kind": "dir",
+   "files": 35,
+   "size_mb": 2.32,
+   "hits": {
+    "客户组织": 5,
+    "环境域名": 5,
+    "appId": 29
+   },
+   "policy": "不收录",
+   "reason": "含客户组织名、环境域名、29 处真实 appId"
+  },
+  {
+   "name": "udc-page-5.3.517",
+   "kind": "dir",
+   "files": 11,
+   "size_mb": 0.38,
+   "hits": {
+    "客户组织": 2,
+    "环境域名": 2
+   },
+   "policy": "随仓库",
+   "reason": "在 udc-platform-*.tar.gz 中，仅排除 2 个 LIVE-* 运行记录"
+  },
+  {
+   "name": "udc-publish-5.3.517",
+   "kind": "dir",
+   "files": 63,
+   "size_mb": 3.19,
+   "hits": {},
+   "policy": "随仓库",
+   "reason": "在 udc-platform-*.tar.gz 中：页面/应用发布入口"
+  },
+  {
+   "name": "udc-resource-5.3.517",
+   "kind": "dir",
+   "files": 46,
+   "size_mb": 1.78,
+   "hits": {},
+   "policy": "随仓库",
+   "reason": "在 udc-platform-*.tar.gz 中"
+  },
+  {
+   "name": "udc-runtime-5.3.517",
+   "kind": "dir",
+   "files": 75,
+   "size_mb": 1.84,
+   "hits": {},
+   "policy": "随仓库",
+   "reason": "在 udc-platform-*.tar.gz 中：UdcBaseGeneralController / UdcRestPathParse"
+  },
+  {
+   "name": "udc-runtime-5.3.517-javap",
+   "kind": "dir",
+   "files": 3,
+   "size_mb": 0.02,
+   "hits": {},
+   "policy": "随仓库",
+   "reason": "在 udc-platform-*.tar.gz 中"
+  },
+  {
+   "name": "udc-user-5.3.517-contracts",
+   "kind": "dir",
+   "files": 2,
+   "size_mb": 0.09,
+   "hits": {},
+   "policy": "随仓库",
+   "reason": "在 udc-platform-*.tar.gz 中"
+  },
+  {
+   "name": "udc-web-5.3.517",
+   "kind": "dir",
+   "files": 1,
+   "size_mb": 2.38,
+   "hits": {},
+   "policy": "随仓库",
+   "reason": "在 udc-platform-*.tar.gz 中：全部 Controller javap 单文件"
+  },
+  {
+   "name": "udc-web-5.3.517-contracts",
+   "kind": "dir",
+   "files": 60,
+   "size_mb": 2.63,
+   "hits": {},
+   "policy": "随仓库",
+   "reason": "在 udc-platform-*.tar.gz 中：54 Controller / 674 端点的端点表"
+  },
+  {
+   "name": "udc-web-5.3.517-javap",
+   "kind": "dir",
+   "files": 58,
+   "size_mb": 2.54,
+   "hits": {},
+   "policy": "不收录",
+   "reason": "与 udc-web-5.3.517-contracts 内的 javap 同源重复，且含 1 处内网 IP"
+  },
+  {
+   "name": "udc-web-5.3.517-methods",
+   "kind": "dir",
+   "files": 1,
+   "size_mb": 0.14,
+   "hits": {},
+   "policy": "随仓库",
+   "reason": "在 udc-platform-*.tar.gz 中：方法索引"
+  }
+ ],
+ "outside": [
+  {
+   "name": "docs/audit/evidence/",
+   "policy": "不收录",
+   "files": 0,
+   "size_mb": 0.0,
+   "hits": {},
+   "reason": "客户业务证据（截图/回读记录），脱敏后也失去证据价值"
+  },
+  {
+   "name": "core/facts/**/evidence/（已脱敏的部分除外）",
+   "policy": "随仓库",
+   "files": 0,
+   "size_mb": 0.0,
+   "hits": {},
+   "reason": "305 个事实依据文件已脱敏入仓"
+  },
+  {
+   "name": "tools/core/feishu/",
+   "policy": "不收录",
+   "files": 0,
+   "size_mb": 0.0,
+   "hits": {},
+   "reason": "一次性排障脚本，硬编码真实飞书 TOKEN，运行时 0 引用"
+  },
+  {
+   "name": "skills/06-delivery/<客户项目>-pmp/",
+   "policy": "不收录",
+   "files": 0,
+   "size_mb": 0.0,
+   "hits": {},
+   "reason": "客户项目专属 skill"
+  },
+  {
+   "name": "docs/audit/column-discovery/raw-nav-capture-*.json",
+   "policy": "不收录",
+   "files": 0,
+   "size_mb": 0.0,
+   "hits": {},
+   "reason": "页面导航抓包含 42 处真实操作人姓名"
+  }
+ ]
+}

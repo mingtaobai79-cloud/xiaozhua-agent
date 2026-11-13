@@ -3,10 +3,10 @@
 UDC / SPI 平台的操作能力包（MCP）。给 Hermes、Codex、Claude Code 这类宿主用，
 让 AI 以用户身份经平台接口真实操作 —— 建实体、配枚举、发规则、出报文。
 
-**55 个 MCP 工具**，其中平台侧 42 个（**21 个**在 test2 真机跑过完整闭环 create → 回读 → delete），
-本地工具 13 个装上即可用。其余逐项标注状态与阻塞原因（见第 2 节生成的清单）。
+**58 个 MCP 工具**，其中平台侧 42 个（**21 个**在 test2 真机跑过完整闭环 create → 回读 → delete），
+本地工具 16 个装上即可用。其余逐项标注状态与阻塞原因（见第 2 节生成的清单）。
 
-Test collection: `3203 tests collected`
+Test collection: `3209 tests collected`
 
 ---
 
@@ -136,11 +136,11 @@ printf '%s\n%s\n' \
 
 > 本表由 `tools/core/delivery/gen_tool_table.py` 从 `docs/delivery/tool-status.json` 生成，**不要手改**。
 
-合计 **55** 个工具：平台侧 42 个（其中 **21** 个真机验证过），本地工具 13 个。
+合计 **58** 个工具：平台侧 42 个（其中 **21** 个真机验证过），本地工具 16 个。
 
 | 状态 | 数量 |
 |---|---:|
-| ✅ 已验证 | 34 |
+| ✅ 已验证 | 37 |
 | ◐ 部分验证 | 2 |
 | ⚠ 未验证 | 16 |
 | 🔒 需授权 | 1 |
@@ -210,6 +210,9 @@ printf '%s\n%s\n' \
 | `expression_catalog` | 本地 | — | ✅ 已验证 | 表达式函数目录（本地字典） |
 | `deploy_plan` | 本地 | — | ✅ 已验证 | 生成部署方案 body（readonly_plan=True），不提交 |
 | `microflow_node_actions` | 本地 | — | ✅ 已验证 | 本地已跑通：返回 23 条 action→actionType 映射 |
+| `ui_component_catalog` | 本地 | — | ✅ 已验证 | 离线查 515 组件 / 786 属性 / 50 包；不连平台 |
+| `microflow_service_catalog` | 本地 | — | ✅ 已验证 | 离线查 833 AppService / 10176 行，带依赖 jar；不连平台 |
+| `signature_search` | 本地 | — | ✅ 已验证 | 离线查 21389 类 / 245709 行签名；实测 0.25 秒；不连平台 |
 
 <!-- END GENERATED:TOOL-TABLE -->
 
@@ -398,7 +401,7 @@ python -m pytest tests -m "offline and acceptance" -q
 **注意区分两层**：CLI 层是只读的（写操作返回 `DENIED`，规划只能 `dry-run`），
 但 MCP 工具层有真写面（见第 3 节）。任何离线输出都不能被解读为 `LIVE PASS`。
 
-Test collection: `3203 tests collected`。收集数量不等于通过数量。
+Test collection: `3209 tests collected`。收集数量不等于通过数量。
 真机验证记录在 `docs/audit/mcp-*-live-*.md`。
 
 ---

@@ -32,6 +32,8 @@ TOOL_KEYS = (
     # ---- 2026-11-09 补齐：设置/实体/微流程/表达式/自定义页/SPI ----
     "enum_category_body", "event_data_body", "refer_config_body",
     "microflow_node", "microflow_node_actions", "microflow_gates", "microflow_capability",
+    # ---- 离线参考索引：标品签名 / 自定义微流程可调服务 / 前端组件 ----
+    "signature_search", "microflow_service_catalog", "ui_component_catalog",
     "expression_catalog", "custom_page_scaffold", "spi_catalog",
     # ---- 设置域 7 子域（八大模块 setting/）----
     "option_set_category_body",
@@ -80,6 +82,9 @@ MCP_TOOL_NAMES = {
     "refer_config_body": "xiaozhua_refer_config_body",
     "microflow_node": "xiaozhua_microflow_node",
     "microflow_node_actions": "xiaozhua_microflow_node_actions",
+    "signature_search": "xiaozhua_signature_search",
+    "microflow_service_catalog": "xiaozhua_microflow_service_catalog",
+    "ui_component_catalog": "xiaozhua_ui_component_catalog",
     "microflow_gates": "xiaozhua_microflow_gates",
     "microflow_capability": "xiaozhua_microflow_capability",
     "expression_catalog": "xiaozhua_expression_catalog",
@@ -219,6 +224,15 @@ def build_tool_schemas(caps: dict[str, Callable]) -> list[dict]:
                           "★app/structure 必须来自 udcMicroflowSearchTreeEntityPost 的真实返回，不能手拼。",
         "microflow_node_actions": "列出 microflow_node 支持的 23 个 action → actionType 映射（能力发现，不构造节点）。"
                                   "★ 事实层认定微流程域有 22 种 actionType；本工具把「支持哪些」变成可查询事实。",
+        "signature_search": "离线查全平台类/方法签名（21389 类 / 245709 行）。参数 query 片段、"
+                            "pkg 包前缀、kind=class|interface|enum、limit。不连平台、不需要 jar，"
+                            "约 0.25 秒。写扩展代码查标品 Service 的入参与返回类型用它。",
+        "microflow_service_catalog": "查自定义微流程「自定义服务节点」可调用的服务与方法（833 个 "
+                                     "AppService / 10176 行），每条带 dependency（所在构件 jar）。"
+                                     "只覆盖标品 facade；客户自定义 AppServiceImpl 走平台链路现查。",
+        "ui_component_catalog": "查自定义页面可用的前端组件与属性（515 组件 / 786 属性 / 50 个 "
+                                "@seeyon 包，带版本）。属性名来自 .d.ts 可信；type=any 是透传，"
+                                "类型不可信；antd 派生组件的属性在 antd 侧。",
         "microflow_gates": "对完整 dataSchema 跑 G1–G41 静态闸门（0 浏览器）。"
                            "判据：problems 为空才算过；非空时逐条形如 `G<n> [节点] 说明`。",
         "microflow_capability": "微流程节点能力矩阵：每个 actionType 的验证等级（CONSTRUCTED/"

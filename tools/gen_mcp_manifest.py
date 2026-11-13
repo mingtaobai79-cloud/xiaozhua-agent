@@ -80,6 +80,10 @@ DOMAIN_OF = {
     "microflow_create_body": ("flow", False, "微流程 create/checkSchema body"),
     "microflow_node": ("flow", False, "单节点构造（11 种 action）"),
     "microflow_node_actions": ("microflow", False, "列出 microflow_node 支持的 23 个 action → actionType 映射"),
+    # reference（离线索引，不连平台）
+    "signature_search": ("reference", False, "查全平台类/方法签名（21389 类）"),
+    "microflow_service_catalog": ("reference", False, "查自定义微流程可调用的服务与方法（带依赖 jar）"),
+    "ui_component_catalog": ("reference", False, "查自定义页面可用前端组件与属性"),
     "microflow_gates": ("flow", False, "G1–G41 静态闸门"),
     "microflow_capability": ("flow", False, "节点能力矩阵"),
     "microflow_trigger": ("flow", False, "触发器（MANUAL/SCHEDULE/EVENT/MF_EVENT）"),

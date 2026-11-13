@@ -7,8 +7,8 @@
 ## 概览
 
 ```
-bootstrap 可调用能力  58
-MCP 工具总数          55
+bootstrap 可调用能力  61
+MCP 工具总数          58
 需要凭据的工具        4（xiaozhua_microflow_publish / xiaozhua_expression_verify / xiaozhua_expression_filter / xiaozhua_entity_rule_publish）
 ```
 
@@ -27,6 +27,7 @@ MCP 工具总数          55
 | page | 4 |
 | SPI | 1 |
 | microflow | 1 |
+| reference | 3 |
 
 ## 全部工具
 
@@ -139,6 +140,14 @@ MCP 工具总数          55
 | 工具 | 必填参数 | 可选参数 | 说明 |
 |---|---|---|---|
 | `xiaozhua_microflow_node_actions` | — | — | 列出 microflow_node 支持的 23 个 action → actionType 映射 |
+
+### reference（3）
+
+| 工具 | 必填参数 | 可选参数 | 说明 |
+|---|---|---|---|
+| `xiaozhua_signature_search` | — | `query`, `pkg`, `kind`, `limit` | 查全平台类/方法签名（21389 类） |
+| `xiaozhua_microflow_service_catalog` | — | `query`, `dep`, `limit` | 查自定义微流程可调用的服务与方法（带依赖 jar） |
+| `xiaozhua_ui_component_catalog` | — | `query`, `pkg`, `limit` | 查自定义页面可用前端组件与属性 |
 
 ## 凭据边界
 

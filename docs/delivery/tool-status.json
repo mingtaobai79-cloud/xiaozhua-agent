@@ -1,469 +1,493 @@
 {
-  "_comment": "MCP 工具交付清单的唯一真相源。tools/ 下脚本与 README 表格都从这里读。",
-  "verified_at": "2026-11-12",
-  "environment": "test2",
-  "tools": [
-    {
-      "key": "dispatch",
-      "kind": "local",
-      "write": false,
-      "auth": false,
-      "status": "VERIFIED",
-      "note": "按意图路由到域；不连平台"
-    },
-    {
-      "key": "generate",
-      "kind": "local",
-      "write": false,
-      "auth": false,
-      "status": "VERIFIED",
-      "note": "需求→Java 骨架，声明级，方法体 UNVERIFIED"
-    },
-    {
-      "key": "generate_from_requirement",
-      "kind": "local",
-      "write": false,
-      "auth": false,
-      "status": "VERIFIED",
-      "note": "自然语言→实体模型→骨架"
-    },
-    {
-      "key": "capability_index",
-      "kind": "local",
-      "write": false,
-      "auth": false,
-      "status": "VERIFIED",
-      "note": "九域能力索引与实测状态"
-    },
-    {
-      "key": "repo_state",
-      "kind": "local",
-      "write": false,
-      "auth": false,
-      "status": "VERIFIED",
-      "note": "本地仓库状态"
-    },
-    {
-      "key": "repo_sync",
-      "kind": "local",
-      "write": true,
-      "auth": true,
-      "status": "VERIFIED",
-      "note": "写 git；必须 confirm=True，无默认值"
-    },
-    {
-      "key": "repo_url",
-      "kind": "local",
-      "write": false,
-      "auth": false,
-      "status": "VERIFIED",
-      "note": "仓库地址"
-    },
-    {
-      "key": "code_targets",
-      "kind": "local",
-      "write": false,
-      "auth": false,
-      "status": "VERIFIED",
-      "note": "代码落点"
-    },
-    {
-      "key": "project_shape",
-      "kind": "local",
-      "write": false,
-      "auth": false,
-      "status": "VERIFIED",
-      "note": "工程形态"
-    },
-    {
-      "key": "spi_catalog",
-      "kind": "local",
-      "write": false,
-      "auth": false,
-      "status": "VERIFIED",
-      "note": "SPI 目录"
-    },
-    {
-      "key": "expression_catalog",
-      "kind": "local",
-      "write": false,
-      "auth": false,
-      "status": "VERIFIED",
-      "note": "表达式函数目录（本地字典）"
-    },
-    {
-      "key": "live_probe",
-      "kind": "read",
-      "write": false,
-      "auth": false,
-      "status": "UNVERIFIED",
-      "note": "需显式 allow_network 与凭据；未在真机跑过",
-      "blocker": "需凭据文件，未取得授权"
-    },
-    {
-      "key": "enum_category_body",
-      "kind": "write",
-      "write": true,
-      "auth": false,
-      "status": "VERIFIED",
-      "note": "udcEnumCategoryPost；已建/查/删闭环"
-    },
-    {
-      "key": "enum_body",
-      "kind": "write",
-      "write": true,
-      "auth": false,
-      "status": "VERIFIED",
-      "note": "udcEnumPost；已建/查/删闭环"
-    },
-    {
-      "key": "enum_item_body",
-      "kind": "write",
-      "write": true,
-      "auth": false,
-      "status": "VERIFIED",
-      "note": "udcEnumItemPost；随 enum 删除"
-    },
-    {
-      "key": "option_set_category_body",
-      "kind": "write",
-      "write": true,
-      "auth": false,
-      "status": "VERIFIED",
-      "note": "udcUdcEnumCategoryPost；已建/查/删闭环"
-    },
-    {
-      "key": "option_set_body",
-      "kind": "write",
-      "write": true,
-      "auth": false,
-      "status": "UNVERIFIED",
-      "note": "选项集主体；batch1 只验了分类，主体与项未单独闭环",
-      "blocker": "同域 option_set_category_body 已验，但 body 与项未真机跑"
-    },
-    {
-      "key": "option_set_item_body",
-      "kind": "write",
-      "write": true,
-      "auth": false,
-      "status": "UNVERIFIED",
-      "note": "选项集项；随父删除，未单独验",
-      "blocker": "需先建 option_set_body 才能验"
-    },
-    {
-      "key": "attribute_set_body",
-      "kind": "write",
-      "write": true,
-      "auth": false,
-      "status": "VERIFIED",
-      "note": "REST /udc/attributeSet；已建/删闭环"
-    },
-    {
-      "key": "attribute_set_field_body",
-      "kind": "write",
-      "write": true,
-      "auth": false,
-      "status": "VERIFIED",
-      "note": "udcEntityAttributePost；随字段集删除"
-    },
-    {
-      "key": "parameter_body",
-      "kind": "write",
-      "write": true,
-      "auth": false,
-      "status": "VERIFIED",
-      "note": "udcCtpParameterDefinitonPost；已建/删闭环"
-    },
-    {
-      "key": "qrcode_body",
-      "kind": "write",
-      "write": true,
-      "auth": false,
-      "status": "VERIFIED",
-      "note": "REST /udc/qrcode-rule/create；已建/删闭环"
-    },
-    {
-      "key": "scalability_option_body",
-      "kind": "write",
-      "write": true,
-      "auth": false,
-      "status": "VERIFIED",
-      "note": "REST /udc/scalability-option；已建/删闭环"
-    },
-    {
-      "key": "scalability_field_body",
-      "kind": "write",
-      "write": true,
-      "auth": false,
-      "status": "VERIFIED",
-      "note": "udcScalabilityPost；dataTypeProperties 必须非空，缺省已填 {}"
-    },
-    {
-      "key": "serial_scheme_body",
-      "kind": "write",
-      "write": true,
-      "auth": false,
-      "status": "VERIFIED",
-      "note": "udcSerialSchemeCreatePost；已建/查/删闭环"
-    },
-    {
-      "key": "serial_section",
-      "kind": "write",
-      "write": true,
-      "auth": false,
-      "status": "VERIFIED",
-      "note": "流水号段；CONSTANT + SERIAL 各一，totalSize 为各段之和"
-    },
-    {
-      "key": "event_body",
-      "kind": "write",
-      "write": true,
-      "auth": false,
-      "status": "VERIFIED",
-      "note": "udcEventPost；eventDataType=0 对此接口正确；已建/删闭环"
-    },
-    {
-      "key": "event_data_body",
-      "kind": "write",
-      "write": true,
-      "auth": false,
-      "status": "VERIFIED",
-      "note": "udcEventCreateWithDataPost；eventDataList 必须是数组；attributes 的 caption 必填"
-    },
-    {
-      "key": "dto_body",
-      "kind": "write",
-      "write": true,
-      "auth": false,
-      "status": "VERIFIED",
-      "note": "udcDataTransferObjectPost；属性字段名是 notNull；已建/删闭环"
-    },
-    {
-      "key": "index_body",
-      "kind": "write",
-      "write": true,
-      "auth": false,
-      "status": "VERIFIED",
-      "note": "udcIndexPost；fieldIds 是逗号分隔字符串；已建/删闭环"
-    },
-    {
-      "key": "refer_config_body",
-      "kind": "write",
-      "write": true,
-      "auth": false,
-      "status": "VERIFIED",
-      "note": "udcReferConfigCreateConfigInfoPost；删除用 deleteByGroupId；已建/删闭环"
-    },
-    {
-      "key": "entity_rule_body",
-      "kind": "write",
-      "write": true,
-      "auth": false,
-      "status": "VERIFIED",
-      "note": "实体规则 body；已建/删闭环"
-    },
-    {
-      "key": "app_version_list",
-      "kind": "read",
-      "write": false,
-      "auth": false,
-      "status": "VERIFIED",
-      "note": "REST search-app-edition；IN_appId 必须传 appName，传数字 appId 静默返回空数组"
-    },
-    {
-      "key": "app_build_info",
-      "kind": "read",
-      "write": false,
-      "auth": false,
-      "status": "VERIFIED",
-      "note": "udcSandboxBuildInfoAppGet；参数类型必须是 Map，InputBody 系类型不存在"
-    },
-    {
-      "key": "app_dependency_body",
-      "kind": "write",
-      "write": true,
-      "auth": false,
-      "status": "VERIFIED",
-      "note": "udcApplicationDependentApplicationCreateBatchPost；params0 是数组；44→45→44 已闭环"
-    },
-    {
-      "key": "app_dependency_remove",
-      "kind": "delete",
-      "write": true,
-      "auth": true,
-      "status": "PARTIAL",
-      "note": "REST 批删路径已实测闭环；GraphQL 单删路径未验",
-      "blocker": "GraphQL DeleteByIdPost 未跑（只用 REST 批删验过）",
-      "danger": "会真删数据，content=1 即删除成功；只能删自己刚造的行"
-    },
-    {
-      "key": "app_deploy_body",
-      "kind": "write",
-      "write": true,
-      "auth": true,
-      "status": "NEEDS_AUTH",
-      "note": "udcRuntimeDeployNormalPost；声明成 query 实为写",
-      "blocker": "会触发真实构建并覆盖沙箱态，需用户授权才跑"
-    },
-    {
-      "key": "deploy_plan",
-      "kind": "local",
-      "write": false,
-      "auth": false,
-      "status": "VERIFIED",
-      "note": "生成部署方案 body（readonly_plan=True），不提交"
-    },
-    {
-      "key": "excel_template_body",
-      "kind": "write",
-      "write": true,
-      "auth": false,
-      "status": "BROKEN",
-      "note": "契约写 LIVE PASS，实测 test2 链路 404",
-      "blocker": "/service/udc/excel/template/create 返回 Spring 404；/udc/excel/template/create 返回 OSS MethodNotAllowed"
-    },
-    {
-      "key": "excel_template_column",
-      "kind": "write",
-      "write": true,
-      "auth": false,
-      "status": "BROKEN",
-      "note": "随 excel_template_body 一起不通",
-      "blocker": "同上，链路缺失"
-    },
-    {
-      "key": "microflow_create_body",
-      "kind": "write",
-      "write": true,
-      "auth": false,
-      "status": "UNVERIFIED",
-      "note": "本地构造已跑通：create body type=SERVICE（未真机 checkSchema）",
-      "blocker": "需 UI 点「检查」+ 逐节点看红字，成本高"
-    },
-    {
-      "key": "microflow_node",
-      "kind": "write",
-      "write": true,
-      "auth": false,
-      "status": "UNVERIFIED",
-      "note": "本地已跑通：23 个 action 全部可构造（未真机 submit）",
-      "blocker": "同上"
-    },
-    {
-      "key": "microflow_node_actions",
-      "kind": "local",
-      "write": false,
-      "auth": false,
-      "status": "VERIFIED",
-      "note": "本地已跑通：返回 23 条 action→actionType 映射"
-    },
-    {
-      "key": "microflow_gates",
-      "kind": "write",
-      "write": true,
-      "auth": false,
-      "status": "UNVERIFIED",
-      "note": "本地已跑通：G1-G41 闸门，空流程 ok=True/0 problems",
-      "blocker": "同上"
-    },
-    {
-      "key": "microflow_capability",
-      "kind": "write",
-      "write": true,
-      "auth": false,
-      "status": "UNVERIFIED",
-      "note": "本地已跑通：读能力矩阵 22 类 RUNTIME_VERIFIED",
-      "blocker": "同上"
-    },
-    {
-      "key": "microflow_trigger",
-      "kind": "write",
-      "write": true,
-      "auth": false,
-      "status": "UNVERIFIED",
-      "note": "本地构造已跑通：触发节点（未真机 checkSchema）",
-      "blocker": "同上"
-    },
-    {
-      "key": "microflow_data_schema",
-      "kind": "write",
-      "write": true,
-      "auth": false,
-      "status": "UNVERIFIED",
-      "note": "本地构造已跑通：含 endNode（未真机 checkSchema）",
-      "blocker": "同上"
-    },
-    {
-      "key": "microflow_publish",
-      "kind": "write",
-      "write": true,
-      "auth": true,
-      "status": "UNVERIFIED",
-      "note": "会真发请求发布微流程",
-      "blocker": "发布是不可逆动作，且需 UI 侧检查配合"
-    },
-    {
-      "key": "list_page_schema",
-      "kind": "write",
-      "write": true,
-      "auth": false,
-      "status": "UNVERIFIED",
-      "note": "本地构造已跑通：出 page-schema.v1 readonly_plan（未做 submitPage 真机闭环）",
-      "blocker": "宿主需填真实 id 后 submitPage，未闭环"
-    },
-    {
-      "key": "detail_page_schema",
-      "kind": "write",
-      "write": true,
-      "auth": false,
-      "status": "UNVERIFIED",
-      "note": "本地构造已跑通：出 page-schema.v1 readonly_plan（未做 submitPage 真机闭环）",
-      "blocker": "同上"
-    },
-    {
-      "key": "custom_page_scaffold",
-      "kind": "write",
-      "write": true,
-      "auth": false,
-      "status": "UNVERIFIED",
-      "note": "本地已跑通：生成 customPage.tsx 脚手架（未真机提交）",
-      "blocker": "同上"
-    },
-    {
-      "key": "filter_plan_body",
-      "kind": "write",
-      "write": true,
-      "auth": false,
-      "status": "UNVERIFIED",
-      "note": "本地构造已跑通：出过滤方案 body（未真机提交）",
-      "blocker": "未闭环"
-    },
-    {
-      "key": "expression_verify",
-      "kind": "write",
-      "write": true,
-      "auth": true,
-      "status": "PARTIAL",
-      "note": "传输链路已通（平台回 traceId），token 结构未定",
-      "blocker": "传 CONSTANT token 报 FORMULA_6003 不支持的返回值类型: null，token 结构待查"
-    },
-    {
-      "key": "expression_filter",
-      "kind": "write",
-      "write": true,
-      "auth": true,
-      "status": "UNVERIFIED",
-      "note": "需 entity_model 参数，未跑通",
-      "blocker": "依赖 expression_verify 的 token 结构"
-    },
-    {
-      "key": "entity_rule_publish",
-      "kind": "write",
-      "write": true,
-      "auth": true,
-      "status": "UNVERIFIED",
-      "note": "会真发请求发布实体规则",
-      "blocker": "发布不可逆，未授权"
-    }
-  ]
+ "_comment": "MCP 工具交付清单的唯一真相源。tools/ 下脚本与 README 表格都从这里读。",
+ "verified_at": "2026-11-12",
+ "environment": "test2",
+ "tools": [
+  {
+   "key": "dispatch",
+   "kind": "local",
+   "write": false,
+   "auth": false,
+   "status": "VERIFIED",
+   "note": "按意图路由到域；不连平台"
+  },
+  {
+   "key": "generate",
+   "kind": "local",
+   "write": false,
+   "auth": false,
+   "status": "VERIFIED",
+   "note": "需求→Java 骨架，声明级，方法体 UNVERIFIED"
+  },
+  {
+   "key": "generate_from_requirement",
+   "kind": "local",
+   "write": false,
+   "auth": false,
+   "status": "VERIFIED",
+   "note": "自然语言→实体模型→骨架"
+  },
+  {
+   "key": "capability_index",
+   "kind": "local",
+   "write": false,
+   "auth": false,
+   "status": "VERIFIED",
+   "note": "九域能力索引与实测状态"
+  },
+  {
+   "key": "repo_state",
+   "kind": "local",
+   "write": false,
+   "auth": false,
+   "status": "VERIFIED",
+   "note": "本地仓库状态"
+  },
+  {
+   "key": "repo_sync",
+   "kind": "local",
+   "write": true,
+   "auth": true,
+   "status": "VERIFIED",
+   "note": "写 git；必须 confirm=True，无默认值"
+  },
+  {
+   "key": "repo_url",
+   "kind": "local",
+   "write": false,
+   "auth": false,
+   "status": "VERIFIED",
+   "note": "仓库地址"
+  },
+  {
+   "key": "code_targets",
+   "kind": "local",
+   "write": false,
+   "auth": false,
+   "status": "VERIFIED",
+   "note": "代码落点"
+  },
+  {
+   "key": "project_shape",
+   "kind": "local",
+   "write": false,
+   "auth": false,
+   "status": "VERIFIED",
+   "note": "工程形态"
+  },
+  {
+   "key": "spi_catalog",
+   "kind": "local",
+   "write": false,
+   "auth": false,
+   "status": "VERIFIED",
+   "note": "SPI 目录"
+  },
+  {
+   "key": "expression_catalog",
+   "kind": "local",
+   "write": false,
+   "auth": false,
+   "status": "VERIFIED",
+   "note": "表达式函数目录（本地字典）"
+  },
+  {
+   "key": "live_probe",
+   "kind": "read",
+   "write": false,
+   "auth": false,
+   "status": "UNVERIFIED",
+   "note": "需显式 allow_network 与凭据；未在真机跑过",
+   "blocker": "需凭据文件，未取得授权"
+  },
+  {
+   "key": "enum_category_body",
+   "kind": "write",
+   "write": true,
+   "auth": false,
+   "status": "VERIFIED",
+   "note": "udcEnumCategoryPost；已建/查/删闭环"
+  },
+  {
+   "key": "enum_body",
+   "kind": "write",
+   "write": true,
+   "auth": false,
+   "status": "VERIFIED",
+   "note": "udcEnumPost；已建/查/删闭环"
+  },
+  {
+   "key": "enum_item_body",
+   "kind": "write",
+   "write": true,
+   "auth": false,
+   "status": "VERIFIED",
+   "note": "udcEnumItemPost；随 enum 删除"
+  },
+  {
+   "key": "option_set_category_body",
+   "kind": "write",
+   "write": true,
+   "auth": false,
+   "status": "VERIFIED",
+   "note": "udcUdcEnumCategoryPost；已建/查/删闭环"
+  },
+  {
+   "key": "option_set_body",
+   "kind": "write",
+   "write": true,
+   "auth": false,
+   "status": "UNVERIFIED",
+   "note": "选项集主体；batch1 只验了分类，主体与项未单独闭环",
+   "blocker": "同域 option_set_category_body 已验，但 body 与项未真机跑"
+  },
+  {
+   "key": "option_set_item_body",
+   "kind": "write",
+   "write": true,
+   "auth": false,
+   "status": "UNVERIFIED",
+   "note": "选项集项；随父删除，未单独验",
+   "blocker": "需先建 option_set_body 才能验"
+  },
+  {
+   "key": "attribute_set_body",
+   "kind": "write",
+   "write": true,
+   "auth": false,
+   "status": "VERIFIED",
+   "note": "REST /udc/attributeSet；已建/删闭环"
+  },
+  {
+   "key": "attribute_set_field_body",
+   "kind": "write",
+   "write": true,
+   "auth": false,
+   "status": "VERIFIED",
+   "note": "udcEntityAttributePost；随字段集删除"
+  },
+  {
+   "key": "parameter_body",
+   "kind": "write",
+   "write": true,
+   "auth": false,
+   "status": "VERIFIED",
+   "note": "udcCtpParameterDefinitonPost；已建/删闭环"
+  },
+  {
+   "key": "qrcode_body",
+   "kind": "write",
+   "write": true,
+   "auth": false,
+   "status": "VERIFIED",
+   "note": "REST /udc/qrcode-rule/create；已建/删闭环"
+  },
+  {
+   "key": "scalability_option_body",
+   "kind": "write",
+   "write": true,
+   "auth": false,
+   "status": "VERIFIED",
+   "note": "REST /udc/scalability-option；已建/删闭环"
+  },
+  {
+   "key": "scalability_field_body",
+   "kind": "write",
+   "write": true,
+   "auth": false,
+   "status": "VERIFIED",
+   "note": "udcScalabilityPost；dataTypeProperties 必须非空，缺省已填 {}"
+  },
+  {
+   "key": "serial_scheme_body",
+   "kind": "write",
+   "write": true,
+   "auth": false,
+   "status": "VERIFIED",
+   "note": "udcSerialSchemeCreatePost；已建/查/删闭环"
+  },
+  {
+   "key": "serial_section",
+   "kind": "write",
+   "write": true,
+   "auth": false,
+   "status": "VERIFIED",
+   "note": "流水号段；CONSTANT + SERIAL 各一，totalSize 为各段之和"
+  },
+  {
+   "key": "event_body",
+   "kind": "write",
+   "write": true,
+   "auth": false,
+   "status": "VERIFIED",
+   "note": "udcEventPost；eventDataType=0 对此接口正确；已建/删闭环"
+  },
+  {
+   "key": "event_data_body",
+   "kind": "write",
+   "write": true,
+   "auth": false,
+   "status": "VERIFIED",
+   "note": "udcEventCreateWithDataPost；eventDataList 必须是数组；attributes 的 caption 必填"
+  },
+  {
+   "key": "dto_body",
+   "kind": "write",
+   "write": true,
+   "auth": false,
+   "status": "VERIFIED",
+   "note": "udcDataTransferObjectPost；属性字段名是 notNull；已建/删闭环"
+  },
+  {
+   "key": "index_body",
+   "kind": "write",
+   "write": true,
+   "auth": false,
+   "status": "VERIFIED",
+   "note": "udcIndexPost；fieldIds 是逗号分隔字符串；已建/删闭环"
+  },
+  {
+   "key": "refer_config_body",
+   "kind": "write",
+   "write": true,
+   "auth": false,
+   "status": "VERIFIED",
+   "note": "udcReferConfigCreateConfigInfoPost；删除用 deleteByGroupId；已建/删闭环"
+  },
+  {
+   "key": "entity_rule_body",
+   "kind": "write",
+   "write": true,
+   "auth": false,
+   "status": "VERIFIED",
+   "note": "实体规则 body；已建/删闭环"
+  },
+  {
+   "key": "app_version_list",
+   "kind": "read",
+   "write": false,
+   "auth": false,
+   "status": "VERIFIED",
+   "note": "REST search-app-edition；IN_appId 必须传 appName，传数字 appId 静默返回空数组"
+  },
+  {
+   "key": "app_build_info",
+   "kind": "read",
+   "write": false,
+   "auth": false,
+   "status": "VERIFIED",
+   "note": "udcSandboxBuildInfoAppGet；参数类型必须是 Map，InputBody 系类型不存在"
+  },
+  {
+   "key": "app_dependency_body",
+   "kind": "write",
+   "write": true,
+   "auth": false,
+   "status": "VERIFIED",
+   "note": "udcApplicationDependentApplicationCreateBatchPost；params0 是数组；44→45→44 已闭环"
+  },
+  {
+   "key": "app_dependency_remove",
+   "kind": "delete",
+   "write": true,
+   "auth": true,
+   "status": "PARTIAL",
+   "note": "REST 批删路径已实测闭环；GraphQL 单删路径未验",
+   "blocker": "GraphQL DeleteByIdPost 未跑（只用 REST 批删验过）",
+   "danger": "会真删数据，content=1 即删除成功；只能删自己刚造的行"
+  },
+  {
+   "key": "app_deploy_body",
+   "kind": "write",
+   "write": true,
+   "auth": true,
+   "status": "NEEDS_AUTH",
+   "note": "udcRuntimeDeployNormalPost；声明成 query 实为写",
+   "blocker": "会触发真实构建并覆盖沙箱态，需用户授权才跑"
+  },
+  {
+   "key": "deploy_plan",
+   "kind": "local",
+   "write": false,
+   "auth": false,
+   "status": "VERIFIED",
+   "note": "生成部署方案 body（readonly_plan=True），不提交"
+  },
+  {
+   "key": "excel_template_body",
+   "kind": "write",
+   "write": true,
+   "auth": false,
+   "status": "BROKEN",
+   "note": "契约写 LIVE PASS，实测 test2 链路 404",
+   "blocker": "/service/udc/excel/template/create 返回 Spring 404；/udc/excel/template/create 返回 OSS MethodNotAllowed"
+  },
+  {
+   "key": "excel_template_column",
+   "kind": "write",
+   "write": true,
+   "auth": false,
+   "status": "BROKEN",
+   "note": "随 excel_template_body 一起不通",
+   "blocker": "同上，链路缺失"
+  },
+  {
+   "key": "microflow_create_body",
+   "kind": "write",
+   "write": true,
+   "auth": false,
+   "status": "UNVERIFIED",
+   "note": "本地构造已跑通：create body type=SERVICE（未真机 checkSchema）",
+   "blocker": "需 UI 点「检查」+ 逐节点看红字，成本高"
+  },
+  {
+   "key": "microflow_node",
+   "kind": "write",
+   "write": true,
+   "auth": false,
+   "status": "UNVERIFIED",
+   "note": "本地已跑通：23 个 action 全部可构造（未真机 submit）",
+   "blocker": "同上"
+  },
+  {
+   "key": "microflow_node_actions",
+   "kind": "local",
+   "write": false,
+   "auth": false,
+   "status": "VERIFIED",
+   "note": "本地已跑通：返回 23 条 action→actionType 映射"
+  },
+  {
+   "key": "ui_component_catalog",
+   "kind": "local",
+   "write": false,
+   "auth": false,
+   "status": "VERIFIED",
+   "note": "离线查 515 组件 / 786 属性 / 50 包；不连平台"
+  },
+  {
+   "key": "microflow_service_catalog",
+   "kind": "local",
+   "write": false,
+   "auth": false,
+   "status": "VERIFIED",
+   "note": "离线查 833 AppService / 10176 行，带依赖 jar；不连平台"
+  },
+  {
+   "key": "signature_search",
+   "kind": "local",
+   "write": false,
+   "auth": false,
+   "status": "VERIFIED",
+   "note": "离线查 21389 类 / 245709 行签名；实测 0.25 秒；不连平台"
+  },
+  {
+   "key": "microflow_gates",
+   "kind": "write",
+   "write": true,
+   "auth": false,
+   "status": "UNVERIFIED",
+   "note": "本地已跑通：G1-G41 闸门，空流程 ok=True/0 problems",
+   "blocker": "同上"
+  },
+  {
+   "key": "microflow_capability",
+   "kind": "write",
+   "write": true,
+   "auth": false,
+   "status": "UNVERIFIED",
+   "note": "本地已跑通：读能力矩阵 22 类 RUNTIME_VERIFIED",
+   "blocker": "同上"
+  },
+  {
+   "key": "microflow_trigger",
+   "kind": "write",
+   "write": true,
+   "auth": false,
+   "status": "UNVERIFIED",
+   "note": "本地构造已跑通：触发节点（未真机 checkSchema）",
+   "blocker": "同上"
+  },
+  {
+   "key": "microflow_data_schema",
+   "kind": "write",
+   "write": true,
+   "auth": false,
+   "status": "UNVERIFIED",
+   "note": "本地构造已跑通：含 endNode（未真机 checkSchema）",
+   "blocker": "同上"
+  },
+  {
+   "key": "microflow_publish",
+   "kind": "write",
+   "write": true,
+   "auth": true,
+   "status": "UNVERIFIED",
+   "note": "会真发请求发布微流程",
+   "blocker": "发布是不可逆动作，且需 UI 侧检查配合"
+  },
+  {
+   "key": "list_page_schema",
+   "kind": "write",
+   "write": true,
+   "auth": false,
+   "status": "UNVERIFIED",
+   "note": "本地构造已跑通：出 page-schema.v1 readonly_plan（未做 submitPage 真机闭环）",
+   "blocker": "宿主需填真实 id 后 submitPage，未闭环"
+  },
+  {
+   "key": "detail_page_schema",
+   "kind": "write",
+   "write": true,
+   "auth": false,
+   "status": "UNVERIFIED",
+   "note": "本地构造已跑通：出 page-schema.v1 readonly_plan（未做 submitPage 真机闭环）",
+   "blocker": "同上"
+  },
+  {
+   "key": "custom_page_scaffold",
+   "kind": "write",
+   "write": true,
+   "auth": false,
+   "status": "UNVERIFIED",
+   "note": "本地已跑通：生成 customPage.tsx 脚手架（未真机提交）",
+   "blocker": "同上"
+  },
+  {
+   "key": "filter_plan_body",
+   "kind": "write",
+   "write": true,
+   "auth": false,
+   "status": "UNVERIFIED",
+   "note": "本地构造已跑通：出过滤方案 body（未真机提交）",
+   "blocker": "未闭环"
+  },
+  {
+   "key": "expression_verify",
+   "kind": "write",
+   "write": true,
+   "auth": true,
+   "status": "PARTIAL",
+   "note": "传输链路已通（平台回 traceId），token 结构未定",
+   "blocker": "传 CONSTANT token 报 FORMULA_6003 不支持的返回值类型: null，token 结构待查"
+  },
+  {
+   "key": "expression_filter",
+   "kind": "write",
+   "write": true,
+   "auth": true,
+   "status": "UNVERIFIED",
+   "note": "需 entity_model 参数，未跑通",
+   "blocker": "依赖 expression_verify 的 token 结构"
+  },
+  {
+   "key": "entity_rule_publish",
+   "kind": "write",
+   "write": true,
+   "auth": true,
+   "status": "UNVERIFIED",
+   "note": "会真发请求发布实体规则",
+   "blocker": "发布不可逆，未授权"
+  }
+ ]
 }

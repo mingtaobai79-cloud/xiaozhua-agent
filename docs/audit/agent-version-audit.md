@@ -7,7 +7,7 @@
 
 ## 结论摘要
 
-当前工程是一个可执行、可测试的**离线只读骨架**，不是已接入真实 xiaozhua 运行环境的完整 Agent。代码包版本为 `0.1.0`；Test collection: `3203 tests collected`，收集数不等于通过数，实际执行结果见 `docs/plans/xiaozhua-distribution-progress.md`。CLI `capabilities` 实际声明 `udc`、`runtime`、`integration` 三个只读组件，网络边界为 `disabled`；README 中关于 SPI “占位、未实现或注册”的描述与代码一致。
+当前工程是一个可执行、可测试的**离线只读骨架**，不是已接入真实 xiaozhua 运行环境的完整 Agent。代码包版本为 `0.1.0`；Test collection: `3209 tests collected`，收集数不等于通过数，实际执行结果见 `docs/plans/xiaozhua-distribution-progress.md`。CLI `capabilities` 实际声明 `udc`、`runtime`、`integration` 三个只读组件，网络边界为 `disabled`；README 中关于 SPI “占位、未实现或注册”的描述与代码一致。
 
 此前文档中出现过若干历史测试计数，本次以当前 checkout 的实际全量运行结果为准，旧计数不再作为当前版本依据，本次以当前 checkout 的实际全量运行结果为准，旧计数不再作为当前版本依据。
 
@@ -128,7 +128,7 @@
 
 ```text
 python -m pytest tests --collect-only -q
-3203 tests collected
+3209 tests collected
 
 python -m pytest tests -q
 历史基线已更新
