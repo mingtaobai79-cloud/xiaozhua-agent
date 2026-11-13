@@ -150,6 +150,14 @@ pytest tests/udc/test_extension_usage_assets.py -q
 
 ---
 
+# 全景：哪些进仓库、哪些不进
+
+逐项清单在 `docs/audit/ASSET-INVENTORY.md`（自动生成，数字从磁盘现算）：
+`docs/audit/artifacts` 共 48 项 / 390.3 MB —— 随仓库 25 项、可重建 1 项、不收录 27 项、未判定 0 项。
+重算：`python tools/inventory_assets.py --check`（有未判定项即非零退出）。
+
+---
+
 # 一句话重建
 
 ```bash

@@ -55,6 +55,8 @@ FILES = [
     "udc-expression-schema-paramtypes.json",
     "udc-expression-contracts.json",
     "udc-expression-samples.json",
+    "mf_realdataschema.json",                    # 微流程节点真实的 io schema（END_NODE javaType 等）
+    "udc-entity-to-ctpenum-mechanism-20261013.md",  # 关联字段→枚举 切换机制（字节码实证）
 ]
 
 # ---------------------------------------------------------------- 第二份：查具体东西
@@ -178,16 +180,27 @@ def main(argv=None) -> int:
     out = Path(a.out) if a.out else (OUT_SURFACE if a.profile == "surface" else OUT)
     out.parent.mkdir(parents=True, exist_ok=True)
     scrubbed = 0
-    with tarfile.open(out, "w:gz", compresslevel=9) as tf:
+    # 确定性打包：tar 的 mtime 与 gzip 头里的时间戳都固定，
+    # 否则同样输入每次生成的字节都不同，无法用 sha256 比对是否真的变了。
+    import gzip
+    import io
+    buf = io.BytesIO()
+    with tarfile.open(fileobj=buf, mode="w") as tf:
         for src, arcname in items:
             data = src.read_bytes()
             data, n = _scrub_bytes(data, src.name)
             scrubbed += n
             info = tarfile.TarInfo(arcname)
             info.size = len(data)
-            info.mtime = int(src.stat().st_mtime)
-            import io
+            info.mtime = 0
+            info.mode = 0o644
+            info.uid = info.gid = 0
+            info.uname = info.gname = ""
             tf.addfile(info, io.BytesIO(data))
+    with open(out, "wb") as fh:
+        with gzip.GzipFile(filename="", mode="wb", fileobj=fh,
+                           compresslevel=9, mtime=0) as gz:
+            gz.write(buf.getvalue())
     print(f"[ok] {out}  {out.stat().st_size/1024/1024:.2f} MB "
           f"(压缩比 {100*out.stat().st_size/(raw*1024*1024):.0f}%) / 脱敏 {scrubbed} 处")
     return 0
