@@ -946,6 +946,295 @@ e >= l.y - height/2 - distance && e <= l.y + height/2 + distance
 dropdown 永远打不开。
 判据：`getComputedStyle(wrapper).transform` 是 `matrix(1,0,0,1,1200,0)` 就是卡住了。
 处理：把 wrapper 的 transform 强制设为 `translateX(0px)`。
+### 9.12i ★★★★★ 画布接口全清单 + 前端校验/组装逐函数还原
+
+用户要求：先点一遍抓接口，再梳理前端对这个画布的校验和组装逻辑。
+本轮全部走 CDP 真实网络捕获 + `webpackChunkudc` 模块源码反读，无猜测。
+
+#### 一、模块定位（三个关键模块）
+
+| 模块 | 大小 | 职责 |
+|---|---|---|
+| `34928` | 12,418 | **API 层**。19 个导出函数，全部 GraphQL 常量 |
+| `87235` | 67,070 | **画布组件**。D3 渲染 + 交互 + ref API |
+| `19442` | 43,427 | **映射抽屉**。表单校验 + 提交 |
+| `40755` | 8,891 | **DTO 组装/反组装**。导出 `Ak`(组装) / `KK`(反组装) / `u4`(pageParams 合并) |
+| `14598` | 47,235 | 规则列表页。校验文案同源 |
+
+定位方式（可复用）：
+```js
+window.webpackChunkudc.forEach(c => { const m = c[1]; if(!m) return;
+  Object.keys(m).forEach(id => { const s = m[id].toString();
+    if (s.includes('配置未完成')) hits.push({id, len:s.length}); }); });
+```
+
+#### 二、画布接口全清单（模块 34928 导出）
+
+```
+createDataFlow          d   udcDataFlowPost
+updateDataFlow          u   udcDataFlowUpdatePost
+deleteDataFlow          o   udcDataFlowDeletePost / BatchDeletePost
+fetchDataFlow           i   udcDataFlowAppAppGet
+getDataFlowDetail       c   udcDataFlowGet
+fetchDataFlowListApp    g   udcDataFlowListAppPost
+getDataFlowListEntity   h   udcDataFlowListEntityPost
+getDataFlowListEvents   I   udcDataFlowListEventsPost
+getDataFlowRuleCount    s   udcDataFlowMappingCountPost
+getDataFlowRuleCountByLine p udcDataFlowMappingLineCountPost
+graphDeleteContent      S   udcDataFlowMappingDeletePost
+handleMappingDelete     E   udcDataFlowMappingDeletePost
+handleSubmitMapping     f   udcDataFlowMappingPost / UpdatePost  ★
+fetchMappingDetailById  v   udcDataFlowMappingGet
+fetchMappingInitData    m   udcDataFlowMappingInitDataPost     ★
+fetchMappingList        y   udcDataFlowMappingSearch
+findEntityNotExistIds   A   udcDataFlowEntityNotExistIdsPost  ★
+fetchAttrByEventByFullName T udcDataFlowListEventDataPost
+```
+
+`handleSubmitMapping(body, isUpdate)` 是**唯一写入口**，按 `isUpdate` 二选一：
+```js
+f = (e, t) => udcApolloQuery(
+  t ? "mutation udcDataFlowMappingUpdatePost ..." : "mutation udcDataFlowMappingPost ...",
+  { body: e })
+```
+
+#### 三、点圆圈触发的确切请求序列（4 发，实测顺序）
+
+```
+1. udcDataFlowEntityNotExistIdsPost   ← 进来先校验画布上的实体还在不在了
+   body: {entityIds:["4308...","3748..."], appId:"1631..."}
+
+2. udcDataFlowMappingInitDataPost     ← 拉全量元数据
+   body: {sourceEntity:{appId,appName,entityFullName},
+          targetEntity:{appId,appName,entityFullName}}
+   ★ 按 entityFullName 传，不是 entityId
+
+3. udcDataFlowMappingSearch            ← 该线有哪些规则
+   body: {appId, sourceEntityId, targetEntityId, dataFlowId}
+
+4. udcDataFlowMappingGet               ← 若已有规则，拉详情
+```
+
+**`udcDataFlowEntityNotExistIdsPost` 是第一道闸**：实体被删/改名后，
+返回非空数组，前端就不让配。这一步我之前完全没记录。
+
+#### 四、InitDataPost 返回的 content 全字段（12 项）
+
+```
+ctpEnumItemMap          平台枚举 → 中文名
+javaEnumItemMap         Java 枚举
+mappingModeMap          映射模式字典
+sourceEntityList        来源实体（含 attributeDtoMap）
+targetEntityList        目标实体（多带 stereotype）
+sourceEntitySystemList  来源实体系统字段
+targetEntitySystemList  目标实体系统字段
+targetReceiveDatatypeList  目标可接收数据类型
+numericTypeList         数值类型
+pageInfoList            目标实体的 DETAIL 页  ★ 关键
+```
+
+`pageInfoList[] = {id, fullName, caption, pageUrl, clientType, inParams}`
+
+#### 五、前端校验：三道闸
+
+**闸 1 · Form 校验（`onFinishFailed`）**
+
+```js
+onFinishFailed: ({errorFields}) => {
+  if (errorFields.length) message.error("配置未完成或有误，请检查！")
+  form.scrollToField(errorFields[0].name)
+}
+```
+
+全部 `rules`（模块 19442 实测）：
+
+| 字段 | 规则 | 提示 |
+|---|---|---|
+| `bindEvent` | required | 请选择事件 |
+| `sourceEntitySearchConditionJson` | required | 请设置来源实体查找条件 |
+| `keyAttribute` | required | 请选择目标实体关键字段 |
+| `pageId` | **validator e8** | 请选择目标详情页面（PC） |
+| `mobilePageId` | **validator e8** | 请选择目标详情页面（移动） |
+| `caption` | required | （空） |
+| `name` | required | （空） |
+| `mappingRow[].target` | required | 请选择 |
+| `mappingRow[].source` | required | 请选择 |
+| `updateConditionList[].conditional/logic/source` | required | 请选择 |
+| `writeBackRuleList` | validator e6 | 条件必填 |
+
+**`e8` 是条件必填 —— 这是本轮最重要的发现**：
+
+```js
+e8 = (e, t) => {                      // t = 当前字段值
+  let {field: a} = e
+  if (["pageId","mobilePageId"].includes(a)) {
+    let autoProcess = form.getFieldValue("autoProcess")
+    return !autoProcess || t ? Promise.resolve() : Promise.reject("请选择")
+  }
+}
+```
+
+即：**`autoProcess=false` 时页面可不选；`autoProcess=true` 时页面必填。**
+`autoProcess` 的 UI 标签是「生单成功自动发起流程」（Switch）。
+`Switch.onChange` 关掉时会反向 `validateFields(['pageId','mobilePageId'])`。
+
+★ 更正我此前结论：`pageId` 不是无条件必填。上一轮我把「空 pageId 能存进去」
+判为「空壳」，现在有了确切成因 —— 对**不自动发起流程**的生单，
+`pageId` 确实允许为空。它不是 bug，是产品定义。
+
+**闸 2 · onFinish 内的额外闸（`eG`）**
+
+```js
+eG = async (skipValidate = false) => {
+  let val = skipValidate ? form.getFieldsValue() : await form.validateFields()
+  if (!skipValidate && !listSchema && val.triggerPoint === OP.MANUALLY)
+    return { error: true }   // ← message.error("请设置来源实体列表方案")
+  ...
+}
+```
+**手工触发（MANUALLY）且未设 listSchema → 直接拦，不进 Form 校验提示。**
+这句提示在 `onFinishFailed` 之外，所以只查 `.ant-form-item-has-error` 找不到它。
+
+**闸 3 · 提交按钮前置（模块 19442 @42943）**
+
+```js
+onClick: () => {
+  let t = form.getFieldsValue()
+  if (!t.entityMappingRelation?.length) { message.error("实体映射规则未配置"); return }
+  form.submit()
+}
+```
+**`entityMappingRelation` 为空 → 连 form.submit() 都不调。**
+
+#### 六、页面下拉 → pageParamsMapping 的自动填充（关键机制）
+
+```js
+// pageId 的 Select.onChange
+onChange: e => {
+  if (e) {
+    let page = pageInfoList.find(p => p.clientType === "PC" && p.id === e)
+    form.setFieldValue("pageParamsMapping", u4([], page?.inParams || []))
+  } else {
+    form.setFieldValue("pageParamsMapping", [])
+  }
+}
+```
+移动端同理，用 `clientType === "MOBILE"` 和 `mobileParamsMapping`。
+
+`u4(cur, inParams)` 的合并规则（模块 40755）：
+```js
+u4 = (t="", n="") => {
+  // 两者都可能是 JSON 字符串 → 先 parse
+  t = t.filter(x => x.id && x.code).map(({latestId,code}) => ({...x, id:latestId, code}))
+  n = n.map(({latestId,code}) => ({...x, id:latestId, code}))
+  if (t.length) {
+    for (x of n) if (!t.find(y => y.id === x.id)) push({...x, expressionValue: []})
+  } else {
+    t = d(n)   // 全新初始化
+  }
+}
+```
+`d(n)` 的初始化规则：
+```js
+d = n => n.map(x => {
+  let e = {...x, expressionValue: []}
+  if ([QV, pe].includes(x.code)) e.isAttribute = true       // 属性型入参
+  if (x.code === vH) e.expressionValue = [{type:"CONSTANT", desc:"编辑", value:"edit"}]
+  return e
+})
+```
+**`pageOpenMode` 默认注入「编辑」/`edit`。**
+
+★ 这就是为什么 `pageParamsMapping` 里 `preset_id`（code=`id`）是 `disabled:true`
+且 `placeholder:"系统默认"` —— 它由生单上下文自动带出，用户改不了。
+
+#### 七、提交时的组装（`Ak`，模块 40755 导出 `Ak`=r）
+
+签名 10 个参数：
+```js
+Ak(formValues, targetAllFieldById, sourceEntityById, sourceAllFieldById,
+   targetEntityById, dataFlow, appNames, listSchema, curAppId, pageInfoList)
+```
+
+返回结构（**这就是最终 POST 的 body**）：
+```js
+{
+  appId, caption, definition, id,
+  dataFlowMappingDto: {
+    dataFlowId, appId: targetAppId, appName, bindEvent, bindEventCaption,
+    eventAppName, eventEntityId, caption, name, description,
+    id: undefined,                       // ★ 故意置空，走新增
+    sourceAppName, sourceAppId, sourceEntityId, sourceEntityFullName,
+    targetEntityId, targetEntityFullName, triggerPoint,
+    mappingDetailDto: {
+      eventFilterConditionJson, preConditionJson,
+      rules: [{
+        entityMappingRelation,
+        listSchema: triggerPoint===MANUALLY && listSchema ? JSON.stringify(listSchema) : undefined,
+        operationType, keyAttribute,
+        mappingArea, writeBackRuleList,
+        pageId,
+        pageParamsMapping: pageParamsMapping?.length ? JSON.stringify(...) : "",
+        mobilePageId,
+        mobileParamsMapping: mobileParamsMapping?.length ? JSON.stringify(...) : "",
+        mobilePageFullName: mobilePageId ? pageInfoList.find(p=>p.id===mobilePageId)?.fullName : undefined,
+        pageFullName: pageId ? pageInfoList.find(p=>p.id===pageId)?.fullName : undefined,
+        autoProcess
+      }],
+      sourceEntitySearchConditionJson
+    }
+  }
+}
+```
+
+**组装期的三条硬转换**
+
+1. `listSchema` 只有 `triggerPoint === MANUALLY` 且 `listSchema` 有值才序列化；
+   其他触发方式强制 `undefined`。
+2. `pageParamsMapping` / `mobileParamsMapping`：**空数组要显式给 `""`，不是 `null`、不是 `[]`**。
+3. `pageFullName` / `mobilePageFullName` 不从前端表单来，而是
+   `pageInfoList.find(p => p.id === pageId).fullName` 现查现填。
+   页面不在 `pageInfoList` 里就是 `undefined`。
+
+**mappingRow 组装的三种 mappingMode 分支**
+```js
+if (mode === "Formula")      o = { formulaJson: row.source }
+else if (mode === "FixedValue") o = { fixedValue: row.source }
+else {
+  // 普通字段：source 的存法是 `${attrId}_${entityId}`
+  let [attrId, entId] = row.source.split("_")
+  o = { attributeFullName: sourceById[attrId].fullName, attributeId: attrId,
+        entityFullName: ..., entityId: entId, formulaJson: "" }
+}
+```
+★ `row.source` 是 **`"<attributeId>_<entityId>"` 字符串**，用 `split("_")` 拆。
+这是下拉 option 的 `value` 格式，不是对象。
+
+#### 八、反组装（`KK`，从后端 DTO 还原成表单）
+
+```js
+KK(dto, ctx) → {
+  id, listSchema, caption, name, sourceEntityId, targetEntityId, description,
+  triggerPoint, entityMappingRelation, bindEvent, eventFilterConditionJson,
+  operationType, keyAttribute, mappingArea, writeBackRuleList,
+  preConditionJson, sourceEntitySearchConditionJson,
+  pageId, pageParamsMapping: u4(c.pageParamsMapping, pageInfoList.find(...)?.inParams),
+  mobilePageId, mobileParamsMapping: u4(...),
+  autoProcess
+}
+```
+反差：`pageParamsMapping` 存的是 JSON 字符串，读回来要 `u4` 与当前页面
+`inParams` **再合并一次** —— 页面新增入参时自动补空行，页面删除入参时
+保留但 `expressionValue` 不动。**这是「换了页面旧映射残留」的成因**。
+
+#### 九、本轮实测闭环
+
+点圆圈 → 4 发请求全部捕获 → 抽屉打开 → 参数完整。
+组合结论：**画布不产生业务写入，它是纯读 + 一个写（`handleSubmitMapping`）。**
+画布保存（`updateDataFlow`）只写 `definition`（nodes/lines/transform），
+不碰映射。
+
+真实请求体已存 `D:/software/hermes/cache/scratch/mappingget.gql`（4301 字节）。
 ### 9.12b ★★★ 修订：pageId 不是"允许 null"，而是必须先有实体详情页
 
 上一版 §9.8 写"pageId=null 完全允许、不需要页面"，**这是错的**。
