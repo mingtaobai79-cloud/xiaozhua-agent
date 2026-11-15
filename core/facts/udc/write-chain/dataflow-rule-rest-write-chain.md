@@ -591,6 +591,361 @@ path#id_4308140192425942217-id_3748812225302252072  d="M 247,330 L 277,330 L 435
 udcDataFlowUpdatePost → BOOT_0000 content=1
 ```
 
+### 9.12g ★★★★ 映射核心：pageParamsMapping 与它的前置条件
+
+用户判定「生单没有通，你映射最核心都没写」。判对了。此前我只做到
+「规则能存、圆圈显示 1」，从没检查过**页面入参映射**——而那才是生单
+真正执行时把来源数据灌进目标详情页的通道。
+
+#### 一、映射核心不是字段映射，是 pageParamsMapping
+
+字段映射（`mappingArea.mappingRow`）解决「哪个字段给哪个字段」。
+`pageParamsMapping` 解决「打开目标详情页时，5 个页面入参各填什么表达式」。
+后者缺失，规则存得下、圆圈显示 1，但**生单执行时详情页拿不到 id，
+打不开单据**。
+
+真实结构（`rules[0].pageParamsMapping`，JSON 字符串）：
+
+```json
+[
+ {"id":"preset_id","code":"id","label":"ID","dataType":"STRING",
+  "required":true,"isAttribute":true,
+  "attrCmptProps":{"businessProps":{"type":"CONSTANT","disabled":true,
+                                    "placeholder":"系统默认"}},
+  "expressionValue":[]},
+
+ {"id":"GE_OPEN_MODE","code":"pageOpenMode","label":"页面打开模式",
+  "dataType":"ENUM","required":true,
+  "attrCmptProps":{"businessProps":{"type":"CONSTANT",
+     "enumInfo":{"id":"PAGE_OPEN_MODE","caption":"页面打开模式",
+                 "appId":"1057666928175434968"},
+     "treeData":[{"label":"编辑","value":"edit"},
+                 {"label":"查看","value":"view"}]}},
+  "expressionValue":[]},
+
+ {"id":"t_templateId","code":"templateId","label":"流程模板ID",
+  "dataType":"STRING","required":false,
+  "attrCmptProps":{"businessProps":{"type":"CONSTANT"}},"expressionValue":[]},
+
+ {"id":"set_affairId","code":"affairId","label":"事项ID",
+  "dataType":"STRING","required":false,...},
+ {"id":"reset_caseId","code":"caseId","label":"流程实例ID",
+  "dataType":"ENTITY","required":false,...}
+]
+```
+
+★ 五个入参是**平台预设**，来自目标详情页的 `inParams`，不是业务字段。
+
+#### 二、前置条件链：pageInfoList 必须有值
+
+`pageParamsMapping` 只能从「已选页面」的 `inParams` 生成。
+而页面下拉的选项源是 `udcDataFlowMappingInitDataPost` 返回的 `pageInfoList`。
+
+```js
+// 前端只做一件事：拿 pageInfoList 里这个页面的 inParams 铺开
+inParams = pageInfoList.find(p => p.id === pageId).inParams
+```
+
+**实测：目标实体没有 DETAIL 页 → pageInfoList = [] → 下拉点不开 → pageId 只能 null。**
+
+本轮的完整证据链：
+
+```
+目标实体 = 迁移断点（MigrationCheckpoint）
+应用页面清单里，迁移断点只有 SEARCH_LIST（qyddListPage）
+             接口验证实体有 SEARCH_LIST + DETAIL
+
+InitDataPost 返回 pageInfoList = 0     ← 下拉"暂无数据"
+     ↓ 用"实体→生成页面"给迁移断点补详情页
+InitDataPost 返回 pageInfoList = 2
+  -4925615763369467224  迁移断点详情页  MOBILE
+   2037509287667995707  迁移断点详情页  PC
+     ↓
+抽屉里「目标详情页面（PC）」自动填「迁移断点详情页」
+pageId = 2037509287667995707 / mobilePageId = -4925615763369467224
+```
+
+#### 三、InitDataPost 的真实入参（不是 entityId）
+
+我此前按 `sourceEntityId/targetEntityId` 传，一直报
+`BOOT_1001 来源实体参数 不能为null`。真实形状是**按 fullName 传**：
+
+```json
+{"body":{
+  "sourceEntity":{"appId":"...","appName":"datamigration...",
+    "entityFullName":"com.seeyon.datamigration....domain.entity.AeProbeEntity"},
+  "targetEntity":{"appId":"...","appName":"datamigration...",
+    "entityFullName":"com.seeyon.datamigration....domain.entity.MigrationCheckpoint"}}}
+```
+
+#### 四、pageInfoList[].inParams 是 JSON **字符串**，不是数组
+
+```js
+typeof p.inParams === 'string'   // ★ 必须 JSON.parse
+JSON.parse(p.inParams).length === 5
+```
+
+直接 `p.inParams[0]` 拿到的是字符 `"["`，`p.inParams.length` 是 1574
+（字符串长度）。这是本轮踩到的坑，表现为「读出来全是空」。
+
+#### 五、提交时 pageId 埋在双层 mappingDetailDto 里
+
+```js
+body.mappingDetailDto                    // 外层：规则基本信息
+  .mappingDetailDto.rules[0]             // ★ 内层：真正的规则
+    .pageId / .mobilePageId
+    .pageParamsMapping                   // JSON 字符串
+    .pageFullName                        // 注意：这里是 1183802094923760407
+```
+
+我第一次读 `body.mappingDetailDto.rules[0]` 得到 undefined，误判「没保存」。
+实际是嵌套两层。
+
+#### 六、前端校验：不填显示名称/编码 + 列表方案，提交会被拦
+
+```
+提示「配置未完成或有误，请检查！」
+  → .ant-form-item-has-error 命中：显示名称、编码
+  → 提示「请设置来源实体方案」
+  → 补 显示名称/编码 + 来源实体列表方案(勾 ID/验证名称/验证金额 → 右移 → 确定)
+  → 「修改生单规则成功！」
+```
+
+#### 七、本轮 LIVE 全链回读（udcDataFlowMappingGet）
+
+```
+caption       接口验证→迁移断点
+name          jkyzqydd
+triggerPoint  MANUALLY
+pageId        2037509287667995707
+mobilePageId  -4925615763369467224
+paramCount    5
+required      ["id","pageOpenMode"]
+openMode      expressionValue=[{type:"CONSTANT",desc:"编辑",value:"edit"}]
+              treeData 存在（edit/view 可选）
+mode          FieldCopy
+src           probeName  →  tgt  taskId
+```
+
+#### 八、剩余 UNVERIFIED
+
+生单真正跑一次需要在「测试」里构建发布（预估 4分44秒）。
+本轮只做到规则完整落库 + 全部 UI 回读一致，**未执行真实生单**。
+### 9.12h ★★★★★ 生单规则画布完整解剖（先理解，不写代码）
+
+用户要求：「先理解这个画布他是做什么的，他能怎么画，每个功能位置对应什么细节」。
+本节只做机制说明，不含操作脚本。
+
+#### 一、画布是什么
+
+**实体关系图（Entity Relation Graph）**，不是流程图、不是画布编排器。
+它表达的是：**「哪些实体的数据，经由哪条线，流进哪个实体」**。
+
+- 一个节点 = 一个实体（`<appId>.<entityFullName>`）
+- 一条线 = 一条生单映射规则（`udcDataFlowMapping`）
+- 线上的圆圈 = 该规则下的**字段映射条数**（`+` 表示还没建规则）
+- 环状连线是正常的：本轮实测存在 A→B→C→A 三元环
+
+它解决「数据从哪来、到哪去、经谁催生」，**不解决**「字段怎么一一对应」
+——后者在点圆圈弹出的映射抽屉里。
+
+#### 二、页面骨架（实测坐标，1707×825 视口）
+
+```
+┌─ 顶部 tab：应用 实体 菜单 规则 流程 BI 栏目 设置 角色
+├─ 左侧 tab：规则 → 微流程 / 生单规则 / 扣减规则
+├─ 左栏 260px  (x=56)   ：规则列表 + 实体树（可拖）
+└─ 右区 1391px (x=316)
+   ├─ header 48px  ：图标 + 规则名（可改名）+ 保存
+   └─ main  709px
+      ├─ 实体树面板 260px (x=316)：分组"标准"下的全部实体，draggable
+      └─ 画布 1131px (x=576)
+         ├─ 网格底纹 .biz-udc-graph-grid
+         └─ SVG，内含 4 层（顺序即 z-index）：
+            g.nodeBox     节点
+            g.lineBox     实线 + 圆圈
+            g.tempLine    拖拽中的虚线（临时）
+            g.uniformity  选中态的辅助高亮
+         └─ 右下浮层 .common-zoom-pane：
+            直线/曲线切换、百分比输入、图形居中、放大、缩小
+```
+
+#### 三、SVG 四层的精确职责
+
+| 层 | class | 内容 |
+|---|---|---|
+| 1 | `nodeBox` | `g.node` × N，每个含 `rect` + `text` + `g.controls` |
+| 2 | `lineBox` | 每条线两个 `path`（`path-padding` 透明 14px 便于点选 + `path` 实线 1px）+ 每组 `g.pathCircle` |
+| 3 | `tempLine` | 拖拽过程中一条 `line#l_<startNodeId>`，`stroke-dasharray:5,5` + 箭头 marker |
+| 4 | `uniformity` | 选中线时的高亮辅助层 |
+
+外层还有 `g.warp`，`transform-origin:0 0`，所有层都挂在它下面 —— 缩放/平移只改 warp。
+
+#### 四、节点的构成（每个 `g.node`）
+
+```html
+<g class="node" id="<entityId>" style="cursor:pointer">
+  <rect id="id_<entityId>" x="95" y="268" width="180" height="50" rx="5"
+        fill="#EAF5FF" stroke="#3E4F60"/>          <!-- 固定 180×50 -->
+  <text class="biz-udc-graph-text" x="185" y="298"
+        text-anchor="middle" font-size="14px">实体名</text>
+  <g class="controls" id="control_id_<entityId>" style="display:none">
+    <circle class="drag-point" direction="left"   cx cy r=5/>
+    <circle class="drag-point" direction="top"    cx cy r=5/>
+    <circle class="drag-point" direction="right"  cx cy r=5/>
+    <circle class="drag-point" direction="bottom" cx cy r=5/>
+    <g class="delete-node"><circle cx=275 cy=268 r=10/><text>×</text></g>
+  </g>
+</g>
+```
+
+**关键细节**
+- `g.node.id` = 实体 id（**不带** `id_` 前缀）
+- `rect.id` = `id_<entityId>`，线的 `startId/endId` 用的就是这一串
+- `g.controls` 默认 `display:none`，**鼠标 hover 到节点**才 `display:block`
+- ★★ 这是最大的陷阱：锚点 `display:none` 时 `getBoundingClientRect()` 全是 0，
+  必须保持 hover 才能拿到真实坐标。跨调用丢失 hover 就抓不到，
+  所以「hover + mousedown + move + up」必须在**同一次 JS 执行内**完成。
+- 4 个锚点各对应一个方向，**从哪个锚点出、落到哪个锚点**决定线的走向与
+  `startDirection` / `endDirection` 两个字段。
+
+#### 五、线的构成（每条 `g.lineBox` 里的线）
+
+```html
+<path class="path-padding" id="<startId>-<endId>" d="M ... " stroke="transparent" stroke-width="14"/>
+<path class="path"         id="<startId>-<endId>" d="M ... " stroke="#3E4F60" stroke-width="1"/>
+<g class="pathCircle" id="lineId_<startId>-<endId>">
+  <circle id="circle_<startId>-<endId>" cx cy r="12|13"/>
+  <text id="circle_text_<startId>-<endId>" text-anchor="middle">+</text>
+</g>
+```
+
+**线 id 格式**：`id_<实体A>-id_<实体B>`（全球唯一，同源同宿只能有一条）
+**pathCircle id 前缀**：`lineId_`，圆圈 `circle_`，文字 `circle_text_`
+
+★ `path-padding` 是 14px 宽的透明描边，专为**扩大点选热区** —— 点线时
+实际命中的是它，不是 1px 的 `path`。
+
+#### 六、圆圈 `+` 与 `1` 的真实语义（`S` 函数）
+
+```js
+S = (t, e, n) => {              // t={x,y} 圆心, e=线id, n=规则条数
+  let l = n || "+";                                       // 无值显示 +
+  let c = n && "+" !== n && 0 !== n ? 有规则样式 : 无规则样式;
+  circle.attr("r", c.radius).attr("fill", o).attr("stroke", c.strokeColor);
+  text.attr("fill", c.textFill).style("font-size", c.fontSize).text(l);
+}
+```
+
+- `n` 为 `undefined` / `"+"` / `0` → 画 `+`，小半径、浅样式
+- `n` 为数字（如 `1`）→ 画数字，大半径、深样式
+
+所以 **`+`→`1` 是「这条线已挂了 1 条字段映射规则」的真实信号**，
+不是装饰。点圆圈 = 打开该线的映射抽屉。
+
+#### 七、怎么画（真实交互路径）
+
+**A. 加节点**
+1. 左栏实体树 `.ant-tree-treenode[draggable=true]`
+2. 拖到画布 → antd Tree 的 `onDragEnd(antdEvent)` 单参数回调
+3. 回调内第一句硬门槛：
+   ```js
+   if (t.pageX < graphWrapper.left) return;   // 落在画布左边界外 → 静默 return
+   ```
+   ★ 不报错、不提示、什么都不发生 —— 这是「拖了没反应」的根因
+4. 节点坐标 = 落点，宽高固定 180×50
+
+**B. 连线**（D3 drag，不是 DOM 事件）
+```js
+selectAll('.drag-point').call(d3.drag()
+  .on('start', ...)   // 记录 movingSelectLine
+  .on('drag',  I)     // 画 tempLine 虚线，跟随鼠标
+  .on('end',   T))    // 落线
+```
+`T` 落线函数：
+```js
+T = (t, e) => {                                  // t={x,y} local 坐标, e={id,direction}
+  let r = eA(t.x, t.y, nodes);                   // ★ 命中检测
+  let i = `${e.id}-${r.targetId}`;               // 线 id
+  ...
+  d.current.lines.push({id:i, startId:e.id, endId:r.targetId,
+    startDirection, endDirection, x1,y1,x2,y2, circleX,circleY, path});
+}
+```
+命中检测 `eA` 的判定（**local 坐标**，非屏幕坐标）：
+```js
+t >= l.x - width/2 - distance && t <= l.x + width/2 + distance &&
+e >= l.y - height/2 - distance && e <= l.y + height/2 + distance
+```
+三道闸不建线：自连、同方向、已存在。
+
+**C. 删线**
+- 键盘 `Delete(46)` / `Backspace(8)`：先选中线，再按
+- 删节点同理，会连带删该节点的所有线
+
+**D. 移动节点**
+- 鼠标拖节点本体（不是锚点）
+- 或选中节点后按 **方向键** `↑↓←→`，每次移动 **1px**（`W` 函数逐像素累加）
+
+**E. 缩放/居中（右下 `.common-zoom-pane`）**
+| 控件 | 实现 | 范围 |
+|---|---|---|
+| 图形居中 `onFitMap` | `U` 自动计算包围盒 | — |
+| 放大 `onZoomIn` | `scaleTo(k+0.1)` | — |
+| 缩小 `onZoomOut` | `scaleTo(k-0.1)` | — |
+| 百分比 `onPercentZoom` | `scaleTo(p/100)` | **20~200** |
+| 直线/曲线 `onLineTypeChange` | `eg(...,lineType)` 重算 path | `line` / `curve` |
+
+★ 直线/曲线切换是**逐线**属性（`lines[].lineType`），只有选中某条线时才启用；
+未选中时 dropdown 是 `ant-select-disabled`。
+
+#### 八、definition 的完整结构（保存时页面自己发的）
+
+```json
+{
+  "nodes": [{
+    "x":185,"y":293,"id":"id_<实体id>","title":"实体名",
+    "style":{"width":180,"height":50,"left":95,"top":268},
+    "direction":"","appId":"...","appName":"...","fullName":"com.seeyon...Entity"
+  }],
+  "lines": [{
+    "id":"id_A-id_B",
+    "startDirection":"right","endDirection":"left",
+    "x1":185,"y1":293,"x2":686,"y2":293,
+    "circleX":435.5,"circleY":293,
+    "path":"M 275,293 L 305,293 L 435.5,293 L 566,293 L 596,293",
+    "startId":"id_A","endId":"id_B","text":1
+  }],
+  "transform":{"x":0,"y":0,"k":1}
+}
+```
+
+- `nodes[].x/y` 是**锚点中心**，`style.left/top` 是矩形左上角（x-w/2, y-h/2）
+- `lines[].path` 由 `ew()` 按方向梯度算出，是**多段折线** `M ... L ...`
+- `lines[].text` 就是圆圈数字（规则条数），首次出现时可能缺省
+
+#### 九、对外 API（组件 ref 导出）
+
+```js
+{
+  echoRelationGraph,   // 回填整个图（从 definition 还原）
+  echoMappingsCount,   // 回填某条线的圆圈数字
+  clearAnimationMotion,// 清空动画态
+  addSymbol,           // 程序化加节点
+  onFitMap, onZoomIn, onZoomOut, onPercentZoom, onLineTypeChange
+}
+```
+`echoRelationGraph` 内部：`scaleTo(k)` → 逐个 `addSymbol` → 逐条画 path →
+`lines.push` → `S(circleX,circleY,id,text)`。
+★ 这是**官方认可的 programmatic 入口**，比伪造 DOM 事件可靠。
+
+#### 十、右侧浮层 `.common-zoom-pane-tooltip` 的坑
+
+无头/CDP 环境下抽屉和浮层动画常卡在 `transform: translateX(1200px)`，
+导致内部 `ant-select` 的 portal 定位到视口外（实测 x=2357 > viewport 1707），
+dropdown 永远打不开。
+判据：`getComputedStyle(wrapper).transform` 是 `matrix(1,0,0,1,1200,0)` 就是卡住了。
+处理：把 wrapper 的 transform 强制设为 `translateX(0px)`。
 ### 9.12b ★★★ 修订：pageId 不是"允许 null"，而是必须先有实体详情页
 
 上一版 §9.8 写"pageId=null 完全允许、不需要页面"，**这是错的**。
