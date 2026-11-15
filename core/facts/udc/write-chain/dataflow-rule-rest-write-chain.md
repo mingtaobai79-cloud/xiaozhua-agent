@@ -500,6 +500,97 @@ onClick:()=>{ let t=H.getFieldsValue();
 红字        无
 ```
 
+### 9.12a ★★★ 画布真实机制（推翻此前所有猜测）
+
+此前我用「直接调 React `onDragEnd`」加节点、「手写 definition.lines 再 Update」连线。
+两者都是**伪造**：前者的入参是我编的 `{event,node}` 形状，后者根本不经过页面逻辑。
+本轮从 bundle 里读到真实实现（`webpackChunkudc` 模块 `87235`，67070 chars），
+画布是 **D3，不是 React**。
+
+#### 加节点：是真的 HTML5 drag，不是 onClick
+
+树节点 `.ant-tree-treenode[draggable=true]` 的 `onDragEnd` 由 antd Tree 提供，
+回调签名是 **`onDragEnd(antdEvent)` 一个参数**，`node` 从 antd 的 `info` 里取。
+★ 传 `{event,node}` 会报 `t.stopPropagation is not a function` —— 因为第一个参数
+就是原生 event，不是包装对象。这是本轮的实测报错，可作为形状判据。
+
+回调内部有硬门槛：
+
+```js
+if(t.pageX < graphWrapper.left) return;   // ★ 落在画布左侧区域就静默 return
+```
+
+`pageX` 必须落在画布内，否则**不报错、不提示、什么都不发生**。
+用 CDP `dispatchMouseEvent` 试过：触发不了 dragstart（React 合成事件拦），
+`pageX` 取不到 —— 所以节点只能由页面自己的 drag 完成，或直接调那个回调。
+
+#### 连线：D3 drag，`drag-point` 是 SVG circle
+
+```js
+// .drag-point 上的绑定（ec.A() 是 d3-drag）
+selectAll('.drag-point').call(
+  d3.drag()
+   .on('start', function(){ ...记录 movingSelectLine... })
+   .on('drag',  function(t){ I({x:t.x,y:t.y},{...node,direction}) })  // 画虚线
+   .on('end',   function(t){ T({x:t.x,y:t.y},{...node,direction}) })  // 落线
+)
+```
+
+`T` 是落线函数（真实实现截取）：
+
+```js
+T = (t, e) => {
+  d.current.tempId = null;
+  let n = [...nodes], r = eA(t.x, t.y, n);        // 命中检测：找落点节点
+  d3.select('#l_' + e.id).remove();                // 删虚线
+  let i = `${e.id}-${r.targetId}`;                 // ★ 线 id = 起点id-终点id
+  let o = d.current.lines.findIndex(x => x.id === i);
+  function c(){
+    let t = eg({x:e.x,y:e.y}, {x:r.x,y:r.y}, e.direction, r.direction);  // 计算折线
+    let {pathData:n, middleX:o, middleY:a} = ew(t, e.id, r.targetId);
+    z(n, i);                        // 画 path
+    S({x:o,y:a}, i);                // 画圆圈（text 默认 "+"）
+    d.current.lines.push({id:i, startDirection:e.direction, endDirection:r.direction,
+      x1:e.x,y1:e.y,x2:r.x,y2:r.y, circleX:o,circleY:a, path:n,
+      startId:e.id, endId:r.targetId});
+    g({model:'div', id:''});        // 触发重渲染
+  }
+  // ★ 三道闸：同节点自连、同方向、已存在 都不建线
+  e.id===r.targetId && e.direction===r.direction
+  || e.id===r.targetId && e.direction===r.direction
+  || r.exists && -1===o && (a ? a(e,r).then(()=>{c()}) : c());
+}
+```
+
+**要点**
+- 线 id 格式：`<startNodeId>-<endNodeId>`，节点 id 形如 `id_<实体id>`
+- 圆圈 `text` 初值 `"+"`；有映射规则后由 `S({x,y}, id, o.text)` 写成 `1`
+- `d.current.lines` 是**内存真状态**，保存时直接 `JSON.stringify({lines,nodes,transform})`
+
+#### 我踩过的三个坑（都是"看起来成功其实没生效"）
+
+1. **合成 DragEvent 被 React 拦** → 节点加不上，但页面不报错
+2. **CDP dispatchMouseEvent 走不完 d3-drag** → 虚线不出现，`T` 不触发
+3. **手写 `definition.lines` 再 Update 返回 `BOOT_0000 content=1`** →
+   接口成功、画布也显示线，但那条线是死的：它跳过了 `T` 里的
+   `eA` 命中检测和 `d.current.lines` 状态注入，映射抽屉点开 `pageId` 仍为空。
+
+**判据**：真正的线，保存时页面自己发出的 `definition` 里 `lines[].path`
+是一串 `M x,y L x,y ...`（由 `ew` 梯度算出），且 `circleX/circleY` 落在两节点连线中点。
+
+#### 本轮 LIVE 证据
+
+```
+g.node = 2
+path#id_4308140192425942217-id_3748812225302252072  d="M 247,330 L 277,330 L 435.5,330 L 594,330 L 624,330"
+.pathCircle = 1，text 由 "+" 变 "1"
+保存请求 definition.lines = [{id:"id_...-id_...", startId, endId,
+  startDirection:"right", endDirection:"left",
+  x1:157,y1:330,x2:714,y2:330, circleX:435.5,circleY:330,
+  path:"M 247,330 L 277,330 L 435.5,330 L 594,330 L 624,330"}]
+udcDataFlowUpdatePost → BOOT_0000 content=1
+```
+
 ### 9.12b ★★★ 修订：pageId 不是"允许 null"，而是必须先有实体详情页
 
 上一版 §9.8 写"pageId=null 完全允许、不需要页面"，**这是错的**。
