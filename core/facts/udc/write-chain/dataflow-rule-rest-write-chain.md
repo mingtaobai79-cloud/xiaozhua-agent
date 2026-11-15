@@ -500,6 +500,107 @@ onClick:()=>{ let t=H.getFieldsValue();
 红字        无
 ```
 
+### 9.12b ★★★ 修订：pageId 不是"允许 null"，而是必须先有实体详情页
+
+上一版 §9.8 写"pageId=null 完全允许、不需要页面"，**这是错的**。
+真相由 `udcDataFlowMappingInitDataPost` 的 `pageInfoList` 直接给出：
+
+```
+应用 163126498398523384 原始状态：
+  全部页面 = [{"caption":"二维码","pageUrl":"_qrcodeSetting","pageType":"DETAIL"}]
+  pageInfoList = []            ← 下拉"暂无数据"的真正原因
+```
+
+`pageInfoList` 是**后端按"目标实体的 DETAIL 页"筛出来的**，
+应用里没有 MigrationCheckpoint 的详情页 → 空数组 → 下拉无选项。
+在空状态下强行提交，只会存进 `pageId=null` 的半壳规则（能过接口、不能跑）。
+
+**正确前置：先生成该实体的页面。**
+
+### 9.12c ★ 生成页面的真实入口与接口（黑盒转白盒）
+
+UI 路径：`实体` → 选中实体 → 点「生成页面」
+
+接口（**一次建 4 个页面**，比逐个 `base-info/create` 可靠）：
+
+```
+POST /service/udc/graphql?udcPageInfoBaseInfoBatchCreatePost
+variables: { body: [ {...}, {...} ] }     # 数组，每项一个页面
+```
+
+单页 body 实测字段：
+
+```jsonc
+{"appId":"<appId>","caption":"迁移断点列表页","category":"BASIC",
+ "curTerminalType":"ALL","groupId":"","handWritten":false,"hostAppName":null,
+ "masterEntityIds":"<实体id>",          // ★ 字符串，不是数组
+ "pageType":"SEARCH_LIST",              // 列表；详情为 DETAIL
+ "pageUrl":"qyddListPage",
+ "relationAppName":"migrationCheckpoint",
+ "relationGroupId":"0","sourceType":"DESIGNER",
+ "pageItems":[{"urlType":"MOBILE","actionType":"INSERT","menuName":"..."}]}
+```
+
+配套自动动作（同一个"生成"按钮串发）：
+`udcUdcRuntimeFilterPlanPost`（建默认过滤方案）、
+列表页/详情页各建 MOBILE+PC 两条 → 共 4 个 pageId。
+
+★ 与 `base-info/create` 的差别：`masterEntityIds` 在 `base-info/create`
+里要**数组**（字符串报 `BOOT_3002 反序列化失败`），
+而在 `BatchCreatePost` 里是**字符串**。两个端点口径不同，别混用。
+
+### 9.12d ★ 生成后 `pageInfoList` 立即有值（回读证据）
+
+```
+pageInfoList = [
+ {id:"1218163797264834135", caption:"迁移断点详情页", pageUrl:"qyddDetailPage",
+  pageType:"DETAIL", clientType:"MOBILE"},
+ {id:"2343382375512589103", caption:"迁移断点详情页", pageUrl:"qyddDetailPage",
+  pageType:"DETAIL", clientType:"PC"}
+]
+```
+
+于是映射抽屉里的 `pageId` / `mobilePageId` **自动填好**（不再"请选择"），
+`pageId=2343382375512589103`（PC）、`mobilePageId=1218163797264834135`。
+
+### 9.12e ★ 画布连线：走 definition JSON，不走鼠标
+
+`lines` 鼠标拖不动（React 拦 dragstart，锚点 `controls` 默认 `display:none`）。
+可靠做法：读 `udcDataFlowGet.definition` → 补 `lines[]` → `udcDataFlowUpdatePost` 写回。
+
+```jsonc
+// definition 三键：nodes / transform / lines
+"lines":[{"id":"<startId>-<endId>","startId":"id_<源实体>","endId":"id_<目标实体>",
+          "text":1,"startDirection":"right","endDirection":"left",
+          "x1":..,"y1":..,"x2":..,"y2":..,"circleX":..,"circleY":..,
+          "path":"M x1+90,y1 L x1+180,y1 L x2-180,y2 L x2-90,y2"}]
+```
+
+`udcDataFlowUpdatePost` **必须带 `appId`**，否则 `BOOT_1001 所属应用ID 不能为null`：
+
+```jsonc
+{"body":{"id":"<flowId>","appId":"<appId>","caption":"<规则名>","definition":"<JSON 字符串>"}}
+```
+
+保存后刷新，画布 `g.node=2`、`.pathCircle` 圆内显示 `1`。
+
+### 9.12f ! 遗留：生成的页面是空壳，检查会报 4 个 ERROR
+
+`udcApplicationSearchDetectionPost` 实测：
+
+```
+WARN  UDC_CE_MICRO_FLOW_04003  验证微流程（旧，与本规则无关）
+ERROR UDC_CE_PAGE_03907  页面 [迁移断点详情页:WEB端]  内容为空，请先设计并保存
+ERROR UDC_CE_PAGE_03907  页面 [迁移断点列表页:移动端] 内容为空，请先设计并保存
+ERROR UDC_CE_PAGE_03907  页面 [迁移断点详情页:移动端] 内容为空，请先设计并保存
+ERROR UDC_CE_PAGE_03907  页面 [迁移断点列表页:WEB端]  内容为空，请先设计并保存
+```
+
+**"生成页面"只建页面记录与菜单，不生成布局内容**（pageSchema 未设计）。
+规则本身（`udcDataFlowMappingPost` → pageId 有值 → 字段映射齐）已经落地，
+但这 4 个 ERROR 会挡住"应用检查"全绿。要清零需再逐页进设计器拖控件并保存 ——
+**本轮未做，标 UNVERIFIED / 待办**。
+
 ### 9.13 本轮全链 LIVE 汇总
 
 | 动作 | 接口 | 结果 |
