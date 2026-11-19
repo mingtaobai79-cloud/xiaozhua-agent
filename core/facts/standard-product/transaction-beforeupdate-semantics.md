@@ -72,22 +72,71 @@ updateNoEvents(D)→ updateBase(dto, false, false)   // 不发事件
 而 `BeforeUpdateEvent` 本身是纯 POJO（`info` / `oldInfo` 两个字段，
 构造函数原样赋值，`getInfo()` 直接 `aload_0.getfield` 返回），**没有防御性拷贝**。
 
-### 6.2 ★★★★★ 但默认那条路改不到
+### 6.2 ★★★★★ 两个事件都会发（**本节先前写错，已修正**）
 
-`EntityEventHelper.beforeEvent` 的 UPDATE 分支（tableswitch case 2，字节 135–201）：
+`EntityEventHelper.beforeEvent` 的 UPDATE 分支（tableswitch case 2，字节 135–201）**发两次**：
 
 ```java
-BeforeUpdateBatchEvent e = new BeforeUpdateBatchEvent(collection);  // 174
-e.setDtoClass(container.getDtoClass());                             // 183
-this.eventBus.publish(e);                                           // 191
+// 161-164：先逐个发「单个」事件
+changeData.forEach(cd ->
+    eventBus.publish(new BeforeUpdateEvent(cd.getCurrent(), cd.getPrevious()))  // 636-655
+);
+
+// 169-191：再发「批量」事件
+BeforeUpdateBatchEvent batch = new BeforeUpdateBatchEvent(changeData);  // 174
+batch.setDtoClass(container.getDtoClass());                            // 183
+eventBus.publish(batch);                                               // 191
 ```
 
-发布的是 **`BeforeUpdateBatchEvent`**（只暴露 `getEventData()` 一个取数口），
-**不发布单个 `BeforeUpdateEvent`**。
+`lambda$beforeEvent$3(ChangeEventData)` 的字节码（第 636 行起）：
 
-单事件 `BeforeUpdateEvent` 由**其它组件**发出，不在 `BaseEntityCurdService` 更新链上。
+```
+  4: new BeforeUpdateEvent
+  8: aload_1
+  9: ChangeEventData.getCurrent()      ← 第 1 个入参（更新后）
+ 12: aload_1
+ 13: ChangeEventData.getPrevious()     ← 第 2 个入参（更新前）
+ 16: <init>(Object, Object)
+ 19: eventBus.publish(...)
+```
 
-⇒ **写 `@Subscribe BeforeUpdateEvent` 监听器，在这条更新链上根本不会被调用。**
+**⇒ `BeforeUpdateEvent(info, oldInfo)` 的两个入参就是 `current` 和 `previous`，
+   两个事件都能收到，挂哪个都行。**
+
+### 6.2.1 ★★★★★ 两个入参改哪个生效 —— 只改 `getInfo()`（current）
+
+`BeforeUpdateEvent(T info, T oldInfo)` 对应：
+
+| 事件方法 | 对应 ChangeEventData | 含义 | 改它会不会落库 |
+|---|---|---|---|
+| **`getInfo()`** | `getCurrent()` | **更新后**（请求 DTO，merge 补全后） | ✅ **会** |
+| **`getOldInfo()`** | `getPrevious()` | **更新前**（`selectCascadeById` 查出的库值） | ❌ **不会** |
+
+`updateBase` 里 `aload 7`（oldDto）的全部使用点，逐个核过：
+
+```
+ 191: ReflectFieldUtil.getFieldValue(old, "statusType")   → 取旧状态做比对
+ 238: JsonUtils.toJson(old)                                → 仅日志
+ 248: Objects.isNull(old)                                  → 判空
+ 277: Lists.newArrayList(old) → listToMap                  → 只做 merge 的 oldMap
+ 330: Lists.newArrayList(old) → OperateContext.oldData     → 上下文留痕
+ 419: BillStateCallBack.checkBillState(old, new)           → 校验入参
+ 446: PermissionCallBack.buildInitialValue(meta, old, new) → 校验入参
+ 479: PermissionCallBack.requiredValidate(meta, old, new)  → 校验入参
+ 513: ChangeEventData.setPrevious(old)                     → 事件 previous
+```
+
+**没有任何一条把 `oldDto` 送进 `BeanCopier.copy` 或 mapper。**
+
+写库那一段（偏移 768/826）只认 `aload_1`：
+
+```
+ 768: BeanCopier.copy(aload_1, entityClass)
+ 826: getMapper().update(bean)
+```
+
+**⇒ 所以改「更新前」那个入参（`getOldInfo()`）不会生效。
+   只有改 `getInfo()`（= current = 请求 DTO 本身）才生效。**
 
 ### 6.3 事件总线：看着异步，其实同步
 
@@ -217,7 +266,7 @@ lambda$null$11(Map, DTO old, DTO new, DTO):
 |---|---|
 | 1 | **改数据后不要再调 `update`** —— 会二次写、可能触发第二次完整链路 |
 | 2 | **只有 `isMasterEntity` 为 true 才发事件**（偏移 517: `getfield isMasterEntity; ifeq 560`，子实体容器为 null） |
-| 3 | **默认发的是 `BeforeUpdateBatchEvent`**，不是 `BeforeUpdateEvent` |
+| 3 | **单事件和批量事件都会发**（此条先前写错，已按字节码修正） |
 | 4 | `updateNoEvents` 完全不发事件，改它的事件没意义 |
 | 5 | 改 `oldInfo` 不影响落库 |
 | 6 | 事件名为 async 实为同步，改在写库前生效；但**不要依赖这个时序做跨事务投递** |
@@ -247,9 +296,13 @@ lambda$null$11(Map, DTO old, DTO new, DTO):
   → 不用。改 getInfo() 返回的对象即可，它和写库源是同一个引用（385/506/768）
   → 但先确认你挂的是哪个事件：
 
-问「我要挂 BeforeUpdateEvent 单事件监听」
-  → 更新链默认不发它，只发 BeforeUpdateBatchEvent
-  → 优先改挂 BeforeUpdateBatchEvent，或覆写 preUpdateBatch
+问「监听更新前事件有两个入参，改哪个生效」
+  → 改 getInfo()（= current = 更新后 = 请求 DTO 本身）。改它必落库
+  → 改 getOldInfo()（= previous = 库里的旧值）不落库，oldDto 从不进写库路径
+
+问「BeforeUpdateEvent 在这条链上收得到吗」
+  → 收得到。EntityEventHelper.beforeEvent case2 先逐个 publish 单事件(164)，
+    再 publish batch(191)。两个都能挂
 
 问「事件是异步的吗，改得及吗」
   → 名叫 async，LegacyAsyncDispatcher 实际是同步循环
