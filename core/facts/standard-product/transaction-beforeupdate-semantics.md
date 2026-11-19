@@ -121,6 +121,86 @@ public default void preUpdateBatch(java.util.List<D>);
 
 ⇒ 如果要在更新前改数据，**覆写 `preUpdateBatch` 比挂事件监听器更靠前、更可靠**。
 
+### 6.5 ★★★★★ 那个对象就是「请求进来的 DTO」本身
+
+**回答「更新前的那个对象，是不是请求传来的数据」——是同一个对象，且会被就地补全。**
+
+字节码链路（`DtoConvertUtil.mergeMapData(meta, oldMap, newMap)`）：
+
+```
+updateBase:
+ 1260: defaultUpdateListToMap(meta, list5)     → astore 6   ← newMap（请求 DTO）
+ 1270: selectCascadeById(id)                   → astore 7   ← oldDto（库里的）
+
+ 365: mergeMapData(meta, aload 8 /*oldMap*/, aload 6 /*newMap*/) → astore 10
+ 385: aload 10 → astore_1                     ← 覆盖参数槽
+```
+
+`mergeMapData` 内部（参数 1 = oldMap，参数 2 = newMap）：
+
+```
+ 228: aload_1 /*oldMap*/.forEach( BiConsumer(oldMap, newMap) )   ← 遍历库里的旧 DTO
+ 245: forEachMergedChildDto(...)
+ 248: aload 4 /*= aload_2.values() 即请求 DTO*/ + areturn
+```
+
+那个 BiConsumer 的终点：
+
+```
+lambda$null$11(Map, DTO old, DTO new, DTO):
+ 1225: copyValueIfTargetFieldIsNull(aload_1 /*?*/, aload_2 /*请求 DTO*/, ...)
+ 1236: aload_2            ← 返回 newDto
+ 1237: areturn
+```
+
+`copyValueIfTargetFieldIsNull(DTO target, DTO source, ...)`：
+
+```
+ 469: List.forEach( InvokeDynamic(target=aload_0, source=aload_1) )
+ 723: lambda$null$33(target, field, value, _):
+ 728:   ReflectUtil.setFieldValue(aload_0 /*= target*/, field, value)
+```
+
+**⇒ 结论：**
+
+| 问题 | 答案 |
+|---|---|
+| 事件里的 `getInfo()` 是不是请求 DTO？ | **是**，同一个对象实例（`astore_1` 直接指向它） |
+| 返回的是 new 出来的副本吗？ | **不是**，`aload_2; areturn` 原样返回请求对象 |
+| 请求里没传的字段会怎样？ | **被库里旧值就地回填**（`copyValueIfTargetFieldIsNull` 只补 null 字段） |
+| 所以你看到的是「全量对象」还是「只含请求字段」？ | **全量** —— 补齐后的完整对象 |
+
+### 6.6 「就地回填」的三个例外（必须知道）
+
+`lambda$copyValueIfTargetFieldIsNull$31` 的过滤规则：
+
+| 条件 | 行为 |
+|---|---|
+| `field.name == "version"` | **一定参与回填**（乐观锁） |
+| 字段在 `__updatedFields` 里 | **不回填**（本次明确要改的，保留请求值） |
+| 字段在 `__emptyFields` 里 | **不回填**（本次明确要清空的，保留 null） |
+| 其它字段且请求值为 null | **回填库里旧值** |
+
+**⇒ 你要改的字段，如果在 `__updatedFields` 里，改它没问题（它就是请求值）；
+   如果不在，它本来就已经是「库里旧值」，你改了也会被后续 merge 覆盖 —— 先确认字段在哪个集合。**
+
+### 6.7 ★★★ 所以「改请求对象」= 改待落库数据
+
+因为三者是同一个引用链：
+
+```
+请求 JSON → DTO（update 的参数 aload_1）
+          → mergeMapData 补全后覆盖 aload_1
+          → setCurrent(aload_1) 进事件
+          → BeanCopier.copy(aload_1) 写库
+```
+
+**改 `getInfo()` 拿到的对象的字段 = 直接改请求 DTO = 直接改落库数据。不需要再 update。**
+
+⚠️ 但注意：**请求对象在被 merge 补全之后、事件发出之前**才有完整字段。
+`preUpdateBatch`（偏移 458）恰好在 merge(365) 之后、beforeEvent(582) 之前 ——
+**这个钩子里拿到的是完整对象，位置最佳。**
+
 ## 7. Side Effects
 
 | 改哪里 | 是否会落库 | 时机 |
@@ -177,6 +257,10 @@ public default void preUpdateBatch(java.util.List<D>);
 
 问「最靠前的改数据钩子是什么」
   → PreUpdateCallBack.preUpdateBatch(List<D>)，偏移 458，早于事件
+
+问「更新前那个对象是请求传进来的吗」
+  → 是，同一个实例。mergeMapData 就地补全后 `aload_2; areturn` 原样返回
+  → 所以事件里拿到的是「补全后的完整对象」，不只是请求里那几个字段
 
 问「改 oldInfo 有用吗」
   → 没用。oldDto 只用于 previous 和比对，不进写库
