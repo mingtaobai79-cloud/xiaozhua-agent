@@ -47,9 +47,120 @@
 | ㉓ | `api-usage-cards.md` | 7,393 | 181 |
 | ㉔ | `code-repo-and-targets.md` | 7,566 | 180 |
 | ㉕ | `autocode-project-templates.md` | 4,990 | 136 |
+| ㉖ | `organization-ctpuser-method-index.md` | 10,900 | 230 |
+| ㉗ | `udc-biz-microflow-method-index.md` | 15,000 | 340 |
 
-合计 25 格 = 256906 B。
-INDEX L118 那一行是这 23 份的**逐格摘要**（7886 字符的单行），本表只给坐标，不重复摘要。
+合计 27 格。
+INDEX L118 那一行是前 25 份的**逐格摘要**（7886 字符的单行），本表只给坐标，不重复摘要。
+㉖㉗ 是 2026-11-18 新增的方法签名索引格，摘要待补。
+
+## 一点五、版本漂移登记（2026-11-18 实测，必读）
+
+`surface-index` 产物的 `packages/*.md` 头部标注的构件版本，**有 17 个与实际 `cplib/` 不符**：
+
+| 构件 | 索引标注 | 实际 jar |
+|---|---|---|
+| `bpm-facade` | 5.3.374 | **5.3.600** |
+| `ctp-affair-facade` | 5.3.315 | **5.3.600** |
+| `ctp-user-facade` | 5.3.429 | **5.3.600** |
+| `ctp-message-facade` | 5.3.287 | **5.3.600** |
+| `organization-facade` | 5.3.601 | 5.3.601 ✅ |
+| `app-common-facade` | 5.3.274 | **5.3.600** |
+| `portal-facade` | 5.3.392 | **5.3.600** |
+| `cdp-data-facade` | 5.3.279 | **5.3.600** |
+| `cip-capability-common` | 5.3.276 | **5.3.600** |
+| `cip-capability-facade` | 5.3.276 | **5.3.600** |
+| `cip-connector-facade` | 5.3.286 | **5.3.600** |
+| `cip-manager-facade` | 5.3.273 | **5.3.279** |
+| `cip-openapi-common` | 5.3.260 | **5.3.600** |
+| `udc-biz` | 5.3.517 | **5.3.605** |
+| `udc-cicd` | 5.3.517 | **5.3.605** |
+| `udc-extend` | 5.3.517 | **5.3.605** |
+| `udc-plugin-api` | 5.3.517 | **5.3.605** |
+| `udc-web` | 5.3.517 | **5.3.605** |
+
+**已验证：类数完全一致**（`bpm-facade` 533=533、`organization-facade` 414=414、`ctp-user-facade` 263=263、`udc-biz` 1856=1856），
+**方法签名可用** —— 漂移是「同内容换版本号」，不是内容过期。
+
+**★ 但包名必须从 jar 取真值，不能信索引 md 的路径推断：**
+
+| 类 | 索引暗示 | jar 里真实全限定名 |
+|---|---|---|
+| `BpmActionAppService` | `com.seeyon.bpm.api` | **`com.seeyon.bpm.api.common`** |
+| `OrgCommonAppService` | `com.seeyon.organization.api` | **`com.seeyon.organization.api.common`** |
+| `CtpUserCoreAppService` | `com.seeyon.ctp.user.api` | **`com.seeyon.ctp.user.api.core`** |
+| `AffairMicroflowAppService` | `...affair.api` | **`com.seeyon.ctp.affair.api.microflow`** |
+| `OrgWorkFlowAppService` | `...organization.api` | **`...organization.api.app.workflow`** |
+| `OrgMetadataCoreAppService` | `...organization.api` | **`...organization.api.core.metadata`** |
+| `OrgZhongheService` | `...organization.api` | **`...organization.api.app.third.zhonghe`** |
+
+**⇒ 规则：拿类名去 jar 里搜 `.class`，取 `n[:-6].replace('/','.')`；不要从索引 md 猜包路径。**
+
+### 一点六、索引已重建（2026-11-18，`extension-surface-20261118`）
+
+**旧 `interfaces.json` 已丢失**（原 `extension-surface-20261029/` 目录不存在），本次从 91 个 jar 全量重建：
+
+| 项 | 值 |
+|---|---|
+| 位置 | `docs/audit/artifacts/extension-surface-20261118/` |
+| `interfaces.json` | **60.3 MB** — 91 构件 / **10453 类** / **106451 方法** / 41339 个可反查方法名 |
+| `packages/` | 91 个（每构件方法级签名） |
+| `dto-fields/` | 12 个域 |
+| `domains/` | 11 个域 |
+| `interface-inventory.md` | 1144 接口 = 1035 真接口 + 109 注解；**754 个可 implements** |
+| `constants.md` | 378 KB（10258 个带字面值常量） |
+| `impl-map.json` | 295 接口 / 297 条实现关系 |
+| `extension-points.md` | 150 扩展点（有实现 100 / 纯扩展位 27） |
+| `action-index.md` | **113 KB** / 2259 方法（有实现 2130 / 有流转 388） |
+| `annotations.md` | **109 个 `@interface`**（RUNTIME 108），含元注解 Spring 注册线索 |
+| `consumers.json` | 12248 类扫描 / **182 个扩展点的真实引用计数** |
+| `registration-scan.json` | 91 JAR（48 个有 spring.factories / 3 条 services 条目） |
+| `dto-meta.json` | 1331 扫 / **1305 有中文元数据**（字段 caption） |
+| `dto-validations.json` | **0 条约束（真实：平台 DTO 无 JSR-303 注解，旧版同样为 0）** |
+| `service-flow-20261118/` | udc-biz 155 KB / udc-dataflow 19 KB（action-index 的前置） |
+| `surface-index.tar.gz` | **746 KB** / 127 条目（已覆盖 `docs/audit/reference/`） |
+
+**重建链路（可复现）：**
+
+```
+cplib/*.jar (221 个)
+  → build_batch2_fast.py   (批量 javap -p -constants，每批 80 类)
+  → batch2/<构件>.json
+  → index_backend_interfaces.py  (官方脚本)
+  → interfaces.json
+  → emit_package_surfaces / emit_interface_inventory / emit_constants
+    / emit_extension_points / emit_dto_fields / emit_domain_surfaces
+    / build_impl_map
+  → 各产物
+```
+
+**★★★ 关键教训：旧 `packages/*.md` 只渲染「关键类」的**部分**方法，不能当全量方法清单用。**
+
+| 接口 | 旧索引显示 | 真实方法数 |
+|---|---|---|
+| `BpmAppService` | 4 | **26** |
+| `BpmTemplateAppService` | 23 | **55** |
+| `BpmCaseAppService` | 21 | **23** |
+| `BpmOpinionAppService` | 5 | **7** |
+| `BpmProcessLogAppService` | 2 | **7** |
+| `OrgCommonAppService` | 10 | **45** |
+| `OrgWorkFlowAppService` | 7 | **37** |
+| `OrgMetadataCoreAppService` | 4 | **16** |
+| `OrgMemberSyncAppService` | 2 | **14** |
+| `CtpRoleCoreAppService` | 6 | **14** |
+| `CtpUserRoleCoreAppService` | 5 | **13** |
+
+**⇒ 想要某接口的完整方法清单，必须查 `interfaces.json` 的 `classes[<fqcn>].methods`，不要读 `packages/*.md`（那只是节选）。**
+
+**方法数口径：** `interfaces.json` 的 `methods` 含 `lambda$` 合成方法。
+真实业务方法数 = 总数 − 以 `lambda$` 开头的项（如 `MicroFlowAppService` 95 = 75 真 + 20 lambda）。
+
+**为什么 BPM / 组织的 action-index 只看得到接口，追不到方法体流转：**
+
+平台服务端只发布了接口 jar（`bpm-facade` / `organization-facade`），
+实现类在服务端进程里，jar 里没有 `*AppServiceImpl` 字节码。
+能追流转的只有 UDC 域（`udc-biz` 等有实现类在仓库）。
+⇒ **BPM/组织的调用链只能靠实测或平台日志，静态索引到此为止。**
 
 ## 二、另外三份（不在这 23 格里）
 
