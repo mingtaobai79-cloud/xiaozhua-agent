@@ -96,6 +96,13 @@ INDEX L118 那一行是前 25 份的**逐格摘要**（7886 字符的单行）�
 
 **⇒ 规则：拿类名去 jar 里搜 `.class`，取 `n[:-6].replace('/','.')`；不要从索引 md 猜包路径。**
 
+### 一点五、更新链事务语义（第 7 格）
+
+`transaction-beforeupdate-semantics.md` —— **事务内改「更新前」数据能不能生效**。
+
+一句话：**能，改 `getInfo()` 返回对象即可，不用再 update**（事件与写库源是同一引用）；
+但**默认发的是 `BeforeUpdateBatchEvent`，不是 `BeforeUpdateEvent`**，挂错事件收不到。
+
 ### 一点六、索引已重建（2026-11-18，`extension-surface-20261118`）
 
 **旧 `interfaces.json` 已丢失**（原 `extension-surface-20261029/` 目录不存在），本次从 91 个 jar 全量重建：

@@ -68,7 +68,8 @@ def list_classes(jar: Path, include: str, limit: int) -> list[str]:
             if include and not n.startswith(include):
                 continue
             out.append(n)
-    return sorted(out)[:limit]
+    # limit<=0 表示不限（与 scan_dto_meta.py 的语义统一）
+    return sorted(out)[:limit] if limit and limit > 0 else sorted(out)
 
 
 def run(cmd: list[str], timeout=180) -> tuple[int, str]:
@@ -167,7 +168,8 @@ def main(argv=None) -> int:
     ap.add_argument("--emit", required=True)
     ap.add_argument("--cfr", default=None, help="cfr jar 路径（不给则跳过反编译路）")
     ap.add_argument("--javap", default=None, help="javap 可执行文件路径")
-    ap.add_argument("--limit", type=int, default=60)
+    ap.add_argument("--limit", type=int, default=60,
+                    help="最多取几个类；<=0 表示不限")
     ap.add_argument("--timeout", type=int, default=180)
     a = ap.parse_args(argv)
 
