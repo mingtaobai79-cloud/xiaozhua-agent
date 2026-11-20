@@ -234,4 +234,78 @@ python tools/core/platform/query_platform.py app organization
 
 问「怎么快速看一个类有什么方法」
   → query_platform.py methods <全限定类名>
+  → query_platform.py pkg <包名>  看一个包下有什么
+
+问「查全量太慢 / 只想知道某一域」
+  → 用分片：--scope bpm / --scope ctp__affair / --scope file
+  → query_platform.py scopes 列出全部 395 个分片
 ```
+
+## 十一、分片索引（解决「裸查不准」和「加载慢」）
+
+**四种拆法，全部落盘并自证总数对齐：**
+
+| 目录 | 文件数 | 合计类数 | 切分依据 | 加载实测 |
+|---|---:|---:|---|---:|
+| `by-domain/` | 16 | 24,618（= 源） | `com.seeyon.{X}` | 0.05–0.2s |
+| `by-sub/` | 185 | 19,681（= 9 大域） | `com.seeyon.{X}.{Y}` | 0.02–0.15s |
+| `by-starter/` | 79 | 3,678（= boot.starter 全部） | `com.seeyon.boot.starter.{Y}` | 0.01–0.05s |
+| `by-app/` | 115 | 24,618（= 源） | 类的 `pkg` 落在应用构件里 | 0.05–0.3s |
+
+**实测分片查询（本机）：**
+
+```
+send --scope bpm                 加载 0.11s → 14 处，第一条 BpmAppService#send  ✅
+OrgCommonAppService --scope organization  加载 0.05s → 命中 1 个            ✅
+JsonUtils --scope boot           加载 0.11s → 2 个，推荐 boot.util.JsonUtils ✅
+```
+
+**⇒ 分片把「必须带 --domain」的纪律变成了物理隔离：**
+在 `by-sub/ctp__affair.json` 里查 `send`，不可能命中 HTTP 的 send。
+
+**完整清单：`docs/audit/artifacts/index/TREE.md`**（每个文件一行，含类数/方法数/包数/大小）
+**全部包：`docs/audit/artifacts/index/PACKAGES.md`**（5,048 行，包 → 类数 → 构件）
+
+### 为什么不是每个域都切二级
+
+`boot` 的二级结构就是 starter（`boot.starter.file` / `boot.starter.enums` / …），
+`by-starter/` 已经切过了，再进 `by-sub/` 会产生两份同内容文件。
+
+所以：
+- 有二级业务的 9 个大域（cip/bpm/udc/cdp/ctp/app/organization/portal/m5）→ `by-sub/`
+- boot（纯组件）→ `by-starter/`
+- 其余小域（ai 237 / ocip 222 / devops 245 / m5 473 …）→ 只到 `by-domain/`，够用
+
+### 构建脚本
+
+`tools/core/platform/index_build/`（含 README 和两个真实坑的记录）
+
+```bash
+python tools/core/platform/index_build/build_priority.py
+python tools/core/platform/index_build/split_all.py
+python tools/core/platform/index_build/split_apps.py
+python tools/core/platform/index_build/split_sub.py
+python tools/core/platform/index_build/rebuild_tree.py
+python tools/core/platform/index_build/verify_index.py   # 退出码必须 0
+```
+
+## 十二、我在这件事上犯的两个错（记录，防止重犯）
+
+### 错 1：只挑 3 个域就说「按域拆分」
+
+第一次回答时我只列了 `bpm / org / udc`，理由是我刚测的 20 个需求里出现最多的三个。
+**这是拿测试样本当总体。** 24,618 个类里有 16 个顶级域、79 个 starter，
+事项（481）/ 连接器（439）/ 用户中心（1,069）/ 文件（89）/ 枚举（51）/
+元数据（102）/ 数据源（29）/ mybatis（138）全都没进方案。
+
+**应该做的**：先枚举全部包路径 → 按类数排序 → 给出完整切分，再讨论优先级。
+
+### 错 2：两次断言确实抓住了漏项
+
+| 现象 | 原因 | 谁发现的 |
+|---|---|---|
+| 域合计 24,617 ≠ 24,618 | `com.seeyon.MyMojo` 是三段类名，前缀匹配漏掉 | `assert total_dom == len(cls)` |
+| 115 个应用全部 0 类 | `sources` 无 `class_list`，我从它反推 | 目视 TREE 全是 0 |
+
+**教训**：写「按前缀分组」的代码时，一定要单独验证「只有类名、没有子包」的项。
+`sys.exit(1)` 的断言必须写，不然这两处都会静默通过。
