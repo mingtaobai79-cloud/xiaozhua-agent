@@ -21,7 +21,37 @@ VERB_WORDS = {
     "is": "判断", "has": "判断有", "can": "判断能否", "exists": "判断存在",
     "count": "统计", "register": "注册", "bind": "绑定", "unbind": "解绑",
     "fix": "修正", "fill": "填充", "convert": "转换", "contains": "判断包含",
-    "copy": "复制", "move": "移动", "sort": "排序", "merge": "合并",
+    "move": "移动", "sort": "排序", "merge": "合并",
+    "deploy": "部署", "handover": "移交", "migrate": "迁移", "migration": "迁移",
+    "detection": "检测", "detect": "检测", "renew": "续期", "renewal": "续期",
+    "upgrade": "升级", "revert": "回滚", "compare": "对比", "diff": "比对",
+    "preview": "预览", "copy": "复制", "share": "分享", "bind": "绑定",
+    "unbind": "解绑", "enable": "启用", "disable": "停用", "archive2": "",
+    "check": "检查", "audit": "审计", "trace": "追踪", "log": "记录",
+    "createOrUpdate": "新建或保存", "saveOrUpdate": "保存或更新",
+    "autoGenerate": "自动生成", "preGenerate": "预生成",
+    "send": "发送", "read": "读取", "write": "写入", "reply": "回复",
+    "forward": "转发", "approve": "审批", "reject": "驳回", "assign": "指派",
+    "claim": "认领", "release": "释放", "lock": "加锁", "unlock": "解锁",
+    "refresh": "刷新", "reload": "重载", "rebuild": "重建", "init": "初始化",
+    "install": "安装", "uninstall": "卸载", "upload": "上传", "download": "下载",
+    "print": "打印", "preview": "预览", "parse": "解析", "format": "格式化",
+    "translate": "翻译", "rename": "重命名", "archive": "归档", "restore": "恢复",
+    "backup": "备份", "rollback": "回滚", "commit": "提交", "cancel": "取消",
+    "confirm": "确认", "finish": "完成", "complete": "完成", "terminate": "终止",
+    "suspend": "挂起", "resume": "恢复", "retry": "重试", "run": "运行",
+    "execute": "执行", "invoke": "调用", "call": "调用", "trigger": "触发",
+    "dispatch": "分发", "handle": "处理", "process": "处理", "deal": "办理",
+    "build": "构建", "generate": "生成", "subscribe": "订阅", "unsubscribe": "退订",
+    "reset": "重置", "kick": "踢出", "clean": "清理", "unregister": "注销",
+    "choose": "选择", "receive": "接收", "publish": "发布", "stop": "停止",
+    "start": "启动", "close": "关闭", "open": "打开", "set": "设置",
+    "mark": "标记", "watch": "关注", "follow": "关注", "notify": "通知",
+    "grant": "授权", "revoke": "回收", "issue": "签发", "sign": "签署",
+    "submit": "提交", "withdraw": "撤回", "revoke2": "", "transfer": "转移",
+    "route": "路由", "match": "匹配", "resolve": "解析", "compute": "计算",
+    "analyze": "分析", "detect": "检测", "scan": "扫描", "test": "测试",
+    "debug": "调试", "trace": "追踪", "monitor": "监控",
 }
 
 MOD_WORDS = {
@@ -56,6 +86,32 @@ SEM_WORDS = {
     "AddressBook": "通讯录", "External": "外部人员", "Business": "业务",
     "Parameter": "参数", "Resource": "资源", "File": "文件",
     "Message": "消息", "Notice": "通知", "Log": "日志",
+    "Message": "消息", "Corner": "角标", "Online": "在线", "Offline": "离线",
+    "Subscribe": "订阅", "Channel": "通道", "Client": "客户端", "Socket": "长连接",
+    "Mail": "邮件", "Sms": "短信", "Push": "推送", "Notice": "通知",
+    "Pending": "待办", "Receiver": "接收人", "Sender": "发送人", "Attach": "附件",
+    "Affair": "事项", "Summary": "摘要", "Subject": "标题", "Content": "内容",
+    "Template": "模板", "Connector": "连接器", "Capability": "集成能力",
+    "Invoke": "调用", "Endpoint": "端点", "Api": "API", "Rest": "REST",
+    "Auth": "认证", "Token": "令牌", "Secret": "密钥", "Config": "配置",
+    "Mapping": "映射", "Schema": "结构", "Field": "字段", "Row": "行",
+    "Rule": "规则", "Script": "脚本", "Job": "任务", "Task": "任务",
+    "Schedule": "调度", "Cron": "定时", "Trigger": "触发器",
+    "Approval": "审批", "Opinion": "意见", "Comment": "评论",
+    "Workflow": "流程", "Process": "流程", "Case": "流程实例",
+    "Application": "应用", "App": "应用", "Page": "页面", "Form": "表单",
+    "Entity": "实体", "Attribute": "字段", "Attr": "字段", "MicroFlow": "微流程",
+    "Microflow": "微流程", "DataFlow": "数据流", "Dataflow": "数据流",
+    "Enum": "枚举", "Enums": "枚举", "EnumItem": "枚举项", "Setting": "设置",
+    "Settings": "设置", "Schema": "结构", "Version": "版本", "Draft": "草稿",
+    "Release": "发布版本", "Deploy": "部署", "Handover": "移交", "Migration": "迁移",
+    "Detection": "检测", "Upgrade": "升级", "Renewal": "续期", "Group": "分组",
+    "Category": "分类", "Tag": "标签", "Label": "标签", "Menu": "菜单",
+    "Button": "按钮", "Widget": "控件", "Component": "组件", "Layout": "布局",
+    "Theme": "主题", "Style": "样式", "Property": "属性", "Properties": "属性",
+    "Permission": "权限", "Permission2": "", "Owner": "所有者", "Member": "成员",
+    "User": "用户", "Org": "组织", "Tenant": "租户", "Environment": "环境",
+    "Debug": "调试", "Simulation": "模拟", "Snapshot": "快照", "Backup": "备份",
 }
 
 
@@ -85,8 +141,26 @@ def zh(words, table):
     return got
 
 
+SPI_EXACT = {
+    "supports": "判断是否支持该输入（SPI 能力探测）",
+    "parser": "解析器实现（SPI，把入参解析成内部结构）",
+    "callback": "回调入口（SPI，外部系统回调时进入）",
+    "order": "执行顺序值（SPI，数值小的先执行）",
+    "type": "类型标识（SPI，用于区分实现）",
+}
+
 def describe(name, args, ret=""):
     """返回 (中文描述, 是否确定)"""
+    if name in SPI_EXACT:
+        return SPI_EXACT[name], True
+    if re.match(r"^do[A-Z]", name) or name.startswith("do"):
+        rest = split_camel(name)
+        rest = rest[1:] if rest and rest[0] == "do" else rest
+        z = zh(rest, SEM_WORDS)
+        tail = "".join(z) if z else "".join(rest)
+        return f"SPI 扩展点：{tail or '执行'}（框架回调）", True
+    if name.startswith("supports"):
+        return "判断是否支持（SPI 能力探测）", True
     words = split_camel(name)
     if not words:
         return "执行", False

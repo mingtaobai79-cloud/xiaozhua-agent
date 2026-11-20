@@ -1,0 +1,15 @@
+{
+ "ApplicationManagerAppService#operateBatch": "批量操作应用（上架/下架/删除等，按操作类型）",
+ "ApplicationShelfService#module": "应用上架：按模块维度上架",
+ "AttributeGroupAppService#swap": "交换两个字段分组的顺序",
+ "AttributeGroupAppService#operateBatch": "批量操作字段分组",
+ "LastVersionMetadataManagerService#prepareLastVersionAfterDeployed": "部署后准备「上一版本」元数据（用于版本对比/回滚）",
+ "UdcEnumItemAppService#operateBatch": "批量操作枚举项（增删改排序）",
+ "UdcPageLayoutPluginAppService#filterDependentApplicationList": "过滤出依赖该布局插件的应用",
+ "UdcPageLayoutPluginAppService#allowDependentLayoutApplicationList": "判断这些应用是否允许依赖该布局",
+ "UdcPageLayoutPluginAppService#filterApplicationFeature": "按特性过滤应用（插件启用范围）",
+ "UpgradeAppService#upgrade4OrgEntityModify": "升级：处理组织实体被修改的场景",
+ "UpgradeAppService#upgrade4AttributeSerialGuid": "升级：字段流水号 guid 迁移",
+ "UpgradeAppService#upgrade4pageId": "升级：页面 id 迁移",
+ "UpgradeAppService#duplicateRepair": "修复重复数据（升级遗留）"
+}

@@ -1,0 +1,13 @@
+{
+ "TeamworkCoreAppService#launch": "发起团队协作（创建团队）",
+ "TeamworkCoreAppService#dismiss": "解散团队",
+ "TeamworkCoreAppService#join": "加入团队",
+ "TeamworkCoreAppService#quit": "退出团队",
+ "TeamworkCoreAppService#obtain": "取团队信息",
+ "TeamworkCoreAppService#batchObtain": "批量取团队信息",
+ "TeamworkCoreAppService#batchObtainExt": "批量取团队信息（含扩展字段）",
+ "TeamworkCoreAppService#obtainMemberPageListByCondition": "按条件分页取团队成员",
+ "TeamworkCoreAppService#obtainAllMemberList": "取团队全部成员",
+ "TeamworkCoreAppService#obtainGroupIdListByUserId": "按用户查其所在团队 groupId 列表",
+ "EnterpriseCoreAppSerivce#selectsEnterprise": "批量查企业（多租户企业信息）"
+}

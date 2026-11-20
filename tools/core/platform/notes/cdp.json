@@ -1,0 +1,8 @@
+{
+ "CdpBiz4UdcAppService#transportOut": "CDP 数据导出给 UDC（单版本）",
+ "CdpBiz4UdcAppService#transportOutV2": "CDP 数据导出给 UDC（V2，字段更全）",
+ "CdpBiz4UdcAppService#transportIn": "UDC 数据导入到 CDP（单版本）",
+ "CdpBiz4UdcAppService#transportInV2": "UDC 数据导入到 CDP（V2）",
+ "CdpEtlRunAppService#jobSuccess": "ETL 任务成功回调（调度器通知）",
+ "IndexAppService#suggest": "索引联想/补全（搜索建议）"
+}

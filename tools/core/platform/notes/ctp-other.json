@@ -1,0 +1,6 @@
+{
+ "CtpManagerTenantAppService#activationLicence": "租户管理：激活授权许可",
+ "CtpManagerTenantAppService#bindingTenant": "租户管理：绑定租户",
+ "MediaAppService#asyncTrans": "媒体：异步转码",
+ "MediaAppService#asyncCutImg": "媒体：异步裁剪图片（缩略图）"
+}

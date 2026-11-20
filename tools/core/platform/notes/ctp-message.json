@@ -1,0 +1,4 @@
+{
+ "CtpMessageManageAppService#onlineInfo": "消息管理：查某用户在线状态（各端）",
+ "CtpMessageManageAppService#onlineNumber": "消息管理：统计在线人数"
+}

@@ -1,0 +1,21 @@
+{
+ "CtpAvoidLoginBackendProviderService#avoidLoginBackend": "免登后端跳转（SPI 提供方：给第三方免登回调地址）",
+ "CtpAuthCoreAppService#authenticate": "认证（校验账号密码/令牌），成功返回会话",
+ "CtpAuthCoreAppService#switchAdmin": "切换管理员身份（超管切换到普通管理员视图）",
+ "CtpAuthCoreAppService#switchOrg": "切换当前组织（多组织用户换所属单位）",
+ "CtpAuthCoreAppService#switchUser": "切换登录用户（代登录/超管代入）",
+ "CtpAuthCoreAppService#switchTenant": "切换租户",
+ "CtpLoginPreConfigAppService#allowChildCustomDefine": "判断下级单位是否允许自定义登录配置",
+ "CtpUserBindMappingAppService#pageUserMappingByUserIds": "按用户 id 分页查账号绑定关系（三方账号↔平台账号）",
+ "CtpUserRoleCoreAppService#authOrgAdmin": "校验/授予组织管理员角色",
+ "CtpUserRoleCoreAppService#roleAuthBatch": "批量给用户授角色",
+ "CtpOrgAdminOrgAppService#configAdmin": "配置组织管理员",
+ "CtpOrgAdminOrgAppService#batchConfigOrgAdmin": "批量配置组织管理员",
+ "CtpPermissionApprovalOrgAppService#batchKnow": "批量知会权限审批人",
+ "CtpUserSsoAuthProviderService#shortLinkMode": "SSO 短链模式下的处理器（SPI）",
+ "CtpUserSsoAuthProviderService#thirdSsoLogout": "第三方 SSO 登出",
+ "CtpUserSsoAuthProviderService#get4aTokenKey": "取 4A 认证 token 的键名",
+ "CtpUserSsoAuthProviderService#mapSupportsAuthTokenEnum": "声明支持哪些认证令牌类型（SPI 能力探测）",
+ "CtpAuthorizationUdcAppService#autoAuthAppRoles": "自动给 UDC 应用授予角色（应用发布时）",
+ "CustomUserInfoService#filterCustomUserInfo": "过滤自定义用户信息（脱敏/裁剪字段）"
+}

@@ -1,0 +1,14 @@
+{
+ "DataBackupHandler#rollBackData": "数据备份回滚：把备份数据写回",
+ "ScalabilityFieldAppService#compensateScalabilityFieldMetadata": "补偿扩展字段元数据（扩容/迁移后补齐）",
+ "ScalabilityFieldAppService#transportIn": "扩展字段元数据导入",
+ "UdcPageProcessEventService#clearCacheByAppName": "按应用名清页面处理缓存",
+ "InitMonitorAppService#ignoreError": "初始化监控：忽略指定错误（容错继续）",
+ "CustomerProxyAppService#schedulePendingServiceInvoke": "调度待执行的代理调用（补偿队列）",
+ "CustomerProxyAppService#scheduleRecoveryMisProcess": "调度恢复中断的代理流程",
+ "ParamEscapeService#paramEscape": "参数转义（防注入，拼 SQL/表达式前调用）",
+ "SeeyonJob#exec": "定时任务执行入口（实现类重写）",
+ "AppDraftAppService#exist": "判断草稿是否存在",
+ "UdcBpmProcessService#validFilterData": "校验流程过滤数据合法性",
+ "UdcSerialConfigAppService#cacheEvict": "清除流水号配置缓存"
+}

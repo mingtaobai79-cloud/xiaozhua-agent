@@ -1,0 +1,6 @@
+{
+ "ApplicationMobileAppService#recallMessage": "移动应用：撤回已推送消息",
+ "WarningCallBackAppService#redoWarning": "告警回调：重发告警",
+ "PersonnelCardService#result": "人员卡片：返回卡片渲染结果（SPI 回调）",
+ "CipMessageAppService#deliveryMqMessage": "集成消息：投递 MQ 消息"
+}

@@ -24,7 +24,10 @@ def main():
     ap.add_argument("domain")
     ap.add_argument("--group", required=True)
     ap.add_argument("--name", required=True)
+    ap.add_argument("--slug", default=None)
+    ap.add_argument("--pkg", default=None)
     a = ap.parse_args()
+    slug = a.slug or a.domain
 
     p = os.path.join(MODULES, a.group, a.name, "README.md")
     print(f"=== {a.group}/{a.name} ({a.domain}) ===")
@@ -43,7 +46,7 @@ def main():
 
     # 2. facade 方法数与索引一致
     print("\n[2] facade 方法数")
-    o = json.load(io.open(f"{FACADE}/{a.domain}.json", encoding="utf-8"))
+    o = json.load(io.open(f"{FACADE}/{slug}.json", encoding="utf-8"))
     exp = o["n_methods"]
     # 只统计 facade 段内的表格行
     fstart = md.index("facade 层")
@@ -99,19 +102,21 @@ def main():
     print("\n[6] 待定语义标注")
     warn = len(re.findall(r"⚠️ \|", fseg))
     # 2 = facade 中语义待定；另有 落表/路径 的 ⚠️ 在别处
-    chk(warn <= 10, f"facade 内 ⚠️ 标注 {warn} 个（越少越好）")
+    chk(warn == 0, f"facade 内 ⚠️ 标注 {warn} 个（要求 0）")
 
     # 7. biz / web 计数与索引一致
     print("\n[7] biz/web 计数")
     cls = idx
     dom = a.domain
-    svcs = [fq for fq, c in cls.items()
-            if fq.startswith(f"com.seeyon.{dom}.")
+    pres = ([f"com.seeyon.{dom}.{p}." for p in a.pkg.split(",")] if a.pkg
+            else [f"com.seeyon.{dom}."])
+    def inscope(fq):
+        return any(fq.startswith(x) for x in pres)
+    svcs = [fq for fq, c in cls.items() if inscope(fq)
             and (".domain." in fq or ".biz." in fq)
             and fq.split(".")[-1].endswith("Service") and c.get("kind") == "class"]
-    cons = [fq for fq, c in cls.items()
-            if fq.startswith(f"com.seeyon.{dom}.") and ".controller." in fq
-            and fq.split(".")[-1].endswith("Controller")]
+    cons = [fq for fq, c in cls.items() if inscope(fq)
+            and ".controller." in fq and fq.split(".")[-1].endswith("Controller")]
     m_svc = re.search(r"共 (\d+) 个领域服务", md)
     m_con = re.search(r"共 (\d+) 个 Controller", md)
     chk(m_svc and int(m_svc.group(1)) == len(svcs),

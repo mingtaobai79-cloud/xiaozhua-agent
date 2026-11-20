@@ -26,10 +26,11 @@ def load():
     return json.load(io.open(IDX, encoding="utf-8"))
 
 
-def collect(dom):
+def collect(dom, pkg=None):
     d = load()
     cls = d["classes"]
-    sub = {fq: c for fq, c in cls.items() if fq.startswith(f"com.seeyon.{dom}.")}
+    pre = f"com.seeyon.{dom}." + (pkg + "." if pkg else "")
+    sub = {fq: c for fq, c in cls.items() if fq.startswith(pre)}
     faces, impls = {}, {}
     for fq, c in sub.items():
         is_if = c.get("kind") == "interface"
@@ -61,9 +62,9 @@ def fmt_method(m):
             "flags": flags}
 
 
-def build(dom):
-    sub, faces, impls = collect(dom)
-    out = {"domain": dom, "total_classes": len(sub),
+def build(dom, pkg=None, slug=None):
+    sub, faces, impls = collect(dom, pkg)
+    out = {"domain": dom, "pkg": pkg, "slug": slug or dom, "total_classes": len(sub),
            "facades": [], "impls_count": len(impls)}
     for fq in sorted(faces):
         c = faces[fq]
@@ -103,10 +104,16 @@ def main():
         print("用法: dump_facade.py <domain> [--json]")
         return 2
     dom = sys.argv[1]
-    o = build(dom)
+    pkg = None
+    if "--pkg" in sys.argv:
+        pkg = sys.argv[sys.argv.index("--pkg") + 1]
+    slug = None
+    if "--slug" in sys.argv:
+        slug = sys.argv[sys.argv.index("--slug") + 1]
+    o = build(dom, pkg, slug)
     if "--json" in sys.argv:
         os.makedirs(OUTDIR, exist_ok=True)
-        p = os.path.join(OUTDIR, f"{dom}.json")
+        p = os.path.join(OUTDIR, f"{o['slug']}.json")
         io.open(p, "w", encoding="utf-8").write(json.dumps(o, ensure_ascii=False, indent=1))
         print(f"{o['n_facades']} 接口 / {o['n_methods']} 方法 -> {p}")
     else:

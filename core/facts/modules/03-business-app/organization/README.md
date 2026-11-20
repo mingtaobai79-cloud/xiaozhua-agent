@@ -148,7 +148,7 @@
 | `pushAll` | `SingleRequest<String> arg0` | `SingleResponse<String>` | 全部推送（SingleRequest） |
 | `pushAllByIncrement` | `SingleRequest<String> arg0` | `SingleResponse<String>` | 全部推送按Increment（SingleRequest） |
 | `pushBatch` | `SingleRequest<String> arg0` | `SingleResponse<String>` | 批量推送（SingleRequest） |
-| `pushMemberIncrement` | `SingleRequest<List<Long>> arg0` | `SingleResponse<Integer>` | 增量推送人员 |
+| `pushMemberIncrement` | `SingleRequest<List<Long>> arg0` | `SingleResponse<Integer>` | 增量推送成员 |
 
 #### OcipPostAppService
 
@@ -198,7 +198,7 @@
 | `selectSwitchInstitutions` | `SingleRequest arg0` | `ListResponse<Map<String, Object>>` | 查询切换Institutions |
 | `selectSwitchInstitutionByMemberId` | `SingleRequest<Long> arg0` | `ListResponse<Map<String, Object>>` | 门户：某人员可切换的机构列表 |
 | `selectLoginUserInfo` | `SingleRequest<Long> arg0` | `SingleResponse<Map<String, Object>>` | 门户：登录用户信息 |
-| `selectCurrentLoginUserInfo` | `SingleRequest<Map<String, Object>> arg0` | `SingleResponse<Map<String, Object>>` | 查询当前登录User |
+| `selectCurrentLoginUserInfo` | `SingleRequest<Map<String, Object>> arg0` | `SingleResponse<Map<String, Object>>` | 查询当前登录用户 |
 | `isOrgAdmin` | `SingleRequest<Map<String, Object>> arg0` | `SingleResponse<Boolean>` | 判断是否组织管理员 |
 | `selectMainMemberPostByMemberId` | `SingleRequest<Long> arg0` | `SingleResponse<OrgMemberPostCoreDto>` | 取人员主岗 |
 | `selectMainMemberPostByMemberIdsIgnoreTenant` | `SingleRequest<List<Long>> arg0` | `SingleResponse<Map<Long, OrgMemberPostCoreDto>>` | 批量取主岗（跨租户） |
@@ -223,7 +223,7 @@
 | 方法 | 入参 | 返回 | 干什么 |
 |---|---|---|---|
 | `MultiOrgMemberCreateBatch` | `SingleRequest<MultiOrgMemberSyncBatchDto> arg0` | `SingleResponse<OrgSyncInfoDto>` | 多组织架构下批量新建人员（多 org code 归属），返回同步结果 |
-| `selectByCodes` | `PageDtoRequest<MultiOrgMemberSyncSearchByOrgCodeDto> arg0` | `PageResponse<MultiOrgMemberSyncSearchByOrgCodeResponse>` | 查询组织人员编码按编码 |
+| `selectByCodes` | `PageDtoRequest<MultiOrgMemberSyncSearchByOrgCodeDto> arg0` | `PageResponse<MultiOrgMemberSyncSearchByOrgCodeResponse>` | 查询组织成员编码按编码 |
 
 #### MultiOrgSyncService
 
@@ -240,10 +240,10 @@
 
 | 方法 | 入参 | 返回 | 干什么 |
 |---|---|---|---|
-| `selectByCodes` | `SingleRequest<SearchJobApiDto> arg0` | `ListResponse<OrgJobDataDto>` | 查询职务按编码 |
-| `createBatch` | `SingleRequest<OrgBatchJobDto> arg0` | `SingleResponse<OrgSyncInfoDto>` | 批量新建职务 |
-| `selectPageByConditions` | `PageDtoRequest<SearchPostListApiDto> arg0` | `PageResponse<OrgJobDataDto>` | 分页查询岗位按条件 |
-| `selectByThirds` | `SingleRequest<SearchJobByThirdIdApiDto> arg0` | `ListResponse<OrgJobDataDto>` | 查询职务第三方按第三方 |
+| `selectByCodes` | `SingleRequest<SearchJobApiDto> arg0` | `ListResponse<OrgJobDataDto>` | 查询任务API按编码 |
+| `createBatch` | `SingleRequest<OrgBatchJobDto> arg0` | `SingleResponse<OrgSyncInfoDto>` | 批量新建任务 |
+| `selectPageByConditions` | `PageDtoRequest<SearchPostListApiDto> arg0` | `PageResponse<OrgJobDataDto>` | 分页查询岗位API按条件 |
+| `selectByThirds` | `SingleRequest<SearchJobByThirdIdApiDto> arg0` | `ListResponse<OrgJobDataDto>` | 查询任务第三方API按第三方 |
 
 #### OrgLevelSyncAppService
 
@@ -251,10 +251,10 @@
 
 | 方法 | 入参 | 返回 | 干什么 |
 |---|---|---|---|
-| `selectByCodes` | `SingleRequest<SearchLevelApiDto> arg0` | `ListResponse<OrgLevelDataDto>` | 查询职务级别按编码 |
+| `selectByCodes` | `SingleRequest<SearchLevelApiDto> arg0` | `ListResponse<OrgLevelDataDto>` | 查询职务级别API按编码 |
 | `createBatch` | `SingleRequest<OrgBatchLevelDto> arg0` | `SingleResponse<OrgSyncInfoDto>` | 批量新建职务级别 |
-| `selectPageByConditions` | `PageDtoRequest<SearchLevelListApiDto> arg0` | `PageResponse<OrgLevelDataDto>` | 分页查询职务级别按条件 |
-| `selectByThirdIds` | `SingleRequest<SearchLevelByThirdIdApiDto> arg0` | `ListResponse<OrgLevelDataDto>` | 查询职务级别第三方按第三方 |
+| `selectPageByConditions` | `PageDtoRequest<SearchLevelListApiDto> arg0` | `PageResponse<OrgLevelDataDto>` | 分页查询职务级别API按条件 |
+| `selectByThirdIds` | `SingleRequest<SearchLevelByThirdIdApiDto> arg0` | `ListResponse<OrgLevelDataDto>` | 查询职务级别第三方API按第三方 |
 
 #### OrgMemberRoleSyncService
 
@@ -262,7 +262,7 @@
 
 | 方法 | 入参 | 返回 | 干什么 |
 |---|---|---|---|
-| `createBatch` | `SingleRequest<OrgBatchMemberRoleDto> arg0` | `SingleResponse<OrgSyncInfoDto>` | 批量新建人员角色 |
+| `createBatch` | `SingleRequest<OrgBatchMemberRoleDto> arg0` | `SingleResponse<OrgSyncInfoDto>` | 批量新建成员角色 |
 
 #### OrgMemberSyncAppService
 
@@ -270,20 +270,20 @@
 
 | 方法 | 入参 | 返回 | 干什么 |
 |---|---|---|---|
-| `createBatch` | `SingleRequest<OrgBatchMemberDto> arg0` | `SingleResponse<OrgSyncInfoDto>` | 批量新建人员 |
-| `selectByCodes` | `SingleRequest<SearchMemberConditionApiDto> arg0` | `ListResponse<OrgMemberDataDto>` | 查询人员条件按编码 |
-| `selectByThirdIds` | `SingleRequest<SearchMemberConditionApiDto> arg0` | `ListResponse<OrgMemberDataDto>` | 查询人员条件按第三方 |
-| `selectByCondition` | `PageDtoRequest<SearchMemberApiDto> arg0` | `PageResponse<OrgMemberDataDto>` | 查询人员按条件 |
-| `createBatchMemberPost` | `SingleRequest<OrgBatchMemberPostDto> arg0` | `SingleResponse<OrgSyncInfoDto>` | 批量新建人员岗位 |
-| `createBatchMemberMetadata` | `SingleRequest<OrgBatchMetadataDto> arg0` | `SingleResponse<OrgSyncInfoDto>` | 批量新建人员扩展属性 |
-| `fixCtpUserId` | `SingleRequest<OrgUserFixDto> arg0` | `SingleResponse<OrgUserFixDto>` | 修正CtpUser |
-| `disableMember` | `SingleRequest<String> arg0` | `SingleResponse<Integer>` | 停用人员 |
-| `disableMemberByThirdIds` | `SingleRequest<String> arg0` | `SingleResponse<Integer>` | 停用人员按第三方 |
-| `selectNaturalMemberByPhoneNumber` | `SingleRequest<String> arg0` | `SingleResponse<OrgNaturalMemberDataDto>` | 查询人员Natural按编号 |
-| `selectNaturalMemberByCodes` | `SingleRequest<SearchMemberConditionApiDto> arg0` | `ListResponse<OrgNaturalMemberDataDto>` | 查询人员Natural按编码 |
-| `selectNaturalMemberInfoPageListByCondition` | `PageDtoRequest<SearchMemberListApiDto> arg0` | `PageResponse<OrgNaturalMemberDataDto>` | 分页列表查询人员Natural按条件 |
+| `createBatch` | `SingleRequest<OrgBatchMemberDto> arg0` | `SingleResponse<OrgSyncInfoDto>` | 批量新建成员 |
+| `selectByCodes` | `SingleRequest<SearchMemberConditionApiDto> arg0` | `ListResponse<OrgMemberDataDto>` | 查询成员条件API按编码 |
+| `selectByThirdIds` | `SingleRequest<SearchMemberConditionApiDto> arg0` | `ListResponse<OrgMemberDataDto>` | 查询成员条件API按第三方 |
+| `selectByCondition` | `PageDtoRequest<SearchMemberApiDto> arg0` | `PageResponse<OrgMemberDataDto>` | 查询成员API按条件 |
+| `createBatchMemberPost` | `SingleRequest<OrgBatchMemberPostDto> arg0` | `SingleResponse<OrgSyncInfoDto>` | 批量新建成员岗位 |
+| `createBatchMemberMetadata` | `SingleRequest<OrgBatchMetadataDto> arg0` | `SingleResponse<OrgSyncInfoDto>` | 批量新建成员扩展属性 |
+| `fixCtpUserId` | `SingleRequest<OrgUserFixDto> arg0` | `SingleResponse<OrgUserFixDto>` | 修正用户Ctp |
+| `disableMember` | `SingleRequest<String> arg0` | `SingleResponse<Integer>` | 停用成员 |
+| `disableMemberByThirdIds` | `SingleRequest<String> arg0` | `SingleResponse<Integer>` | 停用成员按第三方 |
+| `selectNaturalMemberByPhoneNumber` | `SingleRequest<String> arg0` | `SingleResponse<OrgNaturalMemberDataDto>` | 查询成员Natural按编号 |
+| `selectNaturalMemberByCodes` | `SingleRequest<SearchMemberConditionApiDto> arg0` | `ListResponse<OrgNaturalMemberDataDto>` | 查询成员Natural按编码 |
+| `selectNaturalMemberInfoPageListByCondition` | `PageDtoRequest<SearchMemberListApiDto> arg0` | `PageResponse<OrgNaturalMemberDataDto>` | 分页列表查询成员Natural按条件 |
 | `selectOutSideInstitutionManagerPageByCondition` | `PageDtoRequest<SearchOutSideManagerApiDto> arg0` | `PageResponse<OrgOutsideUnitManagerDto>` | 分页查询机构负责人OutSide按条件 |
-| `createBatchNaturalMember` | `SingleRequest<OrgBatchNaturalMemberDto> arg0` | `SingleResponse<OrgSyncInfoDto>` | 批量新建人员Natural |
+| `createBatchNaturalMember` | `SingleRequest<OrgBatchNaturalMemberDto> arg0` | `SingleResponse<OrgSyncInfoDto>` | 批量新建成员Natural |
 
 #### OrgPostSyncAppService
 
@@ -292,9 +292,9 @@
 | 方法 | 入参 | 返回 | 干什么 |
 |---|---|---|---|
 | `createBatch` | `SingleRequest<OrgBatchPostDto> arg0` | `SingleResponse<OrgSyncInfoDto>` | 批量新建岗位 |
-| `selectByCodes` | `SingleRequest<SearchPostApiDto> arg0` | `ListResponse<OrgPostDataDto>` | 查询岗位按编码 |
-| `selectPageByConditions` | `PageDtoRequest<SearchPostListApiDto> arg0` | `PageResponse<OrgPostDataDto>` | 分页查询岗位按条件 |
-| `selectByThirdIds` | `SingleRequest<SearchPostByThirdIdApiDto> arg0` | `ListResponse<OrgPostDataDto>` | 查询岗位第三方按第三方 |
+| `selectByCodes` | `SingleRequest<SearchPostApiDto> arg0` | `ListResponse<OrgPostDataDto>` | 查询岗位API按编码 |
+| `selectPageByConditions` | `PageDtoRequest<SearchPostListApiDto> arg0` | `PageResponse<OrgPostDataDto>` | 分页查询岗位API按条件 |
+| `selectByThirdIds` | `SingleRequest<SearchPostByThirdIdApiDto> arg0` | `ListResponse<OrgPostDataDto>` | 查询岗位第三方API按第三方 |
 
 #### OrgRoleSyncService
 
@@ -312,7 +312,7 @@
 | 方法 | 入参 | 返回 | 干什么 |
 |---|---|---|---|
 | `selectByCode` | `SingleRequest<String> arg0` | `SingleResponse<OrgTeamDataDto>` | 查询团队按编码 |
-| `selectPageByConditions` | `PageDtoRequest<SearchTeamListApiDto> arg0` | `PageResponse<OrgTeamDataDto>` | 分页查询团队按条件 |
+| `selectPageByConditions` | `PageDtoRequest<SearchTeamListApiDto> arg0` | `PageResponse<OrgTeamDataDto>` | 分页查询团队API按条件 |
 | `create` | `SingleRequest<OrgTeamDataDto> arg0` | `SingleResponse<OrgSyncInfoDto>` | 新建团队 |
 | `createBatch` | `SingleRequest<OrgBatchTeamDto> arg0` | `SingleResponse<OrgSyncInfoDto>` | 批量新建团队 |
 
@@ -324,12 +324,12 @@
 |---|---|---|---|
 | `createBatch` | `SingleRequest<OrgBatchUnitDto> arg0` | `SingleResponse<OrgSyncInfoDto>` | 批量新建单位 |
 | `createBatchUnitMetadata` | `SingleRequest<OrgBatchMetadataDto> arg0` | `SingleResponse<OrgSyncInfoDto>` | 批量新建单位扩展属性 |
-| `selectByCodes` | `SingleRequest<SearchUnitConditionApiDto> arg0` | `ListResponse<OrgUnitDataDto>` | 查询单位条件按编码 |
-| `selectByThirdIds` | `SingleRequest<SearchUnitConditionApiDto> arg0` | `ListResponse<OrgUnitDataDto>` | 查询单位条件按第三方 |
+| `selectByCodes` | `SingleRequest<SearchUnitConditionApiDto> arg0` | `ListResponse<OrgUnitDataDto>` | 查询单位条件API按编码 |
+| `selectByThirdIds` | `SingleRequest<SearchUnitConditionApiDto> arg0` | `ListResponse<OrgUnitDataDto>` | 查询单位条件API按第三方 |
 | `selectChildrenByCondition` | `SingleRequest<SearchUnitApiDto> arg0` | `ListResponse<OrgUnitDataDto>` | 查询下级按条件 |
 | `selectPageChildrenByCondition` | `PageDtoRequest<SearchUnitApiDto> arg0` | `PageResponse<OrgUnitDataDto>` | 分页查询下级按条件 |
 | `disableOrganization` | `SingleRequest<OrgDisableUnitDto> arg0` | `SingleResponse<Integer>` | 停用Organization |
-| `selectPageByConditions` | `PageDtoRequest<SearchUnitListApiDto> arg0` | `PageResponse<OrgUnitDataDto>` | 分页查询单位按条件 |
+| `selectPageByConditions` | `PageDtoRequest<SearchUnitListApiDto> arg0` | `PageResponse<OrgUnitDataDto>` | 分页查询单位API按条件 |
 
 ### `com.seeyon.organization.api.app.third.zhonghe`
 
@@ -339,12 +339,12 @@
 
 | 方法 | 入参 | 返回 | 干什么 |
 |---|---|---|---|
-| `selectMemberByRole` | `SingleRequest<String> arg0` | `ListResponse<MemberRoleDto>` | 查询人员按角色 |
+| `selectMemberByRole` | `SingleRequest<String> arg0` | `ListResponse<MemberRoleDto>` | 查询成员按角色 |
 | `selectOrgByMetadataCustomizeZBBM` | `SingleRequest<SearchOrgDto> arg0` | `ListResponse<SearchOrgResultDto>` | 查询组织按扩展属性 |
 | `selectOrgListByMetadata` | `SingleRequest<SearchOrgDto> arg0` | `ListResponse<SearchOrgResultDto>` | 列表查询组织按扩展属性 |
 | `selectOrgTreeByMetadata` | `SingleRequest<SearchOrgDto> arg0` | `ListResponse<SearchOrgResultDto>` | 树查询组织按扩展属性 |
-| `selectEnumItemValueById` | `SingleRequest<Long> arg0` | `SingleResponse<String>` | 查询EnumItemValue按 id |
-| `selectEnumItemValueByIds` | `SingleRequest<List<Long>> arg0` | `SingleResponse<Map<Long, String>>` | 查询EnumItemValue按 ids |
+| `selectEnumItemValueById` | `SingleRequest<Long> arg0` | `SingleResponse<String>` | 查询枚举ItemValue按 id |
+| `selectEnumItemValueByIds` | `SingleRequest<List<Long>> arg0` | `SingleResponse<Map<Long, String>>` | 查询枚举ItemValue按 ids |
 | `selectLeadersBySecretary` | `SingleRequest<List<Long>> arg0` | `SingleResponse<Map<Long, List<Long>>>` | 查询Leaders按Secretary |
 | `selectSecretaryListByLeaderId` | `SingleRequest<Long> arg0` | `ListResponse<LeaderSecretaryDto>` | 列表查询Secretary按领导 |
 | `selectLeaderListBySecretaryId` | `SingleRequest<Long> arg0` | `ListResponse<LeaderSecretaryDto>` | 列表查询领导按SecretaryId |
@@ -490,7 +490,7 @@
 
 | 方法 | 入参 | 返回 | 干什么 |
 |---|---|---|---|
-| `checkUserExecutiveHide` | `SingleRequest<List<Long>> arg0` | `SingleResponse<Map<Long, Boolean>>` | 校验UserExecutiveHide |
+| `checkUserExecutiveHide` | `SingleRequest<List<Long>> arg0` | `SingleResponse<Map<Long, Boolean>>` | 检查用户ExecutiveHide |
 
 ### `com.seeyon.organization.api.core.job`
 
@@ -500,16 +500,16 @@
 
 | 方法 | 入参 | 返回 | 干什么 |
 |---|---|---|---|
-| `create` | `SingleRequest<OrgJobRequestDto> arg0` | `SingleResponse<Long>` | 新建职务 |
-| `update` | `SingleRequest<OrgJobRequestDto> arg0` | `SingleResponse<Integer>` | 修改职务 |
-| `selectById` | `SingleRequest<Long> arg0` | `SingleResponse<OrgJobDto>` | 查询职务按 id |
-| `selectByIds` | `SingleRequest<List<Long>> arg0` | `ListResponse<OrgJobDto>` | 查询职务按 ids |
-| `selectCascadeById` | `SingleRequest<Long> arg0` | `SingleResponse<OrgJobDto>` | 级联查询职务按 id |
-| `selectCascadeByIds` | `SingleRequest<List<Long>> arg0` | `ListResponse<OrgJobDto>` | 级联查询职务按 ids |
-| `selectListByConditions` | `ListRequest arg0` | `ListResponse<OrgJobDto>` | 列表查询职务按条件 |
-| `selectPageByConditions` | `PageRequest arg0` | `PageResponse<OrgJobDto>` | 分页查询职务按条件 |
-| `selectJobListPropertiesByJobIds` | `SingleRequest<SimpleConditionByIdsDto> arg0` | `ListResponse<Map<String, Object>>` | 列表指定字段查询职务按职务 |
-| `selectJobPageListPropertiesByCondition` | `PageDtoRequest<SimpleConditionByParamsDto> arg0` | `PageResponse<Map<String, Object>>` | 分页列表指定字段查询职务按条件 |
+| `create` | `SingleRequest<OrgJobRequestDto> arg0` | `SingleResponse<Long>` | 新建任务 |
+| `update` | `SingleRequest<OrgJobRequestDto> arg0` | `SingleResponse<Integer>` | 修改任务 |
+| `selectById` | `SingleRequest<Long> arg0` | `SingleResponse<OrgJobDto>` | 查询任务按 id |
+| `selectByIds` | `SingleRequest<List<Long>> arg0` | `ListResponse<OrgJobDto>` | 查询任务按 ids |
+| `selectCascadeById` | `SingleRequest<Long> arg0` | `SingleResponse<OrgJobDto>` | 级联查询任务按 id |
+| `selectCascadeByIds` | `SingleRequest<List<Long>> arg0` | `ListResponse<OrgJobDto>` | 级联查询任务按 ids |
+| `selectListByConditions` | `ListRequest arg0` | `ListResponse<OrgJobDto>` | 列表查询任务按条件 |
+| `selectPageByConditions` | `PageRequest arg0` | `PageResponse<OrgJobDto>` | 分页查询任务按条件 |
+| `selectJobListPropertiesByJobIds` | `SingleRequest<SimpleConditionByIdsDto> arg0` | `ListResponse<Map<String, Object>>` | 列表指定字段查询任务按任务 |
+| `selectJobPageListPropertiesByCondition` | `PageDtoRequest<SimpleConditionByParamsDto> arg0` | `PageResponse<Map<String, Object>>` | 分页列表指定字段查询任务按条件 |
 | `dynamicJoinSelect` | `SingleRequest<ProxyJoinParamDto> arg0` | `PageResponse<OrgJobDto>` | 查询ProxyJoin |
 | `dynamicSelect` | `SingleRequest<ProxyParamDto> arg0` | `PageResponse<OrgJobDto>` | 查询Proxy |
 | `selectCascadeByConditions` | `SingleRequest<QueryConditionDto> arg0` | `SingleResponse<OrgJobDto>` | 级联查询条件按条件 |
@@ -521,12 +521,12 @@
 
 | 方法 | 入参 | 返回 | 干什么 |
 |---|---|---|---|
-| `selectJobById` | `SingleRequest<Long> arg0` | `SingleResponse<OrgJobCoreDto>` | 查询职务按 id |
-| `selectJobByIds` | `SingleRequest<List<Long>> arg0` | `ListResponse<OrgJobCoreDto>` | 查询职务按 ids |
-| `selectJobListByCondition` | `SingleRequest<Map<String, Object>> arg0` | `ListResponse<OrgJobCoreDto>` | 列表查询职务按条件 |
-| `selectJobPageListByCondition` | `PageRequest arg0` | `PageResponse<OrgJobCoreDto>` | 分页列表查询职务按条件 |
-| `selectJobListPropertiesByJobIds` | `SingleRequest<SimpleConditionByIdsDto> arg0` | `ListResponse<Map<String, Object>>` | 列表指定字段查询职务按职务 |
-| `selectJobPageListPropertiesByCondition` | `PageDtoRequest<SimpleConditionByParamsDto> arg0` | `PageResponse<Map<String, Object>>` | 分页列表指定字段查询职务按条件 |
+| `selectJobById` | `SingleRequest<Long> arg0` | `SingleResponse<OrgJobCoreDto>` | 查询任务按 id |
+| `selectJobByIds` | `SingleRequest<List<Long>> arg0` | `ListResponse<OrgJobCoreDto>` | 查询任务按 ids |
+| `selectJobListByCondition` | `SingleRequest<Map<String, Object>> arg0` | `ListResponse<OrgJobCoreDto>` | 列表查询任务按条件 |
+| `selectJobPageListByCondition` | `PageRequest arg0` | `PageResponse<OrgJobCoreDto>` | 分页列表查询任务按条件 |
+| `selectJobListPropertiesByJobIds` | `SingleRequest<SimpleConditionByIdsDto> arg0` | `ListResponse<Map<String, Object>>` | 列表指定字段查询任务按任务 |
+| `selectJobPageListPropertiesByCondition` | `PageDtoRequest<SimpleConditionByParamsDto> arg0` | `PageResponse<Map<String, Object>>` | 分页列表指定字段查询任务按条件 |
 
 ### `com.seeyon.organization.api.core.level`
 
@@ -602,14 +602,14 @@
 | `selectMemberByIds` | `SingleRequest<List<Long>> arg0` | `ListResponse<OrgMemberCoreDto>` | 按 id 批量查人员（Core DTO） |
 | `selectMemberByIdsIgnoreTenantId` | `SingleRequest<List<Long>> arg0` | `ListResponse<OrgMemberCoreDto>` | 按 id 批量查人员（跨租户，慎用） |
 | `selectMemberInfoByIds` | `SingleRequest<List<Long>> arg0` | `ListResponse<OrgMemberInfoDto>` | 按 id 批量查人员信息（Info DTO） |
-| `selectMemberListByCondition` | `SingleRequest<Map<String, Object>> arg0` | `ListResponse<OrgMemberCoreDto>` | 列表查询人员按条件 |
-| `selectMemberPageListByCondition` | `PageRequest arg0` | `PageResponse<OrgMemberCoreDto>` | 分页列表查询人员按条件 |
+| `selectMemberListByCondition` | `SingleRequest<Map<String, Object>> arg0` | `ListResponse<OrgMemberCoreDto>` | 列表查询成员按条件 |
+| `selectMemberPageListByCondition` | `PageRequest arg0` | `PageResponse<OrgMemberCoreDto>` | 分页列表查询成员按条件 |
 | `selectMemberInfoListByCondition` | `SingleRequest<Map<String, Object>> arg0` | `ListResponse<OrgMemberInfoDto>` | 按条件查人员信息列表（Info DTO） |
 | `selectMemberInfoPageListByCondition` | `PageRequest arg0` | `PageResponse<OrgMemberInfoDto>` | 按条件分页查人员信息（Info DTO） |
 | `selectMemberByCodeIgnoreTenant` | `SingleRequest<List<String>> arg0` | `ListResponse<Map<String, Object>>` | 按人员编码批量查（跨租户） |
 | `modifyMemberInfoBySelf` | `SingleRequest<OrgModifyMemberInfoSelfDto> arg0` | `SingleResponse<Integer>` | 人员自助修改本人信息（受限字段） |
-| `selectMemberListPropertiesByMemberIds` | `SingleRequest<SimpleConditionByIdsDto> arg0` | `ListResponse<Map<String, Object>>` | 列表指定字段查询人员按人员 |
-| `selectMemberPageListPropertiesByCondition` | `PageDtoRequest<SimpleConditionByParamsDto> arg0` | `PageResponse<Map<String, Object>>` | 分页列表指定字段查询人员按条件 |
+| `selectMemberListPropertiesByMemberIds` | `SingleRequest<SimpleConditionByIdsDto> arg0` | `ListResponse<Map<String, Object>>` | 列表指定字段查询成员按成员 |
+| `selectMemberPageListPropertiesByCondition` | `PageDtoRequest<SimpleConditionByParamsDto> arg0` | `PageResponse<Map<String, Object>>` | 分页列表指定字段查询成员按条件 |
 
 ### `com.seeyon.organization.api.core.memberpost`
 
@@ -621,16 +621,16 @@
 |---|---|---|---|
 | `create` | `SingleRequest<OrgMemberPostDto> arg0` | `SingleResponse<Long>` | 新建人员岗位关系，返回主键 |
 | `update` | `SingleRequest<OrgMemberPostDto> arg0` | `SingleResponse<Integer>` | 修改人员岗位关系，返回影响行数 |
-| `selectById` | `SingleRequest<Long> arg0` | `SingleResponse<OrgMemberPostDto>` | 查询人员岗位按 id |
-| `selectByIds` | `SingleRequest<List<Long>> arg0` | `ListResponse<OrgMemberPostDto>` | 查询人员岗位按 ids |
-| `selectCascadeById` | `SingleRequest<Long> arg0` | `SingleResponse<OrgMemberPostDto>` | 级联查询人员岗位按 id |
-| `selectCascadeByIds` | `SingleRequest<List<Long>> arg0` | `ListResponse<OrgMemberPostDto>` | 级联查询人员岗位按 ids |
-| `selectListByConditions` | `ListRequest arg0` | `ListResponse<OrgMemberPostDto>` | 列表查询人员岗位按条件 |
-| `selectPageByConditions` | `PageRequest arg0` | `PageResponse<OrgMemberPostDto>` | 分页查询人员岗位按条件 |
+| `selectById` | `SingleRequest<Long> arg0` | `SingleResponse<OrgMemberPostDto>` | 查询成员岗位按 id |
+| `selectByIds` | `SingleRequest<List<Long>> arg0` | `ListResponse<OrgMemberPostDto>` | 查询成员岗位按 ids |
+| `selectCascadeById` | `SingleRequest<Long> arg0` | `SingleResponse<OrgMemberPostDto>` | 级联查询成员岗位按 id |
+| `selectCascadeByIds` | `SingleRequest<List<Long>> arg0` | `ListResponse<OrgMemberPostDto>` | 级联查询成员岗位按 ids |
+| `selectListByConditions` | `ListRequest arg0` | `ListResponse<OrgMemberPostDto>` | 列表查询成员岗位按条件 |
+| `selectPageByConditions` | `PageRequest arg0` | `PageResponse<OrgMemberPostDto>` | 分页查询成员岗位按条件 |
 | `dynamicJoinSelect` | `SingleRequest<ProxyJoinParamDto> arg0` | `PageResponse<OrgMemberPostDto>` | 查询ProxyJoin |
 | `dynamicCountJoinSelect` | `SingleRequest<ProxyJoinParamDto> arg0` | `SingleResponse<Integer>` | 统计Select |
-| `selectMemberPostListPropertiesByMemberIds` | `SingleRequest<SimpleConditionByIdsDto> arg0` | `ListResponse<Map<String, Object>>` | 列表指定字段查询人员岗位按人员 |
-| `selectMemberPostPageListPropertiesByCondition` | `PageDtoRequest<SimpleConditionByParamsDto> arg0` | `PageResponse<Map<String, Object>>` | 分页列表指定字段查询人员岗位按条件 |
+| `selectMemberPostListPropertiesByMemberIds` | `SingleRequest<SimpleConditionByIdsDto> arg0` | `ListResponse<Map<String, Object>>` | 列表指定字段查询成员岗位按成员 |
+| `selectMemberPostPageListPropertiesByCondition` | `PageDtoRequest<SimpleConditionByParamsDto> arg0` | `PageResponse<Map<String, Object>>` | 分页列表指定字段查询成员岗位按条件 |
 | `dynamicSelect` | `SingleRequest<ProxyParamDto> arg0` | `PageResponse<OrgMemberPostDto>` | 查询Proxy |
 
 #### OrgMemberPostCoreAppService
@@ -639,11 +639,11 @@
 
 | 方法 | 入参 | 返回 | 干什么 |
 |---|---|---|---|
-| `selectMemberPostListByCondition` | `SingleRequest<Map<String, Object>> arg0` | `ListResponse<OrgMemberPostCoreDto>` | 列表查询人员岗位按条件 |
-| `selectMemberPostListByMemberIds` | `SingleRequest<List<Long>> arg0` | `ListResponse<OrgMemberPostCoreDto>` | 列表查询人员岗位按人员 |
-| `selectMemberPostPageListByCondition` | `PageRequest arg0` | `PageResponse<OrgMemberPostCoreDto>` | 分页列表查询人员岗位按条件 |
-| `selectMemberPostListPropertiesByMemberIds` | `SingleRequest<SimpleConditionByIdsDto> arg0` | `ListResponse<Map<String, Object>>` | 列表指定字段查询人员岗位按人员 |
-| `selectMemberPostPageListPropertiesByCondition` | `PageDtoRequest<SimpleConditionByParamsDto> arg0` | `PageResponse<Map<String, Object>>` | 分页列表指定字段查询人员岗位按条件 |
+| `selectMemberPostListByCondition` | `SingleRequest<Map<String, Object>> arg0` | `ListResponse<OrgMemberPostCoreDto>` | 列表查询成员岗位按条件 |
+| `selectMemberPostListByMemberIds` | `SingleRequest<List<Long>> arg0` | `ListResponse<OrgMemberPostCoreDto>` | 列表查询成员岗位按成员 |
+| `selectMemberPostPageListByCondition` | `PageRequest arg0` | `PageResponse<OrgMemberPostCoreDto>` | 分页列表查询成员岗位按条件 |
+| `selectMemberPostListPropertiesByMemberIds` | `SingleRequest<SimpleConditionByIdsDto> arg0` | `ListResponse<Map<String, Object>>` | 列表指定字段查询成员岗位按成员 |
+| `selectMemberPostPageListPropertiesByCondition` | `PageDtoRequest<SimpleConditionByParamsDto> arg0` | `PageResponse<Map<String, Object>>` | 分页列表指定字段查询成员岗位按条件 |
 
 ### `com.seeyon.organization.api.core.memberrole`
 
@@ -653,14 +653,14 @@
 
 | 方法 | 入参 | 返回 | 干什么 |
 |---|---|---|---|
-| `selectById` | `SingleRequest<Long> arg0` | `SingleResponse<OrgMemberRoleDto>` | 查询人员角色按 id |
-| `selectByIds` | `SingleRequest<List<Long>> arg0` | `ListResponse<OrgMemberRoleDto>` | 查询人员角色按 ids |
-| `selectCascadeById` | `SingleRequest<Long> arg0` | `SingleResponse<OrgMemberRoleDto>` | 级联查询人员角色按 id |
-| `selectCascadeByIds` | `SingleRequest<List<Long>> arg0` | `ListResponse<OrgMemberRoleDto>` | 级联查询人员角色按 ids |
-| `selectListByConditions` | `ListRequest arg0` | `ListResponse<OrgMemberRoleDto>` | 列表查询人员角色按条件 |
-| `selectListByCondition` | `SingleRequest<SearchOrgMemberRoleDto> arg0` | `ListResponse<OrgMemberRoleDto>` | 列表查询组织人员角色按条件 |
-| `selectPageByConditions` | `PageRequest arg0` | `PageResponse<OrgMemberRoleDto>` | 分页查询人员角色按条件 |
-| `selectPageByConditions` | `PageDtoRequest<SearchOrgMemberRoleDto> arg0` | `PageResponse<OrgMemberRoleDto>` | 分页查询组织人员角色按条件 |
+| `selectById` | `SingleRequest<Long> arg0` | `SingleResponse<OrgMemberRoleDto>` | 查询成员角色按 id |
+| `selectByIds` | `SingleRequest<List<Long>> arg0` | `ListResponse<OrgMemberRoleDto>` | 查询成员角色按 ids |
+| `selectCascadeById` | `SingleRequest<Long> arg0` | `SingleResponse<OrgMemberRoleDto>` | 级联查询成员角色按 id |
+| `selectCascadeByIds` | `SingleRequest<List<Long>> arg0` | `ListResponse<OrgMemberRoleDto>` | 级联查询成员角色按 ids |
+| `selectListByConditions` | `ListRequest arg0` | `ListResponse<OrgMemberRoleDto>` | 列表查询成员角色按条件 |
+| `selectListByCondition` | `SingleRequest<SearchOrgMemberRoleDto> arg0` | `ListResponse<OrgMemberRoleDto>` | 列表查询组织成员角色按条件 |
+| `selectPageByConditions` | `PageRequest arg0` | `PageResponse<OrgMemberRoleDto>` | 分页查询成员角色按条件 |
+| `selectPageByConditions` | `PageDtoRequest<SearchOrgMemberRoleDto> arg0` | `PageResponse<OrgMemberRoleDto>` | 分页查询组织成员角色按条件 |
 | `dynamicJoinSelect` | `SingleRequest<ProxyJoinParamDto> arg0` | `PageResponse<OrgMemberRoleDto>` | 查询ProxyJoin |
 | `dynamicSelect` | `SingleRequest<ProxyParamDto> arg0` | `PageResponse<OrgMemberRoleDto>` | 查询Proxy |
 | `selectCascadeByConditions` | `SingleRequest<QueryConditionDto> arg0` | `SingleResponse<OrgMemberRoleDto>` | 级联查询条件按条件 |
@@ -673,10 +673,10 @@
 
 | 方法 | 入参 | 返回 | 干什么 |
 |---|---|---|---|
-| `selectById` | `SingleRequest<Long> arg0` | `SingleResponse<OrgMemberRoleCoreDto>` | 查询人员角色按 id |
-| `selectByIds` | `SingleRequest<List<Long>> arg0` | `ListResponse<OrgMemberRoleCoreDto>` | 查询人员角色按 ids |
-| `selectListByConditions` | `SingleRequest<Map<String, Object>> arg0` | `ListResponse<OrgMemberRoleCoreDto>` | 列表查询人员角色按条件 |
-| `selectPageByConditions` | `PageRequest arg0` | `PageResponse<OrgMemberRoleCoreDto>` | 分页查询人员角色按条件 |
+| `selectById` | `SingleRequest<Long> arg0` | `SingleResponse<OrgMemberRoleCoreDto>` | 查询成员角色按 id |
+| `selectByIds` | `SingleRequest<List<Long>> arg0` | `ListResponse<OrgMemberRoleCoreDto>` | 查询成员角色按 ids |
+| `selectListByConditions` | `SingleRequest<Map<String, Object>> arg0` | `ListResponse<OrgMemberRoleCoreDto>` | 列表查询成员角色按条件 |
+| `selectPageByConditions` | `PageRequest arg0` | `PageResponse<OrgMemberRoleCoreDto>` | 分页查询成员角色按条件 |
 
 ### `com.seeyon.organization.api.core.metadata`
 
@@ -698,7 +698,7 @@
 | `selectOrgRoleByMemberMetadata` | `SingleRequest<Long> arg0` | `SingleResponse<Map<String, Boolean>>` | 按人员扩展属性判断组织角色 |
 | `selectOrgIdByMemberIdInInstitution` | `SingleRequest<SearchOrgIdMetadataInfoDto> arg0` | `SingleResponse<Map<String, List<Long>>>` | 在机构内按人员扩展属性查组织 id |
 | `selectEntityIdByMetadataValue` | `SingleRequest<SearchEntityIdByMetadataValueDto> arg0` | `SingleResponse<List<Long>>` | 按扩展属性值反查实体 id |
-| `selectEntityIdByMetadataValuePageList` | `PageRequest arg0` | `PageResponse<Long>` | 查询Entity按扩展属性 |
+| `selectEntityIdByMetadataValuePageList` | `PageRequest arg0` | `PageResponse<Long>` | 查询实体按扩展属性页面 |
 | `selectEntityIdsByMetadataValue` | `SingleRequest<SearchEntityIdByMetadataValueDto> arg0` | `ListResponse<Long>` | 按扩展属性值批量反查实体 id |
 | `selectUnitMetadataPageList` | `PageDtoRequest<OrgUnitMetadataRequestDto> arg0` | `PageResponse<OrgUnitMetadataValueDto>` | 单位扩展属性值分页列表 |
 | `selectMemberMetadataPageList` | `PageDtoRequest<OrgMemberMetadataRequestDto> arg0` | `PageResponse<OrgMemberMetadataValueDto>` | 人员扩展属性值分页列表 |
@@ -780,8 +780,8 @@
 
 | 方法 | 入参 | 返回 | 干什么 |
 |---|---|---|---|
-| `selectTeamMemberByTeamId` | `SingleRequest<Long> arg0` | `ListResponse<OrgMemberCoreDto>` | 查询团队人员按团队 |
-| `selectTeamMemberByTeamIds` | `SingleRequest<List<Long>> arg0` | `ListResponse<OrgMemberCoreDto>` | 查询团队人员按团队 |
+| `selectTeamMemberByTeamId` | `SingleRequest<Long> arg0` | `ListResponse<OrgMemberCoreDto>` | 查询团队成员按团队 |
+| `selectTeamMemberByTeamIds` | `SingleRequest<List<Long>> arg0` | `ListResponse<OrgMemberCoreDto>` | 查询团队成员按团队 |
 | `selectTeamById` | `SingleRequest<Long> arg0` | `SingleResponse<OrgTeamCoreDto>` | 查询团队按 id |
 | `selectTeamByIds` | `SingleRequest<List<Long>> arg0` | `ListResponse<OrgTeamCoreDto>` | 查询团队按 ids |
 | `selectTeamByCondition` | `PageRequest arg0` | `PageResponse<OrgTeamCoreDto>` | 查询团队按条件 |
@@ -942,75 +942,57 @@
 | 方法 | 入参 | 返回 | 干什么 |
 |---|---|---|---|
 | `type` | `—` | `String` | 返回该实现的类型标识（SPI/策略模式用于区分实现） |
-| `selectMemberPostBySelectPeople` | `WorkFlowMatchRequestDto arg0` | `WorkFlowMatchResponseDto` | 查询人员岗位按SelectPeople |
+| `selectMemberPostBySelectPeople` | `WorkFlowMatchRequestDto arg0` | `WorkFlowMatchResponseDto` | 查询成员岗位按SelectPeople |
 
 > ⚠️ 共 0 个方法仅凭名称无法确定语义，需实测或读实现类。
 
 ## biz 层：领域服务
 
-共 59 个领域服务。职责由**该服务方法名的动词分布**归纳，不是猜的。
+共 59 个领域服务，下表列**方法数最多的 40 个**。
+职责由**该服务方法名的动词分布**归纳，不是猜的。
 
 | 服务 | 方法数 | 职责（按方法名统计） |
 |---|---:|---|
 | `OrgHelperService` | 95 | Helper · 判断×23 / 查询×22 / 获取×20 |
 | `OrgUnitService` | 67 | 单位 · 查询×39 / 获取×7 / 修改×6 |
-| `OrgMemberService` | 55 | 人员 · 查询×28 / 修改×12 / 新建×4 |
-| `OrgMemberPostService` | 52 | 人员岗位 · 查询×29 / 新建×5 / 判断×3 |
+| `OrgMemberService` | 55 | 成员 · 查询×28 / 修改×12 / 新建×4 |
+| `OrgMemberPostService` | 52 | 成员岗位 · 查询×29 / 新建×5 / 判断×3 |
 | `OrgUnitMetadataService` | 48 | 单位扩展属性 · 查询×15 / 获取×9 / 修改×7 |
 | `OrgUnitVerticalService` | 46 | 单位 · 查询×25 / 修改×5 / 新建×4 |
 | `WorkFlowMatchEngineService` | 43 | WorkFlowMatchEngine · 查询×31 / 获取×8 / 判断×1 |
 | `OrgBusinessService` | 31 | 业务 · 查询×21 / 修改×2 / 校验×2 |
 | `SelectPeopleCacheService` | 31 | SelectPeopleCache · 查询×16 / 获取×5 / 修改×4 |
-| `OrgPostService` | 28 | 岗位 · 查询×9 / 修改×6 / 新建×3 |
+| `OrgPostService` | 28 | 岗位 · 查询×9 / 修改×5 / 同步×3 |
 | `OrgBaseService` | 27 | OrgBase · 查询×20 / 获取×4 / 新建×2 |
-| `OrgMemberMetadataService` | 25 | 人员扩展属性 · 查询×11 / 修改×4 / 获取×4 |
-| `OrgJobService` | 20 | 职务 · 查询×7 / 修改×4 / 新建×3 |
+| `OrgMemberMetadataService` | 25 | 成员扩展属性 · 查询×11 / 修改×4 / 获取×4 |
+| `OrgJobService` | 20 | 任务 · 查询×7 / 修改×3 / 校验×3 |
 | `OrgDepartmentVisitPermissionService` | 19 | 部门权限 · 查询×11 / 获取×4 / 新建×1 |
-| `OrgMetaDataColumnService` | 19 | MetaColumn · 查询×12 / 获取×2 / 修改×1 |
+| `OrgMetaDataColumnService` | 19 | MetaColumn · 查询×12 / 初始化×2 / 获取×2 |
 | `OrgRoleService` | 19 | 角色 · 查询×7 / 获取×4 / 校验×3 |
-| `OrgMetaDataColumnSettingService` | 18 | MetaColumnSetting · 查询×12 / 修改×2 / 删除×1 |
+| `OrgMetaDataColumnSettingService` | 18 | 设置 · 查询×12 / 修改×2 / 删除×1 |
 | `OrgUnitTeamService` | 18 | 单位团队 · 查询×6 / 获取×5 / 修改×2 |
-| `OrgInstitutionVisitPermissionService` | 17 | 机构权限 · 查询×7 / 校验×4 / 判断×2 |
+| `OrgInstitutionVisitPermissionService` | 17 | 机构权限 · 查询×7 / 检查×4 / 判断×2 |
 | `OrgLevelService` | 17 | 职务级别 · 查询×8 / 校验×4 / 新建×2 |
 | `OrgTeamService` | 15 | 团队 · 查询×9 / 获取×2 / 新建×1 |
 | `OrgUnitCacheService` | 14 | 单位 · 查询×9 / 获取×2 / 排序×1 |
 | `OrgOutsidePermissionService` | 13 | 权限 · 查询×6 / 判断能否×2 / 新建×1 |
 | `OrgExternalPartnerService` | 13 | 外部人员 · 查询×8 / 修改×2 / 新建×1 |
 | `OrgPersonalTeamService` | 13 | 团队 · 查询×7 / 新建×2 / 修改×1 |
-| `OrgTeamMemberDetailService` | 13 | 团队人员 · 查询×6 / 同步×3 / 删除×2 |
-| `OrgMemberRoleService` | 12 | 人员角色 · 查询×4 / 修改×3 / 新建×2 |
+| `OrgTeamMemberDetailService` | 13 | 团队成员 · 查询×6 / 同步×3 / 删除×2 |
+| `OrgMemberRoleService` | 12 | 成员角色 · 查询×4 / 修改×3 / 新建×2 |
 | `OrgPostDimensionRelationService` | 12 | 岗位 · 查询×5 / 新建×1 / 修改×1 |
 | `OrgAddressBookPermissionService` | 11 | 权限 · 查询×5 / 删除×2 / 新建×1 |
-| `OrgParameterService` | 11 | 参数 · 查询×4 / 修改×1 / 判断×1 |
-| `MemberSyncService` | 10 | 人员 · 新建×3 / 校验×3 / 获取×2 |
-| `OrgExternalMemberService` | 10 | 外部人员人员 · 查询×6 / 新建×1 / 校验×1 |
+| `OrgParameterService` | 11 | 参数 · 查询×4 / 修改×1 / 办理×1 |
+| `MemberSyncService` | 10 | 成员 · 新建×3 / 校验×3 / 获取×2 |
+| `OrgExternalMemberService` | 10 | 外部人员成员 · 查询×6 / 新建×1 / 校验×1 |
 | `OrgAddressBookFieldService` | 9 | 字段 · 查询×6 / 修改×1 / 校验×1 |
 | `OrgLeaderSecretaryService` | 9 | 领导 · 查询×3 / 获取×2 / 新建×1 |
 | `OrgPostDimensionService` | 9 | 岗位 · 查询×6 / 新建×1 / 修改×1 |
 | `OrgUnitHorizontalService` | 9 | 单位 · 新建×2 / 修改×2 / 查询×2 |
-| `OrgExternalMemberRelationshipService` | 9 | 外部人员人员 · 查询×5 / 新建×1 / 校验×1 |
+| `OrgExternalMemberRelationshipService` | 9 | 外部人员成员 · 查询×5 / 新建×1 / 校验×1 |
 | `OrgExternalPartnerMetadataService` | 9 | 外部人员扩展属性 · 获取×3 / 查询×2 / 新建×1 |
 | `OrgScopeService` | 9 | 范围 · 查询×2 / 获取×2 |
-| `OrgUnitTeamMemberService` | 9 | 单位团队人员 · 查询×3 / 新建×2 / 修改×1 |
-| `OrgBusinessUnitService` | 8 | 业务单位 · 修改×4 / 新建×2 / 校验×2 |
-| `OrgAddressBookInfoService` | 7 | AddressBook · 查询×3 / 新建×1 / 修改×1 |
-| `OrgExternalMetadataColumnService` | 7 | 外部人员扩展属性 · 查询×6 / 修改×1 |
-| `OrgAddressBookSetService` | 6 | AddressBookSet · 查询×4 / 修改×1 / 删除×1 |
-| `OrgMetadataCommonService` | 6 | 扩展属性 · 获取×2 / 修改×1 |
-| `OrgExternalUnitService` | 6 | 外部人员单位 · 查询×3 / 新建×1 / 修改×1 |
-| `NaturalMemberSyncService` | 5 | 人员 · 新建×2 / 修改×1 / 校验×1 |
-| `PostSyncService` | 5 | 岗位 · 查询×2 / 新建×1 / 获取×1 |
-| `OrgTeamMemberService` | 5 | 团队人员 · 新建×2 / 修改×1 / 查询×1 |
-| `OrgTeamPublicScopeService` | 5 | 团队范围 · 查询×2 / 新建×1 / 校验×1 |
-| `OrgTransferRecordDetailService` | 5 | TransferRecordDetail · 查询×2 / 删除×1 / 新建×1 |
-| `OrgTransferRecordService` | 5 | TransferRecord · 查询×4 / 新建×1 |
-| `OrgMemberCacheService` | 3 | 人员 · 查询×2 |
-| `OrgMemberPostSyncAppService` | 3 | 人员岗位 · 新建×1 / 校验×1 / 获取×1 |
-| `OrgOcipLogService` | 3 | 日志 · 新建×1 / 修改×1 / 删除×1 |
-| `SelectPeopleExtendService` | 3 | 扩展 · 搜索×1 / 获取×1 / 查询×1 |
-| `CtpUserDubboCommonService` | 2 | UserDubboCommon · 查询×2 |
-| `OrgOcipSetService` | 1 | OcipSet · 新建×1 |
-| `OrgBusinessMemberService` | 0 | 业务人员（无业务方法，可能为纯装配类） |
+| `OrgUnitTeamMemberService` | 9 | 单位团队成员 · 查询×3 / 新建×2 / 修改×1 |
 
 ## biz 层：事件与监听
 

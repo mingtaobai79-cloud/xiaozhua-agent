@@ -1,0 +1,5 @@
+{
+ "PortalConfigAppService#config": "门户：读写门户配置",
+ "PortalConfigAppService#about": "门户：取关于信息（版本/授权）",
+ "PortalSetAppService#multiVersionPortalDesignInfo": "门户：多版本设计信息（按版本取布局）"
+}

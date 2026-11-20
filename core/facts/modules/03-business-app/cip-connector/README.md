@@ -1,35 +1,470 @@
-# cip-connector｜应用能力索引
+# 连接器（connector）
 
-> 构件 4 个 / 类 1463 / 方法 14404
-> 版本：5.3.286, 5.3.600
+## 一句话
+
+`com.seeyon.cip` 域的**可调用接口面**：5 个构件、439 个类、25 个 facade 接口 / 124 个方法。
 
 ## 一、构件清单
 
-| 层 | 构件 | 类数 | 方法数 |
-|---|---|---:|---:|
-| facade | `cip-connector-facade` | 121 | 1171 |
-| api | `cip-connector-api` | 119 | 1504 |
-| biz | `cip-connector-biz` | 1205 | 11423 |
-| web | `cip-connector-web` | 35 | 403 |
+| 构件 | 层 | 类数 |
+|---|---|---:|
+| `cip-connector-biz` | biz | 273 |
+| `cip-connector-api` | api | 114 |
+| `cip-connector-facade` | facade | 40 |
+| `cip-connector-web` | web | 8 |
+| `cip-manager-web` | web | 4 |
+| **合计** | | **439** |
 
-## 二、分层职责
+## 二、分层规律（写代码前必读）
 
-| 层 | 你能用它做什么 | 调用方式 |
-|---|---|---|
-| **facade** | 对外契约：AppService 接口 + DTO | `@DubboReference`（有 `@DubboService` 才能远程） |
-| **api** | 纯接口/常量包 | 只依赖，不注入 |
-| **biz** | 实现层：业务编排 + 落库 | **不可直接调**，看它的入参理解行为 |
-| **web** | REST 路由 | **不可直接调**，看路由 + 请求体 |
+`com.seeyon.cip` 的接口按职责三分，**选错会多绕一层或拿到多余字段**：
 
-## 三、接口入参速查（biz/web 只看这个）
+| 接口族 | 包 | 能力 | 什么时候用 |
+|---|---|---|---|
+| `*BaseAppService` | `api.core.*` | **含写**：create / update / 全字段查询 / dynamic | 要改数据，或要完整 DTO |
+| `*CoreAppService` | `api.core.*` | **只读**：select*，Core DTO 字段精简 | 只查不改，性能敏感 |
+| `OrgCommonAppService` | `api.common` | **业务聚合**：按选人数据解析、权限、组织域、扩展属性反查 | 需要「按规则找人」而不是按 id 查 |
 
-> 口径：biz/web 只记录「接口入参 + 这个接口干什么」，不逐方法展开。
+调用顺序建议：
 
-（待补：按 facade 方法逐个填「入参 DTO / 用途」）
+```
+知道 id       →  XxxCoreAppService.selectXxxById        （最轻）
+知道业务规则   →  OrgCommonAppService.selectXxxBySelectPeopleData
+要写          →  XxxBaseAppService.create / update
+```
 
-## 四、Evidence
+## facade 层：25 个接口 / 124 个方法
+
+> 入参与返回类型来自字节码索引（`VERIFIED_STATIC_BYTECODE`）。
+> 「干什么」由方法名拆词推断；标 ⚠️ 表示名称不足以确定语义，需实测。
+
+### 接口清单
+
+| 包 | 接口数 | 方法数 |
+|---|---:|---:|
+| `com.seeyon.cip.connector.api.affair` | 1 | 1 |
+| `com.seeyon.cip.connector.api.authentication` | 1 | 9 |
+| `com.seeyon.cip.connector.api.callback` | 2 | 3 |
+| `com.seeyon.cip.connector.api.core` | 5 | 29 |
+| `com.seeyon.cip.connector.api.db` | 1 | 14 |
+| `com.seeyon.cip.connector.api.midorgsync` | 2 | 3 |
+| `com.seeyon.cip.connector.api.midorgsync.callback` | 3 | 7 |
+| `com.seeyon.cip.connector.api.mobile` | 8 | 47 |
+| `com.seeyon.cip.connector.api.sign` | 1 | 4 |
+| `com.seeyon.cip.connector.api.sso` | 1 | 7 |
+| **合计** | **25** | **124** |
+
+### `com.seeyon.cip.connector.api.affair`
+
+#### CipThirdAffairService
+
+`com.seeyon.cip.connector.api.affair.CipThirdAffairService` · 构件 `cip-connector-api`
+
+| 方法 | 入参 | 返回 | 干什么 |
+|---|---|---|---|
+| `queryThirdAffairFieldData` | `ThirdTemplateDataSpiReqDto arg0` | `List<ThirdTemplateDataSpiReturnDto>` | 查询第三方事项字段数据 |
+
+### `com.seeyon.cip.connector.api.authentication`
+
+#### LinkerSecurityService
+
+`com.seeyon.cip.connector.api.authentication.LinkerSecurityService` · 构件 `cip-connector-api`
+
+| 方法 | 入参 | 返回 | 干什么 |
+|---|---|---|---|
+| `getName` | `—` | `String` | 获取名称 |
+| `getTypeCaption` | `—` | `String` | 获取类型Caption |
+| `getMode` | `—` | `AuthInfoModeEnum` | 获取Mode |
+| `doAuthentication` | `AuthenticationDto arg0` | `Map<String, Object>` | SPI 扩展点：Authentication（框架回调） |
+| `doDecode` | `String arg0` | `AuthEventDto` | SPI 扩展点：Decode（框架回调） |
+| `getPageJson` | `—` | `String` | 分页获取Json |
+| `getSortNo` | `—` | `Integer` | 获取排序No |
+| `jsonCheck` | `String arg0` | `void` | 检查（String） |
+| `doVerification` | `AuthenticationDto arg0` | `Boolean` | SPI 扩展点：Verification（框架回调） |
+
+### `com.seeyon.cip.connector.api.callback`
+
+#### ConnectorCallbackMessageSendService
+
+`com.seeyon.cip.connector.api.callback.ConnectorCallbackMessageSendService` · 构件 `cip-connector-api` · extends `BaseDto>`
+
+| 方法 | 入参 | 返回 | 干什么 |
+|---|---|---|---|
+| `sendMsgAsync` | `T arg0` | `void` | 发送MsgAsync |
+| `sendMsgSync` | `T arg0` | `void` | 发送MsgSync |
+
+#### ConnectorCallbackProviderService
+
+`com.seeyon.cip.connector.api.callback.ConnectorCallbackProviderService` · 构件 `cip-connector-api`
+
+| 方法 | 入参 | 返回 | 干什么 |
+|---|---|---|---|
+| `doCallback` | `ConnectorCallbackRequestDto arg0` | `Res` | SPI 扩展点：Callback（框架回调） |
+
+### `com.seeyon.cip.connector.api.core`
+
+#### BaseConfigAppService
+
+`com.seeyon.cip.connector.api.core.BaseConfigAppService` · 构件 `cip-connector-facade`
+
+| 方法 | 入参 | 返回 | 干什么 |
+|---|---|---|---|
+| `createDatabase` | `SingleRequest<DatabaseInfoDto> arg0` | `SingleResponse<Long>` | 新建Database |
+| `updateDatabase` | `SingleRequest<DatabaseInfoDto> arg0` | `SingleResponse<Integer>` | 修改Database |
+| `deleteDatabaseById` | `SingleRequest<Long> arg0` | `SingleResponse<Integer>` | 删除Database按 id |
+| `selectDatabaseById` | `SingleRequest<Long> arg0` | `SingleResponse<DatabaseInfoDto>` | 查询Database按 id |
+| `selectDatabaseByIds` | `SingleRequest<List<Long>> arg0` | `ListResponse<DatabaseInfoDto>` | 查询Database按 ids |
+| `selectPageDatabaseByCondition` | `PageRequest arg0` | `PageResponse<DatabaseInfoDto>` | 分页查询Database按条件 |
+| `connectorDatabase` | `SingleRequest<DatabaseInfoDto> arg0` | `SingleResponse<String>` | 连接器：配置数据库型数据源（建连接） |
+| `selectAllDatabaseType` | `—` | `ListResponse<String>` | 全部查询类型Database |
+| `selectAllTableInfo` | `SingleRequest<Long> arg0` | `SingleResponse<Map<String, List<TableInfoDto>>>` | 全部查询表 |
+| `selectAllTableNameById` | `SingleRequest<Long> arg0` | `ListResponse<String>` | 全部查询表名称按 id |
+| `selectTableInfo` | `SingleRequest<TableInfoDto> arg0` | `ListResponse<TableInfoDto>` | 查询表 |
+
+#### LinkerAppService
+
+`com.seeyon.cip.connector.api.core.LinkerAppService` · 构件 `cip-connector-facade`
+
+| 方法 | 入参 | 返回 | 干什么 |
+|---|---|---|---|
+| `selectPageByCondition` | `PageRequest arg0` | `PageResponse<LinkerInfoDto>` | 分页查询Linker按条件 |
+| `selectAll` | `—` | `ListResponse<LinkerInfoDto>` | 全部查询Linker |
+| `selectDetailsByInfoId` | `SingleRequest<Long> arg0` | `ListResponse<LinkerDetailDto>` | 查询Details按InfoId |
+| `selectLinkerDetailParameterDisplay` | `SingleRequest<Long> arg0` | `ListResponse<LinkerParameterDisplayDto>` | 查询参数LinkerDetailDisplay |
+| `selectEventDetailsByInfoId` | `SingleRequest<Long> arg0` | `ListResponse<LinkerEventDetailDto>` | 查询EventDetails按InfoId |
+| `selectEventDetailById` | `SingleRequest<Long> arg0` | `SingleResponse<LinkerEventDetailDto>` | 查询EventDetail按 id |
+| `selectPageDetailByCondition` | `PageRequest arg0` | `PageResponse<LinkerDetailDto>` | 分页查询Detail按条件 |
+| `selectPageEventDetailByCondition` | `PageRequest arg0` | `PageResponse<LinkerEventDetailDto>` | 分页查询EventDetail按条件 |
+| `selectDetailById` | `SingleRequest<Long> arg0` | `SingleResponse<LinkerDetailDto>` | 查询Detail按 id |
+| `execute` | `SingleRequest<ExecuteRequestDto> arg0` | `SingleResponse<ExecuteResponseDto>` | 执行Execute |
+| `mqCustomSend` | `SingleRequest<MqCustomSendDto> arg0` | `SingleResponse<MqCustomSendResultDto>` | 发送MqCustomSend |
+| `executeSql` | `SingleRequest<ExecuteSqlDto> arg0` | `SingleResponse<SqlResultDto>` | 执行Sql |
+
+#### LinkerEnumAppService
+
+`com.seeyon.cip.connector.api.core.LinkerEnumAppService` · 构件 `cip-connector-facade`
+
+| 方法 | 入参 | 返回 | 干什么 |
+|---|---|---|---|
+| `selectItemList` | `ListRequest arg0` | `ListResponse<LinkerEnumItemDto>` | 列表查询Item |
+
+#### LinkerMigrationAppService
+
+`com.seeyon.cip.connector.api.core.LinkerMigrationAppService` · 构件 `cip-connector-facade`
+
+| 方法 | 入参 | 返回 | 干什么 |
+|---|---|---|---|
+| `exportEntityTask` | `SingleRequest<LinkMigrationRequestDto> arg0` | `SingleResponse<String>` | 导出实体任务 |
+| `initDataJsonByNames` | `SingleRequest<List<String>> arg0` | `SingleResponse<Map<String, String>>` | 初始化数据Json按名称 |
+| `listConnectorData` | `SingleRequest<ConnectorMigrateRequestDto> arg0` | `ListResponse<ConnectorMigrateDto>` | 列出连接器数据 |
+| `importConnectorData` | `SingleRequest<ConnectorMigrateImportResponseDto> arg0` | `SingleResponse<Void>` | 导入连接器数据 |
+
+#### SsoExecutorAppService
+
+`com.seeyon.cip.connector.api.core.SsoExecutorAppService` · 构件 `cip-connector-facade`
+
+| 方法 | 入参 | 返回 | 干什么 |
+|---|---|---|---|
+| `ssoLongin` | `SingleRequest<SsoRequestDto> arg0` | `SingleResponse<String>` | 连接器：执行 SSO 登录（拼第三方登录请求） |
+
+### `com.seeyon.cip.connector.api.db`
+
+#### DataBaseExecutorService
+
+`com.seeyon.cip.connector.api.db.DataBaseExecutorService` · 构件 `cip-connector-api`
+
+| 方法 | 入参 | 返回 | 干什么 |
+|---|---|---|---|
+| `getDbTypeEnum` | `—` | `DbTypeEnum` | 获取类型枚举Db |
+| `getName` | `—` | `String` | 获取名称 |
+| `executeDetail` | `DatabaseInfoApiDto arg0` | `ExecutorResultApiDto` | 执行Detail |
+| `executeDetailForCount` | `DatabaseInfoApiDto arg0` | `Integer` | 执行DetailForCount |
+| `transformByType` | `Object arg0` | `String` | 数据库执行器：按类型转换取回的值 |
+| `getAllTableName` | `DatabaseInfoApiDto arg0` | `List<String>` | 全部获取表名称 |
+| `getPageTableName` | `DatabaseInfoApiDto arg0` | `PageData<String>` | 分页获取表名称 |
+| `getDriver` | `—` | `String` | 获取Driver |
+| `getAllTableInfo` | `DatabaseInfoApiDto arg0` | `List<TableInfoApiDto>` | 全部获取表 |
+| `generateSql` | `LinkerDetailApiDto arg0` | `String` | 生成Sql |
+| `generateSql` | `LinkerDetailApiDto arg0` | `String` | 生成Sql |
+| `getConnection` | `DatabaseInfoApiDto arg0` | `Connection` | 获取Connection |
+| `getVersion` | `—` | `String` | 获取版本 |
+| `executeSql` | `ExecuteSqlApiDto arg0` | `SqlResultApiDto` | 执行Sql |
+
+### `com.seeyon.cip.connector.api.midorgsync`
+
+#### MiddleTableOrgSyncSpiListenerService
+
+`com.seeyon.cip.connector.api.midorgsync.MiddleTableOrgSyncSpiListenerService` · 构件 `cip-connector-api`
+
+| 方法 | 入参 | 返回 | 干什么 |
+|---|---|---|---|
+| `dataGovernance` | `ConnectorCallbackRequestDto arg0` | `Object` | 中间表组织同步：数据治理（清洗/映射） |
+
+#### MiddleTableOrgSyncSpiPullService
+
+`com.seeyon.cip.connector.api.midorgsync.MiddleTableOrgSyncSpiPullService` · 构件 `cip-connector-api`
+
+| 方法 | 入参 | 返回 | 干什么 |
+|---|---|---|---|
+| `pullAll` | `ConfigInfoApiDto arg0` | `void` | 中间表组织同步：全量拉取 |
+| `pullIncrement` | `ConfigInfoApiDto arg0` | `void` | 中间表组织同步：增量拉取 |
+
+### `com.seeyon.cip.connector.api.midorgsync.callback`
+
+#### MiddleTableOrgSyncDataCallbackService
+
+`com.seeyon.cip.connector.api.midorgsync.callback.MiddleTableOrgSyncDataCallbackService` · 构件 `cip-connector-api`
+
+| 方法 | 入参 | 返回 | 干什么 |
+|---|---|---|---|
+| `batchSaveOrg` | `UnitInfoSpiReqDto arg0` | `Integer` | 保存组织 |
+| `batchSavePosition` | `PostInfoSpiReqDto arg0` | `Integer` | 保存Position |
+| `batchSaveDuty` | `DutyInfoSpiReqDto arg0` | `Integer` | 保存Duty |
+| `batchSaveLevel` | `LevelInfoSpiReqDto arg0` | `Integer` | 保存职务级别 |
+| `batchSaveMember` | `MemberInfoSpiReqDto arg0` | `Integer` | 保存成员 |
+
+#### MiddleTableOrgSyncExecuteCallbackService
+
+`com.seeyon.cip.connector.api.midorgsync.callback.MiddleTableOrgSyncExecuteCallbackService` · 构件 `cip-connector-api`
+
+| 方法 | 入参 | 返回 | 干什么 |
+|---|---|---|---|
+| `executeSyncToOrgModel` | `String arg0` | `Boolean` | 执行组织SyncToModel |
+
+#### MiddleTableOrgSyncMarkCallbackService
+
+`com.seeyon.cip.connector.api.midorgsync.callback.MiddleTableOrgSyncMarkCallbackService` · 构件 `cip-connector-api`
+
+| 方法 | 入参 | 返回 | 干什么 |
+|---|---|---|---|
+| `markComplete` | `String arg0` | `String` | 标记Complete |
+
+### `com.seeyon.cip.connector.api.mobile`
+
+#### MobileApplicationProviderService
+
+`com.seeyon.cip.connector.api.mobile.MobileApplicationProviderService` · 构件 `cip-connector-api` · extends `MobileProviderService`
+
+| 方法 | 入参 | 返回 | 干什么 |
+|---|---|---|---|
+| `getMobileUrlDto` | `MobileUrlProviderDto arg0` | `MobileUrlDto` | 获取MobileUrlDto |
+| `explainLinkInfo` | `—` | `String` | 移动应用提供方：解释/构造跳转链接 |
+| `publishApp` | `MobilePublishAppRequestDto arg0` | `Long` | 发布应用 |
+| `getSignature` | `MobilePlatformConfigDto arg0` | `MobilePlatformSignatureResultDto` | 获取Signature |
+| `sendMessage` | `boolean arg0` | `void` | 发送消息 |
+| `getMobileSsoUserDto` | `MobilePlatformConfigDto arg0` | `MobileSsoUserDto` | 获取用户MobileSsoDto |
+| `interfaceStatus` | `MobilePlatformConfigDto arg0` | `MobileInterfaceStatusDto` | 移动应用提供方：查询接口可用状态 |
+| `getOpenId` | `MobilePlatformConfigDto arg0` | `String` | 获取Open |
+| `getLaunchCode` | `MobilePlatformConfigDto arg0` | `String` | 获取编码Launch |
+| `recallMessage` | `MobilePlatformConfigDto arg0` | `RecallResultDto` | 移动应用提供方：撤回已发消息 |
+
+#### MobileCallBackProviderService
+
+`com.seeyon.cip.connector.api.mobile.MobileCallBackProviderService` · 构件 `cip-connector-api`
+
+（无方法）
+
+#### MobileConfigProviderService
+
+`com.seeyon.cip.connector.api.mobile.MobileConfigProviderService` · 构件 `cip-connector-api` · extends `MobileProviderService`
+
+| 方法 | 入参 | 返回 | 干什么 |
+|---|---|---|---|
+| `jsonCheck` | `String arg0` | `void` | 检查（String） |
+| `getName` | `—` | `String` | 获取名称 |
+| `getTypeCaption` | `—` | `String` | 获取类型Caption |
+| `getSortNo` | `—` | `Integer` | 获取排序No |
+| `getPageJson` | `—` | `String` | 分页获取Json |
+| `getAppId` | `String arg0` | `String` | 获取应用 |
+| `getAppSecret` | `String arg0` | `String` | 获取应用密钥 |
+| `getAppName` | `String arg0` | `String` | 获取应用名称 |
+| `getAdminUrl` | `—` | `String` | 获取AdminUrl |
+| `getThirdApplicationDomain` | `MobilePlatformConfigDto arg0` | `String` | 获取第三方应用域 |
+| `getThirdConfigCondition` | `String arg0` | `Map<String, Object>` | 获取第三方配置条件 |
+| `getMobileCorpId` | `String arg0` | `String` | 获取MobileCorp |
+| `isPrivateApp` | `—` | `boolean` | 判断应用Private |
+| `isOnlyBaseInfo` | `—` | `Boolean` | 判断Only |
+
+#### MobileOrgSyncBatchProviderService
+
+`com.seeyon.cip.connector.api.mobile.MobileOrgSyncBatchProviderService` · 构件 `cip-connector-api` · extends `MobileProviderService`
+
+| 方法 | 入参 | 返回 | 干什么 |
+|---|---|---|---|
+| `syncUnitBatch` | `MobileDepartmentBatchSyncDto arg0` | `String` | 批量同步单位 |
+| `userSyncBatch` | `MobileUserBatchSyncDto arg0` | `String` | 批量同步（MobileUserBatchSyncDto） |
+| `syncBatchResult` | `MobileBatchResultDto arg0` | `MobileContactBatchResultDto` | 批量同步Result |
+
+#### MobileOrgSyncProviderService
+
+`com.seeyon.cip.connector.api.mobile.MobileOrgSyncProviderService` · 构件 `cip-connector-api` · extends `MobileProviderService`
+
+| 方法 | 入参 | 返回 | 干什么 |
+|---|---|---|---|
+| `syncUnit` | `MobileUnitRequestDto arg0` | `Long` | 同步单位 |
+| `updateUnit` | `MobileUnitRequestDto arg0` | `void` | 修改单位 |
+| `getUnit` | `MobileUnitRequestDto arg0` | `String` | 获取单位 |
+| `removeUnit` | `MobileUnitRequestDto arg0` | `void` | 移除单位 |
+| `syncUser` | `MobileUserRequestDto arg0` | `String` | 同步用户 |
+| `updateUser` | `MobileUserRequestDto arg0` | `String` | 修改用户 |
+| `getUser` | `MobileUserRequestDto arg0` | `MobileUserResponseDto` | 获取用户 |
+| `removeUser` | `MobileUserRequestDto arg0` | `MobileUserResponseDto` | 移除用户 |
+| `syncUnitNew` | `MobileUnitRequestDto arg0` | `MobileOrgDto` | 同步单位New |
+
+#### MobileOrgSyncPullProviderService
+
+`com.seeyon.cip.connector.api.mobile.MobileOrgSyncPullProviderService` · 构件 `cip-connector-api` · extends `MobileProviderService`
+
+| 方法 | 入参 | 返回 | 干什么 |
+|---|---|---|---|
+| `listSyncOrg` | `MobilePlatformConfigDto arg0` | `List<MobileSyncPullOrgResponseDto>` | 列出组织Sync |
+| `listSyncUser` | `MobilePlatformConfigDto arg0` | `List<MobileSyncPullUserResponseDto>` | 列出用户Sync |
+| `listSyncPost` | `MobilePlatformConfigDto arg0` | `List<MobileSyncPullPostDto>` | 列出岗位Sync |
+| `listSyncJob` | `MobilePlatformConfigDto arg0` | `List<MobileSyncPullJobDto>` | 列出任务Sync |
+| `listSyncLevel` | `MobilePlatformConfigDto arg0` | `List<MobileSyncPullLevelDto>` | 列出职务级别Sync |
+
+#### MobileProviderService
+
+`com.seeyon.cip.connector.api.mobile.MobileProviderService` · 构件 `cip-connector-api`
+
+（无方法）
+
+#### MobileTodoProviderService
+
+`com.seeyon.cip.connector.api.mobile.MobileTodoProviderService` · 构件 `cip-connector-api` · extends `MobileProviderService`
+
+| 方法 | 入参 | 返回 | 干什么 |
+|---|---|---|---|
+| `createTodo` | `MobilePlatformConfigDto arg0` | `String` | 新建Todo |
+| `updateTodo` | `MobilePlatformConfigDto arg0` | `void` | 修改Todo |
+| `doneTodo` | `MobilePlatformConfigDto arg0` | `void` | SPI 扩展点：doneTodo（框架回调） |
+| `deleteTodo` | `MobilePlatformConfigDto arg0` | `void` | 删除Todo |
+| `doneTodo` | `MobilePlatformConfigDto arg0` | `String` | SPI 扩展点：doneTodo（框架回调） |
+| `deleteTodo` | `MobilePlatformConfigDto arg0` | `String` | 删除Todo |
+
+### `com.seeyon.cip.connector.api.sign`
+
+#### LinkerSignService
+
+`com.seeyon.cip.connector.api.sign.LinkerSignService` · 构件 `cip-connector-api`
+
+| 方法 | 入参 | 返回 | 干什么 |
+|---|---|---|---|
+| `getName` | `—` | `String` | 获取名称 |
+| `getCaption` | `—` | `String` | 获取Caption |
+| `doSign` | `LinkerSignDto arg0` | `RequestParamDto` | SPI 扩展点：Sign（框架回调） |
+| `getSortNo` | `—` | `Integer` | 获取排序No |
+
+### `com.seeyon.cip.connector.api.sso`
+
+#### SsoService
+
+`com.seeyon.cip.connector.api.sso.SsoService` · 构件 `cip-connector-api`
+
+| 方法 | 入参 | 返回 | 干什么 |
+|---|---|---|---|
+| `getName` | `—` | `String` | 获取名称 |
+| `getTypeCaption` | `—` | `String` | 获取类型Caption |
+| `login` | `String arg0` | `String` | SSO 登录入口（发起单点登录） |
+| `check` | `String arg0` | `void` | 检查（String） |
+| `getPageJson` | `—` | `String` | 分页获取Json |
+| `getSortNo` | `—` | `Integer` | 获取排序No |
+| `needUserBind` | `—` | `boolean` | 绑定 |
+
+> ⚠️ 共 0 个方法仅凭名称无法确定语义，需实测或读实现类。
+
+## biz 层：领域服务
+
+共 23 个领域服务，下表列**方法数最多的 23 个**。
+职责由**该服务方法名的动词分布**归纳，不是猜的。
+
+| 服务 | 方法数 | 职责（按方法名统计） |
+|---|---:|---|
+| `LinkerDetailService` | 31 | LinkerDetail · 查询×10 / 检查×5 / 新建×4 |
+| `LinkerMqEventService` | 30 | LinkerMqEvent · 查询×11 / 检查×5 / 构建×3 |
+| `LinkerInfoService` | 29 | Linker · 查询×11 / 修改×4 / 新建×3 |
+| `LinkerEventDetailService` | 27 | LinkerEventDetail · 查询×12 / 检查×4 / 修改×3 |
+| `LinkerEnumService` | 19 | 枚举 · 查询×4 / 新建×3 / 删除×3 |
+| `LinkerBusinessService` | 18 | 业务 · 查询×4 / 导出×3 / 执行×2 |
+| `LinkerDetailClassifyService` | 18 | LinkerDetailClassify · 查询×5 / 新建×3 / 检查×3 |
+| `DatabaseInfoService` | 14 | Database · 查询×7 / 修改×2 / 新建×1 |
+| `LinkerSpiJarRefService` | 13 | LinkerSpiJarRef · 获取×3 / 构建×2 / 修改×1 |
+| `LinkerEnumItemService` | 12 | 枚举 · 删除×4 / 查询×3 / 新建×2 |
+| `AuthExecutorService` | 11 | 认证 · 获取×3 / 检查×3 / 判断有×1 |
+| `LinkerEventDetailPollService` | 11 | LinkerEventDetailPoll · 删除×4 / 查询×4 / 修改×2 |
+| `AuthInfoService` | 9 | 认证 · 查询×3 / 新建×1 / 修改×1 |
+| `LinkerClassifyService` | 8 | LinkerClassify · 查询×3 / 新建×1 / 修改×1 |
+| `LinkerExecutorLogService` | 7 | 日志 · 查询×3 / 新建×2 / 删除×1 |
+| `SignExecutorService` | 7 | SignExecutor · 获取×6 / 签署×1 |
+| `SsoInfoService` | 7 | Sso · 查询×3 / 新建×1 / 删除×1 |
+| `SsoManagerService` | 6 | 负责人 · 获取×2 / 加载×1 / 检查×1 |
+| `LinkerSignInfoService` | 5 | LinkerSign · 查询×2 / 新建×1 / 获取×1 |
+| `LinkerMetaDataService` | 3 | LinkerMeta · 新建×1 / 删除×1 / 查询×1 |
+| `LinkerThirdAffairRouterService` | 1 | 第三方事项 · 获取×1 |
+| `InitDataService` | 1 | Init · 初始化×1 |
+| `SsoExecutorService` | 1 | SsoExecutor（无业务方法，可能为纯装配类） |
+
+## biz 层：事件与监听
+
+事件 3 个 · 监听器 2 个。
+
+**领域事件**（实体变更时发，本地事务内）：
+
+| 实体 | 事件 |
+|---|---|
+| Linker | `LinkerCreateEvent`, `LinkerDeleteEvent`, `LinkerUpdateEvent` |
+
+**监听器**（在事务内做联动）：
+
+| 监听器 | 方法数 |
+|---|---:|
+| `LinkerSpiEventListener` | 1 |
+| `MqEventListener` | 1 |
+
+## web 层：Controller
+
+共 12 个 Controller。**REST 路径未取证**（字节码索引不含 `@RequestMapping` 的 value），
+需要时按下面两法取：
+
+1. 反编译 `organization-web` 的 Controller 读注解
+2. CDP 抓页面请求（真实路径 + 请求体）
+
+| 分组 | Controller | 方法数 |
+|---|---|---:|
+| 核心实体 CRUD | `LinkerController` | 68 |
+| 核心实体 CRUD | `CipBaseConfigController` | 12 |
+| 核心实体 CRUD | `LinkerClassifyController` | 9 |
+| 核心实体 CRUD | `LinkerEnumController` | 9 |
+| 核心实体 CRUD | `LinkerSsoController` | 8 |
+| 核心实体 CRUD | `AuthController` | 7 |
+| 核心实体 CRUD | `CallbackController` | 7 |
+| 核心实体 CRUD | `ForwardLinkerController` | 7 |
+| 核心实体 CRUD | `LinkerMetadataController` | 6 |
+| 核心实体 CRUD | `ForwardLinkerMetadataController` | 2 |
+| 核心实体 CRUD | `ForwardLinkerSsoController` | 2 |
+| 核心实体 CRUD | `ForwardLinkerEnumController` | 1 |
+
+## 落表
+
+⚠️ **UNVERIFIED** —— 字节码索引不含 SQL/表名，本文件不写推测的表名。
+
+取证路径（三条，任选其一，务必留证据）：
+
+1. **jar 内 mapper**：`organization-biz` 里 `*.xml` / `*Mapper.java`
+2. **库结构**：连 test2 的 MySQL 查 `information_schema.columns` 里 `tb_org_%`
+3. **运行态**：开 SQL 日志跑一次写操作，看真实表名
+
+在拿到上述证据前，本文件对「落哪张表」保持空。
+
+## 证据与自证
 
 | 内容 | 证据 | 等级 |
 |---|---|---|
-| 构件与类数 | `extension-surface-full/interfaces-full.json`（1463 类） | **VERIFIED_STATIC_BYTECODE** |
-| 接口入参语义 | 未填 | **UNVERIFIED** |
+| 25 接口 / 124 方法签名 | 字节码索引 `javap` 提取 | `VERIFIED_STATIC_BYTECODE` |
+| 23 个领域服务 | 类名 + 方法数 | `VERIFIED_STATIC_BYTECODE` |
+| 3 事件 / 2 监听器 | 类名 | `VERIFIED_STATIC_BYTECODE` |
+| 12 个 Controller | 类名 + 方法数 | `VERIFIED_STATIC_BYTECODE` |
+| 「干什么」中文描述 | 方法名拆词 + 手工注记 | `STATIC_INFERENCE` |
+| 0 个语义待定方法 | 名称不足 | `UNVERIFIED` |
+| REST 路径 | 未取证 | `UNVERIFIED` |
+| 落表 | 未取证 | `UNVERIFIED` |

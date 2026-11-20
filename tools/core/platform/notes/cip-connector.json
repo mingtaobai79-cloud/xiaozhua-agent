@@ -1,0 +1,12 @@
+{
+ "BaseConfigAppService#connectorDatabase": "连接器：配置数据库型数据源（建连接）",
+ "SsoExecutorAppService#ssoLongin": "连接器：执行 SSO 登录（拼第三方登录请求）",
+ "DataBaseExecutorService#transformByType": "数据库执行器：按类型转换取回的值",
+ "MiddleTableOrgSyncSpiListenerService#dataGovernance": "中间表组织同步：数据治理（清洗/映射）",
+ "MiddleTableOrgSyncSpiPullService#pullAll": "中间表组织同步：全量拉取",
+ "MiddleTableOrgSyncSpiPullService#pullIncrement": "中间表组织同步：增量拉取",
+ "MobileApplicationProviderService#explainLinkInfo": "移动应用提供方：解释/构造跳转链接",
+ "MobileApplicationProviderService#interfaceStatus": "移动应用提供方：查询接口可用状态",
+ "MobileApplicationProviderService#recallMessage": "移动应用提供方：撤回已发消息",
+ "SsoService#login": "SSO 登录入口（发起单点登录）"
+}

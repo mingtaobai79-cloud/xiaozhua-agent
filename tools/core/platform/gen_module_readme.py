@@ -22,19 +22,23 @@ def load_idx():
     return json.load(io.open(IDX, encoding="utf-8"))
 
 
-def arts_of(dom):
+def arts_of(dom, pkg=None):
     """该域涉及的构件及类数"""
     d = load_idx()
     c = collections.Counter()
+    pres = ([f"com.seeyon.{dom}.{p}." for p in pkg.split(",")] if pkg
+            else [f"com.seeyon.{dom}."])
     for fq, cl in d["classes"].items():
-        if fq.startswith(f"com.seeyon.{dom}."):
+        if any(fq.startswith(x) for x in pres):
             c[cl.get("pkg")] += 1
     return c
 
 
-def classes_matching(d, dom, pred):
+def classes_matching(d, dom, pred, pkg=None):
+    pres = ([f"com.seeyon.{dom}.{p}." for p in pkg.split(",")] if pkg
+            else [f"com.seeyon.{dom}."])
     return [(fq, cl) for fq, cl in d["classes"].items()
-            if fq.startswith(f"com.seeyon.{dom}.") and pred(fq, cl)]
+            if any(fq.startswith(x) for x in pres) and pred(fq, cl)]
 
 
 def nm(cl):
@@ -84,10 +88,11 @@ def group_con(controllers):
     return g
 
 
-def render(dom, group, name, title, extra_biz="", extra_web="", extra_chain=""):
+def render(dom, group, name, title, extra_biz="", extra_web="", extra_chain="", slug=None, pkg=None):
+    slug = slug or dom
     d = load_idx()
-    o = json.load(io.open(f"{FACADE}/{dom}.json", encoding="utf-8"))
-    arts = arts_of(dom)
+    o = json.load(io.open(f"{FACADE}/{slug}.json", encoding="utf-8"))
+    arts = arts_of(dom, pkg)
     total = sum(arts.values())
 
     L = [f"# {title}", ""]
@@ -127,14 +132,14 @@ def render(dom, group, name, title, extra_biz="", extra_web="", extra_chain=""):
         L += [extra_biz, ""]
 
     # facade
-    body, o2, unc = gen_app_doc.render(dom)
+    body, o2, unc = gen_app_doc.render(slug)
     L += [body]
 
     # biz
     services = classes_matching(d, dom, lambda fq, cl:
                                 (".domain." in fq or ".biz." in fq)
                                 and fq.split(".")[-1].endswith("Service")
-                                and cl.get("kind") == "class")
+                                and cl.get("kind") == "class", pkg)
     L += ["## biz 层：领域服务", "",
           f"共 {len(services)} 个领域服务，下表列**方法数最多的 {min(len(services),40)} 个**。",
           "职责由**该服务方法名的动词分布**归纳，不是猜的。", "",
@@ -145,8 +150,8 @@ def render(dom, group, name, title, extra_biz="", extra_web="", extra_chain=""):
     L.append("")
 
     # 事件
-    events = classes_matching(d, dom, lambda fq, cl: fq.split(".")[-1].endswith("Event"))
-    listeners = classes_matching(d, dom, lambda fq, cl: fq.split(".")[-1].endswith("EventListener"))
+    events = classes_matching(d, dom, lambda fq, cl: fq.split(".")[-1].endswith("Event"), pkg)
+    listeners = classes_matching(d, dom, lambda fq, cl: fq.split(".")[-1].endswith("EventListener"), pkg)
     L += ["## biz 层：事件与监听", "",
           f"事件 {len(events)} 个 · 监听器 {len(listeners)} 个。", "",
           "**领域事件**（实体变更时发，本地事务内）：", ""]
@@ -169,7 +174,7 @@ def render(dom, group, name, title, extra_biz="", extra_web="", extra_chain=""):
 
     # web
     cons = classes_matching(d, dom, lambda fq, cl: ".controller." in fq
-                            and fq.split(".")[-1].endswith("Controller"))
+                            and fq.split(".")[-1].endswith("Controller"), pkg)
     L += ["## web 层：Controller", "",
           f"共 {len(cons)} 个 Controller。**REST 路径未取证**（字节码索引不含 `@RequestMapping` 的 value），",
           "需要时按下面两法取：", "",
@@ -189,7 +194,7 @@ def render(dom, group, name, title, extra_biz="", extra_web="", extra_chain=""):
         L += [extra_chain, ""]
 
     # 手工补充片段（不在自动生成范围，重跑不会丢）
-    custom = os.path.join(f"{REPO}/tools/core/platform/notes", f"{dom}.custom.md")
+    custom = os.path.join(f"{REPO}/tools/core/platform/notes", f"{slug}.custom.md")
     if os.path.exists(custom):
         L += [io.open(custom, encoding="utf-8").read(), ""]
 
@@ -229,8 +234,11 @@ def main():
     ap.add_argument("--group", required=True)
     ap.add_argument("--name", required=True)
     ap.add_argument("--title", required=True)
+    ap.add_argument("--slug", default=None)
+    ap.add_argument("--pkg", default=None)
     a = ap.parse_args()
-    p, o, ns, ne, nl, nc, unc = render(a.domain, a.group, a.name, a.title)
+    p, o, ns, ne, nl, nc, unc = render(a.domain, a.group, a.name, a.title,
+                                       slug=a.slug, pkg=a.pkg)
     print(f"{p}")
     print(f"  接口 {o['n_facades']} / 方法 {o['n_methods']} / 服务 {ns} / 事件 {ne} "
           f"/ 监听 {nl} / Controller {nc} / 待定语义 {unc}")

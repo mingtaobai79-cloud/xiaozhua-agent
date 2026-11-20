@@ -1,0 +1,5 @@
+{
+ "IBussinessService#fireExchange": "开放集成：触发数据交换",
+ "ITransportService#requestTransport": "开放集成：发起数据传送请求",
+ "ITransportService#requestAddress": "开放集成：取传送目标地址"
+}

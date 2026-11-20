@@ -1,0 +1,5 @@
+{
+ "ApprovalInvokeAppService#appOpsAuth": "审批调用：应用运维授权校验",
+ "ApprovalInvokeAppService#filterApplicationForTenant": "按租户过滤可访问应用",
+ "AgentCoreAppService#batch": "Agent 核心：批量调用入口"
+}

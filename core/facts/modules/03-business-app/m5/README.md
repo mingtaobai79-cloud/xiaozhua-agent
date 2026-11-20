@@ -1,33 +1,233 @@
-# m5｜应用能力索引
+# 移动端（m5）
 
-> 构件 3 个 / 类 473 / 方法 4056
-> 版本：5.3.265
+## 一句话
+
+`com.seeyon.m5` 域的**可调用接口面**：3 个构件、473 个类、6 个 facade 接口 / 30 个方法。
 
 ## 一、构件清单
 
-| 层 | 构件 | 类数 | 方法数 |
-|---|---|---:|---:|
-| facade | `m5-facade` | 55 | 504 |
-| biz | `m5-biz` | 401 | 3373 |
-| web | `m5-web` | 17 | 179 |
+| 构件 | 层 | 类数 |
+|---|---|---:|
+| `m5-biz` | biz | 401 |
+| `m5-facade` | facade | 55 |
+| `m5-web` | web | 17 |
+| **合计** | | **473** |
 
-## 二、分层职责
+## 二、分层规律（写代码前必读）
 
-| 层 | 你能用它做什么 | 调用方式 |
-|---|---|---|
-| **facade** | 对外契约：AppService 接口 + DTO | `@DubboReference`（有 `@DubboService` 才能远程） |
-| **biz** | 实现层：业务编排 + 落库 | **不可直接调**，看它的入参理解行为 |
-| **web** | REST 路由 | **不可直接调**，看路由 + 请求体 |
+`com.seeyon.m5` 的接口按职责三分，**选错会多绕一层或拿到多余字段**：
 
-## 三、接口入参速查（biz/web 只看这个）
+| 接口族 | 包 | 能力 | 什么时候用 |
+|---|---|---|---|
+| `*BaseAppService` | `api.core.*` | **含写**：create / update / 全字段查询 / dynamic | 要改数据，或要完整 DTO |
+| `*CoreAppService` | `api.core.*` | **只读**：select*，Core DTO 字段精简 | 只查不改，性能敏感 |
+| `OrgCommonAppService` | `api.common` | **业务聚合**：按选人数据解析、权限、组织域、扩展属性反查 | 需要「按规则找人」而不是按 id 查 |
 
-> 口径：biz/web 只记录「接口入参 + 这个接口干什么」，不逐方法展开。
+调用顺序建议：
 
-（待补：按 facade 方法逐个填「入参 DTO / 用途」）
+```
+知道 id       →  XxxCoreAppService.selectXxxById        （最轻）
+知道业务规则   →  OrgCommonAppService.selectXxxBySelectPeopleData
+要写          →  XxxBaseAppService.create / update
+```
 
-## 四、Evidence
+## facade 层：6 个接口 / 30 个方法
+
+> 入参与返回类型来自字节码索引（`VERIFIED_STATIC_BYTECODE`）。
+> 「干什么」由方法名拆词推断；标 ⚠️ 表示名称不足以确定语义，需实测。
+
+### 接口清单
+
+| 包 | 接口数 | 方法数 |
+|---|---:|---:|
+| `com.seeyon.m5.api` | 4 | 21 |
+| `com.seeyon.m5.api.app` | 1 | 3 |
+| `com.seeyon.m5.api.enterprise` | 1 | 6 |
+| **合计** | **6** | **30** |
+
+### `com.seeyon.m5.api`
+
+#### TeamworkCoreAppService
+
+`com.seeyon.m5.api.TeamworkCoreAppService` · 构件 `m5-facade`
+
+| 方法 | 入参 | 返回 | 干什么 |
+|---|---|---|---|
+| `launch` | `SingleRequest<TeamworkGroupCreateDto> arg0` | `SingleResponse<Long>` | 发起团队协作（创建团队） |
+| `dismiss` | `SingleRequest<TeamworkGroupDismissDto> arg0` | `SingleResponse<Integer>` | 解散团队 |
+| `join` | `SingleRequest<TeamworkGroupJoinDto> arg0` | `SingleResponse<Integer>` | 加入团队 |
+| `quit` | `SingleRequest<TeamworkGroupQuitDto> arg0` | `SingleResponse<Integer>` | 退出团队 |
+| `rename` | `SingleRequest<TeamworkGroupRenameDto> arg0` | `SingleResponse<Integer>` | 重命名分组 |
+| `unbind` | `SingleRequest<TeamworkGroupUnbindDto> arg0` | `SingleResponse<Integer>` | 解绑分组 |
+| `obtain` | `SingleRequest<Long> arg0` | `SingleResponse<TeamworkGroupInfoDto>` | 取团队信息 |
+| `batchObtain` | `SingleRequest<List<Long>> arg0` | `ListResponse<TeamworkGroupInfoDto>` | 批量取团队信息 |
+| `batchObtainExt` | `SingleRequest<List<Long>> arg0` | `ListResponse<TeamworkGroupInfoNumExtDto>` | 批量取团队信息（含扩展字段） |
+| `obtainMemberPageListByCondition` | `PageRequest arg0` | `PageResponse<TeamworkMemberInfoDto>` | 按条件分页取团队成员 |
+| `obtainAllMemberList` | `SingleRequest<Long> arg0` | `ListResponse<TeamworkMemberInfoDto>` | 取团队全部成员 |
+| `obtainMemberListRequiredFields` | `SingleRequest<TeamworkMemberRequiredFieldDto> arg0` | `ListResponse<TeamworkMemberInfoDto>` | 列出字段Required |
+| `obtainGroupIdListByUserId` | `SingleRequest<Long> arg0` | `ListResponse<Long>` | 按用户查其所在团队 groupId 列表 |
+
+#### TeamworkMessageAppService
+
+`com.seeyon.m5.api.TeamworkMessageAppService` · 构件 `m5-facade`
+
+| 方法 | 入参 | 返回 | 干什么 |
+|---|---|---|---|
+| `sendCard` | `SingleRequest<TeamworkCardMessageDto> arg0` | `SingleResponse<Void>` | 发送Card |
+| `createNotification` | `SingleRequest<TeamworkNotificationMessageDto> arg0` | `SingleResponse<Long>` | 新建Notification |
+
+#### TeamworkTabAppService
+
+`com.seeyon.m5.api.TeamworkTabAppService` · 构件 `m5-facade`
+
+| 方法 | 入参 | 返回 | 干什么 |
+|---|---|---|---|
+| `createTab` | `SingleRequest<TeamworkGroupTabCreateDto> arg0` | `SingleResponse<Long>` | 新建Tab |
+| `createTabs` | `SingleRequest<List<TeamworkGroupTabCreateDto>> arg0` | `ListResponse<Long>` | 新建Tabs |
+| `updateTab` | `SingleRequest<TeamworkGroupTabUpdateDto> arg0` | `SingleResponse<Integer>` | 修改Tab |
+| `updateTabs` | `SingleRequest<List<TeamworkGroupTabUpdateDto>> arg0` | `SingleResponse<Integer>` | 修改Tabs |
+| `deleteTab` | `SingleRequest<TeamworkGroupTabDeleteDto> arg0` | `SingleResponse<Integer>` | 删除Tab |
+
+#### TeamworkTabGeneralizeAppService
+
+`com.seeyon.m5.api.TeamworkTabGeneralizeAppService` · 构件 `m5-facade`
+
+| 方法 | 入参 | 返回 | 干什么 |
+|---|---|---|---|
+| `deleteTabs` | `SingleRequest<TeamworkGroupTabListDto> arg0` | `SingleResponse<Integer>` | 删除Tabs |
+
+### `com.seeyon.m5.api.app`
+
+#### AppManageCoreAppService
+
+`com.seeyon.m5.api.app.AppManageCoreAppService` · 构件 `m5-facade`
+
+| 方法 | 入参 | 返回 | 干什么 |
+|---|---|---|---|
+| `check` | `SingleRequest<AppCheckRequestDto> arg0` | `SingleResponse<AppCheckDto>` | 检查应用 |
+| `getLatestDownloadUrl` | `SingleRequest<String> arg0` | `SingleResponse<String>` | 获取LatestDownloadUrl |
+| `getLatestApp` | `SingleRequest<String> arg0` | `SingleResponse<AppDto>` | 获取应用Latest |
+
+### `com.seeyon.m5.api.enterprise`
+
+#### EnterpriseCoreAppSerivce
+
+`com.seeyon.m5.api.enterprise.EnterpriseCoreAppSerivce` · 构件 `m5-facade`
+
+| 方法 | 入参 | 返回 | 干什么 |
+|---|---|---|---|
+| `createEnterprise` | `SingleRequest<EnterpriseCreateDto> arg0` | `SingleResponse<Long>` | 新建Enterprise |
+| `updateEnterprise` | `SingleRequest<EnterpriseUpdateDto> arg0` | `SingleResponse<Integer>` | 修改Enterprise |
+| `deleteEnterprise` | `SingleRequest<EnterpriseDeleteDto> arg0` | `SingleResponse<Integer>` | 删除Enterprise |
+| `selectEnterprise` | `PageRequest arg0` | `PageResponse<EnterpriseDto>` | 查询Enterprise |
+| `selectsEnterprise` | `PageRequest arg0` | `PageResponse<EnterpriseDto>` | 批量查企业（多租户企业信息） |
+| `selectByEnterpriseName` | `SingleRequest<String> arg0` | `SingleResponse<EnterpriseDto>` | 查询Enterprise按名称 |
+
+> ⚠️ 共 0 个方法仅凭名称无法确定语义，需实测或读实现类。
+
+## biz 层：领域服务
+
+共 14 个领域服务，下表列**方法数最多的 14 个**。
+职责由**该服务方法名的动词分布**归纳，不是猜的。
+
+| 服务 | 方法数 | 职责（按方法名统计） |
+|---|---:|---|
+| `GroupService` | 126 | 分组 · 查询×21 / 新建×18 / 处理×10 |
+| `UserService` | 61 | 用户 · 查询×20 / 修改×6 / 新建×5 |
+| `AppsService` | 59 | Apps · 上传×10 / 获取×10 / 查询×9 |
+| `RobotService` | 55 | Robot · 处理×19 / 新建×4 / 查询×3 |
+| `AbstractGroupService` | 26 | 分组 · 判断有×7 / 重置×2 / 转移×2 |
+| `AbstractTokenService` | 14 | 令牌 · 新建×6 / 取消×2 / 获取×2 |
+| `ApplicationService` | 10 | 应用 · 新建×2 / 修改×2 / 删除×2 |
+| `ConferenceService` | 9 | Conference · 查询×2 / 处理×1 / 修改×1 |
+| `EnterpriseService` | 6 | Enterprise · 查询×2 / 新建×1 / 修改×1 |
+| `EntranceService` | 4 | Entrance · 获取×3 / 查询×1 |
+| `ParameterService` | 4 | 参数 · 查询×2 / 修改×2 |
+| `MessageHistoryService` | 4 | 消息 · 处理×1 / 搜索×1 |
+| `ApplicationAuthService` | 2 | 应用认证 · 获取×2 |
+| `M5DbService` | 1 | M5Db · 查询×1 |
+
+## biz 层：事件与监听
+
+事件 15 个 · 监听器 3 个。
+
+**领域事件**（实体变更时发，本地事务内）：
+
+| 实体 | 事件 |
+|---|---|
+| Application | `ApplicationEvent` |
+| Group | `GroupCreateMessageEvent` |
+| GroupDismissMessage | `GroupDismissMessageEvent` |
+| GroupJoinAddMessage | `GroupJoinAddMessageEvent` |
+| GroupJoinInviteMessage | `GroupJoinInviteMessageEvent` |
+| GroupJoinMessage | `GroupJoinMessageEvent` |
+| GroupJoinQRInviteMessage | `GroupJoinQRInviteMessageEvent` |
+| GroupKickOutMessage | `GroupKickOutMessageEvent` |
+| GroupQuitMessage | `GroupQuitMessageEvent` |
+| GroupRenameMessage | `GroupRenameMessageEvent` |
+| GroupRobotConnector | `GroupRobotConnectorEvent` |
+| GroupRobotJoinMessage | `GroupRobotJoinMessageEvent` |
+| GroupRobotQuitMessage | `GroupRobotQuitMessageEvent` |
+| GroupSetAdminMessage | `GroupSetAdminMessageEvent` |
+| GroupTransferMessage | `GroupTransferMessageEvent` |
+
+**监听器**（在事务内做联动）：
+
+| 监听器 | 方法数 |
+|---|---:|
+| `GroupEventListener` | 18 |
+| `GroupRelationEventListener` | 5 |
+| `PrivateEventListener` | 1 |
+
+## web 层：Controller
+
+共 17 个 Controller。**REST 路径未取证**（字节码索引不含 `@RequestMapping` 的 value），
+需要时按下面两法取：
+
+1. 反编译 `organization-web` 的 Controller 读注解
+2. CDP 抓页面请求（真实路径 + 请求体）
+
+| 分组 | Controller | 方法数 |
+|---|---|---:|
+| 核心实体 CRUD | `GroupController` | 55 |
+| 核心实体 CRUD | `AppManageController` | 22 |
+| 核心实体 CRUD | `OpenApiController` | 16 |
+| 核心实体 CRUD | `RcloudController` | 14 |
+| 核心实体 CRUD | `UserController` | 14 |
+| 核心实体 CRUD | `MemberController` | 12 |
+| 核心实体 CRUD | `ApplicationController` | 10 |
+| 核心实体 CRUD | `ConferenceController` | 7 |
+| 核心实体 CRUD | `AuthenticationController` | 6 |
+| 核心实体 CRUD | `EnterpriseController` | 5 |
+| 核心实体 CRUD | `InfoController` | 3 |
+| 核心实体 CRUD | `ChatSettingController` | 3 |
+| 核心实体 CRUD | `FileTabController` | 3 |
+| 核心实体 CRUD | `ServerInfoController` | 2 |
+| 核心实体 CRUD | `ConfigurationController` | 2 |
+| 核心实体 CRUD | `ShareController` | 2 |
+| 核心实体 CRUD | `ApplicationAuthController` | 1 |
+
+## 落表
+
+⚠️ **UNVERIFIED** —— 字节码索引不含 SQL/表名，本文件不写推测的表名。
+
+取证路径（三条，任选其一，务必留证据）：
+
+1. **jar 内 mapper**：`organization-biz` 里 `*.xml` / `*Mapper.java`
+2. **库结构**：连 test2 的 MySQL 查 `information_schema.columns` 里 `tb_org_%`
+3. **运行态**：开 SQL 日志跑一次写操作，看真实表名
+
+在拿到上述证据前，本文件对「落哪张表」保持空。
+
+## 证据与自证
 
 | 内容 | 证据 | 等级 |
 |---|---|---|
-| 构件与类数 | `extension-surface-full/interfaces-full.json`（473 类） | **VERIFIED_STATIC_BYTECODE** |
-| 接口入参语义 | 未填 | **UNVERIFIED** |
+| 6 接口 / 30 方法签名 | 字节码索引 `javap` 提取 | `VERIFIED_STATIC_BYTECODE` |
+| 14 个领域服务 | 类名 + 方法数 | `VERIFIED_STATIC_BYTECODE` |
+| 15 事件 / 3 监听器 | 类名 | `VERIFIED_STATIC_BYTECODE` |
+| 17 个 Controller | 类名 + 方法数 | `VERIFIED_STATIC_BYTECODE` |
+| 「干什么」中文描述 | 方法名拆词 + 手工注记 | `STATIC_INFERENCE` |
+| 0 个语义待定方法 | 名称不足 | `UNVERIFIED` |
+| REST 路径 | 未取证 | `UNVERIFIED` |
+| 落表 | 未取证 | `UNVERIFIED` |
