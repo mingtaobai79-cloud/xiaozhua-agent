@@ -1108,6 +1108,61 @@
 | `ShortMessageSignAppService` | `ShortMessageSign` | `cip_ability_sms_sign` | `stem` |
 | `ShortMessageTemplateAppService` | `ShortMessageTemplate` | `cip_ability_sms_template` | `stem` |
 
+## REST 路由
+
+> 证据：`javap -v` 读 Controller 字节码里的 `@RequestMapping`/`@PostMapping` 注解值。
+> 等级 `VERIFIED_STATIC_BYTECODE`（注解值是常量，非推断）。
+
+**拼法**（端口/前缀按环境配置，以下为通用形）：
+
+```
+POST /service/{类级路径}/{方法级路径}
+      ↑ 类级路径的第一段就是应用 code（organization / bpm / udc …），不要再加一层
+  例：POST /service/udc/runtime/deploy-normal
+      = DeployController 类级 `udc/runtime` + 方法级 `deploy-normal`（线上实测过）
+```
+
+控制器 **13** 个、路由 **84** 条（来源：`cip-capability-web`）。
+
+> `{id}`、`ids` 这类方法级路径不带类级前缀，拼时必须补上。
+> 完整清单（含 java 方法名）：`docs/audit/artifacts/rest/ROUTES-cip-capability.md`
+
+| Controller | 类级路径 | 路由 |
+|---|---|---:|
+| `IntelligentMissiveController` | `cip-capability/missive` | 26 |
+| `DocCallBackController` | `cip-capability/doc` | 25 |
+| `SignatureCallBackController` | `cip-capability/callback/signature` | 5 |
+| `ApiTestCallBackController` | `cip-capability/apitest/callback` | 5 |
+| `MobilePluginWxOpenNotifyController` | `cip-capability/wx-open` | 5 |
+| `TestController` | `cip-capability/test` | 4 |
+| `CipBaseCallbackController` | `cip-capability/base/callback` | 4 |
+| `VideoCallbackController` | `cip-capability/video-meeting/callback` | 3 |
+| `OfdCallBackController` | `cip-capability/ofd` | 2 |
+| `WeixinPayCallBackController` | `cip-capability/work-wx-open` | 2 |
+| `TripCallbackController` | `cip-capability/trip/callback` | 1 |
+| `PhysicalsealCallBackController` | `cip-capability/physicalseal/callback` | 1 |
+| `OcrDataController` | `cip-capability/ocr` | 1 |
+
+前 15 条（其余见明细）：
+
+| 方法 | 全路径 |
+|---|---|
+| `RequestMapping` | `/service/cip-capability/base/callback` |
+| `RequestMapping` | `/service/cip-capability/base/callback//cip` |
+| `RequestMapping` | `/service/cip-capability/base/callback` |
+| `RequestMapping` | `/service/cip-capability/base/callback//cip` |
+| `PostMapping` | `/service/cip-capability/test/ai-test-create-third-app` |
+| `PostMapping` | `/service/cip-capability/test/ai-test-third-app-increase` |
+| `PostMapping` | `/service/cip-capability/test/ai-test-query-usage-amount` |
+| `PostMapping` | `/service/cip-capability/test/test-query-third-app-info` |
+| `GetMapping` | `/service/cip-capability/apitest/callback//signature/biz` |
+| `GetMapping` | `/service/cip-capability/apitest/callback//video-meeting/callback/notify-hw` |
+| `GetMapping` | `/service/cip-capability/apitest/callback//video-meeting/callback/notify-tx/{path}` |
+| `PostMapping` | `/service/cip-capability/apitest/callback//video-meeting/callback/notify-tx/{path}` |
+| `PostMapping` | `/service/cip-capability/apitest/callback//trip/callback/alibaba/{path}` |
+| `GetMapping` | `/service/cip-capability/doc//wps/view/info` |
+| `PostMapping` | `/service/cip-capability/doc//wps/edit/user/info` |
+
 ## 证据与自证
 
 | 内容 | 证据 | 等级 |
@@ -1118,6 +1173,6 @@
 | 43 个 Controller | 类名 + 方法数 | `VERIFIED_STATIC_BYTECODE` |
 | 「干什么」中文描述 | 方法名拆词 + 手工注记 | `STATIC_INFERENCE` |
 | 0 个语义待定方法 | 名称不足 | `UNVERIFIED` |
-| REST 路径 | 未取证 | `UNVERIFIED` |
+| REST 路径（84 条） | Controller 字节码注解 | `VERIFIED_STATIC_BYTECODE` |
 | 落表（33 张表，类级） | class 常量池 + `information_schema` | `VERIFIED_STATIC_BYTECODE` + `LIVE` |
 | 方法级落表 | 未取证（SQL 内联，需逐类反编译） | `UNVERIFIED` |

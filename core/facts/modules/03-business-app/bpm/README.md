@@ -1105,6 +1105,113 @@ bpm 内部
 | `BpmUpgrade51To52AppService` | `BpmTemplateService` | `bpm_template` | `implements+field` |
 | `BpmApiSimulationAppService` | `BpmActivityRunService, BpmTemplateService` | `bpm_activity_run`, `bpm_template` | `implements+field` |
 
+## REST 路由
+
+> 证据：`javap -v` 读 Controller 字节码里的 `@RequestMapping`/`@PostMapping` 注解值。
+> 等级 `VERIFIED_STATIC_BYTECODE`（注解值是常量，非推断）。
+
+**拼法**（端口/前缀按环境配置，以下为通用形）：
+
+```
+POST /service/{类级路径}/{方法级路径}
+      ↑ 类级路径的第一段就是应用 code（organization / bpm / udc …），不要再加一层
+  例：POST /service/udc/runtime/deploy-normal
+      = DeployController 类级 `udc/runtime` + 方法级 `deploy-normal`（线上实测过）
+```
+
+控制器 **65** 个、路由 **666** 条（来源：`bpm-web`）。
+
+> `{id}`、`ids` 这类方法级路径不带类级前缀，拼时必须补上。
+> 完整清单（含 java 方法名）：`docs/audit/artifacts/rest/ROUTES-bpm.md`
+
+| Controller | 类级路径 | 路由 |
+|---|---|---:|
+| `BpmDemoController` | `bpm/message-demo/` | 133 |
+| `BpmController` | `bpm/operation` | 81 |
+| `ProcessSuperviseController` | `bpm/supervise` | 63 |
+| `BpmTemplateController` | `bpm/template` | 45 |
+| `BpmPathTableController` | `bpm/path-table` | 25 |
+| `BpmProcessController` | `bpm/process` | 19 |
+| `BpmNodePermissionController` | `bpm/node-permission` | 19 |
+| `BpmParameterController` | `bpm/parameter` | 18 |
+| `BpmSummaryController` | `bpm/summary` | 18 |
+| `BpmFormPermissionController` | `bpm/form/permission` | 14 |
+| `BpmOpinionController` | `bpm/business-opinion` | 14 |
+| `BpmUpgradeController` | `bpm/upgrade` | 13 |
+| `BpmSystemSettingController` | `bpm/system-setting` | 13 |
+| `BpmNodeActionController` | `bpm/node-action` | 12 |
+| `BpmSimulationController` | `bpm/simulation/` | 12 |
+| `BpmNodePermissionOperationController` | `bpm/node-permission-operation` | 10 |
+| `BpmCaseDynamicReferController` | `bpm/bpm-case/refer` | 8 |
+| `BpmTemplateDynamicReferController` | `bpm/bpm-template/refer` | 8 |
+| `BpmProcessLogController` | `bpm/process-log/` | 7 |
+| `BpmReplaceController` | `bpm/replace` | 7 |
+| `BpmNormalAppMultiVersionController` | `bpm/normal-app-multi-version` | 6 |
+| `BpmPersonalTemplateController` | `bpm/personal-template` | 5 |
+| `BpmNodePermissionV2Controller` | `bpm/node-permission/v2` | 5 |
+| `BpmTemplateDynamicController` | `bpm/bpm-template` | 5 |
+| `BpmTemplateTagController` | `bpm/template-tag` | 5 |
+| `BpmAutoNodeController` | `bpm/auto-node` | 4 |
+| `BpmPluginController` | `bpm/plugin` | 4 |
+| `BpmProcessFeedbackController` | `bpm/process-feedback` | 4 |
+| `ShortMessageEmailController` | `bpm/auto` | 4 |
+| `BpmProcessReplaceController` | `bpm/process-relpace` | 4 |
+| `BpmListController` | `bpm/list` | 4 |
+| `BpmTemplateConfigController` | `bpm/template-config` | 4 |
+| `BpmThirdFormPermissionController` | `bpm/third-form` | 4 |
+| `BpmApplicationOperateLogController` | `bpm/application-operateLog` | 4 |
+| `BpmAutoApprovalController` | `bpm/auto-approval` | 4 |
+| `BpmCaseDynamicController` | `bpm/bpm-case` | 4 |
+| `BpmHierarchicalControlController` | `bpm/hierarchical-control` | 3 |
+| `BpmManagerLogController` | `bpm/manage-log/` | 3 |
+| `BpmConsultController` | `bpm/consult-setting` | 3 |
+| `BpmMyProcessPermissionController` | `bpm/my-process-permission` | 3 |
+| `BpmApplicationController` | `bpm/application` | 3 |
+| `BpmProcessTrackController` | `bpm/process-track` | 3 |
+| `BpmSubProcessController` | `bpm/sub-process` | 3 |
+| `BpmResponsibilityController` | `bpm/responsibility` | 3 |
+| `BpmCaseController` | `bpm/bpm-case` | 2 |
+| `BpmTemplateEvaluationController` | `bpm/template/evaluation` | 2 |
+| `BpmNodePermissionBindController` | `bpm/node-permission/bind` | 2 |
+| `BpmEditLockController` | `bpm/edit-lock` | 2 |
+| `BpmDynamicTitleController` | `bpm/dynamic-title` | 2 |
+| `BpmFormDataController` | `bpm/form-data` | 2 |
+| `BpmDesignController` | `bpm/design` | 2 |
+| `BpmCustomTabController` | `bpm/custom-tab` | 2 |
+| `BpmBusinessRuleController` | `bpm/business-rule` | 2 |
+| `BpmControlledProcessController` | `bpm/controlled-process` | 2 |
+| `BpmPlaceholderConfigController` | `bpm/placeholder` | 2 |
+| `BpmNodeForecastController` | `bpm/node/forecast` | 2 |
+| `AsyncOperationController` | `bpm/async/operation` | 1 |
+| `BpmCaseRevisionController` | `bpm/bpm-case-revision` | 1 |
+| `BpmMemberPostController` | `bpm/member-post` | 1 |
+| `BpmFormDataQueryController` | `bpm/form-query` | 1 |
+| `BpmUserRoleController` | `bpm/user-role` | 1 |
+| `BpmNodePropertyController` | `bpm/node-property` | 1 |
+| `BpmEventNodeController` | `bpm/event-node-bind` | 1 |
+| `BpmMessageNodeController` | `bpm/auto/message` | 1 |
+| `SandBoxApplicationDataCleanTestController` | `bpm/sandBoxApp/data` | 1 |
+
+前 15 条（其余见明细）：
+
+| 方法 | 全路径 |
+|---|---|
+| `PostMapping` | `/service/bpm/async/operation/get-result` |
+| `PostMapping` | `/service/bpm/application/do/detection` |
+| `PostMapping` | `/service/bpm/application/search/detection/status` |
+| `PostMapping` | `/service/bpm/application/search/detection/app-info` |
+| `PostMapping` | `/service/bpm/application-operateLog//application-log-list` |
+| `PostMapping` | `/service/bpm/application-operateLog//detail-log-list` |
+| `GetMapping` | `/service/bpm/application-operateLog//detail-log-content/{id}` |
+| `PostMapping` | `/service/bpm/application-operateLog//save-export-log/{applicationId}` |
+| `PostMapping` | `/service/bpm/auto-approval/designer-create` |
+| `PostMapping` | `/service/bpm/auto-approval/designer-update` |
+| `PostMapping` | `/service/bpm/auto-approval/designer-delete` |
+| `PostMapping` | `/service/bpm/auto-approval/designer-select` |
+| `PostMapping` | `/service/bpm/auto-node/select-metadata-param` |
+| `GetMapping` | `/service/bpm/auto-node/exe-info/{workitemId}` |
+| `GetMapping` | `/service/bpm/auto-node/depend-apps/{templateId}` |
+
 ## 证据与自证
 
 | 内容 | 证据 | 等级 |
@@ -1115,6 +1222,6 @@ bpm 内部
 | 65 个 Controller | 类名 + 方法数 | `VERIFIED_STATIC_BYTECODE` |
 | 「干什么」中文描述 | 方法名拆词 + 手工注记 | `STATIC_INFERENCE` |
 | 0 个语义待定方法 | 名称不足 | `UNVERIFIED` |
-| REST 路径 | 未取证 | `UNVERIFIED` |
+| REST 路径（666 条） | Controller 字节码注解 | `VERIFIED_STATIC_BYTECODE` |
 | 落表（106 张表，类级） | class 常量池 + `information_schema` | `VERIFIED_STATIC_BYTECODE` + `LIVE` |
 | 方法级落表 | 未取证（SQL 内联，需逐类反编译） | `UNVERIFIED` |

@@ -274,6 +274,57 @@
 | `CtpMessageTypeAppService` | `CtpMessageType` | `ctp_message_type` | `stem` |
 | `CtpMessageUserSubscribeAppService` | `CtpMessageUserSubscribe` | `ctp_message_user_subscribe` | `stem` |
 
+## REST 路由
+
+> 证据：`javap -v` 读 Controller 字节码里的 `@RequestMapping`/`@PostMapping` 注解值。
+> 等级 `VERIFIED_STATIC_BYTECODE`（注解值是常量，非推断）。
+
+**拼法**（端口/前缀按环境配置，以下为通用形）：
+
+```
+POST /service/{类级路径}/{方法级路径}
+      ↑ 类级路径的第一段就是应用 code（organization / bpm / udc …），不要再加一层
+  例：POST /service/udc/runtime/deploy-normal
+      = DeployController 类级 `udc/runtime` + 方法级 `deploy-normal`（线上实测过）
+```
+
+控制器 **9** 个、路由 **60** 条（来源：`ctp-message-web`）。
+
+> `{id}`、`ids` 这类方法级路径不带类级前缀，拼时必须补上。
+> 完整清单（含 java 方法名）：`docs/audit/artifacts/rest/ROUTES-ctp-message.md`
+
+| Controller | 类级路径 | 路由 |
+|---|---|---:|
+| `CtpMessageClientController` | `ctp-message/ctp-message-client` | 13 |
+| `CtpMessageManageController` | `ctp-message/ctp-message-manage` | 10 |
+| `CtpMessageUserSubscribeController` | `ctp-message/ctp-message-user-subscribe` | 8 |
+| `CtpMessageController` | `ctp-message/ctp-message` | 7 |
+| `CtpMessageClassificationController` | `ctp-message/ctp-message-classification` | 6 |
+| `CtpMessageTemplateController` | `ctp-message/ctp-message-template` | 6 |
+| `CtpMessageSourceController` | `ctp-message/ctp-message-source` | 4 |
+| `IndexController` | `ctp-message` | 3 |
+| `CtpMessageTypeController` | `ctp-message/ctp-message-type` | 3 |
+
+前 15 条（其余见明细）：
+
+| 方法 | 全路径 |
+|---|---|
+| `PostMapping` | `/service/ctp-message/ctp-message-classification/create` |
+| `PostMapping` | `/service/ctp-message/ctp-message-classification/update` |
+| `PostMapping` | `/service/ctp-message/ctp-message-classification/delete` |
+| `PostMapping` | `/service/ctp-message/ctp-message-classification/idx` |
+| `PostMapping` | `/service/ctp-message/ctp-message-classification/search` |
+| `PostMapping` | `/service/ctp-message/ctp-message-classification/search-for-web-list` |
+| `PostMapping` | `/service/ctp-message/ctp-message-client/selectSourceList` |
+| `PostMapping` | `/service/ctp-message/ctp-message-client/selectOtherList` |
+| `PostMapping` | `/service/ctp-message/ctp-message-client/selectMessageListByCode` |
+| `PostMapping` | `/service/ctp-message/ctp-message-client/move-other` |
+| `PostMapping` | `/service/ctp-message/ctp-message-client/top` |
+| `PostMapping` | `/service/ctp-message/ctp-message-client/notDisturb` |
+| `PostMapping` | `/service/ctp-message/ctp-message-client/deleteMessageById` |
+| `PostMapping` | `/service/ctp-message/ctp-message-client/deleteMessageByCode` |
+| `PostMapping` | `/service/ctp-message/ctp-message-client/cleanCorner` |
+
 ## 证据与自证
 
 | 内容 | 证据 | 等级 |
@@ -284,6 +335,6 @@
 | 9 个 Controller | 类名 + 方法数 | `VERIFIED_STATIC_BYTECODE` |
 | 「干什么」中文描述 | 方法名拆词 + 手工注记 | `STATIC_INFERENCE` |
 | 0 个语义待定方法 | 名称不足 | `UNVERIFIED` |
-| REST 路径 | 未取证 | `UNVERIFIED` |
+| REST 路径（60 条） | Controller 字节码注解 | `VERIFIED_STATIC_BYTECODE` |
 | 落表（12 张表，类级） | class 常量池 + `information_schema` | `VERIFIED_STATIC_BYTECODE` + `LIVE` |
 | 方法级落表 | 未取证（SQL 内联，需逐类反编译） | `UNVERIFIED` |

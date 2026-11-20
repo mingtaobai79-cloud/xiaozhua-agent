@@ -84,6 +84,13 @@
 原因：该模块的 SQL/表名不在 biz 层常量池（走 Dubbo 远端 / 走配置 / 纯计算或 SDK）。
 不写推测表名。
 
+## REST 路由
+
+⚠️ **UNVERIFIED** —— 本模块的 web 构件里没有 `@RequestMapping` 动作。
+
+原因：该模块只做远程调用（Dubbo/SPI）或本身无 HTTP 面，接口是给别的服务用的。
+不写推测路径。
+
 ## 证据与自证
 
 | 内容 | 证据 | 等级 |
@@ -94,5 +101,5 @@
 | 0 个 Controller | 类名 + 方法数 | `VERIFIED_STATIC_BYTECODE` |
 | 「干什么」中文描述 | 方法名拆词 + 手工注记 | `STATIC_INFERENCE` |
 | 0 个语义待定方法 | 名称不足 | `UNVERIFIED` |
-| REST 路径 | 未取证 | `UNVERIFIED` |
+| REST 路径 | 本模块无 HTTP 面 | `N/A` |
 | 落表 | 本模块代码无表名常量，不适用 | `N/A` |

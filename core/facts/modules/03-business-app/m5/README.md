@@ -240,6 +240,65 @@
 | `m5_setting` | — | 1 |
 | `m5_token_user` | — | 1 |
 
+## REST 路由
+
+> 证据：`javap -v` 读 Controller 字节码里的 `@RequestMapping`/`@PostMapping` 注解值。
+> 等级 `VERIFIED_STATIC_BYTECODE`（注解值是常量，非推断）。
+
+**拼法**（端口/前缀按环境配置，以下为通用形）：
+
+```
+POST /service/{类级路径}/{方法级路径}
+      ↑ 类级路径的第一段就是应用 code（organization / bpm / udc …），不要再加一层
+  例：POST /service/udc/runtime/deploy-normal
+      = DeployController 类级 `udc/runtime` + 方法级 `deploy-normal`（线上实测过）
+```
+
+控制器 **17** 个、路由 **160** 条（来源：`m5-web`）。
+
+> `{id}`、`ids` 这类方法级路径不带类级前缀，拼时必须补上。
+> 完整清单（含 java 方法名）：`docs/audit/artifacts/rest/ROUTES-m5.md`
+
+| Controller | 类级路径 | 路由 |
+|---|---|---:|
+| `GroupController` | `m5/group` | 51 |
+| `AppManageController` | `m5/application` | 22 |
+| `OpenApiController` | `—` | 16 |
+| `RcloudController` | `m5/rcloud` | 14 |
+| `UserController` | `m5/user` | 13 |
+| `MemberController` | `m5/member` | 12 |
+| `ApplicationController` | `m5/application` | 10 |
+| `ConferenceController` | `m5/conference` | 7 |
+| `EnterpriseController` | `m5/enterprise` | 4 |
+| `AuthenticationController` | `m5/auth` | 3 |
+| `FileTabController` | `m5/file-tab` | 2 |
+| `ShareController` | `m5/message` | 2 |
+| `ChatSettingController` | `m5/chat-setting` | 2 |
+| `ConfigurationController` | `m5/config` | 1 |
+| `ApplicationAuthController` | `m5/appAuth` | 1 |
+| `ServerInfoController` | `m5/server-info` | 0 |
+| `InfoController` | `m5/info` | 0 |
+
+前 15 条（其余见明细）：
+
+| 方法 | 全路径 |
+|---|---|
+| `PostMapping` | `/service/m5/application/create` |
+| `GetMapping` | `/service/m5/application/{id}` |
+| `PostMapping` | `/service/m5/application/search` |
+| `PostMapping` | `/service/m5/application/update-icon` |
+| `PostMapping` | `/service/m5/application/update` |
+| `PostMapping` | `/service/m5/application/upload-oss` |
+| `PostMapping` | `/service/m5/application/upload` |
+| `PostMapping` | `/service/m5/application/re-upload-oss` |
+| `PostMapping` | `/service/m5/application/re-upload` |
+| `PostMapping` | `/service/m5/application/dis-enabled` |
+| `PostMapping` | `/service/m5/application/enabled` |
+| `PostMapping` | `/service/m5/application/version/search` |
+| `GetMapping` | `/service/m5/application/version/{id}` |
+| `GetMapping` | `/service/m5/application/version/latest/{appId}` |
+| `GetMapping` | `/service/m5/application/version/current/{appVersionId}` |
+
 ## 证据与自证
 
 | 内容 | 证据 | 等级 |
@@ -250,6 +309,6 @@
 | 17 个 Controller | 类名 + 方法数 | `VERIFIED_STATIC_BYTECODE` |
 | 「干什么」中文描述 | 方法名拆词 + 手工注记 | `STATIC_INFERENCE` |
 | 0 个语义待定方法 | 名称不足 | `UNVERIFIED` |
-| REST 路径 | 未取证 | `UNVERIFIED` |
+| REST 路径（160 条） | Controller 字节码注解 | `VERIFIED_STATIC_BYTECODE` |
 | 落表（21 张表，类级） | class 常量池 + `information_schema` | `VERIFIED_STATIC_BYTECODE` + `LIVE` |
 | 方法级落表 | 未取证（SQL 内联，需逐类反编译） | `UNVERIFIED` |

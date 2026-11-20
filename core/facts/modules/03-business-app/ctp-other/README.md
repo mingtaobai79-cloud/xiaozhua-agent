@@ -273,6 +273,48 @@
 |---|---|---:|
 | `ctp_media` | — | 1 |
 
+## REST 路由
+
+> 证据：`javap -v` 读 Controller 字节码里的 `@RequestMapping`/`@PostMapping` 注解值。
+> 等级 `VERIFIED_STATIC_BYTECODE`（注解值是常量，非推断）。
+
+**拼法**（端口/前缀按环境配置，以下为通用形）：
+
+```
+POST /service/{类级路径}/{方法级路径}
+      ↑ 类级路径的第一段就是应用 code（organization / bpm / udc …），不要再加一层
+  例：POST /service/udc/runtime/deploy-normal
+      = DeployController 类级 `udc/runtime` + 方法级 `deploy-normal`（线上实测过）
+```
+
+控制器 **2** 个、路由 **13** 条（来源：`ctp-media-web`、`ctp-webapi-gateway-web`）。
+
+> `{id}`、`ids` 这类方法级路径不带类级前缀，拼时必须补上。
+> 完整清单（含 java 方法名）：`docs/audit/artifacts/rest/ROUTES-ctp-other.md`
+
+| Controller | 类级路径 | 路由 |
+|---|---|---:|
+| `MediaController` | `ctp-media/media` | 10 |
+| `AckController` | `healthCheck` | 3 |
+
+前 15 条（其余见明细）：
+
+| 方法 | 全路径 |
+|---|---|
+| `GetMapping` | `/service/ctp-media/media//async-trans111` |
+| `GetMapping` | `/service/ctp-media/media//async-trans` |
+| `GetMapping` | `/service/ctp-media/media//play-info` |
+| `PostMapping` | `/service/ctp-media/media//play-infos` |
+| `GetMapping` | `/service/ctp-media/media//templateList` |
+| `GetMapping` | `/service/ctp-media/media//ts-sign` |
+| `GetMapping` | `/service/ctp-media/media//media-info` |
+| `GetMapping` | `/service/ctp-media/media//media-config` |
+| `PostMapping` | `/service/ctp-media/media//async-cut-img` |
+| `GetMapping` | `/service/ctp-media/media//cut-img-status` |
+| `GetMapping` | `/service/healthCheck/monitor` |
+| `GetMapping` | `/service/healthCheck/jvm-info` |
+| `GetMapping` | `/service/healthCheck/thread-info` |
+
 ## 证据与自证
 
 | 内容 | 证据 | 等级 |
@@ -283,6 +325,6 @@
 | 8 个 Controller | 类名 + 方法数 | `VERIFIED_STATIC_BYTECODE` |
 | 「干什么」中文描述 | 方法名拆词 + 手工注记 | `STATIC_INFERENCE` |
 | 0 个语义待定方法 | 名称不足 | `UNVERIFIED` |
-| REST 路径 | 未取证 | `UNVERIFIED` |
+| REST 路径（13 条） | Controller 字节码注解 | `VERIFIED_STATIC_BYTECODE` |
 | 落表（1 张表，类级） | class 常量池 + `information_schema` | `VERIFIED_STATIC_BYTECODE` + `LIVE` |
 | 方法级落表 | 未取证（SQL 内联，需逐类反编译） | `UNVERIFIED` |

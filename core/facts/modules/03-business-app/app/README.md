@@ -582,6 +582,121 @@
 | `ApprovalInvokeAppService` | `ApplicationService` | `application`, `category` | `implements+field` |
 | `MgnAggDataInitAppService` | `CtpMgnAggDataDao` | `ctp_mgn_agg_data` | `implements+field` |
 
+## REST 路由
+
+> 证据：`javap -v` 读 Controller 字节码里的 `@RequestMapping`/`@PostMapping` 注解值。
+> 等级 `VERIFIED_STATIC_BYTECODE`（注解值是常量，非推断）。
+
+**拼法**（端口/前缀按环境配置，以下为通用形）：
+
+```
+POST /service/{类级路径}/{方法级路径}
+      ↑ 类级路径的第一段就是应用 code（organization / bpm / udc …），不要再加一层
+  例：POST /service/udc/runtime/deploy-normal
+      = DeployController 类级 `udc/runtime` + 方法级 `deploy-normal`（线上实测过）
+```
+
+控制器 **73** 个、路由 **674** 条（来源：`app-common-web`、`app-approval-web`、`app-doc-web`）。
+
+> `{id}`、`ids` 这类方法级路径不带类级前缀，拼时必须补上。
+> 完整清单（含 java 方法名）：`docs/audit/artifacts/rest/ROUTES-app.md`
+
+| Controller | 类级路径 | 路由 |
+|---|---|---:|
+| `ApprovalApplicationController` | `app-approval/application` | 48 |
+| `KnowledgePediaController` | `app-doc/pedia` | 39 |
+| `KnowledgeAlbumController` | `app-doc/album` | 37 |
+| `KnowledgeMapController` | `app-doc/map` | 27 |
+| `GraySwimlaneController` | `app-common/gray/swimlane` | 19 |
+| `IntegralController` | `app-common/integral` | 18 |
+| `MyAttentionController` | `app-common/attention` | 18 |
+| `AgentSetController` | `app-common/agent` | 18 |
+| `I18nManagerController` | `app-common/i18n` | 18 |
+| `FormDataQueryController` | `app-approval/form-query` | 18 |
+| `PackageInfoController` | `app-common/config-mgn/package` | 16 |
+| `PhraseController` | `app-common/phrase` | 16 |
+| `ThemeController` | `app-common/theme` | 15 |
+| `AssociateController` | `app-common/associate` | 14 |
+| `IconController` | `app-common/icon` | 14 |
+| `GrayApplicationController` | `app-common/gray/application` | 13 |
+| `LocaleController` | `app-common/locale` | 13 |
+| `MngPushController` | `app-common/mgn/push` | 13 |
+| `WorktimeController` | `app-common/worktime` | 13 |
+| `WorktimeSpecialController` | `app-common/worktime-special` | 13 |
+| `ConfigMgnController` | `app-common/config-mgn` | 13 |
+| `ImageController` | `app-common/image` | 13 |
+| `QuestionInfoController` | `app-doc/quiz/question-info` | 13 |
+| `SensitiveWordCommonController` | `app-common/sensitive-word` | 12 |
+| `MgnTenantController` | `app-common/mgn/tenant` | 11 |
+| `LabelController` | `app-common/label` | 10 |
+| `DemoController` | `app-approval/demo/` | 10 |
+| `KnowledgeClassController` | `app-doc/manage/class` | 10 |
+| `ApprovalOutlineBorderController` | `app-approval/outline-border` | 9 |
+| `KnowledgeHomePageController` | `app-doc/knowledge/home-page` | 9 |
+| `LabelCategoryController` | `app-common/label-category` | 8 |
+| `MngReceiveController` | `app-common/mgn/receive` | 8 |
+| `SystemConfigController` | `app-common/system-config` | 8 |
+| `ApprovalTransportController` | `app-approval/transport` | 8 |
+| `QuestionReplyController` | `app-doc/quiz/question-replay` | 8 |
+| `UserQuestionController` | `app-doc/quiz/user` | 8 |
+| `KnowledgeRoleController` | `app-doc/manage/role` | 8 |
+| `CustomizedDevelopmentController` | `app-common/customized/development` | 7 |
+| `CategoryController` | `app-common/category` | 7 |
+| `SealController` | `app-common/seal` | 6 |
+| `TenantLocaleController` | `app-common/tenant-locale` | 6 |
+| `SensitiveWordWhiteController` | `app-common/sensitive-white` | 5 |
+| `MyAttentionCategoryController` | `app-common/attention/category` | 5 |
+| `SystemInspectController` | `app-common/system-inspect` | 5 |
+| `OcrAuthorizationController` | `app-common/ocr/authorization` | 5 |
+| `SeeyonMonitorController` | `app-common/system/monitor` | 5 |
+| `ApprovalProcessTeamController` | `app-approval/process-team` | 5 |
+| `CommonParameterConfigurationController` | `app-common/common-parameter-configuration` | 4 |
+| `WaterMarkController` | `app-common/watermark` | 4 |
+| `ApprovalDepApplicationController` | `app-approval/dependent-application` | 4 |
+| `QuestionSystemController` | `app-doc/quiz/question-preset` | 4 |
+| `LabelCloudController` | `app-common/label-cloud` | 3 |
+| `VideoMeetingRoomController` | `app-common/videoMeetingRoom` | 3 |
+| `DocController` | `app-doc/doc` | 3 |
+| `QuestionSystemConfigController` | `app-doc/quiz/system-config` | 3 |
+| `DocAppSysConfigController` | `app-doc/app/sys-config` | 3 |
+| `FormRefreshController` | `/form` | 2 |
+| `ApprovalBasicDataController` | `app-approval/basic-data-runtime` | 2 |
+| `QuestionAuditController` | `app-doc/quiz/question-replay` | 2 |
+| `WareHouseController` | `app-doc/warehouse` | 2 |
+| `AiConfigController` | `app-common/ai` | 1 |
+| `AppCommonAffairController` | `app-common/affair-center` | 1 |
+| `SystemEnvironmentController` | `app-common/system-env` | 1 |
+| `AppApprovalUpgradeController` | `app-approval/upgrade/` | 1 |
+| `ApprovalMenuController` | `app-approval/menu` | 1 |
+| `ApprovalConfigController` | `app-approval/config` | 1 |
+| `AlbumSystemConfigController` | `app-doc/album/setting` | 1 |
+| `MapSystemConfigController` | `app-doc/setting` | 1 |
+| `DocLibController` | `app-doc/lib` | 1 |
+| `DocShareController` | `app-doc/share` | 1 |
+| `PediaSystemConfigController` | `app-doc/pedia/setting` | 1 |
+| `DocKnowledgeIntegralController` | `app-doc/knowledge/integral` | 1 |
+| `CopyStorageKeyController` | `app-doc/storageKey` | 1 |
+
+前 15 条（其余见明细）：
+
+| 方法 | 全路径 |
+|---|---|
+| `GetMapping` | `/service/app-doc/album/setting/permission` |
+| `PostMapping` | `/service/app-doc/album//save-draft` |
+| `PostMapping` | `/service/app-doc/album//publish-album` |
+| `PostMapping` | `/service/app-doc/album//audit-album` |
+| `PostMapping` | `/service/app-doc/album//essence-album` |
+| `PostMapping` | `/service/app-doc/album//top-album` |
+| `PostMapping` | `/service/app-doc/album//delete-album` |
+| `PostMapping` | `/service/app-doc/album//batch-essence-album` |
+| `PostMapping` | `/service/app-doc/album//batch-delete-album` |
+| `PostMapping` | `/service/app-doc/album//select-audit-history` |
+| `PostMapping` | `/service/app-doc/album//home-page-collection` |
+| `PostMapping` | `/service/app-doc/album//search-my-album` |
+| `PostMapping` | `/service/app-doc/album//home-page-my-album` |
+| `PostMapping` | `/service/app-doc/album/search-un-audited` |
+| `PostMapping` | `/service/app-doc/album/search-audited` |
+
 ## 证据与自证
 
 | 内容 | 证据 | 等级 |
@@ -592,6 +707,6 @@
 | 73 个 Controller | 类名 + 方法数 | `VERIFIED_STATIC_BYTECODE` |
 | 「干什么」中文描述 | 方法名拆词 + 手工注记 | `STATIC_INFERENCE` |
 | 0 个语义待定方法 | 名称不足 | `UNVERIFIED` |
-| REST 路径 | 未取证 | `UNVERIFIED` |
+| REST 路径（674 条） | Controller 字节码注解 | `VERIFIED_STATIC_BYTECODE` |
 | 落表（72 张表，类级） | class 常量池 + `information_schema` | `VERIFIED_STATIC_BYTECODE` + `LIVE` |
 | 方法级落表 | 未取证（SQL 内联，需逐类反编译） | `UNVERIFIED` |

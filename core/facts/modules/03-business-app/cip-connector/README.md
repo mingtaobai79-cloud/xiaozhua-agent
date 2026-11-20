@@ -553,6 +553,81 @@
 | `MiddleTableOrgSyncDataCallbackService` | `MiddleTableService` | `cip_sync_duty`, `cip_sync_level`, `cip_sync_member`, `cip_sync_post`, `cip_sync_result`, `cip_sync_unit` | `implements+field` |
 | `MiddleTableOrgSyncMarkCallbackService` | `MiddleTableService` | `cip_sync_duty`, `cip_sync_level`, `cip_sync_member`, `cip_sync_post`, `cip_sync_result`, `cip_sync_unit` | `implements+field` |
 
+## REST 路由
+
+> 证据：`javap -v` 读 Controller 字节码里的 `@RequestMapping`/`@PostMapping` 注解值。
+> 等级 `VERIFIED_STATIC_BYTECODE`（注解值是常量，非推断）。
+
+**拼法**（端口/前缀按环境配置，以下为通用形）：
+
+```
+POST /service/{类级路径}/{方法级路径}
+      ↑ 类级路径的第一段就是应用 code（organization / bpm / udc …），不要再加一层
+  例：POST /service/udc/runtime/deploy-normal
+      = DeployController 类级 `udc/runtime` + 方法级 `deploy-normal`（线上实测过）
+```
+
+控制器 **33** 个、路由 **368** 条（来源：`cip-connector-web`）。
+
+> `{id}`、`ids` 这类方法级路径不带类级前缀，拼时必须补上。
+> 完整清单（含 java 方法名）：`docs/audit/artifacts/rest/ROUTES-cip-connector.md`
+
+| Controller | 类级路径 | 路由 |
+|---|---|---:|
+| `LinkerController` | `cip-connector/connector-info` | 67 |
+| `LinkerUserMappingController` | `cip-connector/connector/mapping` | 38 |
+| `PluginCapabilityController` | `cip-connector/plug/capability` | 28 |
+| `MobileApplicationController` | `cip-connector/mobile` | 18 |
+| `OrgSyncDesignController` | `cip-connector/plug/org-sync-design` | 16 |
+| `CipApplicationController` | `cip-connector/custom-app` | 14 |
+| `MobileController` | `cip-connector/mobile` | 14 |
+| `PluginDataCheckController` | `cip-connector/plug/data-check` | 12 |
+| `CipBaseConfigController` | `cip-connector/base-config` | 12 |
+| `AppRegisterController` | `cip-connector/connector/appreg` | 12 |
+| `MobileAppletController` | `cip-connector/mobile` | 11 |
+| `CipConnectorApiController` | `cip-connector/apitest` | 11 |
+| `MiddleTableViewController` | `cip-connector/plug/midview` | 9 |
+| `MobileOrgSyncController` | `cip-connector/mobile` | 8 |
+| `MiddleTableController` | `cip-connector/plug/middletable` | 8 |
+| `LinkerClassifyController` | `cip-connector/connector-classify` | 8 |
+| `LinkerSsoController` | `cip-connector/connector/sso` | 8 |
+| `LinkerEnumController` | `cip-connector/connector-enum` | 8 |
+| `OrgSyncRunningController` | `cip-connector/plug/org-sync-running` | 7 |
+| `CipWarningController` | `cip-connector/warning` | 6 |
+| `TodoRedirectController` | `cip-connector/plug/redirect-url` | 6 |
+| `PluginInfoController` | `cip-connector/plug/basic` | 6 |
+| `ConnectorCallbackController` | `cip-connector/base/callback` | 6 |
+| `AuthController` | `cip-connector/connector-auth` | 6 |
+| `LinkerMetadataController` | `cip-connector/connector-metadata` | 6 |
+| `CipMenuManageController` | `cip-connector/application/menu` | 5 |
+| `CipTemplateController` | `cip-connector/third/template` | 5 |
+| `MobileTestController` | `cip-connector/mobile` | 4 |
+| `MobileCallbackController` | `cip-connector/mobile/auth` | 2 |
+| `FileApiController` | `cip-connector/apitest/file` | 2 |
+| `CallbackController` | `cip-connector/call-back` | 2 |
+| `CipMigrationController` | `cip-manager/migration` | 2 |
+| `MobileUserMappingController` | `cip-connector/mobile/usermapping` | 1 |
+
+前 15 条（其余见明细）：
+
+| 方法 | 全路径 |
+|---|---|
+| `GetMapping` | `/service/cip-connector/apitest//callback/get-url` |
+| `GetMapping` | `/service/cip-connector/apitest//ocip/ocipConfig` |
+| `PostMapping` | `/service/cip-connector/apitest//ocip/check` |
+| `PostMapping` | `/service/cip-connector/apitest//ocip/doc/async` |
+| `PostMapping` | `/service/cip-connector/apitest//ocip/doc/sync` |
+| `PostMapping` | `/service/cip-connector/apitest//ocip/user/sk` |
+| `PostMapping` | `/service/cip-connector/apitest//ocip/user/body` |
+| `PostMapping` | `/service/cip-connector/apitest//ocip/data/transfer` |
+| `PostMapping` | `/service/cip-connector/apitest//ocip/sk/delete` |
+| `PostMapping` | `/service/cip-connector/apitest//ocip/log/list` |
+| `PostMapping` | `/service/cip-connector/apitest//org-sync/middle-table/clear/test` |
+| `PostMapping` | `/service/cip-connector/apitest/file//upload` |
+| `PostMapping` | `/service/cip-connector/apitest/file//get` |
+| `PostMapping` | `/service/cip-connector/connector/appreg//add` |
+| `PostMapping` | `/service/cip-connector/connector/appreg//modify` |
+
 ## 证据与自证
 
 | 内容 | 证据 | 等级 |
@@ -563,6 +638,6 @@
 | 12 个 Controller | 类名 + 方法数 | `VERIFIED_STATIC_BYTECODE` |
 | 「干什么」中文描述 | 方法名拆词 + 手工注记 | `STATIC_INFERENCE` |
 | 0 个语义待定方法 | 名称不足 | `UNVERIFIED` |
-| REST 路径 | 未取证 | `UNVERIFIED` |
+| REST 路径（368 条） | Controller 字节码注解 | `VERIFIED_STATIC_BYTECODE` |
 | 落表（87 张表，类级） | class 常量池 + `information_schema` | `VERIFIED_STATIC_BYTECODE` + `LIVE` |
 | 方法级落表 | 未取证（SQL 内联，需逐类反编译） | `UNVERIFIED` |

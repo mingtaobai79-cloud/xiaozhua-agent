@@ -118,10 +118,20 @@ Agent 拿到「给订单审批抄送部门负责人」这类需求时，能只�
 | G | cdp / app / portal / m5 / ocip | 56 | 291 | ✅ |
 | H | ai / devops / gateway / maven / mymojo | 0 | 0 | ✅（已说明无 facade 的原因）|
 
-### 未完成（阶段3、4）
+### 阶段3 落表（第一轮完成）
 
-- **落表**：22 个模块全部标 `UNVERIFIED`。取证路径已写在每个 README，未执行。
-- **REST 路径**：全部标 `UNVERIFIED`（除 udc 的 deploy-normal 有历史实测证据）。
+- 数据面：`information_schema`（test2）19 域 **1,611 张真实表** → `tables/db-test2.json` + `DB-TABLES-test2.md`
+- 代码面：21 个 biz jar 的 class 常量池扫表 → `class-tables.<artifact>.json`；class 关系 → `class-rel.json`
+- 写入：**15 个模块**「## 落表」段，670 张次真实表 + **76 条接口→表链接**（`implements` / `implements+field` / `stem`）
+- 7 个模块无表名常量（boot / ocip / ai / devops / gateway / maven / mymojo），标 `N/A` 不猜
+- **方法级落表仍未取证**：平台不用 MyBatis XML（21 个 biz 构件仅 9 个 XML / 15 张表），SQL 内联，需逐类反编译
+
+### 阶段4 REST 路由（静态部分完成）
+
+- `javap -v` 读 22 个 web 构件的 Controller 注解 → **5,046 条路由 / 507 个 Controller**
+- 明细：`docs/audit/artifacts/rest/ROUTES-<slug>.md`；README「## REST 路由」段给计数 + 拼法 + 控制器索引
+- 拼接规则有实测锚点：`DeployController` base `udc/runtime` + `deploy-normal` = 线上 `POST /service/udc/runtime/deploy-normal`
+- **未做**：真实环境抽验（HTTP 状态 vs 404）、入参 DTO 字段级说明（部分在 facade 文档里）
 - **93 个应用目录**：只有结构性 README，还没写接口表（这些应用本身没有 api/appservice 接口，
   或是 boot-starter 组件，接口面已包含在 boot 模块里）。
 

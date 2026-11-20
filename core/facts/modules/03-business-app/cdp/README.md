@@ -508,6 +508,99 @@
 |---|---|---|---|
 | `CdpBiz4UdcAppService` | `CascadeUpdateService` | `udc_entity` | `implements+field` |
 
+## REST 路由
+
+> 证据：`javap -v` 读 Controller 字节码里的 `@RequestMapping`/`@PostMapping` 注解值。
+> 等级 `VERIFIED_STATIC_BYTECODE`（注解值是常量，非推断）。
+
+**拼法**（端口/前缀按环境配置，以下为通用形）：
+
+```
+POST /service/{类级路径}/{方法级路径}
+      ↑ 类级路径的第一段就是应用 code（organization / bpm / udc …），不要再加一层
+  例：POST /service/udc/runtime/deploy-normal
+      = DeployController 类级 `udc/runtime` + 方法级 `deploy-normal`（线上实测过）
+```
+
+控制器 **51** 个、路由 **367** 条（来源：`cdp-data-web`、`cdp-schedule-web`）。
+
+> `{id}`、`ids` 这类方法级路径不带类级前缀，拼时必须补上。
+> 完整清单（含 java 方法名）：`docs/audit/artifacts/rest/ROUTES-cdp.md`
+
+| Controller | 类级路径 | 路由 |
+|---|---|---:|
+| `ReportController` | `cdp-bi/report-design` | 30 |
+| `StreamController` | `cdp-df/stream` | 26 |
+| `DatasetController` | `cdp-df/dataset` | 22 |
+| `UdcReportController` | `cdp-data/udc/report-design` | 21 |
+| `CdpUpgradeController` | `cdp-data/upgrade` | 15 |
+| `IndicatorTableController` | `cdp-am/indicator/table` | 13 |
+| `IndicatorController` | `cdp-am/indicator/derive` | 13 |
+| `DataSourceController` | `cdp-df/datasource` | 12 |
+| `UdcStreamController` | `cdp-data/udc/stream` | 12 |
+| `SchJobController` | `cdp-schedule/job` | 12 |
+| `ReportRuntimeController` | `cdp-bi/report-runtime` | 10 |
+| `BigScreenController` | `cdp-bi/screen-manage` | 10 |
+| `CdpEnvController` | `cdp-data/env` | 10 |
+| `UdcIndicatorController` | `cdp-data/udc/indicator/derive` | 10 |
+| `ModelController` | `cdp-am/semantic-model` | 9 |
+| `UdcDatasetController` | `cdp-data/udc/dataset` | 9 |
+| `SchJobInstanceController` | `cdp-schedule/jobInstance` | 9 |
+| `IndexController` | `cdp-index/main` | 8 |
+| `SchemeController` | `cdp-bi/scheme` | 7 |
+| `BigScreenAuthController` | `cdp-bi/screen-auth` | 7 |
+| `UdcIndicatorTableController` | `cdp-data/udc/indicator/table` | 7 |
+| `UdcGeoController` | `cdp-data/udc/geo` | 6 |
+| `GeoController` | `cdp-bi/geo` | 6 |
+| `CdpReportTestController` | `cdp-data/test` | 6 |
+| `ReportPortletController` | `cdp-bi/portlet` | 5 |
+| `ReferenceBiController` | `cdp-bi/refer` | 5 |
+| `UdcReportRuntimeController` | `cdp-data/udc/report-runtime` | 4 |
+| `UdcReportPortletController` | `cdp-data/udc/portlet` | 4 |
+| `UdcReferenceBiController` | `cdp-data/udc/refer` | 4 |
+| `ReportCategoryController` | `cdp-bi/report-category` | 4 |
+| `ReportAuthController` | `cdp-bi/auth` | 4 |
+| `FormSkipController` | `cdp-bi/form` | 4 |
+| `UdcModelAuthController` | `cdp-data/udc/auth` | 4 |
+| `ModelAuthController` | `cdp-am/auth` | 4 |
+| `BigScreenOldController` | `cdp-bi/screen` | 3 |
+| `ReportApiController` | `cdp-bi/api` | 3 |
+| `BigScreenTemplateController` | `cdp-bi/screen-template` | 3 |
+| `UdcModelController` | `cdp-data/udc/semantic-model` | 3 |
+| `EntityController` | `cdp-df/entity` | 3 |
+| `V5CapController` | `cdp-df/v5cap` | 3 |
+| `UdcReportAuthController` | `cdp-data/udc/auth` | 2 |
+| `UdcFormSkipController` | `cdp-data/udc/form` | 2 |
+| `UdcTestController` | `cdp-bi/udc/deploy` | 2 |
+| `CdpSSOController` | `cdp-data/sso` | 2 |
+| `UdcEntityController` | `cdp-data/udc/entity` | 2 |
+| `CdpScheduleUpgradeController` | `cdp-schedule/upgrade` | 2 |
+| `UdcReportCategoryController` | `cdp-data/udc/report-category/` | 1 |
+| `EtlJobController` | `cdp-data/etl` | 1 |
+| `CdpCustomVariableController` | `cdp-data/custom-variable` | 1 |
+| `SystemVarController` | `cdp-data/common` | 1 |
+| `IndexForFJGSController` | `cdp-index/main` | 1 |
+
+前 15 条（其余见明细）：
+
+| 方法 | 全路径 |
+|---|---|
+| `PostMapping` | `/service/cdp-am/auth/check-update` |
+| `PostMapping` | `/service/cdp-am/auth/view-check` |
+| `GetMapping` | `/service/cdp-am/auth/row/options` |
+| `PostMapping` | `/service/cdp-am/auth/row/validate` |
+| `PostMapping` | `/service/cdp-am/semantic-model/create` |
+| `PostMapping` | `/service/cdp-am/semantic-model/delete` |
+| `PostMapping` | `/service/cdp-am/semantic-model/get-model-tree` |
+| `GetMapping` | `/service/cdp-am/semantic-model/search/{id}` |
+| `PostMapping` | `/service/cdp-am/semantic-model/field-list` |
+| `PostMapping` | `/service/cdp-am/semantic-model/field-group` |
+| `GetMapping` | `/service/cdp-am/semantic-model/field-measure/{modelId}` |
+| `GetMapping` | `/service/cdp-am/semantic-model/field-dimension/{modelId}` |
+| `GetMapping` | `/service/cdp-am/semantic-model/field-date/{modelId}` |
+| `PostMapping` | `/service/cdp-am/indicator/derive/create` |
+| `PostMapping` | `/service/cdp-am/indicator/derive/update` |
+
 ## 证据与自证
 
 | 内容 | 证据 | 等级 |
@@ -518,6 +611,6 @@
 | 51 个 Controller | 类名 + 方法数 | `VERIFIED_STATIC_BYTECODE` |
 | 「干什么」中文描述 | 方法名拆词 + 手工注记 | `STATIC_INFERENCE` |
 | 0 个语义待定方法 | 名称不足 | `UNVERIFIED` |
-| REST 路径 | 未取证 | `UNVERIFIED` |
+| REST 路径（367 条） | Controller 字节码注解 | `VERIFIED_STATIC_BYTECODE` |
 | 落表（50 张表，类级） | class 常量池 + `information_schema` | `VERIFIED_STATIC_BYTECODE` + `LIVE` |
 | 方法级落表 | 未取证（SQL 内联，需逐类反编译） | `UNVERIFIED` |
