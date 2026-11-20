@@ -18,7 +18,7 @@
 
 ---
 
-## 一、五格
+## 一、六格
 
 | # | 文件 | 字节 | 回答什么 |
 |---|---|---:|---|
@@ -26,7 +26,8 @@
 | 02 | `02-udc-generated-reference.md` | 9,557 | **生成物包路径、`@Autowired` 写法、Request/Response 包装** |
 | 03 | `03-io-params-and-custom-object.md` | 10,799 | **出入参决定签名、怎么取值、自定义对象怎么用** |
 | **04** | **`04-generated-service-methods.md`** | **17,667** | **★ 注入之后能调哪些方法**（CRUD 全表 + 24 钩子 + AppService 40 方法） |
-| **05** | **`05-calling-platform-capabilities.md`** | **~13,000** | **★ 怎么调标品/平台组件**（可复制的调用片段 + 真实返回类型） |
+| **05** | **`05-calling-platform-capabilities.md`** | **18,304** | **★ 怎么调标品/平台组件**（可复制的调用片段 + 真实返回类型） |
+| **06** | **`06-beforeupdate-listener-code.md`** | **14,353** | **★ 监听更新前事件改数据的可抄代码**（注解 + 类 + 改哪个字段） |
 
 ---
 
@@ -69,6 +70,9 @@
 | **怎么发流程 / 提交 / 回退？** | **`05` §三** |
 | **怎么在微流程里生成待办？** | **`05` §3.3** |
 | **id 怎么生成？拷贝用什么？** | **`05` §五** |
+| **监听更新前事件，注解怎么写？** | **`06` §一/§三**（`@EventHandler` + `@EventSubscribe`） |
+| **为什么改了数据没生效？** | **`06` §五**（三条死规则） |
+| **拿当前登录用户 id？** | **`06` §10.1**（`SystemVariableUtils`） |
 
 ---
 
@@ -167,9 +171,10 @@ Sort sort                 = request.getSort();      // 排序
 | 5 | `OrgCommonAppService.selectMemberInfoByIds(...)` | **方法不存在**，批量查人用 `selectMemberBySelectPeopleData` |
 | 6 | 组织查人返回强类型 DTO | **返回 `Map` 或 `Long`**；只有 `selectMemberBySelectPeopleData` / `selectMemberByUserId` 给 `OrgMemberCoreDto` |
 | 7 | 「BPM 更新链只发 `BeforeUpdateBatchEvent`」 | **单事件和批量事件都会发**（`EntityEventHelper.beforeEvent` case2 发两次） |
+| 8 | `com.seeyon.boot.context.ContextUtil.getCurrentUserId()` | **类不存在**，用 `SystemVariableUtils.currentUserId()`（`com.seeyon.boot.starter.systemvariable.util`） |
 
-**★ 第 3~7 条是 2026-11-19 新增 04/05 两格时，用 `interfaces.json` 逐方法核对发现的 ——
-  全部靠「方法名在索引里查不到」暴露出来。这就是维护规则第 6 条的来由。**
+**★ 第 3~8 条是 2026-11-19 新增 04/05/06 三格时，用 `interfaces.json` 逐方法核对发现的 ——
+  全部靠「方法名/类名在索引里查不到」暴露出来。这就是维护规则第 6 条的来由。**
 
 ---
 
