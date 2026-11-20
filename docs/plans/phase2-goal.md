@@ -131,7 +131,9 @@ Agent 拿到「给订单审批抄送部门负责人」这类需求时，能只�
 - `javap -v` 读 22 个 web 构件的 Controller 注解 → **5,046 条路由 / 507 个 Controller**
 - 明细：`docs/audit/artifacts/rest/ROUTES-<slug>.md`；README「## REST 路由」段给计数 + 拼法 + 控制器索引
 - 拼接规则有实测锚点：`DeployController` base `udc/runtime` + `deploy-normal` = 线上 `POST /service/udc/runtime/deploy-normal`
-- **未做**：真实环境抽验（HTTP 状态 vs 404）、入参 DTO 字段级说明（部分在 facade 文档里）
+- **真机验证已完成**：2,636 条安全路由实测，2,633 命中（99.9%），3 条例外单列不掩盖
+  → `docs/audit/artifacts/rest/VERIFY-LIVE.md`
+- **未做**：写操作接口的路由（按设计不空 body 探测）、入参 DTO 字段级说明（下一步）
 - **93 个应用目录**：只有结构性 README，还没写接口表（这些应用本身没有 api/appservice 接口，
   或是 boot-starter 组件，接口面已包含在 boot 模块里）。
 
