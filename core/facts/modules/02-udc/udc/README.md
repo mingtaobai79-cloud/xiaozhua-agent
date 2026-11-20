@@ -1620,6 +1620,148 @@ UDC 触发流程只调 `BpmUdcApiService`，不要调 `BpmAppService.send`。
 | `UdcFunctionAppService` | `FunctionNodeService` | `portal_space` | `implements+field` |
 | `UdcMetaDataAppService` | `Application4PageMetaDataService` | `ctp_enum` | `implements+field` |
 
+## 方法级落表（写接口）
+
+> **口径：触及表的上界，不是「只写这张表」。** 证据链是「方法体引用的实体/DAO → 实体类 `@TableName` 字面量」，
+> 方法若再做条件分支，实际只写其中一部分。判断影响面用它，判断唯一落点还得看 SQL。
+> 等级 `VERIFIED_STATIC_BYTECODE`（引用与表名都来自字节码），**上界推断**部分标 `STATIC_INFERENCE`。
+
+本模块 179 个写方法中，**131** 个解析出触及表：
+
+| 接口#方法 | 触及表 | 依据（引用链） |
+|---|---|---|
+| `ApplicationAppService#create` | `udc_app_collaboration`, `udc_app_version`, `udc_application` | `AppCollaborationEntityDao=>AppCollaborationEntity->udc_app_collaboration; AppVersionDao=>AppVersion->udc_app_version` |
+| `ApplicationAppService#createDepApp` | `udc_application`, `udc_dependent_application` | `DependentApplicationDao=>DependentApplication->udc_dependent_application; UdcApplicationDao=>UdcApplication->udc_application` |
+| `ApplicationAppService#createDepAppBatch` | `udc_application`, `udc_dependent_application` | `DependentApplicationDao=>DependentApplication->udc_dependent_application; UdcApplicationDao=>UdcApplication->udc_application` |
+| `ApplicationAppService#createFromTemplate` | `udc_app_collaboration`, `udc_app_version`, `udc_application` | `AppCollaborationEntityDao=>AppCollaborationEntity->udc_app_collaboration; AppVersionDao=>AppVersion->udc_app_version` |
+| `ApplicationAppService#deleteByGuid` | `udc_app_collaboration`, `udc_app_version`, `udc_application` | `AppCollaborationEntityDao=>AppCollaborationEntity->udc_app_collaboration; AppVersionDao=>AppVersion->udc_app_version` |
+| `ApplicationAppService#deleteById` | `udc_app_collaboration`, `udc_app_version`, `udc_application` | `AppCollaborationEntityDao=>AppCollaborationEntity->udc_app_collaboration; AppVersionDao=>AppVersion->udc_app_version` |
+| `ApplicationAppService#deleteDepAppById` | `udc_application`, `udc_dependent_application` | `DependentApplicationDao=>DependentApplication->udc_dependent_application; UdcApplicationDao=>UdcApplication->udc_application` |
+| `ApplicationAppService#deleteDepAppsByAppId` | `udc_application`, `udc_dependent_application` | `DependentApplicationDao=>DependentApplication->udc_dependent_application; UdcApplicationDao=>UdcApplication->udc_application` |
+| `ApplicationAppService#deleteDepAppsByIds` | `udc_application`, `udc_dependent_application` | `DependentApplicationDao=>DependentApplication->udc_dependent_application; UdcApplicationDao=>UdcApplication->udc_application` |
+| `ApplicationAppService#deleteFormAppByGuid` | `udc_app_collaboration`, `udc_app_version`, `udc_application` | `AppCollaborationEntityDao=>AppCollaborationEntity->udc_app_collaboration; AppVersionDao=>AppVersion->udc_app_version` |
+| `ApplicationAppService#deployForm` | `udc_app_collaboration`, `udc_app_version`, `udc_application` | `AppCollaborationEntityDao=>AppCollaborationEntity->udc_app_collaboration; AppVersionDao=>AppVersion->udc_app_version` |
+| `ApplicationAppService#deployNormal` | `udc_app_collaboration`, `udc_app_version`, `udc_application` | `AppCollaborationEntityDao=>AppCollaborationEntity->udc_app_collaboration; AppVersionDao=>AppVersion->udc_app_version` |
+| `ApplicationAppService#saveAsNewDesign` | `udc_app_collaboration`, `udc_app_version`, `udc_application` | `AppCollaborationEntityDao=>AppCollaborationEntity->udc_app_collaboration; AppVersionDao=>AppVersion->udc_app_version` |
+| `ApplicationAppService#saveAsNormalNewDesign` | `udc_app_collaboration`, `udc_app_version`, `udc_application` | `AppCollaborationEntityDao=>AppCollaborationEntity->udc_app_collaboration; AppVersionDao=>AppVersion->udc_app_version` |
+| `ApplicationAppService#update` | `udc_app_collaboration`, `udc_app_version`, `udc_application` | `AppCollaborationEntityDao=>AppCollaborationEntity->udc_app_collaboration; AppVersionDao=>AppVersion->udc_app_version` |
+| `ApplicationAppService#updateBatchDepAppVersion` | `udc_application`, `udc_dependent_application` | `DependentApplicationDao=>DependentApplication->udc_dependent_application; UdcApplicationDao=>UdcApplication->udc_application` |
+| `ApplicationAppService#updateCaptionForAllVersion` | `udc_app_collaboration`, `udc_app_version`, `udc_application` | `AppCollaborationEntityDao=>AppCollaborationEntity->udc_app_collaboration; AppVersionDao=>AppVersion->udc_app_version` |
+| `ApplicationAppService#updateDepApp` | `udc_application`, `udc_dependent_application` | `DependentApplicationDao=>DependentApplication->udc_dependent_application; UdcApplicationDao=>UdcApplication->udc_application` |
+| `ApplicationAppService#updateDepAppBatch` | `udc_application`, `udc_dependent_application` | `DependentApplicationDao=>DependentApplication->udc_dependent_application; UdcApplicationDao=>UdcApplication->udc_application` |
+| `ApplicationAppService#updateNoEvents` | `udc_app_collaboration`, `udc_app_version`, `udc_application` | `AppCollaborationEntityDao=>AppCollaborationEntity->udc_app_collaboration; AppVersionDao=>AppVersion->udc_app_version` |
+| `ApplicationManagerAppService#copyLayoutApp` | `udc_application`, `udc_page_schema` | `PageSchemaEntityDao=>PageSchemaEntity->udc_page_schema; UdcApplicationDao=>UdcApplication->udc_application` |
+| `ApplicationManagerAppService#copyOnlyPageApp` | `udc_application`, `udc_page_schema` | `PageSchemaEntityDao=>PageSchemaEntity->udc_page_schema; UdcApplicationDao=>UdcApplication->udc_application` |
+| `ApplicationManagerAppService#create` | `udc_app_collaboration`, `udc_app_version`, `udc_application` | `AppCollaborationEntityDao=>AppCollaborationEntity->udc_app_collaboration; AppVersionDao=>AppVersion->udc_app_version` |
+| `ApplicationManagerAppService#createIntegrationApplication` | `udc_app_collaboration`, `udc_app_version`, `udc_application` | `AppCollaborationEntityDao=>AppCollaborationEntity->udc_app_collaboration; AppVersionDao=>AppVersion->udc_app_version` |
+| `ApplicationManagerAppService#createLayoutApplication` | `udc_app_collaboration`, `udc_app_version`, `udc_application`, `udc_page_schema` | `AppCollaborationEntityDao=>AppCollaborationEntity->udc_app_collaboration; AppVersionDao=>AppVersion->udc_app_version` |
+| `ApplicationManagerAppService#createNewLayoutAfterCall` | `udc_micro_flow_group`, `udc_microflow_info`, `udc_page_info`, `udc_page_layout` | `MicroFlowEntityDao=>MicroFlowEntity->udc_microflow_info; MicroFlowGroupDao=>MicroFlowGroup->udc_micro_flow_group` |
+| `ApplicationManagerAppService#createOnlyPageApplication` | `udc_application`, `udc_page_schema` | `PageSchemaEntityDao=>PageSchemaEntity->udc_page_schema; UdcApplicationDao=>UdcApplication->udc_application` |
+| `ApplicationManagerAppService#createReturnDto` | `udc_app_collaboration`, `udc_app_version`, `udc_application` | `AppCollaborationEntityDao=>AppCollaborationEntity->udc_app_collaboration; AppVersionDao=>AppVersion->udc_app_version` |
+| `ApplicationManagerAppService#deleteById` | `udc_app_collaboration`, `udc_app_version`, `udc_application` | `AppCollaborationEntityDao=>AppCollaborationEntity->udc_app_collaboration; AppVersionDao=>AppVersion->udc_app_version` |
+| `ApplicationManagerAppService#deleteFormAppByGuid` | `udc_app_collaboration`, `udc_app_version`, `udc_application` | `AppCollaborationEntityDao=>AppCollaborationEntity->udc_app_collaboration; AppVersionDao=>AppVersion->udc_app_version` |
+| `ApplicationManagerAppService#deleteFormAppByName` | `udc_app_collaboration`, `udc_app_version`, `udc_application` | `AppCollaborationEntityDao=>AppCollaborationEntity->udc_app_collaboration; AppVersionDao=>AppVersion->udc_app_version` |
+| `ApplicationManagerAppService#deployForm` | `udc_app_collaboration`, `udc_app_version`, `udc_application` | `AppCollaborationEntityDao=>AppCollaborationEntity->udc_app_collaboration; AppVersionDao=>AppVersion->udc_app_version` |
+| `ApplicationManagerAppService#deployNormal` | `udc_app_collaboration`, `udc_app_version`, `udc_application` | `AppCollaborationEntityDao=>AppCollaborationEntity->udc_app_collaboration; AppVersionDao=>AppVersion->udc_app_version` |
+| `ApplicationManagerAppService#importApp` | `basic_data_attribute`, `udc_application` | `SchemaManager->basic_data_attribute; UdcApplicationDao=>UdcApplication->udc_application` |
+| `ApplicationManagerAppService#importAppWithDto` | `basic_data_attribute`, `udc_application` | `SchemaManager->basic_data_attribute; UdcApplicationDao=>UdcApplication->udc_application` |
+| `ApplicationManagerAppService#importFormValidate` | `basic_data_attribute`, `udc_application` | `SchemaManager->basic_data_attribute; UdcApplicationDao=>UdcApplication->udc_application` |
+| `ApplicationManagerAppService#transfer` | `basic_data_attribute`, `udc_application` | `SchemaManager->basic_data_attribute; UdcApplicationDao=>UdcApplication->udc_application` |
+| `ApplicationManagerAppService#update` | `udc_app_collaboration`, `udc_app_version`, `udc_application` | `AppCollaborationEntityDao=>AppCollaborationEntity->udc_app_collaboration; AppVersionDao=>AppVersion->udc_app_version` |
+| `ApplicationManagerAppService#updateAppCategoryBatch` | `udc_app_collaboration`, `udc_app_version`, `udc_application` | `AppCollaborationEntityDao=>AppCollaborationEntity->udc_app_collaboration; AppVersionDao=>AppVersion->udc_app_version` |
+| `ApplicationManagerAppService#updateWithMember` | `udc_app_collaboration`, `udc_app_version`, `udc_application` | `AppCollaborationEntityDao=>AppCollaborationEntity->udc_app_collaboration; AppVersionDao=>AppVersion->udc_app_version` |
+| `AttributeAppService#create` | `udc_attribute`, `udc_attribute_set`, `udc_entity`, `udc_index`, `udc_last_version_metadata` | `AttributeDao=>Attribute->udc_attribute; AttributeService->udc_attribute` |
+| `AttributeAppService#createBatch` | `udc_attribute` | `AttributeDao=>Attribute->udc_attribute; AttributeService->udc_attribute` |
+| `AttributeAppService#createBatch4System` | `udc_attribute` | `AttributeDao=>Attribute->udc_attribute; AttributeService->udc_attribute` |
+| `AttributeAppService#deleteById` | `udc_attribute`, `udc_attribute_set`, `udc_entity`, `udc_index`, `udc_last_version_metadata` | `AttributeDao=>Attribute->udc_attribute; AttributeService->udc_attribute` |
+| `AttributeAppService#deleteByIds` | `udc_attribute`, `udc_attribute_set`, `udc_entity`, `udc_index`, `udc_last_version_metadata` | `AttributeDao=>Attribute->udc_attribute; AttributeService->udc_attribute` |
+| `AttributeAppService#update` | `udc_attribute`, `udc_attribute_set`, `udc_entity`, `udc_index`, `udc_last_version_metadata` | `AttributeDao=>Attribute->udc_attribute; AttributeService->udc_attribute` |
+| `AttributeAppService#updateBatch` | `udc_attribute` | `AttributeDao=>Attribute->udc_attribute; AttributeService->udc_attribute` |
+| `AttributeGroupAppService#cancel` | `udc_attribute`, `udc_attribute_group` | `AttributeDao=>Attribute->udc_attribute; AttributeGroupDao=>AttributeGroup->udc_attribute_group` |
+| `AttributeGroupAppService#create` | `udc_attribute`, `udc_attribute_group` | `AttributeDao=>Attribute->udc_attribute; AttributeGroupDao=>AttributeGroup->udc_attribute_group` |
+| `AttributeGroupAppService#remove` | `udc_attribute`, `udc_attribute_group` | `AttributeDao=>Attribute->udc_attribute; AttributeGroupDao=>AttributeGroup->udc_attribute_group` |
+| `AttributeGroupAppService#update` | `udc_attribute`, `udc_attribute_group` | `AttributeDao=>Attribute->udc_attribute; AttributeGroupDao=>AttributeGroup->udc_attribute_group` |
+| `AttributeSetAppService#create` | `udc_attribute_set` | `AttributeSetDao=>AttributeSet->udc_attribute_set` |
+| `AttributeSetAppService#createBatch` | `udc_attribute_set` | `AttributeSetDao=>AttributeSet->udc_attribute_set` |
+| `AttributeSetAppService#deleteById` | `udc_attribute_set` | `AttributeSetDao=>AttributeSet->udc_attribute_set` |
+| `AttributeSetAppService#deleteByIds` | `udc_attribute_set` | `AttributeSetDao=>AttributeSet->udc_attribute_set` |
+| `AttributeSetAppService#update` | `udc_attribute_set` | `AttributeSetDao=>AttributeSet->udc_attribute_set` |
+| `DataTransferObjectAppService#create` | `udc_data_transfer_object` | `DataTransferObjectDao=>DataTransferObject->udc_data_transfer_object` |
+| `DataTransferObjectAppService#createDtoWithAttrs` | `udc_app_collaboration`, `udc_app_version`, `udc_application`, `udc_data_transfer_object`, `udc_dto_attribute`, `udc_enum` …(+1) | `AppCollaborationEntityDao=>AppCollaborationEntity->udc_app_collaboration; AppVersionDao=>AppVersion->udc_app_version` |
+| `DataTransferObjectAppService#createDtoWithAttrs4EntityEvent` | `udc_app_collaboration`, `udc_app_version`, `udc_application`, `udc_attribute`, `udc_data_transfer_object`, `udc_dto_attribute` …(+3) | `AppCollaborationEntityDao=>AppCollaborationEntity->udc_app_collaboration; AppVersionDao=>AppVersion->udc_app_version` |
+| `DataTransferObjectAppService#createDtoWithAttrsAndRefDtos` | `udc_data_transfer_object`, `udc_dto_attribute` | `DataTransferObjectDao=>DataTransferObject->udc_data_transfer_object; DtoAttributeDao=>DtoAttribute->udc_dto_attribute` |
+| `DataTransferObjectAppService#deleteById` | `udc_data_transfer_object`, `udc_operation_log` | `DataTransferObjectDao=>DataTransferObject->udc_data_transfer_object; OperationLogDao=>OperationLogEntity->udc_operation_log` |
+| `DataTransferObjectAppService#deleteDtoWithAttrsAndRefDtos` | `udc_data_transfer_object` | `DataTransferObjectDao=>DataTransferObject->udc_data_transfer_object` |
+| `DataTransferObjectAppService#update` | `udc_data_transfer_object` | `DataTransferObjectDao=>DataTransferObject->udc_data_transfer_object` |
+| `DataTransferObjectAppService#updateDtoWithAttrs` | `udc_data_transfer_object`, `udc_dto_attribute`, `udc_operation_log` | `DataTransferObjectDao=>DataTransferObject->udc_data_transfer_object; DtoAttributeDao=>DtoAttribute->udc_dto_attribute` |
+| `DataTransferObjectAppService#updateDtoWithAttrs4EntityEvent` | `udc_app_collaboration`, `udc_app_version`, `udc_application`, `udc_attribute`, `udc_data_transfer_object`, `udc_dto_attribute` …(+3) | `AppCollaborationEntityDao=>AppCollaborationEntity->udc_app_collaboration; AppVersionDao=>AppVersion->udc_app_version` |
+| `DataTransferObjectAppService#updateDtoWithAttrsAndRefDtos` | `udc_data_transfer_object`, `udc_dto_attribute` | `DataTransferObjectDao=>DataTransferObject->udc_data_transfer_object; DtoAttributeDao=>DtoAttribute->udc_dto_attribute` |
+| `DtoAttributeAppService#create` | `udc_data_transfer_object`, `udc_dto_attribute` | `DataTransferObjectDao=>DataTransferObject->udc_data_transfer_object; DtoAttributeDao=>DtoAttribute->udc_dto_attribute` |
+| `DtoAttributeAppService#createBatch` | `udc_data_transfer_object`, `udc_dto_attribute` | `DataTransferObjectDao=>DataTransferObject->udc_data_transfer_object; DtoAttributeDao=>DtoAttribute->udc_dto_attribute` |
+| `DtoAttributeAppService#deleteById` | `udc_data_transfer_object`, `udc_dto_attribute` | `DataTransferObjectDao=>DataTransferObject->udc_data_transfer_object; DtoAttributeDao=>DtoAttribute->udc_dto_attribute` |
+| `DtoAttributeAppService#deleteByIds` | `udc_data_transfer_object`, `udc_dto_attribute` | `DataTransferObjectDao=>DataTransferObject->udc_data_transfer_object; DtoAttributeDao=>DtoAttribute->udc_dto_attribute` |
+| `DtoAttributeAppService#update` | `udc_data_transfer_object`, `udc_dto_attribute` | `DataTransferObjectDao=>DataTransferObject->udc_data_transfer_object; DtoAttributeDao=>DtoAttribute->udc_dto_attribute` |
+| `EntityGroupAppService#create` | `udc_entity_group` | `EntityGroupDao=>EntityGroup->udc_entity_group` |
+| `EntityGroupAppService#deleteById` | `udc_entity_group` | `EntityGroupDao=>EntityGroup->udc_entity_group` |
+| `EntityGroupAppService#deleteByIds` | `udc_entity_group` | `EntityGroupDao=>EntityGroup->udc_entity_group` |
+| `EntityGroupAppService#update` | `udc_entity_group` | `EntityGroupDao=>EntityGroup->udc_entity_group` |
+| `EntityGroupAppService#updateBatch` | `udc_entity_group` | `EntityGroupDao=>EntityGroup->udc_entity_group` |
+| `EntityPresetAppService#create` | `udc_entity_preset` | `EntityPresetDao=>EntityPreset->udc_entity_preset` |
+| `EntityPresetAppService#createDefaultExcelTemplate` | `udc_entity_preset` | `EntityPresetDao=>EntityPreset->udc_entity_preset` |
+| `EntityPresetAppService#update` | `udc_entity_preset` | `EntityPresetDao=>EntityPreset->udc_entity_preset` |
+| `EntityPresetAppService#uploadInItData` | `udc_entity_preset` | `EntityPresetDao=>EntityPreset->udc_entity_preset` |
+| `EventAppService#create` | `udc_event` | `EventDao=>Event->udc_event` |
+| `EventAppService#deleteById` | `udc_event` | `EventDao=>Event->udc_event` |
+| `EventAppService#deleteByIds` | `udc_event` | `EventDao=>Event->udc_event` |
+| `EventAppService#update` | `udc_event` | `EventDao=>Event->udc_event` |
+| `EventWithDataAppService#createWithEventData` | `udc_event` | `EventDao=>Event->udc_event` |
+| `EventWithDataAppService#updateWithEventData` | `udc_event`, `udc_operation_log`, `udc_scalability_option` | `EventDao=>Event->udc_event; OperationLogDao=>OperationLogEntity->udc_operation_log` |
+| `IndexAppService#create` | `udc_attribute`, `udc_entity`, `udc_index`, `udc_last_version_metadata` | `AttributeDao=>Attribute->udc_attribute; EntityDao=>Entity->udc_entity` |
+| `IndexAppService#deleteById` | `udc_attribute`, `udc_entity`, `udc_index`, `udc_last_version_metadata` | `AttributeDao=>Attribute->udc_attribute; EntityDao=>Entity->udc_entity` |
+| `IndexAppService#deleteByIds` | `udc_attribute`, `udc_entity`, `udc_index`, `udc_last_version_metadata` | `AttributeDao=>Attribute->udc_attribute; EntityDao=>Entity->udc_entity` |
+| `IndexAppService#update` | `udc_attribute`, `udc_entity`, `udc_index`, `udc_last_version_metadata` | `AttributeDao=>Attribute->udc_attribute; EntityDao=>Entity->udc_entity` |
+| `ParameterAppService#create` | `udc_parameter` | `ParameterDao=>Parameter->udc_parameter` |
+| `ParameterAppService#deleteById` | `udc_parameter` | `ParameterDao=>Parameter->udc_parameter` |
+| `ParameterAppService#deleteByIds` | `udc_parameter` | `ParameterDao=>Parameter->udc_parameter` |
+| `ParameterAppService#update` | `udc_parameter` | `ParameterDao=>Parameter->udc_parameter` |
+| `PluginAttributeAppService#createBatch` | `udc_attribute` | `AttributeDao=>Attribute->udc_attribute; AttributeService->udc_attribute` |
+| `PluginEntityAppService#create` | `udc_attribute`, `udc_entity`, `udc_index`, `udc_last_version_metadata` | `Attribute->udc_attribute; AttributeDao=>Attribute->udc_attribute` |
+| `PluginEntityAppService#update` | `udc_attribute`, `udc_entity`, `udc_index`, `udc_last_version_metadata` | `AttributeDao=>Attribute->udc_attribute; EntityDao=>Entity->udc_entity` |
+| `PluginPageInfoAppService#createDefaultFilterPlanContentByEntity` | `label_print_record` | `PageUtils->label_print_record` |
+| `PluginReferConfigGroupAppService#createDefaultRefer` | `udc_attribute`, `udc_entity`, `udc_index`, `udc_last_version_metadata`, `udc_refer_config_group` | `AttributeDao=>Attribute->udc_attribute; EntityDao=>Entity->udc_entity` |
+| `PluginReferConfigGroupAppService#deleteDefaultRefer` | `udc_refer_config_group` | `ReferConfigGroupDao=>ReferConfigGroup->udc_refer_config_group` |
+| `PluginReferConfigGroupAppService#updateDefaultRefer` | `udc_attribute`, `udc_entity`, `udc_index`, `udc_last_version_metadata`, `udc_refer_config_group` | `AttributeDao=>Attribute->udc_attribute; EntityDao=>Entity->udc_entity` |
+| `ReferConfigAppService#create` | `udc_refer_config` | `ReferConfigDao=>ReferConfig->udc_refer_config` |
+| `ReferConfigAppService#createOrUpdate` | `udc_refer_config` | `ReferConfigDao=>ReferConfig->udc_refer_config` |
+| `ReferConfigAppService#deleteById` | `udc_refer_config` | `ReferConfigDao=>ReferConfig->udc_refer_config` |
+| `ReferConfigAppService#update` | `udc_refer_config` | `ReferConfigDao=>ReferConfig->udc_refer_config` |
+| `ReferConfigGroupAppService#createConfigInfo` | `udc_refer_config_group` | `ReferConfigGroupDao=>ReferConfigGroup->udc_refer_config_group` |
+| `ReferConfigGroupAppService#deleteById` | `udc_refer_config_group` | `ReferConfigGroupDao=>ReferConfigGroup->udc_refer_config_group` |
+| `ReferConfigGroupAppService#updateConfigInfo` | `udc_refer_config_group` | `ReferConfigGroupDao=>ReferConfigGroup->udc_refer_config_group` |
+| `ScalabilityAppService#create` | `udc_scalability`, `udc_scalability_option` | `ScalabilityDao=>Scalability->udc_scalability; ScalabilityOptionDao=>ScalabilityOption->udc_scalability_option` |
+| `ScalabilityAppService#deleteById` | `udc_scalability`, `udc_scalability_option` | `ScalabilityDao=>Scalability->udc_scalability; ScalabilityOptionDao=>ScalabilityOption->udc_scalability_option` |
+| `ScalabilityAppService#deleteByIds` | `udc_scalability`, `udc_scalability_option` | `ScalabilityDao=>Scalability->udc_scalability; ScalabilityOptionDao=>ScalabilityOption->udc_scalability_option` |
+| `ScalabilityAppService#update` | `udc_scalability`, `udc_scalability_option` | `ScalabilityDao=>Scalability->udc_scalability; ScalabilityOptionDao=>ScalabilityOption->udc_scalability_option` |
+| `ScalabilityOptionAppService#create` | `udc_scalability_option` | `ScalabilityOptionDao=>ScalabilityOption->udc_scalability_option` |
+| `ScalabilityOptionAppService#deleteById` | `udc_scalability_option` | `ScalabilityOptionDao=>ScalabilityOption->udc_scalability_option` |
+| `ScalabilityOptionAppService#update` | `udc_scalability_option` | `ScalabilityOptionDao=>ScalabilityOption->udc_scalability_option` |
+| `UdcEnumAppService#create` | `udc_enum` | `UdcEnumDao=>UdcEnum->udc_enum; UdcEnumService->udc_enum` |
+| `UdcEnumAppService#deleteById` | `udc_enum` | `UdcEnumDao=>UdcEnum->udc_enum; UdcEnumService->udc_enum` |
+| `UdcEnumAppService#deleteByIds` | `udc_enum` | `UdcEnumDao=>UdcEnum->udc_enum; UdcEnumService->udc_enum` |
+| `UdcEnumAppService#update` | `udc_enum` | `UdcEnumDao=>UdcEnum->udc_enum; UdcEnumService->udc_enum` |
+| `UdcEnumCategoryAppService#create` | `udc_enum`, `udc_enum_category` | `UdcEnumCategoryDao=>UdcEnumCategory->udc_enum_category; UdcEnumCategoryService->udc_enum` |
+| `UdcEnumCategoryAppService#deleteById` | `udc_enum`, `udc_enum_category` | `UdcEnumCategoryDao=>UdcEnumCategory->udc_enum_category; UdcEnumCategoryService->udc_enum` |
+| `UdcEnumCategoryAppService#deleteByIds` | `udc_enum`, `udc_enum_category` | `UdcEnumCategoryDao=>UdcEnumCategory->udc_enum_category; UdcEnumCategoryService->udc_enum` |
+| `UdcEnumCategoryAppService#update` | `udc_enum`, `udc_enum_category` | `UdcEnumCategoryDao=>UdcEnumCategory->udc_enum_category; UdcEnumCategoryService->udc_enum` |
+| `UdcEnumItemAppService#create` | `udc_enum_item` | `UdcEnumItemDao=>UdcEnumItem->udc_enum_item` |
+| `UdcEnumItemAppService#deleteById` | `udc_enum_item` | `UdcEnumItemDao=>UdcEnumItem->udc_enum_item` |
+| `UdcEnumItemAppService#deleteByIds` | `udc_enum_item` | `UdcEnumItemDao=>UdcEnumItem->udc_enum_item` |
+| `UdcEnumItemAppService#importExcel` | `udc_enum_item` | `UdcEnumItemDao=>UdcEnumItem->udc_enum_item` |
+| `UdcEnumItemAppService#update` | `udc_enum_item` | `UdcEnumItemDao=>UdcEnumItem->udc_enum_item` |
+| `UdcFunctionAppService#createFunctionRefer` | `portal_space`, `udc_function_node` | `FunctionNodeEntityDao=>FunctionNodeEntity->udc_function_node; FunctionNodeService->portal_space` |
+| `UdcFunctionAppService#deletePortalFunctionRefer` | `portal_space`, `udc_function_node` | `FunctionNodeEntityDao=>FunctionNodeEntity->udc_function_node; FunctionNodeService->portal_space` |
+| `UdcFunctionAppService#updateFunctionRefer` | `portal_space`, `udc_function_node` | `FunctionNodeEntityDao=>FunctionNodeEntity->udc_function_node; FunctionNodeService->portal_space` |
+
 ## REST 路由
 
 > 证据：`javap -v` 读 Controller 字节码里的 `@RequestMapping`/`@PostMapping` 注解值。

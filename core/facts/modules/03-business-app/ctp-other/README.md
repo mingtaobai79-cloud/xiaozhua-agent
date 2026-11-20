@@ -296,6 +296,12 @@
 |---|---|---:|
 | `ctp_media` | — | 1 |
 
+## 方法级落表（写接口）
+
+⚠️ **UNVERIFIED** —— 写方法的实现类里没有可解析的实体/DAO 引用。
+
+原因：实现走 Dubbo 远端、动态 SQL 拼表名、或实现在未提取的构件里。不猜。
+
 ## REST 路由
 
 > 证据：`javap -v` 读 Controller 字节码里的 `@RequestMapping`/`@PostMapping` 注解值。

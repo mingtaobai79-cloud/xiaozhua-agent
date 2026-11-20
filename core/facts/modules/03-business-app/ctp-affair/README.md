@@ -354,6 +354,39 @@
 | `AffairCustomOperationAppService` | `AffairCustomOperation` | `affair_custom_operation` | `stem` |
 | `AffairNodePermissionAppService` | `AffairNodePermission` | `affair_node_permission` | `stem` |
 
+## 方法级落表（写接口）
+
+> **口径：触及表的上界，不是「只写这张表」。** 证据链是「方法体引用的实体/DAO → 实体类 `@TableName` 字面量」，
+> 方法若再做条件分支，实际只写其中一部分。判断影响面用它，判断唯一落点还得看 SQL。
+> 等级 `VERIFIED_STATIC_BYTECODE`（引用与表名都来自字节码），**上界推断**部分标 `STATIC_INFERENCE`。
+
+本模块 34 个写方法中，**22** 个解析出触及表：
+
+| 接口#方法 | 触及表 | 依据（引用链） |
+|---|---|---|
+| `AffairCategoryAppService#syncCategories` | `affair_category` | `AffairCategoryDao=>AffairCategory->affair_category` |
+| `AffairCommonAppService#createAffairCategory` | `affair_category` | `AffairCategoryDao=>AffairCategory->affair_category` |
+| `AffairCommonAppService#deleteAffairByIds` | `affair_handover` | `AffairHandoverDao=>AffairHandover->affair_handover` |
+| `AffairCommonAppService#deleteAffairByObjectIds` | `affair_handover` | `AffairHandoverDao=>AffairHandover->affair_handover` |
+| `AffairCommonAppService#deleteAffairCategoryByCondition` | `affair_category` | `AffairCategoryDao=>AffairCategory->affair_category` |
+| `AffairCommonAppService#deleteAffairCategoryById` | `affair_category` | `AffairCategoryDao=>AffairCategory->affair_category` |
+| `AffairCommonAppService#updateAffairCategory` | `affair_category` | `AffairCategoryDao=>AffairCategory->affair_category` |
+| `AffairCommonAppService#updateAffairDone` | `affair_handover` | `AffairHandoverDao=>AffairHandover->affair_handover` |
+| `AffairCommonAppService#updateAffairRead` | `affair_handover` | `AffairHandoverDao=>AffairHandover->affair_handover` |
+| `AffairCommonAppService#updateAffairTrack` | `affair_handover` | `AffairHandoverDao=>AffairHandover->affair_handover` |
+| `AffairCommonAppService#updateBpmCaseTrackToAffairTrack` | `affair_handover` | `AffairHandoverDao=>AffairHandover->affair_handover` |
+| `AffairCustomOperationAppService#createAffairCustomOperation` | `affair_custom_operation` | `AffairCustomOperationDao=>AffairCustomOperation->affair_custom_operation` |
+| `AffairMicroflowAppService#updateAffairDoneByMicroflow` | `affair_handover` | `AffairHandoverDao=>AffairHandover->affair_handover` |
+| `AffairMicroflowAppService#updateAffairReadByMicroflow` | `affair_handover` | `AffairHandoverDao=>AffairHandover->affair_handover` |
+| `AffairNodePermissionAppService#createOrUpdate` | `affair_node_permission` | `AffairNodePermissionDao=>AffairNodePermission->affair_node_permission` |
+| `AffairNodePermissionAppService#deleteByIds` | `affair_node_permission` | `AffairNodePermissionDao=>AffairNodePermission->affair_node_permission` |
+| `AffairOpenAppService#createOrUpdate` | `affair_node_permission` | `AffairNodePermission->affair_node_permission; AffairNodePermissionDao=>AffairNodePermission->affair_node_permission` |
+| `AffairOpenAppService#createOrUpdateCategory` | `affair_category` | `AffairCategoryDao=>AffairCategory->affair_category` |
+| `AffairOpenAppService#createOrUpdateCategoryHierarchy` | `affair_category_hierarchy` | `AffairCategoryHierarchyDao=>AffairCategoryHierarchy->affair_category_hierarchy` |
+| `AffairOpenAppService#deleteCategory` | `affair_category` | `AffairCategoryDao=>AffairCategory->affair_category` |
+| `AffairOpenAppService#deleteCategoryHierarchy` | `affair_category_hierarchy` | `AffairCategoryHierarchyDao=>AffairCategoryHierarchy->affair_category_hierarchy` |
+| `AffairSuperviseAppService#updateTemplateAccountId2Affairs` | `affair_handover` | `AffairHandoverDao=>AffairHandover->affair_handover` |
+
 ## REST 路由
 
 > 证据：`javap -v` 读 Controller 字节码里的 `@RequestMapping`/`@PostMapping` 注解值。

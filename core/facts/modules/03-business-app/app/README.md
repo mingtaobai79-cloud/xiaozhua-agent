@@ -648,6 +648,31 @@
 | `ImageCategoryAppService` | `ImageCategory` | `image_category` | `stem` |
 | `ImageStoreAppService` | `ImageStore` | `image_store` | `stem` |
 
+## 方法级落表（写接口）
+
+> **口径：触及表的上界，不是「只写这张表」。** 证据链是「方法体引用的实体/DAO → 实体类 `@TableName` 字面量」，
+> 方法若再做条件分支，实际只写其中一部分。判断影响面用它，判断唯一落点还得看 SQL。
+> 等级 `VERIFIED_STATIC_BYTECODE`（引用与表名都来自字节码），**上界推断**部分标 `STATIC_INFERENCE`。
+
+本模块 37 个写方法中，**14** 个解析出触及表：
+
+| 接口#方法 | 触及表 | 依据（引用链） |
+|---|---|---|
+| `ImageCategoryAppService#deleteCategory` | `image_category` | `ImageCategoryDao=>ImageCategory->image_category` |
+| `ImageCategoryAppService#save` | `image_category` | `ImageCategoryDao=>ImageCategory->image_category` |
+| `ImageStoreAppService#deleteStore` | `image_store` | `ImageStoreDao=>ImageStore->image_store` |
+| `ImageStoreAppService#save` | `image_store` | `ImageStoreDao=>ImageStore->image_store` |
+| `IntegralLedgerOprateAppService#create` | `integral_ledger` | `IntegralLedgerDao=>IntegralLedger->integral_ledger` |
+| `IntegralLedgerOprateAppService#createBatch` | `integral_ledger` | `IntegralLedgerDao=>IntegralLedger->integral_ledger` |
+| `LabelAppService#updateReferenceCount` | `label_category`, `label_department` | `LabelCategoryDao=>LabelCategory->label_category; LabelDepartmentDao=>LabelDepartment->label_department` |
+| `MgnAggDataInitAppService#create` | `ctp_mgn_agg_data` | `CtpMgnAggData->ctp_mgn_agg_data; CtpMgnAggDataDao=>CtpMgnAggData->ctp_mgn_agg_data` |
+| `MgnAggDataInitAppService#update` | `ctp_mgn_agg_data` | `CtpMgnAggData->ctp_mgn_agg_data; CtpMgnAggDataDao=>CtpMgnAggData->ctp_mgn_agg_data` |
+| `MyAttentionCommonAppService#create` | `my_attention` | `MyAttentionDao=>MyAttention->my_attention` |
+| `MyAttentionCommonAppService#createOrUpdateBatch` | `my_attention` | `MyAttentionDao=>MyAttention->my_attention` |
+| `MyAttentionCommonAppService#deleteBatchByObjectIds` | `my_attention` | `MyAttentionDao=>MyAttention->my_attention` |
+| `MyAttentionCommonAppService#deleteByObjectIdOrPageUrl` | `my_attention` | `MyAttentionDao=>MyAttention->my_attention` |
+| `MyAttentionCommonAppService#update` | `my_attention` | `MyAttentionDao=>MyAttention->my_attention` |
+
 ## REST 路由
 
 > 证据：`javap -v` 读 Controller 字节码里的 `@RequestMapping`/`@PostMapping` 注解值。

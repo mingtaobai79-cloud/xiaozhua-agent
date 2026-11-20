@@ -838,6 +838,36 @@
 | `CtpLoginPreConfigAppService` | `CtpLoginPreConfig` | `ctp_login_pre_config` | `stem` |
 | `CtpUserRoleAppService` | `CtpUserRole` | `ctp_user_role` | `stem` |
 
+## 方法级落表（写接口）
+
+> **口径：触及表的上界，不是「只写这张表」。** 证据链是「方法体引用的实体/DAO → 实体类 `@TableName` 字面量」，
+> 方法若再做条件分支，实际只写其中一部分。判断影响面用它，判断唯一落点还得看 SQL。
+> 等级 `VERIFIED_STATIC_BYTECODE`（引用与表名都来自字节码），**上界推断**部分标 `STATIC_INFERENCE`。
+
+本模块 42 个写方法中，**19** 个解析出触及表：
+
+| 接口#方法 | 触及表 | 依据（引用链） |
+|---|---|---|
+| `CtpLoginPreConfigAppService#createOrUpdate` | `ctp_login_pre_config` | `CtpLoginPreConfigDao=>CtpLoginPreConfig->ctp_login_pre_config` |
+| `CtpOrgAdminOrgAppService#createAdmin` | `ctp_org_admin` | `CtpOrgAdminDao=>CtpOrgAdmin->ctp_org_admin` |
+| `CtpOrgAdminOrgAppService#deleteOrgAdminByOrgId` | `ctp_org_admin` | `CtpOrgAdminDao=>CtpOrgAdmin->ctp_org_admin` |
+| `CtpOrgAdminOrgAppService#updateAdmin` | `ctp_org_admin` | `CtpOrgAdminDao=>CtpOrgAdmin->ctp_org_admin` |
+| `CtpOrgUpgradeAppService#updateBatchUserCode` | `ctp_user` | `CtpUser->ctp_user; CtpUserDao=>CtpUser->ctp_user` |
+| `CtpResourceCoreAppService#deleteByConditions` | `ctp_application`, `ctp_application_version`, `ctp_entity_resource`, `ctp_entity_role`, `ctp_menu`, `ctp_org_application` …(+4) | `CtpApplicationDao=>CtpApplication->ctp_application; CtpApplicationVersionDao=>CtpApplicationVersion->ctp_application_version` |
+| `CtpRoleCoreAppService#deleteByConditions` | `ctp_authorization_object`, `ctp_authorization_rule_func` | `CtpAuthorizationObjectDao=>CtpAuthorizationObject->ctp_authorization_object; CtpAuthorizationRuleFuncDao=>CtpAuthorizationRuleFunc->ctp_authorization_rule_func` |
+| `CtpRoleCoreAppService#saveBatch` | `ctp_authorization_object`, `ctp_authorization_rule_func` | `CtpAuthorizationObjectDao=>CtpAuthorizationObject->ctp_authorization_object; CtpAuthorizationRuleFuncDao=>CtpAuthorizationRuleFunc->ctp_authorization_rule_func` |
+| `CtpRoleCoreAppService#syncRoleResource` | `ctp_authorization_object`, `ctp_authorization_rule_func` | `CtpAuthorizationObjectDao=>CtpAuthorizationObject->ctp_authorization_object; CtpAuthorizationRuleFuncDao=>CtpAuthorizationRuleFunc->ctp_authorization_rule_func` |
+| `CtpSecretApprovalOrgAppService#create` | `ctp_entity_role`, `ctp_permission_approval`, `ctp_role`, `ctp_role_application`, `ctp_role_resource` | `CtpEntityRoleDao=>CtpEntityRole->ctp_entity_role; CtpPermissionApprovalDao=>CtpPermissionApproval->ctp_permission_approval` |
+| `CtpUserResourceCoreAppService#createBatch` | `ctp_authorization_object` | `CtpAuthorizationObjectDao=>CtpAuthorizationObject->ctp_authorization_object` |
+| `CtpUserResourceCoreAppService#deleteByConditions` | `ctp_authorization_object` | `CtpAuthorizationObjectDao=>CtpAuthorizationObject->ctp_authorization_object` |
+| `CtpUserRoleCoreAppService#createAuthorizationRule` | `ctp_authorization_object` | `CtpAuthorizationObjectDao=>CtpAuthorizationObject->ctp_authorization_object` |
+| `CtpUserRoleCoreAppService#createBatchAuthorizationRule` | `ctp_authorization_object` | `CtpAuthorizationObjectDao=>CtpAuthorizationObject->ctp_authorization_object` |
+| `CtpUserRoleCoreAppService#createUserRule` | `ctp_authorization_object` | `CtpAuthorizationObjectDao=>CtpAuthorizationObject->ctp_authorization_object` |
+| `CtpUserRoleCoreAppService#deleteAuthorizationRuleById` | `ctp_authorization_object` | `CtpAuthorizationObjectDao=>CtpAuthorizationObject->ctp_authorization_object` |
+| `CtpUserRoleCoreAppService#deleteByConditions` | `ctp_authorization_object` | `CtpAuthorizationObjectDao=>CtpAuthorizationObject->ctp_authorization_object` |
+| `CtpUserRoleCoreAppService#deleteByIds` | `ctp_authorization_object` | `CtpAuthorizationObjectDao=>CtpAuthorizationObject->ctp_authorization_object` |
+| `SyncOrgRoleTempAppService#syncOrgRole` | `ctp_authorization_object`, `ctp_permission_approval`, `ctp_resource`, `ctp_role`, `ctp_role_application`, `ctp_role_resource` | `CtpAuthorizationObjectDao=>CtpAuthorizationObject->ctp_authorization_object; CtpPermissionApprovalDao=>CtpPermissionApproval->ctp_permission_approval` |
+
 ## REST 路由
 
 > 证据：`javap -v` 读 Controller 字节码里的 `@RequestMapping`/`@PostMapping` 注解值。

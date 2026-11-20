@@ -1131,6 +1131,67 @@
 | `ShortMessageSignAppService` | `ShortMessageSign` | `cip_ability_sms_sign` | `stem` |
 | `ShortMessageTemplateAppService` | `ShortMessageTemplate` | `cip_ability_sms_template` | `stem` |
 
+## 方法级落表（写接口）
+
+> **口径：触及表的上界，不是「只写这张表」。** 证据链是「方法体引用的实体/DAO → 实体类 `@TableName` 字面量」，
+> 方法若再做条件分支，实际只写其中一部分。判断影响面用它，判断唯一落点还得看 SQL。
+> 等级 `VERIFIED_STATIC_BYTECODE`（引用与表名都来自字节码），**上界推断**部分标 `STATIC_INFERENCE`。
+
+本模块 102 个写方法中，**50** 个解析出触及表：
+
+| 接口#方法 | 触及表 | 依据（引用链） |
+|---|---|---|
+| `AiAppService#createThirdApp` | `cip_ability_third_info`, `cip_ability_third_purchase` | `ThirdAppInfoDao=>ThirdAppInfo->cip_ability_third_info; ThirdAppPurchaserRecordDao=>ThirdAppPurchaserRecord->cip_ability_third_purchase` |
+| `CapabilityEnumAppService#create` | `cip_ability_enum` | `CapabilityEnumDao=>CipCapabilityEnum->cip_ability_enum` |
+| `CapabilityEnumAppService#createItem` | `cip_ability_enum_item`, `cip_ability_sms_template` | `CapabilityEnumItemDao=>CipCapabilityEnumItem->cip_ability_enum_item; ShortMessageTemplateDao=>ShortMessageTemplate->cip_ability_sms_template` |
+| `CapabilityEnumAppService#delete` | `cip_ability_enum` | `CapabilityEnumDao=>CipCapabilityEnum->cip_ability_enum` |
+| `CapabilityEnumAppService#deleteItem` | `cip_ability_enum_item`, `cip_ability_sms_template` | `CapabilityEnumItemDao=>CipCapabilityEnumItem->cip_ability_enum_item; ShortMessageTemplateDao=>ShortMessageTemplate->cip_ability_sms_template` |
+| `CapabilityEnumAppService#deleteItemByIds` | `cip_ability_enum_item`, `cip_ability_sms_template` | `CapabilityEnumItemDao=>CipCapabilityEnumItem->cip_ability_enum_item; ShortMessageTemplateDao=>ShortMessageTemplate->cip_ability_sms_template` |
+| `CapabilityEnumAppService#update` | `cip_ability_enum` | `CapabilityEnumDao=>CipCapabilityEnum->cip_ability_enum` |
+| `CapabilityEnumAppService#updateItem` | `cip_ability_enum_item`, `cip_ability_sms_template` | `CapabilityEnumItemDao=>CipCapabilityEnumItem->cip_ability_enum_item; ShortMessageTemplateDao=>ShortMessageTemplate->cip_ability_sms_template` |
+| `CapabilityManageAppService#createApp` | `cip_ability_app_channel_mng`, `cip_ability_app_feature_prov` | `CipAppDao=>CipApp->cip_ability_app_channel_mng; CipAppFeatureProviderDao=>CipAppFeatureProvider->cip_ability_app_feature_prov` |
+| `CapabilityManageAppService#createAppConfig` | `cip_ability_app_channel_mng`, `cip_ability_app_feature_prov`, `cip_ability_feature` | `CipAppDao=>CipApp->cip_ability_app_channel_mng; CipAppFeatureProviderDao=>CipAppFeatureProvider->cip_ability_app_feature_prov` |
+| `CapabilityManageAppService#createParamBatch` | `cip_ability_feature`, `cip_ability_provider_manage`, `cip_ability_provider_params`, `cip_ability_provider_select` | `CipFeatureDao=>CipFeature->cip_ability_feature; ProviderManageDao=>CipProviderManage->cip_ability_provider_manage` |
+| `CapabilityManageAppService#deleteApp` | `cip_ability_app_channel_mng`, `cip_ability_app_feature_prov` | `CipAppDao=>CipApp->cip_ability_app_channel_mng; CipAppFeatureProviderDao=>CipAppFeatureProvider->cip_ability_app_feature_prov` |
+| `CapabilityManageAppService#deleteParam` | `cip_ability_feature`, `cip_ability_provider_manage`, `cip_ability_provider_params`, `cip_ability_provider_select` | `CipFeatureDao=>CipFeature->cip_ability_feature; ProviderManageDao=>CipProviderManage->cip_ability_provider_manage` |
+| `CapabilityManageAppService#saveLinkProperties` | `cip_ability_provider_params` | `ProviderParameterDao=>CipProviderParameter->cip_ability_provider_params` |
+| `CapabilityManageAppService#updateApp` | `cip_ability_app_channel_mng`, `cip_ability_app_feature_prov` | `CipAppDao=>CipApp->cip_ability_app_channel_mng; CipAppFeatureProviderDao=>CipAppFeatureProvider->cip_ability_app_feature_prov` |
+| `CapabilityManageAppService#updateAppConfig` | `cip_ability_app_channel_mng`, `cip_ability_app_feature_prov`, `cip_ability_feature` | `CipAppDao=>CipApp->cip_ability_app_channel_mng; CipAppFeatureProviderDao=>CipAppFeatureProvider->cip_ability_app_feature_prov` |
+| `CapabilityManageAppService#updateDefaultProvider` | `cip_ability_feature`, `cip_ability_provider_manage`, `cip_ability_provider_select` | `CipFeatureDao=>CipFeature->cip_ability_feature; ProviderManageDao=>CipProviderManage->cip_ability_provider_manage` |
+| `EmailAppService#insertOrUpdate` | `cip_ability_email_user_a` | `CipEmailUserAccountDao=>CipEmailUserAccount->cip_ability_email_user_a` |
+| `EmailPrivateAppService#deleteEmailTemplates` | `cip_ability_email_template` | `CipEmailTemplateDao=>CipEmailTemplate->cip_ability_email_template` |
+| `IntelligentMissiveAppService#createDocDiffTask` | `cip_ability_doc_diff_record` | `CipMissiveDiffRecordDao=>CipMissiveDiffRecord->cip_ability_doc_diff_record` |
+| `IntelligentMissiveAppService#createExtractingTask` | `cip_ability_doc_diff_record` | `CipMissiveDiffRecordDao=>CipMissiveDiffRecord->cip_ability_doc_diff_record` |
+| `IntelligentMissiveAppService#createOnlineProofread` | `cip_ability_doc_diff_record` | `CipMissiveDiffRecordDao=>CipMissiveDiffRecord->cip_ability_doc_diff_record` |
+| `IntelligentMissiveAppService#createRecommend` | `cip_ability_doc_diff_record` | `CipMissiveDiffRecordDao=>CipMissiveDiffRecord->cip_ability_doc_diff_record` |
+| `IntelligentMissiveAppService#createReviewTask` | `cip_ability_doc_diff_record` | `CipMissiveDiffRecordDao=>CipMissiveDiffRecord->cip_ability_doc_diff_record` |
+| `IntelligentMissiveAppService#createSettingByTemplate` | `cip_ability_doc_diff_record` | `CipMissiveDiffRecordDao=>CipMissiveDiffRecord->cip_ability_doc_diff_record` |
+| `IntelligentMissiveAppService#createTableTask` | `cip_ability_doc_diff_record` | `CipMissiveDiffRecordDao=>CipMissiveDiffRecord->cip_ability_doc_diff_record` |
+| `IntelligentMissiveAppService#createWrite` | `cip_ability_doc_diff_record` | `CipMissiveDiffRecordDao=>CipMissiveDiffRecord->cip_ability_doc_diff_record` |
+| `IntelligentMissiveAppService#uploadTempFile` | `cip_ability_doc_diff_record` | `CipMissiveDiffRecordDao=>CipMissiveDiffRecord->cip_ability_doc_diff_record` |
+| `InvoiceImageAppService#createImageTask` | `cip_ability_invoice_check`, `cip_ability_invoice_record` | `CipInvoiceCheckRecordDao=>CipInvoiceCheckRecord->cip_ability_invoice_check; CipInvoiceOcrRecordDao=>CipInvoiceOcrRecord->cip_ability_invoice_record` |
+| `InvoiceImageAppService#uploadImageFile` | `cip_ability_invoice_check`, `cip_ability_invoice_record` | `CipInvoiceCheckRecordDao=>CipInvoiceCheckRecord->cip_ability_invoice_check; CipInvoiceOcrRecordDao=>CipInvoiceOcrRecord->cip_ability_invoice_record` |
+| `MerchantAppService#createMerchant` | `cip_merchant` | `CipMerchantDao=>CipMerchant->cip_merchant` |
+| `MerchantAppService#deleteMerchant` | `cip_merchant` | `CipMerchantDao=>CipMerchant->cip_merchant` |
+| `MerchantAppService#updateMerchant` | `cip_merchant` | `CipMerchantDao=>CipMerchant->cip_merchant` |
+| `MobilePluginAppletAppService#submitAudit` | `cip_third_platform_config` | `MobilePluginCipThirdPlatformConfigDao=>MobilePluginCipThirdPlatformConfig->cip_third_platform_config` |
+| `MobilePluginAppletAppService#uploadCode` | `cip_third_platform_config` | `MobilePluginCipThirdPlatformConfigDao=>MobilePluginCipThirdPlatformConfig->cip_third_platform_config` |
+| `ShortMessageProviderTemplateAppService#createShortMessageTemplateContent` | `cip_ability_sms_provide_t` | `ShortMessageProviderTemplateDao=>ShortMessageProviderTemplate->cip_ability_sms_provide_t` |
+| `ShortMessageProviderTemplateAppService#deleteTemplateContent` | `cip_ability_sms_provide_t` | `ShortMessageProviderTemplateDao=>ShortMessageProviderTemplate->cip_ability_sms_provide_t` |
+| `ShortMessageProviderTemplateAppService#updateTemplateContent` | `cip_ability_sms_provide_t` | `ShortMessageProviderTemplateDao=>ShortMessageProviderTemplate->cip_ability_sms_provide_t` |
+| `ShortMessageSignAppService#createShortMessageSign` | `cip_ability_sms_sign` | `ShortMessageSignDao=>ShortMessageSign->cip_ability_sms_sign` |
+| `ShortMessageSignAppService#createSmsSign` | `cip_ability_sms_sign` | `ShortMessageSignDao=>ShortMessageSign->cip_ability_sms_sign` |
+| `ShortMessageSignAppService#deleteShortMessageSign` | `cip_ability_sms_sign` | `ShortMessageSignDao=>ShortMessageSign->cip_ability_sms_sign` |
+| `ShortMessageSignAppService#updateShortMessageSign` | `cip_ability_sms_sign` | `ShortMessageSignDao=>ShortMessageSign->cip_ability_sms_sign` |
+| `ShortMessageSignAppService#updateSmsSign` | `cip_ability_sms_sign` | `ShortMessageSignDao=>ShortMessageSign->cip_ability_sms_sign` |
+| `ShortMessageSignAppService#updateTemplateSign` | `cip_ability_sms_sign` | `ShortMessageSignDao=>ShortMessageSign->cip_ability_sms_sign` |
+| `ShortMessageTemplateAppService#createSMSTemplate` | `cip_ability_sms_provide_t`, `cip_ability_sms_sign`, `cip_ability_sms_template` | `ShortMessageProviderTemplateDao=>ShortMessageProviderTemplate->cip_ability_sms_provide_t; ShortMessageSignDao=>ShortMessageSign->cip_ability_sms_sign` |
+| `ShortMessageTemplateAppService#createShortMessageTemplate` | `cip_ability_sms_provide_t`, `cip_ability_sms_sign`, `cip_ability_sms_template` | `ShortMessageProviderTemplateDao=>ShortMessageProviderTemplate->cip_ability_sms_provide_t; ShortMessageSignDao=>ShortMessageSign->cip_ability_sms_sign` |
+| `ShortMessageTemplateAppService#deleteTemplateById` | `cip_ability_sms_provide_t`, `cip_ability_sms_sign`, `cip_ability_sms_template` | `ShortMessageProviderTemplateDao=>ShortMessageProviderTemplate->cip_ability_sms_provide_t; ShortMessageSignDao=>ShortMessageSign->cip_ability_sms_sign` |
+| `ShortMessageTemplateAppService#deleteTemplateByIds` | `cip_ability_sms_provide_t`, `cip_ability_sms_sign`, `cip_ability_sms_template` | `ShortMessageProviderTemplateDao=>ShortMessageProviderTemplate->cip_ability_sms_provide_t; ShortMessageSignDao=>ShortMessageSign->cip_ability_sms_sign` |
+| `ShortMessageTemplateAppService#updateShortMessageTemplate` | `cip_ability_sms_provide_t`, `cip_ability_sms_sign`, `cip_ability_sms_template` | `ShortMessageProviderTemplateDao=>ShortMessageProviderTemplate->cip_ability_sms_provide_t; ShortMessageSignDao=>ShortMessageSign->cip_ability_sms_sign` |
+| `ShortMessageTemplateAppService#updateTemplate` | `cip_ability_sms_provide_t`, `cip_ability_sms_sign`, `cip_ability_sms_template` | `ShortMessageProviderTemplateDao=>ShortMessageProviderTemplate->cip_ability_sms_provide_t; ShortMessageSignDao=>ShortMessageSign->cip_ability_sms_sign` |
+
 ## REST 路由
 
 > 证据：`javap -v` 读 Controller 字节码里的 `@RequestMapping`/`@PostMapping` 注解值。

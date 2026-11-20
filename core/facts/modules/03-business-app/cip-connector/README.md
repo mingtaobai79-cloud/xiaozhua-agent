@@ -576,6 +576,27 @@
 | `MiddleTableOrgSyncDataCallbackService` | `MiddleTableService` | `cip_sync_duty`, `cip_sync_level`, `cip_sync_member`, `cip_sync_post`, `cip_sync_result`, `cip_sync_unit` | `implements+field` |
 | `MiddleTableOrgSyncMarkCallbackService` | `MiddleTableService` | `cip_sync_duty`, `cip_sync_level`, `cip_sync_member`, `cip_sync_post`, `cip_sync_result`, `cip_sync_unit` | `implements+field` |
 
+## 方法级落表（写接口）
+
+> **口径：触及表的上界，不是「只写这张表」。** 证据链是「方法体引用的实体/DAO → 实体类 `@TableName` 字面量」，
+> 方法若再做条件分支，实际只写其中一部分。判断影响面用它，判断唯一落点还得看 SQL。
+> 等级 `VERIFIED_STATIC_BYTECODE`（引用与表名都来自字节码），**上界推断**部分标 `STATIC_INFERENCE`。
+
+本模块 24 个写方法中，**10** 个解析出触及表：
+
+| 接口#方法 | 触及表 | 依据（引用链） |
+|---|---|---|
+| `LinkerAppService#execute` | `cip_app_param` | `AppRegisterDao=>AppRegister->cip_app_param` |
+| `MiddleTableOrgSyncExecuteCallbackService#executeSyncToOrgModel` | `cip_p_org_running_config` | `CipOrgRunningConfigDao=>CipOrgRunningConfig->cip_p_org_running_config` |
+| `MobileApplicationProviderService#publishApp` | `cip_mobile_app`, `cip_mobile_config`, `cip_mobile_corp`, `cip_mobile_sync_config` | `CipMobileAppDao=>CipMobileApp->cip_mobile_app; CipMobileConfigDao=>CipMobileConfig->cip_mobile_config` |
+| `MobileOrgSyncBatchProviderService#syncBatchResult` | `cip_mobile_app`, `cip_mobile_config`, `cip_mobile_corp`, `cip_mobile_sync_config` | `CipMobileAppDao=>CipMobileApp->cip_mobile_app; CipMobileConfigDao=>CipMobileConfig->cip_mobile_config` |
+| `MobileOrgSyncProviderService#removeUnit` | `cip_mobile_app`, `cip_mobile_config`, `cip_mobile_corp`, `cip_mobile_sync_config` | `CipMobileAppDao=>CipMobileApp->cip_mobile_app; CipMobileConfigDao=>CipMobileConfig->cip_mobile_config` |
+| `MobileOrgSyncProviderService#syncUnit` | `cip_mobile_app`, `cip_mobile_config`, `cip_mobile_corp`, `cip_mobile_sync_config` | `CipMobileAppDao=>CipMobileApp->cip_mobile_app; CipMobileConfigDao=>CipMobileConfig->cip_mobile_config` |
+| `MobileOrgSyncProviderService#syncUser` | `cip_mobile_app`, `cip_mobile_config`, `cip_mobile_corp`, `cip_mobile_sync_config` | `CipMobileAppDao=>CipMobileApp->cip_mobile_app; CipMobileConfigDao=>CipMobileConfig->cip_mobile_config` |
+| `MobileOrgSyncProviderService#updateUnit` | `cip_mobile_app`, `cip_mobile_config`, `cip_mobile_corp`, `cip_mobile_sync_config` | `CipMobileAppDao=>CipMobileApp->cip_mobile_app; CipMobileConfigDao=>CipMobileConfig->cip_mobile_config` |
+| `MobileOrgSyncProviderService#updateUser` | `cip_mobile_app`, `cip_mobile_config`, `cip_mobile_corp`, `cip_mobile_sync_config` | `CipMobileAppDao=>CipMobileApp->cip_mobile_app; CipMobileConfigDao=>CipMobileConfig->cip_mobile_config` |
+| `MobileTodoProviderService#createTodo` | `cip_mapping_config`, `cip_mobile_app`, `cip_mobile_config`, `cip_mobile_corp`, `cip_mobile_sync_config`, `cip_user_mapping_detail` | `CipMobileAppDao=>CipMobileApp->cip_mobile_app; CipMobileConfigDao=>CipMobileConfig->cip_mobile_config` |
+
 ## REST 路由
 
 > 证据：`javap -v` 读 Controller 字节码里的 `@RequestMapping`/`@PostMapping` 注解值。

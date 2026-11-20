@@ -442,6 +442,19 @@
 | `cip_third_page_component` | 第三方页面组件集成 | 1 |
 | `cip_user_sync_relation` | 三方平台用户id与系统内部用户id对应关系表 | 1 |
 
+## 方法级落表（写接口）
+
+> **口径：触及表的上界，不是「只写这张表」。** 证据链是「方法体引用的实体/DAO → 实体类 `@TableName` 字面量」，
+> 方法若再做条件分支，实际只写其中一部分。判断影响面用它，判断唯一落点还得看 SQL。
+> 等级 `VERIFIED_STATIC_BYTECODE`（引用与表名都来自字节码），**上界推断**部分标 `STATIC_INFERENCE`。
+
+本模块 31 个写方法中，**2** 个解析出触及表：
+
+| 接口#方法 | 触及表 | 依据（引用链） |
+|---|---|---|
+| `HtmlConvertAppService#transfer` | `cip_convert_transfer_record` | `CipTransferRecordDao=>CipTransferRecord->cip_convert_transfer_record` |
+| `HtmlConvertAppService#transferToZip` | `cip_convert_transfer_record` | `CipTransferRecordDao=>CipTransferRecord->cip_convert_transfer_record` |
+
 ## REST 路由
 
 > 证据：`javap -v` 读 Controller 字节码里的 `@RequestMapping`/`@PostMapping` 注解值。

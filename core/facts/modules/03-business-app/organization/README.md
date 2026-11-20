@@ -1303,6 +1303,43 @@ ListResponse<OrgMemberCoreDto> people = memberCore.selectMemberByIds(SingleReque
 | `OrgUnitBaseAppService` | `SelectPeopleAppService` | `org_role` | `implements+field` |
 | `WorkFlowMatchService` | `FormulaAppServiceImpl, OrganizationMatchMemberAppServiceImpl` | `org_role` | `implements` |
 
+## 方法级落表（写接口）
+
+> **口径：触及表的上界，不是「只写这张表」。** 证据链是「方法体引用的实体/DAO → 实体类 `@TableName` 字面量」，
+> 方法若再做条件分支，实际只写其中一部分。判断影响面用它，判断唯一落点还得看 SQL。
+> 等级 `VERIFIED_STATIC_BYTECODE`（引用与表名都来自字节码），**上界推断**部分标 `STATIC_INFERENCE`。
+
+本模块 35 个写方法中，**26** 个解析出触及表：
+
+| 接口#方法 | 触及表 | 依据（引用链） |
+|---|---|---|
+| `OrgJobBaseAppService#create` | `org_job` | `OrgJobDao=>OrgJob->org_job` |
+| `OrgJobBaseAppService#update` | `org_job` | `OrgJobDao=>OrgJob->org_job` |
+| `OrgJobSyncAppService#createBatch` | `org_business`, `org_job`, `org_metadata_column`, `org_post_dimension`, `org_unit`, `org_unit_vertical` | `OrgBusinessDao=>OrgBusiness->org_business; OrgJob->org_job` |
+| `OrgLevelBaseAppService#create` | `org_level` | `OrgLevelDao=>OrgLevel->org_level` |
+| `OrgLevelBaseAppService#update` | `org_level` | `OrgLevelDao=>OrgLevel->org_level` |
+| `OrgLevelSyncAppService#createBatch` | `org_business`, `org_level`, `org_metadata_column`, `org_post_dimension`, `org_unit` | `OrgBusinessDao=>OrgBusiness->org_business; OrgLevel->org_level` |
+| `OrgMemberBaseAppService#create` | `org_member`, `org_member_data`, `org_member_post`, `org_unit` | `OrgMemberDao=>OrgMember->org_member; OrgMemberMetadataDao=>OrgMemberMetadata->org_member_data` |
+| `OrgMemberBaseAppService#update` | `org_member`, `org_member_data`, `org_member_post`, `org_metadata_column`, `org_post_dimension`, `org_unit` | `OrgMember->org_member; OrgMemberDao=>OrgMember->org_member` |
+| `OrgMemberCoreAppService#modifyMemberInfoBySelf` | `org_member`, `org_member_post` | `OrgMember->org_member; OrgMemberDao=>OrgMember->org_member` |
+| `OrgMemberRoleSyncService#createBatch` | `org_business`, `org_member`, `org_member_post`, `org_member_role`, `org_role`, `org_unit` …(+1) | `OrgBusinessDao=>OrgBusiness->org_business; OrgMemberDao=>OrgMember->org_member` |
+| `OrgMemberSyncAppService#createBatchNaturalMember` | `org_member` | `OrgMemberDao=>OrgMember->org_member` |
+| `OrgMemberSyncAppService#disableMember` | `org_member`, `org_member_post` | `OrgMemberDao=>OrgMember->org_member; OrgMemberPostDao=>OrgMemberPost->org_member_post` |
+| `OrgMemberSyncAppService#disableMemberByThirdIds` | `org_member`, `org_member_post` | `OrgMemberDao=>OrgMember->org_member; OrgMemberPostDao=>OrgMemberPost->org_member_post` |
+| `OrgPostBaseAppService#create` | `org_post` | `OrgPostDao=>OrgPost->org_post` |
+| `OrgPostBaseAppService#update` | `org_post` | `OrgPostDao=>OrgPost->org_post` |
+| `OrgRoleSyncService#createBatch` | `org_business`, `org_member_role`, `org_role`, `org_unit`, `org_unit_vertical` | `OrgBusinessDao=>OrgBusiness->org_business; OrgMemberRoleDao=>OrgMemberRole->org_member_role` |
+| `OrgTeamSyncAppService#create` | `org_member`, `org_member_post`, `org_metadata_column`, `org_post_dimension`, `org_team`, `org_unit` …(+1) | `OrgMember->org_member; OrgMemberDao=>OrgMember->org_member` |
+| `OrgUnitBaseAppService#create` | `org_business`, `org_unit`, `org_unit_data`, `org_unit_vertical` | `OrgBusinessDao=>OrgBusiness->org_business; OrgUnitDao=>OrgUnit->org_unit` |
+| `OrgUnitBaseAppService#update` | `org_business`, `org_unit`, `org_unit_data`, `org_unit_vertical` | `OrgBusinessDao=>OrgBusiness->org_business; OrgUnitDao=>OrgUnit->org_unit` |
+| `OrgUnitSyncAppService#createBatch` | `org_business`, `org_member`, `org_member_data`, `org_member_post`, `org_metadata_column`, `org_post_dimension` …(+3) | `OrgBusinessDao=>OrgBusiness->org_business; OrgMemberDao=>OrgMember->org_member` |
+| `OrgUnitSyncAppService#createBatchUnitMetadata` | `org_business`, `org_member`, `org_member_data`, `org_member_post`, `org_metadata_column`, `org_unit` …(+2) | `OrgBusinessDao=>OrgBusiness->org_business; OrgMemberDao=>OrgMember->org_member` |
+| `OrgUnitSyncAppService#disableOrganization` | `org_business`, `org_member`, `org_member_post`, `org_unit`, `org_unit_vertical` | `OrgBusinessDao=>OrgBusiness->org_business; OrgMember->org_member` |
+| `OrgUnitTeamCoreAppService#create` | `org_unit_team`, `org_unit_team_public_scope` | `OrgUnitTeamDao=>OrgUnitTeam->org_unit_team; OrgUnitTeamPublicScopeDao=>OrgUnitTeamPublicScope->org_unit_team_public_scope` |
+| `OrgUnitTeamCoreAppService#delete` | `org_unit_team`, `org_unit_team_public_scope` | `OrgUnitTeamDao=>OrgUnitTeam->org_unit_team; OrgUnitTeamPublicScopeDao=>OrgUnitTeamPublicScope->org_unit_team_public_scope` |
+| `OrgUnitTeamCoreAppService#update` | `org_unit_team`, `org_unit_team_public_scope` | `OrgUnitTeamDao=>OrgUnitTeam->org_unit_team; OrgUnitTeamPublicScopeDao=>OrgUnitTeamPublicScope->org_unit_team_public_scope` |
+| `OrgWorkFlowAppService#deleteReturnFileByKey` | `org_role` | `[OrgWorkFlowAppServiceImpl] 类级兜底` |
+
 ## REST 路由
 
 > 证据：`javap -v` 读 Controller 字节码里的 `@RequestMapping`/`@PostMapping` 注解值。

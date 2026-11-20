@@ -145,8 +145,17 @@ Agent 拿到「给订单审批抄送部门负责人」这类需求时，能只�
 | 落哪张表 | 15/22 模块、739 张次、71 条接口→表 | 表名 `VERIFIED` + `LIVE`；**方法级仍 UNVERIFIED** |
 | 怎么调 | 5,046 条 REST 路由，2,633/2,636 真机命中 99.9% | `VERIFIED_STATIC_BYTECODE` + `LIVE` |
 
-**唯一未达目标粒度的一项：方法级落表。** 平台 SQL 内联、无 mapper XML，
-方法→表要逐类反编译读 SQL 字面量，与现在的 class 常量池扫描不是同一量级的活。
+### 阶段6 方法级落表（写接口，完成第一轮）
+
+- 链条：facade 方法 → Impl 类 → `javap -c` 方法体引用（字段类型 / InterfaceMethod）
+  → DAO → `extends BaseMybatisDao<Entity>` 泛型 → 实体类 `@TableName` → 真实表
+- 777 个写方法中 **348** 个解析出触及表（347 方法级 + 1 类级兜底）
+- **口径是「上界」**：方法体出现的实体都算，条件分支下实际只写一部分；用途是判断影响面
+- 未解析的三类原因都写明：Dubbo/SPI 远端、泛型基类无 `@TableName`、动态 SQL
+
+| GOAL 要求 | 现状 | 等级 |
+|---|---|---|
+| 落哪张表 | 模块/类级 739 张次 + 方法级 348 条（写接口） | 表名 `VERIFIED`+`LIVE`；方法级链 `VERIFIED_STATIC_BYTECODE`；上界属 `STATIC_INFERENCE` |
 
 ### 阶段4 REST 路由（静态部分完成）
 

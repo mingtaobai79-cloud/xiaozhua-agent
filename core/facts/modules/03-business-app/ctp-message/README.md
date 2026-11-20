@@ -295,6 +295,29 @@
 | `CtpMessageTypeAppService` | `CtpMessageType` | `ctp_message_type` | `stem` |
 | `CtpMessageUserSubscribeAppService` | `CtpMessageUserSubscribe` | `ctp_message_user_subscribe` | `stem` |
 
+## 方法级落表（写接口）
+
+> **口径：触及表的上界，不是「只写这张表」。** 证据链是「方法体引用的实体/DAO → 实体类 `@TableName` 字面量」，
+> 方法若再做条件分支，实际只写其中一部分。判断影响面用它，判断唯一落点还得看 SQL。
+> 等级 `VERIFIED_STATIC_BYTECODE`（引用与表名都来自字节码），**上界推断**部分标 `STATIC_INFERENCE`。
+
+本模块 12 个写方法中，**12** 个解析出触及表：
+
+| 接口#方法 | 触及表 | 依据（引用链） |
+|---|---|---|
+| `CtpMessageAppService#deleteMessageByCode` | `ctp_message`, `ctp_message_user` | `CtpMessageDao=>CtpMessage->ctp_message; CtpMessageUserDao=>CtpMessageUser->ctp_message_user` |
+| `CtpMessageClientAppService#deleteMessageByCode` | `ctp_message`, `ctp_message_user` | `CtpMessageDao=>CtpMessage->ctp_message; CtpMessageUserDao=>CtpMessageUser->ctp_message_user` |
+| `CtpMessageClientAppService#deleteMessageByMessageId` | `ctp_message`, `ctp_message_user` | `CtpMessageDao=>CtpMessage->ctp_message; CtpMessageUserDao=>CtpMessageUser->ctp_message_user` |
+| `CtpMessageClientAppService#moveOther` | `ctp_message_source` | `CtpMessageSourceDao=>CtpMessageSource->ctp_message_source` |
+| `CtpMessageClientAppService#updateCtpMessageClientType` | `ctp_message_source` | `CtpMessageSourceDao=>CtpMessageSource->ctp_message_source` |
+| `CtpMessageManageAppService#deleteMessageRegister` | `ctp_message_manage`, `ctp_message_source`, `ctp_message_type`, `ctp_message_url`, `ctp_message_user`, `ctp_message_user_subscribe` | `CtpMessageManageDao=>CtpMessageManage->ctp_message_manage; CtpMessageSourceDao=>CtpMessageSource->ctp_message_source` |
+| `CtpMessageOpenApiService#saveMessageTemplate` | `ctp_message_template` | `CtpMessageTemplateDao=>CtpMessageTemplate->ctp_message_template` |
+| `CtpMessageOperateAppService#deleteMessageByIdentification` | `ctp_message`, `ctp_message_user` | `CtpMessageDao=>CtpMessage->ctp_message; CtpMessageUserDao=>CtpMessageUser->ctp_message_user` |
+| `CtpMessageSourceTypeAppService#createSource` | `ctp_message_source`, `ctp_message_url` | `CtpMessageSourceDao=>CtpMessageSource->ctp_message_source; CtpMessageUrlDao=>CtpMessageUrl->ctp_message_url` |
+| `CtpMessageSourceTypeAppService#createType` | `ctp_message_type` | `CtpMessageTypeDao=>CtpMessageType->ctp_message_type` |
+| `CtpMessageTypeAppService#create` | `ctp_message_type` | `CtpMessageTypeDao=>CtpMessageType->ctp_message_type` |
+| `CtpMessageUserSubscribeAppService#resetSubscribe` | `ctp_message_source`, `ctp_message_type`, `ctp_message_user_subscribe` | `CtpMessageSourceDao=>CtpMessageSource->ctp_message_source; CtpMessageTypeDao=>CtpMessageType->ctp_message_type` |
+
 ## REST 路由
 
 > 证据：`javap -v` 读 Controller 字节码里的 `@RequestMapping`/`@PostMapping` 注解值。

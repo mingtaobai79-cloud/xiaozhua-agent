@@ -1122,6 +1122,52 @@ bpm 内部
 | `BpmTemplateAppService` | `BpmTemplate` | `bpm_template` | `stem` |
 | `BpmApiSimulationAppService` | `BpmActivityRunService` | `bpm_activity_run` | `implements+field` |
 
+## 方法级落表（写接口）
+
+> **口径：触及表的上界，不是「只写这张表」。** 证据链是「方法体引用的实体/DAO → 实体类 `@TableName` 字面量」，
+> 方法若再做条件分支，实际只写其中一部分。判断影响面用它，判断唯一落点还得看 SQL。
+> 等级 `VERIFIED_STATIC_BYTECODE`（引用与表名都来自字节码），**上界推断**部分标 `STATIC_INFERENCE`。
+
+本模块 64 个写方法中，**35** 个解析出触及表：
+
+| 接口#方法 | 触及表 | 依据（引用链） |
+|---|---|---|
+| `BpmActivityAppService#create` | `bpm_activity_run`, `bpm_subprocess` | `BpmActivityRun->bpm_activity_run; BpmActivityRunService->bpm_activity_run` |
+| `BpmActivityAppService#createBatch` | `bpm_activity_run` | `BpmActivityRun->bpm_activity_run; BpmActivityRunService->bpm_activity_run` |
+| `BpmApiFormPermissionAppService#create` | `bpm_form_permission` | `BpmFormPermissionDao=>BpmFormPermission->bpm_form_permission` |
+| `BpmApiFormPermissionAppService#createBatchOrUpdateContent` | `bpm_form_permission_content` | `BpmFormPermissionContent->bpm_form_permission_content; BpmFormPermissionContentDao=>BpmFormPermissionContent->bpm_form_permission_content` |
+| `BpmApiFormPermissionAppService#createOrUpdateBatch` | `bpm_form_permission` | `BpmFormPermission->bpm_form_permission; BpmFormPermissionDao=>BpmFormPermission->bpm_form_permission` |
+| `BpmApiFormPermissionAppService#deleteById` | `bpm_form_permission` | `BpmFormPermissionDao=>BpmFormPermission->bpm_form_permission` |
+| `BpmApiFormPermissionAppService#deleteFormPermisionForceEntityDraft` | `bpm_form_permission` | `BpmFormPermissionDao=>BpmFormPermission->bpm_form_permission` |
+| `BpmApiFormPermissionAppService#update` | `bpm_form_permission` | `BpmFormPermissionDao=>BpmFormPermission->bpm_form_permission` |
+| `BpmApiNodePermissionAppService#createOrUpdateNodePermissionBatch` | `bpm_form_permission_content`, `bpm_node_permission`, `bpm_node_permission_operation` | `BpmFormPermissionContentDao=>BpmFormPermissionContent->bpm_form_permission_content; BpmNodePermissionDao=>BpmNodePermission->bpm_node_permission` |
+| `BpmApiNodePermissionAppService#savePermission` | `bpm_node_permission` | `BpmNodePermissionDao=>BpmNodePermission->bpm_node_permission` |
+| `BpmApiNodePermissionAppService#savePermissionList` | `bpm_node_permission` | `BpmNodePermissionDao=>BpmNodePermission->bpm_node_permission` |
+| `BpmAppService#addExecuteMember` | `bpm_process_log`, `bpm_process_supervise`, `bpm_process_supervisor` | `BpmProcessLogDao=>BpmProcessLog->bpm_process_log; BpmProcessSuperviseDao=>BpmProcessSupervise->bpm_process_supervise` |
+| `BpmAppService#cancelItems` | `bpm_subprocess` | `BpmOperationService->bpm_subprocess` |
+| `BpmAppService#cancelPause` | `bpm_process_log`, `bpm_process_supervise`, `bpm_process_supervisor` | `BpmProcessLogDao=>BpmProcessLog->bpm_process_log; BpmProcessSuperviseDao=>BpmProcessSupervise->bpm_process_supervise` |
+| `BpmAppService#deleteDraft` | `bpm_subprocess` | `BpmOperationService->bpm_subprocess` |
+| `BpmAppService#deleteDraftAffair` | `bpm_subprocess` | `BpmOperationService->bpm_subprocess` |
+| `BpmAppService#saveDraft` | `bpm_subprocess`, `bpm_template` | `BpmCommonUtil->bpm_subprocess; BpmOperationService->bpm_subprocess` |
+| `BpmAppService#submit` | `bpm_subprocess` | `BpmOperationService->bpm_subprocess` |
+| `BpmApplicationOperateLogAppService#saveApplicationOperateLog` | `bpm_application_operate_log` | `BpmApplicationOperateLogDao=>BpmApplicationOperateLog->bpm_application_operate_log` |
+| `BpmApplicationOperateLogAppService#updateAppLogs` | `bpm_application_operate_log` | `BpmApplicationOperateLogDao=>BpmApplicationOperateLog->bpm_application_operate_log` |
+| `BpmCaseAppService#updateCase` | `bpm_case` | `BpmCase->bpm_case` |
+| `BpmOpinionAppService#create` | `bpm_subprocess` | `BpmCommonUtil->bpm_subprocess` |
+| `BpmSuperviseAppService#cancelFocus` | `bpm_supervise_vip` | `BpmVipSuperviseRunDao=>BpmVipSuperviseRun->bpm_supervise_vip` |
+| `BpmTemplateAppService#deleteById` | `bpm_subprocess` | `BpmCommonUtil->bpm_subprocess` |
+| `BpmTemplateAppService#publishCheck` | `bpm_process` | `BpmProcessDao=>BpmProcess->bpm_process` |
+| `BpmTemplateAppService#publishCheckByAppInfo` | `bpm_process` | `BpmProcessDao=>BpmProcess->bpm_process` |
+| `BpmTemplateAppService#updateTemplateExtend` | `bpm_template` | `BpmTemplate->bpm_template` |
+| `BpmTemplateManageAppService#updateAuth` | `bpm_template_auth` | `BpmTemplateAuthDao=>BpmTemplateAuth->bpm_template_auth` |
+| `BpmThirdTemplateSyncAppService#createActivityResponsibilities` | `bpm_diagram_detail` | `BpmDiagramDetail->bpm_diagram_detail` |
+| `BpmThirdTemplateSyncAppService#createBatch` | `bpm_third_template` | `BpmThirdTemplateDao=>BpmThirdTemplate->bpm_third_template` |
+| `BpmThirdTemplateSyncAppService#createTemplateRecent` | `bpm_template_recent` | `BpmTemplateRecentDao=>BpmTemplateRecent->bpm_template_recent` |
+| `BpmThirdTemplateSyncAppService#updateBatch` | `bpm_third_template` | `BpmThirdTemplateDao=>BpmThirdTemplate->bpm_third_template` |
+| `BpmUdcApiService#deleteCaseByIdForUdc` | `bpm_subprocess` | `BpmCommonUtil->bpm_subprocess` |
+| `BpmWorkItemAppService#create` | `bpm_workitem_history`, `bpm_workitem_run` | `BpmWorkItemHistoryDao=>BpmWorkItemHistory->bpm_workitem_history; BpmWorkItemRun->bpm_workitem_run` |
+| `BpmWorkItemAppService#createBatch` | `bpm_workitem_history`, `bpm_workitem_run` | `BpmWorkItemHistoryDao=>BpmWorkItemHistory->bpm_workitem_history; BpmWorkItemRun->bpm_workitem_run` |
+
 ## REST 路由
 
 > 证据：`javap -v` 读 Controller 字节码里的 `@RequestMapping`/`@PostMapping` 注解值。

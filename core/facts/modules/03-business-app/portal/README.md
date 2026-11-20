@@ -330,6 +330,37 @@
 | `PortalShortcutAppService` | `PortalShortcut` | `portlet_shortcut` | `stem` |
 | `PortalSpaceAppService` | `PortalSpace` | `portal_space` | `stem` |
 
+## 方法级落表（写接口）
+
+> **口径：触及表的上界，不是「只写这张表」。** 证据链是「方法体引用的实体/DAO → 实体类 `@TableName` 字面量」，
+> 方法若再做条件分支，实际只写其中一部分。判断影响面用它，判断唯一落点还得看 SQL。
+> 等级 `VERIFIED_STATIC_BYTECODE`（引用与表名都来自字节码），**上界推断**部分标 `STATIC_INFERENCE`。
+
+本模块 23 个写方法中，**20** 个解析出触及表：
+
+| 接口#方法 | 触及表 | 依据（引用链） |
+|---|---|---|
+| `PortalPortletAppService#createBatchCategory` | `portal_portlet_category` | `PortalPortletCategoryDao=>PortalPortletCategory->portal_portlet_category` |
+| `PortalPortletAppService#createBatchPortlet` | `portal_portlet_category`, `portal_portlet_definition`, `portal_portlet_style_sheet` | `PortalPortletCategoryDao=>PortalPortletCategory->portal_portlet_category; PortalPortletDefinitionDao=>PortalPortletDefinition->portal_portlet_definition` |
+| `PortalPortletAppService#createCategory` | `portal_portlet_category` | `PortalPortletCategoryDao=>PortalPortletCategory->portal_portlet_category` |
+| `PortalPortletAppService#createPortlet` | `portal_portlet_category`, `portal_portlet_definition`, `portal_portlet_style_sheet` | `PortalPortletCategoryDao=>PortalPortletCategory->portal_portlet_category; PortalPortletDefinitionDao=>PortalPortletDefinition->portal_portlet_definition` |
+| `PortalPortletAppService#deleteCategoryByCodes` | `portal_portlet_category` | `PortalPortletCategoryDao=>PortalPortletCategory->portal_portlet_category` |
+| `PortalPortletAppService#deletePortletByIds` | `portal_portlet_category`, `portal_portlet_definition`, `portal_portlet_style_sheet` | `PortalPortletCategoryDao=>PortalPortletCategory->portal_portlet_category; PortalPortletDefinitionDao=>PortalPortletDefinition->portal_portlet_definition` |
+| `PortalPortletAppService#deletePortlets` | `portal_portlet_category`, `portal_portlet_definition`, `portal_portlet_style_sheet` | `PortalPortletCategoryDao=>PortalPortletCategory->portal_portlet_category; PortalPortletDefinitionDao=>PortalPortletDefinition->portal_portlet_definition` |
+| `PortalPortletAppService#updateCategory` | `portal_portlet_category` | `PortalPortletCategoryDao=>PortalPortletCategory->portal_portlet_category` |
+| `PortalPortletAppService#updatePortletName` | `portal_portlet_category`, `portal_portlet_definition`, `portal_portlet_style_sheet` | `PortalPortletCategoryDao=>PortalPortletCategory->portal_portlet_category; PortalPortletDefinitionDao=>PortalPortletDefinition->portal_portlet_definition` |
+| `PortalPortletAppService#updatePortletSortNos` | `portal_portlet_category`, `portal_portlet_definition`, `portal_portlet_style_sheet` | `PortalPortletCategoryDao=>PortalPortletCategory->portal_portlet_category; PortalPortletDefinitionDao=>PortalPortletDefinition->portal_portlet_definition` |
+| `PortalSetAppService#createPcTemplateData` | `portal_instance_relation`, `portal_operation_config`, `portal_portlet_category`, `portal_portlet_definition`, `portal_set`, `portal_space` …(+10) | `MemorabiliaDao=>Memorabilia->portlet_memorabilia; MemorabiliaTypeDao=>MemorabiliaType->portlet_memorabilia_type` |
+| `PortalSetAppService#createPortal` | `portal_instance_relation`, `portal_operation_config`, `portal_portlet_category`, `portal_portlet_definition`, `portal_set`, `portal_space` …(+10) | `MemorabiliaDao=>Memorabilia->portlet_memorabilia; MemorabiliaTypeDao=>MemorabiliaType->portlet_memorabilia_type` |
+| `PortalSetAppService#deletePortalDesignInfo` | `portal_instance_relation`, `portal_operation_config`, `portal_portlet_category`, `portal_portlet_definition`, `portal_set`, `portal_space` …(+10) | `MemorabiliaDao=>Memorabilia->portlet_memorabilia; MemorabiliaTypeDao=>MemorabiliaType->portlet_memorabilia_type` |
+| `PortalSetAppService#importPortalDesignInfo` | `portal_instance_relation`, `portal_operation_config`, `portal_portlet_category`, `portal_portlet_definition`, `portal_set`, `portal_space` …(+10) | `MemorabiliaDao=>Memorabilia->portlet_memorabilia; MemorabiliaTypeDao=>MemorabiliaType->portlet_memorabilia_type` |
+| `PortalSetAppService#publishPortalDesignInfo` | `portal_instance_relation`, `portal_operation_config`, `portal_portlet_category`, `portal_portlet_definition`, `portal_set`, `portal_space` …(+10) | `MemorabiliaDao=>Memorabilia->portlet_memorabilia; MemorabiliaTypeDao=>MemorabiliaType->portlet_memorabilia_type` |
+| `PortalSetAppService#updatePortal` | `portal_instance_relation`, `portal_operation_config`, `portal_portlet_category`, `portal_portlet_definition`, `portal_set`, `portal_space` …(+10) | `MemorabiliaDao=>Memorabilia->portlet_memorabilia; MemorabiliaTypeDao=>MemorabiliaType->portlet_memorabilia_type` |
+| `PortalSpaceAppService#createSpace` | `portal_space`, `portal_space_data` | `PortalSpaceDao=>PortalSpace->portal_space; PortalSpaceDataDao=>PortalSpaceData->portal_space_data` |
+| `PortalSpaceAppService#deleteSpaceById` | `portal_space`, `portal_space_data` | `PortalSpaceDao=>PortalSpace->portal_space; PortalSpaceDataDao=>PortalSpaceData->portal_space_data` |
+| `PortalSpaceAppService#saveAsPortalSpaceCopy` | `portal_space`, `portal_space_data` | `PortalSpaceDao=>PortalSpace->portal_space; PortalSpaceDataDao=>PortalSpaceData->portal_space_data` |
+| `PortalSpaceAppService#updateSpace` | `portal_space`, `portal_space_data` | `PortalSpaceDao=>PortalSpace->portal_space; PortalSpaceDataDao=>PortalSpaceData->portal_space_data` |
+
 ## REST 路由
 
 > 证据：`javap -v` 读 Controller 字节码里的 `@RequestMapping`/`@PostMapping` 注解值。
