@@ -84,17 +84,20 @@ public class P0CustomScheduleProbeSchedule implements SeeyonJob {
 **`CUSTOM + BUSINESS_EVENT` 必须把入参写进 `dataSchema` 顶层 `input`，只配 `trigger.output` 不够。**
 
 ```
-build1  dataSchema.input = null，trigger.output = BeforeCreateEvent
-        AppService.p0CustomEventProbe()                                    ← 无参
-        Listener: appService.p0CustomEventProbe(SingleRequest.from(e))     ← 带参
-        ⇒ 签名不一致。build1 没炸是因为那一轮编译用的是上一版源码
-          （平台在构建结束后才把生成代码 push 回 git，下一轮才编到）
+build1  03:40 SUCCESS(1.0.278)  这一轮还没编到新生成物（平台是构建结束后才把生成代码 push 回 git）
 
-build2  schema["input"] = trigger["output"] 后 update + state=20
+错版    03:48 FAIL(20261121034832)  ← 编到了，直接炸在 javac：
+        P0CustomEventProbeListener.java:[42,38] 无法将接口
+        CustomMicroFlowAppService 中的方法 p0CustomEventProbe 应用到给定类型;
+          需要: 没有参数
+          找到: SingleRequest<BeforeCreateEvent<AeProbeEntityDto>>
+        （dataSchema.input = null，AppService 无参，Listener 带参）
+
+build2  补 schema["input"] = schema["trigger"]["output"] → update(state=20)
+        03:57 SUCCESS / 04:01 SUCCESS（1.0.279），生成物签名对齐：
         AppService.p0CustomEventProbe(SingleRequest<BeforeCreateEvent<..Dto>> request)
         Service.p0CustomEventProbe(BeforeCreateEvent<..Dto> _BUSINESS_EVENT_ka3rXs)
         DefaultImpl: customMicroFlowService.p0CustomEventProbe(request.getData())
-        ⇒ 对齐，编译通过（1.0.279 部署成功）
 ```
 
 REST 直建的可靠顺序（否则埋一颗下一轮必炸的雷）：
@@ -110,7 +113,28 @@ schema["input"] = trigger["output"]     # 顶层 input 必须显式给
 
 ---
 
-## 三、仍未验证（下一轮）
+## 三、构建状态怎么判（本轮实测，build-info 会滞后）
+
+同一个 app 连续构建 5 次，`GET /service/udc/sandbox/build-info/{appId}` **一直停留 03:40 那次**
+（1.0.278 SUCCESS），后面 4 次构建它的 `buildTime` 一个字没变。三处接口的可靠性排序：
+
+| 判定面 | 可信度 | 说明 |
+|---|---|---|
+| `udc_deploy_record`（DB） | **权威** | `state` 0=未完成/排队, 1=成功, 2=失败；带 jar_version / build_version / msg |
+| `udcRuntimeSearchDeployStatusDeployIdPost`（path `{deployId}`） | 权威（同一记录） | `state` SUCCESS/FAIL/RUNNING，失败时 `msg` 里带 backBuild.log 链接与 javac 原文 |
+| `sandbox/build-info/{appId}` | **滞后** | 只反映最近一次「已写入」的构建，排队/刚完成时不可信 |
+
+失败时 `msg` 里直接给原因（本轮实例）：
+
+```
+[ERROR] .../P0CustomEventProbeListener.java:[42,38] 无法将接口
+CustomMicroFlowAppService 中的方法 p0CustomEventProbe 应用到给定类型; 需要: 没有参数
+[ERROR] 详情链接: /service/app-sandbox/file/download?storageKey=compile-info/{appId}/{ts}/backBuild.log
+```
+
+判据：**不要用 build-info 判「这次构建成功没」**；本轮就因为只看 build-info，把一次 FAIL 误读成 SUCCESS。
+
+## 四、仍未验证（下一轮）
 
 1. **监听是否真被触发**：需实现 `CustomMicroFlowService` 并部署，再对该实体做一次 create，
    看 `<app>-info.log` 有「接收到…事件，触发…微流程执行」且 `success=true`。
@@ -118,11 +142,16 @@ schema["input"] = trigger["output"]     # 顶层 input 必须显式给
 3. build2 的 biz jar 是否已含 `custom/service/microflow` 类（本轮只验了 git 生成物，未复查 jar）。
 4. `MESSAGE` 源的入参 DTO 是否必须与 `eventDataFullName` 一致。
 
-## 四、本轮创建的测试对象（验完运行期再删）
+## 五、本轮创建的测试对象（验完运行期再删）
 
 ```
 udc_microflow_info id=4620867461310390367  p0CustomEventProbe     CUSTOM + BUSINESS_EVENT  (RELEASE)
 udc_microflow_info id=7674299753416331984  p0CustomScheduleProbe  CUSTOM + SCHEDULE         (RELEASE)
-构建 1.0.278 / 1.0.279（已部署运行，不回滚）
+构建记录：
+  20261121034003 SUCCESS 1.0.278（未编到生成物）
+  20261121034832 FAIL    1.0.278 ← 签名不一致，javac 原文见上
+  20261121035659 SUCCESS 1.0.279
+  20261121040103 SUCCESS 1.0.279（当前运行版本）
+  20261121040716 state=0 未收敛（重复触发的那次，app 本身不受影响；待它自己收敛或作废）
 删除前先备份两行 data_schema
 ```
