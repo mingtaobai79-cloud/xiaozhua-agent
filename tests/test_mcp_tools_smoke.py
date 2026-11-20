@@ -35,6 +35,21 @@ GUID = "8000000000000000001"
 CASES = {
     # ---- 跨模块 ----
     "dispatch": ({"intent": "inspect", "target": "request"}, ("status",)),
+    # 需求 → 计划 → 挑工具：不产节点，只做拆解与确认闸门
+    "business_plan": ({"requirement": "把合同同步到明细表"},
+                      ("status", "system", "user")),
+    "business_action_index": ({"term": "发起流程"},
+                              ("query", "hits", "no_reinvent_hint")),
+    "platform_class_search": ({"term": "JSON", "limit": 3},
+                              ("query", "total", "hits")),
+    "platform_class_methods": ({"class_name": "com.seeyon.boot.util.JsonUtils"},
+                               ("class", "total", "methods")),
+    "platform_class_stats": ({}, ("classes", "methods", "byBucket")),
+    "business_plan_confirm": ({"elements": [
+        {"key": "sync", "capability": "同步合同", "purpose": "SYNC",
+         "inputShape": "NONE", "outputShape": "STATUS_ONLY",
+         "persistTo": "目标表", "persistMode": "INSERT", "trigger": "MANUAL"}]},
+        ("ok", "status", "assemble")),
     "generate": ({"application_id": APP, "entity_name": "SmokeEntity"}, ("status",)),
     "generate_from_requirement": ({"text": "建一个测试实体", "application_id": APP}, ("status",)),
     "live_probe": ({}, ("status",)),

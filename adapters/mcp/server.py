@@ -59,6 +59,10 @@ TOOL_KEYS = (
     # ---- 需显式 host+cookie（不传不联网）----
     "microflow_publish", "expression_verify", "expression_filter",
     "entity_rule_publish",
+    # ---- 业务拆解计划：需求 → 计划 → 挑工具（不产节点，确认后才组装）----
+    "business_plan", "business_plan_confirm", "business_action_index",
+    # ---- 平台后端全量类索引（离线，不联网）----
+    "platform_class_search", "platform_class_methods", "platform_class_stats",
 )
 
 MCP_TOOL_NAMES = {
@@ -124,6 +128,12 @@ MCP_TOOL_NAMES = {
     "expression_verify": "xiaozhua_expression_verify",
     "expression_filter": "xiaozhua_expression_filter",
     "entity_rule_publish": "xiaozhua_entity_rule_publish",
+    "business_plan": "xiaozhua_business_plan",
+    "business_plan_confirm": "xiaozhua_business_plan_confirm",
+    "business_action_index": "xiaozhua_business_action_index",
+    "platform_class_search": "xiaozhua_platform_class_search",
+    "platform_class_methods": "xiaozhua_platform_class_methods",
+    "platform_class_stats": "xiaozhua_platform_class_stats",
 }
 
 # ---- JSON-RPC 错误码（DESIGN §1.1）----
@@ -274,6 +284,13 @@ def build_tool_schemas(caps: dict[str, Callable]) -> list[dict]:
         "app_build_info": "构建信息查询（含 logs[] 全文可回看）。★别名是 path: 不是 body:。",
         "entity_rule_body": "构造实体规则 body（MicroFlowDto 规则形态）+ 离线作用域校验。group_type 1=VALIDATE 2=ASSIGN_VALUE 3=DEFAULT_VALUE(★同实体只能一条)。★state 默认 20(RELEASE)，写 10 会查不到等于隐形。",
         "entity_rule_publish": "实体规则 checkSchema + create。需显式 host+cookie。★判据 content.check==true 且 errors==0（BOOT_0000 也可能 check=False）；校验不过时不执行 create，避免库里留空条件规则。",
+        # ---- 业务拆解计划（需求 → 计划 → 挑工具，不产节点）----
+        "business_plan": "★业务需求拆解（流水线第①②③段）：口语需求 → 业务要素表 → 校验 → 待确认问题。只传 requirement 返回拆解提示词（本工具不调 LLM）；传 elements 则校验并返回 status/questions/routes。★不产任何平台节点 JSON。★status=CONFIRMED 才能进组装。★五维必填 purpose/inputShape/outputShape/trigger/persistTo，缺了不许猜。",
+        "platform_class_search": "★★查平台后端全量类（2669 类 / 26235 方法），支持中文业务词。facts 文档只覆盖 4.5% 的类，写代码前用这个查标品是否已有实现，别重复造轮子。term=中文（日期/JSON/缓存/加密/文件/流程/Excel/HTTP/锁/导出）或英文类名片段；bucket=util|appservice|spi；pkg=包前缀。★查不到明说 0 命中，绝不发明类名。",
+        "platform_class_methods": "列某个平台类的全部方法签名（入参/返回类型）。先用 platform_class_search 找到类全名，再用这个看方法细节。",
+        "platform_class_stats": "平台类索引规模统计（类数/方法数/按 util|appservice|spi 分布）。",
+        "business_action_index": "★标品能力反查：按**业务语言**（中文）查标品接口/方法/入参DTO。解决 microflow_service_catalog 只会按类名子串查、中文业务词 0 命中的问题。term=业务词或类名（精确查）；capability=能力描述（返回相关标品域提示）。★查不到就明说，绝不发明方法名。★命中标品域就别自己写。",
+        "business_plan_confirm": "★用户确认业务计划 → 渲染组装提示词。有 blocking 或未澄清项时**拒绝确认**（ok=false），不放行。成功后返回 assemble.system/user，可直接交给 LLM 产 IntentDraft；要素表已定死，LLM 只能按它挑节点。",
         # ---- 需显式 host+cookie（不传不联网）----
         "microflow_publish": "把微流程发布到 RELEASE（create 之后的第二步）。需显式 host+cookie。"
                              "★判据：check=True 且 errors=[]；只看到 BOOT_0000 不算发布成功。",
@@ -476,6 +493,13 @@ def main() -> int:
     _root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
     if _root not in sys.path:
         sys.path.insert(0, _root)
+    # MCP stdio 传输固定 UTF-8。Windows 默认 GBK，会把中文描述写成乱码，
+    # 客户端(Codex/Claude)按 UTF-8 解析得到 U+FFFD，导致 tools/list 超时。
+    for _stream in (sys.stdin, sys.stdout, sys.stderr):
+        try:
+            _stream.reconfigure(encoding="utf-8", errors="replace")
+        except (AttributeError, ValueError):
+            pass
     return McpServer().serve()
 
 

@@ -1659,6 +1659,133 @@ def bootstrap(*, credential_file: str | None = None, allow_network: bool = False
                 be.close()
 
 
+    # --- 业务拆解计划（需求 → 计划 → 工具选型，LLM 不产节点）---
+    def business_plan(requirement: str = "", elements: list | None = None) -> dict[str, Any]:
+        """业务需求拆解：口语需求 → 业务要素表 → 校验 → 用户确认闸门。
+
+        这是「需求 → 计划 → 挑工具 → 组装」流水线的第 ①②③ 段，
+        **不产任何平台节点 JSON**。产物确认后才允许进入 IntentDraft 组装。
+
+        用法：
+          1) 只传 requirement → 需要宿主 LLM 用返回的 prompt 做拆解
+          2) 传 elements（已拆好的要素表）→ 直接校验，返回状态+待澄清问题
+
+        ★ 判据：status=CONFIRMED 才能进组装；NEED_CONFIRM 表示有未澄清项；
+          BLOCKED 表示填了非法值。任何情况下都不要跳过去猜。
+        """
+        from components.construction.business_plan import (
+            CLARIFY_RULES, ROUTE, validate_plan, plan_status, plan_routes,
+        )
+        if elements:
+            plan = {"elements": elements}
+            blocking, asks = validate_plan(plan)
+            st = plan_status(plan)
+            out: dict[str, Any] = {
+                "status": st,
+                "blocking": blocking,
+                "questions": asks,
+                "routes": plan_routes(plan) if not blocking else [],
+                "next": ("可以把计划给用户确认，确认后调 business_plan_confirm"
+                         if st == "NEED_CONFIRM" else
+                         "改掉 blocking 再验" if st == "BLOCKED" else "可进组装"),
+            }
+            return out
+        # 没有 elements：返回拆解提示词，让宿主 LLM 去做理解
+        from components.construction.host_llm_prompt import render_clarify
+        system, user = render_clarify(requirement or "")
+        return {
+            "status": "NEED_LLM",
+            "note": "本工具不调 LLM。把 system/user 交给你的模型产出 elements，"
+                    "再带 elements 回调本工具校验。",
+            "system": system,
+            "user": user,
+            "enums": {"purpose": list(CLARIFY_RULES and [
+                "WRITE", "QUERY", "SYNC", "EXPORT"]), "routes": list(ROUTE)},
+        }
+
+    def business_plan_confirm(elements: list, by: str = "user") -> dict[str, Any]:
+        """用户确认业务计划，并渲染成「组装阶段」的提示词。
+
+        ★ 闸门：有 blocking 或未澄清项时**拒绝确认**并抛错，不放行。
+        确认后返回可直接喂给 LLM 的组装 prompt（要素表已定死，LLM 只挑节点）。
+        """
+        from components.construction.business_plan import (
+            confirm_plan, plan_status, plan_routes, validate_plan,
+        )
+        plan = {"elements": elements}
+        blocking, asks = validate_plan(plan)
+        if blocking or asks:
+            return {
+                "ok": False,
+                "status": plan_status(plan),
+                "blocking": blocking,
+                "questions": asks,
+                "note": "计划未通过校验，不能确认。先把 blocking 改掉、questions 问清楚。",
+            }
+        confirmed = confirm_plan(plan, by=by)
+        from components.construction.host_llm_prompt import render_assemble
+        system, user = render_assemble(confirmed)
+        return {
+            "ok": True,
+            "status": "CONFIRMED",
+            "confirmedBy": by,
+            "routes": plan_routes(confirmed),
+            "assemble": {"system": system, "user": user},
+            "note": "把 assemble.system/user 交给 LLM 产 IntentDraft；"
+                    "计划字段已定死，不要让它自行改动。",
+        }
+
+    # --- 标品能力反查（业务语言 → 标品接口，防重复造轮子）---
+    def business_action_index(term: str = "", capability: str = "") -> dict[str, Any]:
+        """按业务语言反查标品能力；或给能力描述提示可能相关的标品域。
+
+        ★ 解决「只会自己写、不会用标品」：`microflow_service_catalog` 只能按
+          类名/方法名子串查（中文业务词 0 命中），本工具补业务词这一面。
+        ★ 查不到就明说，绝不发明方法名。
+        """
+        from components.construction.business_action_index import (
+            NO_REINVENT, render_markdown, search, suggest_for_capability,
+        )
+        if term:
+            return search(term)
+        if capability:
+            hints = suggest_for_capability(capability)
+            return {
+                "capability": capability,
+                "hints": hints,
+                "verdict": ("命中标品域，先查能不能直接调，别自己写" if hints
+                            else "未命中已知标品域；仍需查 capability_index 确认"),
+                "no_reinvent": NO_REINVENT,
+                "cheatsheet": render_markdown(),
+            }
+        return {"no_reinvent": NO_REINVENT, "cheatsheet": render_markdown(),
+                "note": "传 term（业务词/类名）精确查，或 capability（能力描述）要提示"}
+
+    # --- 平台后端全量类索引（2669 类 / 26235 方法，中文可查）---
+    def platform_class_search(term: str = "", pkg: str = "", bucket: str = "",
+                              kind: str = "", method: str = "",
+                              limit: int = 15) -> dict[str, Any]:
+        """★查平台后端类：2669 类 / 26235 方法，支持中文业务词。
+
+        解决 facts 文档只覆盖 4.5% 类、写代码时不知道标品已有什么的问题。
+        term=中文（「日期」「JSON」「缓存」）或英文类名片段。
+        bucket=util|appservice|spi 收窄；pkg 包前缀收窄。
+        ★查不到就明说 0 命中，绝不发明类名。
+        """
+        from components.construction.platform_class_index import search as _s
+        return _s(term=term, pkg=pkg, bucket=bucket, kind=kind,
+                  method=method, limit=limit)
+
+    def platform_class_methods(class_name: str, keyword: str = "") -> dict[str, Any]:
+        """列出某个平台类的全部方法签名（入参/返回类型）。"""
+        from components.construction.platform_class_index import methods_of
+        return methods_of(class_name, keyword=keyword)
+
+    def platform_class_stats() -> dict[str, Any]:
+        """平台类索引规模统计（类数/方法数/按类型分布）。"""
+        from components.construction.platform_class_index import stats
+        return stats()
+
     return {
         "agent": agent,
         "dispatch": dispatch,
@@ -1720,6 +1847,14 @@ def bootstrap(*, credential_file: str | None = None, allow_network: bool = False
         # ---- 需显式 host+cookie 的写/编译能力 ----
         "microflow_publish": microflow_publish,
         "entity_rule_publish": entity_rule_publish,
+        # ---- 业务拆解计划（需求 → 计划 → 挑工具，不产节点）----
+        "business_plan": business_plan,
+        "business_plan_confirm": business_plan_confirm,
+        "business_action_index": business_action_index,
+        # ---- 平台后端全量类索引（2669 类 / 26235 方法，中文可查）----
+        "platform_class_search": platform_class_search,
+        "platform_class_methods": platform_class_methods,
+        "platform_class_stats": platform_class_stats,
         "expression_filter": expression_filter,
         "expression_verify": expression_verify,
         "allow_network": allow_network,

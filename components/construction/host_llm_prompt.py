@@ -115,3 +115,85 @@ def render(requirement: str, entities: list[dict] | None = None) -> tuple[str, s
         "请把上面的需求结构化成 IntentDraft JSON。",
     ]
     return SYSTEM_PROMPT, "\n".join(user)
+
+
+# ─────────────────── 三段式：拆解 → 确认 → 组装 ───────────────────
+# 为什么分三段：直接「口语需求 → IntentDraft」是 LLM 靠语感猜业务，
+# 猜错的代价是一轮 6~10 分钟的构建返工。中间插「业务拆解计划」并强制
+# 用户确认后，才允许进组装。见 components/construction/business_plan.py。
+
+def render_clarify(requirement: str) -> tuple[str, str]:
+    """第一段：业务拆解。产出 BusinessPlan（elements + questions）。
+
+    这一段的产物**不含任何节点**，只有业务能力表。用户先看这表对不对。
+    """
+    from .business_plan import CLARIFY_RULES
+
+    system = CLARIFY_RULES
+    user = "\n".join([
+        "## 业务需求原文（用户的真实口语，可能不精确）",
+        "",
+        requirement,
+        "",
+        "请拆成业务要素表 JSON：{\"elements\": [...], \"questions\": [...]}",
+        "任何拿不准的，放进 questions，不要猜。",
+    ])
+    return system, user
+
+
+def render_assemble(plan: dict, entities: list[dict] | None = None) -> tuple[str, str]:
+    """第三段：组装。输入是**用户已确认的业务计划**，不是原始口语。
+
+    这样 LLM 不需要再理解业务，只需要按已确认的要素表挑节点 —— 
+    purpose/outputShape/persistTo 都已经定死，不会跑偏。
+    """
+    from .business_plan import plan_routes, plan_status
+
+    st = plan_status(plan)
+    if st != "CONFIRMED":
+        raise ValueError(
+            "计划未确认（当前 %s），不能进入组装。先跑 render_clarify → 用户确认 → confirm_plan" % st
+        )
+
+    routes = plan_routes(plan)
+    lines = [
+        "## 已确认的业务计划（不要再改它，只按它挑节点）",
+        "",
+    ]
+    for e in plan.get("elements") or []:
+        lines.append("- **%s**：%s" % (e.get("key"), e.get("capability")))
+        lines.append("    - 性质：%s / 入参：%s / 出参：%s"
+                     % (e.get("purpose"), e.get("inputShape"), e.get("outputShape")))
+        if e.get("persistTo"):
+            lines.append("    - 落表：%s（%s，键=%s）"
+                         % (e.get("persistTo"), e.get("persistMode"),
+                            e.get("persistKey")))
+        if e.get("trigger"):
+            extra = ""
+            if e.get("trigger") == "SCHEDULE":
+                extra = "（%s，时间范围=%s）" % (e.get("scheduleCron"), e.get("timeRange"))
+            lines.append("    - 触发：%s%s" % (e.get("trigger"), extra))
+        if e.get("dependency"):
+            lines.append("    - 依赖：%s" % e.get("dependency"))
+        if e.get("gap"):
+            lines.append("    - 平台缺口：%s" % "、".join(e.get("gap")))
+
+    lines += ["", "## 建议路由（按已确认计划推导，不是猜的）", ""]
+    for r in routes:
+        lines.append("- %s → **%s**：%s" % (r["key"], r["route"], r["why"]))
+
+    lines += [
+        "",
+        "## 可用实体/字段清单（只能从这里选，查不到就问）",
+        "",
+        _render_entities(entities or []),
+        "",
+        "## 常用节点 kind 速查",
+        "",
+        _render_cheatsheet(),
+        "",
+        "按上面的计划产出 IntentDraft JSON。计划里的字段是定死的，不要自行改动；"
+        "如果计划里有 gap 标记（平台节点表达不了），对应能力不要试图用画布节点拼，"
+        "在 IntentDraft 里用 sub_microflow 引用对应的 CUSTOM 微流程。",
+    ]
+    return SYSTEM_PROMPT, "\n".join(lines)
