@@ -535,6 +535,29 @@
 | 核心实体 CRUD | `MapSystemConfigController` | 1 |
 | 核心实体 CRUD | `PediaSystemConfigController` | 1 |
 
+## 入参 DTO（字段级）
+
+> 字段来自字节码 `fields`（含继承链，最多 3 层）；**字段名即 JSON 键名**（平台用 Jackson 默认命名，`shortName` 对应库列 `short_name`）。
+> 包装类已揭开：`SingleRequest<T>` / `ListResponse<T>` 里看的是 `T` 的字段。
+> 等级 `VERIFIED_STATIC_BYTECODE`。全量字段表：`docs/audit/artifacts/dto/DTO-app.md`
+
+本模块 **63** 个入参/返回 DTO，**62** 个能取到字段。Top 12（按出现次数）：
+
+| DTO | 出现 | 字段数 | 关键字段 |
+|---|---:|---:|---|
+| `AgentDto` | 10 | 39 | `id`, `agentId`, `agentCode`, `agentName`, `agentToId`, `agentToCode`, `agentToName`, `cancelTime` |
+| `ApplicationDto` | 6 | 32 | `effectTime`, `invalidTime`, `state`, `failReason`, `invalidReason`, `name`, `basePackage`, `caption` |
+| `CategoryDto` | 5 | 11 | `id`, `originApp`, `name`, `code`, `orderNo`, `parentId`, `parentCode`, `categoryLevel` |
+| `AgentInfoDto` | 4 | 27 | `id`, `agentId`, `agentName`, `agentToId`, `agentToName`, `startTime`, `endTime`, `templateIds` |
+| `IntegralLedgerDto` | 4 | 28 | `operatorName`, `operatorUserName`, `operatorId`, `operatorDeptName`, `operatorDeptId`, `scorerName`, `scorerUserName`, `scorerId` |
+| `CtpMgnAggDataDto` | 4 | 19 | `id`, `tenantId`, `dataType`, `contentField`, `mainEntity`, `mainEntityCh`, `orgField`, `appName` |
+| `WorktimeYearDto` | 4 | 3 | `year`, `orgId`, `validate` |
+| `SimpleAppInfoDto` | 3 | 5 | `name`, `caption`, `id`, `guid`, `validate` |
+| `ThemeDto` | 3 | 14 | `id`, `name`, `description`, `status`, `primaryColor`, `globalStyleData`, `themeComponentData`, `publishStatus` |
+| `WorktimeResDto` | 3 | 6 | `totalMins`, `years`, `days`, `hours`, `mins`, `validate` |
+| `ApprovalOpsAuthDto` | 2 | 6 | `applicationName`, `designState`, `sourceType`, `currentUserId`, `loginOrgId`, `validate` |
+| `AppSearchByParamDto` | 2 | 4 | `appGuids`, `appNames`, `orgId`, `validate` |
+
 ## 落表
 
 > 证据等级：`VERIFIED_STATIC_BYTECODE`（表名出现在本模块 biz jar 的 class 常量池）

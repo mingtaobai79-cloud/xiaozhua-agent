@@ -207,6 +207,29 @@
 | 核心实体 CRUD | `ShareController` | 2 |
 | 核心实体 CRUD | `ApplicationAuthController` | 1 |
 
+## 入参 DTO（字段级）
+
+> 字段来自字节码 `fields`（含继承链，最多 3 层）；**字段名即 JSON 键名**（平台用 Jackson 默认命名，`shortName` 对应库列 `short_name`）。
+> 包装类已揭开：`SingleRequest<T>` / `ListResponse<T>` 里看的是 `T` 的字段。
+> 等级 `VERIFIED_STATIC_BYTECODE`。全量字段表：`docs/audit/artifacts/dto/DTO-m5.md`
+
+本模块 **23** 个入参/返回 DTO，**23** 个能取到字段。Top 12（按出现次数）：
+
+| DTO | 出现 | 字段数 | 关键字段 |
+|---|---:|---:|---|
+| `TeamworkMemberInfoDto` | 3 | 6 | `userId`, `name`, `image`, `role`, `createTime`, `validate` |
+| `EnterpriseDto` | 3 | 6 | `id`, `enterpriseName`, `enterpriseUrl`, `enable`, `enableDate`, `validate` |
+| `TeamworkGroupInfoDto` | 2 | 5 | `name`, `ownerId`, `image`, `id`, `validate` |
+| `TeamworkGroupCreateDto` | 1 | 6 | `name`, `userIdList`, `adminList`, `image`, `ownerId`, `validate` |
+| `TeamworkGroupDismissDto` | 1 | 3 | `ownerId`, `groupId`, `validate` |
+| `TeamworkGroupJoinDto` | 1 | 3 | `userId`, `groupId`, `validate` |
+| `TeamworkGroupQuitDto` | 1 | 3 | `userId`, `groupId`, `validate` |
+| `TeamworkGroupRenameDto` | 1 | 4 | `ownerId`, `groupId`, `groupName`, `validate` |
+| `TeamworkGroupUnbindDto` | 1 | 3 | `ownerId`, `groupId`, `validate` |
+| `TeamworkGroupInfoNumExtDto` | 1 | 6 | `num`, `name`, `ownerId`, `image`, `id`, `validate` |
+| `TeamworkMemberRequiredFieldDto` | 1 | 3 | `param`, `fieldList`, `validate` |
+| `TeamworkCardMessageDto` | 1 | 22 | `targetIdList`, `sendToGroup`, `messageId`, `identification`, `messageSourceCode`, `messageSourceName`, `senderId`, `senderName` |
+
 ## 落表
 
 > 证据等级：`VERIFIED_STATIC_BYTECODE`（表名出现在本模块 biz jar 的 class 常量池）

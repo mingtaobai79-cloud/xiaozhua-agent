@@ -719,6 +719,29 @@
 | 核心实体 CRUD | `CtpResourceController` | 1 |
 | 核心实体 CRUD | `CtpSecretController` | 1 |
 
+## 入参 DTO（字段级）
+
+> 字段来自字节码 `fields`（含继承链，最多 3 层）；**字段名即 JSON 键名**（平台用 Jackson 默认命名，`shortName` 对应库列 `short_name`）。
+> 包装类已揭开：`SingleRequest<T>` / `ListResponse<T>` 里看的是 `T` 的字段。
+> 等级 `VERIFIED_STATIC_BYTECODE`。全量字段表：`docs/audit/artifacts/dto/DTO-ctp-user.md`
+
+本模块 **79** 个入参/返回 DTO，**77** 个能取到字段。Top 12（按出现次数）：
+
+| DTO | 出现 | 字段数 | 关键字段 |
+|---|---:|---:|---|
+| `CtpRoleDto` | 12 | 33 | `id`, `code`, `name`, `description`, `orgId`, `system`, `admin`, `type` |
+| `CtpUserDto` | 11 | 31 | `id`, `tenantId`, `name`, `loginName`, `password`, `expiredTime`, `modifyTime`, `avatar` |
+| `CtpResourceDto` | 7 | 48 | `id`, `code`, `name`, `icon`, `parentId`, `level`, `path`, `url` |
+| `CtpSecretLevelEnumItemDto` | 7 | 7 | `id`, `name`, `itemValue`, `orderNo`, `enumCode`, `enable`, `validate` |
+| `CtpUserRoleDto` | 7 | 24 | `id`, `userId`, `memberPostId`, `effectiveTime`, `invalidTime`, `isEnable`, `userName`, `userType` |
+| `CtpThirdPlatformConfigDto` | 6 | 15 | `id`, `name`, `type`, `orgId`, `corpId`, `corpSecret`, `appId`, `appKey` |
+| `CtpUserMappingResponseDto` | 6 | 7 | `thirdUserId`, `userId`, `type`, `appId`, `agentId`, `defaultFlag`, `validate` |
+| `CtpUserResourceSearchDto` | 5 | 11 | `userId`, `resourceAppId`, `resourceType`, `resourceCode`, `resourceDataType`, `resourcePermissionType`, `resourceId`, `withCommonResource` |
+| `CtpUserResourceDto` | 5 | 36 | `id`, `userId`, `orgId`, `memberPostId`, `effectiveTime`, `invalidTime`, `isEnable`, `roleId` |
+| `CtpOrgAdminConfigDto` | 5 | 14 | `id`, `orgId`, `orgName`, `orgIsRoot`, `manageScope`, `manageType`, `isTernary`, `list` |
+| `CtpLoginPreConfigDto` | 4 | 10 | `orgId`, `tid`, `enabledLoginManage`, `enabledLoginPrePortal`, `enabledUnifyLoginPortal`, `enabledHolidayLoginPortal`, `loginManageUri`, `isRootUnit` |
+| `SyncUserMessageDto` | 4 | 4 | `id`, `messageCode`, `message`, `validate` |
+
 ## 落表
 
 > 证据等级：`VERIFIED_STATIC_BYTECODE`（表名出现在本模块 biz jar 的 class 常量池）

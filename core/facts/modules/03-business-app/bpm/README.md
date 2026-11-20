@@ -964,6 +964,29 @@ bpm 内部
   └── 走 BpmAppService + BpmSupportOperation（节点上下文）
 ```
 
+## 入参 DTO（字段级）
+
+> 字段来自字节码 `fields`（含继承链，最多 3 层）；**字段名即 JSON 键名**（平台用 Jackson 默认命名，`shortName` 对应库列 `short_name`）。
+> 包装类已揭开：`SingleRequest<T>` / `ListResponse<T>` 里看的是 `T` 的字段。
+> 等级 `VERIFIED_STATIC_BYTECODE`。全量字段表：`docs/audit/artifacts/dto/DTO-bpm.md`
+
+本模块 **178** 个入参/返回 DTO，**175** 个能取到字段。Top 12（按出现次数）：
+
+| DTO | 出现 | 字段数 | 关键字段 |
+|---|---:|---:|---|
+| `BpmTemplateDto` | 28 | 81 | `id`, `appName`, `rootEntityName`, `rootEntityId`, `pageUrl`, `mobilePageUrl`, `donePageUrl`, `doneMobilePageUrl` |
+| `BpmCaseDto` | 17 | 54 | `id`, `createMemberId`, `updateMemberId`, `createMemberName`, `subject`, `templateId`, `diagramStorageKey`, `accountId` |
+| `CommonResultDto` | 13 | 3 | `success`, `message`, `validate` |
+| `BpmFormPermissionDto` | 7 | 27 | `caption`, `templateId`, `pageUrl`, `pageGroupId`, `pageCaption`, `sourceType`, `permissionsCode`, `mobilePageUrl` |
+| `BpmConsistenceDetectionDto` | 7 | 9 | `isError`, `code`, `domainEntityId`, `document`, `element`, `message`, `route`, `detectionType` |
+| `BpmAppInfoDto` | 6 | 11 | `deployId`, `appId`, `appGuid`, `appCaption`, `appName`, `appVersion`, `showVersion`, `currentVersion` |
+| `BpmProcessLogDto` | 5 | 26 | `id`, `caseId`, `nodeId`, `nodeName`, `workItemId`, `actionUserId`, `actionUserName`, `actionTime` |
+| `QueryConditionDto` | 4 | 7 | `queryEntityDto`, `pageInfo`, `sort`, `ids`, `dynamicConditionDto`, `one2ManyCondition`, `validate` |
+| `BpmStartTemplateDto` | 4 | 8 | `templateId`, `applicationName`, `effectTime`, `invalidTime`, `forceStart`, `appName`, `appVersion`, `validate` |
+| `BpmNodePermissionDetailDto` | 3 | 22 | `id`, `operationList`, `contentDtos`, `type`, `code`, `name`, `appName`, `subApp` |
+| `BpmExportInitDataDto` | 3 | 2 | `dmlFiles`, `oldNewIdsMap` |
+| `BpmInitParamDto` | 3 | 17 | `sourceType`, `deployType`, `isRePublish`, `isAcross`, `isExport`, `affectRunningCase`, `deployId`, `appId` |
+
 ## 落表
 
 > 证据等级：`VERIFIED_STATIC_BYTECODE`（表名出现在本模块 biz jar 的 class 常量池）

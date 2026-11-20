@@ -1477,6 +1477,29 @@ UDC 触发流程只调 `BpmUdcApiService`，不要调 `BpmAppService.send`。
 | 查部署记录 | `selectDeployRecordById` |
 | 按 guid 取最新设计版本 | `selectLatestDesignAppByGuid` |
 
+## 入参 DTO（字段级）
+
+> 字段来自字节码 `fields`（含继承链，最多 3 层）；**字段名即 JSON 键名**（平台用 Jackson 默认命名，`shortName` 对应库列 `short_name`）。
+> 包装类已揭开：`SingleRequest<T>` / `ListResponse<T>` 里看的是 `T` 的字段。
+> 等级 `VERIFIED_STATIC_BYTECODE`。全量字段表：`docs/audit/artifacts/dto/DTO-udc.md`
+
+本模块 **176** 个入参/返回 DTO，**171** 个能取到字段。Top 12（按出现次数）：
+
+| DTO | 出现 | 字段数 | 关键字段 |
+|---|---:|---:|---|
+| `ApplicationDto` | 33 | 50 | `name`, `deployType`, `caption`, `icon`, `iconBgColor`, `basePackage`, `appVersion`, `copVersion` |
+| `EntityDto` | 21 | 51 | `capFirstName`, `unCapFirstName`, `fullName`, `dtoFullName`, `attributes`, `parent`, `children`, `events` |
+| `SearchDesignMetadataDto` | 18 | 4 | `appName`, `appId`, `appVersion`, `validate` |
+| `SearchDesignMetadataByFullNameDto` | 15 | 5 | `fullName`, `appName`, `appId`, `appVersion`, `validate` |
+| `DataTransferObjectDto` | 14 | 25 | `name`, `caption`, `source`, `sourceType`, `isRoot`, `parentEntityId`, `batchId`, `appId` |
+| `AttributeDto` | 12 | 74 | `appId`, `uniqueness`, `dataFormat`, `expressionDesignData`, `expressionRuntimeData`, `defaultValueExpressionDesignData`, `defaultValueExpressionRuntimeData`, `defaultValueIsChange` |
+| `SearchDesignMetadataByFullNamesDto` | 11 | 5 | `fullNames`, `appName`, `appId`, `appVersion`, `validate` |
+| `ApplicationCopyDto` | 10 | 7 | `applicationId`, `name`, `caption`, `appVersion`, `creator`, `orgId`, `validate` |
+| `CtpEnumItemDto` | 10 | 25 | `name`, `itemValue`, `itemLevel`, `leaf`, `enable`, `enumCode`, `enumId`, `parentId` |
+| `AttributeSetDto` | 9 | 15 | `id`, `appId`, `name`, `caption`, `description`, `attributes`, `sourceType`, `orderNo` |
+| `UdcCtpEnumItemSearchDto` | 9 | 12 | `enumItemId`, `dataStatus`, `needParent`, `code`, `codes`, `enumId`, `param`, `enumIds` |
+| `EntityMetadataDto` | 8 | 20 | `tableName`, `description`, `superClass`, `entityType`, `historyEntity`, `fullTextSearch`, `permission`, `isPublic` |
+
 ## 落表
 
 > 证据等级：`VERIFIED_STATIC_BYTECODE`（表名出现在本模块 biz jar 的 class 常量池）

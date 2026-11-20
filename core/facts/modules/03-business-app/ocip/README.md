@@ -120,6 +120,23 @@
 | 分组 | Controller | 方法数 |
 |---|---|---:|
 
+## 入参 DTO（字段级）
+
+> 字段来自字节码 `fields`（含继承链，最多 3 层）；**字段名即 JSON 键名**（平台用 Jackson 默认命名，`shortName` 对应库列 `short_name`）。
+> 包装类已揭开：`SingleRequest<T>` / `ListResponse<T>` 里看的是 `T` 的字段。
+> 等级 `VERIFIED_STATIC_BYTECODE`。全量字段表：`docs/audit/artifacts/dto/DTO-ocip.md`
+
+本模块 **8** 个入参/返回 DTO，**6** 个能取到字段。Top 12（按出现次数）：
+
+| DTO | 出现 | 字段数 | 关键字段 |
+|---|---:|---:|---|
+| `MessagePackage` | 4 | 5 | `header`, `body`, `signature`, `version`, `readObject` |
+| `BIZContentType` | 2 | 2 | `name`, `ordinal` |
+| `BIZExchangeData` | 2 | 7 | `identifier`, `subject`, `groupId`, `source`, `sender`, `recivers`, `bussnissMessage` |
+| `BIZExchangePackage` | 2 | 2 | `exchangeDatas`, `version` |
+| `SYSMessage` | 1 | 5 | `originMessageId`, `type`, `datetime`, `description`, `bussinessResultList` |
+| `MessagePackageFile` | 1 | 2 | `dataHandler`, `messagePackage` |
+
 ## 落表
 
 ⚠️ **UNVERIFIED** —— 本模块构件 的 class 常量池里没有表名字面量。

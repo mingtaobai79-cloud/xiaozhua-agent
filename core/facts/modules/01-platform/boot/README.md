@@ -928,6 +928,29 @@
 | 核心实体 CRUD | `NormalAppPcController` | 0 |
 | 核心实体 CRUD | `NormalReferController` | 0 |
 
+## 入参 DTO（字段级）
+
+> 字段来自字节码 `fields`（含继承链，最多 3 层）；**字段名即 JSON 键名**（平台用 Jackson 默认命名，`shortName` 对应库列 `short_name`）。
+> 包装类已揭开：`SingleRequest<T>` / `ListResponse<T>` 里看的是 `T` 的字段。
+> 等级 `VERIFIED_STATIC_BYTECODE`。全量字段表：`docs/audit/artifacts/dto/DTO-boot.md`
+
+本模块 **87** 个入参/返回 DTO，**83** 个能取到字段。Top 12（按出现次数）：
+
+| DTO | 出现 | 字段数 | 关键字段 |
+|---|---:|---:|---|
+| `ExecutionContext` | 8 | 10 | `dataMetaInfo`, `relationMetaInfos`, `oldData`, `newData`, `actionType`, `diffType`, `policy`, `packageId` |
+| `AppServiceInvokeDto` | 6 | 12 | `interfaceName`, `methodName`, `paramType`, `genericType`, `subGenericType`, `paramJson`, `beanName`, `returnJson` |
+| `DataFlowRtMappingDto` | 4 | 36 | `originalGuid`, `sourceHandleType`, `authJson`, `mappingAreaSourceEntityMap`, `sourceEntityName`, `extEntityMap`, `appId`, `appName` |
+| `RelationType` | 3 | 1 | `code` |
+| `PersonalPlanDto` | 3 | 13 | `appName`, `customePageUrl`, `pageUrl`, `title`, `terminal`, `authType`, `authId`, `sourceType` |
+| `ScalabilityFieldQueryDto` | 3 | 8 | `appName`, `entityFullName`, `entityFullNames`, `attributeCaption`, `attributeName`, `dataType`, `state`, `validate` |
+| `DesignMetadataRequestDto` | 3 | 4 | `appId`, `appName`, `fullName`, `validate` |
+| `CtpQrCodeRule` | 3 | 24 | `name`, `code`, `type`, `linkType`, `appGuid`, `appId`, `entityFullName`, `fieldCode` |
+| `CtpTenantShardingDto` | 3 | 6 | `id`, `useTenantId`, `dataStorageType`, `resourceId`, `updateTime`, `validate` |
+| `DataValidUpdateFilterDto` | 3 | 8 | `data`, `rootEntityFullName`, `appName`, `pathNames`, `actionType`, `dynamicAppName`, `applicationName`, `msgId` |
+| `BpmParameterDataDto` | 3 | 3 | `formData`, `parameterData`, `validate` |
+| `AttachmentQueryDto` | 2 | 9 | `id`, `appName`, `hostAppName`, `entityName`, `appServiceImplFullName`, `permissionId`, `caseId`, `openType` |
+
 ## 落表
 
 ⚠️ **UNVERIFIED** —— 本模块构件 的 class 常量池里没有表名字面量。

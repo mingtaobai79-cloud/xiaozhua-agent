@@ -438,6 +438,29 @@
 | 核心实体 CRUD | `SystemVarController` | 1 |
 | 核心实体 CRUD | `IndexForFJGSController` | 1 |
 
+## 入参 DTO（字段级）
+
+> 字段来自字节码 `fields`（含继承链，最多 3 层）；**字段名即 JSON 键名**（平台用 Jackson 默认命名，`shortName` 对应库列 `short_name`）。
+> 包装类已揭开：`SingleRequest<T>` / `ListResponse<T>` 里看的是 `T` 的字段。
+> 等级 `VERIFIED_STATIC_BYTECODE`。全量字段表：`docs/audit/artifacts/dto/DTO-cdp.md`
+
+本模块 **64** 个入参/返回 DTO，**61** 个能取到字段。Top 12（按出现次数）：
+
+| DTO | 出现 | 字段数 | 关键字段 |
+|---|---:|---:|---|
+| `CdpDetectionErrorDto` | 6 | 8 | `isError`, `code`, `domainEntityId`, `document`, `element`, `message`, `route`, `validate` |
+| `CurrentUerOrgAndLevelDto` | 3 | 4 | `orgId`, `level`, `orgName`, `validate` |
+| `CdpDetectionModelRequestDto` | 3 | 5 | `deleteModelIdList`, `updateModelIdList`, `appName`, `appId`, `validate` |
+| `AppDef` | 3 | 5 | `appName`, `appCaption`, `version`, `icon`, `extensions` |
+| `EntityIdentifier` | 3 | 4 | `appName`, `designAppName`, `entityName`, `designAppId` |
+| `ModelExecuteResult` | 3 | 5 | `columns`, `results`, `rows`, `pageInfo`, `validate` |
+| `PermissionQueryParam` | 2 | 4 | `userId`, `resourceCode`, `resourcePermissionType`, `resourceDataType` |
+| `TransportOutRequestDto` | 2 | 7 | `caption`, `appType`, `deployType`, `outType`, `appName`, `appId`, `validate` |
+| `CdpDetectionEntityDto` | 2 | 5 | `deleteEntityList`, `updateEntityList`, `appName`, `appId`, `validate` |
+| `AppIdentifier` | 2 | 2 | `appName`, `appId` |
+| `SearchHistoryDto` | 2 | 2 | `queryString`, `validate` |
+| `IndexDeleteDto` | 2 | 4 | `objectIds`, `guids`, `cdpMqType`, `validate` |
+
 ## 落表
 
 > 证据等级：`VERIFIED_STATIC_BYTECODE`（表名出现在本模块 biz jar 的 class 常量池）

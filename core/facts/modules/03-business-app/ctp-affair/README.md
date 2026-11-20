@@ -286,6 +286,29 @@
 | 核心实体 CRUD | `AffairOperationController` | 1 |
 | 核心实体 CRUD | `BpmPluginController` | 1 |
 
+## 入参 DTO（字段级）
+
+> 字段来自字节码 `fields`（含继承链，最多 3 层）；**字段名即 JSON 键名**（平台用 Jackson 默认命名，`shortName` 对应库列 `short_name`）。
+> 包装类已揭开：`SingleRequest<T>` / `ListResponse<T>` 里看的是 `T` 的字段。
+> 等级 `VERIFIED_STATIC_BYTECODE`。全量字段表：`docs/audit/artifacts/dto/DTO-ctp-affair.md`
+
+本模块 **56** 个入参/返回 DTO，**55** 个能取到字段。Top 12（按出现次数）：
+
+| DTO | 出现 | 字段数 | 关键字段 |
+|---|---:|---:|---|
+| `AffairDto` | 10 | 151 | `extInfo`, `propertyInfo`, `extLong1`, `extLong2`, `extLong3`, `extLong4`, `extLong5`, `extLong6` |
+| `AffairFullCategoryDto` | 7 | 7 | `id`, `appName`, `appCaption`, `subAppName`, `subAppCaption`, `categoryCode`, `validate` |
+| `AffairSimpleDto` | 4 | 61 | `id`, `title`, `startMemberId`, `startMemberName`, `startAccountId`, `appName`, `templateId`, `templateGuid` |
+| `AffairBadgeCountQueryDto` | 2 | 7 | `currentUserId`, `appId`, `affairState`, `agent`, `currentStateOnly`, `includeAgent`, `validate` |
+| `AffairBaseConditionDto` | 2 | 12 | `receiveMemberId`, `templateId`, `state`, `subState`, `objectId`, `subObjectId`, `subObjectIds`, `nodeIds` |
+| `AffairSearchCustomizeDto` | 2 | 16 | `userId`, `dataRange`, `type`, `conditionJsonStr`, `fixedConditionJsonStr`, `appName`, `showType`, `isOverDue` |
+| `AffairDeleteCategoryConditionDto` | 2 | 3 | `appName`, `subAppName`, `validate` |
+| `AffairCommonIdsDto` | 2 | 2 | `ids`, `validate` |
+| `AffairProcessingPersonResponseDto` | 2 | 19 | `objectId`, `nodeId`, `nodeName`, `hasMore`, `originUserName`, `hasRead`, `activeBatchId`, `receiveTime` |
+| `AffairReceiverSearchDto` | 2 | 6 | `objectId`, `stateList`, `memberList`, `includeAgent`, `atTime`, `validate` |
+| `AffairMicroflowInfoDto` | 2 | 28 | `operationType`, `state`, `subState`, `startMemberId`, `receiveMemberIds`, `startTime`, `receiveTime`, `title` |
+| `AffairMicroUpdateConditionDto` | 2 | 5 | `formRecordId`, `formRecordCode`, `userId`, `subState`, `validate` |
+
 ## 落表
 
 > 证据等级：`VERIFIED_STATIC_BYTECODE`（表名出现在本模块 biz jar 的 class 常量池）

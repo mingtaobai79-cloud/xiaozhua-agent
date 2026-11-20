@@ -444,6 +444,29 @@
 | 核心实体 CRUD | `ForwardLinkerSsoController` | 2 |
 | 核心实体 CRUD | `ForwardLinkerEnumController` | 1 |
 
+## 入参 DTO（字段级）
+
+> 字段来自字节码 `fields`（含继承链，最多 3 层）；**字段名即 JSON 键名**（平台用 Jackson 默认命名，`shortName` 对应库列 `short_name`）。
+> 包装类已揭开：`SingleRequest<T>` / `ListResponse<T>` 里看的是 `T` 的字段。
+> 等级 `VERIFIED_STATIC_BYTECODE`。全量字段表：`docs/audit/artifacts/dto/DTO-cip-connector.md`
+
+本模块 **69** 个入参/返回 DTO，**64** 个能取到字段。Top 12（按出现次数）：
+
+| DTO | 出现 | 字段数 | 关键字段 |
+|---|---:|---:|---|
+| `MobilePlatformConfigDto` | 31 | 21 | `id`, `type`, `corpId`, `corpSecret`, `appId`, `appKey`, `appSecret`, `json` |
+| `DatabaseInfoApiDto` | 7 | 14 | `id`, `caption`, `mode`, `type`, `status`, `url`, `driver`, `username` |
+| `DatabaseInfoDto` | 6 | 12 | `id`, `caption`, `type`, `status`, `url`, `driver`, `username`, `password` |
+| `MobileUnitRequestDto` | 5 | 13 | `id`, `name`, `path`, `parentId`, `unitType`, `enable`, `level`, `topId` |
+| `LinkerDetailApiDto` | 4 | 42 | `id`, `infoId`, `caption`, `targetNamespace`, `paramNeedNs`, `methodName`, `classifyId`, `classifyCaption` |
+| `MobileUserRequestDto` | 4 | 21 | `id`, `name`, `email`, `bizEmail`, `isEnable`, `jobName`, `phoneNumber`, `orgId` |
+| `LinkerDetailDto` | 3 | 42 | `id`, `infoId`, `caption`, `targetNamespace`, `paramNeedNs`, `methodName`, `classifyId`, `classifyCaption` |
+| `LinkerEventDetailDto` | 3 | 22 | `id`, `infoId`, `caption`, `name`, `classifyId`, `classifyCaption`, `callbackUrl`, `requestType` |
+| `AuthenticationDto` | 2 | 6 | `authId`, `detailId`, `json`, `params`, `user`, `validate` |
+| `AuthEventDto` | 2 | 4 | `name`, `data`, `authId`, `validate` |
+| `ConnectorCallbackRequestDto` | 2 | 9 | `body`, `paraMap`, `headers`, `inputStreamMap`, `tid`, `type`, `channel`, `action` |
+| `TableInfoDto` | 2 | 7 | `id`, `name`, `column`, `type`, `comment`, `notNull`, `validate` |
+
 ## 落表
 
 > 证据等级：`VERIFIED_STATIC_BYTECODE`（表名出现在本模块 biz jar 的 class 常量池）

@@ -836,6 +836,29 @@
 | 分组 | Controller | 方法数 |
 |---|---|---:|
 
+## 入参 DTO（字段级）
+
+> 字段来自字节码 `fields`（含继承链，最多 3 层）；**字段名即 JSON 键名**（平台用 Jackson 默认命名，`shortName` 对应库列 `short_name`）。
+> 包装类已揭开：`SingleRequest<T>` / `ListResponse<T>` 里看的是 `T` 的字段。
+> 等级 `VERIFIED_STATIC_BYTECODE`。全量字段表：`docs/audit/artifacts/dto/DTO-cip-provider.md`
+
+本模块 **330** 个入参/返回 DTO，**318** 个能取到字段。Top 12（按出现次数）：
+
+| DTO | 出现 | 字段数 | 关键字段 |
+|---|---:|---:|---|
+| `CapabilityEnum` | 33 | 5 | `isHidden`, `code`, `description`, `nameByI18n`, `sort` |
+| `CreditRequestDto` | 21 | 7 | `keyword`, `skip`, `appName`, `debugging`, `count`, `provider`, `validate` |
+| `ThreePartySealIntegrationDto` | 5 | 29 | `storageKey`, `keyword`, `control`, `startPage`, `endPage`, `position`, `flag`, `page` |
+| `CipProvideResultDto` | 4 | 4 | `data`, `code`, `message`, `validate` |
+| `FileConvertDto` | 4 | 10 | `taskId`, `docUrl`, `fileName`, `userId`, `sync`, `routeKey`, `downloadId`, `FileExtMap` |
+| `ScheduleInfoDto` | 4 | 7 | `scheduleId`, `map`, `appName`, `debugging`, `count`, `provider`, `validate` |
+| `OrganizationResultDto` | 4 | 3 | `orgId`, `thirdOrgId`, `validate` |
+| `SmsTemplateDto` | 4 | 13 | `templateName`, `templateContent`, `remark`, `templateTypeCode`, `templateType`, `templateCode`, `reason`, `providerTemplateContent` |
+| `VideoMeetingOutDto` | 4 | 17 | `meetingId`, `meetingUUID`, `meetingSize`, `subject`, `meetingTimeZoneID`, `startTime`, `endTime`, `mediaTypes` |
+| `BaseCommonContractData` | 3 | 2 | `token`, `accountId` |
+| `SmsSignDto` | 3 | 9 | `tags`, `signName`, `remark`, `templateType`, `signStatus`, `reason`, `qualificationFile`, `commissionFile` |
+| `InvoiceCheckOutApiDto` | 2 | 5 | `batchNO`, `itemDtoList`, `code`, `message`, `validate` |
+
 ## 落表
 
 > 证据等级：`VERIFIED_STATIC_BYTECODE`（表名出现在本模块 biz jar 的 class 常量池）

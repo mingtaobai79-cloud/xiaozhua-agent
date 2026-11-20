@@ -259,6 +259,29 @@
 | 核心实体 CRUD | `CtpApplicationAuthorizationController` | 3 |
 | 核心实体 CRUD | `CtpApplicationEntityManageController` | 3 |
 
+## 入参 DTO（字段级）
+
+> 字段来自字节码 `fields`（含继承链，最多 3 层）；**字段名即 JSON 键名**（平台用 Jackson 默认命名，`shortName` 对应库列 `short_name`）。
+> 包装类已揭开：`SingleRequest<T>` / `ListResponse<T>` 里看的是 `T` 的字段。
+> 等级 `VERIFIED_STATIC_BYTECODE`。全量字段表：`docs/audit/artifacts/dto/DTO-ctp-other.md`
+
+本模块 **38** 个入参/返回 DTO，**37** 个能取到字段。Top 12（按出现次数）：
+
+| DTO | 出现 | 字段数 | 关键字段 |
+|---|---:|---:|---|
+| `CtpApplicationDto` | 6 | 36 | `id`, `icon`, `appName`, `appVersion`, `description`, `developer`, `source`, `appId` |
+| `CtpManagerTenantDto` | 4 | 15 | `useTenantId`, `appNameList`, `replaces`, `useTenantDomain`, `useTenantSubDomain`, `perfix`, `useTenantName`, `useTenantCode` |
+| `CtpApplicationAdminCreateDto` | 2 | 22 | `id`, `guid`, `appName`, `developer`, `description`, `icon`, `adminIndexPage`, `mobileIndexPageType` |
+| `CtpAccessLogDto` | 2 | 22 | `id`, `userId`, `traceId`, `name`, `loginName`, `appId`, `appName`, `type` |
+| `CtpManagerTenantStatusDto` | 2 | 4 | `useTenantId`, `status`, `errorMap`, `validate` |
+| `SearchJsonMetadataDto` | 2 | 4 | `appName`, `appVersion`, `jsonFileName`, `validate` |
+| `CtpApplicationAdminSimpleUpdateDto` | 1 | 19 | `id`, `guid`, `appName`, `developer`, `adminIndexPage`, `mobileIndexPageType`, `mobileIndexPage`, `webIndexPageType` |
+| `CtpApplicationSyncDto` | 1 | 21 | `appName`, `developer`, `appVersion`, `description`, `icon`, `adminIndexPage`, `mobileIndexPageType`, `mobileIndexPage` |
+| `CtpCategoryNameApplicationDto` | 1 | 4 | `id`, `name`, `applications`, `validate` |
+| `ClientScopeEnum` | 1 | 1 | `code` |
+| `CtpCategorySettingDto` | 1 | 3 | `applications`, `categories`, `validate` |
+| `SearchMenuAndPortalDto` | 1 | 4 | `clientType`, `orgId`, `userId`, `validate` |
+
 ## 落表
 
 > 证据等级：`VERIFIED_STATIC_BYTECODE`（表名出现在本模块 biz jar 的 class 常量池）

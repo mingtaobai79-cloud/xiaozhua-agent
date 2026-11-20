@@ -1207,6 +1207,29 @@ SingleResponse<List<Long>> ids = metaCore.selectEntityIdByMetadataValue(
 ListResponse<OrgMemberCoreDto> people = memberCore.selectMemberByIds(SingleRequest.from(ids.getData()));
 ```
 
+## 入参 DTO（字段级）
+
+> 字段来自字节码 `fields`（含继承链，最多 3 层）；**字段名即 JSON 键名**（平台用 Jackson 默认命名，`shortName` 对应库列 `short_name`）。
+> 包装类已揭开：`SingleRequest<T>` / `ListResponse<T>` 里看的是 `T` 的字段。
+> 等级 `VERIFIED_STATIC_BYTECODE`。全量字段表：`docs/audit/artifacts/dto/DTO-organization.md`
+
+本模块 **157** 个入参/返回 DTO，**154** 个能取到字段。Top 12（按出现次数）：
+
+| DTO | 出现 | 字段数 | 关键字段 |
+|---|---:|---:|---|
+| `OrgSyncInfoDto` | 18 | 9 | `type`, `status`, `startTime`, `endTime`, `totalNum`, `successNum`, `failNum`, `details` |
+| `QueryConditionDto` | 18 | 7 | `queryEntityDto`, `pageInfo`, `sort`, `ids`, `dynamicConditionDto`, `one2ManyCondition`, `validate` |
+| `OrgMemberCoreDto` | 16 | 28 | `id`, `name`, `i18nName`, `mnemonic`, `code`, `image`, `gender`, `birthday` |
+| `ProxyJoinParamDto` | 13 | 11 | `pageInfo`, `sort`, `entityList`, `distinctList`, `fieldMap`, `fromEntity`, `joinParamDtoList`, `groupMap` |
+| `OrgUnitCoreDto` | 12 | 27 | `id`, `name`, `i18nName`, `mnemonic`, `code`, `logo`, `shortName`, `institutionId` |
+| `SimpleConditionByIdsDto` | 12 | 3 | `ids`, `properties`, `validate` |
+| `SimpleConditionByParamsDto` | 12 | 3 | `params`, `properties`, `validate` |
+| `OrgMemberRoleDto` | 12 | 19 | `id`, `orgId`, `orgName`, `roleId`, `roleName`, `businessId`, `businessName`, `memberIds` |
+| `OrgRoleDto` | 12 | 19 | `id`, `name`, `code`, `type`, `sortId`, `isEnable`, `orgType`, `scopeType` |
+| `OrgUnitDto` | 11 | 52 | `id`, `institutionId`, `name`, `mnemonic`, `fullName`, `shortName`, `logo`, `code` |
+| `OrgBusinessDto` | 10 | 18 | `id`, `name`, `shortName`, `logo`, `code`, `sortId`, `isEnable`, `description` |
+| `ProxyParamDto` | 10 | 8 | `pageInfo`, `sort`, `params`, `cond`, `bootDtoFullName`, `jdbcDriver`, `customPassThroughMap`, `validate` |
+
 ## 落表
 
 > 证据等级：`VERIFIED_STATIC_BYTECODE`（表名出现在本模块 biz jar 的 class 常量池）

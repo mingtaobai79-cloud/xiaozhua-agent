@@ -105,6 +105,12 @@
 不要用它替代 `com.seeyon.boot.util.JsonUtils`（见 `U0` §3.1）。
 
 
+## 入参 DTO（字段级）
+
+⚠️ **UNVERIFIED** —— 本模块 facade 的入参类型在索引里没有字段。
+
+原因：入参是枚举/接口/纯 Map，或类型来自未提取的构件。不写推测字段。
+
 ## 落表
 
 ⚠️ **UNVERIFIED** —— `ai-biz` 的 class 常量池里没有表名字面量。

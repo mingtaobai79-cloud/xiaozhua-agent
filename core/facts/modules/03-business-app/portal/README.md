@@ -229,6 +229,29 @@
 | 核心实体 CRUD | `PortalConnectorController` | 1 |
 | 核心实体 CRUD | `VideoController` | 1 |
 
+## 入参 DTO（字段级）
+
+> 字段来自字节码 `fields`（含继承链，最多 3 层）；**字段名即 JSON 键名**（平台用 Jackson 默认命名，`shortName` 对应库列 `short_name`）。
+> 包装类已揭开：`SingleRequest<T>` / `ListResponse<T>` 里看的是 `T` 的字段。
+> 等级 `VERIFIED_STATIC_BYTECODE`。全量字段表：`docs/audit/artifacts/dto/DTO-portal.md`
+
+本模块 **17** 个入参/返回 DTO，**17** 个能取到字段。Top 12（按出现次数）：
+
+| DTO | 出现 | 字段数 | 关键字段 |
+|---|---:|---:|---|
+| `PortalShortcutDto` | 5 | 17 | `id`, `spaceId`, `parentId`, `orgId`, `userId`, `operationType`, `property`, `shortcutGroupDtoList` |
+| `PortletDefinitionDesignerDto` | 3 | 22 | `id`, `portletId`, `name`, `defaultName`, `appId`, `mobileAppId`, `enablePc`, `enableMobile` |
+| `PortalSetDesignerDto` | 3 | 20 | `id`, `dataId`, `name`, `orgId`, `userId`, `imgId`, `enablePc`, `enableMobile` |
+| `PortalSpaceDesignerDto` | 3 | 18 | `id`, `dataId`, `name`, `portalId`, `sortNo`, `orgId`, `userId`, `spaceIcon` |
+| `PortletCategoryDesignerDto` | 2 | 10 | `id`, `categoryCode`, `parentCategoryCode`, `categoryName`, `sortNo`, `appCode`, `originalAppId`, `originalId` |
+| `PortalSetDto` | 2 | 79 | `id`, `name`, `portalType`, `orgId`, `masterOrgId`, `ownerOrgId`, `userId`, `categoryId` |
+| `PortalConfigParamDto` | 1 | 5 | `portalType`, `sid`, `pageLoginPageType`, `uri`, `validate` |
+| `AboutDto` | 1 | 9 | `productInfo`, `deploymentType`, `userNum`, `pcOnlineNum`, `mobileOnlineNum`, `webOnlineNum`, `envInfo`, `language` |
+| `UdcPortletCategoryListDto` | 1 | 2 | `categoryDesignerDtoList`, `validate` |
+| `UdcPortletDefinitionListDto` | 1 | 2 | `definitionDesignerDtoList`, `validate` |
+| `PortalPortletSortNoParamDto` | 1 | 3 | `portletSortNoMap`, `appCode`, `validate` |
+| `PortalPortletParamDto` | 1 | 3 | `appCode`, `portletId`, `validate` |
+
 ## 落表
 
 > 证据等级：`VERIFIED_STATIC_BYTECODE`（表名出现在本模块 biz jar 的 class 常量池）

@@ -1052,6 +1052,29 @@
 | 核心实体 CRUD | `ResumeController` | 1 |
 | 核心实体 CRUD | `SearchController` | 1 |
 
+## 入参 DTO（字段级）
+
+> 字段来自字节码 `fields`（含继承链，最多 3 层）；**字段名即 JSON 键名**（平台用 Jackson 默认命名，`shortName` 对应库列 `short_name`）。
+> 包装类已揭开：`SingleRequest<T>` / `ListResponse<T>` 里看的是 `T` 的字段。
+> 等级 `VERIFIED_STATIC_BYTECODE`。全量字段表：`docs/audit/artifacts/dto/DTO-cip-capability.md`
+
+本模块 **490** 个入参/返回 DTO，**489** 个能取到字段。Top 12（按出现次数）：
+
+| DTO | 出现 | 字段数 | 关键字段 |
+|---|---:|---:|---|
+| `CreditRequestDto` | 21 | 7 | `keyword`, `skip`, `appName`, `debugging`, `count`, `provider`, `validate` |
+| `OcrRequestDto` | 18 | 10 | `ocrCapabilityApiEnum`, `imageBase64`, `imageUrl`, `storageKey`, `templateCode`, `appName`, `debugging`, `count` |
+| `DocFileInfoDto` | 11 | 25 | `token`, `type`, `appid`, `storageKey`, `fileName`, `fileId`, `checkToken`, `fileSize` |
+| `DocCallbackDto` | 11 | 2 | `map`, `validate` |
+| `DocFileConvertStateDto` | 10 | 11 | `taskId`, `targetFileName`, `targetStorageKey`, `convertStatusEnum`, `extMap`, `result`, `appName`, `debugging` |
+| `ShortMessageSignDto` | 8 | 18 | `id`, `signName`, `templateStatusEnum`, `applicationDescription`, `auditDescription`, `prepare`, `createTime`, `interfaceLink` |
+| `SealRequestDto` | 7 | 3 | `commonSealDto`, `accountId`, `validate` |
+| `BaseContractsResponse` | 7 | 7 | `success`, `code`, `message`, `requestMessage`, `filesList`, `errorMessage`, `validate` |
+| `CapabilityEnum` | 7 | 5 | `isHidden`, `code`, `description`, `nameByI18n`, `sort` |
+| `ShortMessageTemplateDto` | 7 | 24 | `id`, `name`, `code`, `templateTypeEnumsId`, `templateTypeEnumsName`, `templateLanguage`, `templateLanguageName`, `templateStatusEnum` |
+| `EmailSendResultDto` | 6 | 3 | `success`, `message`, `validate` |
+| `MobilePluginPlatformConfigDto` | 6 | 18 | `id`, `type`, `corpId`, `corpSecret`, `appId`, `appKey`, `appSecret`, `json` |
+
 ## 落表
 
 > 证据等级：`VERIFIED_STATIC_BYTECODE`（表名出现在本模块 biz jar 的 class 常量池）

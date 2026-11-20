@@ -235,6 +235,29 @@
 | 核心实体 CRUD | `CtpMessageTypeController` | 3 |
 | 核心实体 CRUD | `IndexController` | 3 |
 
+## 入参 DTO（字段级）
+
+> 字段来自字节码 `fields`（含继承链，最多 3 层）；**字段名即 JSON 键名**（平台用 Jackson 默认命名，`shortName` 对应库列 `short_name`）。
+> 包装类已揭开：`SingleRequest<T>` / `ListResponse<T>` 里看的是 `T` 的字段。
+> 等级 `VERIFIED_STATIC_BYTECODE`。全量字段表：`docs/audit/artifacts/dto/DTO-ctp-message.md`
+
+本模块 **21** 个入参/返回 DTO，**20** 个能取到字段。Top 12（按出现次数）：
+
+| DTO | 出现 | 字段数 | 关键字段 |
+|---|---:|---:|---|
+| `CtpMessageTypeDto` | 4 | 7 | `id`, `name`, `code`, `messageSourceCode`, `parentCode`, `hidden`, `validate` |
+| `CtpMessageMobileDto` | 2 | 10 | `id`, `userId`, `registerPlatform`, `pushTokens`, `deviceId`, `deviceType`, `deviceFirm`, `locale` |
+| `CtpMessageManageDto` | 2 | 4 | `userId`, `setType`, `setValue`, `validate` |
+| `CtpMessageQueryDto` | 1 | 27 | `userId`, `classificationList`, `onlineInfo`, `status`, `mobileOpenUrl`, `mobileOpenType`, `pcOpenUrl`, `pcOpenType` |
+| `PushMessageDto` | 1 | 25 | `templateKey`, `messageTypeName`, `messageSourceCode`, `messageSourceName`, `mobileOpenUrl`, `mobileOpenType`, `pcOpenUrl`, `pcOpenType` |
+| `CtpMessageSourceAndClassificationClientDto` | 1 | 17 | `unReadCount`, `cornerMarker`, `lastMessageContent`, `id`, `userId`, `icon`, `messageTime`, `topTime` |
+| `CtpMessageOtherDto` | 1 | 7 | `unReadCount`, `cornerMarker`, `lastMessageContent`, `name`, `code`, `type`, `validate` |
+| `CtpMessageBaseDto` | 1 | 26 | `status`, `classificationList`, `mobileOpenUrl`, `mobileOpenType`, `pcOpenUrl`, `pcOpenType`, `dialogModule`, `extendMap` |
+| `KickOfflineDto` | 1 | 8 | `userId`, `tenantId`, `terminal`, `msg`, `i18nCode`, `bId`, `tId`, `validate` |
+| `MessageStatusDto` | 1 | 2 | `statusEnum`, `validate` |
+| `MessageSendSimpleDto` | 1 | 18 | `identification`, `paramMode`, `title`, `senderId`, `messageTypeCode`, `messageSourceCode`, `messageTime`, `chooseJson` |
+| `MessageSendDto` | 1 | 34 | `messageChannelList`, `messageTag`, `uniqueId`, `chooseJson`, `templateDataMap`, `templateKey`, `templateSourceCode`, `operateJson` |
+
 ## 落表
 
 > 证据等级：`VERIFIED_STATIC_BYTECODE`（表名出现在本模块 biz jar 的 class 常量池）
