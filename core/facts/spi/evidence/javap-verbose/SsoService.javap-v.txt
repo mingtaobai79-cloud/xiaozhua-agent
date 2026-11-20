@@ -1,0 +1,108 @@
+Classfile jar:file:///D:/repo/CHIT/com/seeyon/cip-connector-api/5.3.286/cip-connector-api-5.3.286.jar!/com/seeyon/cip/connector/api/sso/SsoService.class
+  Last modified 2025年10月28日; size 1181 bytes
+  SHA-256 checksum f181b43f069eebf40e91601a0ba1c9e4f66fc37c2a498f91b37bba1cbc0e2f2a
+  Compiled from "SsoService.java"
+public interface com.seeyon.cip.connector.api.sso.SsoService
+  minor version: 0
+  major version: 52
+  flags: (0x0601) ACC_PUBLIC, ACC_INTERFACE, ACC_ABSTRACT
+  this_class: #1                          // com/seeyon/cip/connector/api/sso/SsoService
+  super_class: #2                         // java/lang/Object
+  interfaces: 0, fields: 0, methods: 7, attributes: 1
+Constant pool:
+   #1 = Class              #29            // com/seeyon/cip/connector/api/sso/SsoService
+   #2 = Class              #30            // java/lang/Object
+   #3 = Utf8               getName
+   #4 = Utf8               ()Ljava/lang/String;
+   #5 = Utf8               RuntimeVisibleAnnotations
+   #6 = Utf8               Lcom/seeyon/cip/connector/annotation/CipConnectorComment;
+   #7 = Utf8               value
+   #8 = Utf8               获取名称
+   #9 = Utf8               getTypeCaption
+  #10 = Utf8               获取描述
+  #11 = Utf8               login
+  #12 = Utf8               (Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;Lcom/seeyon/cip/connector/enums/SsoClientTypeEnum;Ljava/util/Map;)Ljava/lang/String;
+  #13 = Utf8               Signature
+  #14 = Utf8               (Ljava/lang/String;Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;Lcom/seeyon/cip/connector/enums/SsoClientTypeEnum;Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;)Ljava/lang/String;
+  #15 = Utf8               登录url : 登录urljson : 登录信息json串userMap : 用户信息mapclientType :客户端类型extendParams : 扩展字段
+  #16 = Utf8               check
+  #17 = Utf8               (Ljava/lang/String;)V
+  #18 = Utf8               jsr303校验
+  #19 = Utf8               getPageJson
+  #20 = Utf8               获取页面json语句
+  #21 = Utf8               getSortNo
+  #22 = Utf8               ()Ljava/lang/Integer;
+  #23 = Utf8               排序
+  #24 = Utf8               needUserBind
+  #25 = Utf8               ()Z
+  #26 = Utf8               是否需要用户绑定操作
+  #27 = Utf8               SourceFile
+  #28 = Utf8               SsoService.java
+  #29 = Utf8               com/seeyon/cip/connector/api/sso/SsoService
+  #30 = Utf8               java/lang/Object
+{
+  public abstract java.lang.String getName();
+    descriptor: ()Ljava/lang/String;
+    flags: (0x0401) ACC_PUBLIC, ACC_ABSTRACT
+    RuntimeVisibleAnnotations:
+      0: #6(#7=s#8)
+        com.seeyon.cip.connector.annotation.CipConnectorComment(
+          value="获取名称"
+        )
+
+  public abstract java.lang.String getTypeCaption();
+    descriptor: ()Ljava/lang/String;
+    flags: (0x0401) ACC_PUBLIC, ACC_ABSTRACT
+    RuntimeVisibleAnnotations:
+      0: #6(#7=s#10)
+        com.seeyon.cip.connector.annotation.CipConnectorComment(
+          value="获取描述"
+        )
+
+  public abstract java.lang.String login(java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>, com.seeyon.cip.connector.enums.SsoClientTypeEnum, java.util.Map<java.lang.String, java.lang.Object>);
+    descriptor: (Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;Lcom/seeyon/cip/connector/enums/SsoClientTypeEnum;Ljava/util/Map;)Ljava/lang/String;
+    flags: (0x0401) ACC_PUBLIC, ACC_ABSTRACT
+    Signature: #14                          // (Ljava/lang/String;Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;Lcom/seeyon/cip/connector/enums/SsoClientTypeEnum;Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;)Ljava/lang/String;
+    RuntimeVisibleAnnotations:
+      0: #6(#7=s#15)
+        com.seeyon.cip.connector.annotation.CipConnectorComment(
+          value="登录url : 登录urljson : 登录信息json串userMap : 用户信息mapclientType :客户端类型extendParams : 扩展字段"
+        )
+
+  public abstract void check(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+    flags: (0x0401) ACC_PUBLIC, ACC_ABSTRACT
+    RuntimeVisibleAnnotations:
+      0: #6(#7=s#18)
+        com.seeyon.cip.connector.annotation.CipConnectorComment(
+          value="jsr303校验"
+        )
+
+  public abstract java.lang.String getPageJson();
+    descriptor: ()Ljava/lang/String;
+    flags: (0x0401) ACC_PUBLIC, ACC_ABSTRACT
+    RuntimeVisibleAnnotations:
+      0: #6(#7=s#20)
+        com.seeyon.cip.connector.annotation.CipConnectorComment(
+          value="获取页面json语句"
+        )
+
+  public abstract java.lang.Integer getSortNo();
+    descriptor: ()Ljava/lang/Integer;
+    flags: (0x0401) ACC_PUBLIC, ACC_ABSTRACT
+    RuntimeVisibleAnnotations:
+      0: #6(#7=s#23)
+        com.seeyon.cip.connector.annotation.CipConnectorComment(
+          value="排序"
+        )
+
+  public abstract boolean needUserBind();
+    descriptor: ()Z
+    flags: (0x0401) ACC_PUBLIC, ACC_ABSTRACT
+    RuntimeVisibleAnnotations:
+      0: #6(#7=s#26)
+        com.seeyon.cip.connector.annotation.CipConnectorComment(
+          value="是否需要用户绑定操作"
+        )
+}
+SourceFile: "SsoService.java"

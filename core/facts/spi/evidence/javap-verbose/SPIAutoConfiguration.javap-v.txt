@@ -1,0 +1,88 @@
+Classfile jar:file:///D:/repo/CHIT/com/seeyon/boot-starter-spi/5.3.358/boot-starter-spi-5.3.358.jar!/com/seeyon/boot/starter/spi/SPIAutoConfiguration.class
+  Last modified 2026Äê5ÔÂ25ÈÕ; size 883 bytes
+  SHA-256 checksum a8bf49a2eae166ce93141510fe15d3daa0049ca4ddf4e160a4c05b8f9abbb784
+  Compiled from "SPIAutoConfiguration.java"
+public class com.seeyon.boot.starter.spi.SPIAutoConfiguration
+  minor version: 0
+  major version: 52
+  flags: (0x0021) ACC_PUBLIC, ACC_SUPER
+  this_class: #2                          // com/seeyon/boot/starter/spi/SPIAutoConfiguration
+  super_class: #5                         // java/lang/Object
+  interfaces: 0, fields: 1, methods: 2, attributes: 2
+Constant pool:
+   #1 = Methodref          #5.#25         // java/lang/Object."<init>":()V
+   #2 = Class              #26            // com/seeyon/boot/starter/spi/SPIAutoConfiguration
+   #3 = Methodref          #27.#28        // org/slf4j/LoggerFactory.getLogger:(Ljava/lang/Class;)Lorg/slf4j/Logger;
+   #4 = Fieldref           #2.#29         // com/seeyon/boot/starter/spi/SPIAutoConfiguration.log:Lorg/slf4j/Logger;
+   #5 = Class              #30            // java/lang/Object
+   #6 = Utf8               log
+   #7 = Utf8               Lorg/slf4j/Logger;
+   #8 = Utf8               <init>
+   #9 = Utf8               ()V
+  #10 = Utf8               Code
+  #11 = Utf8               LineNumberTable
+  #12 = Utf8               LocalVariableTable
+  #13 = Utf8               this
+  #14 = Utf8               Lcom/seeyon/boot/starter/spi/SPIAutoConfiguration;
+  #15 = Utf8               <clinit>
+  #16 = Utf8               SourceFile
+  #17 = Utf8               SPIAutoConfiguration.java
+  #18 = Utf8               RuntimeVisibleAnnotations
+  #19 = Utf8               Lorg/springframework/context/annotation/Configuration;
+  #20 = Utf8               Lorg/springframework/boot/context/properties/EnableConfigurationProperties;
+  #21 = Utf8               value
+  #22 = Utf8               Lcom/seeyon/boot/starter/spi/SPIProperties;
+  #23 = Utf8               Lorg/springframework/boot/autoconfigure/condition/ConditionalOnProperty;
+  #24 = Utf8               seeyon.spi.enable
+  #25 = NameAndType        #8:#9          // "<init>":()V
+  #26 = Utf8               com/seeyon/boot/starter/spi/SPIAutoConfiguration
+  #27 = Class              #31            // org/slf4j/LoggerFactory
+  #28 = NameAndType        #32:#33        // getLogger:(Ljava/lang/Class;)Lorg/slf4j/Logger;
+  #29 = NameAndType        #6:#7          // log:Lorg/slf4j/Logger;
+  #30 = Utf8               java/lang/Object
+  #31 = Utf8               org/slf4j/LoggerFactory
+  #32 = Utf8               getLogger
+  #33 = Utf8               (Ljava/lang/Class;)Lorg/slf4j/Logger;
+{
+  private static final org.slf4j.Logger log;
+    descriptor: Lorg/slf4j/Logger;
+    flags: (0x001a) ACC_PRIVATE, ACC_STATIC, ACC_FINAL
+
+  public com.seeyon.boot.starter.spi.SPIAutoConfiguration();
+    descriptor: ()V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: return
+      LineNumberTable:
+        line 12: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lcom/seeyon/boot/starter/spi/SPIAutoConfiguration;
+
+  static {};
+    descriptor: ()V
+    flags: (0x0008) ACC_STATIC
+    Code:
+      stack=1, locals=0, args_size=0
+         0: ldc           #2                  // class com/seeyon/boot/starter/spi/SPIAutoConfiguration
+         2: invokestatic  #3                  // Method org/slf4j/LoggerFactory.getLogger:(Ljava/lang/Class;)Lorg/slf4j/Logger;
+         5: putstatic     #4                  // Field log:Lorg/slf4j/Logger;
+         8: return
+      LineNumberTable:
+        line 11: 0
+}
+SourceFile: "SPIAutoConfiguration.java"
+RuntimeVisibleAnnotations:
+  0: #19()
+    org.springframework.context.annotation.Configuration
+  1: #20(#21=[c#22])
+    org.springframework.boot.context.properties.EnableConfigurationProperties(
+      value=[class Lcom/seeyon/boot/starter/spi/SPIProperties;]
+    )
+  2: #23(#21=[s#24])
+    org.springframework.boot.autoconfigure.condition.ConditionalOnProperty(
+      value=["seeyon.spi.enable"]
+    )

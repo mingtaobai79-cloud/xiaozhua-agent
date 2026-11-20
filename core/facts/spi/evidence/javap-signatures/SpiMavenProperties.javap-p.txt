@@ -1,0 +1,21 @@
+Compiled from "SpiMavenProperties.java"
+public class com.seeyon.boot.starter.spi.plugin.maven.SpiMavenProperties {
+  public static final java.lang.String PREFIX;
+  private java.lang.String snapshotUrl;
+  private java.lang.String releaseUrl;
+  private java.lang.String username;
+  private java.lang.String password;
+  public com.seeyon.boot.starter.spi.plugin.maven.SpiMavenProperties();
+  public java.lang.String getSnapshotUrl();
+  public java.lang.String getReleaseUrl();
+  public java.lang.String getUsername();
+  public java.lang.String getPassword();
+  public void setSnapshotUrl(java.lang.String);
+  public void setReleaseUrl(java.lang.String);
+  public void setUsername(java.lang.String);
+  public void setPassword(java.lang.String);
+  public boolean equals(java.lang.Object);
+  protected boolean canEqual(java.lang.Object);
+  public int hashCode();
+  public java.lang.String toString();
+}

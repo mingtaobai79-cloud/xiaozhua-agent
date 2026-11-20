@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Implementation-Title: boot-starter-spi
+Implementation-Version: 5.3.358
+Archiver-Version: Plexus Archiver
+Built-By: root
+Implementation-Vendor-Id: com.seeyon
+Created-By: Apache Maven 3.6.3
+Build-Jdk: 1.8.0_201
+

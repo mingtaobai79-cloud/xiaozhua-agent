@@ -1,0 +1,25 @@
+# command: unzip -l <jar> | grep -E 'com/seeyon/cip/connector/api/.*\.class'
+# RC=0
+# output sha256_prefix=17f28fb6  output_bytes=2078
+# captured: 2026-10-08T04:29:00Z
+# ---- raw output below ----
+      580  2025-10-28 16:33   com/seeyon/cip/connector/api/midorgsync/callback/MiddleTableOrgSyncExecuteCallbackService.class
+      524  2025-10-28 16:33   com/seeyon/cip/connector/api/midorgsync/callback/MiddleTableOrgSyncMarkCallbackService.class
+     1433  2025-10-28 16:33   com/seeyon/cip/connector/api/midorgsync/callback/MiddleTableOrgSyncDataCallbackService.class
+     1723  2025-10-28 16:33   com/seeyon/cip/connector/api/midorgsync/MiddleTableOrgSyncSpiPullService.class
+     1099  2025-10-28 16:33   com/seeyon/cip/connector/api/midorgsync/MiddleTableOrgSyncSpiListenerService.class
+     3212  2025-10-28 16:33   com/seeyon/cip/connector/api/mobile/MobileConfigProviderService.class
+      159  2025-10-28 16:33   com/seeyon/cip/connector/api/mobile/MobileProviderService.class
+     2203  2025-10-28 16:33   com/seeyon/cip/connector/api/mobile/MobileTodoProviderService.class
+      561  2025-10-28 16:33   com/seeyon/cip/connector/api/mobile/MobileCallBackProviderService.class
+     1248  2025-10-28 16:33   com/seeyon/cip/connector/api/mobile/MobileOrgSyncBatchProviderService.class
+     2348  2025-10-28 16:33   com/seeyon/cip/connector/api/mobile/MobileOrgSyncPullProviderService.class
+     2512  2025-10-28 16:33   com/seeyon/cip/connector/api/mobile/MobileOrgSyncProviderService.class
+     3540  2025-10-28 16:33   com/seeyon/cip/connector/api/mobile/MobileApplicationProviderService.class
+     1063  2025-10-28 16:33   com/seeyon/cip/connector/api/callback/ConnectorCallbackProviderService.class
+      558  2025-10-28 16:33   com/seeyon/cip/connector/api/callback/ConnectorCallbackMessageSendService.class
+     3446  2025-10-28 16:33   com/seeyon/cip/connector/api/db/DataBaseExecutorService.class
+     1723  2025-10-28 16:33   com/seeyon/cip/connector/api/authentication/LinkerSecurityService.class
+      655  2025-10-28 16:33   com/seeyon/cip/connector/api/sign/LinkerSignService.class
+      650  2025-10-28 16:33   com/seeyon/cip/connector/api/affair/CipThirdAffairService.class
+     1181  2025-10-28 16:33   com/seeyon/cip/connector/api/sso/SsoService.class

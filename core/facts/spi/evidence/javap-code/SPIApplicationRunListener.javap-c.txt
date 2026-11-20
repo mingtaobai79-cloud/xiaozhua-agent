@@ -1,0 +1,81 @@
+Compiled from "SPIApplicationRunListener.java"
+public class com.seeyon.boot.starter.spi.SPIApplicationRunListener implements com.seeyon.boot.init.SeeyonApplicationRunner {
+  private static final org.slf4j.Logger log;
+
+  public com.seeyon.boot.starter.spi.SPIApplicationRunListener();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public void run() throws java.lang.Exception;
+    Code:
+       0: aload_0
+       1: invokevirtual #2                  // Method initialize:()V
+       4: aload_0
+       5: invokevirtual #3                  // Method loadExtendsSpi:()V
+       8: return
+
+  public void initialize();
+    Code:
+       0: invokestatic  #4                  // Method com/seeyon/boot/context/Apps.getEnvironment:()Lorg/springframework/core/env/Environment;
+       3: ldc           #5                  // String seeyon.spi.enable
+       5: invokeinterface #6,  2            // InterfaceMethod org/springframework/core/env/Environment.getProperty:(Ljava/lang/String;)Ljava/lang/String;
+      10: astore_1
+      11: ldc           #7                  // String true
+      13: aload_1
+      14: invokevirtual #8                  // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+      17: ifne          31
+      20: getstatic     #9                  // Field log:Lorg/slf4j/Logger;
+      23: ldc           #10                 // String 应用依赖了SPI插件，但未开启相应功能
+      25: invokeinterface #11,  2           // InterfaceMethod org/slf4j/Logger.warn:(Ljava/lang/String;)V
+      30: return
+      31: invokestatic  #12                 // Method com/seeyon/boot/context/Apps.getBeanFactory:()Lorg/springframework/beans/factory/support/DefaultListableBeanFactory;
+      34: ldc           #13                 // class com/seeyon/boot/starter/spi/SPIProperties
+      36: invokevirtual #14                 // Method org/springframework/beans/factory/support/DefaultListableBeanFactory.getBean:(Ljava/lang/Class;)Ljava/lang/Object;
+      39: checkcast     #13                 // class com/seeyon/boot/starter/spi/SPIProperties
+      42: astore_2
+      43: invokestatic  #12                 // Method com/seeyon/boot/context/Apps.getBeanFactory:()Lorg/springframework/beans/factory/support/DefaultListableBeanFactory;
+      46: ldc           #15                 // class com/seeyon/boot/starter/spi/SPIJarLoader
+      48: invokevirtual #14                 // Method org/springframework/beans/factory/support/DefaultListableBeanFactory.getBean:(Ljava/lang/Class;)Ljava/lang/Object;
+      51: checkcast     #15                 // class com/seeyon/boot/starter/spi/SPIJarLoader
+      54: astore_3
+      55: aload_2
+      56: invokevirtual #16                 // Method com/seeyon/boot/starter/spi/SPIProperties.isEnable:()Z
+      59: ifne          73
+      62: getstatic     #9                  // Field log:Lorg/slf4j/Logger;
+      65: ldc           #17                 // String 未开启SPI插件加载机制，忽略SPI实现的加载
+      67: invokeinterface #18,  2           // InterfaceMethod org/slf4j/Logger.info:(Ljava/lang/String;)V
+      72: return
+      73: aload_2
+      74: invokevirtual #19                 // Method com/seeyon/boot/starter/spi/SPIProperties.getSpiPlugins:()Ljava/util/List;
+      77: astore        4
+      79: aload         4
+      81: ifnull        94
+      84: aload         4
+      86: invokeinterface #20,  1           // InterfaceMethod java/util/List.isEmpty:()Z
+      91: ifeq          95
+      94: return
+      95: aload_3
+      96: aload         4
+      98: invokevirtual #21                 // Method com/seeyon/boot/starter/spi/SPIJarLoader.loadSPIPlugins:(Ljava/util/List;)V
+     101: return
+
+  public void loadExtendsSpi();
+    Code:
+       0: invokestatic  #12                 // Method com/seeyon/boot/context/Apps.getBeanFactory:()Lorg/springframework/beans/factory/support/DefaultListableBeanFactory;
+       3: ldc           #15                 // class com/seeyon/boot/starter/spi/SPIJarLoader
+       5: invokevirtual #14                 // Method org/springframework/beans/factory/support/DefaultListableBeanFactory.getBean:(Ljava/lang/Class;)Ljava/lang/Object;
+       8: checkcast     #15                 // class com/seeyon/boot/starter/spi/SPIJarLoader
+      11: astore_1
+      12: aload_1
+      13: invokevirtual #22                 // Method com/seeyon/boot/starter/spi/SPIJarLoader.loadRemoteSPIPlugins:()V
+      16: return
+
+  static {};
+    Code:
+       0: ldc           #23                 // class com/seeyon/boot/starter/spi/SPIApplicationRunListener
+       2: invokestatic  #24                 // Method org/slf4j/LoggerFactory.getLogger:(Ljava/lang/Class;)Lorg/slf4j/Logger;
+       5: putstatic     #9                  // Field log:Lorg/slf4j/Logger;
+       8: return
+}

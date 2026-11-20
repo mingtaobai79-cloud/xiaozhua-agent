@@ -1,0 +1,595 @@
+Classfile jar:file:///D:/repo/CHIT/com/seeyon/boot-starter-spi/5.3.358/boot-starter-spi-5.3.358.jar!/com/seeyon/boot/starter/spi/plugin/maven/SpiMavenProperties.class
+  Last modified 2026Äê5ÔÂ25ÈÕ; size 3232 bytes
+  SHA-256 checksum 141c31b477587cdf671729a4b21a2548f2f53eb55e217905e9c3dc1d14f38e8c
+  Compiled from "SpiMavenProperties.java"
+public class com.seeyon.boot.starter.spi.plugin.maven.SpiMavenProperties
+  minor version: 0
+  major version: 52
+  flags: (0x0021) ACC_PUBLIC, ACC_SUPER
+  this_class: #6                          // com/seeyon/boot/starter/spi/plugin/maven/SpiMavenProperties
+  super_class: #23                        // java/lang/Object
+  interfaces: 0, fields: 5, methods: 13, attributes: 2
+Constant pool:
+    #1 = Methodref          #23.#89       // java/lang/Object."<init>":()V
+    #2 = Fieldref           #6.#90        // com/seeyon/boot/starter/spi/plugin/maven/SpiMavenProperties.snapshotUrl:Ljava/lang/String;
+    #3 = Fieldref           #6.#91        // com/seeyon/boot/starter/spi/plugin/maven/SpiMavenProperties.releaseUrl:Ljava/lang/String;
+    #4 = Fieldref           #6.#92        // com/seeyon/boot/starter/spi/plugin/maven/SpiMavenProperties.username:Ljava/lang/String;
+    #5 = Fieldref           #6.#93        // com/seeyon/boot/starter/spi/plugin/maven/SpiMavenProperties.password:Ljava/lang/String;
+    #6 = Class              #94           // com/seeyon/boot/starter/spi/plugin/maven/SpiMavenProperties
+    #7 = Methodref          #6.#95        // com/seeyon/boot/starter/spi/plugin/maven/SpiMavenProperties.canEqual:(Ljava/lang/Object;)Z
+    #8 = Methodref          #6.#96        // com/seeyon/boot/starter/spi/plugin/maven/SpiMavenProperties.getSnapshotUrl:()Ljava/lang/String;
+    #9 = Methodref          #23.#97       // java/lang/Object.equals:(Ljava/lang/Object;)Z
+   #10 = Methodref          #6.#98        // com/seeyon/boot/starter/spi/plugin/maven/SpiMavenProperties.getReleaseUrl:()Ljava/lang/String;
+   #11 = Methodref          #6.#99        // com/seeyon/boot/starter/spi/plugin/maven/SpiMavenProperties.getUsername:()Ljava/lang/String;
+   #12 = Methodref          #6.#100       // com/seeyon/boot/starter/spi/plugin/maven/SpiMavenProperties.getPassword:()Ljava/lang/String;
+   #13 = Methodref          #23.#101      // java/lang/Object.hashCode:()I
+   #14 = Class              #102          // java/lang/StringBuilder
+   #15 = Methodref          #14.#89       // java/lang/StringBuilder."<init>":()V
+   #16 = String             #103          // SpiMavenProperties(snapshotUrl=
+   #17 = Methodref          #14.#104      // java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+   #18 = String             #105          // , releaseUrl=
+   #19 = String             #106          // , username=
+   #20 = String             #107          // , password=
+   #21 = String             #108          // )
+   #22 = Methodref          #14.#109      // java/lang/StringBuilder.toString:()Ljava/lang/String;
+   #23 = Class              #110          // java/lang/Object
+   #24 = Utf8               PREFIX
+   #25 = Utf8               Ljava/lang/String;
+   #26 = Utf8               ConstantValue
+   #27 = String             #82           // seeyon.dynamic.loader.maven
+   #28 = Utf8               snapshotUrl
+   #29 = Utf8               releaseUrl
+   #30 = Utf8               username
+   #31 = Utf8               password
+   #32 = Utf8               <init>
+   #33 = Utf8               ()V
+   #34 = Utf8               Code
+   #35 = Utf8               LineNumberTable
+   #36 = Utf8               LocalVariableTable
+   #37 = Utf8               this
+   #38 = Utf8               Lcom/seeyon/boot/starter/spi/plugin/maven/SpiMavenProperties;
+   #39 = Utf8               getSnapshotUrl
+   #40 = Utf8               ()Ljava/lang/String;
+   #41 = Utf8               getReleaseUrl
+   #42 = Utf8               getUsername
+   #43 = Utf8               getPassword
+   #44 = Utf8               setSnapshotUrl
+   #45 = Utf8               (Ljava/lang/String;)V
+   #46 = Utf8               setReleaseUrl
+   #47 = Utf8               setUsername
+   #48 = Utf8               setPassword
+   #49 = Utf8               equals
+   #50 = Utf8               (Ljava/lang/Object;)Z
+   #51 = Utf8               o
+   #52 = Utf8               Ljava/lang/Object;
+   #53 = Utf8               other
+   #54 = Utf8               this$snapshotUrl
+   #55 = Utf8               other$snapshotUrl
+   #56 = Utf8               this$releaseUrl
+   #57 = Utf8               other$releaseUrl
+   #58 = Utf8               this$username
+   #59 = Utf8               other$username
+   #60 = Utf8               this$password
+   #61 = Utf8               other$password
+   #62 = Utf8               StackMapTable
+   #63 = Class              #94           // com/seeyon/boot/starter/spi/plugin/maven/SpiMavenProperties
+   #64 = Class              #110          // java/lang/Object
+   #65 = Utf8               canEqual
+   #66 = Utf8               hashCode
+   #67 = Utf8               ()I
+   #68 = Utf8               PRIME
+   #69 = Utf8               I
+   #70 = Utf8               result
+   #71 = Utf8               $snapshotUrl
+   #72 = Utf8               $releaseUrl
+   #73 = Utf8               $username
+   #74 = Utf8               $password
+   #75 = Utf8               toString
+   #76 = Utf8               SourceFile
+   #77 = Utf8               SpiMavenProperties.java
+   #78 = Utf8               RuntimeVisibleAnnotations
+   #79 = Utf8               Lorg/springframework/context/annotation/Configuration;
+   #80 = Utf8               Lorg/springframework/boot/context/properties/ConfigurationProperties;
+   #81 = Utf8               prefix
+   #82 = Utf8               seeyon.dynamic.loader.maven
+   #83 = Utf8               Lorg/springframework/boot/autoconfigure/condition/ConditionalOnProperty;
+   #84 = Utf8               seeyon.dynamic.loader
+   #85 = Utf8               name
+   #86 = Utf8               type
+   #87 = Utf8               havingValue
+   #88 = Utf8               maven
+   #89 = NameAndType        #32:#33       // "<init>":()V
+   #90 = NameAndType        #28:#25       // snapshotUrl:Ljava/lang/String;
+   #91 = NameAndType        #29:#25       // releaseUrl:Ljava/lang/String;
+   #92 = NameAndType        #30:#25       // username:Ljava/lang/String;
+   #93 = NameAndType        #31:#25       // password:Ljava/lang/String;
+   #94 = Utf8               com/seeyon/boot/starter/spi/plugin/maven/SpiMavenProperties
+   #95 = NameAndType        #65:#50       // canEqual:(Ljava/lang/Object;)Z
+   #96 = NameAndType        #39:#40       // getSnapshotUrl:()Ljava/lang/String;
+   #97 = NameAndType        #49:#50       // equals:(Ljava/lang/Object;)Z
+   #98 = NameAndType        #41:#40       // getReleaseUrl:()Ljava/lang/String;
+   #99 = NameAndType        #42:#40       // getUsername:()Ljava/lang/String;
+  #100 = NameAndType        #43:#40       // getPassword:()Ljava/lang/String;
+  #101 = NameAndType        #66:#67       // hashCode:()I
+  #102 = Utf8               java/lang/StringBuilder
+  #103 = Utf8               SpiMavenProperties(snapshotUrl=
+  #104 = NameAndType        #111:#112     // append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  #105 = Utf8               , releaseUrl=
+  #106 = Utf8               , username=
+  #107 = Utf8               , password=
+  #108 = Utf8               )
+  #109 = NameAndType        #75:#40       // toString:()Ljava/lang/String;
+  #110 = Utf8               java/lang/Object
+  #111 = Utf8               append
+  #112 = Utf8               (Ljava/lang/String;)Ljava/lang/StringBuilder;
+{
+  public static final java.lang.String PREFIX;
+    descriptor: Ljava/lang/String;
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+    ConstantValue: String seeyon.dynamic.loader.maven
+
+  private java.lang.String snapshotUrl;
+    descriptor: Ljava/lang/String;
+    flags: (0x0002) ACC_PRIVATE
+
+  private java.lang.String releaseUrl;
+    descriptor: Ljava/lang/String;
+    flags: (0x0002) ACC_PRIVATE
+
+  private java.lang.String username;
+    descriptor: Ljava/lang/String;
+    flags: (0x0002) ACC_PRIVATE
+
+  private java.lang.String password;
+    descriptor: Ljava/lang/String;
+    flags: (0x0002) ACC_PRIVATE
+
+  public com.seeyon.boot.starter.spi.plugin.maven.SpiMavenProperties();
+    descriptor: ()V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: return
+      LineNumberTable:
+        line 8: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lcom/seeyon/boot/starter/spi/plugin/maven/SpiMavenProperties;
+
+  public java.lang.String getSnapshotUrl();
+    descriptor: ()Ljava/lang/String;
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: getfield      #2                  // Field snapshotUrl:Ljava/lang/String;
+         4: areturn
+      LineNumberTable:
+        line 21: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lcom/seeyon/boot/starter/spi/plugin/maven/SpiMavenProperties;
+
+  public java.lang.String getReleaseUrl();
+    descriptor: ()Ljava/lang/String;
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: getfield      #3                  // Field releaseUrl:Ljava/lang/String;
+         4: areturn
+      LineNumberTable:
+        line 22: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lcom/seeyon/boot/starter/spi/plugin/maven/SpiMavenProperties;
+
+  public java.lang.String getUsername();
+    descriptor: ()Ljava/lang/String;
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: getfield      #4                  // Field username:Ljava/lang/String;
+         4: areturn
+      LineNumberTable:
+        line 23: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lcom/seeyon/boot/starter/spi/plugin/maven/SpiMavenProperties;
+
+  public java.lang.String getPassword();
+    descriptor: ()Ljava/lang/String;
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: getfield      #5                  // Field password:Ljava/lang/String;
+         4: areturn
+      LineNumberTable:
+        line 24: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lcom/seeyon/boot/starter/spi/plugin/maven/SpiMavenProperties;
+
+  public void setSnapshotUrl(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0
+         1: aload_1
+         2: putfield      #2                  // Field snapshotUrl:Ljava/lang/String;
+         5: return
+      LineNumberTable:
+        line 8: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       6     0  this   Lcom/seeyon/boot/starter/spi/plugin/maven/SpiMavenProperties;
+            0       6     1 snapshotUrl   Ljava/lang/String;
+
+  public void setReleaseUrl(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0
+         1: aload_1
+         2: putfield      #3                  // Field releaseUrl:Ljava/lang/String;
+         5: return
+      LineNumberTable:
+        line 8: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       6     0  this   Lcom/seeyon/boot/starter/spi/plugin/maven/SpiMavenProperties;
+            0       6     1 releaseUrl   Ljava/lang/String;
+
+  public void setUsername(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0
+         1: aload_1
+         2: putfield      #4                  // Field username:Ljava/lang/String;
+         5: return
+      LineNumberTable:
+        line 8: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       6     0  this   Lcom/seeyon/boot/starter/spi/plugin/maven/SpiMavenProperties;
+            0       6     1 username   Ljava/lang/String;
+
+  public void setPassword(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0
+         1: aload_1
+         2: putfield      #5                  // Field password:Ljava/lang/String;
+         5: return
+      LineNumberTable:
+        line 8: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       6     0  this   Lcom/seeyon/boot/starter/spi/plugin/maven/SpiMavenProperties;
+            0       6     1 password   Ljava/lang/String;
+
+  public boolean equals(java.lang.Object);
+    descriptor: (Ljava/lang/Object;)Z
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=2, locals=11, args_size=2
+         0: aload_1
+         1: aload_0
+         2: if_acmpne     7
+         5: iconst_1
+         6: ireturn
+         7: aload_1
+         8: instanceof    #6                  // class com/seeyon/boot/starter/spi/plugin/maven/SpiMavenProperties
+        11: ifne          16
+        14: iconst_0
+        15: ireturn
+        16: aload_1
+        17: checkcast     #6                  // class com/seeyon/boot/starter/spi/plugin/maven/SpiMavenProperties
+        20: astore_2
+        21: aload_2
+        22: aload_0
+        23: invokevirtual #7                  // Method canEqual:(Ljava/lang/Object;)Z
+        26: ifne          31
+        29: iconst_0
+        30: ireturn
+        31: aload_0
+        32: invokevirtual #8                  // Method getSnapshotUrl:()Ljava/lang/String;
+        35: astore_3
+        36: aload_2
+        37: invokevirtual #8                  // Method getSnapshotUrl:()Ljava/lang/String;
+        40: astore        4
+        42: aload_3
+        43: ifnonnull     54
+        46: aload         4
+        48: ifnull        65
+        51: goto          63
+        54: aload_3
+        55: aload         4
+        57: invokevirtual #9                  // Method java/lang/Object.equals:(Ljava/lang/Object;)Z
+        60: ifne          65
+        63: iconst_0
+        64: ireturn
+        65: aload_0
+        66: invokevirtual #10                 // Method getReleaseUrl:()Ljava/lang/String;
+        69: astore        5
+        71: aload_2
+        72: invokevirtual #10                 // Method getReleaseUrl:()Ljava/lang/String;
+        75: astore        6
+        77: aload         5
+        79: ifnonnull     90
+        82: aload         6
+        84: ifnull        102
+        87: goto          100
+        90: aload         5
+        92: aload         6
+        94: invokevirtual #9                  // Method java/lang/Object.equals:(Ljava/lang/Object;)Z
+        97: ifne          102
+       100: iconst_0
+       101: ireturn
+       102: aload_0
+       103: invokevirtual #11                 // Method getUsername:()Ljava/lang/String;
+       106: astore        7
+       108: aload_2
+       109: invokevirtual #11                 // Method getUsername:()Ljava/lang/String;
+       112: astore        8
+       114: aload         7
+       116: ifnonnull     127
+       119: aload         8
+       121: ifnull        139
+       124: goto          137
+       127: aload         7
+       129: aload         8
+       131: invokevirtual #9                  // Method java/lang/Object.equals:(Ljava/lang/Object;)Z
+       134: ifne          139
+       137: iconst_0
+       138: ireturn
+       139: aload_0
+       140: invokevirtual #12                 // Method getPassword:()Ljava/lang/String;
+       143: astore        9
+       145: aload_2
+       146: invokevirtual #12                 // Method getPassword:()Ljava/lang/String;
+       149: astore        10
+       151: aload         9
+       153: ifnonnull     164
+       156: aload         10
+       158: ifnull        176
+       161: goto          174
+       164: aload         9
+       166: aload         10
+       168: invokevirtual #9                  // Method java/lang/Object.equals:(Ljava/lang/Object;)Z
+       171: ifne          176
+       174: iconst_0
+       175: ireturn
+       176: iconst_1
+       177: ireturn
+      LineNumberTable:
+        line 8: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0     178     0  this   Lcom/seeyon/boot/starter/spi/plugin/maven/SpiMavenProperties;
+            0     178     1     o   Ljava/lang/Object;
+           21     157     2 other   Lcom/seeyon/boot/starter/spi/plugin/maven/SpiMavenProperties;
+           36     142     3 this$snapshotUrl   Ljava/lang/Object;
+           42     136     4 other$snapshotUrl   Ljava/lang/Object;
+           71     107     5 this$releaseUrl   Ljava/lang/Object;
+           77     101     6 other$releaseUrl   Ljava/lang/Object;
+          108      70     7 this$username   Ljava/lang/Object;
+          114      64     8 other$username   Ljava/lang/Object;
+          145      33     9 this$password   Ljava/lang/Object;
+          151      27    10 other$password   Ljava/lang/Object;
+      StackMapTable: number_of_entries = 15
+        frame_type = 7 /* same */
+        frame_type = 8 /* same */
+        frame_type = 252 /* append */
+          offset_delta = 14
+          locals = [ class com/seeyon/boot/starter/spi/plugin/maven/SpiMavenProperties ]
+        frame_type = 253 /* append */
+          offset_delta = 22
+          locals = [ class java/lang/Object, class java/lang/Object ]
+        frame_type = 8 /* same */
+        frame_type = 1 /* same */
+        frame_type = 253 /* append */
+          offset_delta = 24
+          locals = [ class java/lang/Object, class java/lang/Object ]
+        frame_type = 9 /* same */
+        frame_type = 1 /* same */
+        frame_type = 253 /* append */
+          offset_delta = 24
+          locals = [ class java/lang/Object, class java/lang/Object ]
+        frame_type = 9 /* same */
+        frame_type = 1 /* same */
+        frame_type = 253 /* append */
+          offset_delta = 24
+          locals = [ class java/lang/Object, class java/lang/Object ]
+        frame_type = 9 /* same */
+        frame_type = 1 /* same */
+
+  protected boolean canEqual(java.lang.Object);
+    descriptor: (Ljava/lang/Object;)Z
+    flags: (0x0004) ACC_PROTECTED
+    Code:
+      stack=1, locals=2, args_size=2
+         0: aload_1
+         1: instanceof    #6                  // class com/seeyon/boot/starter/spi/plugin/maven/SpiMavenProperties
+         4: ireturn
+      LineNumberTable:
+        line 8: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lcom/seeyon/boot/starter/spi/plugin/maven/SpiMavenProperties;
+            0       5     1 other   Ljava/lang/Object;
+
+  public int hashCode();
+    descriptor: ()I
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=2, locals=7, args_size=1
+         0: bipush        59
+         2: istore_1
+         3: iconst_1
+         4: istore_2
+         5: aload_0
+         6: invokevirtual #8                  // Method getSnapshotUrl:()Ljava/lang/String;
+         9: astore_3
+        10: iload_2
+        11: bipush        59
+        13: imul
+        14: aload_3
+        15: ifnonnull     23
+        18: bipush        43
+        20: goto          27
+        23: aload_3
+        24: invokevirtual #13                 // Method java/lang/Object.hashCode:()I
+        27: iadd
+        28: istore_2
+        29: aload_0
+        30: invokevirtual #10                 // Method getReleaseUrl:()Ljava/lang/String;
+        33: astore        4
+        35: iload_2
+        36: bipush        59
+        38: imul
+        39: aload         4
+        41: ifnonnull     49
+        44: bipush        43
+        46: goto          54
+        49: aload         4
+        51: invokevirtual #13                 // Method java/lang/Object.hashCode:()I
+        54: iadd
+        55: istore_2
+        56: aload_0
+        57: invokevirtual #11                 // Method getUsername:()Ljava/lang/String;
+        60: astore        5
+        62: iload_2
+        63: bipush        59
+        65: imul
+        66: aload         5
+        68: ifnonnull     76
+        71: bipush        43
+        73: goto          81
+        76: aload         5
+        78: invokevirtual #13                 // Method java/lang/Object.hashCode:()I
+        81: iadd
+        82: istore_2
+        83: aload_0
+        84: invokevirtual #12                 // Method getPassword:()Ljava/lang/String;
+        87: astore        6
+        89: iload_2
+        90: bipush        59
+        92: imul
+        93: aload         6
+        95: ifnonnull     103
+        98: bipush        43
+       100: goto          108
+       103: aload         6
+       105: invokevirtual #13                 // Method java/lang/Object.hashCode:()I
+       108: iadd
+       109: istore_2
+       110: iload_2
+       111: ireturn
+      LineNumberTable:
+        line 8: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0     112     0  this   Lcom/seeyon/boot/starter/spi/plugin/maven/SpiMavenProperties;
+            3     109     1 PRIME   I
+            5     107     2 result   I
+           10     102     3 $snapshotUrl   Ljava/lang/Object;
+           35      77     4 $releaseUrl   Ljava/lang/Object;
+           62      50     5 $username   Ljava/lang/Object;
+           89      23     6 $password   Ljava/lang/Object;
+      StackMapTable: number_of_entries = 8
+        frame_type = 255 /* full_frame */
+          offset_delta = 23
+          locals = [ class com/seeyon/boot/starter/spi/plugin/maven/SpiMavenProperties, int, int, class java/lang/Object ]
+          stack = [ int ]
+        frame_type = 255 /* full_frame */
+          offset_delta = 3
+          locals = [ class com/seeyon/boot/starter/spi/plugin/maven/SpiMavenProperties, int, int, class java/lang/Object ]
+          stack = [ int, int ]
+        frame_type = 255 /* full_frame */
+          offset_delta = 21
+          locals = [ class com/seeyon/boot/starter/spi/plugin/maven/SpiMavenProperties, int, int, class java/lang/Object, class java/lang/Object ]
+          stack = [ int ]
+        frame_type = 255 /* full_frame */
+          offset_delta = 4
+          locals = [ class com/seeyon/boot/starter/spi/plugin/maven/SpiMavenProperties, int, int, class java/lang/Object, class java/lang/Object ]
+          stack = [ int, int ]
+        frame_type = 255 /* full_frame */
+          offset_delta = 21
+          locals = [ class com/seeyon/boot/starter/spi/plugin/maven/SpiMavenProperties, int, int, class java/lang/Object, class java/lang/Object, class java/lang/Object ]
+          stack = [ int ]
+        frame_type = 255 /* full_frame */
+          offset_delta = 4
+          locals = [ class com/seeyon/boot/starter/spi/plugin/maven/SpiMavenProperties, int, int, class java/lang/Object, class java/lang/Object, class java/lang/Object ]
+          stack = [ int, int ]
+        frame_type = 255 /* full_frame */
+          offset_delta = 21
+          locals = [ class com/seeyon/boot/starter/spi/plugin/maven/SpiMavenProperties, int, int, class java/lang/Object, class java/lang/Object, class java/lang/Object, class java/lang/Object ]
+          stack = [ int ]
+        frame_type = 255 /* full_frame */
+          offset_delta = 4
+          locals = [ class com/seeyon/boot/starter/spi/plugin/maven/SpiMavenProperties, int, int, class java/lang/Object, class java/lang/Object, class java/lang/Object, class java/lang/Object ]
+          stack = [ int, int ]
+
+  public java.lang.String toString();
+    descriptor: ()Ljava/lang/String;
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=2, locals=1, args_size=1
+         0: new           #14                 // class java/lang/StringBuilder
+         3: dup
+         4: invokespecial #15                 // Method java/lang/StringBuilder."<init>":()V
+         7: ldc           #16                 // String SpiMavenProperties(snapshotUrl=
+         9: invokevirtual #17                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        12: aload_0
+        13: invokevirtual #8                  // Method getSnapshotUrl:()Ljava/lang/String;
+        16: invokevirtual #17                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        19: ldc           #18                 // String , releaseUrl=
+        21: invokevirtual #17                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        24: aload_0
+        25: invokevirtual #10                 // Method getReleaseUrl:()Ljava/lang/String;
+        28: invokevirtual #17                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        31: ldc           #19                 // String , username=
+        33: invokevirtual #17                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        36: aload_0
+        37: invokevirtual #11                 // Method getUsername:()Ljava/lang/String;
+        40: invokevirtual #17                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        43: ldc           #20                 // String , password=
+        45: invokevirtual #17                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        48: aload_0
+        49: invokevirtual #12                 // Method getPassword:()Ljava/lang/String;
+        52: invokevirtual #17                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        55: ldc           #21                 // String )
+        57: invokevirtual #17                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        60: invokevirtual #22                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+        63: areturn
+      LineNumberTable:
+        line 8: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      64     0  this   Lcom/seeyon/boot/starter/spi/plugin/maven/SpiMavenProperties;
+}
+SourceFile: "SpiMavenProperties.java"
+RuntimeVisibleAnnotations:
+  0: #79()
+    org.springframework.context.annotation.Configuration
+  1: #80(#81=s#82)
+    org.springframework.boot.context.properties.ConfigurationProperties(
+      prefix="seeyon.dynamic.loader.maven"
+    )
+  2: #83(#81=s#84,#85=[s#86],#87=s#88)
+    org.springframework.boot.autoconfigure.condition.ConditionalOnProperty(
+      prefix="seeyon.dynamic.loader"
+      name=["type"]
+      havingValue="maven"
+    )

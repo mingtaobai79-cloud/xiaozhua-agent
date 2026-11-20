@@ -1,0 +1,10 @@
+Compiled from "SsoService.java"
+public interface com.seeyon.cip.connector.api.sso.SsoService {
+  public abstract java.lang.String getName();
+  public abstract java.lang.String getTypeCaption();
+  public abstract java.lang.String login(java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>, com.seeyon.cip.connector.enums.SsoClientTypeEnum, java.util.Map<java.lang.String, java.lang.Object>);
+  public abstract void check(java.lang.String);
+  public abstract java.lang.String getPageJson();
+  public abstract java.lang.Integer getSortNo();
+  public abstract boolean needUserBind();
+}

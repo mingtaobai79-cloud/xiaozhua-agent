@@ -1,0 +1,2 @@
+f181b43f069eebf40e91601a0ba1c9e4f66fc37c2a498f91b37bba1cbc0e2f2a *com/seeyon/cip/connector/api/sso/SsoService.class
+0853e034c9f8cdfa57aa6c490bc062dbf2fe632d60c681ea12d1def6f160b1eb *com/seeyon/cip/connector/enums/SsoClientTypeEnum.class

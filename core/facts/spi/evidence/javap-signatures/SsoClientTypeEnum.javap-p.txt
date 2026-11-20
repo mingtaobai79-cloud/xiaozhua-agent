@@ -1,0 +1,12 @@
+Compiled from "SsoClientTypeEnum.java"
+public final class com.seeyon.cip.connector.enums.SsoClientTypeEnum extends java.lang.Enum<com.seeyon.cip.connector.enums.SsoClientTypeEnum> implements com.seeyon.boot.enums.Messageable {
+  public static final com.seeyon.cip.connector.enums.SsoClientTypeEnum PC;
+  public static final com.seeyon.cip.connector.enums.SsoClientTypeEnum PHONE;
+  private int code;
+  private static final com.seeyon.cip.connector.enums.SsoClientTypeEnum[] $VALUES;
+  public static com.seeyon.cip.connector.enums.SsoClientTypeEnum[] values();
+  public static com.seeyon.cip.connector.enums.SsoClientTypeEnum valueOf(java.lang.String);
+  private com.seeyon.cip.connector.enums.SsoClientTypeEnum(int);
+  public int code();
+  static {};
+}

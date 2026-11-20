@@ -1,0 +1,15 @@
+# command: javap -p -cp <jar> com.seeyon.cip.connector.api.sso.SsoService
+# RC=0
+# output sha256_prefix=c8272902  output_bytes=625
+# captured: 2026-10-08T04:29:00Z
+# ---- raw output below ----
+Compiled from "SsoService.java"
+public interface com.seeyon.cip.connector.api.sso.SsoService {
+  public abstract java.lang.String getName();
+  public abstract java.lang.String getTypeCaption();
+  public abstract java.lang.String login(java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.Object>, com.seeyon.cip.connector.enums.SsoClientTypeEnum, java.util.Map<java.lang.String, java.lang.Object>);
+  public abstract void check(java.lang.String);
+  public abstract java.lang.String getPageJson();
+  public abstract java.lang.Integer getSortNo();
+  public abstract boolean needUserBind();
+}

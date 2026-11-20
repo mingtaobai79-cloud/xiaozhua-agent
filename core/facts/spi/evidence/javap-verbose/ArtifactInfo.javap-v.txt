@@ -1,0 +1,468 @@
+Classfile jar:file:///D:/repo/CHIT/com/seeyon/boot-starter-spi/5.3.358/boot-starter-spi-5.3.358.jar!/com/seeyon/boot/starter/spi/plugin/ArtifactInfo.class
+  Last modified 2026Äê5ÔÂ25ÈÕ; size 2823 bytes
+  SHA-256 checksum 04d8c390e94824fbe487bde0018596ea5c233e27697cdc2b72fab1f194f51363
+  Compiled from "ArtifactInfo.java"
+public class com.seeyon.boot.starter.spi.plugin.ArtifactInfo implements java.io.Serializable
+  minor version: 0
+  major version: 52
+  flags: (0x0021) ACC_PUBLIC, ACC_SUPER
+  this_class: #5                          // com/seeyon/boot/starter/spi/plugin/ArtifactInfo
+  super_class: #19                        // java/lang/Object
+  interfaces: 1, fields: 10, methods: 18, attributes: 1
+Constant pool:
+    #1 = Methodref          #19.#73       // java/lang/Object."<init>":()V
+    #2 = Fieldref           #5.#74        // com/seeyon/boot/starter/spi/plugin/ArtifactInfo.version:Ljava/lang/String;
+    #3 = Methodref          #5.#75        // com/seeyon/boot/starter/spi/plugin/ArtifactInfo.isSnapshot:(Ljava/lang/String;)Z
+    #4 = Methodref          #76.#77       // java/util/Objects.nonNull:(Ljava/lang/Object;)Z
+    #5 = Class              #78           // com/seeyon/boot/starter/spi/plugin/ArtifactInfo
+    #6 = String             #21           // SNAPSHOT
+    #7 = Methodref          #79.#80       // java/lang/String.endsWith:(Ljava/lang/String;)Z
+    #8 = Fieldref           #5.#81        // com/seeyon/boot/starter/spi/plugin/ArtifactInfo.SNAPSHOT_TIMESTAMP:Ljava/util/regex/Pattern;
+    #9 = Methodref          #82.#83       // java/util/regex/Pattern.matcher:(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
+   #10 = Methodref          #84.#85       // java/util/regex/Matcher.matches:()Z
+   #11 = Fieldref           #5.#86        // com/seeyon/boot/starter/spi/plugin/ArtifactInfo.appId:Ljava/lang/String;
+   #12 = Fieldref           #5.#87        // com/seeyon/boot/starter/spi/plugin/ArtifactInfo.groupId:Ljava/lang/String;
+   #13 = Fieldref           #5.#88        // com/seeyon/boot/starter/spi/plugin/ArtifactInfo.artifactId:Ljava/lang/String;
+   #14 = Fieldref           #5.#89        // com/seeyon/boot/starter/spi/plugin/ArtifactInfo.extension:Ljava/lang/String;
+   #15 = Fieldref           #5.#90        // com/seeyon/boot/starter/spi/plugin/ArtifactInfo.fileFullPath:Ljava/lang/String;
+   #16 = Fieldref           #5.#91        // com/seeyon/boot/starter/spi/plugin/ArtifactInfo.file:Ljava/io/File;
+   #17 = String             #92           // ^(.*-)?([0-9]{8}\\.[0-9]{6}-[0-9]+)$
+   #18 = Methodref          #82.#93       // java/util/regex/Pattern.compile:(Ljava/lang/String;)Ljava/util/regex/Pattern;
+   #19 = Class              #94           // java/lang/Object
+   #20 = Class              #95           // java/io/Serializable
+   #21 = Utf8               SNAPSHOT
+   #22 = Utf8               Ljava/lang/String;
+   #23 = Utf8               ConstantValue
+   #24 = Utf8               SNAPSHOT_TIMESTAMP
+   #25 = Utf8               Ljava/util/regex/Pattern;
+   #26 = Utf8               serialVersionUID
+   #27 = Utf8               J
+   #28 = Long               7744587268055666464l
+   #30 = Utf8               appId
+   #31 = Utf8               groupId
+   #32 = Utf8               RuntimeVisibleAnnotations
+   #33 = Utf8               Ljavax/validation/constraints/NotNull;
+   #34 = Utf8               RuntimeVisibleTypeAnnotations
+   #35 = Utf8               artifactId
+   #36 = Utf8               version
+   #37 = Utf8               extension
+   #38 = Utf8               fileFullPath
+   #39 = Utf8               file
+   #40 = Utf8               Ljava/io/File;
+   #41 = Utf8               <init>
+   #42 = Utf8               ()V
+   #43 = Utf8               Code
+   #44 = Utf8               LineNumberTable
+   #45 = Utf8               LocalVariableTable
+   #46 = Utf8               this
+   #47 = Utf8               Lcom/seeyon/boot/starter/spi/plugin/ArtifactInfo;
+   #48 = Utf8               isSnapshot
+   #49 = Utf8               ()Z
+   #50 = Utf8               (Ljava/lang/String;)Z
+   #51 = Utf8               StackMapTable
+   #52 = Utf8               setAppId
+   #53 = Utf8               (Ljava/lang/String;)V
+   #54 = Utf8               setGroupId
+   #55 = Utf8               setArtifactId
+   #56 = Utf8               setVersion
+   #57 = Utf8               setExtension
+   #58 = Utf8               setFileFullPath
+   #59 = Utf8               setFile
+   #60 = Utf8               (Ljava/io/File;)V
+   #61 = Utf8               getAppId
+   #62 = Utf8               ()Ljava/lang/String;
+   #63 = Utf8               getGroupId
+   #64 = Utf8               getArtifactId
+   #65 = Utf8               getVersion
+   #66 = Utf8               getExtension
+   #67 = Utf8               getFileFullPath
+   #68 = Utf8               getFile
+   #69 = Utf8               ()Ljava/io/File;
+   #70 = Utf8               <clinit>
+   #71 = Utf8               SourceFile
+   #72 = Utf8               ArtifactInfo.java
+   #73 = NameAndType        #41:#42       // "<init>":()V
+   #74 = NameAndType        #36:#22       // version:Ljava/lang/String;
+   #75 = NameAndType        #48:#50       // isSnapshot:(Ljava/lang/String;)Z
+   #76 = Class              #96           // java/util/Objects
+   #77 = NameAndType        #97:#98       // nonNull:(Ljava/lang/Object;)Z
+   #78 = Utf8               com/seeyon/boot/starter/spi/plugin/ArtifactInfo
+   #79 = Class              #99           // java/lang/String
+   #80 = NameAndType        #100:#50      // endsWith:(Ljava/lang/String;)Z
+   #81 = NameAndType        #24:#25       // SNAPSHOT_TIMESTAMP:Ljava/util/regex/Pattern;
+   #82 = Class              #101          // java/util/regex/Pattern
+   #83 = NameAndType        #102:#103     // matcher:(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
+   #84 = Class              #104          // java/util/regex/Matcher
+   #85 = NameAndType        #105:#49      // matches:()Z
+   #86 = NameAndType        #30:#22       // appId:Ljava/lang/String;
+   #87 = NameAndType        #31:#22       // groupId:Ljava/lang/String;
+   #88 = NameAndType        #35:#22       // artifactId:Ljava/lang/String;
+   #89 = NameAndType        #37:#22       // extension:Ljava/lang/String;
+   #90 = NameAndType        #38:#22       // fileFullPath:Ljava/lang/String;
+   #91 = NameAndType        #39:#40       // file:Ljava/io/File;
+   #92 = Utf8               ^(.*-)?([0-9]{8}\\.[0-9]{6}-[0-9]+)$
+   #93 = NameAndType        #106:#107     // compile:(Ljava/lang/String;)Ljava/util/regex/Pattern;
+   #94 = Utf8               java/lang/Object
+   #95 = Utf8               java/io/Serializable
+   #96 = Utf8               java/util/Objects
+   #97 = Utf8               nonNull
+   #98 = Utf8               (Ljava/lang/Object;)Z
+   #99 = Utf8               java/lang/String
+  #100 = Utf8               endsWith
+  #101 = Utf8               java/util/regex/Pattern
+  #102 = Utf8               matcher
+  #103 = Utf8               (Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
+  #104 = Utf8               java/util/regex/Matcher
+  #105 = Utf8               matches
+  #106 = Utf8               compile
+  #107 = Utf8               (Ljava/lang/String;)Ljava/util/regex/Pattern;
+{
+  private static final java.lang.String SNAPSHOT;
+    descriptor: Ljava/lang/String;
+    flags: (0x001a) ACC_PRIVATE, ACC_STATIC, ACC_FINAL
+    ConstantValue: String SNAPSHOT
+
+  private static final java.util.regex.Pattern SNAPSHOT_TIMESTAMP;
+    descriptor: Ljava/util/regex/Pattern;
+    flags: (0x001a) ACC_PRIVATE, ACC_STATIC, ACC_FINAL
+
+  private static final long serialVersionUID;
+    descriptor: J
+    flags: (0x001a) ACC_PRIVATE, ACC_STATIC, ACC_FINAL
+    ConstantValue: long 7744587268055666464l
+
+  java.lang.String appId;
+    descriptor: Ljava/lang/String;
+    flags: (0x0000)
+
+  java.lang.String groupId;
+    descriptor: Ljava/lang/String;
+    flags: (0x0000)
+    RuntimeVisibleAnnotations:
+      0: #33()
+        javax.validation.constraints.NotNull
+    RuntimeVisibleTypeAnnotations:
+      0: #33(): FIELD
+        javax.validation.constraints.NotNull
+
+  java.lang.String artifactId;
+    descriptor: Ljava/lang/String;
+    flags: (0x0000)
+    RuntimeVisibleAnnotations:
+      0: #33()
+        javax.validation.constraints.NotNull
+    RuntimeVisibleTypeAnnotations:
+      0: #33(): FIELD
+        javax.validation.constraints.NotNull
+
+  java.lang.String version;
+    descriptor: Ljava/lang/String;
+    flags: (0x0000)
+    RuntimeVisibleAnnotations:
+      0: #33()
+        javax.validation.constraints.NotNull
+    RuntimeVisibleTypeAnnotations:
+      0: #33(): FIELD
+        javax.validation.constraints.NotNull
+
+  java.lang.String extension;
+    descriptor: Ljava/lang/String;
+    flags: (0x0000)
+
+  java.lang.String fileFullPath;
+    descriptor: Ljava/lang/String;
+    flags: (0x0000)
+
+  java.io.File file;
+    descriptor: Ljava/io/File;
+    flags: (0x0000)
+
+  public com.seeyon.boot.starter.spi.plugin.ArtifactInfo();
+    descriptor: ()V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: return
+      LineNumberTable:
+        line 19: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lcom/seeyon/boot/starter/spi/plugin/ArtifactInfo;
+
+  public boolean isSnapshot();
+    descriptor: ()Z
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: getfield      #2                  // Field version:Ljava/lang/String;
+         4: invokestatic  #3                  // Method isSnapshot:(Ljava/lang/String;)Z
+         7: ireturn
+      LineNumberTable:
+        line 40: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       8     0  this   Lcom/seeyon/boot/starter/spi/plugin/ArtifactInfo;
+
+  public static boolean isSnapshot(java.lang.String);
+    descriptor: (Ljava/lang/String;)Z
+    flags: (0x0009) ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=2, locals=1, args_size=1
+         0: aload_0
+         1: invokestatic  #4                  // Method java/util/Objects.nonNull:(Ljava/lang/Object;)Z
+         4: ifeq          35
+         7: aload_0
+         8: ldc           #6                  // String SNAPSHOT
+        10: invokevirtual #7                  // Method java/lang/String.endsWith:(Ljava/lang/String;)Z
+        13: ifne          29
+        16: getstatic     #8                  // Field SNAPSHOT_TIMESTAMP:Ljava/util/regex/Pattern;
+        19: aload_0
+        20: invokevirtual #9                  // Method java/util/regex/Pattern.matcher:(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
+        23: invokevirtual #10                 // Method java/util/regex/Matcher.matches:()Z
+        26: ifeq          33
+        29: iconst_1
+        30: goto          34
+        33: iconst_0
+        34: ireturn
+        35: iconst_0
+        36: ireturn
+      LineNumberTable:
+        line 44: 0
+        line 45: 7
+        line 47: 35
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      37     0 version   Ljava/lang/String;
+      StackMapTable: number_of_entries = 4
+        frame_type = 29 /* same */
+        frame_type = 3 /* same */
+        frame_type = 64 /* same_locals_1_stack_item */
+          stack = [ int ]
+        frame_type = 0 /* same */
+
+  public void setAppId(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0
+         1: aload_1
+         2: putfield      #11                 // Field appId:Ljava/lang/String;
+         5: return
+      LineNumberTable:
+        line 17: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       6     0  this   Lcom/seeyon/boot/starter/spi/plugin/ArtifactInfo;
+            0       6     1 appId   Ljava/lang/String;
+
+  public void setGroupId(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0
+         1: aload_1
+         2: putfield      #12                 // Field groupId:Ljava/lang/String;
+         5: return
+      LineNumberTable:
+        line 17: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       6     0  this   Lcom/seeyon/boot/starter/spi/plugin/ArtifactInfo;
+            0       6     1 groupId   Ljava/lang/String;
+
+  public void setArtifactId(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0
+         1: aload_1
+         2: putfield      #13                 // Field artifactId:Ljava/lang/String;
+         5: return
+      LineNumberTable:
+        line 17: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       6     0  this   Lcom/seeyon/boot/starter/spi/plugin/ArtifactInfo;
+            0       6     1 artifactId   Ljava/lang/String;
+
+  public void setVersion(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0
+         1: aload_1
+         2: putfield      #2                  // Field version:Ljava/lang/String;
+         5: return
+      LineNumberTable:
+        line 17: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       6     0  this   Lcom/seeyon/boot/starter/spi/plugin/ArtifactInfo;
+            0       6     1 version   Ljava/lang/String;
+
+  public void setExtension(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0
+         1: aload_1
+         2: putfield      #14                 // Field extension:Ljava/lang/String;
+         5: return
+      LineNumberTable:
+        line 17: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       6     0  this   Lcom/seeyon/boot/starter/spi/plugin/ArtifactInfo;
+            0       6     1 extension   Ljava/lang/String;
+
+  public void setFileFullPath(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0
+         1: aload_1
+         2: putfield      #15                 // Field fileFullPath:Ljava/lang/String;
+         5: return
+      LineNumberTable:
+        line 17: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       6     0  this   Lcom/seeyon/boot/starter/spi/plugin/ArtifactInfo;
+            0       6     1 fileFullPath   Ljava/lang/String;
+
+  public void setFile(java.io.File);
+    descriptor: (Ljava/io/File;)V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0
+         1: aload_1
+         2: putfield      #16                 // Field file:Ljava/io/File;
+         5: return
+      LineNumberTable:
+        line 17: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       6     0  this   Lcom/seeyon/boot/starter/spi/plugin/ArtifactInfo;
+            0       6     1  file   Ljava/io/File;
+
+  public java.lang.String getAppId();
+    descriptor: ()Ljava/lang/String;
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: getfield      #11                 // Field appId:Ljava/lang/String;
+         4: areturn
+      LineNumberTable:
+        line 27: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lcom/seeyon/boot/starter/spi/plugin/ArtifactInfo;
+
+  public java.lang.String getGroupId();
+    descriptor: ()Ljava/lang/String;
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: getfield      #12                 // Field groupId:Ljava/lang/String;
+         4: areturn
+      LineNumberTable:
+        line 29: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lcom/seeyon/boot/starter/spi/plugin/ArtifactInfo;
+
+  public java.lang.String getArtifactId();
+    descriptor: ()Ljava/lang/String;
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: getfield      #13                 // Field artifactId:Ljava/lang/String;
+         4: areturn
+      LineNumberTable:
+        line 31: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lcom/seeyon/boot/starter/spi/plugin/ArtifactInfo;
+
+  public java.lang.String getVersion();
+    descriptor: ()Ljava/lang/String;
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: getfield      #2                  // Field version:Ljava/lang/String;
+         4: areturn
+      LineNumberTable:
+        line 33: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lcom/seeyon/boot/starter/spi/plugin/ArtifactInfo;
+
+  public java.lang.String getExtension();
+    descriptor: ()Ljava/lang/String;
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: getfield      #14                 // Field extension:Ljava/lang/String;
+         4: areturn
+      LineNumberTable:
+        line 35: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lcom/seeyon/boot/starter/spi/plugin/ArtifactInfo;
+
+  public java.lang.String getFileFullPath();
+    descriptor: ()Ljava/lang/String;
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: getfield      #15                 // Field fileFullPath:Ljava/lang/String;
+         4: areturn
+      LineNumberTable:
+        line 37: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lcom/seeyon/boot/starter/spi/plugin/ArtifactInfo;
+
+  public java.io.File getFile();
+    descriptor: ()Ljava/io/File;
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: getfield      #16                 // Field file:Ljava/io/File;
+         4: areturn
+      LineNumberTable:
+        line 50: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lcom/seeyon/boot/starter/spi/plugin/ArtifactInfo;
+
+  static {};
+    descriptor: ()V
+    flags: (0x0008) ACC_STATIC
+    Code:
+      stack=1, locals=0, args_size=0
+         0: ldc           #17                 // String ^(.*-)?([0-9]{8}\\.[0-9]{6}-[0-9]+)$
+         2: invokestatic  #18                 // Method java/util/regex/Pattern.compile:(Ljava/lang/String;)Ljava/util/regex/Pattern;
+         5: putstatic     #8                  // Field SNAPSHOT_TIMESTAMP:Ljava/util/regex/Pattern;
+         8: return
+      LineNumberTable:
+        line 21: 0
+}
+SourceFile: "ArtifactInfo.java"

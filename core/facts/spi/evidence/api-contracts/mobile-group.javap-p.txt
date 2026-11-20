@@ -1,0 +1,76 @@
+# command: javap -p -cp <jar> com.seeyon.cip.connector.api.mobile.MobileApplicationProvide...
+# RC=0
+# output sha256_prefix=b48ded20  output_bytes=8398
+# captured: 2026-10-08T04:28:59Z
+# ---- raw output below ----
+Compiled from "MobileApplicationProviderService.java"
+public interface com.seeyon.cip.connector.api.mobile.MobileApplicationProviderService extends com.seeyon.cip.connector.api.mobile.MobileProviderService {
+  public abstract com.seeyon.cip.connector.dto.mobile.MobileUrlDto getMobileUrlDto(com.seeyon.cip.connector.dto.mobile.MobileUrlProviderDto);
+  public abstract java.lang.String explainLinkInfo();
+  public abstract java.lang.Long publishApp(com.seeyon.cip.connector.dto.mobile.MobilePublishAppRequestDto, com.seeyon.cip.connector.dto.mobile.MobilePlatformConfigDto);
+  public abstract com.seeyon.cip.connector.dto.mobile.MobilePlatformSignatureResultDto getSignature(com.seeyon.cip.connector.dto.mobile.MobilePlatformConfigDto, com.seeyon.cip.connector.dto.mobile.MobilePlatformSignatureDto);
+  public abstract void sendMessage(boolean, com.seeyon.cip.connector.dto.mobile.MobileMessageRequestDto, com.seeyon.cip.connector.dto.mobile.MobilePlatformRequestDto);
+  public abstract com.seeyon.cip.connector.dto.mobile.sso.MobileSsoUserDto getMobileSsoUserDto(com.seeyon.cip.connector.dto.mobile.MobilePlatformConfigDto, com.seeyon.cip.connector.dto.mobile.sso.MobileSsoUserRequestDto);
+  public default com.seeyon.cip.connector.dto.mobile.MobileInterfaceStatusDto interfaceStatus(com.seeyon.cip.connector.dto.mobile.MobilePlatformConfigDto);
+  public abstract java.lang.String getOpenId(com.seeyon.cip.connector.dto.mobile.MobilePlatformConfigDto, com.seeyon.cip.connector.dto.mobile.MobileOpenIdDto);
+  public default java.lang.String getLaunchCode(com.seeyon.cip.connector.dto.mobile.MobilePlatformConfigDto, com.seeyon.cip.connector.dto.mobile.MobileLaunchCodeDto);
+  public default com.seeyon.cip.connector.dto.mobile.RecallResultDto recallMessage(com.seeyon.cip.connector.dto.mobile.MobilePlatformConfigDto, com.seeyon.cip.connector.dto.mobile.RecallMessageDto);
+}
+Compiled from "MobileCallBackProviderService.java"
+public interface com.seeyon.cip.connector.api.mobile.MobileCallBackProviderService<T extends com.seeyon.boot.transport.BaseDto, Res> extends com.seeyon.cip.connector.api.mobile.MobileProviderService, com.seeyon.cip.connector.api.callback.ConnectorCallbackProviderService<T, Res> {
+}
+Compiled from "MobileConfigProviderService.java"
+public interface com.seeyon.cip.connector.api.mobile.MobileConfigProviderService extends com.seeyon.cip.connector.api.mobile.MobileProviderService {
+  public abstract void jsonCheck(java.lang.String);
+  public abstract java.lang.String getName();
+  public abstract java.lang.String getTypeCaption();
+  public abstract java.lang.Integer getSortNo();
+  public abstract java.lang.String getPageJson();
+  public abstract java.lang.String getAppId(java.lang.String);
+  public abstract java.lang.String getAppSecret(java.lang.String);
+  public abstract java.lang.String getAppName(java.lang.String);
+  public abstract java.lang.String getAdminUrl();
+  public default java.lang.String getThirdApplicationDomain(com.seeyon.cip.connector.dto.mobile.MobilePlatformConfigDto);
+  public default java.util.Map<java.lang.String, java.lang.Object> getThirdConfigCondition(java.lang.String, java.lang.String, java.lang.String, java.lang.String);
+  public default java.lang.String getMobileCorpId(java.lang.String, java.lang.String, java.lang.String);
+  public abstract boolean isPrivateApp();
+  public default java.lang.Boolean isOnlyBaseInfo();
+}
+Compiled from "MobileOrgSyncBatchProviderService.java"
+public interface com.seeyon.cip.connector.api.mobile.MobileOrgSyncBatchProviderService extends com.seeyon.cip.connector.api.mobile.MobileProviderService {
+  public abstract java.lang.String syncUnitBatch(com.seeyon.cip.connector.dto.mobile.batch.MobileDepartmentBatchSyncDto, com.seeyon.cip.connector.dto.mobile.MobilePlatformConfigDto);
+  public abstract java.lang.String userSyncBatch(com.seeyon.cip.connector.dto.mobile.batch.MobileUserBatchSyncDto, com.seeyon.cip.connector.dto.mobile.MobilePlatformConfigDto);
+  public abstract com.seeyon.cip.connector.dto.mobile.batch.MobileContactBatchResultDto syncBatchResult(com.seeyon.cip.connector.dto.mobile.batch.MobileBatchResultDto, com.seeyon.cip.connector.dto.mobile.MobilePlatformConfigDto);
+}
+Compiled from "MobileOrgSyncProviderService.java"
+public interface com.seeyon.cip.connector.api.mobile.MobileOrgSyncProviderService extends com.seeyon.cip.connector.api.mobile.MobileProviderService {
+  public abstract java.lang.Long syncUnit(com.seeyon.cip.connector.dto.mobile.MobileUnitRequestDto, com.seeyon.cip.connector.dto.mobile.MobilePlatformConfigDto);
+  public abstract void updateUnit(com.seeyon.cip.connector.dto.mobile.MobileUnitRequestDto, com.seeyon.cip.connector.dto.mobile.MobilePlatformConfigDto);
+  public abstract java.lang.String getUnit(com.seeyon.cip.connector.dto.mobile.MobileUnitRequestDto, com.seeyon.cip.connector.dto.mobile.MobilePlatformConfigDto);
+  public abstract void removeUnit(com.seeyon.cip.connector.dto.mobile.MobileUnitRequestDto, com.seeyon.cip.connector.dto.mobile.MobilePlatformConfigDto);
+  public abstract java.lang.String syncUser(com.seeyon.cip.connector.dto.mobile.MobileUserRequestDto, com.seeyon.cip.connector.dto.mobile.MobilePlatformConfigDto);
+  public abstract java.lang.String updateUser(com.seeyon.cip.connector.dto.mobile.MobileUserRequestDto, com.seeyon.cip.connector.dto.mobile.MobilePlatformConfigDto);
+  public abstract com.seeyon.cip.connector.dto.mobile.MobileUserResponseDto getUser(com.seeyon.cip.connector.dto.mobile.MobileUserRequestDto, com.seeyon.cip.connector.dto.mobile.MobilePlatformConfigDto);
+  public abstract com.seeyon.cip.connector.dto.mobile.MobileUserResponseDto removeUser(com.seeyon.cip.connector.dto.mobile.MobileUserRequestDto, com.seeyon.cip.connector.dto.mobile.MobilePlatformConfigDto);
+  public default com.seeyon.cip.connector.dto.mobile.MobileOrgDto syncUnitNew(com.seeyon.cip.connector.dto.mobile.MobileUnitRequestDto, com.seeyon.cip.connector.dto.mobile.MobilePlatformConfigDto);
+}
+Compiled from "MobileOrgSyncPullProviderService.java"
+public interface com.seeyon.cip.connector.api.mobile.MobileOrgSyncPullProviderService extends com.seeyon.cip.connector.api.mobile.MobileProviderService {
+  public abstract java.util.List<com.seeyon.cip.connector.dto.mobile.MobileSyncPullOrgResponseDto> listSyncOrg(com.seeyon.cip.connector.dto.mobile.MobilePlatformConfigDto, java.lang.String);
+  public abstract java.util.List<com.seeyon.cip.connector.dto.mobile.MobileSyncPullUserResponseDto> listSyncUser(com.seeyon.cip.connector.dto.mobile.MobilePlatformConfigDto, java.lang.String);
+  public default java.util.List<com.seeyon.cip.connector.dto.mobile.MobileSyncPullPostDto> listSyncPost(com.seeyon.cip.connector.dto.mobile.MobilePlatformConfigDto, java.lang.String);
+  public default java.util.List<com.seeyon.cip.connector.dto.mobile.MobileSyncPullJobDto> listSyncJob(com.seeyon.cip.connector.dto.mobile.MobilePlatformConfigDto, java.lang.String);
+  public default java.util.List<com.seeyon.cip.connector.dto.mobile.MobileSyncPullLevelDto> listSyncLevel(com.seeyon.cip.connector.dto.mobile.MobilePlatformConfigDto, java.lang.String);
+}
+Compiled from "MobileProviderService.java"
+public interface com.seeyon.cip.connector.api.mobile.MobileProviderService {
+}
+Compiled from "MobileTodoProviderService.java"
+public interface com.seeyon.cip.connector.api.mobile.MobileTodoProviderService extends com.seeyon.cip.connector.api.mobile.MobileProviderService {
+  public abstract java.lang.String createTodo(com.seeyon.cip.connector.dto.mobile.MobilePlatformConfigDto, com.seeyon.cip.connector.dto.mobile.MobileTodoRequestDto);
+  public abstract void updateTodo(com.seeyon.cip.connector.dto.mobile.MobilePlatformConfigDto, com.seeyon.cip.connector.dto.mobile.MobileTodoRequestDto);
+  public default void doneTodo(com.seeyon.cip.connector.dto.mobile.MobilePlatformConfigDto, java.lang.Long, java.lang.String);
+  public default void deleteTodo(com.seeyon.cip.connector.dto.mobile.MobilePlatformConfigDto, java.lang.Long, java.lang.String);
+  public default java.lang.String doneTodo(com.seeyon.cip.connector.dto.mobile.MobilePlatformConfigDto, com.seeyon.cip.connector.dto.mobile.MobileTodoTaskDto);
+  public default java.lang.String deleteTodo(com.seeyon.cip.connector.dto.mobile.MobilePlatformConfigDto, com.seeyon.cip.connector.dto.mobile.MobileTodoTaskDto);
+}

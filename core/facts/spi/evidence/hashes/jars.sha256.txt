@@ -1,0 +1,2 @@
+67b830e4da9e805e462dd9eb4ba809888ba6a21f06b3f2dfe8fa3558bfc39dab *boot-starter-spi/5.3.358/boot-starter-spi-5.3.358.jar
+de4767da279c6622aef95994d3c657e29b01c33eaea0db55e8fdf45537544f91 *cip-connector-api/5.3.286/cip-connector-api-5.3.286.jar

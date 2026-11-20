@@ -1,0 +1,199 @@
+Classfile jar:file:///D:/repo/CHIT/com/seeyon/boot-starter-spi/5.3.358/boot-starter-spi-5.3.358.jar!/com/seeyon/boot/starter/spi/SPIProperties.class
+  Last modified 2026Äê5ÔÂ25ÈÕ; size 1498 bytes
+  SHA-256 checksum a811015d970a323ca4713fe8fe38d97d4b49182a77776cf77a71451139a32365
+  Compiled from "SPIProperties.java"
+public class com.seeyon.boot.starter.spi.SPIProperties
+  minor version: 0
+  major version: 52
+  flags: (0x0021) ACC_PUBLIC, ACC_SUPER
+  this_class: #6                          // com/seeyon/boot/starter/spi/SPIProperties
+  super_class: #9                         // java/lang/Object
+  interfaces: 0, fields: 4, methods: 6, attributes: 2
+Constant pool:
+   #1 = Methodref          #9.#48         // java/lang/Object."<init>":()V
+   #2 = Fieldref           #6.#49         // com/seeyon/boot/starter/spi/SPIProperties.enable:Z
+   #3 = Class              #50            // java/util/ArrayList
+   #4 = Methodref          #3.#48         // java/util/ArrayList."<init>":()V
+   #5 = Fieldref           #6.#51         // com/seeyon/boot/starter/spi/SPIProperties.spiPlugins:Ljava/util/List;
+   #6 = Class              #52            // com/seeyon/boot/starter/spi/SPIProperties
+   #7 = Methodref          #53.#54        // org/slf4j/LoggerFactory.getLogger:(Ljava/lang/Class;)Lorg/slf4j/Logger;
+   #8 = Fieldref           #6.#55         // com/seeyon/boot/starter/spi/SPIProperties.log:Lorg/slf4j/Logger;
+   #9 = Class              #56            // java/lang/Object
+  #10 = Utf8               log
+  #11 = Utf8               Lorg/slf4j/Logger;
+  #12 = Utf8               PREFIX
+  #13 = Utf8               Ljava/lang/String;
+  #14 = Utf8               ConstantValue
+  #15 = String             #46            // seeyon.spi
+  #16 = Utf8               enable
+  #17 = Utf8               Z
+  #18 = Utf8               spiPlugins
+  #19 = Utf8               Ljava/util/List;
+  #20 = Utf8               Signature
+  #21 = Utf8               Ljava/util/List<Ljava/lang/String;>;
+  #22 = Utf8               <init>
+  #23 = Utf8               ()V
+  #24 = Utf8               Code
+  #25 = Utf8               LineNumberTable
+  #26 = Utf8               LocalVariableTable
+  #27 = Utf8               this
+  #28 = Utf8               Lcom/seeyon/boot/starter/spi/SPIProperties;
+  #29 = Utf8               isEnable
+  #30 = Utf8               ()Z
+  #31 = Utf8               getSpiPlugins
+  #32 = Utf8               ()Ljava/util/List;
+  #33 = Utf8               ()Ljava/util/List<Ljava/lang/String;>;
+  #34 = Utf8               setEnable
+  #35 = Utf8               (Z)V
+  #36 = Utf8               setSpiPlugins
+  #37 = Utf8               (Ljava/util/List;)V
+  #38 = Utf8               LocalVariableTypeTable
+  #39 = Utf8               (Ljava/util/List<Ljava/lang/String;>;)V
+  #40 = Utf8               <clinit>
+  #41 = Utf8               SourceFile
+  #42 = Utf8               SPIProperties.java
+  #43 = Utf8               RuntimeVisibleAnnotations
+  #44 = Utf8               Lorg/springframework/boot/context/properties/ConfigurationProperties;
+  #45 = Utf8               prefix
+  #46 = Utf8               seeyon.spi
+  #47 = Utf8               Lcom/seeyon/boot/starter/nacos/annotation/ConfigAutoRefresh;
+  #48 = NameAndType        #22:#23        // "<init>":()V
+  #49 = NameAndType        #16:#17        // enable:Z
+  #50 = Utf8               java/util/ArrayList
+  #51 = NameAndType        #18:#19        // spiPlugins:Ljava/util/List;
+  #52 = Utf8               com/seeyon/boot/starter/spi/SPIProperties
+  #53 = Class              #57            // org/slf4j/LoggerFactory
+  #54 = NameAndType        #58:#59        // getLogger:(Ljava/lang/Class;)Lorg/slf4j/Logger;
+  #55 = NameAndType        #10:#11        // log:Lorg/slf4j/Logger;
+  #56 = Utf8               java/lang/Object
+  #57 = Utf8               org/slf4j/LoggerFactory
+  #58 = Utf8               getLogger
+  #59 = Utf8               (Ljava/lang/Class;)Lorg/slf4j/Logger;
+{
+  private static final org.slf4j.Logger log;
+    descriptor: Lorg/slf4j/Logger;
+    flags: (0x001a) ACC_PRIVATE, ACC_STATIC, ACC_FINAL
+
+  public static final java.lang.String PREFIX;
+    descriptor: Ljava/lang/String;
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+    ConstantValue: String seeyon.spi
+
+  private boolean enable;
+    descriptor: Z
+    flags: (0x0002) ACC_PRIVATE
+
+  private java.util.List<java.lang.String> spiPlugins;
+    descriptor: Ljava/util/List;
+    flags: (0x0002) ACC_PRIVATE
+    Signature: #21                          // Ljava/util/List<Ljava/lang/String;>;
+
+  public com.seeyon.boot.starter.spi.SPIProperties();
+    descriptor: ()V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=3, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: aload_0
+         5: iconst_1
+         6: putfield      #2                  // Field enable:Z
+         9: aload_0
+        10: new           #3                  // class java/util/ArrayList
+        13: dup
+        14: invokespecial #4                  // Method java/util/ArrayList."<init>":()V
+        17: putfield      #5                  // Field spiPlugins:Ljava/util/List;
+        20: return
+      LineNumberTable:
+        line 17: 0
+        line 21: 4
+        line 28: 9
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      21     0  this   Lcom/seeyon/boot/starter/spi/SPIProperties;
+
+  public boolean isEnable();
+    descriptor: ()Z
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: getfield      #2                  // Field enable:Z
+         4: ireturn
+      LineNumberTable:
+        line 21: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lcom/seeyon/boot/starter/spi/SPIProperties;
+
+  public java.util.List<java.lang.String> getSpiPlugins();
+    descriptor: ()Ljava/util/List;
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: getfield      #5                  // Field spiPlugins:Ljava/util/List;
+         4: areturn
+      LineNumberTable:
+        line 28: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lcom/seeyon/boot/starter/spi/SPIProperties;
+    Signature: #33                          // ()Ljava/util/List<Ljava/lang/String;>;
+
+  public void setEnable(boolean);
+    descriptor: (Z)V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0
+         1: iload_1
+         2: putfield      #2                  // Field enable:Z
+         5: return
+      LineNumberTable:
+        line 14: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       6     0  this   Lcom/seeyon/boot/starter/spi/SPIProperties;
+            0       6     1 enable   Z
+
+  public void setSpiPlugins(java.util.List<java.lang.String>);
+    descriptor: (Ljava/util/List;)V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0
+         1: aload_1
+         2: putfield      #5                  // Field spiPlugins:Ljava/util/List;
+         5: return
+      LineNumberTable:
+        line 14: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       6     0  this   Lcom/seeyon/boot/starter/spi/SPIProperties;
+            0       6     1 spiPlugins   Ljava/util/List;
+      LocalVariableTypeTable:
+        Start  Length  Slot  Name   Signature
+            0       6     1 spiPlugins   Ljava/util/List<Ljava/lang/String;>;
+    Signature: #39                          // (Ljava/util/List<Ljava/lang/String;>;)V
+
+  static {};
+    descriptor: ()V
+    flags: (0x0008) ACC_STATIC
+    Code:
+      stack=1, locals=0, args_size=0
+         0: ldc           #6                  // class com/seeyon/boot/starter/spi/SPIProperties
+         2: invokestatic  #7                  // Method org/slf4j/LoggerFactory.getLogger:(Ljava/lang/Class;)Lorg/slf4j/Logger;
+         5: putstatic     #8                  // Field log:Lorg/slf4j/Logger;
+         8: return
+      LineNumberTable:
+        line 15: 0
+}
+SourceFile: "SPIProperties.java"
+RuntimeVisibleAnnotations:
+  0: #44(#45=s#46)
+    org.springframework.boot.context.properties.ConfigurationProperties(
+      prefix="seeyon.spi"
+    )
+  1: #47()
+    com.seeyon.boot.starter.nacos.annotation.ConfigAutoRefresh

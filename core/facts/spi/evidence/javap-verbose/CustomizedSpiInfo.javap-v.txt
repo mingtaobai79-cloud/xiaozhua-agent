@@ -1,0 +1,114 @@
+Classfile jar:file:///D:/repo/CHIT/com/seeyon/boot-starter-spi/5.3.358/boot-starter-spi-5.3.358.jar!/com/seeyon/boot/starter/spi/plugin/CustomizedSpiInfo.class
+  Last modified 2026Äê5ÔÂ25ÈÕ; size 1222 bytes
+  SHA-256 checksum 09a3650425c8ee531be69907f7a454e7c74514a8fcc92810921f2c4dc99d9875
+  Compiled from "CustomizedSpiInfo.java"
+public class com.seeyon.boot.starter.spi.plugin.CustomizedSpiInfo implements java.io.Serializable
+  minor version: 0
+  major version: 52
+  flags: (0x0021) ACC_PUBLIC, ACC_SUPER
+  this_class: #3                          // com/seeyon/boot/starter/spi/plugin/CustomizedSpiInfo
+  super_class: #4                         // java/lang/Object
+  interfaces: 1, fields: 2, methods: 3, attributes: 2
+Constant pool:
+   #1 = Methodref          #4.#33         // java/lang/Object."<init>":()V
+   #2 = Fieldref           #3.#34         // com/seeyon/boot/starter/spi/plugin/CustomizedSpiInfo.spiInfoModels:Ljava/util/List;
+   #3 = Class              #35            // com/seeyon/boot/starter/spi/plugin/CustomizedSpiInfo
+   #4 = Class              #36            // java/lang/Object
+   #5 = Class              #37            // java/io/Serializable
+   #6 = Class              #38            // com/seeyon/boot/starter/spi/plugin/CustomizedSpiInfo$SpiInfoModel
+   #7 = Utf8               SpiInfoModel
+   #8 = Utf8               InnerClasses
+   #9 = Utf8               CUSTOMIZED_SPI_CONFIG_PATH
+  #10 = Utf8               Ljava/lang/String;
+  #11 = Utf8               ConstantValue
+  #12 = String             #39            // custom-backend/spi_info.json
+  #13 = Utf8               spiInfoModels
+  #14 = Utf8               Ljava/util/List;
+  #15 = Utf8               Signature
+  #16 = Utf8               Ljava/util/List<Lcom/seeyon/boot/starter/spi/plugin/CustomizedSpiInfo$SpiInfoModel;>;
+  #17 = Utf8               <init>
+  #18 = Utf8               ()V
+  #19 = Utf8               Code
+  #20 = Utf8               LineNumberTable
+  #21 = Utf8               LocalVariableTable
+  #22 = Utf8               this
+  #23 = Utf8               Lcom/seeyon/boot/starter/spi/plugin/CustomizedSpiInfo;
+  #24 = Utf8               setSpiInfoModels
+  #25 = Utf8               (Ljava/util/List;)V
+  #26 = Utf8               LocalVariableTypeTable
+  #27 = Utf8               (Ljava/util/List<Lcom/seeyon/boot/starter/spi/plugin/CustomizedSpiInfo$SpiInfoModel;>;)V
+  #28 = Utf8               getSpiInfoModels
+  #29 = Utf8               ()Ljava/util/List;
+  #30 = Utf8               ()Ljava/util/List<Lcom/seeyon/boot/starter/spi/plugin/CustomizedSpiInfo$SpiInfoModel;>;
+  #31 = Utf8               SourceFile
+  #32 = Utf8               CustomizedSpiInfo.java
+  #33 = NameAndType        #17:#18        // "<init>":()V
+  #34 = NameAndType        #13:#14        // spiInfoModels:Ljava/util/List;
+  #35 = Utf8               com/seeyon/boot/starter/spi/plugin/CustomizedSpiInfo
+  #36 = Utf8               java/lang/Object
+  #37 = Utf8               java/io/Serializable
+  #38 = Utf8               com/seeyon/boot/starter/spi/plugin/CustomizedSpiInfo$SpiInfoModel
+  #39 = Utf8               custom-backend/spi_info.json
+{
+  public static final java.lang.String CUSTOMIZED_SPI_CONFIG_PATH;
+    descriptor: Ljava/lang/String;
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+    ConstantValue: String custom-backend/spi_info.json
+
+  java.util.List<com.seeyon.boot.starter.spi.plugin.CustomizedSpiInfo$SpiInfoModel> spiInfoModels;
+    descriptor: Ljava/util/List;
+    flags: (0x0000)
+    Signature: #16                          // Ljava/util/List<Lcom/seeyon/boot/starter/spi/plugin/CustomizedSpiInfo$SpiInfoModel;>;
+
+  public com.seeyon.boot.starter.spi.plugin.CustomizedSpiInfo();
+    descriptor: ()V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: return
+      LineNumberTable:
+        line 16: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lcom/seeyon/boot/starter/spi/plugin/CustomizedSpiInfo;
+
+  public void setSpiInfoModels(java.util.List<com.seeyon.boot.starter.spi.plugin.CustomizedSpiInfo$SpiInfoModel>);
+    descriptor: (Ljava/util/List;)V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0
+         1: aload_1
+         2: putfield      #2                  // Field spiInfoModels:Ljava/util/List;
+         5: return
+      LineNumberTable:
+        line 14: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       6     0  this   Lcom/seeyon/boot/starter/spi/plugin/CustomizedSpiInfo;
+            0       6     1 spiInfoModels   Ljava/util/List;
+      LocalVariableTypeTable:
+        Start  Length  Slot  Name   Signature
+            0       6     1 spiInfoModels   Ljava/util/List<Lcom/seeyon/boot/starter/spi/plugin/CustomizedSpiInfo$SpiInfoModel;>;
+    Signature: #27                          // (Ljava/util/List<Lcom/seeyon/boot/starter/spi/plugin/CustomizedSpiInfo$SpiInfoModel;>;)V
+
+  public java.util.List<com.seeyon.boot.starter.spi.plugin.CustomizedSpiInfo$SpiInfoModel> getSpiInfoModels();
+    descriptor: ()Ljava/util/List;
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: getfield      #2                  // Field spiInfoModels:Ljava/util/List;
+         4: areturn
+      LineNumberTable:
+        line 20: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lcom/seeyon/boot/starter/spi/plugin/CustomizedSpiInfo;
+    Signature: #30                          // ()Ljava/util/List<Lcom/seeyon/boot/starter/spi/plugin/CustomizedSpiInfo$SpiInfoModel;>;
+}
+SourceFile: "CustomizedSpiInfo.java"
+InnerClasses:
+  public static #7= #6 of #3;             // SpiInfoModel=class com/seeyon/boot/starter/spi/plugin/CustomizedSpiInfo$SpiInfoModel of class com/seeyon/boot/starter/spi/plugin/CustomizedSpiInfo

@@ -1,0 +1,297 @@
+Classfile jar:file:///D:/repo/CHIT/com/seeyon/boot-starter-spi/5.3.358/boot-starter-spi-5.3.358.jar!/com/seeyon/boot/starter/spi/SPIApplicationRunListener.class
+  Last modified 2026年5月25日; size 2574 bytes
+  SHA-256 checksum 767d4cfcb453a435b6cf62a5bda99d7d8e45bd29f923c5e1050464bb81166fb3
+  Compiled from "SPIApplicationRunListener.java"
+public class com.seeyon.boot.starter.spi.SPIApplicationRunListener implements com.seeyon.boot.init.SeeyonApplicationRunner
+  minor version: 0
+  major version: 52
+  flags: (0x0021) ACC_PUBLIC, ACC_SUPER
+  this_class: #23                         // com/seeyon/boot/starter/spi/SPIApplicationRunListener
+  super_class: #25                        // java/lang/Object
+  interfaces: 1, fields: 1, methods: 5, attributes: 2
+Constant pool:
+    #1 = Methodref          #25.#61       // java/lang/Object."<init>":()V
+    #2 = Methodref          #23.#62       // com/seeyon/boot/starter/spi/SPIApplicationRunListener.initialize:()V
+    #3 = Methodref          #23.#63       // com/seeyon/boot/starter/spi/SPIApplicationRunListener.loadExtendsSpi:()V
+    #4 = Methodref          #64.#65       // com/seeyon/boot/context/Apps.getEnvironment:()Lorg/springframework/core/env/Environment;
+    #5 = String             #66           // seeyon.spi.enable
+    #6 = InterfaceMethodref #67.#68       // org/springframework/core/env/Environment.getProperty:(Ljava/lang/String;)Ljava/lang/String;
+    #7 = String             #69           // true
+    #8 = Methodref          #70.#71       // java/lang/String.equals:(Ljava/lang/Object;)Z
+    #9 = Fieldref           #23.#72       // com/seeyon/boot/starter/spi/SPIApplicationRunListener.log:Lorg/slf4j/Logger;
+   #10 = String             #73           // 应用依赖了SPI插件，但未开启相应功能
+   #11 = InterfaceMethodref #74.#75       // org/slf4j/Logger.warn:(Ljava/lang/String;)V
+   #12 = Methodref          #64.#76       // com/seeyon/boot/context/Apps.getBeanFactory:()Lorg/springframework/beans/factory/support/DefaultListableBeanFactory;
+   #13 = Class              #77           // com/seeyon/boot/starter/spi/SPIProperties
+   #14 = Methodref          #78.#79       // org/springframework/beans/factory/support/DefaultListableBeanFactory.getBean:(Ljava/lang/Class;)Ljava/lang/Object;
+   #15 = Class              #80           // com/seeyon/boot/starter/spi/SPIJarLoader
+   #16 = Methodref          #13.#81       // com/seeyon/boot/starter/spi/SPIProperties.isEnable:()Z
+   #17 = String             #82           // 未开启SPI插件加载机制，忽略SPI实现的加载
+   #18 = InterfaceMethodref #74.#83       // org/slf4j/Logger.info:(Ljava/lang/String;)V
+   #19 = Methodref          #13.#84       // com/seeyon/boot/starter/spi/SPIProperties.getSpiPlugins:()Ljava/util/List;
+   #20 = InterfaceMethodref #85.#86       // java/util/List.isEmpty:()Z
+   #21 = Methodref          #15.#87       // com/seeyon/boot/starter/spi/SPIJarLoader.loadSPIPlugins:(Ljava/util/List;)V
+   #22 = Methodref          #15.#88       // com/seeyon/boot/starter/spi/SPIJarLoader.loadRemoteSPIPlugins:()V
+   #23 = Class              #89           // com/seeyon/boot/starter/spi/SPIApplicationRunListener
+   #24 = Methodref          #90.#91       // org/slf4j/LoggerFactory.getLogger:(Ljava/lang/Class;)Lorg/slf4j/Logger;
+   #25 = Class              #92           // java/lang/Object
+   #26 = Class              #93           // com/seeyon/boot/init/SeeyonApplicationRunner
+   #27 = Utf8               log
+   #28 = Utf8               Lorg/slf4j/Logger;
+   #29 = Utf8               <init>
+   #30 = Utf8               ()V
+   #31 = Utf8               Code
+   #32 = Utf8               LineNumberTable
+   #33 = Utf8               LocalVariableTable
+   #34 = Utf8               this
+   #35 = Utf8               Lcom/seeyon/boot/starter/spi/SPIApplicationRunListener;
+   #36 = Utf8               run
+   #37 = Utf8               Exceptions
+   #38 = Class              #94           // java/lang/Exception
+   #39 = Utf8               initialize
+   #40 = Utf8               spiEnable
+   #41 = Utf8               Ljava/lang/String;
+   #42 = Utf8               spiProperties
+   #43 = Utf8               Lcom/seeyon/boot/starter/spi/SPIProperties;
+   #44 = Utf8               spiJarLoader
+   #45 = Utf8               Lcom/seeyon/boot/starter/spi/SPIJarLoader;
+   #46 = Utf8               spiPlugins
+   #47 = Utf8               Ljava/util/List;
+   #48 = Utf8               LocalVariableTypeTable
+   #49 = Utf8               Ljava/util/List<Ljava/lang/String;>;
+   #50 = Utf8               StackMapTable
+   #51 = Class              #95           // java/lang/String
+   #52 = Class              #77           // com/seeyon/boot/starter/spi/SPIProperties
+   #53 = Class              #80           // com/seeyon/boot/starter/spi/SPIJarLoader
+   #54 = Class              #96           // java/util/List
+   #55 = Utf8               loadExtendsSpi
+   #56 = Utf8               <clinit>
+   #57 = Utf8               SourceFile
+   #58 = Utf8               SPIApplicationRunListener.java
+   #59 = Utf8               RuntimeVisibleAnnotations
+   #60 = Utf8               Lorg/springframework/stereotype/Component;
+   #61 = NameAndType        #29:#30       // "<init>":()V
+   #62 = NameAndType        #39:#30       // initialize:()V
+   #63 = NameAndType        #55:#30       // loadExtendsSpi:()V
+   #64 = Class              #97           // com/seeyon/boot/context/Apps
+   #65 = NameAndType        #98:#99       // getEnvironment:()Lorg/springframework/core/env/Environment;
+   #66 = Utf8               seeyon.spi.enable
+   #67 = Class              #100          // org/springframework/core/env/Environment
+   #68 = NameAndType        #101:#102     // getProperty:(Ljava/lang/String;)Ljava/lang/String;
+   #69 = Utf8               true
+   #70 = Class              #95           // java/lang/String
+   #71 = NameAndType        #103:#104     // equals:(Ljava/lang/Object;)Z
+   #72 = NameAndType        #27:#28       // log:Lorg/slf4j/Logger;
+   #73 = Utf8               应用依赖了SPI插件，但未开启相应功能
+   #74 = Class              #105          // org/slf4j/Logger
+   #75 = NameAndType        #106:#107     // warn:(Ljava/lang/String;)V
+   #76 = NameAndType        #108:#109     // getBeanFactory:()Lorg/springframework/beans/factory/support/DefaultListableBeanFactory;
+   #77 = Utf8               com/seeyon/boot/starter/spi/SPIProperties
+   #78 = Class              #110          // org/springframework/beans/factory/support/DefaultListableBeanFactory
+   #79 = NameAndType        #111:#112     // getBean:(Ljava/lang/Class;)Ljava/lang/Object;
+   #80 = Utf8               com/seeyon/boot/starter/spi/SPIJarLoader
+   #81 = NameAndType        #113:#114     // isEnable:()Z
+   #82 = Utf8               未开启SPI插件加载机制，忽略SPI实现的加载
+   #83 = NameAndType        #115:#107     // info:(Ljava/lang/String;)V
+   #84 = NameAndType        #116:#117     // getSpiPlugins:()Ljava/util/List;
+   #85 = Class              #96           // java/util/List
+   #86 = NameAndType        #118:#114     // isEmpty:()Z
+   #87 = NameAndType        #119:#120     // loadSPIPlugins:(Ljava/util/List;)V
+   #88 = NameAndType        #121:#30      // loadRemoteSPIPlugins:()V
+   #89 = Utf8               com/seeyon/boot/starter/spi/SPIApplicationRunListener
+   #90 = Class              #122          // org/slf4j/LoggerFactory
+   #91 = NameAndType        #123:#124     // getLogger:(Ljava/lang/Class;)Lorg/slf4j/Logger;
+   #92 = Utf8               java/lang/Object
+   #93 = Utf8               com/seeyon/boot/init/SeeyonApplicationRunner
+   #94 = Utf8               java/lang/Exception
+   #95 = Utf8               java/lang/String
+   #96 = Utf8               java/util/List
+   #97 = Utf8               com/seeyon/boot/context/Apps
+   #98 = Utf8               getEnvironment
+   #99 = Utf8               ()Lorg/springframework/core/env/Environment;
+  #100 = Utf8               org/springframework/core/env/Environment
+  #101 = Utf8               getProperty
+  #102 = Utf8               (Ljava/lang/String;)Ljava/lang/String;
+  #103 = Utf8               equals
+  #104 = Utf8               (Ljava/lang/Object;)Z
+  #105 = Utf8               org/slf4j/Logger
+  #106 = Utf8               warn
+  #107 = Utf8               (Ljava/lang/String;)V
+  #108 = Utf8               getBeanFactory
+  #109 = Utf8               ()Lorg/springframework/beans/factory/support/DefaultListableBeanFactory;
+  #110 = Utf8               org/springframework/beans/factory/support/DefaultListableBeanFactory
+  #111 = Utf8               getBean
+  #112 = Utf8               (Ljava/lang/Class;)Ljava/lang/Object;
+  #113 = Utf8               isEnable
+  #114 = Utf8               ()Z
+  #115 = Utf8               info
+  #116 = Utf8               getSpiPlugins
+  #117 = Utf8               ()Ljava/util/List;
+  #118 = Utf8               isEmpty
+  #119 = Utf8               loadSPIPlugins
+  #120 = Utf8               (Ljava/util/List;)V
+  #121 = Utf8               loadRemoteSPIPlugins
+  #122 = Utf8               org/slf4j/LoggerFactory
+  #123 = Utf8               getLogger
+  #124 = Utf8               (Ljava/lang/Class;)Lorg/slf4j/Logger;
+{
+  private static final org.slf4j.Logger log;
+    descriptor: Lorg/slf4j/Logger;
+    flags: (0x001a) ACC_PRIVATE, ACC_STATIC, ACC_FINAL
+
+  public com.seeyon.boot.starter.spi.SPIApplicationRunListener();
+    descriptor: ()V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: return
+      LineNumberTable:
+        line 12: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lcom/seeyon/boot/starter/spi/SPIApplicationRunListener;
+
+  public void run() throws java.lang.Exception;
+    descriptor: ()V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokevirtual #2                  // Method initialize:()V
+         4: aload_0
+         5: invokevirtual #3                  // Method loadExtendsSpi:()V
+         8: return
+      LineNumberTable:
+        line 16: 0
+        line 17: 4
+        line 18: 8
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       9     0  this   Lcom/seeyon/boot/starter/spi/SPIApplicationRunListener;
+    Exceptions:
+      throws java.lang.Exception
+
+  public void initialize();
+    descriptor: ()V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=2, locals=5, args_size=1
+         0: invokestatic  #4                  // Method com/seeyon/boot/context/Apps.getEnvironment:()Lorg/springframework/core/env/Environment;
+         3: ldc           #5                  // String seeyon.spi.enable
+         5: invokeinterface #6,  2            // InterfaceMethod org/springframework/core/env/Environment.getProperty:(Ljava/lang/String;)Ljava/lang/String;
+        10: astore_1
+        11: ldc           #7                  // String true
+        13: aload_1
+        14: invokevirtual #8                  // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+        17: ifne          31
+        20: getstatic     #9                  // Field log:Lorg/slf4j/Logger;
+        23: ldc           #10                 // String 应用依赖了SPI插件，但未开启相应功能
+        25: invokeinterface #11,  2           // InterfaceMethod org/slf4j/Logger.warn:(Ljava/lang/String;)V
+        30: return
+        31: invokestatic  #12                 // Method com/seeyon/boot/context/Apps.getBeanFactory:()Lorg/springframework/beans/factory/support/DefaultListableBeanFactory;
+        34: ldc           #13                 // class com/seeyon/boot/starter/spi/SPIProperties
+        36: invokevirtual #14                 // Method org/springframework/beans/factory/support/DefaultListableBeanFactory.getBean:(Ljava/lang/Class;)Ljava/lang/Object;
+        39: checkcast     #13                 // class com/seeyon/boot/starter/spi/SPIProperties
+        42: astore_2
+        43: invokestatic  #12                 // Method com/seeyon/boot/context/Apps.getBeanFactory:()Lorg/springframework/beans/factory/support/DefaultListableBeanFactory;
+        46: ldc           #15                 // class com/seeyon/boot/starter/spi/SPIJarLoader
+        48: invokevirtual #14                 // Method org/springframework/beans/factory/support/DefaultListableBeanFactory.getBean:(Ljava/lang/Class;)Ljava/lang/Object;
+        51: checkcast     #15                 // class com/seeyon/boot/starter/spi/SPIJarLoader
+        54: astore_3
+        55: aload_2
+        56: invokevirtual #16                 // Method com/seeyon/boot/starter/spi/SPIProperties.isEnable:()Z
+        59: ifne          73
+        62: getstatic     #9                  // Field log:Lorg/slf4j/Logger;
+        65: ldc           #17                 // String 未开启SPI插件加载机制，忽略SPI实现的加载
+        67: invokeinterface #18,  2           // InterfaceMethod org/slf4j/Logger.info:(Ljava/lang/String;)V
+        72: return
+        73: aload_2
+        74: invokevirtual #19                 // Method com/seeyon/boot/starter/spi/SPIProperties.getSpiPlugins:()Ljava/util/List;
+        77: astore        4
+        79: aload         4
+        81: ifnull        94
+        84: aload         4
+        86: invokeinterface #20,  1           // InterfaceMethod java/util/List.isEmpty:()Z
+        91: ifeq          95
+        94: return
+        95: aload_3
+        96: aload         4
+        98: invokevirtual #21                 // Method com/seeyon/boot/starter/spi/SPIJarLoader.loadSPIPlugins:(Ljava/util/List;)V
+       101: return
+      LineNumberTable:
+        line 21: 0
+        line 22: 11
+        line 23: 20
+        line 24: 30
+        line 26: 31
+        line 27: 43
+        line 29: 55
+        line 30: 62
+        line 31: 72
+        line 33: 73
+        line 34: 79
+        line 35: 94
+        line 37: 95
+        line 39: 101
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0     102     0  this   Lcom/seeyon/boot/starter/spi/SPIApplicationRunListener;
+           11      91     1 spiEnable   Ljava/lang/String;
+           43      59     2 spiProperties   Lcom/seeyon/boot/starter/spi/SPIProperties;
+           55      47     3 spiJarLoader   Lcom/seeyon/boot/starter/spi/SPIJarLoader;
+           79      23     4 spiPlugins   Ljava/util/List;
+      LocalVariableTypeTable:
+        Start  Length  Slot  Name   Signature
+           79      23     4 spiPlugins   Ljava/util/List<Ljava/lang/String;>;
+      StackMapTable: number_of_entries = 4
+        frame_type = 252 /* append */
+          offset_delta = 31
+          locals = [ class java/lang/String ]
+        frame_type = 253 /* append */
+          offset_delta = 41
+          locals = [ class com/seeyon/boot/starter/spi/SPIProperties, class com/seeyon/boot/starter/spi/SPIJarLoader ]
+        frame_type = 252 /* append */
+          offset_delta = 20
+          locals = [ class java/util/List ]
+        frame_type = 0 /* same */
+
+  public void loadExtendsSpi();
+    descriptor: ()V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=1
+         0: invokestatic  #12                 // Method com/seeyon/boot/context/Apps.getBeanFactory:()Lorg/springframework/beans/factory/support/DefaultListableBeanFactory;
+         3: ldc           #15                 // class com/seeyon/boot/starter/spi/SPIJarLoader
+         5: invokevirtual #14                 // Method org/springframework/beans/factory/support/DefaultListableBeanFactory.getBean:(Ljava/lang/Class;)Ljava/lang/Object;
+         8: checkcast     #15                 // class com/seeyon/boot/starter/spi/SPIJarLoader
+        11: astore_1
+        12: aload_1
+        13: invokevirtual #22                 // Method com/seeyon/boot/starter/spi/SPIJarLoader.loadRemoteSPIPlugins:()V
+        16: return
+      LineNumberTable:
+        line 42: 0
+        line 43: 12
+        line 44: 16
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      17     0  this   Lcom/seeyon/boot/starter/spi/SPIApplicationRunListener;
+           12       5     1 spiJarLoader   Lcom/seeyon/boot/starter/spi/SPIJarLoader;
+
+  static {};
+    descriptor: ()V
+    flags: (0x0008) ACC_STATIC
+    Code:
+      stack=1, locals=0, args_size=0
+         0: ldc           #23                 // class com/seeyon/boot/starter/spi/SPIApplicationRunListener
+         2: invokestatic  #24                 // Method org/slf4j/LoggerFactory.getLogger:(Ljava/lang/Class;)Lorg/slf4j/Logger;
+         5: putstatic     #9                  // Field log:Lorg/slf4j/Logger;
+         8: return
+      LineNumberTable:
+        line 11: 0
+}
+SourceFile: "SPIApplicationRunListener.java"
+RuntimeVisibleAnnotations:
+  0: #60()
+    org.springframework.stereotype.Component

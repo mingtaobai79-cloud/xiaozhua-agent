@@ -1,0 +1,15 @@
+Compiled from "SpiMavenService.java"
+public class com.seeyon.boot.starter.spi.plugin.maven.SpiMavenService implements com.seeyon.boot.starter.spi.plugin.SpiArtifactService,org.springframework.beans.factory.InitializingBean {
+  private static final org.slf4j.Logger log;
+  private com.seeyon.boot.starter.spi.plugin.maven.SpiMavenProperties spiMavenProperties;
+  private org.eclipse.aether.RepositorySystem system;
+  private org.eclipse.aether.RepositorySystemSession session;
+  public com.seeyon.boot.starter.spi.plugin.maven.SpiMavenService();
+  public java.lang.String download(com.seeyon.boot.starter.spi.plugin.ArtifactInfo);
+  private org.eclipse.aether.repository.RemoteRepository getRemoteRepository(java.lang.String);
+  public void afterPropertiesSet() throws java.lang.Exception;
+  private org.eclipse.aether.RepositorySystem getRepositorySystem();
+  private org.eclipse.aether.RepositorySystemSession getSession(org.eclipse.aether.RepositorySystem, java.lang.String);
+  private java.lang.String getMvnBasePath();
+  static {};
+}

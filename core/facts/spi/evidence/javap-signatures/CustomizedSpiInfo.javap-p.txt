@@ -1,0 +1,8 @@
+Compiled from "CustomizedSpiInfo.java"
+public class com.seeyon.boot.starter.spi.plugin.CustomizedSpiInfo implements java.io.Serializable {
+  public static final java.lang.String CUSTOMIZED_SPI_CONFIG_PATH;
+  java.util.List<com.seeyon.boot.starter.spi.plugin.CustomizedSpiInfo$SpiInfoModel> spiInfoModels;
+  public com.seeyon.boot.starter.spi.plugin.CustomizedSpiInfo();
+  public void setSpiInfoModels(java.util.List<com.seeyon.boot.starter.spi.plugin.CustomizedSpiInfo$SpiInfoModel>);
+  public java.util.List<com.seeyon.boot.starter.spi.plugin.CustomizedSpiInfo$SpiInfoModel> getSpiInfoModels();
+}
