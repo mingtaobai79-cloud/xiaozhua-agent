@@ -964,24 +964,146 @@ bpm 内部
   └── 走 BpmAppService + BpmSupportOperation（节点上下文）
 ```
 
-## 落表（流程侧）
-
-流程数据落在 bpm 域自己的表，**不在 UDC 实体表里**。UDC 侧只需要保存 `caseId`。
-
-⚠️ 具体表名 `UNVERIFIED`（字节码索引不含 SQL）。取证：反编译 `bpm-biz` 找 mapper，
-或在 test2 库查 `information_schema.tables` 里 `%_bpm_%`。
-
 ## 落表
 
-⚠️ **UNVERIFIED** —— 字节码索引不含 SQL/表名，本文件不写推测的表名。
+> 证据等级：`VERIFIED_STATIC_BYTECODE`（表名出现在本模块 biz jar 的 class 常量池）
+> ＋ `LIVE`（同名表已用 `information_schema` 在 `test2` 确认真实存在）。
+> 粒度：**类级**。方法级落表未取证 —— 平台不用 MyBatis XML
+> （21 个 biz 构件合计只有 9 个 mapper XML / 15 张表），SQL 内联在代码里，
+> 方法→表要逐类反编译才能确认。
 
-取证路径（三条，任选其一，务必留证据）：
+本模块代码中出现的真实表 **99** 张（来源构件：`bpm-biz`）：
 
-1. **jar 内 mapper**：`organization-biz` 里 `*.xml` / `*Mapper.java`
-2. **库结构**：连 test2 的 MySQL 查 `information_schema.columns` 里 `tb_org_%`
-3. **运行态**：开 SQL 日志跑一次写操作，看真实表名
+| 表名 | 注释 | 出现在几个类 |
+|---|---|---:|
+| `org_role` | 组织角色表 | 11 |
+| `bpm_template` | 流程模板 | 8 |
+| `bpm_subprocess` | 子流程关联表 | 7 |
+| `bpm_auto_approval` | 自动审批规则设置表 | 4 |
+| `bpm_uniformity` | BPM对外调用更新保持异步一致性日志表 | 4 |
+| `bpm_case` | 流程实例 | 3 |
+| `bpm_form_permission` | 表单操作权限 | 3 |
+| `bpm_process` | 流程表 | 3 |
+| `bpm_activity_run` | 运行时节点日志信息表 | 2 |
+| `bpm_node_permission` | 节点权限表 | 2 |
+| `bpm_node_permission_operation` | 节点权限与动作的绑定关系表 | 2 |
+| `bpm_process_revision` | 流程修订版本明细表 | 2 |
+| `bpm_abnormal_report` | 异常上报信息 | 1 |
+| `bpm_across_service_relation` | 跨环境推送信息 | 1 |
+| `bpm_activity_history` | 节点日志信息历史表 | 1 |
+| `bpm_agent_parameter` | 运行时节点日志信息表 | 1 |
+| `bpm_application_operate_log` | 应用日志记录表 | 1 |
+| `bpm_appmulti_version` | 版本表 | 1 |
+| `bpm_attachment` | 模板附件表 | 1 |
+| `bpm_auth_detail` | 流程元素授权信息表 | 1 |
+| `bpm_auto_node` | 自动节点 | 1 |
+| `bpm_auto_node_control` | 自动节点运转过程中的状态控制表 | 1 |
+| `bpm_auto_node_control_detail` | 自动节点具体每一次执行的参数、返回值等信息的存档 | 1 |
+| `bpm_branch_running_info` | 主流程被主流程唤醒信息 | 1 |
+| `bpm_case_extend` | — | 1 |
+| `bpm_case_revision_log` | 工作流自定义属性注册信息 | 1 |
+| `bpm_consultor_setting` | 咨询设置表 | 1 |
+| `bpm_custom_property` | 工作流自定义属性注册信息 | 1 |
+| `bpm_custom_tab` | 工作流自定义页签信息表 | 1 |
+| `bpm_definition_application` | 注册定义应用表 | 1 |
+| `bpm_delay_msg_record` | 流程图片段表 | 1 |
+| `bpm_diagram_detail` | 流程图详情数据 | 1 |
+| `bpm_diagram_fragment` | 流程图片段表 | 1 |
+| `bpm_effect_log` | 流程绩效催办日志表 | 1 |
+| `bpm_evaluation_record` | 评分记录表 | 1 |
+| `bpm_expression` | 工作流表达式存实体 | 1 |
+| `bpm_extend` | 记录表的扩展字段信息 | 1 |
+| `bpm_form_permission_content` | 表单操作权限内容（自定义） | 1 |
+| `bpm_hierarchical_control` | 分级管理表 | 1 |
+| `bpm_large_object` | 工作流中大对象存储 | 1 |
+| `bpm_list_display` | 列表显示字段 | 1 |
+| `bpm_manage_log` | 流程运维日志表 | 1 |
+| `bpm_monitor_node_running` | 监听节点运行数据表 | 1 |
+| `bpm_node` | 流程图节点顺序表 | 1 |
+| `bpm_node_assemble_operation` | 节点封装操作表 | 1 |
+| `bpm_node_permission_bind` | 节点权限绑定表 | 1 |
+| `bpm_opinion_register` | BPM意见注册表 | 1 |
+| `bpm_org_changed_message` | 组织模型停用的消息 | 1 |
+| `bpm_page_parameter` | 模板页面参数扩展表 | 1 |
+| `bpm_parameter` | 系统参数 | 1 |
+| `bpm_parameter_mapper` | 流程参数映射 | 1 |
+| `bpm_parameter_setting` | 模板参数定义表 | 1 |
+| `bpm_path_table_data` | 流程路径表定义 | 1 |
+| `bpm_path_table_define` | 流程路径表数据 | 1 |
+| `bpm_path_table_used_case` | 流程中使用的路径表数据关系 | 1 |
+| `bpm_personal_template` | 个人模板表 | 1 |
+| `bpm_placeholder_config` | 占位符配置信息表 | 1 |
+| `bpm_process_detail` | 流程详细信息 | 1 |
+| `bpm_process_detail_log` | — | 1 |
+| `bpm_process_feedback` | 流程反馈信息表 | 1 |
+| `bpm_process_log` | 流程日志表 | 1 |
+| `bpm_process_release_log` | 流程修订版本表 | 1 |
+| `bpm_process_revision_detail` | 流程发布日志 | 1 |
+| `bpm_process_supervise` | 督办设置表 | 1 |
+| `bpm_process_supervisor` | 督办人员表 | 1 |
+| `bpm_process_track` | 流程跟踪设置表 | 1 |
+| `bpm_replace_detail_log` | 替换详细日志 | 1 |
+| `bpm_replace_id_record` | id替换记录表 | 1 |
+| `bpm_replace_log` | 替换日志表 | 1 |
+| `bpm_simulation` | 流程仿真 | 1 |
+| `bpm_subprocess_running` | 子流程运行表 | 1 |
+| `bpm_supervise_count` | 督办计数表 | 1 |
+| `bpm_supervise_template` | 督办设置对应模板表 | 1 |
+| `bpm_supervise_vip` | 督办vip运行时数据 | 1 |
+| `bpm_sync_event_register` | 其他服务注册监听BPM的事件的同步消息 | 1 |
+| `bpm_tag` | 标签表 | 1 |
+| `bpm_task` | 任务表 | 1 |
+| `bpm_task_relation` | 任务关系表 | 1 |
+| `bpm_template_auth` | 模板授权信息 | 1 |
+| `bpm_template_config` | 模板扩展信息表 | 1 |
+| `bpm_template_evaluation` | — | 1 |
+| `bpm_template_extend` | 流程模板扩展信息表 | 1 |
+| `bpm_template_liable_person` | 流程责任人 | 1 |
+| `bpm_template_owner` | 流程负责人 | 1 |
+| `bpm_template_recent` | 审批模板使用表 | 1 |
+| `bpm_template_resource` | 模板资源授权表 | 1 |
+| `bpm_template_tag` | 模板标签表 | 1 |
+| `bpm_third_permission` | 第三方表单权限表 | 1 |
+| `bpm_third_template` | 第三方系统流程模板表 | 1 |
+| `bpm_transport_log` | 流程信息传输日志表 | 1 |
+| `bpm_workitem_history` | 历史事项 | 1 |
+| `bpm_workitem_run` | 事项运行态 | 1 |
+| `ctp_enum` | — | 1 |
+| `ctp_enum_item` | — | 1 |
+| `ctp_mgn_main_relation` | — | 1 |
+| `udc_attribute` | — | 1 |
+| `udc_entity` | — | 1 |
+| `udc_page_info` | — | 1 |
+| `udc_page_schema` | — | 1 |
 
-在拿到上述证据前，本文件对「落哪张表」保持空。
+### 接口 → 表（20 条）
+
+> `implements` = 字节码声明实现了该接口；`implements+field` = 再经它持有的
+> Manager/Dao 字段一跳；两者都是静态事实。`stem` 只是类名同源（弱证据，需实测）。
+> 表名本身都 `VERIFIED`；**哪个方法写哪张表仍未取证**。
+
+| facade 接口 | 承载类 | 表 | 依据 |
+|---|---|---|---|
+| `BpmActionAppService` | `BpmActivityRunService` | `bpm_activity_run` | `implements+field` |
+| `BpmActivityAppService` | `BpmActivityRunService` | `bpm_activity_run` | `implements+field` |
+| `BpmApiFormPermissionAppService` | `BpmTemplateService` | `bpm_template` | `implements+field` |
+| `BpmApiProcessAppService` | `BpmTemplateService` | `bpm_template` | `implements+field` |
+| `BpmAppService` | `BpmOperationService, BpmTemplateService` | `bpm_subprocess`, `bpm_template` | `implements+field` |
+| `BpmApplicationOperateLogAppService` | `BpmApplicationOperateLog` | `bpm_application_operate_log` | `stem` |
+| `BpmAutoApprovalAppService` | `BpmAutoApproval` | `bpm_auto_approval` | `stem` |
+| `BpmCaseAppService` | `BpmCase, BpmCaseDao` | `bpm_case` | `stem` |
+| `BpmCoMiAppService` | `BpmTemplateService` | `bpm_template` | `implements+field` |
+| `BpmNodeAppService` | `BpmActivityRunService, BpmTemplateService` | `bpm_activity_run`, `bpm_template` | `implements+field` |
+| `BpmNodePermissionOperationAppService` | `BpmNodePermissionOperation` | `bpm_node_permission_operation` | `stem` |
+| `BpmNormalAppMultiVersionAppService` | `BpmTemplateService` | `bpm_template` | `implements+field` |
+| `BpmOpinionAppService` | `BpmActivityRunService` | `bpm_activity_run` | `implements+field` |
+| `BpmProcessLogAppService` | `BpmProcessLog` | `bpm_process_log` | `stem` |
+| `BpmProcessTrackAppService` | `BpmProcessTrack` | `bpm_process_track` | `stem` |
+| `BpmTemplateAppService` | `BpmTemplateService` | `bpm_template` | `implements+field` |
+| `BpmTemplateManageAppService` | `BpmTemplateService` | `bpm_template` | `implements+field` |
+| `BpmUdcApiService` | `BpmTemplateService` | `bpm_template` | `implements+field` |
+| `BpmUpgrade51To52AppService` | `BpmTemplateService` | `bpm_template` | `implements+field` |
+| `BpmApiSimulationAppService` | `BpmActivityRunService, BpmTemplateService` | `bpm_activity_run`, `bpm_template` | `implements+field` |
 
 ## 证据与自证
 
@@ -994,4 +1116,5 @@ bpm 内部
 | 「干什么」中文描述 | 方法名拆词 + 手工注记 | `STATIC_INFERENCE` |
 | 0 个语义待定方法 | 名称不足 | `UNVERIFIED` |
 | REST 路径 | 未取证 | `UNVERIFIED` |
-| 落表 | 未取证 | `UNVERIFIED` |
+| 落表（106 张表，类级） | class 常量池 + `information_schema` | `VERIFIED_STATIC_BYTECODE` + `LIVE` |
+| 方法级落表 | 未取证（SQL 内联，需逐类反编译） | `UNVERIFIED` |

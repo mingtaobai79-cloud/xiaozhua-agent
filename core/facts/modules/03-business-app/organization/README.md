@@ -1209,15 +1209,76 @@ ListResponse<OrgMemberCoreDto> people = memberCore.selectMemberByIds(SingleReque
 
 ## 落表
 
-⚠️ **UNVERIFIED** —— 字节码索引不含 SQL/表名，本文件不写推测的表名。
+> 证据等级：`VERIFIED_STATIC_BYTECODE`（表名出现在本模块 biz jar 的 class 常量池）
+> ＋ `LIVE`（同名表已用 `information_schema` 在 `test2` 确认真实存在）。
+> 粒度：**类级**。方法级落表未取证 —— 平台不用 MyBatis XML
+> （21 个 biz 构件合计只有 9 个 mapper XML / 15 张表），SQL 内联在代码里，
+> 方法→表要逐类反编译才能确认。
 
-取证路径（三条，任选其一，务必留证据）：
+本模块代码中出现的真实表 **44** 张（来源构件：`organization-biz`）：
 
-1. **jar 内 mapper**：`organization-biz` 里 `*.xml` / `*Mapper.java`
-2. **库结构**：连 test2 的 MySQL 查 `information_schema.columns` 里 `tb_org_%`
-3. **运行态**：开 SQL 日志跑一次写操作，看真实表名
+| 表名 | 注释 | 出现在几个类 |
+|---|---|---:|
+| `org_role` | 组织角色表 | 10 |
+| `org_level` | 职级 | 3 |
+| `org_address_book_field` | 通讯录 | 1 |
+| `org_address_book_info` | 通讯录扩展字段值 | 1 |
+| `org_address_book_permission` | 通讯录字段权限 | 1 |
+| `org_address_book_set` | 通讯录设置 | 1 |
+| `org_business` | 多维组织 | 1 |
+| `org_business_member` | 多维组织成员 | 1 |
+| `org_department_permission` | 部门互访权限 | 1 |
+| `org_ext_member` | 外部联系人 | 1 |
+| `org_ext_member_rel` | 外部联系人关系 | 1 |
+| `org_ext_meta_column` | 外部伙伴扩展字段 | 1 |
+| `org_ext_partner` | 外部伙伴 | 1 |
+| `org_ext_partner_meta` | 外部伙伴扩展字段值 | 1 |
+| `org_ext_unit` | 外部单位 | 1 |
+| `org_institution_permission` | 机构间互访 | 1 |
+| `org_job` | 职务 | 1 |
+| `org_leader_secretary` | 领导秘书 | 1 |
+| `org_member` | 人员 | 1 |
+| `org_member_data` | 人员扩展字段值 | 1 |
+| `org_member_post` | 人员任职 | 1 |
+| `org_member_role` | 组织角色授权表 | 1 |
+| `org_metadata_column` | 扩展字段 | 1 |
+| `org_metadata_column_setting` | 扩展字段设置 | 1 |
+| `org_ocip_log` | ocip数据上传日志表 | 1 |
+| `org_ocip_set` | ocip数据上传设置表 | 1 |
+| `org_outside_permission` | 外部单位权限 | 1 |
+| `org_parameter` | 组织参数配置表 | 1 |
+| `org_post` | 岗位 | 1 |
+| `org_post_dimension` | 岗位维度 | 1 |
+| `org_post_dimension_relation` | 岗位汇报关系 | 1 |
+| `org_team` | 组 | 1 |
+| `org_team_member` | 组成员 | 1 |
+| `org_team_member_detail` | 组成员详情 | 1 |
+| `org_team_public_scope` | 组公开范围 | 1 |
+| `org_transfer_record` | 工作交接记录表 | 1 |
+| `org_transfer_record_detail` | 工作交接记录明细表 | 1 |
+| `org_unit` | 组织信息 | 1 |
+| `org_unit_data` | 组织扩展字段 | 1 |
+| `org_unit_horizontal` | 组织水平关系 | 1 |
+| `org_unit_team` | 机构组 | 1 |
+| `org_unit_team_member` | 机构组成员 | 1 |
+| `org_unit_team_public_scope` | 机构组公开范围 | 1 |
+| `org_unit_vertical` | 组织垂直关系 | 1 |
 
-在拿到上述证据前，本文件对「落哪张表」保持空。
+### 接口 → 表（7 条）
+
+> `implements` = 字节码声明实现了该接口；`implements+field` = 再经它持有的
+> Manager/Dao 字段一跳；两者都是静态事实。`stem` 只是类名同源（弱证据，需实测）。
+> 表名本身都 `VERIFIED`；**哪个方法写哪张表仍未取证**。
+
+| facade 接口 | 承载类 | 表 | 依据 |
+|---|---|---|---|
+| `OrgAppCommonAppService` | `SelectPeopleAppService` | `org_role` | `implements+field` |
+| `OrgWorkFlowAppService` | `ConditionMetaAppService, FormulaAppServiceImpl, OrgWorkFlowAppServiceImpl` | `org_role` | `implements` |
+| `OrgJobBaseAppService` | `SelectPeopleAppService` | `org_role` | `implements+field` |
+| `OrgLevelBaseAppService` | `SelectPeopleAppService` | `org_role` | `implements+field` |
+| `OrgPostBaseAppService` | `SelectPeopleAppService` | `org_role` | `implements+field` |
+| `OrgUnitBaseAppService` | `SelectPeopleAppService` | `org_role` | `implements+field` |
+| `WorkFlowMatchService` | `FormulaAppServiceImpl, OrganizationMatchMemberAppServiceImpl` | `org_role` | `implements` |
 
 ## 证据与自证
 
@@ -1230,4 +1291,5 @@ ListResponse<OrgMemberCoreDto> people = memberCore.selectMemberByIds(SingleReque
 | 「干什么」中文描述 | 方法名拆词 + 手工注记 | `STATIC_INFERENCE` |
 | 0 个语义待定方法 | 名称不足 | `UNVERIFIED` |
 | REST 路径 | 未取证 | `UNVERIFIED` |
-| 落表 | 未取证 | `UNVERIFIED` |
+| 落表（47 张表，类级） | class 常量池 + `information_schema` | `VERIFIED_STATIC_BYTECODE` + `LIVE` |
+| 方法级落表 | 未取证（SQL 内联，需逐类反编译） | `UNVERIFIED` |

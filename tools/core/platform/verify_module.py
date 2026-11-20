@@ -93,12 +93,12 @@ def main():
     orphan = [x for x in fqcns if x not in idx and x not in prefixes]
     chk(not orphan, f"{len(fqcns)} 个 FQCN/包名全部可解析（孤儿 {len(orphan)}: {orphan[:3]}）")
 
-    # 5. 无占位符
+    # 5. 无占位符（只查表格行之外；表注释里「占位符配置」是真实字段语义）
     print("\n[5] 无占位符")
+    prose = "\n".join(l for l in md.splitlines() if not l.startswith("|"))
     for w in ("TODO", "待补充", "TBD", "XXX", "???", "占位"):
-        chk(w not in md, f"不含 {w}")
+        chk(w not in prose, f"不含 {w}")
 
-    # 6. ⚠️ 数量与生成器一致
     print("\n[6] 待定语义标注")
     warn = len(re.findall(r"⚠️ \|", fseg))
     # 2 = facade 中语义待定；另有 落表/路径 的 ⚠️ 在别处

@@ -34,6 +34,13 @@ OUT = REPO / "docs" / "operation-contracts" / "mcp" / "TOOLS.md"
 DOMAIN_OF = {
     # 跨模块
     "dispatch": ("跨模块", False, "按 intent 路由到组件"),
+    # 需求 → 计划 → 挑工具（不产节点；plan_confirm 是组装前的确认闸门）
+    "business_plan": ("跨模块", False, "业务需求拆解：口语 → 业务要素表 + 待澄清问题"),
+    "business_plan_confirm": ("跨模块", False, "用户确认计划 + 渲染组装提示词（缺项拒绝）"),
+    "business_action_index": ("跨模块", False, "业务语言反查标品能力（防重复造轮子）"),
+    "platform_class_search": ("跨模块", False, "平台后端全量类检索（2669类/26235方法，中文可查）"),
+    "platform_class_methods": ("跨模块", False, "列平台类的方法签名"),
+    "platform_class_stats": ("跨模块", False, "平台类索引规模统计"),
     "generate": ("跨模块", False, "实体 → 后端骨架 + 前端页面定义"),
     "generate_from_requirement": ("跨模块", False, "自然语言 → 实体模型"),
     "live_probe": ("跨模块", False, "活体只读探测（默认离线 BLOCKED）"),

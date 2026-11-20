@@ -446,15 +446,112 @@
 
 ## 落表
 
-⚠️ **UNVERIFIED** —— 字节码索引不含 SQL/表名，本文件不写推测的表名。
+> 证据等级：`VERIFIED_STATIC_BYTECODE`（表名出现在本模块 biz jar 的 class 常量池）
+> ＋ `LIVE`（同名表已用 `information_schema` 在 `test2` 确认真实存在）。
+> 粒度：**类级**。方法级落表未取证 —— 平台不用 MyBatis XML
+> （21 个 biz 构件合计只有 9 个 mapper XML / 15 张表），SQL 内联在代码里，
+> 方法→表要逐类反编译才能确认。
 
-取证路径（三条，任选其一，务必留证据）：
+本模块代码中出现的真实表 **84** 张（来源构件：`cip-connector-biz`）：
 
-1. **jar 内 mapper**：`organization-biz` 里 `*.xml` / `*Mapper.java`
-2. **库结构**：连 test2 的 MySQL 查 `information_schema.columns` 里 `tb_org_%`
-3. **运行态**：开 SQL 日志跑一次写操作，看真实表名
+| 表名 | 注释 | 出现在几个类 |
+|---|---|---:|
+| `cip_mobile_corp` | 移动插件企业表 | 4 |
+| `cip_sync_duty` | 组织同步职务中间表 | 4 |
+| `cip_sync_level` | 组织同步职级中间表 | 4 |
+| `cip_sync_member` | 组织同步人员中间表 | 4 |
+| `cip_sync_post` | 组织同步岗位中间表 | 4 |
+| `cip_sync_result` | 中间表同步日志表 | 4 |
+| `cip_sync_unit` | 组织同步组织中间表 | 4 |
+| `cip_user_mapping_detail` | 用户映射具体配置信息表 | 3 |
+| `org_job` | 职务 | 3 |
+| `org_level` | 职级 | 3 |
+| `cip_custom_app` | 集成应用信息表 | 2 |
+| `cip_database_info` | 数据库配置信息表 | 2 |
+| `cip_download_log` | 文件下载历史表 | 2 |
+| `cip_linker_auth_info` | 连接器认证信息表 | 2 |
+| `cip_linker_classify_info` | 连接器分类表 | 2 |
+| `cip_linker_detail` | 连接器动作详情表 | 2 |
+| `cip_linker_detail_classify` | 连接器动作分类表 | 2 |
+| `cip_linker_enum` | 连接器枚举类 | 2 |
+| `cip_linker_enum_item` | 连接器枚举项类 | 2 |
+| `cip_linker_event_detail` | 连接器事件详情表 | 2 |
+| `cip_linker_event_detail_poll` | 连接器事件轮询表 | 2 |
+| `cip_linker_executor_log` | 连接器执行日志表 | 2 |
+| `cip_linker_info` | 连接器信息表 | 2 |
+| `cip_linker_metadata_info` | 连接器元数据记录表 | 2 |
+| `cip_linker_mq_event_detail` | 连接器mq事件信息表 | 2 |
+| `cip_linker_sign_info` | 连接器签名信息表 | 2 |
+| `cip_linker_spi_ref` | 连接器spi引用依赖表 | 2 |
+| `cip_mapping_config` | 映射配置 | 2 |
+| `cip_p_capability_info` | 插件能力基本信息表 | 2 |
+| `cip_p_data_check_conf` | 基础插件数据补偿配置 | 2 |
+| `cip_p_ldap_info` | ldap信息 | 2 |
+| `cip_p_operate_log` | 插件操作日志表 | 2 |
+| `cip_p_org_running_config` | 组织结构同步运行态数据 | 2 |
+| `cip_p_org_sync_config` | 组织同步插件能力的配置详情 | 2 |
+| `cip_p_param_mapping` | 插件参数映射表 | 2 |
+| `cip_p_plugin_info` | 插件基本信息表 | 2 |
+| `cip_p_running_detail` | 插件运行态详情表 | 2 |
+| `cip_p_sync_affair` | 事项已同步数据 | 2 |
+| `cip_p_sync_his` | 插件同步历史数据表 | 2 |
+| `cip_p_sync_org` | 组织模型已同步数据表 | 2 |
+| `cip_p_timer_job` | 插件定时任务信息表 | 2 |
+| `cip_p_todo_config` | 待办/消息配置详情表 | 2 |
+| `cip_sync_duty_view` | 组织同步职务中间表_查询 | 2 |
+| `cip_sync_level_view` | 组织同步职级中间表_查询 | 2 |
+| `cip_sync_member_view` | 组织同步人员中间表_查询 | 2 |
+| `cip_sync_post_view` | 组织同步岗位中间表_查询 | 2 |
+| `cip_sync_unit_view` | 组织同步组织中间表_查询 | 2 |
+| `cip_user_mapping_column` | 用户映射的列信息 | 2 |
+| `cip_user_mapping_value` | 用户映射的值信息 | 2 |
+| `cip_warning_log` | 集成预警信息表 | 2 |
+| `cip_ability_dingtalk_link` | 钉钉消息链接表 | 1 |
+| `cip_app_param` | 应用参数 | 1 |
+| `cip_app_param_detail` | 应用参数明细 | 1 |
+| `cip_applet_version` | 小程序版本管理表 | 1 |
+| `cip_data_check_config` | 基础插件数据补偿配置 | 1 |
+| `cip_dingtalk_link` | 钉钉消息链接表 | 1 |
+| `cip_ldap_info` | ldap信息 | 1 |
+| `cip_mobile_app` | 移动插件表 | 1 |
+| `cip_mobile_applet` | 小程序版本管理表 | 1 |
+| `cip_mobile_config` | 第三方平台配置信息 | 1 |
+| `cip_mobile_log` | 日志记录表 | 1 |
+| `cip_mobile_msg_mapping` | 移动插件消息映射表 | 1 |
+| `cip_mobile_plugin` | 移动插件表 | 1 |
+| `cip_mobile_swtich` | 移动插件开关配置 | 1 |
+| `cip_mobile_swtich_config` | 移动插件开关配置 | 1 |
+| `cip_mobile_sync_config` | 组织同步配置表（向外） | 1 |
+| `cip_mobile_todo_mapping` | 移动插件待办映射表 | 1 |
+| `cip_mp_menu` | 微信公众号菜单表 | 1 |
+| `cip_ocip_access_log` | ocip访问日志 | 1 |
+| `cip_org_mapping_detail` | 用户映射具体配置信息表 | 1 |
+| `cip_org_running_config` | 组织结构同步运行态数据 | 1 |
+| `cip_org_sync_config` | 组织同步插件能力的配置详情 | 1 |
+| `cip_plugin_capability_info` | 插件能力基本信息表 | 1 |
+| `cip_plugin_info` | 插件基本信息表 | 1 |
+| `cip_plugin_org_sync_config` | 组织同步配置表（向外） | 1 |
+| `cip_plugin_param_mapping` | 插件参数映射表 | 1 |
+| `cip_plugin_timer_job` | 插件定时任务信息表 | 1 |
+| `cip_push_affair_log` | 外推待办日志表 | 1 |
+| `cip_third_menu` | 应用菜单管理 | 1 |
+| `cip_third_platform_config` | 第三方平台配置信息 | 1 |
+| `cip_third_template` | 三方模板表 | 1 |
+| `cip_todo_config` | 待办/消息配置详情表 | 1 |
+| `cip_user_sso_info` | 单点登录信息 | 1 |
+| `ctp_user` | 用户 | 1 |
 
-在拿到上述证据前，本文件对「落哪张表」保持空。
+### 接口 → 表（3 条）
+
+> `implements` = 字节码声明实现了该接口；`implements+field` = 再经它持有的
+> Manager/Dao 字段一跳；两者都是静态事实。`stem` 只是类名同源（弱证据，需实测）。
+> 表名本身都 `VERIFIED`；**哪个方法写哪张表仍未取证**。
+
+| facade 接口 | 承载类 | 表 | 依据 |
+|---|---|---|---|
+| `LinkerEnumAppService` | `LinkerEnum` | `cip_linker_enum` | `stem` |
+| `MiddleTableOrgSyncDataCallbackService` | `MiddleTableService` | `cip_sync_duty`, `cip_sync_level`, `cip_sync_member`, `cip_sync_post`, `cip_sync_result`, `cip_sync_unit` | `implements+field` |
+| `MiddleTableOrgSyncMarkCallbackService` | `MiddleTableService` | `cip_sync_duty`, `cip_sync_level`, `cip_sync_member`, `cip_sync_post`, `cip_sync_result`, `cip_sync_unit` | `implements+field` |
 
 ## 证据与自证
 
@@ -467,4 +564,5 @@
 | 「干什么」中文描述 | 方法名拆词 + 手工注记 | `STATIC_INFERENCE` |
 | 0 个语义待定方法 | 名称不足 | `UNVERIFIED` |
 | REST 路径 | 未取证 | `UNVERIFIED` |
-| 落表 | 未取证 | `UNVERIFIED` |
+| 落表（87 张表，类级） | class 常量池 + `information_schema` | `VERIFIED_STATIC_BYTECODE` + `LIVE` |
+| 方法级落表 | 未取证（SQL 内联，需逐类反编译） | `UNVERIFIED` |

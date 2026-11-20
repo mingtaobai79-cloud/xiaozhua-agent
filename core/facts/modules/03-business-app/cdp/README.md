@@ -440,15 +440,73 @@
 
 ## 落表
 
-⚠️ **UNVERIFIED** —— 字节码索引不含 SQL/表名，本文件不写推测的表名。
+> 证据等级：`VERIFIED_STATIC_BYTECODE`（表名出现在本模块 biz jar 的 class 常量池）
+> ＋ `LIVE`（同名表已用 `information_schema` 在 `test2` 确认真实存在）。
+> 粒度：**类级**。方法级落表未取证 —— 平台不用 MyBatis XML
+> （21 个 biz 构件合计只有 9 个 mapper XML / 15 张表），SQL 内联在代码里，
+> 方法→表要逐类反编译才能确认。
 
-取证路径（三条，任选其一，务必留证据）：
+本模块代码中出现的真实表 **47** 张（来源构件：`cdp-data-biz`、`cdp-schedule-biz`）：
 
-1. **jar 内 mapper**：`organization-biz` 里 `*.xml` / `*Mapper.java`
-2. **库结构**：连 test2 的 MySQL 查 `information_schema.columns` 里 `tb_org_%`
-3. **运行态**：开 SQL 日志跑一次写操作，看真实表名
+| 表名 | 注释 | 出现在几个类 |
+|---|---|---:|
+| `cdp_file` | 附件表 | 5 |
+| `udc_entity` | — | 5 |
+| `cdp_sch_job_state` | — | 3 |
+| `application` | 应用列表 | 2 |
+| `cdp_sch_table_mapping` | — | 2 |
+| `ctp_enum_item` | — | 2 |
+| `ctp_file` | — | 2 |
+| `cdp_am_auth_data` | — | 1 |
+| `cdp_am_ind_derive` | — | 1 |
+| `cdp_am_ind_table` | — | 1 |
+| `cdp_am_model` | — | 1 |
+| `cdp_am_model_field` | — | 1 |
+| `cdp_am_model_rel` | — | 1 |
+| `cdp_am_org_data` | — | 1 |
+| `cdp_am_table_derive_rel` | — | 1 |
+| `cdp_area_mapping` | 区域映射表 | 1 |
+| `cdp_bi_big_screen` | — | 1 |
+| `cdp_bi_report` | — | 1 |
+| `cdp_bi_report_backup` | 报表原始数据备份表 | 1 |
+| `cdp_bi_scheme` | — | 1 |
+| `cdp_bi_scheme_mid` | — | 1 |
+| `cdp_bi_screen_relation` | — | 1 |
+| `cdp_big_screen_model_rel` | — | 1 |
+| `cdp_change_resource` | — | 1 |
+| `cdp_database` | — | 1 |
+| `cdp_df_data_scheduled` | — | 1 |
+| `cdp_df_data_stream` | — | 1 |
+| `cdp_df_data_stream_app` | — | 1 |
+| `cdp_df_dataset` | — | 1 |
+| `cdp_df_dataset_app` | — | 1 |
+| `cdp_df_stream_model_rel` | — | 1 |
+| `cdp_gis_lng_lat` | 地图经纬度表 | 1 |
+| `cdp_index_config` | — | 1 |
+| `cdp_index_resource` | — | 1 |
+| `cdp_precache_component` | — | 1 |
+| `cdp_precache_scheme` | — | 1 |
+| `cdp_resource_auth` | — | 1 |
+| `cdp_sch_job` | — | 1 |
+| `cdp_sch_job_biz_mapping` | — | 1 |
+| `cdp_sch_job_instance` | — | 1 |
+| `cdp_sch_job_relation` | — | 1 |
+| `cdp_sch_stream_job` | — | 1 |
+| `ctp_user` | 用户 | 1 |
+| `org_level` | 职级 | 1 |
+| `org_member` | 人员 | 1 |
+| `org_post` | 岗位 | 1 |
+| `org_unit` | 组织信息 | 1 |
 
-在拿到上述证据前，本文件对「落哪张表」保持空。
+### 接口 → 表（1 条）
+
+> `implements` = 字节码声明实现了该接口；`implements+field` = 再经它持有的
+> Manager/Dao 字段一跳；两者都是静态事实。`stem` 只是类名同源（弱证据，需实测）。
+> 表名本身都 `VERIFIED`；**哪个方法写哪张表仍未取证**。
+
+| facade 接口 | 承载类 | 表 | 依据 |
+|---|---|---|---|
+| `CdpBiz4UdcAppService` | `CascadeUpdateService` | `udc_entity` | `implements+field` |
 
 ## 证据与自证
 
@@ -461,4 +519,5 @@
 | 「干什么」中文描述 | 方法名拆词 + 手工注记 | `STATIC_INFERENCE` |
 | 0 个语义待定方法 | 名称不足 | `UNVERIFIED` |
 | REST 路径 | 未取证 | `UNVERIFIED` |
-| 落表 | 未取证 | `UNVERIFIED` |
+| 落表（50 张表，类级） | class 常量池 + `information_schema` | `VERIFIED_STATIC_BYTECODE` + `LIVE` |
+| 方法级落表 | 未取证（SQL 内联，需逐类反编译） | `UNVERIFIED` |

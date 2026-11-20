@@ -10,7 +10,14 @@
 - `SERVICE(0)` = 标准微流程（有节点）
 - `FRONTEND(1)` = 前端（不在本次范围）
 - `ENTITY_RULE(2)` = 实体业务规则（不在本次范围）
-- `CUSTOM(3)` = 自定义微流程（**无节点**，只有开始/结束 + 出入参）
+- `CUSTOM(3)` = 自定义微流程（**无节点链**，只有开始/结束 + 出入参）
+
+  ★ 口径纠正：「无节点」**不等于「不用写代码」**。CUSTOM 是「行为不在画布上，
+  而在 Java扩展里」——平台执行时会把控制权交给
+  `custom.service.microflow.<Xxx>ServiceService` 的实现类。
+  所以 CUSTOM 的完整含义是「**无节点链 + 必须写实现**」，
+  用于对接外部系统、做平台节点表达不了的算法。
+  详见 `core/facts/standard-product/autocode-project-templates.md` §5。
 - `FUNCTION(4)` = 函数（不在本次范围）
 
 ### triggerType（MicroFlowTriggerTypeEnum）——「触发方式」

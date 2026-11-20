@@ -79,15 +79,10 @@
 
 ## 落表
 
-⚠️ **UNVERIFIED** —— 字节码索引不含 SQL/表名，本文件不写推测的表名。
+⚠️ **UNVERIFIED** —— 本模块构件 的 class 常量池里没有表名字面量。
 
-取证路径（三条，任选其一，务必留证据）：
-
-1. **jar 内 mapper**：`organization-biz` 里 `*.xml` / `*Mapper.java`
-2. **库结构**：连 test2 的 MySQL 查 `information_schema.columns` 里 `tb_org_%`
-3. **运行态**：开 SQL 日志跑一次写操作，看真实表名
-
-在拿到上述证据前，本文件对「落哪张表」保持空。
+原因：该模块的 SQL/表名不在 biz 层常量池（走 Dubbo 远端 / 走配置 / 纯计算或 SDK）。
+不写推测表名。
 
 ## 证据与自证
 
@@ -100,4 +95,4 @@
 | 「干什么」中文描述 | 方法名拆词 + 手工注记 | `STATIC_INFERENCE` |
 | 0 个语义待定方法 | 名称不足 | `UNVERIFIED` |
 | REST 路径 | 未取证 | `UNVERIFIED` |
-| 落表 | 未取证 | `UNVERIFIED` |
+| 落表 | 本模块代码无表名常量，不适用 | `N/A` |

@@ -261,15 +261,17 @@
 
 ## 落表
 
-⚠️ **UNVERIFIED** —— 字节码索引不含 SQL/表名，本文件不写推测的表名。
+> 证据等级：`VERIFIED_STATIC_BYTECODE`（表名出现在本模块 biz jar 的 class 常量池）
+> ＋ `LIVE`（同名表已用 `information_schema` 在 `test2` 确认真实存在）。
+> 粒度：**类级**。方法级落表未取证 —— 平台不用 MyBatis XML
+> （21 个 biz 构件合计只有 9 个 mapper XML / 15 张表），SQL 内联在代码里，
+> 方法→表要逐类反编译才能确认。
 
-取证路径（三条，任选其一，务必留证据）：
+本模块代码中出现的真实表 **1** 张（来源构件：`ctp-media-biz`）：
 
-1. **jar 内 mapper**：`organization-biz` 里 `*.xml` / `*Mapper.java`
-2. **库结构**：连 test2 的 MySQL 查 `information_schema.columns` 里 `tb_org_%`
-3. **运行态**：开 SQL 日志跑一次写操作，看真实表名
-
-在拿到上述证据前，本文件对「落哪张表」保持空。
+| 表名 | 注释 | 出现在几个类 |
+|---|---|---:|
+| `ctp_media` | — | 1 |
 
 ## 证据与自证
 
@@ -282,4 +284,5 @@
 | 「干什么」中文描述 | 方法名拆词 + 手工注记 | `STATIC_INFERENCE` |
 | 0 个语义待定方法 | 名称不足 | `UNVERIFIED` |
 | REST 路径 | 未取证 | `UNVERIFIED` |
-| 落表 | 未取证 | `UNVERIFIED` |
+| 落表（1 张表，类级） | class 常量池 + `information_schema` | `VERIFIED_STATIC_BYTECODE` + `LIVE` |
+| 方法级落表 | 未取证（SQL 内联，需逐类反编译） | `UNVERIFIED` |

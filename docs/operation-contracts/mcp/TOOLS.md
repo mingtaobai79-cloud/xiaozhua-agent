@@ -7,8 +7,8 @@
 ## 概览
 
 ```
-bootstrap 可调用能力  61
-MCP 工具总数          58
+bootstrap 可调用能力  67
+MCP 工具总数          64
 需要凭据的工具        4（xiaozhua_microflow_publish / xiaozhua_expression_verify / xiaozhua_expression_filter / xiaozhua_entity_rule_publish）
 ```
 
@@ -16,7 +16,7 @@ MCP 工具总数          58
 
 | 域 | 工具数 |
 |---|---:|
-| 跨模块 | 10 |
+| 跨模块 | 16 |
 | application | 5 |
 | entity | 4 |
 | setting | 16 |
@@ -31,7 +31,7 @@ MCP 工具总数          58
 
 ## 全部工具
 
-### 跨模块（10）
+### 跨模块（16）
 
 | 工具 | 必填参数 | 可选参数 | 说明 |
 |---|---|---|---|
@@ -45,6 +45,12 @@ MCP 工具总数          58
 | `xiaozhua_code_targets` | `target`, `app_name` | `backend_dir`, `frontend_dir`, `page_url`, `extension_point` | 客开代码该写在哪 |
 | `xiaozhua_project_shape` | `backend_dir` | — | 探工程形态（五模块/单模块） |
 | `xiaozhua_repo_url` | `app_name`, `git_base` | `side`, `local_repo_dir` | 拼客开仓库地址（base 必填） |
+| `xiaozhua_business_plan` | — | `requirement`, `elements` | 业务需求拆解：口语 → 业务要素表 + 待澄清问题 |
+| `xiaozhua_business_plan_confirm` | `elements` | `by` | 用户确认计划 + 渲染组装提示词（缺项拒绝） |
+| `xiaozhua_business_action_index` | — | `term`, `capability` | 业务语言反查标品能力（防重复造轮子） |
+| `xiaozhua_platform_class_search` | — | `term`, `pkg`, `bucket`, `kind`, `method`, `limit` | 平台后端全量类检索（2669类/26235方法，中文可查） |
+| `xiaozhua_platform_class_methods` | `class_name` | `keyword` | 列平台类的方法签名 |
+| `xiaozhua_platform_class_stats` | — | — | 平台类索引规模统计 |
 
 ### application（5）
 

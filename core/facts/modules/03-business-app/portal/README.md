@@ -231,15 +231,75 @@
 
 ## 落表
 
-⚠️ **UNVERIFIED** —— 字节码索引不含 SQL/表名，本文件不写推测的表名。
+> 证据等级：`VERIFIED_STATIC_BYTECODE`（表名出现在本模块 biz jar 的 class 常量池）
+> ＋ `LIVE`（同名表已用 `information_schema` 在 `test2` 确认真实存在）。
+> 粒度：**类级**。方法级落表未取证 —— 平台不用 MyBatis XML
+> （21 个 biz 构件合计只有 9 个 mapper XML / 15 张表），SQL 内联在代码里，
+> 方法→表要逐类反编译才能确认。
 
-取证路径（三条，任选其一，务必留证据）：
+本模块代码中出现的真实表 **48** 张（来源构件：`portal-biz`）：
 
-1. **jar 内 mapper**：`organization-biz` 里 `*.xml` / `*Mapper.java`
-2. **库结构**：连 test2 的 MySQL 查 `information_schema.columns` 里 `tb_org_%`
-3. **运行态**：开 SQL 日志跑一次写操作，看真实表名
+| 表名 | 注释 | 出现在几个类 |
+|---|---|---:|
+| `portal_space_data` | 空间实例 | 4 |
+| `portal_template` | 门户模板 | 4 |
+| `portal_template_data` | 门户模板子表 | 4 |
+| `portal_role_config` | 角色化配置表 | 3 |
+| `portal_operation_config` | 门户系统操作配置信息 | 2 |
+| `portal_portlet_category` | 门户栏目分类 | 2 |
+| `portal_portlet_definition` | 门户栏目定义 | 2 |
+| `portal_set` | 门户表 | 2 |
+| `portal_space` | 空间 | 2 |
+| `udc_enum` | — | 2 |
+| `bpm_template` | 流程模板 | 1 |
+| `portal_app_resource_category` | 门户应用资源分类 | 1 |
+| `portal_app_resource_definition` | 门户应用资源信息 | 1 |
+| `portal_category` | 门户分类 | 1 |
+| `portal_element_definition` | 门户元素定义信息表 | 1 |
+| `portal_element_property` | 门户元素属性表 | 1 |
+| `portal_element_template` | 门户元素模版表 | 1 |
+| `portal_file` | 门户附件 | 1 |
+| `portal_holiday_history` | 节假日提醒记录表 | 1 |
+| `portal_holiday_reminder` | 节假日提醒配置表 | 1 |
+| `portal_instance_relation` | 门户实例模板关系表 | 1 |
+| `portal_issue` | 门户下发表 | 1 |
+| `portal_issue_log` | 门户下发日志表 | 1 |
+| `portal_login_page` | 登录页配置表 | 1 |
+| `portal_login_page_version` | — | 1 |
+| `portal_operation_definition` | 门户系统操作信息 | 1 |
+| `portal_pc_sys_resource` | 门户PC系统操作资源 | 1 |
+| `portal_personal_config` | 门户个人配置表 | 1 |
+| `portal_portlet_frame` | 门户栏目外框 | 1 |
+| `portal_portlet_style_sheet` | 栏目样式定义表 | 1 |
+| `portal_portlet_use_detail` | 栏目使用详情 | 1 |
+| `portal_portlet_usual` | 常用栏目关联表 | 1 |
+| `portal_publish_id_relation` | 门户发布数据Id关联表 | 1 |
+| `portal_recycle` | 回收站信息表 | 1 |
+| `portal_role_config_history` | 角色化配置历史表 | 1 |
+| `portal_set_personal` | 门户模板个性化 | 1 |
+| `portal_space_basic` | 空间基础表 | 1 |
+| `portal_space_layout` | 门户空间布局 | 1 |
+| `portal_space_nav_config` | 门户空间导航配置信息表 | 1 |
+| `portal_space_nav_control` | 门户空间导航控制信息表 | 1 |
+| `portal_space_personal` | 普通用户性化空间记录 | 1 |
+| `portal_space_version` | 空间版本记录表 | 1 |
+| `portal_template_history` | 门户模版实例版本表 | 1 |
+| `portal_template_version` | 门户版本记录表 | 1 |
+| `portal_update_version_data` | 门户更新提醒记录表 | 1 |
+| `portlet_memorabilia` | 大事记信息 | 1 |
+| `udc_enum_category` | — | 1 |
+| `udc_enum_item` | — | 1 |
 
-在拿到上述证据前，本文件对「落哪张表」保持空。
+### 接口 → 表（2 条）
+
+> `implements` = 字节码声明实现了该接口；`implements+field` = 再经它持有的
+> Manager/Dao 字段一跳；两者都是静态事实。`stem` 只是类名同源（弱证据，需实测）。
+> 表名本身都 `VERIFIED`；**哪个方法写哪张表仍未取证**。
+
+| facade 接口 | 承载类 | 表 | 依据 |
+|---|---|---|---|
+| `PortalSetAppService` | `PortalSet, PortalSetDao` | `portal_set` | `stem` |
+| `PortalSpaceAppService` | `PortalSpace, PortalSpaceDao` | `portal_space` | `stem` |
 
 ## 证据与自证
 
@@ -252,4 +312,5 @@
 | 「干什么」中文描述 | 方法名拆词 + 手工注记 | `STATIC_INFERENCE` |
 | 0 个语义待定方法 | 名称不足 | `UNVERIFIED` |
 | REST 路径 | 未取证 | `UNVERIFIED` |
-| 落表 | 未取证 | `UNVERIFIED` |
+| 落表（56 张表，类级） | class 常量池 + `information_schema` | `VERIFIED_STATIC_BYTECODE` + `LIVE` |
+| 方法级落表 | 未取证（SQL 内联，需逐类反编译） | `UNVERIFIED` |

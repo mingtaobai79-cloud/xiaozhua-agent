@@ -173,8 +173,16 @@
   1. 先在本表找到应用
   2. 进 <分组>/<应用>/README.md 看构件清单与层职责
   3. facade 层查方法签名 → core/facts/platform-dev-system/04
-  4. 判断能否泛化 → core/facts/usage/U1-invocation-decision.md
+  4. 要知道数据落哪张表 → 该模块 README 的「## 落表」段
+     （全量清单与证据链：docs/audit/artifacts/tables/README.md）
+  5. 判断能否泛化 → core/facts/usage/U1-invocation-decision.md
 ```
+
+### 落表覆盖（阶段3 第一轮已完成）
+
+15 / 22 个模块拿到真实表名（670 张次），证据 = class 常量池字面量 × `information_schema` 白名单，
+等级 `VERIFIED_STATIC_BYTECODE` + `LIVE`。粒度是**类级**；方法级仍未取证（平台 SQL 内联，需逐类反编译）。
+7 个模块无表名常量（`boot` / `ocip` / `ai` / `devops` / `gateway` / `maven` / `mymojo`），标 `N/A`，不猜。
 
 ## 四、Evidence
 

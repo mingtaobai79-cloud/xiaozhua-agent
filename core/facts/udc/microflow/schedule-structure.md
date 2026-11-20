@@ -47,7 +47,38 @@ type=SERVICE, triggerType=SCHEDULE。trigger 初始骨架：
 - 循环周期映射（截图 223）：每年=YEAR/每月=MONTH/每周=WEEK/每天=DAY/每小时=HOUR/自定义=SIMPLE。
 - 自定义（SIMPLE）：每 N 分钟/小时/天 → rotationType=MINUTE/HOUR/DAY + value=N。
 - jobCode 是 nanoid(16) 随机码，生成器可用随机 16 字符。
-- 定时任务无出入参（endNode.output=null, trigger.output=null）。
+- 定时任务**自身**无出入参（endNode.output=null, trigger.output=null）。
+
+### ★ 定时任务「空跑」的根因：自身无参 ≠ 链上无参
+
+「SCHEDULE 无出入参」只说明**定时节点自己不声明参数**，不代表整条链路不需要参数。
+定时流程的典型形态是「定时触发 → SUB_MICROFLOW 调业务子流程」，
+此时**时间范围等参数必须由 SUB_MICROFLOW 节点的 `attrs` 传给被调子流程**。
+
+```jsonc
+// 定时流程里 SUB_MICROFLOW 节点的 attrs（不是 trigger.output！）
+"attrs": [
+  { "value": { "type": "Expression",
+               "expression": { "schema": "<表达式 schema>",
+                               "title": "{dateToString(addDay(系统日期,-7),yyyy-MM-dd)}" },
+               "desc": "开始时间" },
+    "attrType": { /* 子流程入参字段 beginCreateTime 的 field_attr 形态 */ } },
+  { "value": { "type": "Expression", /* …dateToString(系统日期,yyyy-MM-dd)… */ },
+    "attrType": { /* endCreateTime */ } }
+]
+```
+
+- **判据**：`attrs: []` 是合法 JSON、publish 也能过，但调度触发后子流程收到空参 →
+  外部接口拿到空时间范围，**静默返回全量或报错，不报配置错误**。这是最贵的坑。
+- **不要靠 Java 代码兜底填时间**：参数属于流程契约，写在 `attrs` 里才能在设计器回读、
+  才能被子流程的必填校验覆盖。
+- 生成器侧口径：`microflow_trigger` 的 SCHEDULE **只造 trigger**，
+  给子流程传参必须走 SUB_MICROFLOW 节点的 `attrs`（工具说明里「SCHEDULE 无出入参」
+  不得再被读成「这条流程不需要准备参数」）。
+- 常用时间表达式（走 `/service/udc/expression/check` + `/transform` 编译，不要手搓）：
+  - 近 N 天：`dateToString(addDay(currentDate(), -N), 'yyyy-MM-dd')`
+  - 当天：`dateToString(currentDate(), 'yyyy-MM-dd')`
+  - 编译产物 `runtimeData.executableExpr` 由服务端返回。
 
 ## update 请求体额外字段（operationLog）
 update 请求体里有 `operationLog`（操作日志：appId/actionType/domainId/elementRecords 等），

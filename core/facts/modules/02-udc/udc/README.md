@@ -1479,15 +1479,120 @@ UDC 触发流程只调 `BpmUdcApiService`，不要调 `BpmAppService.send`。
 
 ## 落表
 
-⚠️ **UNVERIFIED** —— 字节码索引不含 SQL/表名，本文件不写推测的表名。
+> 证据等级：`VERIFIED_STATIC_BYTECODE`（表名出现在本模块 biz jar 的 class 常量池）
+> ＋ `LIVE`（同名表已用 `information_schema` 在 `test2` 确认真实存在）。
+> 粒度：**类级**。方法级落表未取证 —— 平台不用 MyBatis XML
+> （21 个 biz 构件合计只有 9 个 mapper XML / 15 张表），SQL 内联在代码里，
+> 方法→表要逐类反编译才能确认。
 
-取证路径（三条，任选其一，务必留证据）：
+本模块代码中出现的真实表 **66** 张（来源构件：`udc-biz`）：
 
-1. **jar 内 mapper**：`organization-biz` 里 `*.xml` / `*Mapper.java`
-2. **库结构**：连 test2 的 MySQL 查 `information_schema.columns` 里 `tb_org_%`
-3. **运行态**：开 SQL 日志跑一次写操作，看真实表名
+| 表名 | 注释 | 出现在几个类 |
+|---|---|---:|
+| `ctp_enum` | — | 22 |
+| `ctp_parameter_definition` | — | 10 |
+| `udc_enum_category` | — | 9 |
+| `udc_enum` | — | 8 |
+| `ctp_enum_item` | — | 6 |
+| `ctp_parameter` | — | 6 |
+| `ctp_job_cron` | — | 5 |
+| `ctp_job_info` | — | 5 |
+| `ctp_job_simple` | — | 5 |
+| `ctp_excel_export_template` | — | 4 |
+| `ctp_enum_category` | — | 3 |
+| `portal_space` | 空间 | 3 |
+| `udc_app_collaboration` | — | 3 |
+| `org_member_post` | 人员任职 | 2 |
+| `udc_attribute` | — | 2 |
+| `udc_enum_item` | — | 2 |
+| `udc_index` | — | 2 |
+| `ctp_serial_current` | — | 1 |
+| `ctp_serial_range` | — | 1 |
+| `ctp_serial_scheme` | — | 1 |
+| `ctp_serial_section` | — | 1 |
+| `org_job` | 职务 | 1 |
+| `org_level` | 职级 | 1 |
+| `org_member` | 人员 | 1 |
+| `org_post` | 岗位 | 1 |
+| `org_unit` | 组织信息 | 1 |
+| `udc_app_custom_error` | — | 1 |
+| `udc_app_version` | — | 1 |
+| `udc_application` | — | 1 |
+| `udc_attachment_template` | — | 1 |
+| `udc_attribute_group` | — | 1 |
+| `udc_attribute_set` | — | 1 |
+| `udc_backend_component` | — | 1 |
+| `udc_custom_data_type` | — | 1 |
+| `udc_data_transfer_object` | — | 1 |
+| `udc_dependent_application` | — | 1 |
+| `udc_dto_attribute` | — | 1 |
+| `udc_entity` | — | 1 |
+| `udc_entity_group` | — | 1 |
+| `udc_entity_preset` | — | 1 |
+| `udc_event` | — | 1 |
+| `udc_function_node` | — | 1 |
+| `udc_last_version_metadata` | — | 1 |
+| `udc_micro_flow_group` | — | 1 |
+| `udc_microflow_info` | — | 1 |
+| `udc_microflow_preset_template` | — | 1 |
+| `udc_operation_log` | — | 1 |
+| `udc_page_component` | — | 1 |
+| `udc_page_component_category` | — | 1 |
+| `udc_page_component_data_type` | — | 1 |
+| `udc_page_data_source` | — | 1 |
+| `udc_page_info` | — | 1 |
+| `udc_page_layout` | — | 1 |
+| `udc_page_schema` | — | 1 |
+| `udc_page_template` | — | 1 |
+| `udc_page_template_category` | — | 1 |
+| `udc_page_template_published` | — | 1 |
+| `udc_parameter` | — | 1 |
+| `udc_portlet` | — | 1 |
+| `udc_portlet_group` | — | 1 |
+| `udc_push_association` | — | 1 |
+| `udc_refer_config` | — | 1 |
+| `udc_refer_config_group` | — | 1 |
+| `udc_reference` | — | 1 |
+| `udc_scalability` | — | 1 |
+| `udc_scalability_option` | — | 1 |
 
-在拿到上述证据前，本文件对「落哪张表」保持空。
+### 接口 → 表（29 条）
+
+> `implements` = 字节码声明实现了该接口；`implements+field` = 再经它持有的
+> Manager/Dao 字段一跳；两者都是静态事实。`stem` 只是类名同源（弱证据，需实测）。
+> 表名本身都 `VERIFIED`；**哪个方法写哪张表仍未取证**。
+
+| facade 接口 | 承载类 | 表 | 依据 |
+|---|---|---|---|
+| `ApplicationManagerAppService` | `SchemaManager` | `ctp_enum`, `ctp_enum_category`, `ctp_enum_item` | `implements+field` |
+| `AsyncAppService` | `SchemaManager` | `ctp_enum`, `ctp_enum_category`, `ctp_enum_item` | `implements+field` |
+| `AttributeAppService` | `AttributeService` | `udc_attribute` | `implements+field` |
+| `AttributeGroupAppService` | `AttributeGroup` | `udc_attribute_group` | `stem` |
+| `AttributeSetAppService` | `AttributeSet` | `udc_attribute_set` | `stem` |
+| `DataTransferObjectAppService` | `DataTransferObject` | `udc_data_transfer_object` | `stem` |
+| `DeployBeforeService` | `UdcEnumService` | `udc_enum` | `implements+field` |
+| `DtoAttributeAppService` | `DtoAttribute` | `udc_dto_attribute` | `stem` |
+| `EntityAppService` | `Entity` | `udc_entity` | `stem` |
+| `EntityGroupAppService` | `EntityGroup` | `udc_entity_group` | `stem` |
+| `EntityPresetAppService` | `EntityPreset` | `udc_entity_preset` | `stem` |
+| `EventAppService` | `Event` | `udc_event` | `stem` |
+| `IndexAppService` | `IndexService` | `udc_index` | `implements+field` |
+| `LastVersionMetadataManagerService` | `AttributeService` | `udc_attribute` | `implements+field` |
+| `MicroFlowUpgradeAppService` | `UdcEnumService` | `udc_enum` | `implements+field` |
+| `ParameterAppService` | `Parameter` | `udc_parameter` | `stem` |
+| `PluginAttributeAppService` | `AttributeService` | `udc_attribute` | `implements+field` |
+| `PluginEntityAppService` | `AttributeService` | `udc_attribute` | `implements+field` |
+| `PluginPageInfoAppService` | `FunctionNodeService, ResoureParseService` | `portal_space` | `implements+field` |
+| `ReferConfigAppService` | `ReferConfig` | `udc_refer_config` | `stem` |
+| `ReferConfigGroupAppService` | `ReferConfigGroup` | `udc_refer_config_group` | `stem` |
+| `ScalabilityAppService` | `Scalability` | `udc_scalability` | `stem` |
+| `ScalabilityOptionAppService` | `ScalabilityOption` | `udc_scalability_option` | `stem` |
+| `StereotypeAllAppService` | `AttributeService` | `udc_attribute` | `implements+field` |
+| `UdcEnumAppService` | `UdcEnumService` | `udc_enum` | `implements+field` |
+| `UdcEnumCategoryAppService` | `UdcEnumCategoryService` | `udc_enum`, `udc_enum_category` | `implements+field` |
+| `UdcEnumItemAppService` | `UdcEnumService` | `udc_enum` | `implements+field` |
+| `UdcFunctionAppService` | `FunctionNodeService` | `portal_space` | `implements+field` |
+| `UdcMetaDataAppService` | `Application4PageMetaDataService` | `ctp_enum` | `implements+field` |
 
 ## 证据与自证
 
@@ -1500,4 +1605,5 @@ UDC 触发流程只调 `BpmUdcApiService`，不要调 `BpmAppService.send`。
 | 「干什么」中文描述 | 方法名拆词 + 手工注记 | `STATIC_INFERENCE` |
 | 0 个语义待定方法 | 名称不足 | `UNVERIFIED` |
 | REST 路径 | 未取证 | `UNVERIFIED` |
-| 落表 | 未取证 | `UNVERIFIED` |
+| 落表（73 张表，类级） | class 常量池 + `information_schema` | `VERIFIED_STATIC_BYTECODE` + `LIVE` |
+| 方法级落表 | 未取证（SQL 内联，需逐类反编译） | `UNVERIFIED` |

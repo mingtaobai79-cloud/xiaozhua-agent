@@ -101,10 +101,68 @@ default ${resp}<${respOutputType}> ${name?uncap_first}(${req}<${inputType}> requ
 设计器建类型 + 定义出入参
   → 平台 autocode 生成 7 个类的骨架（含 throwUnimplemented 空实现）
   → 推送 / 拉取代码仓
-  → 人在 Default*AppServiceImpl 里填方法体
+  → 人在 ext 工程里 **implements <Xxx>ServiceService** 填实现
   → 构建部署
   → 微流程「自定义服务」节点按 SearchAppServiceByAppName 搜得到
 ```
+
+### ★★ 扩展实现到底实现哪个接口（曾写错，此处为订正版）
+
+⚠ 本节早期写的是「人在 `Default*AppServiceImpl` 里填方法体」——**这是错的**。
+`Default*AppServiceImpl` 在 `custom/appservice/microflow/`，是**平台按元数据自动生成**的类，
+重建即整包覆盖，不是给人改的地方。
+
+平台对每个 `serviceInterface` 实际生成**三层**，扩展实现的是中间那层：
+
+| 类 | 包 | 作用 | 谁写 |
+|---|---|---|---|
+| `<Xxx>Service` | `api.microflow` | 对外 AppService 接口（有 `@AppServiceOperation`，可开 OpenApi） | 平台生成 |
+| **`<Xxx>ServiceService`** | **`custom.service.microflow`** | **扩展入口接口（纯出入参签名，无注解）** | **平台生成，人实现** |
+| `Default<Xxx>ServiceImpl` | `custom.appservice.microflow` | 默认实现，`@Autowired(required=false)` 注入上面那层 | 平台生成 |
+
+默认实现的形态（决定了为什么必须实现 ServiceService）：
+
+```java
+public class DefaultCaigouContractSyncServiceImpl implements CaigouContractSyncService {
+    private CaigouContractSyncServiceService caigouContractSyncServiceService;
+
+    @Autowired(required = false)
+    public void setCaigouContractSyncServiceService(CaigouContractSyncServiceService s) {
+        this.caigouContractSyncServiceService = s;
+    }
+
+    public ListResponse<Xxx> getContractInfoPage(SingleRequest<Yyy> request) {
+        if (caigouContractSyncServiceService == null) {
+            throw new BusinessException(UDC_MICROFLOW_INTERFACE_NOT_IMPLEMENTED);
+        }
+        return ListResponse.from(
+            caigouContractSyncServiceService.getContractInfoPage(request.getData()));
+    }
+}
+```
+
+**三条铁律（任一写错，编译能过、运行时抛 `UDC_MICROFLOW_INTERFACE_NOT_IMPLEMENTED`）：**
+
+1. 实现 **`<Xxx>ServiceService`**（后缀是 **ServiceService**，不是 Service）
+2. 包名 **`custom.service.microflow`**
+3. 方法签名是**裸 DTO 进出**，必须剥掉 `SingleRequest` / `ListResponse` 包装
+
+```java
+// ✅ 正确：裸 DTO 签名
+public List<ContractInfoRow> getContractInfoPage(ContractInfoPageQuery query) { ... }
+
+// ❌ 错误：包了 transport（这是对外接口的签名，不是扩展点的）
+public ListResponse<ContractInfoRow> getContractInfoPage(SingleRequest<ContractInfoPageQuery> req) { ... }
+```
+
+★ 另一种写法：直接在 `extend` 工程里写 `*AppServiceImpl implements <Xxx>ServiceService`
+并标 `@Service`（Spring 默认按类型注入，`Default*` 里的 `@Autowired(required=false)`
+会优先拿到自定义实现）。这也是实测跑通的形态，两种都可以，
+但**实现的接口名与签名规则不变**。
+
+**证据级别**：`LIVE`（客户应用 extend-test2 真实工程
+`CaigouContractSyncAppServiceImpl implements CaigouContractSyncServiceService`，
+加平台构建产物 `metadata/udc/<appId>/<ver>.zip` 内的三层类源码逐字核对）。
 
 **不是**「先手写接口再注册」——接口是平台生成的。
 此前 `xiaozhua-extension-usage` §7.3 的「代码里定义」表述需按本格修正。
