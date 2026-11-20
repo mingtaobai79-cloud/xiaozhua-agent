@@ -17,3 +17,4 @@ __pycache__/
 *cookies*.json
 *.token
 .env
+docs/audit/artifacts/extension-surface-full/batch2/
