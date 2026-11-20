@@ -1764,6 +1764,10 @@ UDC 触发流程只调 `BpmUdcApiService`，不要调 `BpmAppService.send`。
 
 ## REST 路由
 
+> ⚠️ 本节讲的是**设计态 REST**（建/改/检查微流程、平台对外接口）。
+> **业务调用不走这里**：自定义微流程是一个 service 方法（`serviceInterface#name` + 出入参），
+> 没有 HTTP body；标准微流程由页面/事件/定时触发。见 `core/facts/udc/microflow/invocation-three-forms.md`。
+
 > 证据：`javap -v` 读 Controller 字节码里的 `@RequestMapping`/`@PostMapping` 注解值。
 > 等级 `VERIFIED_STATIC_BYTECODE`（注解值是常量，非推断）。
 

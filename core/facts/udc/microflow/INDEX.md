@@ -126,3 +126,4 @@
 - 闸门：`components/udc/microflow/gates.py`
 - 技能：`skills/`（跨会话加载的 SKILL.md，与 facts 双轨）
 - 一次性脚本：`_attic_pending/`
+- `invocation-three-forms.md` —— 调用形态三分：REST / 自定义微流程(service 方法) / Java 调用，别用 body 说微流程
