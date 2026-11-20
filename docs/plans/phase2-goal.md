@@ -126,6 +126,28 @@ Agent 拿到「给订单审批抄送部门负责人」这类需求时，能只�
 - 7 个模块无表名常量（boot / ocip / ai / devops / gateway / maven / mymojo），标 `N/A` 不猜
 - **方法级落表仍未取证**：平台不用 MyBatis XML（21 个 biz 构件仅 9 个 XML / 15 张表），SQL 内联，需逐类反编译
 
+
+### 阶段5 入参/返回 DTO 字段级（完成）
+
+- `SingleRequest<X>` 揭包装 → `X` 的 `fields`（继承链 ≤3 层，子类优先、同名去重）
+- **1,941 个 DTO，1,897 个取到字段（97.7%）**；字段名即 JSON 键名
+- 实测对照：`organization_test2.org_unit` 34 列 ↔ `OrgUnitCoreDto` 27 字段，
+  `shortName↔short_name`、`institutionId↔institution_id`、`isEnable↔is_enable` 全对上
+- 产物：`docs/audit/artifacts/dto/{<slug>.json, DTO-<slug>.md}` + 18 个模块 README「## 入参 DTO」段
+
+### GOAL 五项现状对照
+
+| GOAL 要求 | 现状 | 等级 |
+|---|---|---|
+| 入参 | 1,897 个 DTO 字段级 | `VERIFIED_STATIC_BYTECODE`（字段）+ `LIVE`（1 例与库列对照） |
+| 返回 | 同上（返回 DTO 一并揭开） | `VERIFIED_STATIC_BYTECODE` |
+| 干什么 | 479 接口 / 3,078 方法，0 个语义待定 | `STATIC_INFERENCE`（名称拆词 + 678 条手工注记） |
+| 落哪张表 | 15/22 模块、739 张次、71 条接口→表 | 表名 `VERIFIED` + `LIVE`；**方法级仍 UNVERIFIED** |
+| 怎么调 | 5,046 条 REST 路由，2,633/2,636 真机命中 99.9% | `VERIFIED_STATIC_BYTECODE` + `LIVE` |
+
+**唯一未达目标粒度的一项：方法级落表。** 平台 SQL 内联、无 mapper XML，
+方法→表要逐类反编译读 SQL 字面量，与现在的 class 常量池扫描不是同一量级的活。
+
 ### 阶段4 REST 路由（静态部分完成）
 
 - `javap -v` 读 22 个 web 构件的 Controller 注解 → **5,046 条路由 / 507 个 Controller**
