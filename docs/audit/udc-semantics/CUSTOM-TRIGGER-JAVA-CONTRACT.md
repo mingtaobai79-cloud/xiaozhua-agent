@@ -155,3 +155,73 @@ udc_microflow_info id=7674299753416331984  p0CustomScheduleProbe  CUSTOM + SCHED
   20261121040716 state=0 未收敛（重复触发的那次，app 本身不受影响；待它自己收敛或作废）
 删除前先备份两行 data_schema
 ```
+
+---
+
+## 六、`serviceInterface` 可自定义，但只对 MANUAL 成立（本轮真机实证）
+
+字段：`udc_microflow_info.service_interface`（create/update body 同名）。默认 `CustomMicroFlowAppService`。
+
+命名规则来自字节码 `MicroFlowCodeUtil.buildServiceClassName`（udc-biz 5.3.605）：
+
+```
+capitalize(name) → 按 "AppService" 切成两段 → 在第 1 段后插 "Service" → 拼回
+  MigrationProbeAppService   -> MigrationProbeService            ✅
+  CustomMicroFlowAppService  -> CustomMicroFlowService           ✅
+  MigrationService           -> MigrationServiceService          ❌ 多一个后缀
+```
+
+生成三件套随名字走：
+
+```
+facade/api/microflow/{serviceInterface}                 对外契约（AppService 接口）
+facade/custom/service/microflow/{buildServiceClassName}  业务接口 ← 手写实现它
+biz/custom/appservice/microflow/Default{serviceInterface}Impl  兜底（按类型注入手写实现）
+```
+
+**但 EVENT / SCHEDULE 的模板把 `CustomMicroFlowAppService` 写死了**：
+
+```
+event/BusinessEventListener.java.ftl:16      import ${customMicroFlowPackage}.CustomMicroFlowAppService;
+schedule/MicroFlowSchedule.java.ftl:10,37    import …CustomMicroFlowAppService; private CustomMicroFlowAppService …
+```
+
+⇒ **带事件/定时触发的流程改 serviceInterface 必编译失败**（本轮两次构建 FAIL 原文：
+`找不到符号 类 CustomMicroFlowAppService 位置 程序包 …api.microflow`）。
+结论：自定义接口名只适用于 MANUAL（REST / Dubbo）型自定义微流程。
+
+## 七、手写实现类的落点：扩展工程 git，不是生成工程 git
+
+| 仓 | 地址 | 性质 |
+|---|---|---|
+| 生成工程（五模块） | `autocode-test2/backend/datamigration<appId>` | **产物仓**：每次构建 force push 一个**无父提交**，历史只剩「发布应用:时间戳」 |
+| 扩展工程（`-ext` 源码） | `extend-test2/backend/datamigration<appId>` | **源码仓**：手写代码写这里，构建时被拉进 `-ext` 模块 |
+
+实测：往产物仓推过两次实现类，下一次构建后 `git log` 里我的提交消失、`find` 也找不到文件；
+往扩展仓推一次后，构建产物 `…-ext-1.0.281.jar` 里能 `jar tf` 到
+`com/seeyon/<app>/extend/microflow/MigrationProbeServiceImpl.class`。
+
+## 八、运行期：监听已注册，定时未注册
+
+**监听（CUSTOM + BUSINESS_EVENT）——注册已 LIVE**
+
+```
+EventHandlerBeanPostProcessor:57 类[…P0CustomEventProbeListener$$EnhancerBySpringCGLIB$$…],
+监听方法[onBeforeCreateEvent],是否异步[false],监听dto[…dto.AeProbeEntityDto]
+```
+
+**定时（CUSTOM + SCHEDULE）——本轮未注册**
+
+```
+jar 里有类：datamigration…-biz-1.0.281.jar → schedule/P0CustomScheduleProbeSchedule.class
+DB 里无记录：SELECT COUNT(*) FROM ctp_job_info WHERE job_name LIKE 'PcSp%' → 0
+执行日志 0 条：ctp_job_log 同 job_name → 0
+启动日志「本次扫描初始化定时任务信息」里也没有 PcSpL2lTP5Xq1FGj
+```
+
+⇒ 定时任务没有进调度器，流程不会被触发。待查：job 记录是否要随流程发布单独导出/导入。
+
+**事件触发入口缺失（本轮 BLOCKED）**：探针实体 `AeProbeEntity` 没有可用的对外入口——
+生成的 `AbstractAeProbeEntityController` 上 `@RestController`/`@RestApi` 被注释掉，
+`udc_entity.open_api_data` 为空，RestApi 元数据（redis `test2:Metadata:RestApi:<appName>`）里 0 条命中。
+⇒ 要真正触发事件，得先给实体建页面（或用已有页面的实体）再走页面 create。
