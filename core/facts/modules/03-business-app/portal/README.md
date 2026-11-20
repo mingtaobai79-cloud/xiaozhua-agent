@@ -237,19 +237,18 @@
 > （21 个 biz 构件合计只有 9 个 mapper XML / 15 张表），SQL 内联在代码里，
 > 方法→表要逐类反编译才能确认。
 
-本模块代码中出现的真实表 **48** 张（来源构件：`portal-biz`）：
+本模块代码中出现的真实表 **53** 张（来源构件：`portal-biz`）：
 
 | 表名 | 注释 | 出现在几个类 |
 |---|---|---:|
 | `portal_space_data` | 空间实例 | 4 |
 | `portal_template` | 门户模板 | 4 |
 | `portal_template_data` | 门户模板子表 | 4 |
-| `portal_role_config` | 角色化配置表 | 3 |
+| `portlet_banner_image` | 门户横幅图片 | 4 |
+| `portlet_memorabilia` | 大事记信息 | 4 |
+| `portlet_shortcut` | 门户磁贴栏目 | 4 |
 | `portal_operation_config` | 门户系统操作配置信息 | 2 |
-| `portal_portlet_category` | 门户栏目分类 | 2 |
-| `portal_portlet_definition` | 门户栏目定义 | 2 |
-| `portal_set` | 门户表 | 2 |
-| `portal_space` | 空间 | 2 |
+| `portal_role_config` | 角色化配置表 | 2 |
 | `udc_enum` | — | 2 |
 | `bpm_template` | 流程模板 | 1 |
 | `portal_app_resource_category` | 门户应用资源分类 | 1 |
@@ -269,6 +268,8 @@
 | `portal_operation_definition` | 门户系统操作信息 | 1 |
 | `portal_pc_sys_resource` | 门户PC系统操作资源 | 1 |
 | `portal_personal_config` | 门户个人配置表 | 1 |
+| `portal_portlet_category` | 门户栏目分类 | 1 |
+| `portal_portlet_definition` | 门户栏目定义 | 1 |
 | `portal_portlet_frame` | 门户栏目外框 | 1 |
 | `portal_portlet_style_sheet` | 栏目样式定义表 | 1 |
 | `portal_portlet_use_detail` | 栏目使用详情 | 1 |
@@ -276,7 +277,9 @@
 | `portal_publish_id_relation` | 门户发布数据Id关联表 | 1 |
 | `portal_recycle` | 回收站信息表 | 1 |
 | `portal_role_config_history` | 角色化配置历史表 | 1 |
+| `portal_set` | 门户表 | 1 |
 | `portal_set_personal` | 门户模板个性化 | 1 |
+| `portal_space` | 空间 | 1 |
 | `portal_space_basic` | 空间基础表 | 1 |
 | `portal_space_layout` | 门户空间布局 | 1 |
 | `portal_space_nav_config` | 门户空间导航配置信息表 | 1 |
@@ -286,11 +289,13 @@
 | `portal_template_history` | 门户模版实例版本表 | 1 |
 | `portal_template_version` | 门户版本记录表 | 1 |
 | `portal_update_version_data` | 门户更新提醒记录表 | 1 |
-| `portlet_memorabilia` | 大事记信息 | 1 |
+| `portlet_memorabilia_type` | 大事记类别信息 | 1 |
+| `portlet_notice_board` | 公示板 | 1 |
+| `portlet_shortcut_resource` | 磁贴资源表 | 1 |
 | `udc_enum_category` | — | 1 |
 | `udc_enum_item` | — | 1 |
 
-### 接口 → 表（2 条）
+### 接口 → 表（3 条）
 
 > `implements` = 字节码声明实现了该接口；`implements+field` = 再经它持有的
 > Manager/Dao 字段一跳；两者都是静态事实。`stem` 只是类名同源（弱证据，需实测）。
@@ -298,84 +303,9 @@
 
 | facade 接口 | 承载类 | 表 | 依据 |
 |---|---|---|---|
-| `PortalSetAppService` | `PortalSet, PortalSetDao` | `portal_set` | `stem` |
-| `PortalSpaceAppService` | `PortalSpace, PortalSpaceDao` | `portal_space` | `stem` |
-
-## REST 路由
-
-> 证据：`javap -v` 读 Controller 字节码里的 `@RequestMapping`/`@PostMapping` 注解值。
-> 等级 `VERIFIED_STATIC_BYTECODE`（注解值是常量，非推断）。
-
-**拼法**（端口/前缀按环境配置，以下为通用形）：
-
-```
-POST /service/{类级路径}/{方法级路径}
-      ↑ 类级路径的第一段就是应用 code（organization / bpm / udc …），不要再加一层
-  例：POST /service/udc/runtime/deploy-normal
-      = DeployController 类级 `udc/runtime` + 方法级 `deploy-normal`（线上实测过）
-```
-
-控制器 **34** 个、路由 **337** 条（来源：`portal-web`）。
-
-> `{id}`、`ids` 这类方法级路径不带类级前缀，拼时必须补上。
-> 完整清单（含 java 方法名）：`docs/audit/artifacts/rest/ROUTES-portal.md`
-
-| Controller | 类级路径 | 路由 |
-|---|---|---:|
-| `PortalSpaceController` | `portal/portal-space` | 40 |
-| `MainController` | `portal/main` | 33 |
-| `PortalSetController` | `portal/portal-set` | 32 |
-| `PortletController` | `portal/portal-portlet` | 26 |
-| `MainTemplateController` | `portal/template` | 25 |
-| `PortalTemplateInstanceController` | `portal/portal-instance` | 18 |
-| `PortalTemplateDesignController` | `portal/template-design` | 15 |
-| `PortalSpaceNavController` | `portal/space-nav` | 14 |
-| `PortalRoleConfigController` | `portal/portal-role` | 13 |
-| `PortalShortCutController` | `portal/shortcut` | 11 |
-| `MemorabiliaController` | `portal/memorabilia` | 10 |
-| `PortalPortletFrameController` | `portal/portlet-frame` | 9 |
-| `MemorabiliaTypeController` | `portal/memorabilia-type` | 8 |
-| `PortalHolidayReminderController` | `portal/portlet-holiday` | 8 |
-| `PortalParameterController` | `portal/portal-parameter` | 8 |
-| `PortalCheckVersionController` | `portal/check-version` | 8 |
-| `MainLoginPageController` | `portal/login-page` | 6 |
-| `MainOperationController` | `portal/portal-operation` | 6 |
-| `PortalSpaceLayoutController` | `portal/space-layout` | 6 |
-| `PortalAppResourceController` | `portal/app-resource` | 5 |
-| `PortalLoginPreConfigController` | `portal/login-pre-config` | 5 |
-| `PortalCategoryController` | `portal/portal-category` | 5 |
-| `NoticeBoardController` | `portal/notice-board` | 4 |
-| `PortalSpaceVersionController` | `portal/version-record` | 4 |
-| `PortalBannerImageController` | `portal/banner-image` | 3 |
-| `MainElementController` | `portal/element` | 3 |
-| `PortalPersonalConfigController` | `portal/personal-config` | 2 |
-| `PortalConfigController` | `portal/config` | 2 |
-| `WeatherController` | `portal/weather` | 2 |
-| `PortalRecycleController` | `portal/portal-recycle` | 2 |
-| `VideoController` | `portal/video` | 1 |
-| `PortalConnectorController` | `portal/portal-connector` | 1 |
-| `MainPcSysResourceController` | `portal/sys-resource` | 1 |
-| `UserInfoController` | `portal/user-info` | 1 |
-
-前 15 条（其余见明细）：
-
-| 方法 | 全路径 |
-|---|---|
-| `PostMapping` | `/service/portal/main/login` |
-| `PostMapping` | `/service/portal/main/switch-admin` |
-| `PostMapping` | `/service/portal/main/switch-admin-new` |
-| `PostMapping` | `/service/portal/main/switch-user` |
-| `PostMapping` | `/service/portal/main/switch-tenant` |
-| `GetMapping` | `/service/portal/main/user-info` |
-| `GetMapping` | `/service/portal/main/pc-user-info` |
-| `GetMapping` | `/service/portal/main/mobile-user-info` |
-| `GetMapping` | `/service/portal/main/org-list` |
-| `GetMapping` | `/service/portal/main/admin-menus` |
-| `PostMapping` | `/service/portal/main/admin-org-list` |
-| `GetMapping` | `/service/portal/main/org-portal-info` |
-| `GetMapping` | `/service/portal/main/main-portal-info` |
-| `PostMapping` | `/service/portal/main/portal-info` |
-| `GetMapping` | `/service/portal/main/org-space-info` |
+| `PortalSetAppService` | `PortalSet` | `portal_set` | `stem` |
+| `PortalShortcutAppService` | `PortalShortcut` | `portlet_shortcut` | `stem` |
+| `PortalSpaceAppService` | `PortalSpace` | `portal_space` | `stem` |
 
 ## 证据与自证
 

@@ -727,24 +727,24 @@
 > （21 个 biz 构件合计只有 9 个 mapper XML / 15 张表），SQL 内联在代码里，
 > 方法→表要逐类反编译才能确认。
 
-本模块代码中出现的真实表 **70** 张（来源构件：`ctp-user-biz`）：
+本模块代码中出现的真实表 **72** 张（来源构件：`ctp-user-biz`）：
 
 | 表名 | 注释 | 出现在几个类 |
 |---|---|---:|
-| `ctp_authorization_object` | 授权对象 | 3 |
-| `ctp_user` | 用户 | 3 |
+| `ctp_authorization_object` | 授权对象 | 2 |
 | `ctp_authorization_rule` | 授权规则 | 2 |
 | `ctp_authorization_rule_func` | 授权规则角色权限 | 2 |
-| `ctp_manager_tenant_init` | 租户初始化 | 2 |
 | `ctp_org_role_resource` | 角色的业务应用资源 | 2 |
 | `ctp_resource` | 资源 | 2 |
 | `ctp_resource_permission` | 资源权限 | 2 |
 | `ctp_role` | 角色 | 2 |
 | `ctp_role_application` | 角色应用关系 | 2 |
 | `ctp_role_resource` | 角色资源 | 2 |
+| `ctp_user` | 用户 | 2 |
 | `ctp_user_resource` | 用户资源 | 2 |
 | `ctp_user_role` | 用户角色 | 2 |
-| `application` | 应用列表 | 1 |
+| `access_audit_log_history` | 操作日志历史表 | 1 |
+| `category_application_default` | 分组应用预置 | 1 |
 | `ctp_application` | 应用基本信息 | 1 |
 | `ctp_application_authorization` | 应用授权机构 | 1 |
 | `ctp_application_basic` | 应用信息原始表 | 1 |
@@ -776,6 +776,7 @@
 | `ctp_manager_base_app` | 中台基础应用 | 1 |
 | `ctp_manager_tenant` | 租户管理 | 1 |
 | `ctp_manager_tenant_env` | 其他环境租户状态 | 1 |
+| `ctp_manager_tenant_init` | 租户初始化 | 1 |
 | `ctp_menu` | 菜单重组 | 1 |
 | `ctp_menu_category` | 菜单分组 | 1 |
 | `ctp_menu_category_resource` | 菜单分组资源 | 1 |
@@ -799,6 +800,7 @@
 | `ctp_user_resource_upgrade` | 用户资源升级表 | 1 |
 | `ctp_user_role_upgrade` | 用户角色升级表 | 1 |
 | `ctp_wx_mp_bind` | 微信公众号绑定 | 1 |
+| `label_print_record` | — | 1 |
 | `org_role` | 组织角色表 | 1 |
 | `portal_space` | 空间 | 1 |
 
@@ -812,91 +814,6 @@
 |---|---|---|---|
 | `CtpLoginPreConfigAppService` | `CtpLoginPreConfig` | `ctp_login_pre_config` | `stem` |
 | `CtpUserRoleAppService` | `CtpUserRole` | `ctp_user_role` | `stem` |
-
-## REST 路由
-
-> 证据：`javap -v` 读 Controller 字节码里的 `@RequestMapping`/`@PostMapping` 注解值。
-> 等级 `VERIFIED_STATIC_BYTECODE`（注解值是常量，非推断）。
-
-**拼法**（端口/前缀按环境配置，以下为通用形）：
-
-```
-POST /service/{类级路径}/{方法级路径}
-      ↑ 类级路径的第一段就是应用 code（organization / bpm / udc …），不要再加一层
-  例：POST /service/udc/runtime/deploy-normal
-      = DeployController 类级 `udc/runtime` + 方法级 `deploy-normal`（线上实测过）
-```
-
-控制器 **43** 个、路由 **379** 条（来源：`ctp-user-web`）。
-
-> `{id}`、`ids` 这类方法级路径不带类级前缀，拼时必须补上。
-> 完整清单（含 java 方法名）：`docs/audit/artifacts/rest/ROUTES-ctp-user.md`
-
-| Controller | 类级路径 | 路由 |
-|---|---|---:|
-| `AuthController` | `ctp-user/auth` | 54 |
-| `CtpMenuController` | `ctp-user/menu` | 28 |
-| `CtpUserApiController` | `ctp-user/api` | 27 |
-| `CtpApplicationAdminController` | `ctp-application/admin/appcenter` | 18 |
-| `CtpUserParameterController` | `ctp-user/ctp-user-parameter` | 17 |
-| `CtpRolePermissionController` | `ctp-user/ctp-role-permission` | 16 |
-| `CtpApplicationController` | `ctp-application/appcenter` | 15 |
-| `CtpManagerTenantController` | `ctp-user/ctp-manager-tenant` | 14 |
-| `CtpOrgAdminController` | `ctp-user/ctp-org-admin` | 13 |
-| `CtpUserTestController` | `ctp-user/test` | 12 |
-| `CtpApplicationCapabilityController` | `ctp-application/admin/appcenter/capability` | 12 |
-| `CtpUserPermissionController` | `ctp-user/ctp-user-permission` | 11 |
-| `CtpUserController` | `ctp-user/ctp-user` | 11 |
-| `CtpCategoryController` | `ctp-application/admin/category` | 11 |
-| `CtpLogController` | `ctp-user/log` | 9 |
-| `CtpSecretEnumController` | `ctp-user/ctp-secret-enum-item` | 9 |
-| `CtpRoleController` | `ctp-user/ctp-role` | 8 |
-| `CtpMenuCategoryController` | `ctp-user/menu-category` | 7 |
-| `CtpUserRoleController` | `ctp-user/ctp-user-role` | 7 |
-| `ReferCtpUserRoleController` | `ctp-user/ctp-user-role/refer` | 7 |
-| `CtpLdapController` | `ctp-user/ldap` | 6 |
-| `CtpLoginDeviceController` | `ctp-user/ctp-login-device` | 6 |
-| `CtpWorkbenchController` | `ctp-application/appcenter/workbench` | 6 |
-| `AuthConfigController` | `ctp-user/auth/config` | 5 |
-| `CtpUserCustomizeController` | `ctp-user/ctp-user-customize` | 5 |
-| `CtpApplicationOfflineController` | `ctp-application/admin/offline` | 5 |
-| `CtpUserDefaultIdentityController` | `ctp-user/default-identity` | 4 |
-| `CtpDataPermissionController` | `ctp-user/ctp-data-permission` | 4 |
-| `CtpUserTransferController` | `ctp-user/transfer` | 3 |
-| `CtpLockedUserController` | `ctp-user/ctp-locked-user` | 3 |
-| `CtpDataSignController` | `ctp-user/data-sign` | 3 |
-| `SandboxAuthController` | `ctp-user/sandbox` | 3 |
-| `CtpApplicationEntityManageController` | `ctp-application/entity/manage` | 3 |
-| `CtpApplicationAuthorizationController` | `ctp-application/admin/auth/` | 3 |
-| `CtpPublishController` | `ctp-user/publish` | 2 |
-| `LevelProtectionController` | `ctp-user/level-protection` | 2 |
-| `CtpLockedIpController` | `ctp-user/ctp-locked-ip` | 2 |
-| `CtpUserSimpleController` | `ctp-user/ctp-user-simple` | 2 |
-| `CtpLoginPreConfigController` | `portal/login-address` | 2 |
-| `CtpAuthProviderController` | `ctp-user/auth-provider` | 1 |
-| `CtpIdentityVerifyController` | `ctp-user/identity-verify` | 1 |
-| `CtpResourceController` | `ctp-user/ctp-resource` | 1 |
-| `CtpSecretController` | `ctp-user/ctp-secret` | 1 |
-
-前 15 条（其余见明细）：
-
-| 方法 | 全路径 |
-|---|---|
-| `GetMapping` | `/service/ctp-application/appcenter//select-user-applications/{clientScope}` |
-| `GetMapping` | `/service/ctp-application/appcenter//select-user-applications/capability-type/{capabilityType}/{clientScope}` |
-| `GetMapping` | `/service/ctp-application/appcenter//select-org-apps/{includeHidden}` |
-| `PostMapping` | `/service/ctp-application/appcenter//select-apps-by-org` |
-| `GetMapping` | `/service/ctp-application/appcenter//select-enabled-apps` |
-| `PostMapping` | `/service/ctp-application/appcenter//search` |
-| `PostMapping` | `/service/ctp-application/appcenter//search-list` |
-| `PostMapping` | `/service/ctp-application/appcenter//select-app-info` |
-| `PostMapping` | `/service/ctp-application/appcenter//online-app-info` |
-| `GetMapping` | `/service/ctp-application/appcenter//{appId}` |
-| `PostMapping` | `/service/ctp-application/appcenter//select-by-ids` |
-| `GetMapping` | `/service/ctp-application/appcenter//select-app-list/{clientScope}` |
-| `PostMapping` | `/service/ctp-application/appcenter//search-app-edition` |
-| `PostMapping` | `/service/ctp-application/appcenter//select-app-version` |
-| `PostMapping` | `/service/ctp-application/appcenter//create-app-version` |
 
 ## 证据与自证
 

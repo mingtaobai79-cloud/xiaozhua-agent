@@ -112,52 +112,6 @@
 原因：该模块的 SQL/表名不在 biz 层常量池（走 Dubbo 远端 / 走配置 / 纯计算或 SDK）。
 不写推测表名。
 
-## REST 路由
-
-> 证据：`javap -v` 读 Controller 字节码里的 `@RequestMapping`/`@PostMapping` 注解值。
-> 等级 `VERIFIED_STATIC_BYTECODE`（注解值是常量，非推断）。
-
-**拼法**（端口/前缀按环境配置，以下为通用形）：
-
-```
-POST /service/{类级路径}/{方法级路径}
-      ↑ 类级路径的第一段就是应用 code（organization / bpm / udc …），不要再加一层
-  例：POST /service/udc/runtime/deploy-normal
-      = DeployController 类级 `udc/runtime` + 方法级 `deploy-normal`（线上实测过）
-```
-
-控制器 **4** 个、路由 **30** 条（来源：`ai-web`）。
-
-> `{id}`、`ids` 这类方法级路径不带类级前缀，拼时必须补上。
-> 完整清单（含 java 方法名）：`docs/audit/artifacts/rest/ROUTES-ai.md`
-
-| Controller | 类级路径 | 路由 |
-|---|---|---:|
-| `AiAuthorityController` | `ai/authority` | 11 |
-| `ICoMiPageInfoController` | `ai/comi` | 7 |
-| `SchemaTransformerController` | `ai/form/assistant` | 6 |
-| `AiFormAssistantAsyncController` | `ai/form/assistant/async` | 6 |
-
-前 15 条（其余见明细）：
-
-| 方法 | 全路径 |
-|---|---|
-| `PostMapping` | `/service/ai/authority/save-authority` |
-| `GetMapping` | `/service/ai/authority/select-authority` |
-| `GetMapping` | `/service/ai/authority/front/select-authority` |
-| `GetMapping` | `/service/ai/authority/get-current-user-info` |
-| `PostMapping` | `/service/ai/authority/register-ai-app-authority` |
-| `PostMapping` | `/service/ai/authority/select-ai-app-info` |
-| `GetMapping` | `/service/ai/authority/get-user-ai-app-authority` |
-| `GetMapping` | `/service/ai/authority/select-smart-portal-config` |
-| `PostMapping` | `/service/ai/authority/save-smart-portal-config` |
-| `GetMapping` | `/service/ai/authority/front/select-user-ai-authority` |
-| `GetMapping` | `/service/ai/authority/front/select-smart-portal-authority` |
-| `PostMapping` | `/service/ai/form/assistant/async//ocr/identify` |
-| `PostMapping` | `/service/ai/form/assistant/async/edoc/identify` |
-| `GetMapping` | `/service/ai/form/assistant/async//getFlow` |
-| `PostMapping` | `/service/ai/form/assistant/async//upload` |
-
 ## 证据与自证
 
 | 内容 | 证据 | 等级 |

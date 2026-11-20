@@ -543,16 +543,26 @@
 > （21 个 biz 构件合计只有 9 个 mapper XML / 15 张表），SQL 内联在代码里，
 > 方法→表要逐类反编译才能确认。
 
-本模块代码中出现的真实表 **22** 张（来源构件：`app-common-biz`、`app-approval-biz`、`app-doc-biz`）：
+本模块代码中出现的真实表 **66** 张（来源构件：`app-common-biz`、`app-approval-biz`、`app-doc-biz`）：
 
 | 表名 | 注释 | 出现在几个类 |
 |---|---|---:|
-| `category` | — | 2 |
-| `ctp_mgn_agg_data` | — | 2 |
-| `i18n_resource` | — | 2 |
-| `application` | 应用列表 | 1 |
+| `sensitive_word` | — | 2 |
+| `agent_detail` | — | 1 |
+| `agent_scope` | — | 1 |
+| `application_transport_record` | 跨环境推送记录表 | 1 |
+| `approval_config` | 审批应用配置表 | 1 |
+| `approval_form_app_depend` | 审批应用依赖管理 | 1 |
 | `approval_frame` | 外框管理 | 1 |
+| `approval_query_config` | 查询内容配置表 | 1 |
+| `approval_query_group` | 查询分组配置表 | 1 |
+| `associate_config` | — | 1 |
+| `associate_entity_config` | — | 1 |
+| `common_file_secret` | — | 1 |
 | `common_parameter_configuration` | 系统参数表 | 1 |
+| `common_service_metadata` | 元数据的应用列表 | 1 |
+| `common_worktime_set` | — | 1 |
+| `common_worktime_special` | — | 1 |
 | `ctp_gray_app_swim` | — | 1 |
 | `ctp_gray_application` | — | 1 |
 | `ctp_gray_swim` | — | 1 |
@@ -560,17 +570,51 @@
 | `ctp_gray_swim_tenant` | — | 1 |
 | `ctp_gray_swim_user` | — | 1 |
 | `ctp_locale` | — | 1 |
+| `ctp_mgn_agg_data` | — | 1 |
 | `ctp_mgn_main` | — | 1 |
 | `ctp_mgn_main_relation` | — | 1 |
 | `ctp_mgn_task` | — | 1 |
 | `ctp_mgn_task_column_log` | — | 1 |
 | `ctp_mgn_task_log` | — | 1 |
 | `ctp_mgn_tenant_log` | — | 1 |
+| `customized_development` | — | 1 |
+| `customized_development_log` | — | 1 |
+| `i18n_default_resource` | — | 1 |
+| `i18n_resource` | — | 1 |
+| `icon_category` | — | 1 |
+| `icon_file` | — | 1 |
+| `icon_relation` | — | 1 |
+| `icon_tag` | — | 1 |
+| `image_category` | — | 1 |
+| `image_store` | — | 1 |
+| `integral_expert_rank` | — | 1 |
+| `integral_ledger` | — | 1 |
+| `integral_medal` | — | 1 |
+| `integral_medal_rule` | — | 1 |
+| `integral_operation_rule` | — | 1 |
+| `integral_rank` | — | 1 |
+| `integral_rule` | — | 1 |
+| `label_category` | 标签分类 | 1 |
+| `label_cloud` | 标签云 | 1 |
+| `label_department` | 标签部门使用情况 | 1 |
+| `mgn_data_log` | 配置迁移数据日志表 | 1 |
+| `mgn_entity_def` | 迁移实体定义 | 1 |
+| `mgn_field_relation_def` | 字段关联定义 | 1 |
 | `mgn_menu_def` | 配置项迁移菜单定义 | 1 |
+| `mgn_package_info` | 迁移包信息 | 1 |
+| `mgn_task_info` | 模块任务信息 | 1 |
+| `my_attention` | — | 1 |
 | `my_attention_category` | — | 1 |
-| `phrase` | — | 1 |
+| `ocr_authorization_object` | OCR授权对象表 | 1 |
+| `ocr_authorization_rule` | OCR授权规则表 | 1 |
+| `sensitive_word_white` | — | 1 |
+| `system_inspect_record` | 巡检记录 | 1 |
+| `theme_file` | 主题文件信息表 | 1 |
+| `video_meeting_room` | 视频会议室 | 1 |
+| `video_meeting_room_auth` | 视频会议室授权 | 1 |
+| `video_meeting_room_auth_detail` | 视频会议室授权明细 | 1 |
 
-### 接口 → 表（3 条）
+### 接口 → 表（2 条）
 
 > `implements` = 字节码声明实现了该接口；`implements+field` = 再经它持有的
 > Manager/Dao 字段一跳；两者都是静态事实。`stem` 只是类名同源（弱证据，需实测）。
@@ -578,124 +622,8 @@
 
 | facade 接口 | 承载类 | 表 | 依据 |
 |---|---|---|---|
-| `ApprovalAppService` | `ApplicationService` | `application`, `category` | `implements+field` |
-| `ApprovalInvokeAppService` | `ApplicationService` | `application`, `category` | `implements+field` |
-| `MgnAggDataInitAppService` | `CtpMgnAggDataDao` | `ctp_mgn_agg_data` | `implements+field` |
-
-## REST 路由
-
-> 证据：`javap -v` 读 Controller 字节码里的 `@RequestMapping`/`@PostMapping` 注解值。
-> 等级 `VERIFIED_STATIC_BYTECODE`（注解值是常量，非推断）。
-
-**拼法**（端口/前缀按环境配置，以下为通用形）：
-
-```
-POST /service/{类级路径}/{方法级路径}
-      ↑ 类级路径的第一段就是应用 code（organization / bpm / udc …），不要再加一层
-  例：POST /service/udc/runtime/deploy-normal
-      = DeployController 类级 `udc/runtime` + 方法级 `deploy-normal`（线上实测过）
-```
-
-控制器 **73** 个、路由 **674** 条（来源：`app-common-web`、`app-approval-web`、`app-doc-web`）。
-
-> `{id}`、`ids` 这类方法级路径不带类级前缀，拼时必须补上。
-> 完整清单（含 java 方法名）：`docs/audit/artifacts/rest/ROUTES-app.md`
-
-| Controller | 类级路径 | 路由 |
-|---|---|---:|
-| `ApprovalApplicationController` | `app-approval/application` | 48 |
-| `KnowledgePediaController` | `app-doc/pedia` | 39 |
-| `KnowledgeAlbumController` | `app-doc/album` | 37 |
-| `KnowledgeMapController` | `app-doc/map` | 27 |
-| `GraySwimlaneController` | `app-common/gray/swimlane` | 19 |
-| `IntegralController` | `app-common/integral` | 18 |
-| `MyAttentionController` | `app-common/attention` | 18 |
-| `AgentSetController` | `app-common/agent` | 18 |
-| `I18nManagerController` | `app-common/i18n` | 18 |
-| `FormDataQueryController` | `app-approval/form-query` | 18 |
-| `PackageInfoController` | `app-common/config-mgn/package` | 16 |
-| `PhraseController` | `app-common/phrase` | 16 |
-| `ThemeController` | `app-common/theme` | 15 |
-| `AssociateController` | `app-common/associate` | 14 |
-| `IconController` | `app-common/icon` | 14 |
-| `GrayApplicationController` | `app-common/gray/application` | 13 |
-| `LocaleController` | `app-common/locale` | 13 |
-| `MngPushController` | `app-common/mgn/push` | 13 |
-| `WorktimeController` | `app-common/worktime` | 13 |
-| `WorktimeSpecialController` | `app-common/worktime-special` | 13 |
-| `ConfigMgnController` | `app-common/config-mgn` | 13 |
-| `ImageController` | `app-common/image` | 13 |
-| `QuestionInfoController` | `app-doc/quiz/question-info` | 13 |
-| `SensitiveWordCommonController` | `app-common/sensitive-word` | 12 |
-| `MgnTenantController` | `app-common/mgn/tenant` | 11 |
-| `LabelController` | `app-common/label` | 10 |
-| `DemoController` | `app-approval/demo/` | 10 |
-| `KnowledgeClassController` | `app-doc/manage/class` | 10 |
-| `ApprovalOutlineBorderController` | `app-approval/outline-border` | 9 |
-| `KnowledgeHomePageController` | `app-doc/knowledge/home-page` | 9 |
-| `LabelCategoryController` | `app-common/label-category` | 8 |
-| `MngReceiveController` | `app-common/mgn/receive` | 8 |
-| `SystemConfigController` | `app-common/system-config` | 8 |
-| `ApprovalTransportController` | `app-approval/transport` | 8 |
-| `QuestionReplyController` | `app-doc/quiz/question-replay` | 8 |
-| `UserQuestionController` | `app-doc/quiz/user` | 8 |
-| `KnowledgeRoleController` | `app-doc/manage/role` | 8 |
-| `CustomizedDevelopmentController` | `app-common/customized/development` | 7 |
-| `CategoryController` | `app-common/category` | 7 |
-| `SealController` | `app-common/seal` | 6 |
-| `TenantLocaleController` | `app-common/tenant-locale` | 6 |
-| `SensitiveWordWhiteController` | `app-common/sensitive-white` | 5 |
-| `MyAttentionCategoryController` | `app-common/attention/category` | 5 |
-| `SystemInspectController` | `app-common/system-inspect` | 5 |
-| `OcrAuthorizationController` | `app-common/ocr/authorization` | 5 |
-| `SeeyonMonitorController` | `app-common/system/monitor` | 5 |
-| `ApprovalProcessTeamController` | `app-approval/process-team` | 5 |
-| `CommonParameterConfigurationController` | `app-common/common-parameter-configuration` | 4 |
-| `WaterMarkController` | `app-common/watermark` | 4 |
-| `ApprovalDepApplicationController` | `app-approval/dependent-application` | 4 |
-| `QuestionSystemController` | `app-doc/quiz/question-preset` | 4 |
-| `LabelCloudController` | `app-common/label-cloud` | 3 |
-| `VideoMeetingRoomController` | `app-common/videoMeetingRoom` | 3 |
-| `DocController` | `app-doc/doc` | 3 |
-| `QuestionSystemConfigController` | `app-doc/quiz/system-config` | 3 |
-| `DocAppSysConfigController` | `app-doc/app/sys-config` | 3 |
-| `FormRefreshController` | `/form` | 2 |
-| `ApprovalBasicDataController` | `app-approval/basic-data-runtime` | 2 |
-| `QuestionAuditController` | `app-doc/quiz/question-replay` | 2 |
-| `WareHouseController` | `app-doc/warehouse` | 2 |
-| `AiConfigController` | `app-common/ai` | 1 |
-| `AppCommonAffairController` | `app-common/affair-center` | 1 |
-| `SystemEnvironmentController` | `app-common/system-env` | 1 |
-| `AppApprovalUpgradeController` | `app-approval/upgrade/` | 1 |
-| `ApprovalMenuController` | `app-approval/menu` | 1 |
-| `ApprovalConfigController` | `app-approval/config` | 1 |
-| `AlbumSystemConfigController` | `app-doc/album/setting` | 1 |
-| `MapSystemConfigController` | `app-doc/setting` | 1 |
-| `DocLibController` | `app-doc/lib` | 1 |
-| `DocShareController` | `app-doc/share` | 1 |
-| `PediaSystemConfigController` | `app-doc/pedia/setting` | 1 |
-| `DocKnowledgeIntegralController` | `app-doc/knowledge/integral` | 1 |
-| `CopyStorageKeyController` | `app-doc/storageKey` | 1 |
-
-前 15 条（其余见明细）：
-
-| 方法 | 全路径 |
-|---|---|
-| `GetMapping` | `/service/app-doc/album/setting/permission` |
-| `PostMapping` | `/service/app-doc/album//save-draft` |
-| `PostMapping` | `/service/app-doc/album//publish-album` |
-| `PostMapping` | `/service/app-doc/album//audit-album` |
-| `PostMapping` | `/service/app-doc/album//essence-album` |
-| `PostMapping` | `/service/app-doc/album//top-album` |
-| `PostMapping` | `/service/app-doc/album//delete-album` |
-| `PostMapping` | `/service/app-doc/album//batch-essence-album` |
-| `PostMapping` | `/service/app-doc/album//batch-delete-album` |
-| `PostMapping` | `/service/app-doc/album//select-audit-history` |
-| `PostMapping` | `/service/app-doc/album//home-page-collection` |
-| `PostMapping` | `/service/app-doc/album//search-my-album` |
-| `PostMapping` | `/service/app-doc/album//home-page-my-album` |
-| `PostMapping` | `/service/app-doc/album/search-un-audited` |
-| `PostMapping` | `/service/app-doc/album/search-audited` |
+| `ImageCategoryAppService` | `ImageCategory` | `image_category` | `stem` |
+| `ImageStoreAppService` | `ImageStore` | `image_store` | `stem` |
 
 ## 证据与自证
 

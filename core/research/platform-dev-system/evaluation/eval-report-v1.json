@@ -1,0 +1,279 @@
+{
+ "positive": {
+  "n": 40,
+  "top1": 40,
+  "top5": 40,
+  "top1_rate": 1.0,
+  "top5_rate": 1.0,
+  "mrr": 1.0,
+  "forbidden_violations": [],
+  "misses": {}
+ },
+ "synonym": {
+  "n": 112,
+  "top1": 88,
+  "top5": 90,
+  "top1_rate": 0.7857,
+  "top5_rate": 0.8036,
+  "misses": [
+   {
+    "id": "syn-001",
+    "utterance": "按部门查用户",
+    "expected": "OrgCommonAppService#selectMemberInfoById",
+    "got": ""
+   },
+   {
+    "id": "syn-001",
+    "utterance": "取人员列表",
+    "expected": "OrgCommonAppService#selectMemberInfoById",
+    "got": ""
+   },
+   {
+    "id": "syn-001",
+    "utterance": "这个部门有哪些人",
+    "expected": "OrgCommonAppService#selectMemberInfoById",
+    "got": ""
+   },
+   {
+    "id": "syn-002",
+    "utterance": "一页一页取",
+    "expected": "AllInOneBaseDao#selectPageByConditions",
+    "got": ""
+   },
+   {
+    "id": "syn-002",
+    "utterance": "分批拉数据",
+    "expected": "AllInOneBaseDao#selectPageByConditions",
+    "got": ""
+   },
+   {
+    "id": "syn-006",
+    "utterance": "动态计算字段",
+    "expected": "ExpressionEvaluator#eval",
+    "got": ""
+   },
+   {
+    "id": "syn-007",
+    "utterance": "锁住这条记录",
+    "expected": "DistributedLockFactory#newLock",
+    "got": ""
+   },
+   {
+    "id": "syn-009",
+    "utterance": "省掉 count 查询",
+    "expected": "PageInfo#setNeedTotal",
+    "got": "AllInOneBaseDao#selectListFuncByComplexConditions"
+   },
+   {
+    "id": "syn-010",
+    "utterance": "循环插入太慢",
+    "expected": "AllInOneBaseDao#createBatch",
+    "got": ""
+   },
+   {
+    "id": "syn-012",
+    "utterance": "找所有子级",
+    "expected": "BaseCurdService#selectByParentId",
+    "got": ""
+   },
+   {
+    "id": "syn-012",
+    "utterance": "按上级查",
+    "expected": "BaseCurdService#selectByParentId",
+    "got": ""
+   },
+   {
+    "id": "syn-013",
+    "utterance": "存一份附件",
+    "expected": "FileAppService#saveFileInfo",
+    "got": ""
+   },
+   {
+    "id": "syn-014",
+    "utterance": "把草稿交上去",
+    "expected": "BpmAppService#submit",
+    "got": ""
+   },
+   {
+    "id": "syn-015",
+    "utterance": "反射调用服务",
+    "expected": "AppServiceProxy#invokeAppService",
+    "got": ""
+   },
+   {
+    "id": "syn-016",
+    "utterance": "curl 一下",
+    "expected": "HttpClientUtil#get",
+    "got": "AllInOneBaseDao#selectListFuncByComplexConditions"
+   },
+   {
+    "id": "syn-017",
+    "utterance": "别全量更新",
+    "expected": "AllInOneBaseDao#updateColumns",
+    "got": ""
+   },
+   {
+    "id": "syn-017",
+    "utterance": "只更新状态字段",
+    "expected": "AllInOneBaseDao#updateColumns",
+    "got": ""
+   },
+   {
+    "id": "syn-018",
+    "utterance": "少查点字段",
+    "expected": "AllInOneBaseDao#selectListPropertiesByConditions",
+    "got": ""
+   },
+   {
+    "id": "syn-018",
+    "utterance": "只捞两个字段",
+    "expected": "AllInOneBaseDao#selectListPropertiesByConditions",
+    "got": ""
+   },
+   {
+    "id": "syn-019",
+    "utterance": "聚合查询",
+    "expected": "AllInOneBaseDao#selectListFuncByComplexConditions",
+    "got": ""
+   },
+   {
+    "id": "syn-020",
+    "utterance": "解析表达式",
+    "expected": "ExpressionAppService#transform",
+    "got": "ExpressionEvaluator#eval"
+   },
+   {
+    "id": "syn-021",
+    "utterance": "把表里的数据读进来",
+    "expected": "BaseEntityCurdService#importEntityInitData",
+    "got": ""
+   },
+   {
+    "id": "syn-022",
+    "utterance": "点了两下",
+    "expected": "@AntiReCommit",
+    "got": ""
+   },
+   {
+    "id": "syn-022",
+    "utterance": "防抖",
+    "expected": "@AntiReCommit",
+    "got": ""
+   }
+  ]
+ },
+ "negative": {
+  "n": 22,
+  "clean": 20,
+  "clean_rate": 0.9091,
+  "violations": [
+   {
+    "id": "neg-008",
+    "intent": "新增一条实体数据",
+    "got": []
+   },
+   {
+    "id": "neg-009",
+    "intent": "修改实体数据",
+    "got": []
+   }
+  ]
+ },
+ "ambiguous": {
+  "n": 22,
+  "not_overconfident": 13,
+  "rate": 0.5909,
+  "overconfident": [
+   {
+    "id": "amb-002",
+    "utterance": "查一下这个实体",
+    "single_cap": [
+     "entity_aggregate_func"
+    ],
+    "must_not": [
+     "直接推荐 selectList"
+    ]
+   },
+   {
+    "id": "amb-007",
+    "utterance": "导入",
+    "single_cap": [
+     "entity_excel_import"
+    ],
+    "must_not": [
+     "直接推荐 importEntityInitData"
+    ]
+   },
+   {
+    "id": "amb-008",
+    "utterance": "配置一下",
+    "single_cap": [
+     "entity_aggregate_func"
+    ],
+    "must_not": [
+     "直接推荐某个配置类"
+    ]
+   },
+   {
+    "id": "amb-011",
+    "utterance": "查子表",
+    "single_cap": [
+     "tree_children_query"
+    ],
+    "must_not": [
+     "直接推荐一种"
+    ]
+   },
+   {
+    "id": "amb-012",
+    "utterance": "改一下状态",
+    "single_cap": [
+     "entity_aggregate_func"
+    ],
+    "must_not": [
+     "直接推荐 updateStatusType"
+    ]
+   },
+   {
+    "id": "amb-013",
+    "utterance": "调一下那个服务",
+    "single_cap": [
+     "entity_aggregate_func"
+    ],
+    "must_not": [
+     "直接推荐 getProxy"
+    ]
+   },
+   {
+    "id": "amb-017",
+    "utterance": "优化一下查询",
+    "single_cap": [
+     "entity_aggregate_func"
+    ],
+    "must_not": [
+     "直接推荐一种优化"
+    ]
+   },
+   {
+    "id": "amb-019",
+    "utterance": "批量处理一下",
+    "single_cap": [
+     "entity_aggregate_func"
+    ],
+    "must_not": [
+     "直接推荐 createBatch"
+    ]
+   },
+   {
+    "id": "amb-020",
+    "utterance": "重置一下",
+    "single_cap": [
+     "entity_aggregate_func"
+    ],
+    "must_not": [
+     "直接推荐 resetNormal"
+    ]
+   }
+  ]
+ }
+}

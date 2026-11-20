@@ -972,22 +972,21 @@ bpm 内部
 > （21 个 biz 构件合计只有 9 个 mapper XML / 15 张表），SQL 内联在代码里，
 > 方法→表要逐类反编译才能确认。
 
-本模块代码中出现的真实表 **99** 张（来源构件：`bpm-biz`）：
+本模块代码中出现的真实表 **100** 张（来源构件：`bpm-biz`）：
 
 | 表名 | 注释 | 出现在几个类 |
 |---|---|---:|
 | `org_role` | 组织角色表 | 11 |
-| `bpm_template` | 流程模板 | 8 |
 | `bpm_subprocess` | 子流程关联表 | 7 |
+| `bpm_template` | 流程模板 | 6 |
 | `bpm_auto_approval` | 自动审批规则设置表 | 4 |
 | `bpm_uniformity` | BPM对外调用更新保持异步一致性日志表 | 4 |
-| `bpm_case` | 流程实例 | 3 |
 | `bpm_form_permission` | 表单操作权限 | 3 |
 | `bpm_process` | 流程表 | 3 |
 | `bpm_activity_run` | 运行时节点日志信息表 | 2 |
+| `bpm_case` | 流程实例 | 2 |
 | `bpm_node_permission` | 节点权限表 | 2 |
 | `bpm_node_permission_operation` | 节点权限与动作的绑定关系表 | 2 |
-| `bpm_process_revision` | 流程修订版本明细表 | 2 |
 | `bpm_abnormal_report` | 异常上报信息 | 1 |
 | `bpm_across_service_relation` | 跨环境推送信息 | 1 |
 | `bpm_activity_history` | 节点日志信息历史表 | 1 |
@@ -1038,6 +1037,7 @@ bpm 内部
 | `bpm_process_feedback` | 流程反馈信息表 | 1 |
 | `bpm_process_log` | 流程日志表 | 1 |
 | `bpm_process_release_log` | 流程修订版本表 | 1 |
+| `bpm_process_revision` | 流程修订版本明细表 | 1 |
 | `bpm_process_revision_detail` | 流程发布日志 | 1 |
 | `bpm_process_supervise` | 督办设置表 | 1 |
 | `bpm_process_supervisor` | 督办人员表 | 1 |
@@ -1071,12 +1071,13 @@ bpm 内部
 | `ctp_enum` | — | 1 |
 | `ctp_enum_item` | — | 1 |
 | `ctp_mgn_main_relation` | — | 1 |
+| `simulation_form_data` | 仿真执行后的表单数据信息 | 1 |
 | `udc_attribute` | — | 1 |
 | `udc_entity` | — | 1 |
 | `udc_page_info` | — | 1 |
 | `udc_page_schema` | — | 1 |
 
-### 接口 → 表（20 条）
+### 接口 → 表（13 条）
 
 > `implements` = 字节码声明实现了该接口；`implements+field` = 再经它持有的
 > Manager/Dao 字段一跳；两者都是静态事实。`stem` 只是类名同源（弱证据，需实测）。
@@ -1086,131 +1087,17 @@ bpm 内部
 |---|---|---|---|
 | `BpmActionAppService` | `BpmActivityRunService` | `bpm_activity_run` | `implements+field` |
 | `BpmActivityAppService` | `BpmActivityRunService` | `bpm_activity_run` | `implements+field` |
-| `BpmApiFormPermissionAppService` | `BpmTemplateService` | `bpm_template` | `implements+field` |
-| `BpmApiProcessAppService` | `BpmTemplateService` | `bpm_template` | `implements+field` |
-| `BpmAppService` | `BpmOperationService, BpmTemplateService` | `bpm_subprocess`, `bpm_template` | `implements+field` |
+| `BpmAppService` | `BpmOperationService` | `bpm_subprocess` | `implements+field` |
 | `BpmApplicationOperateLogAppService` | `BpmApplicationOperateLog` | `bpm_application_operate_log` | `stem` |
 | `BpmAutoApprovalAppService` | `BpmAutoApproval` | `bpm_auto_approval` | `stem` |
-| `BpmCaseAppService` | `BpmCase, BpmCaseDao` | `bpm_case` | `stem` |
-| `BpmCoMiAppService` | `BpmTemplateService` | `bpm_template` | `implements+field` |
-| `BpmNodeAppService` | `BpmActivityRunService, BpmTemplateService` | `bpm_activity_run`, `bpm_template` | `implements+field` |
+| `BpmCaseAppService` | `BpmCase` | `bpm_case` | `stem` |
+| `BpmNodeAppService` | `BpmActivityRunService` | `bpm_activity_run` | `implements+field` |
 | `BpmNodePermissionOperationAppService` | `BpmNodePermissionOperation` | `bpm_node_permission_operation` | `stem` |
-| `BpmNormalAppMultiVersionAppService` | `BpmTemplateService` | `bpm_template` | `implements+field` |
 | `BpmOpinionAppService` | `BpmActivityRunService` | `bpm_activity_run` | `implements+field` |
 | `BpmProcessLogAppService` | `BpmProcessLog` | `bpm_process_log` | `stem` |
 | `BpmProcessTrackAppService` | `BpmProcessTrack` | `bpm_process_track` | `stem` |
-| `BpmTemplateAppService` | `BpmTemplateService` | `bpm_template` | `implements+field` |
-| `BpmTemplateManageAppService` | `BpmTemplateService` | `bpm_template` | `implements+field` |
-| `BpmUdcApiService` | `BpmTemplateService` | `bpm_template` | `implements+field` |
-| `BpmUpgrade51To52AppService` | `BpmTemplateService` | `bpm_template` | `implements+field` |
-| `BpmApiSimulationAppService` | `BpmActivityRunService, BpmTemplateService` | `bpm_activity_run`, `bpm_template` | `implements+field` |
-
-## REST 路由
-
-> 证据：`javap -v` 读 Controller 字节码里的 `@RequestMapping`/`@PostMapping` 注解值。
-> 等级 `VERIFIED_STATIC_BYTECODE`（注解值是常量，非推断）。
-
-**拼法**（端口/前缀按环境配置，以下为通用形）：
-
-```
-POST /service/{类级路径}/{方法级路径}
-      ↑ 类级路径的第一段就是应用 code（organization / bpm / udc …），不要再加一层
-  例：POST /service/udc/runtime/deploy-normal
-      = DeployController 类级 `udc/runtime` + 方法级 `deploy-normal`（线上实测过）
-```
-
-控制器 **65** 个、路由 **666** 条（来源：`bpm-web`）。
-
-> `{id}`、`ids` 这类方法级路径不带类级前缀，拼时必须补上。
-> 完整清单（含 java 方法名）：`docs/audit/artifacts/rest/ROUTES-bpm.md`
-
-| Controller | 类级路径 | 路由 |
-|---|---|---:|
-| `BpmDemoController` | `bpm/message-demo/` | 133 |
-| `BpmController` | `bpm/operation` | 81 |
-| `ProcessSuperviseController` | `bpm/supervise` | 63 |
-| `BpmTemplateController` | `bpm/template` | 45 |
-| `BpmPathTableController` | `bpm/path-table` | 25 |
-| `BpmProcessController` | `bpm/process` | 19 |
-| `BpmNodePermissionController` | `bpm/node-permission` | 19 |
-| `BpmParameterController` | `bpm/parameter` | 18 |
-| `BpmSummaryController` | `bpm/summary` | 18 |
-| `BpmFormPermissionController` | `bpm/form/permission` | 14 |
-| `BpmOpinionController` | `bpm/business-opinion` | 14 |
-| `BpmUpgradeController` | `bpm/upgrade` | 13 |
-| `BpmSystemSettingController` | `bpm/system-setting` | 13 |
-| `BpmNodeActionController` | `bpm/node-action` | 12 |
-| `BpmSimulationController` | `bpm/simulation/` | 12 |
-| `BpmNodePermissionOperationController` | `bpm/node-permission-operation` | 10 |
-| `BpmCaseDynamicReferController` | `bpm/bpm-case/refer` | 8 |
-| `BpmTemplateDynamicReferController` | `bpm/bpm-template/refer` | 8 |
-| `BpmProcessLogController` | `bpm/process-log/` | 7 |
-| `BpmReplaceController` | `bpm/replace` | 7 |
-| `BpmNormalAppMultiVersionController` | `bpm/normal-app-multi-version` | 6 |
-| `BpmPersonalTemplateController` | `bpm/personal-template` | 5 |
-| `BpmNodePermissionV2Controller` | `bpm/node-permission/v2` | 5 |
-| `BpmTemplateDynamicController` | `bpm/bpm-template` | 5 |
-| `BpmTemplateTagController` | `bpm/template-tag` | 5 |
-| `BpmAutoNodeController` | `bpm/auto-node` | 4 |
-| `BpmPluginController` | `bpm/plugin` | 4 |
-| `BpmProcessFeedbackController` | `bpm/process-feedback` | 4 |
-| `ShortMessageEmailController` | `bpm/auto` | 4 |
-| `BpmProcessReplaceController` | `bpm/process-relpace` | 4 |
-| `BpmListController` | `bpm/list` | 4 |
-| `BpmTemplateConfigController` | `bpm/template-config` | 4 |
-| `BpmThirdFormPermissionController` | `bpm/third-form` | 4 |
-| `BpmApplicationOperateLogController` | `bpm/application-operateLog` | 4 |
-| `BpmAutoApprovalController` | `bpm/auto-approval` | 4 |
-| `BpmCaseDynamicController` | `bpm/bpm-case` | 4 |
-| `BpmHierarchicalControlController` | `bpm/hierarchical-control` | 3 |
-| `BpmManagerLogController` | `bpm/manage-log/` | 3 |
-| `BpmConsultController` | `bpm/consult-setting` | 3 |
-| `BpmMyProcessPermissionController` | `bpm/my-process-permission` | 3 |
-| `BpmApplicationController` | `bpm/application` | 3 |
-| `BpmProcessTrackController` | `bpm/process-track` | 3 |
-| `BpmSubProcessController` | `bpm/sub-process` | 3 |
-| `BpmResponsibilityController` | `bpm/responsibility` | 3 |
-| `BpmCaseController` | `bpm/bpm-case` | 2 |
-| `BpmTemplateEvaluationController` | `bpm/template/evaluation` | 2 |
-| `BpmNodePermissionBindController` | `bpm/node-permission/bind` | 2 |
-| `BpmEditLockController` | `bpm/edit-lock` | 2 |
-| `BpmDynamicTitleController` | `bpm/dynamic-title` | 2 |
-| `BpmFormDataController` | `bpm/form-data` | 2 |
-| `BpmDesignController` | `bpm/design` | 2 |
-| `BpmCustomTabController` | `bpm/custom-tab` | 2 |
-| `BpmBusinessRuleController` | `bpm/business-rule` | 2 |
-| `BpmControlledProcessController` | `bpm/controlled-process` | 2 |
-| `BpmPlaceholderConfigController` | `bpm/placeholder` | 2 |
-| `BpmNodeForecastController` | `bpm/node/forecast` | 2 |
-| `AsyncOperationController` | `bpm/async/operation` | 1 |
-| `BpmCaseRevisionController` | `bpm/bpm-case-revision` | 1 |
-| `BpmMemberPostController` | `bpm/member-post` | 1 |
-| `BpmFormDataQueryController` | `bpm/form-query` | 1 |
-| `BpmUserRoleController` | `bpm/user-role` | 1 |
-| `BpmNodePropertyController` | `bpm/node-property` | 1 |
-| `BpmEventNodeController` | `bpm/event-node-bind` | 1 |
-| `BpmMessageNodeController` | `bpm/auto/message` | 1 |
-| `SandBoxApplicationDataCleanTestController` | `bpm/sandBoxApp/data` | 1 |
-
-前 15 条（其余见明细）：
-
-| 方法 | 全路径 |
-|---|---|
-| `PostMapping` | `/service/bpm/async/operation/get-result` |
-| `PostMapping` | `/service/bpm/application/do/detection` |
-| `PostMapping` | `/service/bpm/application/search/detection/status` |
-| `PostMapping` | `/service/bpm/application/search/detection/app-info` |
-| `PostMapping` | `/service/bpm/application-operateLog//application-log-list` |
-| `PostMapping` | `/service/bpm/application-operateLog//detail-log-list` |
-| `GetMapping` | `/service/bpm/application-operateLog//detail-log-content/{id}` |
-| `PostMapping` | `/service/bpm/application-operateLog//save-export-log/{applicationId}` |
-| `PostMapping` | `/service/bpm/auto-approval/designer-create` |
-| `PostMapping` | `/service/bpm/auto-approval/designer-update` |
-| `PostMapping` | `/service/bpm/auto-approval/designer-delete` |
-| `PostMapping` | `/service/bpm/auto-approval/designer-select` |
-| `PostMapping` | `/service/bpm/auto-node/select-metadata-param` |
-| `GetMapping` | `/service/bpm/auto-node/exe-info/{workitemId}` |
-| `GetMapping` | `/service/bpm/auto-node/depend-apps/{templateId}` |
+| `BpmTemplateAppService` | `BpmTemplate` | `bpm_template` | `stem` |
+| `BpmApiSimulationAppService` | `BpmActivityRunService` | `bpm_activity_run` | `implements+field` |
 
 ## 证据与自证
 

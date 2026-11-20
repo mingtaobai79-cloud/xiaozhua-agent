@@ -1,0 +1,297 @@
+{
+ "n": 40,
+ "top1": 25,
+ "topk": 27,
+ "k": 5,
+ "top1_rate": 0.625,
+ "topk_rate": 0.675,
+ "mrr": 0.6458,
+ "errors": {
+  "rank_too_low": 2,
+  "wrong_capability": 5,
+  "no_result": 8
+ },
+ "forbidden_violations": [],
+ "rows": [
+  {
+   "id": "pos-001",
+   "top1": true,
+   "top5": true,
+   "rr": 1.0,
+   "error": null
+  },
+  {
+   "id": "pos-002",
+   "top1": true,
+   "top5": true,
+   "rr": 1.0,
+   "error": null
+  },
+  {
+   "id": "pos-003",
+   "top1": true,
+   "top5": true,
+   "rr": 1.0,
+   "error": null
+  },
+  {
+   "id": "pos-004",
+   "top1": true,
+   "top5": true,
+   "rr": 1.0,
+   "error": null
+  },
+  {
+   "id": "pos-005",
+   "top1": true,
+   "top5": true,
+   "rr": 1.0,
+   "error": null
+  },
+  {
+   "id": "pos-006",
+   "top1": false,
+   "top5": true,
+   "rr": 0.333,
+   "error": "rank_too_low"
+  },
+  {
+   "id": "pos-007",
+   "top1": true,
+   "top5": true,
+   "rr": 1.0,
+   "error": null
+  },
+  {
+   "id": "pos-008",
+   "top1": true,
+   "top5": true,
+   "rr": 1.0,
+   "error": null
+  },
+  {
+   "id": "pos-009",
+   "top1": true,
+   "top5": true,
+   "rr": 1.0,
+   "error": null
+  },
+  {
+   "id": "pos-010",
+   "top1": true,
+   "top5": true,
+   "rr": 1.0,
+   "error": null
+  },
+  {
+   "id": "pos-011",
+   "top1": true,
+   "top5": true,
+   "rr": 1.0,
+   "error": null
+  },
+  {
+   "id": "pos-012",
+   "top1": true,
+   "top5": true,
+   "rr": 1.0,
+   "error": null
+  },
+  {
+   "id": "pos-013",
+   "top1": true,
+   "top5": true,
+   "rr": 1.0,
+   "error": null
+  },
+  {
+   "id": "pos-014",
+   "top1": false,
+   "top5": true,
+   "rr": 0.5,
+   "error": "rank_too_low"
+  },
+  {
+   "id": "pos-015",
+   "top1": false,
+   "top5": false,
+   "rr": 0.0,
+   "error": "wrong_capability"
+  },
+  {
+   "id": "pos-016",
+   "top1": false,
+   "top5": false,
+   "rr": 0.0,
+   "error": "no_result"
+  },
+  {
+   "id": "pos-017",
+   "top1": false,
+   "top5": false,
+   "rr": 0.0,
+   "error": "no_result"
+  },
+  {
+   "id": "pos-018",
+   "top1": true,
+   "top5": true,
+   "rr": 1.0,
+   "error": null
+  },
+  {
+   "id": "pos-019",
+   "top1": true,
+   "top5": true,
+   "rr": 1.0,
+   "error": null
+  },
+  {
+   "id": "pos-020",
+   "top1": true,
+   "top5": true,
+   "rr": 1.0,
+   "error": null
+  },
+  {
+   "id": "pos-021",
+   "top1": false,
+   "top5": false,
+   "rr": 0.0,
+   "error": "wrong_capability"
+  },
+  {
+   "id": "pos-022",
+   "top1": true,
+   "top5": true,
+   "rr": 1.0,
+   "error": null
+  },
+  {
+   "id": "pos-023",
+   "top1": true,
+   "top5": true,
+   "rr": 1.0,
+   "error": null
+  },
+  {
+   "id": "pos-024",
+   "top1": true,
+   "top5": true,
+   "rr": 1.0,
+   "error": null
+  },
+  {
+   "id": "pos-025",
+   "top1": true,
+   "top5": true,
+   "rr": 1.0,
+   "error": null
+  },
+  {
+   "id": "pos-026",
+   "top1": true,
+   "top5": true,
+   "rr": 1.0,
+   "error": null
+  },
+  {
+   "id": "pos-027",
+   "top1": true,
+   "top5": true,
+   "rr": 1.0,
+   "error": null
+  },
+  {
+   "id": "pos-028",
+   "top1": true,
+   "top5": true,
+   "rr": 1.0,
+   "error": null
+  },
+  {
+   "id": "pos-029",
+   "top1": false,
+   "top5": false,
+   "rr": 0.0,
+   "error": "no_result"
+  },
+  {
+   "id": "pos-030",
+   "top1": false,
+   "top5": false,
+   "rr": 0.0,
+   "error": "wrong_capability"
+  },
+  {
+   "id": "pos-031",
+   "top1": true,
+   "top5": true,
+   "rr": 1.0,
+   "error": null
+  },
+  {
+   "id": "pos-032",
+   "top1": false,
+   "top5": false,
+   "rr": 0.0,
+   "error": "no_result"
+  },
+  {
+   "id": "pos-033",
+   "top1": false,
+   "top5": false,
+   "rr": 0.0,
+   "error": "no_result"
+  },
+  {
+   "id": "pos-034",
+   "top1": true,
+   "top5": true,
+   "rr": 1.0,
+   "error": null
+  },
+  {
+   "id": "pos-035",
+   "top1": false,
+   "top5": false,
+   "rr": 0.0,
+   "error": "wrong_capability"
+  },
+  {
+   "id": "pos-036",
+   "top1": false,
+   "top5": false,
+   "rr": 0.0,
+   "error": "wrong_capability"
+  },
+  {
+   "id": "pos-037",
+   "top1": false,
+   "top5": false,
+   "rr": 0.0,
+   "error": "no_result"
+  },
+  {
+   "id": "pos-038",
+   "top1": true,
+   "top5": true,
+   "rr": 1.0,
+   "error": null
+  },
+  {
+   "id": "pos-039",
+   "top1": false,
+   "top5": false,
+   "rr": 0.0,
+   "error": "no_result"
+  },
+  {
+   "id": "pos-040",
+   "top1": false,
+   "top5": false,
+   "rr": 0.0,
+   "error": "no_result"
+  }
+ ]
+}

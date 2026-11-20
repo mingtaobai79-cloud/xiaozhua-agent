@@ -1,0 +1,698 @@
+{
+ "BpmAppService.java": {
+  "path": "D:/software/hermes/cache/scratch/std-src/bpm-facade/com/seeyon/bpm/api/common/BpmAppService.java",
+  "count": 26,
+  "methods": [
+   {
+    "name": "send",
+    "args": "SingleRequest<BpmSendDto> var1",
+    "ret": "SingleResponse<BpmSendResultDto>",
+    "default": false
+   },
+   {
+    "name": "saveDraft",
+    "args": "SingleRequest<BpmSaveDraftDto> var1",
+    "ret": "SingleResponse<BpmSaveDraftResultDto>",
+    "default": false
+   },
+   {
+    "name": "submit",
+    "args": "SingleRequest<BpmSubmitDto> var1",
+    "ret": "SingleResponse<BpmSubmitResultDto>",
+    "default": false
+   },
+   {
+    "name": "stepBack",
+    "args": "SingleRequest<BpmStepBackDto> var1",
+    "ret": "SingleResponse<CommonResultDto>",
+    "default": false
+   },
+   {
+    "name": "repeal",
+    "args": "SingleRequest<BpmRepealDto> var1",
+    "ret": "SingleResponse<CommonResultDto>",
+    "default": false
+   },
+   {
+    "name": "stop",
+    "args": "SingleRequest<BpmStopDto> var1",
+    "ret": "SingleResponse<CommonResultDto>",
+    "default": false
+   },
+   {
+    "name": "takeBack",
+    "args": "SingleRequest<BpmTakeBackDto> var1",
+    "ret": "SingleResponse<CommonResultDto>",
+    "default": false
+   },
+   {
+    "name": "replace",
+    "args": "SingleRequest<BpmReplaceDto> var1",
+    "ret": "SingleResponse<CommonResultDto>",
+    "default": false
+   },
+   {
+    "name": "consult",
+    "args": "SingleRequest<BpmConsultDto> request",
+    "ret": "SingleResponse<CommonResultDto>",
+    "default": true
+   },
+   {
+    "name": "hasten",
+    "args": "SingleRequest<BpmHastenDto> request",
+    "ret": "ListResponse<BpmHastenResponseDto>",
+    "default": true
+   },
+   {
+    "name": "multipleReplace",
+    "args": "SingleRequest<BpmMultipleReplaceDto> var1",
+    "ret": "SingleResponse<CommonResultDto>",
+    "default": false
+   },
+   {
+    "name": "pause",
+    "args": "SingleRequest<BpmPauseDto> var1",
+    "ret": "ListResponse<BpmPauseResponseDto>",
+    "default": false
+   },
+   {
+    "name": "cancelPause",
+    "args": "SingleRequest<BpmPauseDto> var1",
+    "ret": "ListResponse<BpmPauseResponseDto>",
+    "default": false
+   },
+   {
+    "name": "superviseRelive",
+    "args": "SingleRequest<BpmReliveDto> var1",
+    "ret": "SingleResponse<CommonResultDto>",
+    "default": false
+   },
+   {
+    "name": "superviseReliveFull",
+    "args": "SingleRequest<BpmReliveFullDto> var1",
+    "ret": "SingleResponse<CommonResultDto>",
+    "default": false
+   },
+   {
+    "name": "inform",
+    "args": "SingleRequest<BpmInformDto> var1",
+    "ret": "SingleResponse<CommonResultDto>",
+    "default": false
+   },
+   {
+    "name": "addExecuteMember",
+    "args": "SingleRequest<BpmAddExecuteUserDto> var1",
+    "ret": "ListResponse<BpmItemInfoDto>",
+    "default": false
+   },
+   {
+    "name": "cancelItems",
+    "args": "SingleRequest<BpmCancelItemDto> var1",
+    "ret": "SingleResponse<CommonResultDto>",
+    "default": false
+   },
+   {
+    "name": "batchDeal",
+    "args": "SingleRequest<BpmBatchReqDto> var1",
+    "ret": "ListResponse<BpmBatchResponseDto>",
+    "default": false
+   },
+   {
+    "name": "selectFullCaseInfo",
+    "args": "SingleRequest<BpmCaseFullInfoSearch> var1",
+    "ret": "SingleResponse<BpmCaseFullInfo>",
+    "default": false
+   },
+   {
+    "name": "counterSignNode",
+    "args": "SingleRequest<SimpleChangeProcessRequestDto> var1",
+    "ret": "SingleResponse<ChangeNodeResponseDto>",
+    "default": false
+   },
+   {
+    "name": "addNode",
+    "args": "SingleRequest<SimpleChangeProcessRequestDto> var1",
+    "ret": "SingleResponse<ChangeNodeResponseDto>",
+    "default": false
+   },
+   {
+    "name": "monitorNodeRun",
+    "args": "SingleRequest<BpmMonitorRunDto> request",
+    "ret": "SingleResponse<BpmMonitorRunResultDto>",
+    "default": true
+   },
+   {
+    "name": "check",
+    "args": "SingleRequest<SecurityCheckDto> request",
+    "ret": "SingleResponse<Boolean>",
+    "default": true
+   },
+   {
+    "name": "deleteDraft",
+    "args": "SingleRequest<Long> var1",
+    "ret": "SingleResponse<Void>",
+    "default": false
+   },
+   {
+    "name": "deleteDraftAffair",
+    "args": "SingleRequest<DeleteDraftReqDto> var1",
+    "ret": "SingleResponse<Void>",
+    "default": false
+   }
+  ]
+ },
+ "BpmCaseAppService.java": {
+  "path": "D:/software/hermes/cache/scratch/std-src/bpm-facade/com/seeyon/bpm/api/common/BpmCaseAppService.java",
+  "count": 22,
+  "methods": [
+   {
+    "name": "selectCaseById",
+    "args": "SingleRequest<Long> var1",
+    "ret": "SingleResponse<BpmCaseDto>",
+    "default": false
+   },
+   {
+    "name": "selectMainCaseBySubCaseId",
+    "args": "SingleRequest<Long> var1",
+    "ret": "SingleResponse<Long>",
+    "default": false
+   },
+   {
+    "name": "deleteCaseByIds",
+    "args": "SingleRequest<BpmDeleteCaseDto> bpmDeleteCaseDtoSingleRequest",
+    "ret": "SingleResponse<String>",
+    "default": true
+   },
+   {
+    "name": "selectById",
+    "args": "SingleRequest<Long> request",
+    "ret": "SingleResponse<BpmCaseDto>",
+    "default": true
+   },
+   {
+    "name": "selectByIds",
+    "args": "SingleRequest<List<Long>> request",
+    "ret": "ListResponse<BpmCaseDto>",
+    "default": true
+   },
+   {
+    "name": "selectBpmCaseByFormRecordId",
+    "args": "SingleRequest<BpmCaseInfoSearchDto> request",
+    "ret": "SingleResponse<BpmCaseDto>",
+    "default": true
+   },
+   {
+    "name": "selectByPageCondition",
+    "args": "PageRequest request",
+    "ret": "PageResponse<BpmCaseDto>",
+    "default": true
+   },
+   {
+    "name": "selectCascadeById",
+    "args": "SingleRequest<Long> request",
+    "ret": "SingleResponse<BpmCaseDto>",
+    "default": true
+   },
+   {
+    "name": "selectCascadeByIds",
+    "args": "SingleRequest<List<Long>> request",
+    "ret": "ListResponse<BpmCaseDto>",
+    "default": true
+   },
+   {
+    "name": "dynamicSelect",
+    "args": "SingleRequest<ProxyParamDto> request",
+    "ret": "PageResponse<BpmCaseDto>",
+    "default": true
+   },
+   {
+    "name": "dynamicJoinSelect",
+    "args": "SingleRequest<ProxyJoinParamDto> request",
+    "ret": "PageResponse<BpmCaseDto>",
+    "default": true
+   },
+   {
+    "name": "refreshCaseTitleById",
+    "args": "SingleRequest<Long> request",
+    "ret": "SingleResponse<String>",
+    "default": true
+   },
+   {
+    "name": "selectCascadeByConditions",
+    "args": "SingleRequest<QueryConditionDto> request",
+    "ret": "SingleResponse<BpmCaseDto>",
+    "default": true
+   },
+   {
+    "name": "selectCascadeListByConditions",
+    "args": "SingleRequest<QueryConditionDto> request",
+    "ret": "ListResponse<BpmCaseDto>",
+    "default": true
+   },
+   {
+    "name": "getCascadeDefaultValue",
+    "args": "SingleRequest<Void> request",
+    "ret": "SingleResponse<BpmCaseDto>",
+    "default": true
+   },
+   {
+    "name": "selectCaseAttachmentList",
+    "args": "SingleRequest<Long> request",
+    "ret": "ListResponse<String>",
+    "default": true
+   },
+   {
+    "name": "create",
+    "args": "SingleRequest<BpmCaseDto> request",
+    "ret": "SingleResponse<Integer>",
+    "default": true
+   },
+   {
+    "name": "createBatch",
+    "args": "SingleRequest<List<BpmCaseDto>> request",
+    "ret": "SingleResponse<Integer>",
+    "default": true
+   },
+   {
+    "name": "selectByIdDisplayName",
+    "args": "SingleRequest<Long> id, SingleRequest<Set<String>> fieldSet",
+    "ret": "SingleResponse<BpmCaseDto>",
+    "default": true
+   },
+   {
+    "name": "selectByIdsDisplayName",
+    "args": "SingleRequest<List<Long>> ids, SingleRequest<Set<String>> fieldSet",
+    "ret": "ListResponse<BpmCaseDto>",
+    "default": true
+   },
+   {
+    "name": "updateCase",
+    "args": "SingleRequest<BpmCaseDto> request",
+    "ret": "SingleResponse<Void>",
+    "default": true
+   },
+   {
+    "name": "selectExpression",
+    "args": "SingleRequest<Long> idRequest",
+    "ret": "SingleResponse<BpmExpressionDto>",
+    "default": true
+   }
+  ]
+ },
+ "BpmTemplateAppService.java": {
+  "path": "D:/software/hermes/cache/scratch/std-src/bpm-facade/com/seeyon/bpm/api/common/BpmTemplateAppService.java",
+  "count": 54,
+  "methods": [
+   {
+    "name": "createOrUpdate",
+    "args": "SingleRequest<BpmTemplateDto> var1",
+    "ret": "SingleResponse<Long>",
+    "default": false
+   },
+   {
+    "name": "deleteById",
+    "args": "SingleRequest<Long> var1",
+    "ret": "SingleResponse<Void>",
+    "default": false
+   },
+   {
+    "name": "updateCategoryByApplicationId",
+    "args": "SingleRequest<BpmUpdateCategoryDto> var1",
+    "ret": "SingleResponse<Void>",
+    "default": false
+   },
+   {
+    "name": "publishCheck",
+    "args": "SingleRequest<String> var1",
+    "ret": "SingleResponse<Void>",
+    "default": false
+   },
+   {
+    "name": "publishCheckByAppInfo",
+    "args": "SingleRequest<BpmAppInfoDto> var1",
+    "ret": "SingleResponse<Void>",
+    "default": false
+   },
+   {
+    "name": "publishLock",
+    "args": "SingleRequest<String> var1",
+    "ret": "SingleResponse<Void>",
+    "default": false
+   },
+   {
+    "name": "publishLockByAppInfo",
+    "args": "SingleRequest<BpmAppInfoDto> var1",
+    "ret": "SingleResponse<Void>",
+    "default": false
+   },
+   {
+    "name": "publishFinish",
+    "args": "SingleRequest<BpmPublishResult> var1",
+    "ret": "SingleResponse<Void>",
+    "default": false
+   },
+   {
+    "name": "cleanCacheByApplicationName",
+    "args": "SingleRequest<String> var1",
+    "ret": "SingleResponse<Void>",
+    "default": false
+   },
+   {
+    "name": "startCheck",
+    "args": "SingleRequest<BpmStartTemplateDto> var1",
+    "ret": "ListResponse<BpmTemplateDto>",
+    "default": false
+   },
+   {
+    "name": "start",
+    "args": "SingleRequest<String> var1, SingleRequest<String> var2",
+    "ret": "SingleResponse<Void>",
+    "default": false
+   },
+   {
+    "name": "startByTemplateId",
+    "args": "SingleRequest<BpmStartTemplateDto> var1",
+    "ret": "ListResponse<BpmTemplateDto>",
+    "default": false
+   },
+   {
+    "name": "startByTemplateIdWithoutAuth",
+    "args": "SingleRequest<BpmStartTemplateDto> var1",
+    "ret": "ListResponse<BpmTemplateDto>",
+    "default": false
+   },
+   {
+    "name": "stop",
+    "args": "SingleRequest<String> var1",
+    "ret": "SingleResponse<Void>",
+    "default": false
+   },
+   {
+    "name": "stopByTemplateId",
+    "args": "SingleRequest<Long> var1",
+    "ret": "SingleResponse<Void>",
+    "default": false
+   },
+   {
+    "name": "deleteByApps",
+    "args": "SingleRequest<List<AppDeleteDto>> var1",
+    "ret": "SingleResponse<Void>",
+    "default": false
+   },
+   {
+    "name": "selectByApplicationName",
+    "args": "SingleRequest<String> var1",
+    "ret": "ListResponse<BpmTemplateDto>",
+    "default": false
+   },
+   {
+    "name": "updateEffectTimeByTemplateId",
+    "args": "SingleRequest<BpmStartTemplateDto> var1",
+    "ret": "ListResponse<BpmTemplateDto>",
+    "default": false
+   },
+   {
+    "name": "updateEffectTime",
+    "args": "SingleRequest<String> var1, SingleRequest<Date> var2, SingleRequest<Date> var3",
+    "ret": "SingleResponse<Void>",
+    "default": false
+   },
+   {
+    "name": "updateAuthorized",
+    "args": "SingleRequest<List<BpmTemplateAuthorizationDto>> var1",
+    "ret": "SingleResponse<Void>",
+    "default": false
+   },
+   {
+    "name": "selectById",
+    "args": "SingleRequest<Long> var1",
+    "ret": "SingleResponse<BpmTemplateDto>",
+    "default": false
+   },
+   {
+    "name": "selectTemplateListByCondition",
+    "args": "SingleRequest<BpmTemplateSearchConditionDto> singleRequest",
+    "ret": "ListResponse<BpmTemplateDto>",
+    "default": true
+   },
+   {
+    "name": "selectByTemplateUrlId",
+    "args": "SingleRequest<Long> var1",
+    "ret": "SingleResponse<BpmTemplateSimpleDto>",
+    "default": false
+   },
+   {
+    "name": "selectEffectedDiagramListByAppName",
+    "args": "SingleRequest<BaseBpmHandlerParamDto> var1",
+    "ret": "ListResponse<BpmAppTemplateDto>",
+    "default": false
+   },
+   {
+    "name": "selectTemplateUserGuidInfo",
+    "args": "SingleRequest<Long> var1",
+    "ret": "ListResponse<BpmTemplateUserGuidInfo>",
+    "default": false
+   },
+   {
+    "name": "selectTemplateById",
+    "args": "SingleRequest<SeachTemplateInfoDto> var1",
+    "ret": "SingleResponse<BpmTemplateInfoDto>",
+    "default": false
+   },
+   {
+    "name": "selectPathTableCondition",
+    "args": "SingleRequest<BpmPathTableDefineSearchDto> searchDtoSingleRequest",
+    "ret": "PageResponse<BpmPathTableDefineBaseDto>",
+    "default": true
+   },
+   {
+    "name": "selectTemplateIdsByName",
+    "args": "SingleRequest<String> var1",
+    "ret": "ListResponse<Long>",
+    "default": false
+   },
+   {
+    "name": "selectTemplateByRootEntityId",
+    "args": "SingleRequest<Long> var1",
+    "ret": "ListResponse<BpmTemplateDto>",
+    "default": false
+   },
+   {
+    "name": "selectTemplateByParams",
+    "args": "SingleRequest<BpmTemplateParamDto> var1",
+    "ret": "SingleResponse<BpmTemplateDto>",
+    "default": false
+   },
+   {
+    "name": "selectTemplateByRootEntityName",
+    "args": "SingleRequest<String> request",
+    "ret": "ListResponse<BpmTemplateDto>",
+    "default": true
+   },
+   {
+    "name": "hasDesignTemplateByEntityName",
+    "args": "SingleRequest<String> entityName",
+    "ret": "SingleResponse<Boolean>",
+    "default": true
+   },
+   {
+    "name": "selectByIds",
+    "args": "SingleRequest<List<Long>> request",
+    "ret": "ListResponse<BpmTemplateDto>",
+    "default": true
+   },
+   {
+    "name": "selectUserTemplatePageList",
+    "args": "SingleRequest<UserTemplateListRequestDto> var1",
+    "ret": "PageResponse<UserTemplateDto>",
+    "default": false
+   },
+   {
+    "name": "selectTemplateGuidByCategoryCode",
+    "args": "SingleRequest<String> var1",
+    "ret": "ListResponse<Long>",
+    "default": false
+   },
+   {
+    "name": "selectBpmTemplateOwnerPageList",
+    "args": "SingleRequest<BpmTemplateOwnerSearchDto> request",
+    "ret": "PageResponse<BpmTemplateOwnerDto>",
+    "default": true
+   },
+   {
+    "name": "filterEnableTemplateAppName",
+    "args": "SingleRequest<List<String>> applicationName",
+    "ret": "ListResponse<String>",
+    "default": true
+   },
+   {
+    "name": "selectCascadeById",
+    "args": "SingleRequest<Long> request",
+    "ret": "SingleResponse<BpmTemplateDto>",
+    "default": true
+   },
+   {
+    "name": "selectCascadeByIds",
+    "args": "SingleRequest<List<Long>> request",
+    "ret": "ListResponse<BpmTemplateDto>",
+    "default": true
+   },
+   {
+    "name": "dynamicSelect",
+    "args": "SingleRequest<ProxyParamDto> request",
+    "ret": "PageResponse<BpmTemplateDto>",
+    "default": true
+   },
+   {
+    "name": "updateByAppName",
+    "args": "SingleRequest<BpmTemplateDto> var1",
+    "ret": "SingleResponse<Integer>",
+    "default": false
+   },
+   {
+    "name": "dynamicJoinSelect",
+    "args": "SingleRequest<ProxyJoinParamDto> request",
+    "ret": "PageResponse<BpmTemplateDto>",
+    "default": true
+   },
+   {
+    "name": "selectCascadeByConditions",
+    "args": "SingleRequest<QueryConditionDto> request",
+    "ret": "SingleResponse<BpmTemplateDto>",
+    "default": true
+   },
+   {
+    "name": "selectCascadeListByConditions",
+    "args": "SingleRequest<QueryConditionDto> request",
+    "ret": "ListResponse<BpmTemplateDto>",
+    "default": true
+   },
+   {
+    "name": "selectTemplateIdListByGuid",
+    "args": "SingleRequest<Long> request",
+    "ret": "ListResponse<Long>",
+    "default": true
+   },
+   {
+    "name": "selectNodeDetail",
+    "args": "SingleRequest<BpmNodeDetailReqDto> var1",
+    "ret": "SingleResponse<BpmNodeDetailDto>",
+    "default": false
+   },
+   {
+    "name": "selectByIdDisplayName",
+    "args": "SingleRequest<Long> id, SingleRequest<Set<String>> fieldSet",
+    "ret": "SingleResponse<BpmTemplateDto>",
+    "default": true
+   },
+   {
+    "name": "selectByIdsDisplayName",
+    "args": "SingleRequest<List<Long>> ids, SingleRequest<Set<String>> fieldSet",
+    "ret": "ListResponse<BpmTemplateDto>",
+    "default": true
+   },
+   {
+    "name": "selectTemplateBySearchDto",
+    "args": "SingleRequest<BpmTemplateAppSearchDto> request",
+    "ret": "ListResponse<Long>",
+    "default": true
+   },
+   {
+    "name": "selectTemplateByCategoryIds",
+    "args": "SingleRequest<BpmTemplateCategorySearchDto> request",
+    "ret": "ListResponse<Long>",
+    "default": true
+   },
+   {
+    "name": "updateTemplateExtend",
+    "args": "SingleRequest<BpmTemplateExtendUpdateDto> request",
+    "ret": "SingleResponse<Long>",
+    "default": true
+   },
+   {
+    "name": "selectNormalMultiVersionDraft",
+    "args": "SingleRequest<BpmNormalMultiVersionSearchDto> request",
+    "ret": "ListResponse<BpmTemplateDto>",
+    "default": true
+   },
+   {
+    "name": "getCascadeDefaultValue",
+    "args": "SingleRequest<Void> request",
+    "ret": "SingleResponse<BpmTemplateDto>",
+    "default": true
+   },
+   {
+    "name": "selectLatestTemplateByGuids",
+    "args": "SingleRequest<List<Long>> request",
+    "ret": "ListResponse<BpmTemplateDto>",
+    "default": true
+   }
+  ]
+ },
+ "BpmUdcApiService.java": {
+  "path": "D:/software/hermes/cache/scratch/std-src/bpm-facade/com/seeyon/bpm/api/udc/BpmUdcApiService.java",
+  "count": 10,
+  "methods": [
+   {
+    "name": "sendForUdc",
+    "args": "SingleRequest<BpmSendUdcDto> var1",
+    "ret": "SingleResponse<BpmApiSendApiResponseDto>",
+    "default": false
+   },
+   {
+    "name": "saveDraft",
+    "args": "SingleRequest<BpmSaveDraftUdcDto> request",
+    "ret": "SingleResponse<BpmSaveDraftUdcResponseDto>",
+    "default": true
+   },
+   {
+    "name": "triggerFlowForUdc",
+    "args": "SingleRequest<List<BpmTriggerFlowUdcRequestDto>> request",
+    "ret": "ListResponse<BpmTriggerFlowUdcResponseDto>",
+    "default": true
+   },
+   {
+    "name": "prefixForUdc",
+    "args": "SingleRequest<BpmPrefixForUdcDto> request",
+    "ret": "SingleResponse<BpmPrefixForUdcResponseDto>",
+    "default": true
+   },
+   {
+    "name": "repealForUdc",
+    "args": "SingleRequest<BpmOperationRepealUdcDto> var1",
+    "ret": "SingleResponse<Void>",
+    "default": false
+   },
+   {
+    "name": "stopForUdc",
+    "args": "SingleRequest<BpmStopDto> var1",
+    "ret": "SingleResponse<CommonResultDto>",
+    "default": false
+   },
+   {
+    "name": "deleteCaseByIdForUdc",
+    "args": "SingleRequest<Long> var1, SingleRequest<Long> var2",
+    "ret": "SingleResponse<Void>",
+    "default": false
+   },
+   {
+    "name": "getNodePermissionOperation",
+    "args": "SingleRequest<BpmNodePermissionRequestDto> request",
+    "ret": "ListResponse<BpmNodePermissionResponseDto>",
+    "default": true
+   },
+   {
+    "name": "getNodePermission",
+    "args": "SingleRequest<BpmNodePermissionRequestDto> request",
+    "ret": "SingleResponse<BpmNodePermission4PageDto>",
+    "default": true
+   },
+   {
+    "name": "asyncTriggerFlowForUdc",
+    "args": "SingleRequest<BpmAsyncTriggerFlowUdcRequestDto> request",
+    "ret": "SingleResponse<Void>",
+    "default": true
+   }
+  ]
+ }
+}

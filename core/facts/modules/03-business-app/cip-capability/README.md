@@ -1064,7 +1064,6 @@
 
 | 表名 | 注释 | 出现在几个类 |
 |---|---|---:|
-| `cip_ability_third_info` | 能力开放三方应用信息表 | 3 |
 | `cip_ability_app_channel_mng` | 应用通道管理表 | 2 |
 | `cip_ability_app_feature_prov` | 应用能力特征通道配置明细表 | 2 |
 | `cip_ability_count` | 用量统计表 | 2 |
@@ -1087,6 +1086,7 @@
 | `cip_ability_sms_provide_t` | 短信厂商模版表 | 2 |
 | `cip_ability_sms_sign` | 短信签名 | 2 |
 | `cip_ability_sms_template` | 短信模版表 | 2 |
+| `cip_ability_third_info` | 能力开放三方应用信息表 | 2 |
 | `cip_ability_third_purchase` | 能力开放三方应用增购记录 | 2 |
 | `cip_provider_charges` | 能力服务执行统计表 | 2 |
 | `cip_provider_charges_record` | 能力服务执行记录表 | 2 |
@@ -1107,61 +1107,6 @@
 | `ShortMessageProviderTemplateAppService` | `ShortMessageProviderTemplate` | `cip_ability_sms_provide_t` | `stem` |
 | `ShortMessageSignAppService` | `ShortMessageSign` | `cip_ability_sms_sign` | `stem` |
 | `ShortMessageTemplateAppService` | `ShortMessageTemplate` | `cip_ability_sms_template` | `stem` |
-
-## REST 路由
-
-> 证据：`javap -v` 读 Controller 字节码里的 `@RequestMapping`/`@PostMapping` 注解值。
-> 等级 `VERIFIED_STATIC_BYTECODE`（注解值是常量，非推断）。
-
-**拼法**（端口/前缀按环境配置，以下为通用形）：
-
-```
-POST /service/{类级路径}/{方法级路径}
-      ↑ 类级路径的第一段就是应用 code（organization / bpm / udc …），不要再加一层
-  例：POST /service/udc/runtime/deploy-normal
-      = DeployController 类级 `udc/runtime` + 方法级 `deploy-normal`（线上实测过）
-```
-
-控制器 **13** 个、路由 **84** 条（来源：`cip-capability-web`）。
-
-> `{id}`、`ids` 这类方法级路径不带类级前缀，拼时必须补上。
-> 完整清单（含 java 方法名）：`docs/audit/artifacts/rest/ROUTES-cip-capability.md`
-
-| Controller | 类级路径 | 路由 |
-|---|---|---:|
-| `IntelligentMissiveController` | `cip-capability/missive` | 26 |
-| `DocCallBackController` | `cip-capability/doc` | 25 |
-| `SignatureCallBackController` | `cip-capability/callback/signature` | 5 |
-| `ApiTestCallBackController` | `cip-capability/apitest/callback` | 5 |
-| `MobilePluginWxOpenNotifyController` | `cip-capability/wx-open` | 5 |
-| `TestController` | `cip-capability/test` | 4 |
-| `CipBaseCallbackController` | `cip-capability/base/callback` | 4 |
-| `VideoCallbackController` | `cip-capability/video-meeting/callback` | 3 |
-| `OfdCallBackController` | `cip-capability/ofd` | 2 |
-| `WeixinPayCallBackController` | `cip-capability/work-wx-open` | 2 |
-| `TripCallbackController` | `cip-capability/trip/callback` | 1 |
-| `PhysicalsealCallBackController` | `cip-capability/physicalseal/callback` | 1 |
-| `OcrDataController` | `cip-capability/ocr` | 1 |
-
-前 15 条（其余见明细）：
-
-| 方法 | 全路径 |
-|---|---|
-| `RequestMapping` | `/service/cip-capability/base/callback` |
-| `RequestMapping` | `/service/cip-capability/base/callback//cip` |
-| `RequestMapping` | `/service/cip-capability/base/callback` |
-| `RequestMapping` | `/service/cip-capability/base/callback//cip` |
-| `PostMapping` | `/service/cip-capability/test/ai-test-create-third-app` |
-| `PostMapping` | `/service/cip-capability/test/ai-test-third-app-increase` |
-| `PostMapping` | `/service/cip-capability/test/ai-test-query-usage-amount` |
-| `PostMapping` | `/service/cip-capability/test/test-query-third-app-info` |
-| `GetMapping` | `/service/cip-capability/apitest/callback//signature/biz` |
-| `GetMapping` | `/service/cip-capability/apitest/callback//video-meeting/callback/notify-hw` |
-| `GetMapping` | `/service/cip-capability/apitest/callback//video-meeting/callback/notify-tx/{path}` |
-| `PostMapping` | `/service/cip-capability/apitest/callback//video-meeting/callback/notify-tx/{path}` |
-| `PostMapping` | `/service/cip-capability/apitest/callback//trip/callback/alibaba/{path}` |
-| `GetMapping` | `/service/cip-capability/doc//wps/view/info` |
-| `PostMapping` | `/service/cip-capability/doc//wps/edit/user/info` |
 
 ## 证据与自证
 

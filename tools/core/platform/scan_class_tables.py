@@ -22,7 +22,11 @@ BIZ = ['organization-biz', 'bpm-biz', 'udc-biz', 'ctp-user-biz', 'ctp-affair-biz
 
 STR = re.compile(rb"[ -~]{4,400}")
 PREFIX = re.compile(r"^(tb_|org_|ctp_|udc_|bpm_|cip_|cdp_|m5_|portal_|app_|ai_)[a-z0-9_]{2,}$")
-SQLCTX = re.compile(r"(?:from|into|update|join|table)\s+([a-z0-9_]+)")
+SQL_FROM = re.compile(r"from\s+([a-z0-9_]+)")
+SQL_INTO = re.compile(r"into\s+([a-z0-9_]+)")
+SQL_UPDATE = re.compile(r"update\s+([a-z0-9_]+)")
+SQL_JOIN = re.compile(r"join\s+([a-z0-9_]+)")
+SQL_DELETE = re.compile(r"delete\s+from\s+([a-z0-9_]+)")
 
 
 def load_tables(env="test2"):
@@ -49,15 +53,32 @@ def scan(artifact, jarpath, allset):
         hits = set()
         for m in STR.finditer(b):
             t = m.group(0).decode("latin-1").lower()
-            # ① 整个字面量就是一个带前缀的表名（最硬）
-            if PREFIX.match(t) and t in allset:
+            # ① 整个字面量就是表名（最硬）：带前缀，或含下划线且足够长
+            #    （排除 category / application / affair 这类同时是普通单词的表名）
+            if t in allset and (PREFIX.match(t) or ("_" in t and len(t) >= 6)):
                 hits.add(t)
                 continue
-            # ② SQL 上下文：from/into/update/join/table + 表名
-            for mm in SQLCTX.finditer(t):
-                tok = mm.group(1)
-                if tok in allset:
-                    hits.add(tok)
+            # ② SQL 上下文：必须成对出现 SQL 动词，避免
+            #    "find enums from application:" / "{} update category:{}" 这类日志文案误报
+            if "select" in t:
+                for mm in SQL_FROM.finditer(t):
+                    if mm.group(1) in allset:
+                        hits.add(mm.group(1))
+                for mm in SQL_JOIN.finditer(t):
+                    if mm.group(1) in allset:
+                        hits.add(mm.group(1))
+            if "insert" in t:
+                for mm in SQL_INTO.finditer(t):
+                    if mm.group(1) in allset:
+                        hits.add(mm.group(1))
+            if "update" in t and " set " in t:
+                for mm in SQL_UPDATE.finditer(t):
+                    if mm.group(1) in allset:
+                        hits.add(mm.group(1))
+            if "delete" in t:
+                for mm in SQL_DELETE.finditer(t):
+                    if mm.group(1) in allset:
+                        hits.add(mm.group(1))
         if hits:
             cls = name[:-6].replace("/", ".")
             res[cls] = sorted(hits)

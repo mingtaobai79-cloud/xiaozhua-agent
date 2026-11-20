@@ -935,40 +935,6 @@
 原因：该模块的 SQL/表名不在 biz 层常量池（走 Dubbo 远端 / 走配置 / 纯计算或 SDK）。
 不写推测表名。
 
-## REST 路由
-
-> 证据：`javap -v` 读 Controller 字节码里的 `@RequestMapping`/`@PostMapping` 注解值。
-> 等级 `VERIFIED_STATIC_BYTECODE`（注解值是常量，非推断）。
-
-**拼法**（端口/前缀按环境配置，以下为通用形）：
-
-```
-POST /service/{类级路径}/{方法级路径}
-      ↑ 类级路径的第一段就是应用 code（organization / bpm / udc …），不要再加一层
-  例：POST /service/udc/runtime/deploy-normal
-      = DeployController 类级 `udc/runtime` + 方法级 `deploy-normal`（线上实测过）
-```
-
-控制器 **2** 个、路由 **5** 条（来源：`boot-starter-web`）。
-
-> `{id}`、`ids` 这类方法级路径不带类级前缀，拼时必须补上。
-> 完整清单（含 java 方法名）：`docs/audit/artifacts/rest/ROUTES-boot.md`
-
-| Controller | 类级路径 | 路由 |
-|---|---|---:|
-| `SysOpsController` | `—` | 4 |
-| `TranslatorController` | `—` | 1 |
-
-前 15 条（其余见明细）：
-
-| 方法 | 全路径 |
-|---|---|
-| `GetMapping` | `/service/deregisterInstance` |
-| `GetMapping` | `/service/sys/gc` |
-| `GetMapping` | `/service/sys/register-online` |
-| `GetMapping` | `/service/sys/register-offline` |
-| `PostMapping` | `/service//data-trans` |
-
 ## 证据与自证
 
 | 内容 | 证据 | 等级 |

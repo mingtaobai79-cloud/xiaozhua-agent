@@ -294,69 +294,42 @@
 > （21 个 biz 构件合计只有 9 个 mapper XML / 15 张表），SQL 内联在代码里，
 > 方法→表要逐类反编译才能确认。
 
-本模块代码中出现的真实表 **4** 张（来源构件：`ctp-affair-biz`）：
+本模块代码中出现的真实表 **19** 张（来源构件：`ctp-affair-biz`）：
 
 | 表名 | 注释 | 出现在几个类 |
 |---|---|---:|
-| `affair` | 事项实例 | 1 |
-| `affair_done` | 事项实例-已办 | 1 |
-| `affair_extend` | 事项扩展属性表 | 1 |
-| `affair_pending` | 事项实例-待办 | 1 |
+| `affair_done` | 事项实例-已办 | 2 |
+| `affair_extend` | 事项扩展属性表 | 2 |
+| `affair_pending` | 事项实例-待办 | 2 |
+| `affair_property_info` | 待办自定义属性注册表 | 2 |
+| `affair_app_mapping_info` | 待办自定义属性注册表 | 1 |
+| `affair_app_summary` | 待办自定义属性注册表 | 1 |
+| `affair_category` | 事项分类 | 1 |
+| `affair_category_hierarchy` | 分类层级表 | 1 |
+| `affair_column_config` | 事项中心查询列配置 | 1 |
+| `affair_compensate` | 事项补偿 | 1 |
+| `affair_custom_operation` | 事项栏目快捷操作定义表 | 1 |
+| `affair_handover` | 已发已办交接表 | 1 |
+| `affair_layout` | 事项布局表 | 1 |
+| `affair_layout_attribute` | 事项布局参数表 | 1 |
+| `affair_mq_compensation` | 消息补偿表 | 1 |
+| `affair_node_permission` | 节点权限表 | 1 |
+| `affair_personal_setting` | 事项个人设置表 | 1 |
+| `affair_section_count` | 待办栏目计数 | 1 |
+| `affair_spi_impl_register` | 事项中心SPI接口实现注册表 | 1 |
 
-## REST 路由
+### 接口 → 表（4 条）
 
-> 证据：`javap -v` 读 Controller 字节码里的 `@RequestMapping`/`@PostMapping` 注解值。
-> 等级 `VERIFIED_STATIC_BYTECODE`（注解值是常量，非推断）。
+> `implements` = 字节码声明实现了该接口；`implements+field` = 再经它持有的
+> Manager/Dao 字段一跳；两者都是静态事实。`stem` 只是类名同源（弱证据，需实测）。
+> 表名本身都 `VERIFIED`；**哪个方法写哪张表仍未取证**。
 
-**拼法**（端口/前缀按环境配置，以下为通用形）：
-
-```
-POST /service/{类级路径}/{方法级路径}
-      ↑ 类级路径的第一段就是应用 code（organization / bpm / udc …），不要再加一层
-  例：POST /service/udc/runtime/deploy-normal
-      = DeployController 类级 `udc/runtime` + 方法级 `deploy-normal`（线上实测过）
-```
-
-控制器 **13** 个、路由 **126** 条（来源：`ctp-affair-web`）。
-
-> `{id}`、`ids` 这类方法级路径不带类级前缀，拼时必须补上。
-> 完整清单（含 java 方法名）：`docs/audit/artifacts/rest/ROUTES-ctp-affair.md`
-
-| Controller | 类级路径 | 路由 |
-|---|---|---:|
-| `AffairPendingController` | `ctp-affair/affair-center` | 54 |
-| `AffairDemoController` | `ctp-affair/demo/` | 19 |
-| `AffairColumnConfigController` | `ctp-affair/affair-column-config` | 12 |
-| `AffairCategoryController` | `ctp-affair/affair-category` | 9 |
-| `AffairLayoutController` | `ctp-affair/affair-layout` | 8 |
-| `AffairAppMappingInfoController` | `ctp-affair/affair-app-mapping-info` | 6 |
-| `AffairManageController` | `ctp-affair/affair-manage` | 5 |
-| `AffairEnumManageController` | `ctp-affair/enum-manage` | 5 |
-| `AffairCategoryHierarchyController` | `ctp-affair/affair-category-hierarchy` | 3 |
-| `AffairRegisterManageController` | `ctp-affair/affair-register-manage` | 2 |
-| `AffairOperationController` | `ctp-affair/operation` | 1 |
-| `AffairNodePermissionController` | `ctp-affair/node-permission` | 1 |
-| `BpmPluginController` | `ctp-affair/plugin` | 1 |
-
-前 15 条（其余见明细）：
-
-| 方法 | 全路径 |
-|---|---|
-| `PostMapping` | `/service/ctp-affair/affair-app-mapping-info/save-business-field` |
-| `PostMapping` | `/service/ctp-affair/affair-app-mapping-info/get-business-field` |
-| `PostMapping` | `/service/ctp-affair/affair-app-mapping-info/get-business-field-list` |
-| `PostMapping` | `/service/ctp-affair/affair-app-mapping-info/save-summary-field` |
-| `PostMapping` | `/service/ctp-affair/affair-app-mapping-info/get-summary-field` |
-| `PostMapping` | `/service/ctp-affair/affair-app-mapping-info/get-summary-by-app-name` |
-| `PostMapping` | `/service/ctp-affair/affair-category/select/category/by/data/get/count` |
-| `PostMapping` | `/service/ctp-affair/affair-category/select/section/category/by/data/get/count` |
-| `PostMapping` | `/service/ctp-affair/affair-category/affair-badge-count` |
-| `PostMapping` | `/service/ctp-affair/affair-category/test/ws/refresh` |
-| `PostMapping` | `/service/ctp-affair/affair-category/search-affair-category` |
-| `PostMapping` | `/service/ctp-affair/affair-category/select-affair-category-by-sub-app-name` |
-| `PostMapping` | `/service/ctp-affair/affair-category/create-or-update-affair-category` |
-| `PostMapping` | `/service/ctp-affair/affair-category/delete-affair-category` |
-| `PostMapping` | `/service/ctp-affair/affair-category/select-affair-center-intelligence-category-list` |
+| facade 接口 | 承载类 | 表 | 依据 |
+|---|---|---|---|
+| `AffairCategoryAppService` | `AffairCategory` | `affair_category` | `stem` |
+| `AffairCommonAppService` | `AffairPropertyInfoService` | `affair_property_info` | `implements+field` |
+| `AffairCustomOperationAppService` | `AffairCustomOperation` | `affair_custom_operation` | `stem` |
+| `AffairNodePermissionAppService` | `AffairNodePermission` | `affair_node_permission` | `stem` |
 
 ## 证据与自证
 

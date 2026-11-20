@@ -247,19 +247,19 @@
 
 | 表名 | 注释 | 出现在几个类 |
 |---|---|---:|
-| `ctp_message` | 消息表 | 4 |
-| `ctp_message_user` | 用户消息关联表 | 3 |
-| `ctp_message_source` | 消息来源表 | 2 |
-| `ctp_message_type` | 消息分类表 | 2 |
+| `ctp_message` | 消息表 | 1 |
 | `ctp_message_client_type` | 消息客户定义类型表 | 1 |
 | `ctp_message_manage` | 消息设置表 | 1 |
 | `ctp_message_mobile` | 移动端信息表 | 1 |
+| `ctp_message_source` | 消息来源表 | 1 |
 | `ctp_message_template` | 消息模版表 | 1 |
+| `ctp_message_type` | 消息分类表 | 1 |
 | `ctp_message_url` | 消息url注册表 | 1 |
+| `ctp_message_user` | 用户消息关联表 | 1 |
 | `ctp_message_user_subscribe` | 用户消息订阅表 | 1 |
 | `ctp_task` | 延迟消息任务表 | 1 |
 
-### 接口 → 表（6 条）
+### 接口 → 表（4 条）
 
 > `implements` = 字节码声明实现了该接口；`implements+field` = 再经它持有的
 > Manager/Dao 字段一跳；两者都是静态事实。`stem` 只是类名同源（弱证据，需实测）。
@@ -267,63 +267,10 @@
 
 | facade 接口 | 承载类 | 表 | 依据 |
 |---|---|---|---|
-| `CtpMessageAppService` | `CtpMessageService` | `ctp_message`, `ctp_message_user` | `implements+field` |
-| `CtpMessageClientAppService` | `CtpMessageClientService, CtpMessageService` | `ctp_message`, `ctp_message_user` | `implements+field` |
+| `CtpMessageAppService` | `CtpMessage` | `ctp_message` | `stem` |
 | `CtpMessageManageAppService` | `CtpMessageManage` | `ctp_message_manage` | `stem` |
-| `CtpMessageOperateAppService` | `CtpMessageService` | `ctp_message`, `ctp_message_user` | `implements+field` |
 | `CtpMessageTypeAppService` | `CtpMessageType` | `ctp_message_type` | `stem` |
 | `CtpMessageUserSubscribeAppService` | `CtpMessageUserSubscribe` | `ctp_message_user_subscribe` | `stem` |
-
-## REST 路由
-
-> 证据：`javap -v` 读 Controller 字节码里的 `@RequestMapping`/`@PostMapping` 注解值。
-> 等级 `VERIFIED_STATIC_BYTECODE`（注解值是常量，非推断）。
-
-**拼法**（端口/前缀按环境配置，以下为通用形）：
-
-```
-POST /service/{类级路径}/{方法级路径}
-      ↑ 类级路径的第一段就是应用 code（organization / bpm / udc …），不要再加一层
-  例：POST /service/udc/runtime/deploy-normal
-      = DeployController 类级 `udc/runtime` + 方法级 `deploy-normal`（线上实测过）
-```
-
-控制器 **9** 个、路由 **60** 条（来源：`ctp-message-web`）。
-
-> `{id}`、`ids` 这类方法级路径不带类级前缀，拼时必须补上。
-> 完整清单（含 java 方法名）：`docs/audit/artifacts/rest/ROUTES-ctp-message.md`
-
-| Controller | 类级路径 | 路由 |
-|---|---|---:|
-| `CtpMessageClientController` | `ctp-message/ctp-message-client` | 13 |
-| `CtpMessageManageController` | `ctp-message/ctp-message-manage` | 10 |
-| `CtpMessageUserSubscribeController` | `ctp-message/ctp-message-user-subscribe` | 8 |
-| `CtpMessageController` | `ctp-message/ctp-message` | 7 |
-| `CtpMessageClassificationController` | `ctp-message/ctp-message-classification` | 6 |
-| `CtpMessageTemplateController` | `ctp-message/ctp-message-template` | 6 |
-| `CtpMessageSourceController` | `ctp-message/ctp-message-source` | 4 |
-| `IndexController` | `ctp-message` | 3 |
-| `CtpMessageTypeController` | `ctp-message/ctp-message-type` | 3 |
-
-前 15 条（其余见明细）：
-
-| 方法 | 全路径 |
-|---|---|
-| `PostMapping` | `/service/ctp-message/ctp-message-classification/create` |
-| `PostMapping` | `/service/ctp-message/ctp-message-classification/update` |
-| `PostMapping` | `/service/ctp-message/ctp-message-classification/delete` |
-| `PostMapping` | `/service/ctp-message/ctp-message-classification/idx` |
-| `PostMapping` | `/service/ctp-message/ctp-message-classification/search` |
-| `PostMapping` | `/service/ctp-message/ctp-message-classification/search-for-web-list` |
-| `PostMapping` | `/service/ctp-message/ctp-message-client/selectSourceList` |
-| `PostMapping` | `/service/ctp-message/ctp-message-client/selectOtherList` |
-| `PostMapping` | `/service/ctp-message/ctp-message-client/selectMessageListByCode` |
-| `PostMapping` | `/service/ctp-message/ctp-message-client/move-other` |
-| `PostMapping` | `/service/ctp-message/ctp-message-client/top` |
-| `PostMapping` | `/service/ctp-message/ctp-message-client/notDisturb` |
-| `PostMapping` | `/service/ctp-message/ctp-message-client/deleteMessageById` |
-| `PostMapping` | `/service/ctp-message/ctp-message-client/deleteMessageByCode` |
-| `PostMapping` | `/service/ctp-message/ctp-message-client/cleanCorner` |
 
 ## 证据与自证
 

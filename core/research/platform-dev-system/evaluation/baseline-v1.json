@@ -1,0 +1,539 @@
+{
+ "n": 40,
+ "top1": 0,
+ "topk": 0,
+ "k": 5,
+ "top1_rate": 0.0,
+ "topk_rate": 0.0,
+ "mrr": 0.0,
+ "errors": {
+  "action_mismatch": 5,
+  "wrong_capability": 27,
+  "no_result": 8
+ },
+ "forbidden_violations": [
+  "pos-005"
+ ],
+ "rows": [
+  {
+   "id": "pos-001",
+   "intent": "下载附件",
+   "expected": [
+    "FileAppService#getDownloadUrl"
+   ],
+   "got_top1": "ReportRuntimeAppService#download",
+   "top1": false,
+   "top5": false,
+   "rr": 0.0,
+   "error": "action_mismatch",
+   "forbidden_hit": false
+  },
+  {
+   "id": "pos-002",
+   "intent": "上传附件并登记到实体",
+   "expected": [
+    "FileAppService#saveFileInfo"
+   ],
+   "got_top1": "AttachmentAppService#uploadZipFile",
+   "top1": false,
+   "top5": false,
+   "rr": 0.0,
+   "error": "action_mismatch",
+   "forbidden_hit": false
+  },
+  {
+   "id": "pos-003",
+   "intent": "大文件分片上传",
+   "expected": [
+    "StorageService#partUploadInit"
+   ],
+   "got_top1": "CipFileAppService#uploadFiles",
+   "top1": false,
+   "top5": false,
+   "rr": 0.0,
+   "error": "wrong_capability",
+   "forbidden_hit": false
+  },
+  {
+   "id": "pos-004",
+   "intent": "取附件缩略图",
+   "expected": [
+    "FileAppService#getThumbnailUrl"
+   ],
+   "got_top1": "FileDao#",
+   "top1": false,
+   "top5": false,
+   "rr": 0.0,
+   "error": "wrong_capability",
+   "forbidden_hit": false
+  },
+  {
+   "id": "pos-005",
+   "intent": "按 ID 查人员信息",
+   "expected": [
+    "OrgCommonAppService#selectMemberInfoById"
+   ],
+   "got_top1": "OrgMemberBaseAppService#create",
+   "top1": false,
+   "top5": false,
+   "rr": 0.0,
+   "error": "action_mismatch",
+   "forbidden_hit": true
+  },
+  {
+   "id": "pos-006",
+   "intent": "查人员的多维组织信息",
+   "expected": [
+    "OrgCommonAppService#selectMemberMultiDimOrgInfo"
+   ],
+   "got_top1": "OrgMemberBaseAppService#create",
+   "top1": false,
+   "top5": false,
+   "rr": 0.0,
+   "error": "action_mismatch",
+   "forbidden_hit": false
+  },
+  {
+   "id": "pos-007",
+   "intent": "主子表一起保存",
+   "expected": [
+    "BaseEntityCurdService#recursiveCreate"
+   ],
+   "got_top1": "",
+   "top1": false,
+   "top5": false,
+   "rr": 0.0,
+   "error": "no_result",
+   "forbidden_hit": false
+  },
+  {
+   "id": "pos-008",
+   "intent": "查询主子表完整数据",
+   "expected": [
+    "BaseEntityCurdService#selectCascadeById"
+   ],
+   "got_top1": "AppDraftAppService#select",
+   "top1": false,
+   "top5": false,
+   "rr": 0.0,
+   "error": "wrong_capability",
+   "forbidden_hit": false
+  },
+  {
+   "id": "pos-009",
+   "intent": "删除主子表整条记录",
+   "expected": [
+    "BaseEntityCurdService#recursiveDelete"
+   ],
+   "got_top1": "AppDraftAppServiceImpl#delete",
+   "top1": false,
+   "top5": false,
+   "rr": 0.0,
+   "error": "wrong_capability",
+   "forbidden_hit": false
+  },
+  {
+   "id": "pos-010",
+   "intent": "按父节点查子节点",
+   "expected": [
+    "BaseCurdService#selectByParentId"
+   ],
+   "got_top1": "ActivityBehavior#",
+   "top1": false,
+   "top5": false,
+   "rr": 0.0,
+   "error": "wrong_capability",
+   "forbidden_hit": false
+  },
+  {
+   "id": "pos-011",
+   "intent": "创建单据并走审批流程",
+   "expected": [
+    "BaseEntityCurdService#create4Bpm"
+   ],
+   "got_top1": "BpmControlledSubProcessAppService#create",
+   "top1": false,
+   "top5": false,
+   "rr": 0.0,
+   "error": "wrong_capability",
+   "forbidden_hit": false
+  },
+  {
+   "id": "pos-012",
+   "intent": "保存单据草稿",
+   "expected": [
+    "BpmAppService#saveDraft"
+   ],
+   "got_top1": "FormConvertAppService#",
+   "top1": false,
+   "top5": false,
+   "rr": 0.0,
+   "error": "wrong_capability",
+   "forbidden_hit": false
+  },
+  {
+   "id": "pos-013",
+   "intent": "提交草稿进入流程",
+   "expected": [
+    "BpmAppService#submit"
+   ],
+   "got_top1": "BpmBatchAppService#submit",
+   "top1": false,
+   "top5": false,
+   "rr": 0.0,
+   "error": "wrong_capability",
+   "forbidden_hit": false
+  },
+  {
+   "id": "pos-014",
+   "intent": "撤回已提交的单据",
+   "expected": [
+    "BpmAppService#takeBack"
+   ],
+   "got_top1": "BpmBatchAppService#submit",
+   "top1": false,
+   "top5": false,
+   "rr": 0.0,
+   "error": "wrong_capability",
+   "forbidden_hit": false
+  },
+  {
+   "id": "pos-015",
+   "intent": "作废单据",
+   "expected": [
+    "nullify"
+   ],
+   "got_top1": "FormConvertAppService#",
+   "top1": false,
+   "top5": false,
+   "rr": 0.0,
+   "error": "wrong_capability",
+   "forbidden_hit": false
+  },
+  {
+   "id": "pos-016",
+   "intent": "在代码里主动执行一个表达式",
+   "expected": [
+    "ExpressionEvaluator#eval"
+   ],
+   "got_top1": "BaseConfigAppService#",
+   "top1": false,
+   "top5": false,
+   "rr": 0.0,
+   "error": "wrong_capability",
+   "forbidden_hit": false
+  },
+  {
+   "id": "pos-017",
+   "intent": "把设计态表达式编译成可执行形式",
+   "expected": [
+    "ExpressionAppService#transform"
+   ],
+   "got_top1": "BaseConfigAppService#",
+   "top1": false,
+   "top5": false,
+   "rr": 0.0,
+   "error": "wrong_capability",
+   "forbidden_hit": false
+  },
+  {
+   "id": "pos-018",
+   "intent": "校验表达式是否合法",
+   "expected": [
+    "ExpressionAppService#check"
+   ],
+   "got_top1": "AgentAppService#check",
+   "top1": false,
+   "top5": false,
+   "rr": 0.0,
+   "error": "wrong_capability",
+   "forbidden_hit": false
+  },
+  {
+   "id": "pos-019",
+   "intent": "取系统变量的当前值",
+   "expected": [
+    "ExpressionAppService#getSystemVariableResult"
+   ],
+   "got_top1": "SystemVariableService#",
+   "top1": false,
+   "top5": false,
+   "rr": 0.0,
+   "error": "wrong_capability",
+   "forbidden_hit": false
+  },
+  {
+   "id": "pos-020",
+   "intent": "分页查询实体列表",
+   "expected": [
+    "AllInOneBaseDao#selectPageByConditions"
+   ],
+   "got_top1": "AppDraftAppService#select",
+   "top1": false,
+   "top5": false,
+   "rr": 0.0,
+   "error": "wrong_capability",
+   "forbidden_hit": false
+  },
+  {
+   "id": "pos-021",
+   "intent": "分页查询但不需要总条数",
+   "expected": [
+    "PageInfo#setNeedTotal"
+   ],
+   "got_top1": "AppDraftAppService#select",
+   "top1": false,
+   "top5": false,
+   "rr": 0.0,
+   "error": "wrong_capability",
+   "forbidden_hit": false
+  },
+  {
+   "id": "pos-022",
+   "intent": "批量插入数据",
+   "expected": [
+    "AllInOneBaseDao#createBatch"
+   ],
+   "got_top1": "BaseConfigAppService#",
+   "top1": false,
+   "top5": false,
+   "rr": 0.0,
+   "error": "wrong_capability",
+   "forbidden_hit": false
+  },
+  {
+   "id": "pos-023",
+   "intent": "只更新某几个字段",
+   "expected": [
+    "AllInOneBaseDao#updateColumns"
+   ],
+   "got_top1": "",
+   "top1": false,
+   "top5": false,
+   "rr": 0.0,
+   "error": "no_result",
+   "forbidden_hit": false
+  },
+  {
+   "id": "pos-024",
+   "intent": "更新时跳过乐观锁校验",
+   "expected": [
+    "AllInOneBaseDao#updateColumnsIgnoreVersion"
+   ],
+   "got_top1": "AgentAppService#check",
+   "top1": false,
+   "top5": false,
+   "rr": 0.0,
+   "error": "action_mismatch",
+   "forbidden_hit": false
+  },
+  {
+   "id": "pos-025",
+   "intent": "只查部分列避免 SELECT *",
+   "expected": [
+    "AllInOneBaseDao#selectListPropertiesByConditions"
+   ],
+   "got_top1": "",
+   "top1": false,
+   "top5": false,
+   "rr": 0.0,
+   "error": "no_result",
+   "forbidden_hit": false
+  },
+  {
+   "id": "pos-026",
+   "intent": "做聚合统计求和",
+   "expected": [
+    "AllInOneBaseDao#selectListFuncByComplexConditions"
+   ],
+   "got_top1": "",
+   "top1": false,
+   "top5": false,
+   "rr": 0.0,
+   "error": "no_result",
+   "forbidden_hit": false
+  },
+  {
+   "id": "pos-027",
+   "intent": "两张表做关联查询",
+   "expected": [
+    "BaseEntityCurdService#dynamicJoinSelect"
+   ],
+   "got_top1": "AppDraftAppService#select",
+   "top1": false,
+   "top5": false,
+   "rr": 0.0,
+   "error": "wrong_capability",
+   "forbidden_hit": false
+  },
+  {
+   "id": "pos-028",
+   "intent": "给并发操作加分布式锁",
+   "expected": [
+    "DistributedLockFactory#newLock"
+   ],
+   "got_top1": "",
+   "top1": false,
+   "top5": false,
+   "rr": 0.0,
+   "error": "no_result",
+   "forbidden_hit": false
+  },
+  {
+   "id": "pos-029",
+   "intent": "调用外部 HTTP 接口",
+   "expected": [
+    "HttpClientUtil#get"
+   ],
+   "got_top1": "AppServiceAsyncInvokeDto#",
+   "top1": false,
+   "top5": false,
+   "rr": 0.0,
+   "error": "wrong_capability",
+   "forbidden_hit": false
+  },
+  {
+   "id": "pos-030",
+   "intent": "跨服务调用没有接口 Class 的方法",
+   "expected": [
+    "AppServiceProxy#invokeAppService"
+   ],
+   "got_top1": "AppServiceAsyncInvokeDto#",
+   "top1": false,
+   "top5": false,
+   "rr": 0.0,
+   "error": "wrong_capability",
+   "forbidden_hit": false
+  },
+  {
+   "id": "pos-031",
+   "intent": "跨应用调用需要可靠投递",
+   "expected": [
+    "AppServiceProxy#reliableInvokeAppService"
+   ],
+   "got_top1": "AppServiceAsyncInvokeDto#",
+   "top1": false,
+   "top5": false,
+   "rr": 0.0,
+   "error": "wrong_capability",
+   "forbidden_hit": false
+  },
+  {
+   "id": "pos-032",
+   "intent": "拿到某个 AppService 的 Dubbo 代理",
+   "expected": [
+    "DubboFactory#getProxy"
+   ],
+   "got_top1": "AppServiceAsyncInvokeDto#",
+   "top1": false,
+   "top5": false,
+   "rr": 0.0,
+   "error": "wrong_capability",
+   "forbidden_hit": false
+  },
+  {
+   "id": "pos-033",
+   "intent": "从 Excel 导入实体数据",
+   "expected": [
+    "BaseEntityCurdService#importEntityInitData"
+   ],
+   "got_top1": "AffairEdocAppService#updateAffairImportance",
+   "top1": false,
+   "top5": false,
+   "rr": 0.0,
+   "error": "wrong_capability",
+   "forbidden_hit": false
+  },
+  {
+   "id": "pos-034",
+   "intent": "校验字段唯一性",
+   "expected": [
+    "BaseEntityCurdService#uniqueFieldCheck"
+   ],
+   "got_top1": "AgentAppService#check",
+   "top1": false,
+   "top5": false,
+   "rr": 0.0,
+   "error": "wrong_capability",
+   "forbidden_hit": false
+  },
+  {
+   "id": "pos-035",
+   "intent": "防止表单重复提交",
+   "expected": [
+    "@AntiReCommit"
+   ],
+   "got_top1": "BpmBatchAppService#submit",
+   "top1": false,
+   "top5": false,
+   "rr": 0.0,
+   "error": "wrong_capability",
+   "forbidden_hit": false
+  },
+  {
+   "id": "pos-036",
+   "intent": "给方法加幂等保护",
+   "expected": [
+    "@Idempotent"
+   ],
+   "got_top1": "",
+   "top1": false,
+   "top5": false,
+   "rr": 0.0,
+   "error": "no_result",
+   "forbidden_hit": false
+  },
+  {
+   "id": "pos-037",
+   "intent": "把雪花 ID 传给前端不丢精度",
+   "expected": [
+    "JsonUtils#toJsonLongToString"
+   ],
+   "got_top1": "",
+   "top1": false,
+   "top5": false,
+   "rr": 0.0,
+   "error": "no_result",
+   "forbidden_hit": false
+  },
+  {
+   "id": "pos-038",
+   "intent": "在单据创建前自动算默认值",
+   "expected": [
+    "BaseEntityCurdService#recursiveDefaultValue"
+   ],
+   "got_top1": "AgentAppService#create",
+   "top1": false,
+   "top5": false,
+   "rr": 0.0,
+   "error": "wrong_capability",
+   "forbidden_hit": false
+  },
+  {
+   "id": "pos-039",
+   "intent": "自定义一个表达式函数",
+   "expected": [
+    "@FunctionClass"
+   ],
+   "got_top1": "Caller#",
+   "top1": false,
+   "top5": false,
+   "rr": 0.0,
+   "error": "wrong_capability",
+   "forbidden_hit": false
+  },
+  {
+   "id": "pos-040",
+   "intent": "给平台加一个自定义代码生成任务",
+   "expected": [
+    "PluginDefinition#getCodeTasks"
+   ],
+   "got_top1": "",
+   "top1": false,
+   "top5": false,
+   "rr": 0.0,
+   "error": "no_result",
+   "forbidden_hit": false
+  }
+ ]
+}

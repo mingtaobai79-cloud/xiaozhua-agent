@@ -849,13 +849,12 @@
 | 表名 | 注释 | 出现在几个类 |
 |---|---|---:|
 | `cip_mobile_corp` | 移动插件企业表 | 4 |
-| `cip_sync_duty` | 组织同步职务中间表 | 4 |
-| `cip_sync_level` | 组织同步职级中间表 | 4 |
-| `cip_sync_member` | 组织同步人员中间表 | 4 |
-| `cip_sync_post` | 组织同步岗位中间表 | 4 |
 | `cip_sync_result` | 中间表同步日志表 | 4 |
-| `cip_sync_unit` | 组织同步组织中间表 | 4 |
-| `cip_user_mapping_detail` | 用户映射具体配置信息表 | 3 |
+| `cip_sync_duty` | 组织同步职务中间表 | 3 |
+| `cip_sync_level` | 组织同步职级中间表 | 3 |
+| `cip_sync_member` | 组织同步人员中间表 | 3 |
+| `cip_sync_post` | 组织同步岗位中间表 | 3 |
+| `cip_sync_unit` | 组织同步组织中间表 | 3 |
 | `org_job` | 职务 | 3 |
 | `org_level` | 职级 | 3 |
 | `cip_custom_app` | 集成应用信息表 | 2 |
@@ -896,6 +895,7 @@
 | `cip_sync_post_view` | 组织同步岗位中间表_查询 | 2 |
 | `cip_sync_unit_view` | 组织同步组织中间表_查询 | 2 |
 | `cip_user_mapping_column` | 用户映射的列信息 | 2 |
+| `cip_user_mapping_detail` | 用户映射具体配置信息表 | 2 |
 | `cip_user_mapping_value` | 用户映射的值信息 | 2 |
 | `cip_warning_log` | 集成预警信息表 | 2 |
 | `cip_ability_dingtalk_link` | 钉钉消息链接表 | 1 |
@@ -932,81 +932,6 @@
 | `cip_todo_config` | 待办/消息配置详情表 | 1 |
 | `cip_user_sso_info` | 单点登录信息 | 1 |
 | `ctp_user` | 用户 | 1 |
-
-## REST 路由
-
-> 证据：`javap -v` 读 Controller 字节码里的 `@RequestMapping`/`@PostMapping` 注解值。
-> 等级 `VERIFIED_STATIC_BYTECODE`（注解值是常量，非推断）。
-
-**拼法**（端口/前缀按环境配置，以下为通用形）：
-
-```
-POST /service/{类级路径}/{方法级路径}
-      ↑ 类级路径的第一段就是应用 code（organization / bpm / udc …），不要再加一层
-  例：POST /service/udc/runtime/deploy-normal
-      = DeployController 类级 `udc/runtime` + 方法级 `deploy-normal`（线上实测过）
-```
-
-控制器 **33** 个、路由 **368** 条（来源：`cip-connector-web`）。
-
-> `{id}`、`ids` 这类方法级路径不带类级前缀，拼时必须补上。
-> 完整清单（含 java 方法名）：`docs/audit/artifacts/rest/ROUTES-cip-provider.md`
-
-| Controller | 类级路径 | 路由 |
-|---|---|---:|
-| `LinkerController` | `cip-connector/connector-info` | 67 |
-| `LinkerUserMappingController` | `cip-connector/connector/mapping` | 38 |
-| `PluginCapabilityController` | `cip-connector/plug/capability` | 28 |
-| `MobileApplicationController` | `cip-connector/mobile` | 18 |
-| `OrgSyncDesignController` | `cip-connector/plug/org-sync-design` | 16 |
-| `CipApplicationController` | `cip-connector/custom-app` | 14 |
-| `MobileController` | `cip-connector/mobile` | 14 |
-| `PluginDataCheckController` | `cip-connector/plug/data-check` | 12 |
-| `CipBaseConfigController` | `cip-connector/base-config` | 12 |
-| `AppRegisterController` | `cip-connector/connector/appreg` | 12 |
-| `MobileAppletController` | `cip-connector/mobile` | 11 |
-| `CipConnectorApiController` | `cip-connector/apitest` | 11 |
-| `MiddleTableViewController` | `cip-connector/plug/midview` | 9 |
-| `MobileOrgSyncController` | `cip-connector/mobile` | 8 |
-| `MiddleTableController` | `cip-connector/plug/middletable` | 8 |
-| `LinkerClassifyController` | `cip-connector/connector-classify` | 8 |
-| `LinkerSsoController` | `cip-connector/connector/sso` | 8 |
-| `LinkerEnumController` | `cip-connector/connector-enum` | 8 |
-| `OrgSyncRunningController` | `cip-connector/plug/org-sync-running` | 7 |
-| `CipWarningController` | `cip-connector/warning` | 6 |
-| `TodoRedirectController` | `cip-connector/plug/redirect-url` | 6 |
-| `PluginInfoController` | `cip-connector/plug/basic` | 6 |
-| `ConnectorCallbackController` | `cip-connector/base/callback` | 6 |
-| `AuthController` | `cip-connector/connector-auth` | 6 |
-| `LinkerMetadataController` | `cip-connector/connector-metadata` | 6 |
-| `CipMenuManageController` | `cip-connector/application/menu` | 5 |
-| `CipTemplateController` | `cip-connector/third/template` | 5 |
-| `MobileTestController` | `cip-connector/mobile` | 4 |
-| `MobileCallbackController` | `cip-connector/mobile/auth` | 2 |
-| `FileApiController` | `cip-connector/apitest/file` | 2 |
-| `CallbackController` | `cip-connector/call-back` | 2 |
-| `CipMigrationController` | `cip-manager/migration` | 2 |
-| `MobileUserMappingController` | `cip-connector/mobile/usermapping` | 1 |
-
-前 15 条（其余见明细）：
-
-| 方法 | 全路径 |
-|---|---|
-| `GetMapping` | `/service/cip-connector/apitest//callback/get-url` |
-| `GetMapping` | `/service/cip-connector/apitest//ocip/ocipConfig` |
-| `PostMapping` | `/service/cip-connector/apitest//ocip/check` |
-| `PostMapping` | `/service/cip-connector/apitest//ocip/doc/async` |
-| `PostMapping` | `/service/cip-connector/apitest//ocip/doc/sync` |
-| `PostMapping` | `/service/cip-connector/apitest//ocip/user/sk` |
-| `PostMapping` | `/service/cip-connector/apitest//ocip/user/body` |
-| `PostMapping` | `/service/cip-connector/apitest//ocip/data/transfer` |
-| `PostMapping` | `/service/cip-connector/apitest//ocip/sk/delete` |
-| `PostMapping` | `/service/cip-connector/apitest//ocip/log/list` |
-| `PostMapping` | `/service/cip-connector/apitest//org-sync/middle-table/clear/test` |
-| `PostMapping` | `/service/cip-connector/apitest/file//upload` |
-| `PostMapping` | `/service/cip-connector/apitest/file//get` |
-| `PostMapping` | `/service/cip-connector/connector/appreg//add` |
-| `PostMapping` | `/service/cip-connector/connector/appreg//modify` |
 
 ## 证据与自证
 

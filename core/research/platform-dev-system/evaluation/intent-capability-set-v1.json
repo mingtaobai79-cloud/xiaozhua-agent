@@ -1,0 +1,1515 @@
+{
+ "meta": {
+  "version": "1.0",
+  "created": "2026-11-17",
+  "platform": "udc-platform-5.3.517",
+  "purpose": "业务意图 → 平台能力 检索评估集",
+  "rules": [
+   "评估对象是业务能力（expected_capability），不是方法名",
+   "歧义样本的正确结果可以是要求澄清",
+   "forbidden 里的模式不允许出现在 Top-5",
+   "每条必须能追溯到 research 文档的证据"
+  ],
+  "metrics": [
+   "Top-1 Precision",
+   "Top-5 Precision",
+   "Recall@5",
+   "MRR",
+   "拒答/澄清准确率",
+   "错误类型分布"
+  ]
+ },
+ "positive": [
+  {
+   "id": "pos-001",
+   "intent": "下载附件",
+   "expected_capability": "attachment_download",
+   "expected_top1": [
+    "FileAppService#getDownloadUrl"
+   ],
+   "acceptable_top5": [
+    "FileAppService#getDownloadUrl",
+    "FileAppService#getBackendDownloadUrl"
+   ],
+   "forbidden": [
+    "*delete*",
+    "*remove*",
+    "*clean*"
+   ],
+   "evidence": "06-components.md §3.4",
+   "note": "★ R1 回归用例（历史上曾命中删除方法）"
+  },
+  {
+   "id": "pos-002",
+   "intent": "上传附件并登记到实体",
+   "expected_capability": "attachment_upload",
+   "expected_top1": [
+    "FileAppService#saveFileInfo"
+   ],
+   "acceptable_top5": [
+    "FileAppService#saveFileInfo",
+    "FileAppService#saveFileInfos",
+    "StorageService#upload"
+   ],
+   "forbidden": [
+    "*delete*"
+   ],
+   "evidence": "06-components.md §3.4"
+  },
+  {
+   "id": "pos-003",
+   "intent": "大文件分片上传",
+   "expected_capability": "attachment_multipart_upload",
+   "expected_top1": [
+    "StorageService#partUploadInit"
+   ],
+   "acceptable_top5": [
+    "StorageService#partUploadInit",
+    "StorageService#partUpload",
+    "StorageService#partUploadEnd"
+   ],
+   "forbidden": [],
+   "evidence": "06-components.md §3.2"
+  },
+  {
+   "id": "pos-004",
+   "intent": "取附件缩略图",
+   "expected_capability": "attachment_thumbnail",
+   "expected_top1": [
+    "FileAppService#getThumbnailUrl"
+   ],
+   "acceptable_top5": [
+    "FileAppService#getThumbnailUrl",
+    "FileAppService#getThumbnailUrls"
+   ],
+   "forbidden": [],
+   "evidence": "06-components.md §3.4"
+  },
+  {
+   "id": "pos-005",
+   "intent": "按 ID 查人员信息",
+   "expected_capability": "org_member_query",
+   "expected_top1": [
+    "OrgCommonAppService#selectMemberInfoById"
+   ],
+   "acceptable_top5": [
+    "OrgCommonAppService#selectMemberInfoById",
+    "OrgCommonAppService#selectMemberDepartmentInfoById"
+   ],
+   "forbidden": [
+    "*delete*",
+    "*create*"
+   ],
+   "evidence": "06-components.md §4.1"
+  },
+  {
+   "id": "pos-006",
+   "intent": "查人员的多维组织信息",
+   "expected_capability": "org_member_multidim",
+   "expected_top1": [
+    "OrgCommonAppService#selectMemberMultiDimOrgInfo"
+   ],
+   "acceptable_top5": [
+    "OrgCommonAppService#selectMemberMultiDimOrgInfo"
+   ],
+   "forbidden": [],
+   "evidence": "06-components.md §4.1"
+  },
+  {
+   "id": "pos-007",
+   "intent": "主子表一起保存",
+   "expected_capability": "aggregate_create",
+   "expected_top1": [
+    "BaseEntityCurdService#recursiveCreate"
+   ],
+   "acceptable_top5": [
+    "BaseEntityCurdService#recursiveCreate",
+    "BaseEntityCurdService#create"
+   ],
+   "forbidden": [
+    "*select*",
+    "*delete*"
+   ],
+   "evidence": "03-persistence.md §8.0.1"
+  },
+  {
+   "id": "pos-008",
+   "intent": "查询主子表完整数据",
+   "expected_capability": "aggregate_query",
+   "expected_top1": [
+    "BaseEntityCurdService#selectCascadeById"
+   ],
+   "acceptable_top5": [
+    "BaseEntityCurdService#selectCascadeById",
+    "BaseEntityCurdService#selectCascadeByIds"
+   ],
+   "forbidden": [
+    "*create*",
+    "*update*"
+   ],
+   "evidence": "03-persistence.md §8.0.2"
+  },
+  {
+   "id": "pos-009",
+   "intent": "删除主子表整条记录",
+   "expected_capability": "aggregate_delete",
+   "expected_top1": [
+    "BaseEntityCurdService#recursiveDelete"
+   ],
+   "acceptable_top5": [
+    "BaseEntityCurdService#recursiveDelete",
+    "BaseEntityCurdService#deleteById"
+   ],
+   "forbidden": [
+    "*select*"
+   ],
+   "evidence": "03-persistence.md §8.0.1"
+  },
+  {
+   "id": "pos-010",
+   "intent": "按父节点查子节点",
+   "expected_capability": "tree_children_query",
+   "expected_top1": [
+    "BaseCurdService#selectByParentId"
+   ],
+   "acceptable_top5": [
+    "BaseCurdService#selectByParentId",
+    "BaseCurdService#selectByParentIds"
+   ],
+   "forbidden": [],
+   "evidence": "03-persistence.md §8.0.6"
+  },
+  {
+   "id": "pos-011",
+   "intent": "创建单据并走审批流程",
+   "expected_capability": "bill_create_bpm",
+   "expected_top1": [
+    "BaseEntityCurdService#create4Bpm"
+   ],
+   "acceptable_top5": [
+    "BaseEntityCurdService#create4Bpm",
+    "BpmAppService#send"
+   ],
+   "forbidden": [
+    "*select*"
+   ],
+   "evidence": "03-persistence.md §8.0.4"
+  },
+  {
+   "id": "pos-012",
+   "intent": "保存单据草稿",
+   "expected_capability": "bill_save_draft",
+   "expected_top1": [
+    "BpmAppService#saveDraft"
+   ],
+   "acceptable_top5": [
+    "BpmAppService#saveDraft"
+   ],
+   "forbidden": [
+    "BpmAppService#send",
+    "BpmAppService#submit"
+   ],
+   "evidence": "06-components.md §7.5.1"
+  },
+  {
+   "id": "pos-013",
+   "intent": "提交草稿进入流程",
+   "expected_capability": "bill_submit",
+   "expected_top1": [
+    "BpmAppService#submit"
+   ],
+   "acceptable_top5": [
+    "BpmAppService#submit"
+   ],
+   "forbidden": [
+    "BpmAppService#saveDraft"
+   ],
+   "evidence": "06-components.md §7.5.1"
+  },
+  {
+   "id": "pos-014",
+   "intent": "撤回已提交的单据",
+   "expected_capability": "bill_takeback",
+   "expected_top1": [
+    "BpmAppService#takeBack"
+   ],
+   "acceptable_top5": [
+    "BpmAppService#takeBack",
+    "BpmAppService#repeal"
+   ],
+   "forbidden": [
+    "*delete*"
+   ],
+   "evidence": "06-components.md §7.5.2"
+  },
+  {
+   "id": "pos-015",
+   "intent": "作废单据",
+   "expected_capability": "bill_nullify",
+   "expected_top1": [
+    "BpmAppService#stop"
+   ],
+   "acceptable_top5": [
+    "BpmAppService#stop",
+    "nullify"
+   ],
+   "forbidden": [
+    "*deleteById*"
+   ],
+   "evidence": "udc-biz-5.3.517/resources/feature/nullify/config.json（nullify=作废特性，非方法）+ 06-components.md §7.5.2",
+   "note": "单据作废走 BusinessEvent/特性，无独立 nullify 方法；stop 是终止流程"
+  },
+  {
+   "id": "pos-016",
+   "intent": "在代码里主动执行一个表达式",
+   "expected_capability": "expression_evaluate",
+   "expected_top1": [
+    "ExpressionEvaluator#eval"
+   ],
+   "acceptable_top5": [
+    "ExpressionEvaluator#eval"
+   ],
+   "forbidden": [
+    "ExpressionAppService#transform"
+   ],
+   "evidence": "04-expression.md §5.1",
+   "note": "transform 是编译，eval 是执行"
+  },
+  {
+   "id": "pos-017",
+   "intent": "把设计态表达式编译成可执行形式",
+   "expected_capability": "expression_transform",
+   "expected_top1": [
+    "ExpressionAppService#transform"
+   ],
+   "acceptable_top5": [
+    "ExpressionAppService#transform",
+    "ExpressionCodeGenerator#generateCode"
+   ],
+   "forbidden": [
+    "ExpressionEvaluator#eval"
+   ],
+   "evidence": "04-expression.md §3.3"
+  },
+  {
+   "id": "pos-018",
+   "intent": "校验表达式是否合法",
+   "expected_capability": "expression_check",
+   "expected_top1": [
+    "ExpressionAppService#check"
+   ],
+   "acceptable_top5": [
+    "ExpressionAppService#check"
+   ],
+   "forbidden": [
+    "*eval*"
+   ],
+   "evidence": "04-expression.md §3.3"
+  },
+  {
+   "id": "pos-019",
+   "intent": "取系统变量的当前值",
+   "expected_capability": "system_variable_value",
+   "expected_top1": [
+    "ExpressionAppService#getSystemVariableResult"
+   ],
+   "acceptable_top5": [
+    "ExpressionAppService#getSystemVariableResult",
+    "ExpressionAppService#getSystemVariableResultBySystemFunctionName"
+   ],
+   "forbidden": [],
+   "evidence": "04-expression.md §3.3"
+  },
+  {
+   "id": "pos-020",
+   "intent": "分页查询实体列表",
+   "expected_capability": "entity_page_query",
+   "expected_top1": [
+    "AllInOneBaseDao#selectPageByConditions"
+   ],
+   "acceptable_top5": [
+    "AllInOneBaseDao#selectPageByConditions",
+    "BaseCurdService#selectPageByConditions"
+   ],
+   "forbidden": [
+    "*selectListFunc*"
+   ],
+   "evidence": "03-persistence.md §3.5"
+  },
+  {
+   "id": "pos-021",
+   "intent": "分页查询但不需要总条数",
+   "expected_capability": "entity_page_no_count",
+   "expected_top1": [
+    "PageInfo#setNeedTotal"
+   ],
+   "acceptable_top5": [
+    "PageInfo#setNeedTotal",
+    "PageInfo#setNeedMore",
+    "AllInOneBaseDao#selectPageByConditions"
+   ],
+   "forbidden": [],
+   "evidence": "03-persistence.md §3.5 + §10A.2",
+   "note": "★ 用户踩过的「604 次全量 COUNT」"
+  },
+  {
+   "id": "pos-022",
+   "intent": "批量插入数据",
+   "expected_capability": "entity_batch_create",
+   "expected_top1": [
+    "AllInOneBaseDao#createBatch"
+   ],
+   "acceptable_top5": [
+    "AllInOneBaseDao#createBatch",
+    "BaseEntityCurdService#createBatch"
+   ],
+   "forbidden": [
+    "*update*"
+   ],
+   "evidence": "03-persistence.md §3.1"
+  },
+  {
+   "id": "pos-023",
+   "intent": "只更新某几个字段",
+   "expected_capability": "entity_update_columns",
+   "expected_top1": [
+    "AllInOneBaseDao#updateColumns"
+   ],
+   "acceptable_top5": [
+    "AllInOneBaseDao#updateColumns",
+    "AllInOneBaseDao#updateColumnsIgnoreVersion"
+   ],
+   "forbidden": [
+    "*create*"
+   ],
+   "evidence": "03-persistence.md §3.1"
+  },
+  {
+   "id": "pos-024",
+   "intent": "更新时跳过乐观锁校验",
+   "expected_capability": "entity_update_ignore_version",
+   "expected_top1": [
+    "AllInOneBaseDao#updateColumnsIgnoreVersion"
+   ],
+   "acceptable_top5": [
+    "AllInOneBaseDao#updateColumnsIgnoreVersion",
+    "AllInOneBaseDao#versionNoUpdateIgnoreVersion"
+   ],
+   "forbidden": [],
+   "evidence": "03-persistence.md §3.1"
+  },
+  {
+   "id": "pos-025",
+   "intent": "只查部分列避免 SELECT *",
+   "expected_capability": "entity_column_projection",
+   "expected_top1": [
+    "AllInOneBaseDao#selectListPropertiesByConditions"
+   ],
+   "acceptable_top5": [
+    "AllInOneBaseDao#selectListPropertiesByConditions",
+    "AllInOneBaseDao#selectListExcludeByConditions"
+   ],
+   "forbidden": [],
+   "evidence": "03-persistence.md §3.4"
+  },
+  {
+   "id": "pos-026",
+   "intent": "做聚合统计求和",
+   "expected_capability": "entity_aggregate_func",
+   "expected_top1": [
+    "AllInOneBaseDao#selectListFuncByComplexConditions"
+   ],
+   "acceptable_top5": [
+    "AllInOneBaseDao#selectListFuncByComplexConditions",
+    "AllInOneBaseDao#selectListFuncByDynamicConditions"
+   ],
+   "forbidden": [
+    "*selectPage*"
+   ],
+   "evidence": "03-persistence.md §3.6"
+  },
+  {
+   "id": "pos-027",
+   "intent": "两张表做关联查询",
+   "expected_capability": "entity_join_query",
+   "expected_top1": [
+    "BaseEntityCurdService#dynamicJoinSelect"
+   ],
+   "acceptable_top5": [
+    "BaseEntityCurdService#dynamicJoinSelect",
+    "BaseEntityCurdService#dynamicCountJoinSelect"
+   ],
+   "forbidden": [],
+   "evidence": "03-persistence.md §8.0.3"
+  },
+  {
+   "id": "pos-028",
+   "intent": "给并发操作加分布式锁",
+   "expected_capability": "distributed_lock",
+   "expected_top1": [
+    "DistributedLockFactory#newLock"
+   ],
+   "acceptable_top5": [
+    "DistributedLockFactory#newLock",
+    "DistributedLockFactory#newLockIgnoreTenant"
+   ],
+   "forbidden": [
+    "*synchronized*"
+   ],
+   "evidence": "06-components.md §6.1"
+  },
+  {
+   "id": "pos-029",
+   "intent": "调用外部 HTTP 接口",
+   "expected_capability": "http_call",
+   "expected_top1": [
+    "HttpClientUtil#get"
+   ],
+   "acceptable_top5": [
+    "HttpClientUtil#get",
+    "HttpClientUtil#post"
+   ],
+   "forbidden": [],
+   "evidence": "06-components.md §5.1"
+  },
+  {
+   "id": "pos-030",
+   "intent": "跨服务调用没有接口 Class 的方法",
+   "expected_capability": "generic_invoke",
+   "expected_top1": [
+    "AppServiceProxy#invokeAppService"
+   ],
+   "acceptable_top5": [
+    "AppServiceProxy#invokeAppService",
+    "AppServiceProxy#invokeAppServiceForList"
+   ],
+   "forbidden": [],
+   "evidence": "05-interface-integration.md §4.2"
+  },
+  {
+   "id": "pos-031",
+   "intent": "跨应用调用需要可靠投递",
+   "expected_capability": "reliable_invoke",
+   "expected_top1": [
+    "AppServiceProxy#reliableInvokeAppService"
+   ],
+   "acceptable_top5": [
+    "AppServiceProxy#reliableInvokeAppService",
+    "AppServiceReliableInvoker#compensateReliableInvoke"
+   ],
+   "forbidden": [],
+   "evidence": "05-interface-integration.md §4.2.2"
+  },
+  {
+   "id": "pos-032",
+   "intent": "拿到某个 AppService 的 Dubbo 代理",
+   "expected_capability": "dubbo_proxy",
+   "expected_top1": [
+    "DubboFactory#getProxy"
+   ],
+   "acceptable_top5": [
+    "DubboFactory#getProxy"
+   ],
+   "forbidden": [],
+   "evidence": "05-interface-integration.md §4.1"
+  },
+  {
+   "id": "pos-033",
+   "intent": "从 Excel 导入实体数据",
+   "expected_capability": "entity_excel_import",
+   "expected_top1": [
+    "BaseEntityCurdService#importEntityInitData"
+   ],
+   "acceptable_top5": [
+    "BaseEntityCurdService#importEntityInitData",
+    "ExcelTemplateUtil"
+   ],
+   "forbidden": [],
+   "evidence": "03-persistence.md §8.0.5"
+  },
+  {
+   "id": "pos-034",
+   "intent": "校验字段唯一性",
+   "expected_capability": "unique_check",
+   "expected_top1": [
+    "BaseEntityCurdService#uniqueFieldCheck"
+   ],
+   "acceptable_top5": [
+    "BaseEntityCurdService#uniqueFieldCheck"
+   ],
+   "forbidden": [],
+   "evidence": "03-persistence.md §8.0.5"
+  },
+  {
+   "id": "pos-035",
+   "intent": "防止表单重复提交",
+   "expected_capability": "anti_recommit",
+   "expected_top1": [
+    "@AntiReCommit"
+   ],
+   "acceptable_top5": [
+    "@AntiReCommit",
+    "@Idempotent"
+   ],
+   "forbidden": [],
+   "evidence": "03-persistence.md §10A.1"
+  },
+  {
+   "id": "pos-036",
+   "intent": "给方法加幂等保护",
+   "expected_capability": "idempotent",
+   "expected_top1": [
+    "@Idempotent"
+   ],
+   "acceptable_top5": [
+    "@Idempotent",
+    "@AntiReCommit"
+   ],
+   "forbidden": [],
+   "evidence": "03-persistence.md §10A.1"
+  },
+  {
+   "id": "pos-037",
+   "intent": "把雪花 ID 传给前端不丢精度",
+   "expected_capability": "long_to_string_json",
+   "expected_top1": [
+    "JsonUtils#toJsonLongToString"
+   ],
+   "acceptable_top5": [
+    "JsonUtils#toJsonLongToString"
+   ],
+   "forbidden": [
+    "JsonUtils#toJson"
+   ],
+   "evidence": "06-components.md §7.1.2"
+  },
+  {
+   "id": "pos-038",
+   "intent": "在单据创建前自动算默认值",
+   "expected_capability": "default_value_expression",
+   "expected_top1": [
+    "BaseEntityCurdService#recursiveDefaultValue"
+   ],
+   "acceptable_top5": [
+    "BaseEntityCurdService#recursiveDefaultValue",
+    "ExpressionEvaluator#eval"
+   ],
+   "forbidden": [],
+   "evidence": "03-persistence.md §8.0.1"
+  },
+  {
+   "id": "pos-039",
+   "intent": "自定义一个表达式函数",
+   "expected_capability": "custom_expression_function",
+   "expected_top1": [
+    "@FunctionClass"
+   ],
+   "acceptable_top5": [
+    "@FunctionClass",
+    "@Function"
+   ],
+   "forbidden": [],
+   "evidence": "04-expression.md §4.0"
+  },
+  {
+   "id": "pos-040",
+   "intent": "给平台加一个自定义代码生成任务",
+   "expected_capability": "custom_code_task",
+   "expected_top1": [
+    "PluginDefinition#getCodeTasks"
+   ],
+   "acceptable_top5": [
+    "PluginDefinition#getCodeTasks",
+    "CodeTask#code"
+   ],
+   "forbidden": [],
+   "evidence": "02-codegen.md §2.3"
+  }
+ ],
+ "synonym": [
+  {
+   "id": "syn-001",
+   "capability": "org_member_query",
+   "expected_top1": [
+    "OrgCommonAppService#selectMemberInfoById"
+   ],
+   "utterances": [
+    "找人",
+    "按部门查用户",
+    "取人员列表",
+    "这个部门有哪些人",
+    "查询员工信息",
+    "获取成员"
+   ],
+   "evidence": "06-components.md §4.1"
+  },
+  {
+   "id": "syn-002",
+   "capability": "entity_page_query",
+   "expected_top1": [
+    "AllInOneBaseDao#selectPageByConditions"
+   ],
+   "utterances": [
+    "分页拿数据",
+    "一页一页取",
+    "取第 N 页",
+    "翻页查询",
+    "限制条数查询",
+    "分批拉数据"
+   ],
+   "evidence": "03-persistence.md §3.5"
+  },
+  {
+   "id": "syn-003",
+   "capability": "attachment_download",
+   "expected_top1": [
+    "FileAppService#getDownloadUrl"
+   ],
+   "utterances": [
+    "取附件链接",
+    "获取文件下载地址",
+    "拿文件 URL",
+    "下载这个附件",
+    "附件怎么取下来"
+   ],
+   "forbidden": [
+    "*delete*"
+   ],
+   "evidence": "06-components.md §3.4"
+  },
+  {
+   "id": "syn-004",
+   "capability": "aggregate_create",
+   "expected_top1": [
+    "BaseEntityCurdService#recursiveCreate"
+   ],
+   "utterances": [
+    "主表和明细一起存",
+    "主子表一次性落库",
+    "订单带明细保存",
+    "连子表一起新增",
+    "聚合保存"
+   ],
+   "evidence": "03-persistence.md §8.0.1"
+  },
+  {
+   "id": "syn-005",
+   "capability": "bill_create_bpm",
+   "expected_top1": [
+    "BaseEntityCurdService#create4Bpm"
+   ],
+   "utterances": [
+    "发起一个单据",
+    "起流程",
+    "提一个申请单",
+    "建单走审批",
+    "开一张单据"
+   ],
+   "evidence": "03-persistence.md §8.0.4"
+  },
+  {
+   "id": "syn-006",
+   "capability": "expression_evaluate",
+   "expected_top1": [
+    "ExpressionEvaluator#eval"
+   ],
+   "utterances": [
+    "算一下这个公式",
+    "执行表达式",
+    "把表达式跑一遍",
+    "求这个表达式的值",
+    "动态计算字段"
+   ],
+   "evidence": "04-expression.md §5.1"
+  },
+  {
+   "id": "syn-007",
+   "capability": "distributed_lock",
+   "expected_top1": [
+    "DistributedLockFactory#newLock"
+   ],
+   "utterances": [
+    "加个分布式锁",
+    "防止并发冲突",
+    "锁住这条记录",
+    "并发控制",
+    "互斥执行"
+   ],
+   "evidence": "06-components.md §6.1"
+  },
+  {
+   "id": "syn-008",
+   "capability": "entity_join_query",
+   "expected_top1": [
+    "BaseEntityCurdService#dynamicJoinSelect"
+   ],
+   "utterances": [
+    "连表查",
+    "两张表一起查",
+    "关联查询",
+    "join 一下",
+    "把主表和子表一起捞出来"
+   ],
+   "evidence": "03-persistence.md §8.0.3"
+  },
+  {
+   "id": "syn-009",
+   "capability": "entity_page_no_count",
+   "expected_top1": [
+    "PageInfo#setNeedTotal"
+   ],
+   "utterances": [
+    "不用查总数",
+    "别 count 了",
+    "只要列表不要总数",
+    "跳过总数统计",
+    "省掉 count 查询"
+   ],
+   "evidence": "03-persistence.md §3.5"
+  },
+  {
+   "id": "syn-010",
+   "capability": "entity_batch_create",
+   "expected_top1": [
+    "AllInOneBaseDao#createBatch"
+   ],
+   "utterances": [
+    "一次性插多条",
+    "批量入库",
+    "循环插入太慢",
+    "批量新增",
+    "bulk insert"
+   ],
+   "evidence": "03-persistence.md §3.1"
+  },
+  {
+   "id": "syn-011",
+   "capability": "org_member_multidim",
+   "expected_top1": [
+    "OrgCommonAppService#selectMemberMultiDimOrgInfo"
+   ],
+   "utterances": [
+    "一个人多个岗位",
+    "兼职信息",
+    "多维组织",
+    "主岗副岗",
+    "跨部门任职"
+   ],
+   "evidence": "06-components.md §4.1"
+  },
+  {
+   "id": "syn-012",
+   "capability": "tree_children_query",
+   "expected_top1": [
+    "BaseCurdService#selectByParentId"
+   ],
+   "utterances": [
+    "查下级",
+    "取子节点",
+    "树形展开",
+    "找所有子级",
+    "按上级查"
+   ],
+   "evidence": "03-persistence.md §8.0.6"
+  },
+  {
+   "id": "syn-013",
+   "capability": "attachment_upload",
+   "expected_top1": [
+    "FileAppService#saveFileInfo"
+   ],
+   "utterances": [
+    "传个文件",
+    "上传附件",
+    "把文件存起来",
+    "登记文件",
+    "存一份附件"
+   ],
+   "forbidden": [
+    "*delete*"
+   ],
+   "evidence": "06-components.md §3.4",
+   "note": "★ R2 回归用例（历史上曾命中无关 AppService）"
+  },
+  {
+   "id": "syn-014",
+   "capability": "bill_submit",
+   "expected_top1": [
+    "BpmAppService#submit"
+   ],
+   "utterances": [
+    "把草稿交上去",
+    "提交审批",
+    "送审",
+    "提交单据",
+    "发起审批"
+   ],
+   "forbidden": [
+    "BpmAppService#saveDraft"
+   ],
+   "evidence": "06-components.md §7.5.1"
+  },
+  {
+   "id": "syn-015",
+   "capability": "generic_invoke",
+   "expected_top1": [
+    "AppServiceProxy#invokeAppService"
+   ],
+   "utterances": [
+    "没有接口怎么调",
+    "动态调服务",
+    "按名字调方法",
+    "反射调用服务",
+    "不知道 Class 怎么调"
+   ],
+   "evidence": "05-interface-integration.md §4.2"
+  },
+  {
+   "id": "syn-016",
+   "capability": "http_call",
+   "expected_top1": [
+    "HttpClientUtil#get"
+   ],
+   "utterances": [
+    "调第三方接口",
+    "发 HTTP 请求",
+    "请求外部系统",
+    "调别人的 API",
+    "curl 一下"
+   ],
+   "evidence": "06-components.md §5.1"
+  },
+  {
+   "id": "syn-017",
+   "capability": "entity_update_columns",
+   "expected_top1": [
+    "AllInOneBaseDao#updateColumns"
+   ],
+   "utterances": [
+    "只改一个字段",
+    "局部更新",
+    "别全量更新",
+    "改某几列",
+    "只更新状态字段"
+   ],
+   "evidence": "03-persistence.md §3.1"
+  },
+  {
+   "id": "syn-018",
+   "capability": "entity_column_projection",
+   "expected_top1": [
+    "AllInOneBaseDao#selectListPropertiesByConditions"
+   ],
+   "utterances": [
+    "别 select *",
+    "只取需要的列",
+    "少查点字段",
+    "列裁剪",
+    "只捞两个字段"
+   ],
+   "evidence": "03-persistence.md §3.4"
+  },
+  {
+   "id": "syn-019",
+   "capability": "entity_aggregate_func",
+   "expected_top1": [
+    "AllInOneBaseDao#selectListFuncByComplexConditions"
+   ],
+   "utterances": [
+    "求和",
+    "统计总数",
+    "算平均值",
+    "count 一下",
+    "聚合查询"
+   ],
+   "forbidden": [
+    "*selectPage*"
+   ],
+   "evidence": "03-persistence.md §3.6"
+  },
+  {
+   "id": "syn-020",
+   "capability": "expression_transform",
+   "expected_top1": [
+    "ExpressionAppService#transform"
+   ],
+   "utterances": [
+    "把表达式编译一下",
+    "转成可执行形式",
+    "表达式转代码",
+    "生成 executableExpr",
+    "解析表达式"
+   ],
+   "evidence": "04-expression.md §3.3"
+  },
+  {
+   "id": "syn-021",
+   "capability": "entity_excel_import",
+   "expected_top1": [
+    "BaseEntityCurdService#importEntityInitData"
+   ],
+   "utterances": [
+    "导 Excel",
+    "从表格导入数据",
+    "批量导入",
+    "Excel 灌数据",
+    "把表里的数据读进来"
+   ],
+   "evidence": "03-persistence.md §8.0.5"
+  },
+  {
+   "id": "syn-022",
+   "capability": "anti_recommit",
+   "expected_top1": [
+    "@AntiReCommit"
+   ],
+   "utterances": [
+    "防止重复点击",
+    "表单提交两次",
+    "重复提交",
+    "点了两下",
+    "防抖"
+   ],
+   "evidence": "03-persistence.md §10A.1"
+  }
+ ],
+ "negative": [
+  {
+   "id": "neg-001",
+   "intent": "下载附件",
+   "forbidden": [
+    "*delete*",
+    "*remove*",
+    "*clean*",
+    "StorageService#delete"
+   ],
+   "reason": "★ R1：历史上曾命中删除方法",
+   "evidence": "用户实际错误"
+  },
+  {
+   "id": "neg-002",
+   "intent": "上传附件",
+   "forbidden": [
+    "CtpUserAppService",
+    "*delete*",
+    "*query*"
+   ],
+   "reason": "★ R2：历史上曾命中无关 AppService",
+   "evidence": "用户实际错误"
+  },
+  {
+   "id": "neg-003",
+   "intent": "按 ID 查人员信息",
+   "forbidden": [
+    "*delete*",
+    "*create*",
+    "*update*"
+   ],
+   "reason": "读写动词混淆",
+   "evidence": "06-components.md §4.1"
+  },
+  {
+   "id": "neg-004",
+   "intent": "主子表一起保存",
+   "forbidden": [
+    "*selectCascade*",
+    "*select*"
+   ],
+   "reason": "读操作 vs 写操作",
+   "evidence": "03-persistence.md §8.0.2"
+  },
+  {
+   "id": "neg-005",
+   "intent": "分页查询实体列表",
+   "forbidden": [
+    "*selectListFunc*"
+   ],
+   "reason": "聚合统计 vs 分页查询",
+   "evidence": "03-persistence.md §3.6"
+  },
+  {
+   "id": "neg-006",
+   "intent": "在代码里主动执行表达式",
+   "forbidden": [
+    "ExpressionAppService#transform",
+    "ExpressionAppService#check"
+   ],
+   "reason": "编译/校验 vs 执行",
+   "evidence": "04-expression.md §5.3"
+  },
+  {
+   "id": "neg-007",
+   "intent": "保存单据草稿",
+   "forbidden": [
+    "BpmAppService#send",
+    "BpmAppService#submit"
+   ],
+   "reason": "草稿 vs 提交/发起",
+   "evidence": "06-components.md §7.5.1"
+  },
+  {
+   "id": "neg-008",
+   "intent": "新增一条实体数据",
+   "forbidden": [
+    "*update*",
+    "*delete*"
+   ],
+   "reason": "CRUD 动词混淆",
+   "evidence": "03-persistence.md §3.1"
+  },
+  {
+   "id": "neg-009",
+   "intent": "修改实体数据",
+   "forbidden": [
+    "*create*",
+    "*delete*"
+   ],
+   "reason": "CRUD 动词混淆",
+   "evidence": "03-persistence.md §3.1"
+  },
+  {
+   "id": "neg-010",
+   "intent": "删除单据草稿",
+   "forbidden": [
+    "*deleteById*",
+    "*deleteByIds*",
+    "nullify"
+   ],
+   "reason": "草稿删除 vs 单据作废",
+   "evidence": "06-components.md §7.5.2"
+  },
+  {
+   "id": "neg-011",
+   "intent": "作废单据",
+   "forbidden": [
+    "*deleteById*",
+    "*deleteByIds*",
+    "deleteDraft"
+   ],
+   "reason": "作废是业务状态，不是物理删除",
+   "evidence": "01-metadata.md §2.3"
+  },
+  {
+   "id": "neg-012",
+   "intent": "取系统变量的值",
+   "forbidden": [
+    "*set*",
+    "*update*",
+    "*create*"
+   ],
+   "reason": "读 vs 写",
+   "evidence": "04-expression.md §3.3"
+  },
+  {
+   "id": "neg-013",
+   "intent": "给并发操作加锁",
+   "forbidden": [
+    "*unlock*",
+    "*release*"
+   ],
+   "reason": "加锁 vs 释放锁",
+   "evidence": "06-components.md §6.1"
+  },
+  {
+   "id": "neg-014",
+   "intent": "两张表关联查询",
+   "forbidden": [
+    "*insert*",
+    "*create*",
+    "*update*"
+   ],
+   "reason": "查询 vs 写入",
+   "evidence": "03-persistence.md §8.0.3"
+  },
+  {
+   "id": "neg-015",
+   "intent": "批量插入数据",
+   "forbidden": [
+    "*deleteBatch*",
+    "*updateBatch*"
+   ],
+   "reason": "批量新增 vs 批量更新/删除",
+   "evidence": "03-persistence.md §3.1"
+  },
+  {
+   "id": "neg-016",
+   "intent": "只更新某几个字段",
+   "forbidden": [
+    "*create*",
+    "*insert*"
+   ],
+   "reason": "更新 vs 新增",
+   "evidence": "03-persistence.md §3.1"
+  },
+  {
+   "id": "neg-017",
+   "intent": "自定义表达式函数",
+   "forbidden": [
+    "ExpressionAppService#transform",
+    "ExpressionEvaluator#eval"
+   ],
+   "reason": "注册 vs 使用",
+   "evidence": "04-expression.md §4.0"
+  },
+  {
+   "id": "neg-018",
+   "intent": "从 Excel 导入实体数据",
+   "forbidden": [
+    "*export*",
+    "*write*"
+   ],
+   "reason": "导入 vs 导出",
+   "evidence": "03-persistence.md §8.0.5"
+  },
+  {
+   "id": "neg-019",
+   "intent": "分页但不要总数",
+   "forbidden": [
+    "*selectCount*"
+   ],
+   "reason": "明确不要 COUNT",
+   "evidence": "03-persistence.md §3.5"
+  },
+  {
+   "id": "neg-020",
+   "intent": "把雪花 ID 传给前端不丢精度",
+   "forbidden": [
+    "JsonUtils#toJson",
+    "String.valueOf"
+   ],
+   "reason": "toJson 会丢精度",
+   "evidence": "06-components.md §7.1.2"
+  },
+  {
+   "id": "neg-021",
+   "intent": "跨服务调用没有接口 Class 的方法",
+   "forbidden": [
+    "@Autowired"
+   ],
+   "reason": "无 Class 无法注入",
+   "evidence": "05-interface-integration.md §4.2"
+  },
+  {
+   "id": "neg-022",
+   "intent": "校验字段唯一性",
+   "forbidden": [
+    "*create*",
+    "*update*"
+   ],
+   "reason": "校验 vs 写入",
+   "evidence": "03-persistence.md §8.0.5"
+  }
+ ],
+ "ambiguous": [
+  {
+   "id": "amb-001",
+   "utterance": "删除数据",
+   "expected_behavior": "clarify",
+   "clarify_options": [
+    "逻辑删除（标记）",
+    "物理删除（DELETE）",
+    "删除整个应用的数据"
+   ],
+   "must_not": [
+    "直接推荐 deleteById"
+   ],
+   "evidence": "03-persistence.md §5（逻辑删除机制存在）"
+  },
+  {
+   "id": "amb-002",
+   "utterance": "查一下这个实体",
+   "expected_behavior": "clarify",
+   "clarify_options": [
+    "查实体元数据定义",
+    "查实体业务数据"
+   ],
+   "must_not": [
+    "直接推荐 selectList"
+   ],
+   "evidence": "01-metadata.md §2.12"
+  },
+  {
+   "id": "amb-003",
+   "utterance": "提交",
+   "expected_behavior": "clarify",
+   "clarify_options": [
+    "单据提交审批",
+    "事务提交",
+    "表单提交"
+   ],
+   "must_not": [
+    "直接推荐 BpmAppService#submit"
+   ],
+   "evidence": "06-components.md §7.5.1"
+  },
+  {
+   "id": "amb-004",
+   "utterance": "同步数据",
+   "expected_behavior": "clarify",
+   "clarify_options": [
+    "外部 → 平台",
+    "平台 → 外部",
+    "双向同步"
+   ],
+   "must_not": [
+    "直接推荐单向方法"
+   ],
+   "evidence": "05-interface-integration.md §8"
+  },
+  {
+   "id": "amb-005",
+   "utterance": "加个字段",
+   "expected_behavior": "clarify",
+   "clarify_options": [
+    "普通实体字段",
+    "扩展字段（ext*）",
+    "关联字段（ENTITY）"
+   ],
+   "must_not": [
+    "直接推荐一种"
+   ],
+   "evidence": "01-metadata.md §2.9（30 个扩展列）"
+  },
+  {
+   "id": "amb-006",
+   "utterance": "保存",
+   "expected_behavior": "clarify",
+   "clarify_options": [
+    "保存草稿",
+    "保存并提交",
+    "普通实体保存"
+   ],
+   "must_not": [
+    "直接推荐 create"
+   ],
+   "evidence": "06-components.md §7.5.1"
+  },
+  {
+   "id": "amb-007",
+   "utterance": "导入",
+   "expected_behavior": "clarify",
+   "clarify_options": [
+    "Excel 导入业务数据",
+    "导入应用元数据包",
+    "导入枚举"
+   ],
+   "must_not": [
+    "直接推荐 importEntityInitData"
+   ],
+   "evidence": "03-persistence.md §8.0.5"
+  },
+  {
+   "id": "amb-008",
+   "utterance": "配置一下",
+   "expected_behavior": "clarify",
+   "clarify_options": [
+    "应用配置",
+    "实体配置",
+    "特性配置",
+    "平台级配置"
+   ],
+   "must_not": [
+    "直接推荐某个配置类"
+   ],
+   "evidence": "01-metadata.md §2.2"
+  },
+  {
+   "id": "amb-009",
+   "utterance": "发布",
+   "expected_behavior": "clarify",
+   "clarify_options": [
+    "应用发布",
+    "代码部署",
+    "单据发布"
+   ],
+   "must_not": [
+    "直接推荐 TransportHandler"
+   ],
+   "evidence": "02-codegen.md §7"
+  },
+  {
+   "id": "amb-010",
+   "utterance": "权限",
+   "expected_behavior": "clarify",
+   "clarify_options": [
+    "数据权限（能看哪些行）",
+    "操作权限（能做什么）",
+    "字段权限（能改哪些列）"
+   ],
+   "must_not": [
+    "直接推荐某个权限注解"
+   ],
+   "evidence": "01-metadata.md §2.10（字段级权限矩阵）"
+  },
+  {
+   "id": "amb-011",
+   "utterance": "查子表",
+   "expected_behavior": "clarify",
+   "clarify_options": [
+    "按父 ID 查子记录",
+    "级联查整棵树",
+    "查子表元数据"
+   ],
+   "must_not": [
+    "直接推荐一种"
+   ],
+   "evidence": "03-persistence.md §8.0.2 / §8.0.6"
+  },
+  {
+   "id": "amb-012",
+   "utterance": "改一下状态",
+   "expected_behavior": "clarify",
+   "clarify_options": [
+    "单据业务状态（billStatus）",
+    "流程状态（caseId）",
+    "发送状态（billSendState）"
+   ],
+   "must_not": [
+    "直接推荐 updateStatusType"
+   ],
+   "evidence": "01-metadata.md §2.7（两个独立状态维度）"
+  },
+  {
+   "id": "amb-013",
+   "utterance": "调一下那个服务",
+   "expected_behavior": "clarify",
+   "clarify_options": [
+    "本应用 AppService",
+    "跨应用 AppService",
+    "外部 HTTP 服务"
+   ],
+   "must_not": [
+    "直接推荐 getProxy"
+   ],
+   "evidence": "05-interface-integration.md §6（决策树）"
+  },
+  {
+   "id": "amb-014",
+   "utterance": "算一下这个字段",
+   "expected_behavior": "clarify",
+   "clarify_options": [
+    "默认值表达式",
+    "计算字段表达式",
+    "代码里主动执行"
+   ],
+   "must_not": [
+    "直接推荐 eval"
+   ],
+   "evidence": "04-expression.md §5.3（两条路径）"
+  },
+  {
+   "id": "amb-015",
+   "utterance": "删掉这个附件",
+   "expected_behavior": "clarify",
+   "clarify_options": [
+    "解除实体与附件的关联",
+    "删除物理文件",
+    "两者都删"
+   ],
+   "must_not": [
+    "直接推荐 delete"
+   ],
+   "evidence": "06-components.md §3.5（关联 vs 文件）"
+  },
+  {
+   "id": "amb-016",
+   "utterance": "加个审批",
+   "expected_behavior": "clarify",
+   "clarify_options": [
+    "新建 bill 实体",
+    "给现有实体加 approve 特性",
+    "接外部审批系统"
+   ],
+   "must_not": [
+    "直接推荐 BpmAppService"
+   ],
+   "evidence": "01-metadata.md §2.2（approve 特性）"
+  },
+  {
+   "id": "amb-017",
+   "utterance": "优化一下查询",
+   "expected_behavior": "clarify",
+   "clarify_options": [
+    "减少返回列",
+    "去掉 COUNT",
+    "加索引",
+    "改成分页"
+   ],
+   "must_not": [
+    "直接推荐一种优化"
+   ],
+   "evidence": "03-persistence.md §3.4 / §3.5"
+  },
+  {
+   "id": "amb-018",
+   "utterance": "这个实体有什么能力",
+   "expected_behavior": "clarify",
+   "clarify_options": [
+    "元数据定义的能力",
+    "生成代码提供的方法",
+    "运行时实际可调用的"
+   ],
+   "must_not": [
+    "直接列方法名"
+   ],
+   "evidence": "01-metadata.md §2.12"
+  },
+  {
+   "id": "amb-019",
+   "utterance": "批量处理一下",
+   "expected_behavior": "clarify",
+   "clarify_options": [
+    "批量新增",
+    "批量更新",
+    "批量删除",
+    "分批循环处理"
+   ],
+   "must_not": [
+    "直接推荐 createBatch"
+   ],
+   "evidence": "03-persistence.md §3.1"
+  },
+  {
+   "id": "amb-020",
+   "utterance": "重置一下",
+   "expected_behavior": "clarify",
+   "clarify_options": [
+    "重置默认值",
+    "重置状态",
+    "重置缓存"
+   ],
+   "must_not": [
+    "直接推荐 resetNormal"
+   ],
+   "evidence": "03-persistence.md §8.0.5"
+  },
+  {
+   "id": "amb-021",
+   "utterance": "弄个树形",
+   "expected_behavior": "clarify",
+   "clarify_options": [
+    "archiveTree 版型（树形档案）",
+    "treeEntity 特性（普通实体加树）"
+   ],
+   "must_not": [
+    "直接推荐一种"
+   ],
+   "evidence": "01-metadata.md §2.1 / §2.2"
+  },
+  {
+   "id": "amb-022",
+   "utterance": "加个扩展",
+   "expected_behavior": "clarify",
+   "clarify_options": [
+    "属性扩展（ext* 列）",
+    "自定义代码生成任务",
+    "自定义表达式函数",
+    "扩展点实现"
+   ],
+   "must_not": [
+    "直接推荐一种"
+   ],
+   "evidence": "05-interface-integration.md §4.1A"
+  }
+ ]
+}

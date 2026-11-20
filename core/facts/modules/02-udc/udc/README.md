@@ -1485,7 +1485,7 @@ UDC 触发流程只调 `BpmUdcApiService`，不要调 `BpmAppService.send`。
 > （21 个 biz 构件合计只有 9 个 mapper XML / 15 张表），SQL 内联在代码里，
 > 方法→表要逐类反编译才能确认。
 
-本模块代码中出现的真实表 **66** 张（来源构件：`udc-biz`）：
+本模块代码中出现的真实表 **69** 张（来源构件：`udc-biz`）：
 
 | 表名 | 注释 | 出现在几个类 |
 |---|---|---:|
@@ -1493,6 +1493,8 @@ UDC 触发流程只调 `BpmUdcApiService`，不要调 `BpmAppService.send`。
 | `ctp_parameter_definition` | — | 10 |
 | `udc_enum_category` | — | 9 |
 | `udc_enum` | — | 8 |
+| `basic_data_attribute` | — | 6 |
+| `basic_data_entity` | — | 6 |
 | `ctp_enum_item` | — | 6 |
 | `ctp_parameter` | — | 6 |
 | `ctp_job_cron` | — | 5 |
@@ -1500,6 +1502,7 @@ UDC 触发流程只调 `BpmUdcApiService`，不要调 `BpmAppService.send`。
 | `ctp_job_simple` | — | 5 |
 | `ctp_excel_export_template` | — | 4 |
 | `ctp_enum_category` | — | 3 |
+| `label_print_record` | — | 3 |
 | `portal_space` | 空间 | 3 |
 | `udc_app_collaboration` | — | 3 |
 | `org_member_post` | 人员任职 | 2 |
@@ -1564,8 +1567,8 @@ UDC 触发流程只调 `BpmUdcApiService`，不要调 `BpmAppService.send`。
 
 | facade 接口 | 承载类 | 表 | 依据 |
 |---|---|---|---|
-| `ApplicationManagerAppService` | `SchemaManager` | `ctp_enum`, `ctp_enum_category`, `ctp_enum_item` | `implements+field` |
-| `AsyncAppService` | `SchemaManager` | `ctp_enum`, `ctp_enum_category`, `ctp_enum_item` | `implements+field` |
+| `ApplicationManagerAppService` | `SchemaManager` | `basic_data_attribute`, `basic_data_entity`, `ctp_enum`, `ctp_enum_category`, `ctp_enum_item` | `implements+field` |
+| `AsyncAppService` | `SchemaManager` | `basic_data_attribute`, `basic_data_entity`, `ctp_enum`, `ctp_enum_category`, `ctp_enum_item` | `implements+field` |
 | `AttributeAppService` | `AttributeService` | `udc_attribute` | `implements+field` |
 | `AttributeGroupAppService` | `AttributeGroup` | `udc_attribute_group` | `stem` |
 | `AttributeSetAppService` | `AttributeSet` | `udc_attribute_set` | `stem` |
@@ -1593,102 +1596,6 @@ UDC 触发流程只调 `BpmUdcApiService`，不要调 `BpmAppService.send`。
 | `UdcEnumItemAppService` | `UdcEnumService` | `udc_enum` | `implements+field` |
 | `UdcFunctionAppService` | `FunctionNodeService` | `portal_space` | `implements+field` |
 | `UdcMetaDataAppService` | `Application4PageMetaDataService` | `ctp_enum` | `implements+field` |
-
-## REST 路由
-
-> 证据：`javap -v` 读 Controller 字节码里的 `@RequestMapping`/`@PostMapping` 注解值。
-> 等级 `VERIFIED_STATIC_BYTECODE`（注解值是常量，非推断）。
-
-**拼法**（端口/前缀按环境配置，以下为通用形）：
-
-```
-POST /service/{类级路径}/{方法级路径}
-      ↑ 类级路径的第一段就是应用 code（organization / bpm / udc …），不要再加一层
-  例：POST /service/udc/runtime/deploy-normal
-      = DeployController 类级 `udc/runtime` + 方法级 `deploy-normal`（线上实测过）
-```
-
-控制器 **54** 个、路由 **660** 条（来源：`udc-web`）。
-
-> `{id}`、`ids` 这类方法级路径不带类级前缀，拼时必须补上。
-> 完整清单（含 java 方法名）：`docs/audit/artifacts/rest/ROUTES-udc.md`
-
-| Controller | 类级路径 | 路由 |
-|---|---|---:|
-| `ApplicationController` | `udc/application` | 72 |
-| `MicroFlowController` | `udc/microflow` | 67 |
-| `EntityController` | `udc/entity` | 54 |
-| `UdcDesignMetadataController` | `udc/design-metadata` | 47 |
-| `MetaDataController` | `udc/meta-data` | 32 |
-| `PageInfoController` | `udc/page-info` | 25 |
-| `DataFlowDesignController` | `udc/data-flow` | 23 |
-| `DataTransferObjectController` | `udc/data-transfer-object` | 20 |
-| `PageLayoutController` | `udc/page-layout` | 18 |
-| `FunctionNodeController` | `udc/function` | 18 |
-| `DeductionRuleController` | `udc/deduction` | 16 |
-| `PageTemplateController` | `udc/page-template` | 14 |
-| `UdcManagerController` | `udc/manager` | 13 |
-| `ReferConfigController` | `udc/refer-config` | 12 |
-| `EventController` | `udc/event` | 12 |
-| `DeployController` | `udc/runtime` | 12 |
-| `UdcEnumItemController` | `udc/udc-enum-item` | 11 |
-| `BackendComponentController` | `udc/backend-component` | 10 |
-| `AttributeSetController` | `udc/attributeSet` | 9 |
-| `MicroFlowFunctionalCheckController` | `udc/micro-flow-functional-check` | 9 |
-| `PageTemplatePublishedController` | `udc/page-template/published` | 9 |
-| `COLISplitController` | `udc/app-split` | 8 |
-| `ScalabilityOptionController` | `udc/scalability-option` | 7 |
-| `UdcEnumCategoryController` | `udc/udc-enum-category` | 7 |
-| `PageTemplateClassController` | `udc/page-template-class` | 7 |
-| `AttachmentTemplateController` | `udc/attachment-template` | 7 |
-| `UdcEnumController` | `udc/udc-enum` | 7 |
-| `MicroFlowGroupController` | `udc/micro-flow-group` | 7 |
-| `EntityGroupController` | `udc/entity-group` | 7 |
-| `AttributeGroupController` | `udc/attribute-group` | 7 |
-| `PortletController` | `udc/portlet` | 7 |
-| `AppCollaborationController` | `udc/collaboration` | 6 |
-| `DeploymentController` | `udc/deployment` | 6 |
-| `IndexController` | `udc/index` | 6 |
-| `DataTypeController` | `udc/data-type` | 6 |
-| `MicroFlowUpgradeController` | `udc/micro-flow-upgrade` | 6 |
-| `OperationLogController` | `udc/operation-log` | 6 |
-| `UdcSandBoxLogController` | `udc/sandbox/logs` | 5 |
-| `MultiEditController` | `udc/multi-edit` | 5 |
-| `ScalabilityController` | `udc/scalability` | 5 |
-| `SandboxController` | `udc/sandbox` | 5 |
-| `UdcCtpEnumController` | `udc/udc-enum-item` | 5 |
-| `ParameterController` | `—` | 5 |
-| `PortletGroupController` | `udc/portlet-group` | 4 |
-| `MicroFlowRefactorController` | `udc/microflow-refactor` | 3 |
-| `UdcFileController` | `udc/runtime/file` | 2 |
-| `FeatureController` | `udc/feature` | 2 |
-| `DependencyAnalysisController` | `udc/dependency/analysis` | 2 |
-| `MicroFlowMacroController` | `udc/micro-flow-macro` | 2 |
-| `PublishStateController` | `udc/publish-state` | 1 |
-| `EntityOpenApiController` | `udc/entity-open-api` | 1 |
-| `TempPresetMicroFlowController` | `udc/preset/microflow` | 1 |
-| `PageRouteController` | `udc/page-route` | 1 |
-| `StereotypeController` | `udc/stereotype` | 1 |
-
-前 15 条（其余见明细）：
-
-| 方法 | 全路径 |
-|---|---|
-| `GetMapping` | `/service/udc/collaboration/{appId}` |
-| `GetMapping` | `/service/udc/collaboration//members/{appGuid}` |
-| `PostMapping` | `/service/udc/collaboration//create` |
-| `PostMapping` | `/service/udc/collaboration//delete/{id}` |
-| `PostMapping` | `/service/udc/collaboration//handover` |
-| `PostMapping` | `/service/udc/collaboration//members` |
-| `PostMapping` | `/service/udc/application/create-page-app` |
-| `PostMapping` | `/service/udc/application/create-layout-app` |
-| `PostMapping` | `/service/udc/application/delete-rename` |
-| `PostMapping` | `/service/udc/application/delete` |
-| `PostMapping` | `/service/udc/application/delete-by-guid` |
-| `PostMapping` | `/service/udc/application/update` |
-| `PostMapping` | `/service/udc/application/update-caption-for-all-version` |
-| `GetMapping` | `/service/udc/application/version/platform` |
-| `GetMapping` | `/service/udc/application/version/platform-service` |
 
 ## 证据与自证
 

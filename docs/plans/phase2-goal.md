@@ -122,7 +122,7 @@ Agent 拿到「给订单审批抄送部门负责人」这类需求时，能只�
 
 - 数据面：`information_schema`（test2）19 域 **1,611 张真实表** → `tables/db-test2.json` + `DB-TABLES-test2.md`
 - 代码面：21 个 biz jar 的 class 常量池扫表 → `class-tables.<artifact>.json`；class 关系 → `class-rel.json`
-- 写入：**15 个模块**「## 落表」段，670 张次真实表 + **76 条接口→表链接**（`implements` / `implements+field` / `stem`）
+- 写入：**15 个模块**「## 落表」段，739 张次真实表 + **71 条接口→表链接**（`implements` / `implements+field` / `stem`）
 - 7 个模块无表名常量（boot / ocip / ai / devops / gateway / maven / mymojo），标 `N/A` 不猜
 - **方法级落表仍未取证**：平台不用 MyBatis XML（21 个 biz 构件仅 9 个 XML / 15 张表），SQL 内联，需逐类反编译
 
