@@ -140,7 +140,7 @@
 
 | 方法 | 入参 | 返回 | 干什么 |
 |---|---|---|---|
-| `create` | `SingleRequest<ApplicationDto> arg0` | `SingleResponse<Long>` | 新建应用 |
+| `create` | `SingleRequest<ApplicationDto> arg0` | `SingleResponse<Long>` | 新建应用，返回 appId |
 | `createOnlyPageApplication` | `SingleRequest<CreateOnlyPageApplicationDto> arg0` | `ListResponse<OnlyPageApplicationDto>` | 分页新建应用Only |
 | `createNewLayoutAfterCall` | `SingleRequest<NewLayoutCreateAfterCallDto> arg0` | `SingleResponse<Void>` | 新建布局NewAfterCall |
 | `copyOnlyPageApp` | `SingleRequest<ApplicationCopyDto> arg0` | `SingleResponse<OnlyPageApplicationDto>` | 分页复制应用Only |
@@ -153,18 +153,18 @@
 | `updateWithMember` | `SingleRequest<ApplicationWithMemberDto> arg0` | `SingleResponse<Integer>` | 修改成员With |
 | `updateAppCategoryBatch` | `SingleRequest<AppCategoryDto> arg0` | `SingleResponse<Integer>` | 批量修改应用分类 |
 | `deleteById` | `SingleRequest<Long> arg0` | `SingleResponse<Integer>` | 删除按 id（SingleRequest） |
-| `copyApp` | `SingleRequest<ApplicationCopyDto> arg0` | `SingleResponse<ApplicationDto>` | 复制应用 |
-| `copyAppAsync` | `SingleRequest<ApplicationCopyDto> arg0` | `SingleResponse<String>` | 复制应用Async |
+| `copyApp` | `SingleRequest<ApplicationCopyDto> arg0` | `SingleResponse<ApplicationDto>` | 复制应用（同步） |
+| `copyAppAsync` | `SingleRequest<ApplicationCopyDto> arg0` | `SingleResponse<String>` | 复制应用（异步，返回任务 key） |
 | `createMember` | `SingleRequest<MemberAddDto> arg0` | `SingleResponse<Integer>` | 新建成员 |
 | `selectCollaborationRecordsByAppId` | `SingleRequest<Long> arg0` | `ListResponse<AppCollaborationDto>` | 查询CollaborationRecords按应用 |
 | `deleteMemberById` | `SingleRequest<Long> arg0` | `SingleResponse<Void>` | 删除成员按 id |
-| `handoverApp` | `SingleRequest<AppHanoverDto> arg0` | `SingleResponse<Integer>` | 移交应用 |
+| `handoverApp` | `SingleRequest<AppHanoverDto> arg0` | `SingleResponse<Integer>` | 移交应用（换负责人） |
 | `createReturnDto` | `SingleRequest<ApplicationDto> arg0` | `SingleResponse<ApplicationDto>` | 新建ReturnDto |
 | `deleteFormAppByGuid` | `SingleRequest<Long> arg0` | `SingleResponse<Integer>` | 删除表单应用按Guid |
 | `deleteFormAppByName` | `SingleRequest<String> arg0` | `SingleResponse<Integer>` | 删除表单应用按名称 |
-| `deployNormal` | `SingleRequest<DeployNormalDto> arg0` | `SingleResponse<DeployParamDto>` | 部署Normal |
-| `deployForm` | `SingleRequest<DeployFormDto> arg0` | `SingleResponse<DeployResultDto>` | 部署表单 |
-| `selectLatestDesignAppByGuid` | `SingleRequest<Long> arg0` | `SingleResponse<ApplicationDto>` | 查询应用LatestDesign按Guid |
+| `deployNormal` | `SingleRequest<DeployNormalDto> arg0` | `SingleResponse<DeployParamDto>` | ★部署（设计态→运行态，全量），入参 DeployNormalDto |
+| `deployForm` | `SingleRequest<DeployFormDto> arg0` | `SingleResponse<DeployResultDto>` | ★部署表单类应用，入参 DeployFormDto |
+| `selectLatestDesignAppByGuid` | `SingleRequest<Long> arg0` | `SingleResponse<ApplicationDto>` | 按 guid 取最新设计版本 |
 | `selectLatestDesignAppWithMemberByGuid` | `SingleRequest<Long> arg0` | `SingleResponse<ApplicationWithMemberDto>` | 查询应用成员LatestDesignWith按Guid |
 | `selectAppNameAndIdMapByAppNames` | `SingleRequest<List<String>> arg0` | `SingleResponse<Map<String, Long>>` | 查询应用名称AndMap按应用名称 |
 | `selectDesignAppByGuid` | `SingleRequest<Long> arg0` | `ListResponse<ApplicationDto>` | 查询应用Design按Guid |
@@ -172,11 +172,11 @@
 | `selectAppByUserAndGuid` | `SingleRequest<ApplicationSearchDto> arg0` | `ListResponse<ApplicationDto>` | 查询应用按用户 |
 | `selectAppByUserAndId` | `SingleRequest<ApplicationSearchDto> arg0` | `SingleResponse<ApplicationDto>` | 查询应用按用户 |
 | `exportAppInfos` | `SingleRequest<AppInfoExportDto> arg0` | `ListResponse<ApplicationExportDto>` | 导出应用Infos |
-| `selectAppDeployState` | `SingleRequest<QueryFormInfoDto> arg0` | `SingleResponse<AppVersionDto>` | 查询应用部署State |
-| `downloadApp` | `SingleRequest<Long> arg0` | `SingleResponse<String>` | SPI 扩展点：应用（框架回调） |
-| `downloadAppAsync` | `SingleRequest<Long> arg0` | `SingleResponse<String>` | SPI 扩展点：应用（框架回调） |
+| `selectAppDeployState` | `SingleRequest<QueryFormInfoDto> arg0` | `SingleResponse<AppVersionDto>` | 查应用部署状态 |
+| `downloadApp` | `SingleRequest<Long> arg0` | `SingleResponse<String>` | 导出应用（同步） |
+| `downloadAppAsync` | `SingleRequest<Long> arg0` | `SingleResponse<String>` | 导出应用（异步） |
 | `downloadAppByHost` | `SingleRequest<Long> arg0` | `SingleResponse<String>` | SPI 扩展点：应用（框架回调） |
-| `importApp` | `SingleRequest<String> arg0` | `SingleResponse<Long>` | 导入应用 |
+| `importApp` | `SingleRequest<String> arg0` | `SingleResponse<Long>` | 导入应用，返回 appId |
 | `importAppWithDto` | `SingleRequest<ApplicationImportDto> arg0` | `SingleResponse<Long>` | 导入应用WithDto |
 | `batchDownloadAppAsync` | `SingleRequest<List<Long>> arg0` | `SingleResponse<String>` | 下载应用Async |
 | `batchTransferAppAsync` | `SingleRequest<List<String>> arg0` | `SingleResponse<String>` | 转移应用Async |
@@ -185,11 +185,11 @@
 | `transfer` | `SingleRequest<String> arg0` | `SingleResponse<Long>` | 转移（SingleRequest） |
 | `transfer` | `SingleRequest<String> arg0` | `SingleResponse<Long>` | 转移（SingleRequest） |
 | `getShelfDepend` | `SingleRequest<ShelfDependRequestDto> arg0` | `SingleResponse<ShelfDependResponseDto>` | 获取ShelfDepend |
-| `getDependsByAppId` | `SingleRequest<Long> arg0` | `ListResponse<DependentApplicationDto>` | 获取Depends按应用 |
+| `getDependsByAppId` | `SingleRequest<Long> arg0` | `ListResponse<DependentApplicationDto>` | 查应用被谁依赖（删除/改动的风险面） |
 | `getDependsLayoutAppInfo` | `SingleRequest<BaseApplicationSearchDto> arg0` | `ListResponse<DependentApplicationDto>` | 获取布局应用Depends |
 | `shelfCompatibilityLock` | `SingleRequest<ShelfCompatibilityLockRequestDto> arg0` | `SingleResponse<ShelfCompatibilityLockResultDto>` | 加锁ShelfCompatibilityLock |
-| `migrationApp` | `SingleRequest<DeployFerryDto> arg0` | `SingleResponse<Long>` | 迁移应用 |
-| `selectDeployRecordById` | `SingleRequest<Long> arg0` | `ListResponse<DeployRecordDto>` | 查询部署Record按 id |
+| `migrationApp` | `SingleRequest<DeployFerryDto> arg0` | `SingleResponse<Long>` | 应用迁移（另一个环境/租户） |
+| `selectDeployRecordById` | `SingleRequest<Long> arg0` | `ListResponse<DeployRecordDto>` | 查部署记录 |
 | `selectAppPageByConditions` | `PageRequest arg0` | `PageResponse<ApplicationDto>` | 分页查询应用按条件 |
 | `createEntity` | `SingleRequest<EntityDto> arg0` | `SingleResponse<Long>` | 新建实体 |
 | `operateBatch` | `SingleRequest<List<AttributeGroupDto>> arg0` | `ListResponse<AttributeGroupDto>` | 批量操作应用（上架/下架/删除等，按操作类型） |
@@ -225,7 +225,7 @@
 |---|---|---|---|
 | `create` | `SingleRequest<AttributeDto> arg0` | `SingleResponse<Long>` | 新建字段 |
 | `createBatch` | `SingleRequest<List<AttributeDto>> arg0` | `SingleResponse<Integer>` | 批量新建（SingleRequest） |
-| `createBatch4System` | `SingleRequest<List<AttributeDto>> arg0` | `SingleResponse<Integer>` | 新建Batch4System |
+| `createBatch4System` | `SingleRequest<List<AttributeDto>> arg0` | `SingleResponse<Integer>` | 批量建系统内置字段（跳过用户字段校验） |
 | `update` | `SingleRequest<AttributeDto> arg0` | `SingleResponse<Integer>` | 修改字段 |
 | `updateBatch` | `SingleRequest<List<AttributeDto>> arg0` | `SingleResponse<Integer>` | 批量修改（SingleRequest） |
 | `deleteById` | `SingleRequest<Long> arg0` | `SingleResponse<Integer>` | 删除按 id（SingleRequest） |
@@ -234,7 +234,7 @@
 | `selectPageByCondition` | `PageRequest arg0` | `PageResponse<AttributeDto>` | 分页查询字段按条件 |
 | `selectListByCondition` | `ListRequest arg0` | `ListResponse<AttributeDto>` | 列表查询字段按条件 |
 | `selectListByTerm` | `SingleRequest<Long> arg0` | `ListResponse<AttributeDto>` | 列表查询字段按Term |
-| `selectAllAttributeByEntityId` | `SingleRequest<Long> arg0` | `ListResponse<AttributeDto>` | 全部查询字段按实体 |
+| `selectAllAttributeByEntityId` | `SingleRequest<Long> arg0` | `ListResponse<AttributeDto>` | 查实体下全部字段 |
 | `selectEntityAttributeList` | `ListRequest arg0` | `ListResponse<AttributeDto>` | 列表查询实体字段 |
 | `selectByAttributeSetId` | `SingleRequest<Long> arg0` | `ListResponse<AttributeDto>` | 查询字段按字段 |
 | `selectParentEnumAttributes` | `ListRequest arg0` | `ListResponse<AttributeDto>` | 查询上级枚举Attributes |
@@ -291,7 +291,7 @@
 | 方法 | 入参 | 返回 | 干什么 |
 |---|---|---|---|
 | `create` | `SingleRequest<DataTransferObjectDto> arg0` | `SingleResponse<Long>` | 新建TransferObject |
-| `createDtoWithAttrs` | `SingleRequest<DataTransferObjectDto> arg0` | `SingleResponse<Map<String, Object>>` | 新建DtoWithAttrs |
+| `createDtoWithAttrs` | `SingleRequest<DataTransferObjectDto> arg0` | `SingleResponse<Map<String, Object>>` | 新建自定义对象并同时建字段 |
 | `update` | `SingleRequest<DataTransferObjectDto> arg0` | `SingleResponse<Integer>` | 修改TransferObject |
 | `updateDtoWithAttrs` | `SingleRequest<DataTransferObjectDto> arg0` | `SingleResponse<Integer>` | 修改DtoWithAttrs |
 | `deleteById` | `SingleRequest<Long> arg0` | `SingleResponse<Integer>` | 删除按 id（SingleRequest） |
@@ -299,17 +299,17 @@
 | `selectDtoWithAttrsById` | `SingleRequest<Long> arg0` | `SingleResponse<DataTransferObjectDto>` | 查询DtoWithAttrs按 id |
 | `selectPageByConditions` | `PageRequest arg0` | `PageResponse<DataTransferObjectDto>` | 分页查询TransferObject按条件 |
 | `selectListByConditions` | `ListRequest arg0` | `ListResponse<DataTransferObjectDto>` | 列表查询TransferObject按条件 |
-| `createDtoWithAttrsAndRefDtos` | `SingleRequest<List<DataTransferObjectDto>> arg0` | `SingleResponse<Long>` | 新建DtoWithAttrsAndRefDtos |
+| `createDtoWithAttrsAndRefDtos` | `SingleRequest<List<DataTransferObjectDto>> arg0` | `SingleResponse<Long>` | 新建 DTO 并建字段 + 引用关系 |
 | `createDtoWithAttrs4EntityEvent` | `SingleRequest<EventAndDataDto> arg0` | `SingleResponse<Long>` | 新建实体DtoWithAttrs4Event |
 | `updateDtoWithAttrs4EntityEvent` | `SingleRequest<EventAndDataDto> arg0` | `void` | 修改实体DtoWithAttrs4Event |
 | `updateDtoWithAttrsAndRefDtos` | `SingleRequest<List<DataTransferObjectDto>> arg0` | `SingleResponse<Long>` | 修改DtoWithAttrsAndRefDtos |
-| `selectDtoWithAttrsAndRefDtos` | `SingleRequest<Long> arg0` | `ListResponse<DataTransferObjectDto>` | 查询DtoWithAttrsAndRefDtos |
+| `selectDtoWithAttrsAndRefDtos` | `SingleRequest<Long> arg0` | `ListResponse<DataTransferObjectDto>` | 读 DTO 全量（含字段+引用） |
 | `selectListBySourceId` | `SingleRequest<Long> arg0` | `ListResponse<DataTransferObjectDto>` | 列表查询TransferObject按SourceId |
 | `selectMicroFlowCustomDtoByAppId` | `SingleRequest<Long> arg0` | `ListResponse<DataTransferObjectDto>` | 查询MicroFlowCustomDto按应用 |
-| `selectAllByMicroFlowId` | `SingleRequest<Long> arg0` | `ListResponse<DataTransferObjectDto>` | 全部查询TransferObject按MicroFlowId |
+| `selectAllByMicroFlowId` | `SingleRequest<Long> arg0` | `ListResponse<DataTransferObjectDto>` | 查某微流程用到的全部 DTO |
 | `deleteDtoWithAttrsAndRefDtos` | `SingleRequest<Long> arg0` | `SingleResponse<Integer>` | 删除DtoWithAttrsAndRefDtos |
 | `checkExists` | `SingleRequest<List<DataTransferObjectDto>> arg0` | `SingleResponse<Boolean>` | 检查Exists |
-| `searchSelectableDtoList` | `SingleRequest<DataTransferObjectQueryDto> arg0` | `ListResponse<DataTransferObjectDto>` | 列表搜索SelectableDto |
+| `searchSelectableDtoList` | `SingleRequest<DataTransferObjectQueryDto> arg0` | `ListResponse<DataTransferObjectDto>` | 微流程搭节点时可选的自定义对象列表 |
 | `searchPageMicroFlowDtos` | `PageRequest arg0` | `PageResponse<DataTransferObjectDto>` | 分页搜索MicroFlowDtos |
 | `check` | `Long arg0` | `void` | 检查（Long） |
 
@@ -333,7 +333,7 @@
 
 | 方法 | 入参 | 返回 | 干什么 |
 |---|---|---|---|
-| `handle` | `AppContext arg0` | `boolean` | 处理（AppContext） |
+| `handle` | `AppContext arg0` | `boolean` | 部署前钩子（返回 false 中断部署） |
 
 #### DeployFinishService
 
@@ -341,7 +341,7 @@
 
 | 方法 | 入参 | 返回 | 干什么 |
 |---|---|---|---|
-| `callback` | `DeployCallbackDto arg0` | `boolean` | 回调入口（SPI，外部系统回调时进入） |
+| `callback` | `DeployCallbackDto arg0` | `boolean` | 部署完成钩子（部署后回调） |
 
 #### DesignMetadataQueryAppService
 
@@ -420,7 +420,7 @@
 
 | 方法 | 入参 | 返回 | 干什么 |
 |---|---|---|---|
-| `create` | `SingleRequest<EntityDto> arg0` | `SingleResponse<Long>` | 新建实体 |
+| `create` | `SingleRequest<EntityDto> arg0` | `SingleResponse<Long>` | 新建实体（=一张物理表），返回 entityId |
 | `update` | `SingleRequest<EntityDto> arg0` | `SingleResponse<Integer>` | 修改实体 |
 | `deleteById` | `SingleRequest<Long> arg0` | `SingleResponse<Integer>` | 删除按 id（SingleRequest） |
 | `deleteByIds` | `SingleRequest<List<Long>> arg0` | `SingleResponse<Integer>` | 删除按 ids（SingleRequest） |
@@ -780,7 +780,7 @@
 
 | 方法 | 入参 | 返回 | 干什么 |
 |---|---|---|---|
-| `selectDefaultLayoutAppName` | `—` | `SingleResponse<String>` | 查询布局应用名称Default |
+| `selectDefaultLayoutAppName` | `—` | `SingleResponse<String>` | 取流程默认布局应用名（发起页渲染用） |
 
 #### UdcCtpEnumAppService
 
@@ -902,7 +902,7 @@
 
 | 方法 | 入参 | 返回 | 干什么 |
 |---|---|---|---|
-| `selectAppMetaData4PageCode` | `SingleRequest<Long> arg0` | `SingleResponse<UdcApplicationMetaData4PageCode>` | 分页查询应用编码MetaData4 |
+| `selectAppMetaData4PageCode` | `SingleRequest<Long> arg0` | `SingleResponse<UdcApplicationMetaData4PageCode>` | ★读应用全量元数据（生成页面代码用） |
 | `selectAvailableUpgradeAppMetadataById` | `SingleRequest<Long> arg0` | `ListResponse<UdcApplicationMetaDataDto>` | 查询升级应用扩展属性Available按 id |
 | `selectPageAvailableAppMetaDataByCondition` | `PageRequest arg0` | `PageResponse<UdcApplicationMetaDataDto>` | 分页查询应用数据AvailableMeta按条件 |
 | `selectPageAvailableAppMultiVersionMetaDataByCondition` | `PageRequest arg0` | `PageResponse<ApplicationMultiVersionDto>` | 分页查询应用版本数据AvailableMultiMeta按条件 |
@@ -910,13 +910,13 @@
 | `mergeReferMetaData` | `SingleRequest<UdcReferMetaDataSearch4PageDto> arg0` | `ListResponse<UdcReferMetaDataDto>` | 合并数据ReferMeta |
 | `selectCustomReferMetaDataByPageId` | `SingleRequest<Long> arg0` | `ListResponse<UdcReferMetaDataDto>` | 查询数据CustomReferMeta按页面 |
 | `selectReferAndAppMetadataByEntity` | `SingleRequest<UdcReferMetaDataSearchDto> arg0` | `SingleResponse<UdcReferAndAppMetaDataDto>` | 查询应用扩展属性ReferAnd按实体 |
-| `selectEntityMetaData` | `SingleRequest<EntityMetaDataSearch4PageDto> arg0` | `SingleResponse<UdcEntityMetaDataDto>` | 查询实体数据Meta |
+| `selectEntityMetaData` | `SingleRequest<EntityMetaDataSearch4PageDto> arg0` | `SingleResponse<UdcEntityMetaDataDto>` | 读实体元数据（运行态快照） |
 | `selectAggEntityIncludeAssociationByEntityId` | `SingleRequest<Long> arg0` | `ListResponse<UdcEntityMetaDataDto>` | 查询实体AggIncludeAssociation按实体 |
 | `selectAggEntityIncludeAssociation` | `SingleRequest<EntityMetaDataSearch4PageDto> arg0` | `ListResponse<UdcEntityMetaDataDto>` | 查询实体AggIncludeAssociation |
 | `selectAggEntity` | `SingleRequest<EntityMetaDataSearch4PageDto> arg0` | `ListResponse<UdcEntityMetaDataDto>` | 查询实体Agg |
 | `selectEntitiesMetaDataByAppId` | `SingleRequest<Long> arg0` | `ListResponse<UdcEntityMetaDataDto>` | 查询数据EntitiesMeta按应用 |
 | `selectSimpleAggEntityMetaDataByAppName` | `SingleRequest<UdcSimpleEntityMetaDataSearchDto> arg0` | `ListResponse<UdcAggMetadataDto>` | 查询简单实体数据AggMeta按应用名称 |
-| `selectEnumMetaDataByAppId` | `SingleRequest<Long> arg0` | `ListResponse<CtpEnumDto>` | 查询枚举数据Meta按应用 |
+| `selectEnumMetaDataByAppId` | `SingleRequest<Long> arg0` | `ListResponse<CtpEnumDto>` | 读应用下全部枚举元数据 |
 | `selectAppMetaListData` | `SingleRequest<UdcApplicationMetaDataSearchDto> arg0` | `ListResponse<UdcApplicationMetaDataDto>` | 列表查询应用数据Meta |
 | `selectCtpEnumMetaDataListData` | `SingleRequest<UdcGeneralMetaDataSearchDto> arg0` | `SingleResponse<UdcApplicationMetaDataDto>` | 列表查询枚举数据CtpMeta |
 | `selectParentEnumByCode` | `SingleRequest<UdcCtpEnumMetaDataSearchDto> arg0` | `SingleResponse<CtpEnumDto>` | 查询上级枚举按编码 |
@@ -930,7 +930,7 @@
 | `selectPageLayoutInfoMetaData` | `SingleRequest<PageMetaDataSearch4PageDto> arg0` | `SingleResponse<UdcPageMetadataV2Dto>` | 分页查询布局数据Meta |
 | `selectPageLayoutMetaData` | `SingleRequest<UdcPageLayoutSearchDto> arg0` | `SingleResponse<UdcPageMetadataV2Dto>` | 分页查询布局数据Meta |
 | `selectAllPageLayoutMetaDataByApp` | `SingleRequest<List<UdcPageLayoutSearchDto>> arg0` | `ListResponse<UdcPageMetadataV2Dto>` | 全部分页查询布局数据Meta按应用 |
-| `selectPageSchema4Bpm` | `SingleRequest<List<UdcPageInfoSearchV2Dto>> arg0` | `ListResponse<UdcPageMetadataV2Dto>` | 分页查询Schema4Bpm |
+| `selectPageSchema4Bpm` | `SingleRequest<List<UdcPageInfoSearchV2Dto>> arg0` | `ListResponse<UdcPageMetadataV2Dto>` | 给流程用的页面 schema |
 | `selectJavaEnumMetaDataList` | `SingleRequest<UdcJavaEnumMetaDataSearchDto> arg0` | `ListResponse<UdcJavaEnumCategoryAndItemDto>` | 列表查询枚举数据JavaMeta |
 | `selectJavaEnumItemMetaDataList` | `SingleRequest<UdcJavaEnumMetaDataSearchDto> arg0` | `ListResponse<UdcJavaEnumItemMetaDataDto>` | 列表查询枚举数据JavaItemMeta |
 | `selectEntitiesByEntityId4Tree` | `SingleRequest<Long> arg0` | `ListResponse<EntityDto>` | 查询Entities按实体 |
@@ -1297,6 +1297,185 @@
 | 核心实体 CRUD | `PublishStateController` | 1 |
 | 核心实体 CRUD | `StereotypeController` | 1 |
 | 核心实体 CRUD | `TempPresetMicroFlowController` | 1 |
+
+## 概念对照（udc 的名词）
+
+| 平台术语 | 中文 | 关键 id |
+|---|---|---|
+| **application**（应用） | 一个低代码应用（含实体、页面、微流程） | `appId` |
+| **guid** | 应用的稳定标识（跨版本不变，复制/迁移用） | `guid` |
+| **entity**（实体） | 数据模型（对应一张物理表） | `entityId` |
+| **attribute**（字段） | 实体字段 | `attributeId` |
+| **dataTransferObject**（DTO） | 自定义对象（微流程出入参用，非实体） | `dtoId` |
+| **enum / enumCategory / enumItem** | 枚举 / 枚举分类 / 枚举项 | `enumId` |
+| **page** | 页面（表单/列表/流程页） | `pageId` |
+| **layout** | 布局（页面外壳） | `layoutId` |
+| **microflow** | 微流程（节点编排） | `microFlowId` |
+| **dataflow** | 生单规则（数据流画布） | `dataFlowId` |
+| **deploy** | 部署（设计态 → 运行态） | `deployRecordId` |
+
+## 设计态与运行态是两套数据
+
+```
+设计态（MySQL）：udc_entity / udc_attribute / udc_application ...
+                  ↑ ApplicationAppService / EntityAppService / AttributeAppService 写这里
+                       ↓ deployNormal / deployForm 部署
+运行态（Redis 180h → OSS）：metadata 快照
+                  ↑ UdcMetaDataAppService 读这里（selectXxxMetaData*）
+```
+
+**⇒ 判据：**
+
+- 要**改模型** → 调 `EntityAppService` / `AttributeAppService`（设计态）
+- 要**读运行时结构**（页面渲染、微流程校验、流程取字段） → 调 `UdcMetaDataAppService`（运行态）
+
+混用会拿到过期或空数据 —— 部署前的元数据在运行态里根本不存在。
+
+## 建一个应用的完整链路（真实方法名）
+
+```java
+@Autowired private ApplicationManagerAppService appMgr;
+
+// ① 建应用，返回 appId
+SingleResponse<Long> appId = appMgr.create(SingleRequest.from(applicationDto));
+
+// ② 建设计态应用（带成员/分类），或只用应用壳
+appMgr.updateWithMember(SingleRequest.from(appWithMemberDto));
+
+@Autowired private EntityAppService entitySvc;
+
+// ③ 建实体（= 一张表），返回 entityId
+SingleResponse<Long> entityId = entitySvc.create(SingleRequest.from(entityDto));
+
+@Autowired private AttributeAppService attrSvc;
+
+// ④ 建字段（可批量）
+SingleResponse<Integer> n = attrSvc.createBatch(SingleRequest.from(List.of(attr1, attr2)));
+// 系统内置字段用 createBatch4System（跳过用户字段校验）
+
+// ⑤ 查实体下所有字段（建页面/生成代码前必做）
+ListResponse<AttributeDto> attrs = attrSvc.selectAllAttributeByEntityId(SingleRequest.from(entityId));
+```
+
+## 部署（最容易出错的一步）
+
+```java
+@Autowired private ApplicationManagerAppService appMgr;
+
+// 常规部署：入参 DeployNormalDto，返回 DeployParamDto
+SingleResponse<DeployParamDto> r = appMgr.deployNormal(SingleRequest.from(deployNormalDto));
+
+// 表单类应用部署
+SingleResponse<DeployResultDto> r2 = appMgr.deployForm(SingleRequest.from(deployFormDto));
+```
+
+**REST 路径（此前实测可用，**`LIVE`** 级证据来自历史联调，不是本次会话重放）**：
+
+```
+POST /service/udc/runtime/deploy-normal
+{
+  "deployDto": {
+    "appId": 8704025620829192834,
+    "deployType": "TEST",
+    "projectType": "ALL",
+    "terminalType": "ALL"
+  }
+}
+```
+
+**两个部署钩子**（框架在部署前后回调，可用来做扩展）：
+
+| 接口 | 方法 | 时机 |
+|---|---|---|
+| `DeployBeforeService` | `handle(AppContext)` → `boolean` | 部署前；返回 false 可中断 |
+| `DeployFinishService` | `callback(DeployCallbackDto)` → `boolean` | 部署后 |
+
+**⚠️ 部署后页面/微流程的改动要重新部署才生效** —— 只改设计态数据不部署，运行态看不到。
+
+## 自定义对象（DTO）—— 微流程出入参就用它
+
+```java
+@Autowired private DataTransferObjectAppService dtoSvc;
+
+// 建 DTO 并同时建它的字段，返回 id+字段
+SingleResponse<Map<String,Object>> dto = dtoSvc.createDtoWithAttrs(SingleRequest.from(dtoDto));
+
+// 带引用关系（DTO 套 DTO / 引实体）
+SingleResponse<Long> withRef = dtoSvc.createDtoWithAttrsAndRefDtos(SingleRequest.from(List.of(dtoDto)));
+
+// 读全量（含字段 + 引用）
+ListResponse<DataTransferObjectDto> full = dtoSvc.selectDtoWithAttrsAndRefDtos(SingleRequest.from(dtoId));
+
+// 微流程里可选的 DTO 列表（搭节点时选对象用）
+ListResponse<DataTransferObjectDto> selectable = dtoSvc.searchSelectableDtoList(SingleRequest.from(queryDto));
+ListResponse<DataTransferObjectDto> byFlow = dtoSvc.selectAllByMicroFlowId(SingleRequest.from(microFlowId));
+```
+
+**`*4EntityEvent` 后缀的方法**（`createDtoWithAttrs4EntityEvent`）是**实体事件触发时**的专用入口，
+不要用它做常规建数据 —— 它带事件上下文参数。
+
+## 读运行态元数据（生成代码/校验前必做）
+
+```java
+@Autowired private UdcMetaDataAppService meta;
+
+// 应用全量元数据（生成页面代码用这个）
+SingleResponse<UdcApplicationMetaData4PageCode> all = meta.selectAppMetaData4PageCode(SingleRequest.from(appId));
+
+// 实体元数据（字段、类型、引用）
+SingleResponse<UdcEntityMetaDataDto> e = meta.selectEntityMetaData(SingleRequest.from(searchDto));
+
+// 聚合实体（含关联）
+ListResponse<UdcEntityMetaDataDto> agg = meta.selectAggEntityIncludeAssociation(SingleRequest.from(searchDto));
+
+// 页面元数据（取页面 schema，流程/微流程要字段时用）
+SingleResponse<UdcPageMetadataV2Dto> page = meta.selectPageMetaData(SingleRequest.from(pageSearchDto));
+ListResponse<UdcPageMetadataV2Dto> pagesForBpm = meta.selectPageSchema4Bpm(SingleRequest.from(list));
+
+// 枚举元数据
+ListResponse<CtpEnumDto> enums = meta.selectEnumMetaDataByAppId(SingleRequest.from(appId));
+```
+
+## UDC 与 bpm 的接缝
+
+```java
+// udc 侧：取流程默认布局应用名（发起页渲染用）
+@Autowired private UdcBpmAppService udcBpm;
+SingleResponse<String> layoutAppName = udcBpm.selectDefaultLayoutAppName();
+
+// bpm 侧：从 UDC 发起流程 —— 用 BpmUdcApiService（见 bpm 模块）
+//   sendForUdc / triggerFlowForUdc
+```
+
+**边界**：`udc` 管「应用/实体/页面/微流程」，`bpm` 管「流程实例」。
+UDC 触发流程只调 `BpmUdcApiService`，不要调 `BpmAppService.send`。
+
+## Agent 生成代码时的引用顺序（这是最常错的地方）
+
+```
+1. 先 assert 设计态存在        → EntityAppService.selectById / AttributeAppService.selectAllAttributeByEntityId
+2. 再读运行态元数据            → UdcMetaDataAppService.selectAppMetaData4PageCode
+3. 改完模型必须部署            → ApplicationManagerAppService.deployNormal
+4. 部署后重新读运行态元数据     ← 不重读会用旧 schema 生成代码
+```
+
+**踩过两次的坑**：第 3 步没做就写第 4 步，拿到的还是旧字段列表；
+第 1 步没做直接读运行态，实体刚建还没部署时返回空。
+
+## 应用级操作速查
+
+| 要做 | 方法 |
+|---|---|
+| 新建应用 | `ApplicationManagerAppService.create` |
+| 复制应用 | `copyApp` / `copyAppAsync`（大批量用 async） |
+| 移交应用（换负责人） | `handoverApp` |
+| 导出应用 | `downloadApp` / `downloadAppAsync` |
+| 导入应用 | `importApp` / `importAppWithDto` |
+| 查依赖（被谁引用） | `getDependsByAppId` / `getShelfDepend` |
+| 上架 | `ApplicationShelfService` |
+| 查部署状态 | `selectAppDeployState` |
+| 查部署记录 | `selectDeployRecordById` |
+| 按 guid 取最新设计版本 | `selectLatestDesignAppByGuid` |
 
 ## 落表
 

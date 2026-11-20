@@ -3,6 +3,41 @@
 > 覆盖 **115** 个应用 / **176** 个构件 / **24618** 个类 / **249560** 个方法
 > 来源：`docs/audit/artifacts/extension-surface-full/interfaces-full.json`（176 构件 javap 全量，无截断）
 
+## 〇、已写「接口面」文档的模块（22 个）
+
+这 22 个模块的 README 有完整四段：构件清单 → facade 入参表 → biz 服务/事件 → web Controller → 典型调用链。
+
+| 模块 | 路径 | 接口 | 方法 |
+|---|---|---:|---:|
+| 组织架构 | `03-business-app/organization/` | 55 | 421 |
+| 流程 | `03-business-app/bpm/` | 39 | 278 |
+| 协同事项 | `03-business-app/ctp-affair/` | 10 | 79 |
+| 用户中心 | `03-business-app/ctp-user/` | 40 | 220 |
+| 消息通知 | `03-business-app/ctp-message/` | 11 | 41 |
+| 应用管理/日志/媒体 | `03-business-app/ctp-other/` | 11 | 58 |
+| 连接器 | `03-business-app/cip-connector/` | 25 | 124 |
+| 集成能力 | `03-business-app/cip-capability/` | 47 | 446 |
+| 集成提供方 | `03-business-app/cip-provider/` | 48 | 330 |
+| 集成周边 | `03-business-app/cip-other/` | 23 | 94 |
+| 低代码平台 | `02-udc/udc/` | 67 | 555 |
+| 平台内核 | `01-platform/boot/` | 47 | 141 |
+| 数据平台 | `03-business-app/cdp/` | 19 | 90 |
+| 通用应用 | `03-business-app/app/` | 22 | 119 |
+| 门户 | `03-business-app/portal/` | 5 | 36 |
+| 移动端 | `03-business-app/m5/` | 6 | 30 |
+| 开放集成 | `03-business-app/ocip/` | 4 | 16 |
+| AI 能力 | `03-business-app/ai/` | 0 | 0（无 AppService，见 README）|
+| 运维 | `01-platform/devops/` | 0 | 0（starter，无 AppService）|
+| 网关 | `01-platform/gateway/` | 0 | 0（基础设施）|
+| 构建插件 | `01-platform/maven/` | 0 | 0（构建期）|
+| 构建 Mojo | `01-platform/mymojo/` | 0 | 0（构建期）|
+| **合计** | | **479** | **3,078** |
+
+**479 / 3,078 与索引里的 `*.api.*` + `*.appservice.*` 接口总数完全一致，无遗漏、无重复**
+（`tools/core/platform/verify_all_modules.py` 自证，退出码 0）。
+
+剩下 93 个应用目录只有结构性 README（构件 + 类数 + 调用方式判据），还没写接口表。
+
 ## 一、分组
 
 | 分组 | 应用数 | 说明 |

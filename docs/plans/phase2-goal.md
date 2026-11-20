@@ -102,4 +102,38 @@ Agent 拿到「给订单审批抄送部门负责人」这类需求时，能只�
 
 ## 进度
 
-见 `todo_list`（g1..g8）。当前：g1 organization。
+### 已完成（阶段2 主体）
+
+22 个模块，479 个接口 / 3,078 个方法，0 个待定语义。
+`verify_all_modules.py` 退出码 0，接口集合与索引完全一致。
+
+| 批次 | 模块 | 接口 | 方法 | 状态 |
+|---|---|---:|---:|---|
+| A | organization | 55 | 421 | ✅ |
+| B | bpm | 39 | 278 | ✅ |
+| C | ctp-affair / ctp-user / ctp-message / ctp-other | 72 | 398 | ✅ |
+| D | cip-connector / cip-capability / cip-provider / cip-other | 143 | 994 | ✅ |
+| E | udc | 67 | 555 | ✅ |
+| F | boot | 47 | 141 | ✅ |
+| G | cdp / app / portal / m5 / ocip | 56 | 291 | ✅ |
+| H | ai / devops / gateway / maven / mymojo | 0 | 0 | ✅（已说明无 facade 的原因）|
+
+### 未完成（阶段3、4）
+
+- **落表**：22 个模块全部标 `UNVERIFIED`。取证路径已写在每个 README，未执行。
+- **REST 路径**：全部标 `UNVERIFIED`（除 udc 的 deploy-normal 有历史实测证据）。
+- **93 个应用目录**：只有结构性 README，还没写接口表（这些应用本身没有 api/appservice 接口，
+  或是 boot-starter 组件，接口面已包含在 boot 模块里）。
+
+### 新增工具链
+
+```
+dump_facade.py         按域/子包抽 facade 签名
+dump_facade_multi.py   多子包合并
+gen_app_doc.py         生成 facade 表（名称拆词 + SPI 规则）
+gen_module_readme.py   组装四段 README
+gen_all_modules.py     批量生成 22 模块 + 汇总待定语义
+verify_module.py       单模块自证（7 项）
+verify_all_modules.py  全量自证（逐模块 + 跨模块对齐 + 域覆盖）
+notes/*.json           678 条手工语义注记
+notes/*.custom.md      手工补充片段（概念表/调用链/边界）
