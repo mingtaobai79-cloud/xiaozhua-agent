@@ -331,6 +331,61 @@
 | `AffairCustomOperationAppService` | `AffairCustomOperation` | `affair_custom_operation` | `stem` |
 | `AffairNodePermissionAppService` | `AffairNodePermission` | `affair_node_permission` | `stem` |
 
+## REST 路由
+
+> 证据：`javap -v` 读 Controller 字节码里的 `@RequestMapping`/`@PostMapping` 注解值。
+> 等级 `VERIFIED_STATIC_BYTECODE`（注解值是常量，非推断）。
+
+**拼法**（以 `organization` 为例，`:8080` 之类按环境）：
+
+```
+POST /service/{类级路径}/{方法级路径}
+      ↑ 类级路径的第一段就是应用 code（organization / bpm / udc …），不要再加一层
+  例：POST /service/udc/runtime/deploy-normal
+      = DeployController 类级 `udc/runtime` + 方法级 `deploy-normal`（线上实测过）
+```
+
+控制器 **13** 个、路由 **126** 条（来源：`ctp-affair-web`）。
+
+> `{id}`、`ids` 这类方法级路径不带类级前缀，拼时必须补上。
+> 完整清单（含 java 方法名）：`docs/audit/artifacts/rest/ROUTES-ctp-affair.md`
+
+| Controller | 类级路径 | 路由 |
+|---|---|---:|
+| `AffairPendingController` | `ctp-affair/affair-center` | 54 |
+| `AffairDemoController` | `ctp-affair/demo/` | 19 |
+| `AffairColumnConfigController` | `ctp-affair/affair-column-config` | 12 |
+| `AffairCategoryController` | `ctp-affair/affair-category` | 9 |
+| `AffairLayoutController` | `ctp-affair/affair-layout` | 8 |
+| `AffairAppMappingInfoController` | `ctp-affair/affair-app-mapping-info` | 6 |
+| `AffairManageController` | `ctp-affair/affair-manage` | 5 |
+| `AffairEnumManageController` | `ctp-affair/enum-manage` | 5 |
+| `AffairCategoryHierarchyController` | `ctp-affair/affair-category-hierarchy` | 3 |
+| `AffairRegisterManageController` | `ctp-affair/affair-register-manage` | 2 |
+| `AffairOperationController` | `ctp-affair/operation` | 1 |
+| `AffairNodePermissionController` | `ctp-affair/node-permission` | 1 |
+| `BpmPluginController` | `ctp-affair/plugin` | 1 |
+
+前 15 条（其余见明细）：
+
+| 方法 | 全路径 |
+|---|---|
+| `PostMapping` | `/service/ctp-affair/affair-app-mapping-info/save-business-field` |
+| `PostMapping` | `/service/ctp-affair/affair-app-mapping-info/get-business-field` |
+| `PostMapping` | `/service/ctp-affair/affair-app-mapping-info/get-business-field-list` |
+| `PostMapping` | `/service/ctp-affair/affair-app-mapping-info/save-summary-field` |
+| `PostMapping` | `/service/ctp-affair/affair-app-mapping-info/get-summary-field` |
+| `PostMapping` | `/service/ctp-affair/affair-app-mapping-info/get-summary-by-app-name` |
+| `PostMapping` | `/service/ctp-affair/affair-category/select/category/by/data/get/count` |
+| `PostMapping` | `/service/ctp-affair/affair-category/select/section/category/by/data/get/count` |
+| `PostMapping` | `/service/ctp-affair/affair-category/affair-badge-count` |
+| `PostMapping` | `/service/ctp-affair/affair-category/test/ws/refresh` |
+| `PostMapping` | `/service/ctp-affair/affair-category/search-affair-category` |
+| `PostMapping` | `/service/ctp-affair/affair-category/select-affair-category-by-sub-app-name` |
+| `PostMapping` | `/service/ctp-affair/affair-category/create-or-update-affair-category` |
+| `PostMapping` | `/service/ctp-affair/affair-category/delete-affair-category` |
+| `PostMapping` | `/service/ctp-affair/affair-category/select-affair-center-intelligence-category-list` |
+
 ## 证据与自证
 
 | 内容 | 证据 | 等级 |
@@ -342,5 +397,6 @@
 | 「干什么」中文描述 | 方法名拆词 + 手工注记 | `STATIC_INFERENCE` |
 | 0 个语义待定方法 | 名称不足 | `UNVERIFIED` |
 | REST 路径（126 条） | Controller 字节码注解 | `VERIFIED_STATIC_BYTECODE` |
+| REST 真机验证 | 78/78 条安全路由命中（100%） | `LIVE` |
 | 落表（23 张表，类级） | class 常量池 + `information_schema` | `VERIFIED_STATIC_BYTECODE` + `LIVE` |
 | 方法级落表 | 未取证（SQL 内联，需逐类反编译） | `UNVERIFIED` |

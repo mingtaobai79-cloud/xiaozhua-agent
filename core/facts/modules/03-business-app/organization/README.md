@@ -1280,6 +1280,117 @@ ListResponse<OrgMemberCoreDto> people = memberCore.selectMemberByIds(SingleReque
 | `OrgUnitBaseAppService` | `SelectPeopleAppService` | `org_role` | `implements+field` |
 | `WorkFlowMatchService` | `FormulaAppServiceImpl, OrganizationMatchMemberAppServiceImpl` | `org_role` | `implements` |
 
+## REST 路由
+
+> 证据：`javap -v` 读 Controller 字节码里的 `@RequestMapping`/`@PostMapping` 注解值。
+> 等级 `VERIFIED_STATIC_BYTECODE`（注解值是常量，非推断）。
+
+**拼法**（以 `organization` 为例，`:8080` 之类按环境）：
+
+```
+POST /service/{类级路径}/{方法级路径}
+      ↑ 类级路径的第一段就是应用 code（organization / bpm / udc …），不要再加一层
+  例：POST /service/udc/runtime/deploy-normal
+      = DeployController 类级 `udc/runtime` + 方法级 `deploy-normal`（线上实测过）
+```
+
+控制器 **69** 个、路由 **650** 条（来源：`organization-web`）。
+
+> `{id}`、`ids` 这类方法级路径不带类级前缀，拼时必须补上。
+> 完整清单（含 java 方法名）：`docs/audit/artifacts/rest/ROUTES-organization.md`
+
+| Controller | 类级路径 | 路由 |
+|---|---|---:|
+| `SelectPeopleController` | `organization/select-people` | 62 |
+| `OrgAppController` | `organization/api` | 53 |
+| `OrgUnitController` | `organization/org-unit` | 50 |
+| `OrgMemberController` | `organization/org-member` | 34 |
+| `OrgSyncController` | `organization/api` | 30 |
+| `OrgAddressBookController` | `organization/address-book` | 20 |
+| `OrgInitController` | `organization/init` | 19 |
+| `OrgPostController` | `organization/org-post` | 15 |
+| `PersonalSettingController` | `organization/personal-setting` | 14 |
+| `OrgJobController` | `organization/org-job` | 12 |
+| `OrgBusinessUnitController` | `organization/org-business-unit` | 11 |
+| `OrgLevelController` | `organization/org-level` | 11 |
+| `OrgExternalPartnerController` | `organization/org-ext-partner` | 11 |
+| `OrgTransferController` | `organization/transfer` | 11 |
+| `CtpAuthorizationRuleController` | `organization/ctp-authorization-rule` | 11 |
+| `OrgUnitTeamController` | `organization/unit-team` | 10 |
+| `OrgExternalMemberController` | `organization/org-ext-member` | 10 |
+| `OrgRoleController` | `organization/org-role` | 9 |
+| `SelectPeopleListController` | `organization/select-people/list` | 9 |
+| `ReferOrgMemberPostController` | `organization/org-member-post/refer` | 8 |
+| `ReferOrgUnitController` | `organization/org-unit/refer` | 8 |
+| `ReferOrgPostController` | `organization/org-post/refer` | 8 |
+| `ReferOrgRoleController` | `organization/org-role/refer` | 8 |
+| `ReferOrgTeamController` | `organization/org-team/refer` | 8 |
+| `ReferOrgJobController` | `organization/org-job/refer` | 8 |
+| `ReferOrgLevelController` | `organization/org-level/refer` | 8 |
+| `ReferOrgBusinessController` | `organization/org-business/refer` | 8 |
+| `ReferOrgMemberController` | `organization/org-member/refer` | 8 |
+| `OrgMemberRoleController` | `organization/org-member-role` | 8 |
+| `OrgBusinessLineController` | `organization/org-business-line` | 8 |
+| `OrgMemberPostController` | `organization/org-member-post` | 8 |
+| `OrgNaturalMemberController` | `organization/org-natural-member` | 7 |
+| `OrgMetaDataSettingController` | `organization/metadata-setting` | 6 |
+| `OrgLegalUnitController` | `organization/org-outside-unit` | 6 |
+| `OrgTeamController` | `organization/team` | 6 |
+| `OrgOcipController` | `organization/ocip` | 6 |
+| `ReferOrgExternalMemberController` | `organization/org-ext-member/refer` | 5 |
+| `ReferOrgExternalPartnerController` | `organization/org-ext-partner/refer` | 5 |
+| `OrgPostDimensionController` | `organization/post-dimension` | 5 |
+| `OrgInstitutionExecutiveController` | `organization/institution-executive` | 5 |
+| `OrgBusinessVerticalRelationController` | `organization/business-vertical-relation` | 5 |
+| `OrgLeaderSecretaryController` | `organization/leader-secretary` | 5 |
+| `OrgAddressBookSetController` | `organization/address-set` | 5 |
+| `OrgAddressBookFieldController` | `organization/address-book-field` | 5 |
+| `OrgExternalMetadataController` | `organization/external-metadata` | 5 |
+| `CtpOrgAdminOrgController` | `organization/ctp-org-admin` | 5 |
+| `OrgBusinessMemberController` | `organization/org-business-member` | 4 |
+| `OrgBusinessBaseController` | `organization/org-business` | 4 |
+| `OrgLevelVisitPermissionController` | `organization/level-permission` | 4 |
+| `OrgDepartmentVisitPermissionController` | `organization/department-permission` | 4 |
+| `OrgMetaDataController` | `organization/metadata` | 4 |
+| `OrgPostDimensionRelationController` | `organization/post-dimension-relation` | 4 |
+| `OrgAddressBookPermissionController` | `organization/address-book-permission` | 4 |
+| `OrgPersonalTeamController` | `organization/personal-team` | 4 |
+| `OrgOcipSelectPeopleController` | `organization/ocip/select-people` | 4 |
+| `OrgParameterController` | `organization/parameter` | 4 |
+| `ComponentFlatSelectPersonController` | `organization/flat-select-person` | 4 |
+| `OrgInstitutionVisitPermissionController` | `organization/institution-permission` | 3 |
+| `OrgScopeController` | `organization/org-scope` | 3 |
+| `OrgExternalMemberRelationshipController` | `organization/external/member-relation` | 3 |
+| `OrgChangJiangController` | `organization/thirdOrgDistribute` | 3 |
+| `CtpPermissionApprovalController` | `organization/ctp-permission-approval` | 3 |
+| `CtpSecretApprovalController` | `organization/ctp-secret-approval` | 3 |
+| `OrgOutsidePermissionController` | `organization/outside-permission` | 2 |
+| `OrgTeamBaseController` | `organization/org-team` | 2 |
+| `OrgExternalUnitController` | `organization/org-ext-unit` | 2 |
+| `OrgEnumController` | `organization/org-enum` | 1 |
+| `OrgOfflineInfoController` | `organization/offline-info` | 1 |
+| `OrgSimulationController` | `organization/simulation` | 1 |
+
+前 15 条（其余见明细）：
+
+| 方法 | 全路径 |
+|---|---|
+| `PostMapping` | `/service/organization/ctp-authorization-rule/auth-by-role` |
+| `PostMapping` | `/service/organization/ctp-authorization-rule/updateAll` |
+| `PostMapping` | `/service/organization/ctp-authorization-rule/delete` |
+| `GetMapping` | `/service/organization/ctp-authorization-rule/{id}` |
+| `PostMapping` | `/service/organization/ctp-authorization-rule/search` |
+| `PostMapping` | `/service/organization/ctp-authorization-rule/users` |
+| `PostMapping` | `/service/organization/ctp-authorization-rule/role-auth` |
+| `PostMapping` | `/service/organization/ctp-authorization-rule/resource-users` |
+| `GetMapping` | `/service/organization/ctp-authorization-rule/user-func-auth/{userId}` |
+| `PostMapping` | `/service/organization/ctp-authorization-rule/func-auth/search` |
+| `PostMapping` | `/service/organization/ctp-authorization-rule/func-auth/search-by-role` |
+| `PostMapping` | `/service/organization/ctp-org-admin/admin/update` |
+| `PostMapping` | `/service/organization/ctp-org-admin/search` |
+| `PostMapping` | `/service/organization/ctp-org-admin/select-admin-by-unit-ids` |
+| `PostMapping` | `/service/organization/ctp-org-admin/admin/batch-update-org-admin` |
+
 ## 证据与自证
 
 | 内容 | 证据 | 等级 |
@@ -1291,5 +1402,6 @@ ListResponse<OrgMemberCoreDto> people = memberCore.selectMemberByIds(SingleReque
 | 「干什么」中文描述 | 方法名拆词 + 手工注记 | `STATIC_INFERENCE` |
 | 0 个语义待定方法 | 名称不足 | `UNVERIFIED` |
 | REST 路径（650 条） | Controller 字节码注解 | `VERIFIED_STATIC_BYTECODE` |
+| REST 真机验证 | 481/481 条安全路由命中（100%） | `LIVE` |
 | 落表（47 张表，类级） | class 常量池 + `information_schema` | `VERIFIED_STATIC_BYTECODE` + `LIVE` |
 | 方法级落表 | 未取证（SQL 内联，需逐类反编译） | `UNVERIFIED` |

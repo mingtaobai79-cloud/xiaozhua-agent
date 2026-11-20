@@ -64,11 +64,18 @@ def full(appid, base, path):
     base=`udc/runtime` + `deploy-normal` = 线上 `POST /service/udc/runtime/deploy-normal`）。
     少数方法的 value 自带类级前缀（历史写法），拼接会重复，此时只保留方法级。
     """
+    def norm(*segs):
+        parts = []
+        for x in segs:
+            for q in (x or "").split("/"):
+                if q:
+                    parts.append(q)
+        return "/".join(parts)
     if not base:
-        return "/service/" + path
+        return "/service/" + norm(path)
     if path.startswith(base):
-        return "/service/" + path
-    return "/service/" + "/".join(s for s in (base, path) if s)
+        return "/service/" + norm(path)
+    return "/service/" + norm(base, path)
 
 
 def main():

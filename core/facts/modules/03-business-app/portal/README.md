@@ -307,6 +307,82 @@
 | `PortalShortcutAppService` | `PortalShortcut` | `portlet_shortcut` | `stem` |
 | `PortalSpaceAppService` | `PortalSpace` | `portal_space` | `stem` |
 
+## REST 路由
+
+> 证据：`javap -v` 读 Controller 字节码里的 `@RequestMapping`/`@PostMapping` 注解值。
+> 等级 `VERIFIED_STATIC_BYTECODE`（注解值是常量，非推断）。
+
+**拼法**（以 `organization` 为例，`:8080` 之类按环境）：
+
+```
+POST /service/{类级路径}/{方法级路径}
+      ↑ 类级路径的第一段就是应用 code（organization / bpm / udc …），不要再加一层
+  例：POST /service/udc/runtime/deploy-normal
+      = DeployController 类级 `udc/runtime` + 方法级 `deploy-normal`（线上实测过）
+```
+
+控制器 **34** 个、路由 **337** 条（来源：`portal-web`）。
+
+> `{id}`、`ids` 这类方法级路径不带类级前缀，拼时必须补上。
+> 完整清单（含 java 方法名）：`docs/audit/artifacts/rest/ROUTES-portal.md`
+
+| Controller | 类级路径 | 路由 |
+|---|---|---:|
+| `PortalSpaceController` | `portal/portal-space` | 40 |
+| `MainController` | `portal/main` | 33 |
+| `PortalSetController` | `portal/portal-set` | 32 |
+| `PortletController` | `portal/portal-portlet` | 26 |
+| `MainTemplateController` | `portal/template` | 25 |
+| `PortalTemplateInstanceController` | `portal/portal-instance` | 18 |
+| `PortalTemplateDesignController` | `portal/template-design` | 15 |
+| `PortalSpaceNavController` | `portal/space-nav` | 14 |
+| `PortalRoleConfigController` | `portal/portal-role` | 13 |
+| `PortalShortCutController` | `portal/shortcut` | 11 |
+| `MemorabiliaController` | `portal/memorabilia` | 10 |
+| `PortalPortletFrameController` | `portal/portlet-frame` | 9 |
+| `MemorabiliaTypeController` | `portal/memorabilia-type` | 8 |
+| `PortalHolidayReminderController` | `portal/portlet-holiday` | 8 |
+| `PortalParameterController` | `portal/portal-parameter` | 8 |
+| `PortalCheckVersionController` | `portal/check-version` | 8 |
+| `MainLoginPageController` | `portal/login-page` | 6 |
+| `MainOperationController` | `portal/portal-operation` | 6 |
+| `PortalSpaceLayoutController` | `portal/space-layout` | 6 |
+| `PortalAppResourceController` | `portal/app-resource` | 5 |
+| `PortalLoginPreConfigController` | `portal/login-pre-config` | 5 |
+| `PortalCategoryController` | `portal/portal-category` | 5 |
+| `NoticeBoardController` | `portal/notice-board` | 4 |
+| `PortalSpaceVersionController` | `portal/version-record` | 4 |
+| `PortalBannerImageController` | `portal/banner-image` | 3 |
+| `MainElementController` | `portal/element` | 3 |
+| `PortalPersonalConfigController` | `portal/personal-config` | 2 |
+| `PortalConfigController` | `portal/config` | 2 |
+| `WeatherController` | `portal/weather` | 2 |
+| `PortalRecycleController` | `portal/portal-recycle` | 2 |
+| `VideoController` | `portal/video` | 1 |
+| `PortalConnectorController` | `portal/portal-connector` | 1 |
+| `MainPcSysResourceController` | `portal/sys-resource` | 1 |
+| `UserInfoController` | `portal/user-info` | 1 |
+
+前 15 条（其余见明细）：
+
+| 方法 | 全路径 |
+|---|---|
+| `PostMapping` | `/service/portal/main/login` |
+| `PostMapping` | `/service/portal/main/switch-admin` |
+| `PostMapping` | `/service/portal/main/switch-admin-new` |
+| `PostMapping` | `/service/portal/main/switch-user` |
+| `PostMapping` | `/service/portal/main/switch-tenant` |
+| `GetMapping` | `/service/portal/main/user-info` |
+| `GetMapping` | `/service/portal/main/pc-user-info` |
+| `GetMapping` | `/service/portal/main/mobile-user-info` |
+| `GetMapping` | `/service/portal/main/org-list` |
+| `GetMapping` | `/service/portal/main/admin-menus` |
+| `PostMapping` | `/service/portal/main/admin-org-list` |
+| `GetMapping` | `/service/portal/main/org-portal-info` |
+| `GetMapping` | `/service/portal/main/main-portal-info` |
+| `PostMapping` | `/service/portal/main/portal-info` |
+| `GetMapping` | `/service/portal/main/org-space-info` |
+
 ## 证据与自证
 
 | 内容 | 证据 | 等级 |
@@ -318,5 +394,6 @@
 | 「干什么」中文描述 | 方法名拆词 + 手工注记 | `STATIC_INFERENCE` |
 | 0 个语义待定方法 | 名称不足 | `UNVERIFIED` |
 | REST 路径（337 条） | Controller 字节码注解 | `VERIFIED_STATIC_BYTECODE` |
+| REST 真机验证 | 176/176 条安全路由命中（100%） | `LIVE` |
 | 落表（56 张表，类级） | class 常量池 + `information_schema` | `VERIFIED_STATIC_BYTECODE` + `LIVE` |
 | 方法级落表 | 未取证（SQL 内联，需逐类反编译） | `UNVERIFIED` |
