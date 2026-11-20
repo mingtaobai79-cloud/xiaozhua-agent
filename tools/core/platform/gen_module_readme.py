@@ -136,9 +136,10 @@ def render(dom, group, name, title, extra_biz="", extra_web="", extra_chain=""):
                                 and fq.split(".")[-1].endswith("Service")
                                 and cl.get("kind") == "class")
     L += ["## biz 层：领域服务", "",
-          f"共 {len(services)} 个领域服务。职责由**该服务方法名的动词分布**归纳，不是猜的。", "",
+          f"共 {len(services)} 个领域服务，下表列**方法数最多的 {min(len(services),40)} 个**。",
+          "职责由**该服务方法名的动词分布**归纳，不是猜的。", "",
           "| 服务 | 方法数 | 职责（按方法名统计） |", "|---|---:|---|"]
-    for fq, cl in sorted(services, key=lambda x: -nm(x[1])):
+    for fq, cl in sorted(services, key=lambda x: -nm(x[1]))[:40]:
         short = fq.split(".")[-1]
         L.append(f"| `{short}` | {nm(cl)} | {svc_role(fq, cl)} |")
     L.append("")
