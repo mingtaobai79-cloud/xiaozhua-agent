@@ -203,23 +203,35 @@ schedule/MicroFlowSchedule.java.ftl:10,37    import …CustomMicroFlowAppService
 
 ## 八、运行期：监听已注册，定时未注册
 
-**监听（CUSTOM + BUSINESS_EVENT）——注册已 LIVE**
+**监听（CUSTOM + BUSINESS_EVENT）——全链路 LIVE PASS（1.0.282，2026-11-21 17:51）**
 
 ```
 EventHandlerBeanPostProcessor:57 类[…P0CustomEventProbeListener$$EnhancerBySpringCGLIB$$…],
 监听方法[onBeforeCreateEvent],是否异步[false],监听dto[…dto.AeProbeEntityDto]
+P0CustomEventProbeListener:38  接收到“接口验证实体新增事件(操作前)”事件，触发“P0-自定义事件监听验证”微流程执行
+MigrationProbeServiceImpl:39   [MF-PROBE][EVENT] 自定义微流程被事件触发 flow=p0CustomEventProbe id=null
+                               name=P0-EVENT-PROBE eventType=BeforeCreateEvent
+P0CustomEventProbeListener:43  成功执行微流程：P0-自定义事件监听验证
+Subscriber:183                 …onBeforeCreateEvent…消费事件…耗时298
 ```
 
-**定时（CUSTOM + SCHEDULE）——本轮未注册**
+触发方式：探针实体没有页面/REST，外部造不出一条 create，所以在 ext 里加
+`MicroFlowEventProbeRunner implements ApplicationRunner`，启动后用 `EventBus.publish(new BeforeCreateEvent<>(dto))`
+发同类事件。⇒ 证明「监听器 → AppService → 手写 Service」接线正确；
+**不证明**「平台在实体 create 时确实发这个事件」（那一步仍需真实 create）。
+
+**定时（CUSTOM + SCHEDULE）——仍未注册（1.0.282 复验）**
 
 ```
-jar 里有类：datamigration…-biz-1.0.281.jar → schedule/P0CustomScheduleProbeSchedule.class
-DB 里无记录：SELECT COUNT(*) FROM ctp_job_info WHERE job_name LIKE 'PcSp%' → 0
-执行日志 0 条：ctp_job_log 同 job_name → 0
-启动日志「本次扫描初始化定时任务信息」里也没有 PcSpL2lTP5Xq1FGj
+jar 里有类：datamigration…-biz-1.0.282.jar → schedule/P0CustomScheduleProbeSchedule.class
+DB 里无记录：SELECT COUNT(*) FROM ctp_job_info WHERE job_name='PcSpL2lTP5Xq1FGj' → 0
+执行日志 0 条：ctp_job_log 同 job_name → 0；Pod 日志无该 jobName 启动扫描记录
 ```
 
-⇒ 定时任务没有进调度器，流程不会被触发。待查：job 记录是否要随流程发布单独导出/导入。
+生成类的注解只有 `@Slf4j` + `@CtpSchedule(...)`，**没有 @Component**；
+而 `CtpSchedule` 的元注解只有 `@Target/@Retention/@Documented/@Inherited`，**不带 @Component**。
+⇒ 这个类在当前版本里既不是 Spring Bean，也没进 `ctp_job_info`，调度器不会执行它。
+待验：手工建一条 job 记录 + `jobInfo/execute-onetime` 能否跑起来（区分“扫描没覆盖”与“Bean 不存在”）。
 
 **事件触发入口缺失（本轮 BLOCKED）**：探针实体 `AeProbeEntity` 没有可用的对外入口——
 生成的 `AbstractAeProbeEntityController` 上 `@RestController`/`@RestApi` 被注释掉，
