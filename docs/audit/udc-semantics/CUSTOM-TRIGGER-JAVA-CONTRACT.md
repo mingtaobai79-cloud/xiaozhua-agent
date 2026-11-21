@@ -220,18 +220,48 @@ Subscriber:183                 …onBeforeCreateEvent…消费事件…耗时298
 发同类事件。⇒ 证明「监听器 → AppService → 手写 Service」接线正确；
 **不证明**「平台在实体 create 时确实发这个事件」（那一步仍需真实 create）。
 
-**定时（CUSTOM + SCHEDULE）——仍未注册（1.0.282 复验）**
+**定时（CUSTOM + SCHEDULE）——1.0.282 复验：登记了但被「停用」，且平台禁止 @Component**
+
+启动失败实证（这就是为什么不能用 @Component 绕过）：
 
 ```
-jar 里有类：datamigration…-biz-1.0.282.jar → schedule/P0CustomScheduleProbeSchedule.class
-DB 里无记录：SELECT COUNT(*) FROM ctp_job_info WHERE job_name='PcSpL2lTP5Xq1FGj' → 0
-执行日志 0 条：ctp_job_log 同 job_name → 0；Pod 日志无该 jobName 启动扫描记录
+SeeyonApplicationRunListener:248 启动失败,datamigration163126498398523384-1.0.282
+com.seeyon.boot.exception.BootException:
+  调度类：[class …extend.microflow.ExtScheduleProbeJob]不能使用[Component]注解
 ```
 
-生成类的注解只有 `@Slf4j` + `@CtpSchedule(...)`，**没有 @Component**；
-而 `CtpSchedule` 的元注解只有 `@Target/@Retention/@Documented/@Inherited`，**不带 @Component**。
-⇒ 这个类在当前版本里既不是 Spring Bean，也没进 `ctp_job_info`，调度器不会执行它。
-待验：手工建一条 job 记录 + `jobInfo/execute-onetime` 能否跑起来（区分“扫描没覆盖”与“Bean 不存在”）。
+⇒ 生成类**不加 @Component 是设计如此**，平台自己扫描 `@CtpSchedule` 注册 bean。之前「生成器漏注解」的推断作废。
+
+DB 实况（1.0.282，18:02:44 建）：
+
+```
+ctp_job_info: job_name=PcSpL2lTP5Xq1FGj  job_caption=P0-自定义定时验证  status=0(停用)
+ctp_job_log : 0 条
+redis simple: test2:datamigration…::simple → PcSpL2lTP5Xq1FGj repeatInterval=5
+```
+
+**但同一版本里自写的 ext Job 跑通了**（`@CtpSchedule(jobName="P0ExtJobProbe0001", cron="0 */5 * * * ?")`，不加 @Component）：
+
+```
+18:27:40 本次创建初始化定时任务信息[{jobName:ExtScheduleProbeJob, jobCaption:P0ExtJobProbe0001, status:true}]
+18:30:00 ExtScheduleProbeJob:31        [MF-PROBE][EXT-JOB] 外部 Job 被执行 job=P0ExtJobProbe0001
+18:30:00 MigrationProbeServiceImpl:48  [MF-PROBE][SCHEDULE] 自定义微流程被定时触发 flow=p0CustomScheduleProbe
+18:30:00 ExtScheduleProbeJob:38        [MF-PROBE][EXT-JOB] appService.p0CustomScheduleProbe() 调用完成
+```
+
+⇒ 结论（两条路径都实测过）：
+
+1. **平台生成的 schedule 类**：注解只带 jobName/description，**没有 cron**；调度时间来自 `ctp_job_info` + redis 记录，而记录默认 `status=0`（停用），所以永不执行。要跑得在「定时任务」里启用，或让发布环节带启用标志。
+2. **ext 自写 Job**：只要 `@CtpSchedule` 上直接给 `cron`，启动即注册并在到点执行，链路和生成类完全相同（都走 appService → 兜底 impl → 手写 Service）。
+
+REST 探针（说明停用是真的拦住了执行）：
+
+```
+POST /service/udc/jobInfo/execute-onetime {param1:id,param2:tenant}
+  → BOOT_3000 "当前定时任务不存在或已删除或停用，无法执行"
+POST /service/udc/jobInfo/update-status {param1:id,param2:true,param3:tenant}
+  → BOOT_0000 SUCCESS 但 data.content=0，DB status 仍为 0（未改成功）
+```
 
 **事件触发入口缺失（本轮 BLOCKED）**：探针实体 `AeProbeEntity` 没有可用的对外入口——
 生成的 `AbstractAeProbeEntityController` 上 `@RestController`/`@RestApi` 被注释掉，
