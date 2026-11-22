@@ -407,3 +407,92 @@ grep "\[MF\] schedule 触发" <app>-info.log
 □ 改过 serviceInterface 吗？改过就只能用于 MANUAL
 □ 部署后 jar 里有实现类？（jar tf 查，别信构建状态）
 ```
+
+### 10.7 出入参：定义在哪、Java 侧长什么样
+
+**定义**在设计器「参数」tab（入参/出参），写入 `dataSchema`；面板读写链路已实证
+（`MICROFLOW-PARAMS-TAB-DATACHAIN.md`：`udcMicroflowFindByIdGet` → `dataSchema` → `jsonSchema`）。
+
+三型在 Java 侧的入参（生成物原文，`build2-d1a8f95/`）：
+
+```
+MANUAL          appService  <Flow>(SingleRequest<XxxDto> request)   → 实现里 request.getData()
+                service     <Flow>(XxxDto xxx)                      ← 生成签名待 MANUAL 实跑确认，UNVERIFIED
+EVENT           appService  <Flow>(SingleRequest<BeforeCreateEvent<XxxDto>> request)
+                service     <Flow>(BeforeCreateEvent<XxxDto> _BUSINESS_EVENT_xxxx)   ← listener 里 SingleRequest.from(event)
+SCHEDULE        appService  <Flow>()
+                service     <Flow>()                                 ← 无入参
+```
+
+取数据只用两个方法（`boot-core` 字节码）：
+
+```java
+SingleRequest.from(T data)     // 包装
+request.getData()              // 取值
+```
+
+**出参目前没有回传通道**：appService 返回 `SingleResponse<Void>`、service 接口是 `void`，
+生成物里没有任何把业务数据带回调用方的形参/返回值。⇒ 出参只能用于微流程内部节点传递；
+若 MANUAL 要对外返回数据，走什么通道 **UNVERIFIED**（要专门实测一次）。
+
+### 10.8 UDC 生成物清单：哪些能引用、哪些碰不得
+
+`<app>-facade` / `<app>-biz` 里与自定义微流程相关的就这几类（路径来自 `build2-d1a8f95/`）：
+
+| 生成物 | 我能做什么 |
+|---|---|
+| `facade/api/microflow/{serviceInterface}.java` | **调**：注入它调流程（事件/定时就是走这里） |
+| `facade/custom/service/microflow/{XxxService}.java` | **实现**：手写类 implements 它 |
+| `facade/dto/{Entity}Dto.java` | **引用**：事件入参、对象读写都用它 |
+| `facade/api/{Entity}AppService.java` | **引用**：创建/更新自定义对象 |
+| `biz/custom/appservice/microflow/Default{...}Impl.java` | 别改：兜底 + 注入我的手写实现（`@Autowired(required=false)`） |
+| `biz/domain/event/listener/microflow/{Flow}Listener.java` | 别改：`@EventHandler` + `@Transactional(REQUIRED)`，`success` 日志也在里面 |
+| `biz/schedule/{Flow}Schedule.java` | 别改：`@CtpSchedule` + `MicroFlowRuntimeUtil.saveDefaultValue4RequestContext()` |
+
+依赖不用自己加：手写实现只 import facade 的包（`<app>.custom.service.microflow`、`<app>.dto`、
+`<app>.api.microflow`），而 ext 模块本来就依赖 facade。
+
+### 10.9 自定义对象：建、拿、用
+
+实体一经创建，应用里就有三件（`AeProbeEntity` 实例）：
+
+```
+facade/dto/AeProbeEntityDto.java           字段驼峰（probeAmount / probeStatus / createTime …）
+facade/api/AeProbeEntityAppService.java    读写入口
+facade/enums/…                             实体带枚举时才有
+```
+
+`{Entity}AppService` 的方法（字节码原文，全部 `SingleRequest<…>` 包一层）：
+
+```java
+SingleResponse<Long>            create(SingleRequest<Dto>)
+SingleResponse<Dto>             createWithResult(SingleRequest<Dto>)
+SingleResponse<Integer>         createBatch(SingleRequest<List<Dto>>)
+SingleResponse<Integer>         update(SingleRequest<Dto>)
+SingleResponse<Integer>         updateWithFields(SingleRequest<Map<String,Object>>)
+SingleResponse<Dto>             updateWithResult(SingleRequest<Dto>)
+SingleResponse<ResultDto>       create4Bpm / update4Bpm     // 走流程时用
+```
+
+写进自定义微流程里最长这样：
+
+```java
+@Autowired(required = false) private AeProbeEntityAppService aeProbeEntityAppService;
+
+AeProbeEntityDto dto = new AeProbeEntityDto();
+dto.setProbeName("from-microflow");
+SingleResponse<Long> r = aeProbeEntityAppService.create(SingleRequest.from(dto));
+```
+
+两条路二选一，别混：**代码里调 AppService**（上面）｜**编排里用「插入数据」节点**（`CREATE_ENTITY`，
+必填 `structure`/`mappingType`/`title`，见 `MICROFLOW-CREATE-ENTITY-CONTRACT.md`）。
+DTO 字段是驼峰、库里是下划线（`shortName ↔ short_name` 已实测对照过 organization）。
+
+### 10.10 这块还欠什么（写需求前心里有数）
+
+```
+UNVERIFIED  出参回传通道（service 接口 void、appService 只回 SingleResponse<Void>）
+UNVERIFIED  MANUAL 型 service 方法生成签名 + REST 端到端调用
+UNVERIFIED  MESSAGE 源入参 DTO 是否必须等于 eventDataFullName
+UNVERIFIED  @CtpSchedule 多租户分发机制（只见两租户各跑一次）
+```
