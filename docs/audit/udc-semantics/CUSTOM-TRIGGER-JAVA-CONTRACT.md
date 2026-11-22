@@ -249,7 +249,22 @@ redis simple: test2:datamigration…::simple → PcSpL2lTP5Xq1FGj repeatInterval
 18:30:00 ExtScheduleProbeJob:38        [MF-PROBE][EXT-JOB] appService.p0CustomScheduleProbe() 调用完成
 ```
 
-⇒ 结论（两条路径都实测过）：
+⇒ 结论（两条路径都实测过，均已 LIVE PASS）：
+
+0. **把 `ctp_job_info.status` 置 1 后，平台生成的类真的跑起来了**（2026-11-22 16:27，同一 pod）：
+
+```
+16:27:00 CustomSchedule:106 读到redis中Simple[test2:…::simple][29922267]的job数据：
+         [{jobName:PcSpL2lTP5Xq1FGj, repeatInterval:5, tenantId:-8112660841495312922, jobInfoId:8618752333562220226}]
+16:27:00 P0CustomScheduleProbeSchedule:32  jobClass:[P0CustomScheduleProbeSchedule] jobName:[PcSpL2lTP5Xq1FGj] start!
+16:27:00 MigrationProbeServiceImpl:48      [MF-PROBE][SCHEDULE] 自定义微流程被定时触发 flow=p0CustomScheduleProbe
+16:27:00 ScheduleMetrics:39                Metric timer registered: schedule.ctp.success,PcSpL2lTP5Xq1FGj
+16:30:00 MigrationProbeServiceImpl:48      （下一周期，两个租户各一次）
+```
+
+⇒ 生成类本身没问题，**缺的只是「启用」**；`status=0` 时 execute-onetime 也拒绝执行。
+    注意 redis 里的 `jobInfoId`(8618752333562220226) 与 DB 行的 `id`(-1715330898652018468) 不一致，
+    说明 redis simple 条目来自另一处缓存映射，改状态要改 DB 行、再由启动同步刷新 redis。
 
 1. **平台生成的 schedule 类**：注解只带 jobName/description，**没有 cron**；调度时间来自 `ctp_job_info` + redis 记录，而记录默认 `status=0`（停用），所以永不执行。要跑得在「定时任务」里启用，或让发布环节带启用标志。
 2. **ext 自写 Job**：只要 `@CtpSchedule` 上直接给 `cron`，启动即注册并在到点执行，链路和生成类完全相同（都走 appService → 兜底 impl → 手写 Service）。
