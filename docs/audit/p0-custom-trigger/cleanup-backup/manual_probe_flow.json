@@ -1,0 +1,13 @@
+{
+ "id": "2161771347477002763",
+ "state": "RELEASE",
+ "guid": "-613428394571250932",
+ "name": "p0ManualProbe",
+ "caption": "P0-服务定义出入参验证",
+ "type": "CUSTOM",
+ "triggerType": "MANUAL",
+ "serviceInterface": "CustomMicroFlowAppService",
+ "groupType": "DEFAULT",
+ "microFlowGroupId": "0",
+ "dataSchema": "{\"endNode\": {\"id\": \"\", \"name\": \"\", \"type\": \"END\", \"actionType\": \"END_NODE\", \"nodeId\": \"MFEndNode\", \"caption\": \"结束\", \"description\": \"\", \"input\": null, \"output\": {\"id\": null, \"javaType\": \"java.lang.String\", \"dataType\": \"STRING\", \"type\": \"OBJECT\", \"desc\": \"P0出参\", \"dtoType\": null, \"udcApp\": null, \"hasPagination\": null, \"name\": \"_FLOW_OUTPUT_Iyxavh\"}}, \"sourceType\": \"PAGE\", \"trigger\": {\"id\": \"\", \"nodeId\": \"MFStartNode\", \"caption\": \"开始\", \"description\": \"\", \"type\": \"MANUAL\", \"input\": null, \"output\": null, \"paramType\": \"BASIC\", \"hasPagination\": false, \"isArray\": false, \"desc\": \"P0入参\", \"basic\": \"STRING\"}, \"nodes\": [], \"input\": {\"id\": null, \"javaType\": \"java.lang.String\", \"dataType\": \"STRING\", \"type\": \"OBJECT\", \"desc\": \"P0入参\", \"dtoType\": null, \"udcApp\": null, \"hasPagination\": null, \"name\": \"_FLOW_INPUT_P0IN01\"}, \"output\": {\"id\": null, \"javaType\": \"java.lang.String\", \"dataType\": \"STRING\", \"type\": \"OBJECT\", \"desc\": \"P0出参\", \"dtoType\": null, \"udcApp\": null, \"hasPagination\": null, \"name\": \"_FLOW_OUTPUT_Iyxavh\"}}"
+}

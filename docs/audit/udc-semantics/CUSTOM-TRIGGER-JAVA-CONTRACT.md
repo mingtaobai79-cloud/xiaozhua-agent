@@ -300,7 +300,8 @@ POST /service/udc/jobInfo/update-status {param1:id,param2:true,param3:tenant}
 | ext `MicroFlowEventProbeRunner` | 删除（每次启动发事件） | 同上 |
 | ext `ExtScheduleProbeJob` | 删除（每 5 分钟触发） | 同上 |
 | `ctp_job_info.PcSpL2lTP5Xq1FGj`（流程删后成孤儿任务） | 整行删除 | 整行先备份到 `cleanup-backup/ctp_job_info_row.txt`；DELETE `AFFECTED 1`，回读 COUNT=0 |
-| 1.0.283 产物 | 无探针类残留 | `jar tf` biz/ext 两个 jar → `P0Custom*`/`MigrationProbe*`/`ExtScheduleProbe*` 全 0 命中；Pod 日志 `MF-PROBE` 0 行、`BootException/启动失败` 0 行 |
+| `p0ManualProbe` id=2161771347477002763（CUSTOM+MANUAL，出入参取证用） | 设计态删除 | 整行先备份到 `cleanup-backup/manual_probe_flow.json`；`delete=True`，回读 `get={}` |
+| 1.0.286 产物（Pod f5cbf7b8c-x5vqs，19:31 起） | 无探针类残留 | 4 个 jar（biz/ext/facade/web）`jar tf` 中 `p0Manual*`/`p0Custom*`/`CustomMicroFlowService` 全 0 命中 |
 
 未删：`AeProbeEntity`（id=4308140192425942217，建于 2026-11-09）——早于本轮，属既有的「接口验证实体」，不是本次探针产物。
 
@@ -431,9 +432,40 @@ SingleRequest.from(T data)     // 包装
 request.getData()              // 取值
 ```
 
-**出参目前没有回传通道**：appService 返回 `SingleResponse<Void>`、service 接口是 `void`，
-生成物里没有任何把业务数据带回调用方的形参/返回值。⇒ 出参只能用于微流程内部节点传递；
-若 MANUAL 要对外返回数据，走什么通道 **UNVERIFIED**（要专门实测一次）。
+**出参只在 MANUAL 有意义**，因为只有它有"调用方"：
+
+```
+MANUAL     调用方是外部（REST/Dubbo/其他服务）→ 需要回值 → 生成签名带出参   ← 正在验（见下）
+EVENT      监听器触发完只写日志，不消费返回值  → 生成 void        ⇒ 天然无出参
+SCHEDULE   调度器只要一个 ok                   → 生成 void        ⇒ 天然无出参
+```
+
+（此前本文写成"整体没有出参回传通道"，是拿 EVENT/SCHEDULE 的生成物当成了三型共性，已更正。）
+
+MANUAL 出参 **已实证**（`p0ManualProbe`，id=2161771347477002763，入参 BASIC STRING「P0入参」／
+出参 BASIC STRING「P0出参」，构建 `发布应用:20261122192211435`）：
+
+```java
+// facade/custom/service/microflow/CustomMicroFlowService.java   ← 我要实现的
+default java.lang.String p0ManualProbe(java.lang.String _FLOW_INPUT_P0IN01)
+
+// facade/api/microflow/CustomMicroFlowAppService.java           ← 对外契约
+default SingleResponse<java.lang.String> p0ManualProbe(SingleRequest<java.lang.String> request)
+
+// biz/custom/appservice/microflow/Default…Impl.java
+public SingleResponse<java.lang.String> p0ManualProbe(
+        @ParameterInfo("P0入参") SingleRequest<java.lang.String> request) {
+    if (customMicroFlowService == null) throw …UDC_MICROFLOW_INTERFACE_NOT_IMPLEMENTED;
+    return SingleResponse.from(customMicroFlowService.p0ManualProbe(request.getData()));
+}
+```
+
+⇒ **入参 = 方法形参，出参 = 方法返回值**，appService 再包一层 `SingleResponse.from(...)`。
+参数名 `_FLOW_INPUT_xxx` 是面板生成的内部名，`desc` 才是业务名（进 `@ParameterInfo`）。
+
+★ **写 `dataSchema` 必须镜像到顶层**：`trigger.output` → `dataSchema.input`、`endNode.output` → `dataSchema.output`。
+只写 trigger/endNode 时生成器视作无参（实测：同样一条 MANUAL 流程，只写 trigger+endNode →
+生成 `void p0ManualProbe()`；补上顶层 input/output 并重新发布后 → 才生成 `String p0ManualProbe(String)`）。
 
 ### 10.8 UDC 生成物清单：哪些能引用、哪些碰不得
 
@@ -491,8 +523,8 @@ DTO 字段是驼峰、库里是下划线（`shortName ↔ short_name` 已实测�
 ### 10.10 这块还欠什么（写需求前心里有数）
 
 ```
-UNVERIFIED  出参回传通道（service 接口 void、appService 只回 SingleResponse<Void>）
-UNVERIFIED  MANUAL 型 service 方法生成签名 + REST 端到端调用
+VERIFIED    MANUAL 生成签名（入参=形参、出参=返回值、SingleResponse.from 包装）
+UNVERIFIED  MANUAL 的 REST 端到端调用（需 restApi 开启；生成物已证明契约，调用链未跑）
 UNVERIFIED  MESSAGE 源入参 DTO 是否必须等于 eventDataFullName
 UNVERIFIED  @CtpSchedule 多租户分发机制（只见两租户各跑一次）
 ```
