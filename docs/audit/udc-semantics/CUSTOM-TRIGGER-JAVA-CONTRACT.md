@@ -295,6 +295,7 @@ POST /service/udc/jobInfo/update-status {param1:id,param2:true,param3:tenant}
 | ext `MigrationProbeServiceImpl` | 删除（流程删了，接口不再生成，留着编译失败） | commit `07f0d0e` |
 | ext `MicroFlowEventProbeRunner` | 删除（每次启动发事件） | 同上 |
 | ext `ExtScheduleProbeJob` | 删除（每 5 分钟触发） | 同上 |
-| `ctp_job_info.PcSpL2lTP5Xq1FGj.status` | 1 → 0（恢复停用） | `AFFECTED 1`，回读 status=0 |
+| `ctp_job_info.PcSpL2lTP5Xq1FGj`（流程删后成孤儿任务） | 整行删除 | 整行先备份到 `cleanup-backup/ctp_job_info_row.txt`；DELETE `AFFECTED 1`，回读 COUNT=0 |
+| 1.0.283 产物 | 无探针类残留 | `jar tf` biz/ext 两个 jar → `P0Custom*`/`MigrationProbe*`/`ExtScheduleProbe*` 全 0 命中；Pod 日志 `MF-PROBE` 0 行、`BootException/启动失败` 0 行 |
 
 未删：`AeProbeEntity`（id=4308140192425942217，建于 2026-11-09）——早于本轮，属既有的「接口验证实体」，不是本次探针产物。
