@@ -205,7 +205,7 @@ schedule/MicroFlowSchedule.java.ftl:10,37    import …CustomMicroFlowAppService
 往扩展仓推一次后，构建产物 `…-ext-1.0.281.jar` 里能 `jar tf` 到
 `com/seeyon/<app>/extend/microflow/MigrationProbeServiceImpl.class`。
 
-## 八、运行期：监听已注册，定时未注册
+## 八、运行期实证：监听与定时都已跑通（LIVE PASS）
 
 **监听（CUSTOM + BUSINESS_EVENT）——全链路 LIVE PASS（1.0.282，2026-11-21 17:51）**
 
