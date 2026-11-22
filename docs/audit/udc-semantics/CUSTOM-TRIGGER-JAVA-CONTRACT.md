@@ -1,12 +1,13 @@
 # 自定义微流程 · 三种触发方式的 Java 契约（真机版）
 
-> 证据等级：**模板 STATIC_RULE ＋ 真机生成物 LIVE**
-> CUSTOM+EVENT / CUSTOM+SCHEDULE 在 test2 真建、真构建、真拉产物
-> 未验：运行期触发（发事件 / 跑定时）→ 第三节
+> 证据等级：**模板 STATIC_RULE ＋ 生成物 LIVE ＋ 运行期 LIVE（EVENT / SCHEDULE）**
+> CUSTOM+EVENT / CUSTOM+SCHEDULE 在 test2 真建、真构建、真部署、真触发
+> 已验：事件监听全链路 + 定时调度全链路（第八节，日志原文）
+> 未验：MANUAL 运行期调用、MESSAGE 源入参 DTO 约束（第四节）
 > 用途：P0 结论，喂知识方案 D1
 
 环境：test2 / app `datamigration163126498398523384`（数据迁移）
-构建：`1.0.279`，git `d1a8f95`
+生成物取证：`1.0.279`，git `d1a8f95`；运行期取证：`1.0.282`；清理后：`1.0.283`
 生成物原件：`docs/audit/p0-custom-trigger/build2-d1a8f95/`
 （`build1-20261121T0348/` 是修复前对照）
 
@@ -136,24 +137,27 @@ CustomMicroFlowAppService 中的方法 p0CustomEventProbe 应用到给定类型;
 
 ## 四、仍未验证（下一轮）
 
-1. **监听是否真被触发**：需实现 `CustomMicroFlowService` 并部署，再对该实体做一次 create，
-   看 `<app>-info.log` 有「接收到…事件，触发…微流程执行」且 `success=true`。
-2. **定时是否真被调度**（`@CtpSchedule` 是否被扫到；可走 `jobInfo/execute-onetime` 手工触发）。
-3. build2 的 biz jar 是否已含 `custom/service/microflow` 类（本轮只验了 git 生成物，未复查 jar）。
-4. `MESSAGE` 源的入参 DTO 是否必须与 `eventDataFullName` 一致。
+1. **MANUAL 运行期**：三种触发里只有 MANUAL 没跑过端到端。需建一条 MANUAL 型 CUSTOM 流程
+   （`restApi=1` 或 Dubbo 开放），调用 `…/{appName}/{flow}/…` 看是否落进手写实现。
+   ⚠️ MANUAL 是**唯一允许改 `serviceInterface`** 的类型（第六节），改名这条路也只有它还没真跑。
+2. `MESSAGE` 源的入参 DTO 是否必须与 `eventDataFullName` 一致。
+3. `@CtpSchedule` 生成的类在**多租户**下是否每租户各跑一次（本轮日志见两个 tenantId 各一次，未拆解机制）。
 
-## 五、本轮创建的测试对象（验完运行期再删）
+> 已闭合（原列在这里，现已有实证）：监听真被触发 ✔、定时真被调度 ✔、biz jar 含生成类 ✔。
 
-```
-udc_microflow_info id=4620867461310390367  p0CustomEventProbe     CUSTOM + BUSINESS_EVENT  (RELEASE)
-udc_microflow_info id=7674299753416331984  p0CustomScheduleProbe  CUSTOM + SCHEDULE         (RELEASE)
-构建记录：
+## 五、本轮创建的测试对象（已删除，留档在第九节）
+
+```text
+udc_microflow_info id=4620867461310390367  p0CustomEventProbe     CUSTOM + BUSINESS_EVENT  (RELEASE) → 已删
+udc_microflow_info id=7674299753416331984  p0CustomScheduleProbe  CUSTOM + SCHEDULE         (RELEASE) → 已删
+构建序列（供复现对照）：
   20261121034003 SUCCESS 1.0.278（未编到生成物）
   20261121034832 FAIL    1.0.278 ← 签名不一致，javac 原文见上
   20261121035659 SUCCESS 1.0.279
-  20261121040103 SUCCESS 1.0.279（当前运行版本）
-  20261121040716 state=0 未收敛（重复触发的那次，app 本身不受影响；待它自己收敛或作废）
-删除前先备份两行 data_schema
+  20261121040103 SUCCESS 1.0.279
+  20261121174700 SUCCESS 1.0.282 ← 运行期取证（EVENT）
+  20261122         SUCCESS 1.0.282（重建，SCHEDULE 取证）
+  20261122         SUCCESS 1.0.283 ← 清理后
 ```
 
 ---
@@ -299,3 +303,107 @@ POST /service/udc/jobInfo/update-status {param1:id,param2:true,param3:tenant}
 | 1.0.283 产物 | 无探针类残留 | `jar tf` biz/ext 两个 jar → `P0Custom*`/`MigrationProbe*`/`ExtScheduleProbe*` 全 0 命中；Pod 日志 `MF-PROBE` 0 行、`BootException/启动失败` 0 行 |
 
 未删：`AeProbeEntity`（id=4308140192425942217，建于 2026-11-09）——早于本轮，属既有的「接口验证实体」，不是本次探针产物。
+
+---
+
+## 十、Agent 调用配方（看到「自定义微流程」需求就按这张表做）
+
+### 10.1 三种触发 → 我要写的代码
+
+| 触发 | 我实现什么 | 谁调我 | 我怎么被调到 |
+|---|---|---|---|
+| MANUAL | `CustomMicroFlowService` 里对应方法 | `DefaultCustomMicroFlowAppServiceImpl` | REST `@RestApi` 或 Dubbo 直接调 appService 方法 |
+| BUSINESS_EVENT | 同上，入参是 `BeforeCreateEvent<XxxDto>` | 生成的 `{Flow}Listener`（`@EventSubscribe`） | 平台发事件时自动 |
+| SCHEDULE | 同上，无入参 | 生成的 `{Flow}Schedule`（`@CtpSchedule`） | 定时器到点（需启用，见 10.4） |
+
+```java
+package com.seeyon.<appId>.extend.microflow;
+
+@Slf4j
+@Service                                  // ← 实现类必须能被注入（@Service/@Component 都行）
+public class XxxMicroFlowServiceImpl implements CustomMicroFlowService {
+
+    @Override
+    public void p0CustomScheduleProbe() {          // 签名照抄接口 default 方法
+        log.info("[MF] schedule 触发");
+    }
+
+    @Override
+    public void p0CustomEventProbe(
+            BeforeCreateEvent<AeProbeEntityDto> _BUSINESS_EVENT_ka3rXs) {   // 参数名带 hash 后缀，照抄
+        log.info("[MF] event 触发 id={}", _BUSINESS_EVENT_ka3rXs.getData().getId());
+    }
+}
+```
+
+三条铁律：
+
+1. **接口方法都是 `default` 且抛 `UDC_MICROFLOW_UNIMPLEMENTED_METHOD`** ——不实现不会编译失败，只会在运行时抛。所以「编译过了」不等于「实现了」。
+2. **返回类型是 `void`**；`SingleResponse<Void>` 由 appService 兜底 impl 包，别自己 return。
+3. **方法名/入参一字不改**：方法名 = 流程 `name`；事件入参 = `BeforeCreateEvent<实体Dto>`，参数名带 `_BUSINESS_EVENT_xxxx` 后缀（换名照样编译过，但别动，后续版本可能是判据）。
+
+### 10.2 代码放哪：只放扩展工程
+
+```
+extend-test2/backend/<appId>   ← 手写实现写这里（构建会拉进 -ext jar）
+autocode-test2/backend/<appId> ← 产物仓，每次构建 force push 无父提交，手写代码必被覆盖
+```
+
+落地验证（不看构建状态，看产物）：
+
+```bash
+jar tf /app/libs/BOOT-INF/lib/<appId>-ext-<ver>.jar | grep XxxMicroFlowServiceImpl
+```
+
+### 10.3 三处命名/注解，动之前先看这张表
+
+| 想改 | 能不能改 | 证据 |
+|---|---|---|
+| `serviceInterface`（接口名） | **只有 MANUAL 能改** | EVENT/SCHEDULE 模板硬编码 `CustomMicroFlowAppService`（`.ftl:16` / `.ftl:10,37`），改了两轮构建都 `找不到符号` |
+| 调度类加 `@Component` | **绝对不能** | 启动直接崩：`BootException: 调度类：[…]不能使用[Component]注解` |
+| 生成物里的 `{Flow}Listener` / `{Flow}Schedule` | 别手改，改了下次构建覆盖 | 产物仓特性 |
+
+改接口名的命名规则（`MicroFlowCodeUtil.buildServiceClassName`）：
+
+```
+XxxAppService → XxxService        （按 "AppService" 切两段，第一段后插 "Service"）
+Xxx          → XxxServiceService  （不带 AppService 后缀会多一个 Service，别这么命名）
+```
+
+### 10.4 定时型必做的一步：启用
+
+生成的 schedule 类**注解里没有 cron**，调度时间来自 `ctp_job_info` + redis，而新登记的任务默认停用：
+
+```sql
+SELECT id, job_name, status FROM ctp_job_info WHERE job_name='<jobName>';   -- status=0 ⇒ 永不执行
+```
+
+- 启用：`UPDATE ctp_job_info SET status=1 WHERE id=<id>`，再重启 pod 让 `CtpJobSyncService` 刷新 redis；
+- 或用平台接口：`POST /service/udc/jobInfo/update-status`（实测传 `param1=id,param2=true,param3=tenantId` 返回 SUCCESS 但影响 0 行，**不可靠**，优先改库+重启）；
+- 或干脆在 ext 里自写 `@CtpSchedule(jobName=…, cron="0 */5 * * * ?")` 的 `SeeyonJob` 调 `appService.<flow>()`——**这条路已 LIVE 验证**，但要记住 10.3 的禁 `@Component`。
+
+### 10.5 怎么判断真的通了（只认日志）
+
+```bash
+# 事件
+grep "接收到.*事件，触发.*微流程执行" <app>-info.log
+grep "\[MF\] event 触发" <app>-info.log
+
+# 定时
+grep "jobClass:\[<Flow>Schedule\] jobName:\[<jobName>\] start" <app>-info.log
+grep "\[MF\] schedule 触发" <app>-info.log
+```
+
+构建 SUCCESS、Pod Running、`udc_deploy_record.state=1` **都不算通**；只认上面这几行 + 你的实现里那句日志。
+
+### 10.6 一次性对照清单（写需求前扫一眼）
+
+```
+□ 流程 name 与接口方法名一致？
+□ 实现类在 ext 仓、有 @Service/@Component？
+□ 事件型：入参类型 == BeforeEvent<源实体 DTO>？
+□ 定时型：jobName 已启用（ctp_job_info.status=1）？
+□ 定时型：调度类没加 @Component？
+□ 改过 serviceInterface 吗？改过就只能用于 MANUAL
+□ 部署后 jar 里有实现类？（jar tf 查，别信构建状态）
+```
