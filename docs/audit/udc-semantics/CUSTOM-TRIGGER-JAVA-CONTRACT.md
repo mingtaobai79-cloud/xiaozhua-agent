@@ -282,3 +282,19 @@ POST /service/udc/jobInfo/update-status {param1:id,param2:true,param3:tenant}
 生成的 `AbstractAeProbeEntityController` 上 `@RestController`/`@RestApi` 被注释掉，
 `udc_entity.open_api_data` 为空，RestApi 元数据（redis `test2:Metadata:RestApi:<appName>`）里 0 条命中。
 ⇒ 要真正触发事件，得先给实体建页面（或用已有页面的实体）再走页面 create。
+
+## 九、清理记录（2026-11-22）
+
+删的是探针，不是结论；结论全在上面。
+
+| 对象 | 处理 | 证据 |
+|---|---|---|
+| `p0CustomEventProbe` id=4620867461310390367 (RELEASE) | 设计态删除 | `udcMicroflowDeletePost` → code=BOOT_0000，回读 `get={}` |
+| `p0CustomScheduleProbe` id=7674299753416331984 (RELEASE) | 设计态删除 | 同上 |
+| 两条流程 data_schema | 先备份再删 | `docs/audit/p0-custom-trigger/cleanup-backup/flows.json` |
+| ext `MigrationProbeServiceImpl` | 删除（流程删了，接口不再生成，留着编译失败） | commit `07f0d0e` |
+| ext `MicroFlowEventProbeRunner` | 删除（每次启动发事件） | 同上 |
+| ext `ExtScheduleProbeJob` | 删除（每 5 分钟触发） | 同上 |
+| `ctp_job_info.PcSpL2lTP5Xq1FGj.status` | 1 → 0（恢复停用） | `AFFECTED 1`，回读 status=0 |
+
+未删：`AeProbeEntity`（id=4308140192425942217，建于 2026-11-09）——早于本轮，属既有的「接口验证实体」，不是本次探针产物。

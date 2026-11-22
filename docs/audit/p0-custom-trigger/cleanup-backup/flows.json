@@ -1,0 +1,20 @@
+{
+ "p0CustomEventProbe": {
+  "id": 4620867461310390367,
+  "name": "p0CustomEventProbe",
+  "caption": "P0-自定义事件监听验证",
+  "state": 20,
+  "trigger_type": 0,
+  "service_interface": "CustomMicroFlowAppService",
+  "data_schema": "{\"id\": \"\", \"appId\": \"163126498398523384\", \"sourceId\": \"\", \"version\": \"0\", \"versionCode\": 0, \"name\": \"p0CustomEventProbe\", \"caption\": \"P0-自定义事件监听验证\", \"description\": \"\", \"type\": \"CUSTOM\", \"triggerType\": \"BUSINESS_EVENT\", \"entityId\": \"\", \"eventId\": \"\", \"input\": {\"id\": \"aeProbeEntity.com.seeyon.udc.common.event.BeforeCreateEvent\", \"name\": \"_BUSINESS_EVENT_ka3rXs\", \"javaType\": \"aeProbeEntity.com.seeyon.udc.common.event.BeforeCreateEvent\", \"dataType\": \"DTO\", \"type\": \"OBJECT\", \"desc\": \"事件数据\", \"appName\": \"datamigration163126498398523384\", \"dtoType\": \"\"}, \"output\": null, \"trigger\": {\"nodeId\": \"SERVICE_p0Evt1\", \"name\": null, \"caption\": \"事件监听\", \"title\": \"事件数据\", \"description\": null, \"type\": \"BUSINESS_EVENT\", \"input\": null, \"output\": {\"id\": \"aeProbeEntity.com.seeyon.udc.common.event.BeforeCreateEvent\", \"name\": \"_BUSINESS_EVENT_ka3rXs\", \"javaType\": \"aeProbeEntity.com.seeyon.udc.common.event.BeforeCreateEvent\", \"dataType\": \"DTO\", \"type\": \"OBJECT\", \"desc\": \"事件数据\", \"appName\": \"datamigration163126498398523384\", \"dtoType\": \"\"}, \"messageInfo\": {\"caption\": \"接口验证实体新增事件(操作前)\", \"messageSource\": \"EVENT\", \"eventFullName\": \"com.seeyon.udc.common.event.BeforeCreateEvent\", \"eventDataFullName\": \"com.seeyon.datamigration163126498398523384.dto.AeProbeEntityDto\", \"eventMfCustomDtoName\": \"aeProbeEntity.com.seeyon.udc.common.event.BeforeCreateEvent\", \"eventName\": \"BeforeCreateEvent\", \"currentId\": \"BeforeCreateEvent\", \"currentType\": \"4308140192425942217\", \"output\": {\"id\": \"com.seeyon.datamigration163126498398523384.dto.AeProbeEntityDto\", \"dataType\": \"DTO\", \"type\": \"OBJECT\", \"javaType\": \"aeProbeEntity.com.seeyon.udc.common.event.BeforeCreateEvent\", \"appName\": \"datamigration163126498398523384\"}}, \"isCompleted\": true}, \"nodes\": [], \"sourceType\": \"PAGE\"}"
+ },
+ "p0CustomScheduleProbe": {
+  "id": 7674299753416331984,
+  "name": "p0CustomScheduleProbe",
+  "caption": "P0-自定义定时验证",
+  "state": 20,
+  "trigger_type": 1,
+  "service_interface": "CustomMicroFlowAppService",
+  "data_schema": "{\"endNode\":{\"id\":\"\",\"name\":\"\",\"type\":\"END\",\"actionType\":\"END_NODE\",\"nodeId\":\"MFEndNode\",\"caption\":\"结束\",\"description\":\"\",\"input\":null,\"output\":null},\"sourceType\":\"PAGE\",\"trigger\":{\"nodeId\":\"SERVICE_p0Sch1\",\"name\":null,\"caption\":\"定时任务\",\"description\":null,\"type\":\"SCHEDULE\",\"input\":null,\"output\":null,\"scheduleCronRule\":{\"jobCode\":\"PcSpL2lTP5Xq1FGj\",\"jobCaption\":\"P0-自定义定时验证\",\"cronRules\":[{\"cycleType\":\"SIMPLE\",\"startTime\":\"1795203971310\",\"endTime\":null,\"rotationType\":\"MINUTE\",\"type\":\"FIRST\",\"value\":\"5\"}]},\"isCompleted\":true},\"nodes\":[]}"
+ }
+}
