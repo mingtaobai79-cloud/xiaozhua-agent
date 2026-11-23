@@ -1,5 +1,41 @@
 # CHANGELOG
 
+## 0.2.4 — 2026-11-23
+
+启动器写死绝对路径的坑：中文用户名变成 `???`，`xiaozhua` 直接不可用。
+
+### 现象（本机真跑出来的）
+
+```
+PS> xiaozhua doctor
+python.exe: can't open file 'C:\Users\???\.xiaozhua\src\installer\selfupdate.py': [Errno 22]
+```
+
+shim 用 `Set-Content -Encoding ASCII` 写盘，`C:\Users\白明涛\...` 落成 `C:\Users\???\...`；
+cmd 找不到解释器，退回 PATH 里的 uv python，再拿 `???` 路径去开脚本。
+
+### 改法
+
+shim 里不写任何绝对路径，改为按自身位置定位：
+
+- `xiaozhua.cmd` → `powershell -File "%~dp0xiaozhua.ps1" %*`
+- `xiaozhua.ps1` → `$XzHome = Split-Path -Parent $PSScriptRoot`，再拼 venv / src
+
+两个文件保持纯 ASCII，中文用户名、目录搬家都不受影响。
+
+### 顺带把 zip 安装的 update 补真
+
+之前安装器提示"zip 装的 update 会重新下 zip"，实际没实现。现在 `sync_from_zip()` 用
+`urllib` + `zipfile` 整包重下再覆盖，没 git 也能升级。
+
+### 实测
+
+```
+irm|iex              clone 180s 超时 → 自动转 zip（约 50s）→ tools=64
+xiaozhua doctor      5 项全绿，本地源那行显示源目录
+xiaozhua update      本地源重新同步 → 依赖 → 宿主 → tools=64，12.1s
+```
+
 ## 0.2.3 — 2026-11-23
 
 代码来源不再只有 git clone：加本地目录与 zip 两条路，解决"GitHub 拉不动就装不上"。
