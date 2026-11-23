@@ -36,6 +36,21 @@ param(
 $ErrorActionPreference = 'Stop'
 try { [Console]::OutputEncoding = [Text.Encoding]::UTF8 } catch {}
 
+function Invoke-Native($exe, [string[]]$arguments) {
+  # PS 5.1 turns a native command's stderr into a terminating NativeCommandError when
+  # $ErrorActionPreference is Stop. pip writes its "[notice] A new release of pip" line to
+  # stderr, which aborted the whole installer. Run native tools with EAP=Continue and
+  # decide success from $LASTEXITCODE only.
+  $prev = $ErrorActionPreference
+  $ErrorActionPreference = 'Continue'
+  try {
+    $lines = & $exe @arguments 2>&1 | ForEach-Object { "$_" }
+    return @{ Exit = $LASTEXITCODE; Lines = @($lines) }
+  } finally {
+    $ErrorActionPreference = $prev
+  }
+}
+
 function Ok($m)   { Write-Host "[ok]   $m" -ForegroundColor Green }
 function Info($m) { Write-Host "[..]   $m" -ForegroundColor DarkGray }
 function Die($m)  { Write-Host "[fail] $m" -ForegroundColor Red; exit 1 }
@@ -185,25 +200,27 @@ if (-not (Test-Path $venvPy)) { Die "venv python not found: $venvPy" }
 
 # Do NOT run "pip install --upgrade pip": on Windows it renames pip/ to ~ip/ before installing
 # the new version, and a failure there leaves a venv with no pip at all. Self-heal only.
-& $venvPy -m pip --version 2>$null | Out-Null
-if ($LASTEXITCODE -ne 0) {
+$pipProbe = Invoke-Native $venvPy @('-m', 'pip', '--version')
+if ($pipProbe.Exit -ne 0) {
   Info "pip missing, repairing with ensurepip"
-  & $venvPy -m ensurepip --upgrade 2>$null | Out-Null
-  if ($LASTEXITCODE -ne 0) { Die "pip repair failed: run $venvPy -m ensurepip --upgrade manually" }
+  $repair = Invoke-Native $venvPy @('-m', 'ensurepip', '--upgrade')
+  if ($repair.Exit -ne 0) { Die "pip repair failed: run $venvPy -m ensurepip --upgrade manually" }
 }
-$pipLog = & $venvPy -m pip install --quiet -e $Src 2>&1
-if ($LASTEXITCODE -ne 0) {
-  $why = @($pipLog | Where-Object { "$_" -match 'ERROR|error:' })[-1]
+$editable = Invoke-Native $venvPy @('-m', 'pip', 'install', '--quiet', '-e', $Src)
+if ($editable.Exit -ne 0) {
+  $why = @($editable.Lines | Where-Object { $_ -match 'ERROR|error:' })[-1]
   if ($why) { Info ("editable install failed: " + $why) } else { Info "editable install failed, falling back to plain deps" }
-  & $venvPy -m pip install --quiet "pyyaml>=6.0" "websocket-client>=1.6"
-  if ($LASTEXITCODE -ne 0) { Die "dependency install failed" }
+  $plain = Invoke-Native $venvPy @('-m', 'pip', 'install', '--quiet', 'pyyaml>=6.0', 'websocket-client>=1.6')
+  if ($plain.Exit -ne 0) { Die "dependency install failed" }
 }
 Ok "dependencies ready"
 
 # ---- 4. host configs (also records state.json for `xiaozhua update`)
 Info "generating host configs -> $Pkg (host=$Hosts)"
-& $venvPy (Join-Path $Src 'installer\selfupdate.py') install --host $Hosts --target $Pkg --write --force | Out-Null
-if ($LASTEXITCODE -ne 0) { Die "host config generation failed" }
+$hostCfg = Invoke-Native $venvPy @((Join-Path $Src 'installer\selfupdate.py'), 'install', '--host', $Hosts, '--target', $Pkg, '--write', '--force')
+if ($hostCfg.Exit -ne 0) {
+  Die ("host config generation failed: " + (@($hostCfg.Lines) -join ' | '))
+}
 Ok "host configs written to $Pkg"
 
 # ---- 5. xiaozhua command (cmd shim + ps1 shim, no execution-policy dependency)
@@ -237,7 +254,10 @@ Info "self-check (starting the MCP server once)"
 $l1 = '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"install","version":"1"}}}'
 $l2 = '{"jsonrpc":"2.0","id":2,"method":"tools/list","params":{}}'
 $server = Join-Path $Src 'adapters\mcp\server.py'
+$prevEap = $ErrorActionPreference
+$ErrorActionPreference = 'Continue'
 $out = @($l1, $l2) | & $venvPy $server 2>$null
+$ErrorActionPreference = $prevEap
 $tools = 0
 foreach ($line in $out) {
   $t = "$line".Trim()
