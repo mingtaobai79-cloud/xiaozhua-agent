@@ -1,5 +1,35 @@
 # CHANGELOG
 
+## 0.2.0 — 2026-11-23
+
+安装与升级变成一条命令，跨平台（Windows / macOS / Linux）。
+
+### 新增
+
+- `scripts/install.ps1` —— Windows 一键装：
+  `irm https://raw.githubusercontent.com/mingtaobai79-cloud/xiaozhua-agent/main/scripts/install.ps1 | iex`
+- `scripts/install.sh` —— macOS / Linux 一键装：
+  `curl -fsSL .../scripts/install.sh | bash`
+- `xiaozhua` 命令（`installer/selfupdate.py`，零第三方依赖）：
+  - `xiaozhua update` 拉代码 → 快进合并 → 装依赖 → 重装宿主配置 → 真起 MCP 自检 → 记状态
+  - `xiaozhua doctor` 体检（默认不联网，`--fetch` 才比落后提交）
+  - `xiaozhua install` 转发 `installer/install.py`
+  - `xiaozhua version`
+- `tests/test_selfupdate.py` 11 条离线契约测试（含 `bash -n` 与文档 URL 同源校验）
+
+### 行为细节（都是刻意的）
+
+- **脏工作区不自动 stash**：本地改动可能是未提交证据，`update` 直接拒绝（退出码 3）
+- `update` 每个失败态有独立退出码（2 非 git / 3 脏 / 4 分叉 / 5 依赖 / 6 宿主 / 7 自检）
+- 安装全部落在 `~/.xiaozhua/{src,venv,pkg,bin}`，**不碰系统 Python**，卸载 = 删目录
+- macOS：自动找 `python3.12`（系统自带 3.9 不够），避开 `readlink -f` 与 bash 4 语法
+- Windows：`install.ps1` 存为 UTF-8 **带 BOM**（PS 5.1 否则按 GBK 读，中文变乱码并报"缺 }"）
+
+### 清理
+
+- 删除 34 个 `__pycache__` / `.pytest_cache`（不含 `.venv`）
+- `docs/audit/p0-custom-trigger/cleanup-backup/` 入 `.gitignore`（原始抓包已汇总进审计文档，文件保留在盘上）
+
 ## 0.1.0 — 2026-11-12
 
 首个可分发的 MCP 能力包。**54 个工具**：平台侧 42 个（21 个真机验证过），本地 12 个。

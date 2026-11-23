@@ -48,7 +48,10 @@ def test_readme_matches_current_contract():
 def test_version_capabilities_and_test_count_contract_is_explicit():
     pyproject = (ROOT / "pyproject.toml").read_text(encoding="utf-8")
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
-    assert re.search(r'^version\s*=\s*"0\.1\.0"$', pyproject, re.MULTILINE)
+    declared = re.search(r'^version\s*=\s*"([^"]+)"$', pyproject, re.MULTILINE)
+    assert declared, "pyproject.toml 里找不到 [project].version"
+    assert declared.group(1) == (ROOT / "VERSION").read_text(encoding="utf-8").strip(), (
+        "pyproject.toml 与 VERSION 版本不一致")
     assert f"Test collection: `{_pytest_collected_count()} tests collected`" in readme
 
     result = subprocess.run(

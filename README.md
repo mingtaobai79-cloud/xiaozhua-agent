@@ -6,18 +6,32 @@ UDC / SPI 平台的操作能力包（MCP）。给 Hermes、Codex、Claude Code �
 **64 个 MCP 工具**，其中平台侧 42 个（**21 个**在 test2 真机跑过完整闭环 create → 回读 → delete），
 本地工具 22 个装上即可用。其余逐项标注状态与阻塞原因（见第 2 节生成的清单）。
 
-Test collection: `3278 tests collected`
+Test collection: `3289 tests collected`
 
 ---
 
 ## 装法
 
-### 一条命令
+### 一条命令（含之后的一键升级）
+
+```powershell
+# Windows
+irm https://raw.githubusercontent.com/mingtaobai79-cloud/xiaozhua-agent/main/scripts/install.ps1 | iex
+```
 
 ```bash
-bash quickstart.sh              # 装到 ~/xiaozhua-pkg，宿主 all，装完自检工具数
-bash quickstart.sh ~/my-pkg hermes   # 指定目录 + 单宿主
+# macOS / Linux
+curl -fsSL https://raw.githubusercontent.com/mingtaobai79-cloud/xiaozhua-agent/main/scripts/install.sh | bash
 ```
+
+装完得到两个命令：
+
+```bash
+xiaozhua doctor    # 体检：Python / 依赖 / git / MCP 自检 / 宿主配置
+xiaozhua update    # 升级：拉代码 → 装依赖 → 重装宿主配置 → 真起 MCP 自检
+```
+
+细节与退出码含义见 `INSTALL.md`。
 
 ### 或者手动三选一
 
@@ -407,7 +421,7 @@ python -m pytest tests -m "offline and acceptance" -q
 **注意区分两层**：CLI 层是只读的（写操作返回 `DENIED`，规划只能 `dry-run`），
 但 MCP 工具层有真写面（见第 3 节）。任何离线输出都不能被解读为 `LIVE PASS`。
 
-Test collection: `3278 tests collected`。收集数量不等于通过数量。
+Test collection: `3289 tests collected`。收集数量不等于通过数量。
 真机验证记录在 `docs/audit/mcp-*-live-*.md`。
 
 ---

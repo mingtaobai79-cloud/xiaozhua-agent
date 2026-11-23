@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "xiaozhua-agent"
-version = "0.1.0"
+version = "0.2.0"
 description = "xiaozhua UDC / SPI platform operation capability pack for MCP hosts"
 readme = "README.md"
 requires-python = ">=3.12"
@@ -12,6 +12,7 @@ dependencies = ["pyyaml>=6.0", "websocket-client>=1.6"]
 
 [project.scripts]
 xiaozhua-mcp = "adapters.mcp.server:main"
+xiaozhua = "installer.selfupdate:main"
 
 [tool.setuptools]
 # 顶层 xiaozhua_host_bootstrap.py / xiaozhua_cli.py 是单文件模块，不是包成员，

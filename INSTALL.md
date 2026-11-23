@@ -1,8 +1,92 @@
-# 30 秒装好
+# 一条命令装好
+
+## Windows
+
+```powershell
+irm https://raw.githubusercontent.com/mingtaobai79-cloud/xiaozhua-agent/main/scripts/install.ps1 | iex
+```
+
+只装一个宿主：
+
+```powershell
+& ([scriptblock]::Create((irm https://raw.githubusercontent.com/mingtaobai79-cloud/xiaozhua-agent/main/scripts/install.ps1))) -Hosts hermes
+```
+
+## macOS / Linux
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/mingtaobai79-cloud/xiaozhua-agent/main/scripts/install.sh | bash
+```
+
+只装一个宿主：
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/mingtaobai79-cloud/xiaozhua-agent/main/scripts/install.sh | bash -s -- --host hermes
+```
+
+脚本做的事（全程不碰系统 Python、不动任何全局配置）：
+
+```
+1 找 Python ≥ 3.12（macOS 自带 3.9，会自动去找 brew 的 python3.12）
+2 拉代码 → ~/.xiaozhua/src      （Windows: %USERPROFILE%\.xiaozhua\src）
+3 建 venv → ~/.xiaozhua/venv    （依赖只装在这里）
+4 生成宿主配置 → ~/.xiaozhua/pkg（hermes / codex / claude-code 三选一或 all）
+5 写 xiaozhua 命令 → ~/.xiaozhua/bin
+6 自检：真起一次 MCP 服务数工具，数到 0 就报错退出
+```
+
+## 装完先体检
+
+```bash
+xiaozhua doctor
+```
+
+```
+ ✓ Python 3.14.9（要求 ≥ 3.12）
+ ✓ 依赖 齐
+ ✓ git 06e736a · 工作区干净 · 最新
+ ✓ MCP serverInfo=xiaozhua-mcp tools=64
+ ✗ 宿主 all → C:\Users\你\.xiaozhua\pkg
+```
+
+前四项 ✓ 就对了。✗ 逐条对应：依赖缺 → `xiaozhua update`；代码落后 → `xiaozhua update`；
+宿主目录不存在 → `xiaozhua install --host all --write`。
+
+`doctor` 默认**不联网**，加 `--fetch` 才会 `git fetch` 比落后多少提交。
+
+## 以后升级只有这一条
+
+```bash
+xiaozhua update
+```
+
+```
+更新前 0.2.0 (06e736a)
+代码 06e736a → 9f31c2b  版本 0.2.0 → 0.2.1
+✓ 依赖 pip install -e .
+  宿主配置 hermes → C:\Users\你\.xiaozhua\pkg
+ ✓ 自检 serverInfo=xiaozhua-mcp tools=64
+
+更新完成 0.2.1 (9f31c2b)  用时 12.4s
+```
+
+顺序固定：**拉代码 → 快进合并 → 装依赖 → 重装宿主配置 → 真起 MCP 自检 → 记状态**。
+任何一步失败都停在原地并告诉你怎么修：
+
+| 退出码 | 含义 | 处理 |
+|---|---|---|
+| 2 | 不是 git 检出（压缩包装的） | 改用上面的一键安装 |
+| 3 | 工作区有未提交改动 | 先 commit/清理；确认不要了用 `--force` 丢弃 |
+| 4 | 本地有分叉提交，无法快进 | `git -C ~/.xiaozhua/src log --oneline HEAD..origin/main` 看清楚再 rebase |
+| 5 | 依赖装不上 | 看报错，通常是网络或 pip 源 |
+| 6 | 宿主配置写不了 | 目标目录权限 |
+| 7 | 自检数不到工具 | `xiaozhua doctor`，多数是 Python 版本或依赖 |
+
+**不会自动 stash 你的改动**——那些可能是还没提交的证据，宁可停下问你。
 
 ## 这是什么
 
-UDC 平台的**操作能力包**。给你 54 个 MCP 工具，用来在低代码平台上
+UDC 平台的**操作能力包**。给你 64 个 MCP 工具，用来在低代码平台上
 建应用对象、建枚举、建实体字段、配事件、配参照、建微流程等。
 
 它不是 SDK，不需要写代码调用。装好之后，你在 Hermes / Codex / Claude Code 里
@@ -10,57 +94,64 @@ UDC 平台的**操作能力包**。给你 54 个 MCP 工具，用来在低代码
 
 ## 环境要求
 
-- Python **3.12 或更高**（`python --version` 确认）
+- Python **3.12 或更高**（一键安装脚本会自己找；手动装才要你确认）
+- git（`xiaozhua update` 靠它拉代码）
 - 网络能访问你的环境（例如 `lowcode-test2.<你的域名>`）
 
-## 三步
-
-```bash
-# 1. 解压
-unzip xiaozhua-agent-0.1.0.zip
-cd xiaozhua-agent-0.1.0
-
-# 2. 装依赖（只有两个包）
-pip install "pyyaml>=6.0" "websocket-client>=1.6"
-
-# 3. 装到你的 AI 宿主（三选一或全装）
-python installer/install.py --host hermes      --target ~/xiaozhua-pkg --write
-python installer/install.py --host codex       --target ~/xiaozhua-pkg --write
-python installer/install.py --host claude-code --target ~/xiaozhua-pkg --write
-```
-
-`--host all` 一次装三个。
-
-装完会生成这个结构：
+## 装完的目录长这样
 
 ```
-xiaozhua-pkg/
-  hermes/
-    mcp_servers.yaml                  ← 贴进 Hermes 配置
-    skills/xiaozhua-agent-hermes/SKILL.md
-  codex/
-    config.toml                       ← 贴进 Codex 配置
-    AGENTS.md
-  claude-code/
-    .mcp.json                         ← 贴进 Claude Code 配置
-    CLAUDE.md
-  MANIFEST.json                       装了什么、装到哪、校验和
+~/.xiaozhua/
+  src/      git 检出（xiaozhua update 更新的就是它）
+  venv/     Python 虚拟环境（依赖只在这里）
+  pkg/      宿主配置产物
+    hermes/
+      mcp_servers.yaml                  ← 贴进 Hermes 配置
+      skills/xiaozhua-agent-hermes/SKILL.md
+    codex/
+      config.toml                       ← 贴进 Codex 配置
+      AGENTS.md
+    claude-code/
+      .mcp.json                         ← 贴进 Claude Code 配置
+      CLAUDE.md
+    MANIFEST.json                       装了什么、装到哪、校验和
+  bin/xiaozhua                          命令本体
+  state.json                            上次装到哪、装了什么宿主
 ```
 
 里面的 python 路径和 server.py 路径都是**按你机器的实际位置自动生成的**，
 直接复制粘贴就能用。
 
+卸载 = 删掉 `~/.xiaozhua` 一个目录，再把 PATH 里那行去掉。
+
+## 手动装（离线 / 压缩包 / 内网）
+
+```bash
+unzip xiaozhua-agent-0.2.0.zip && cd xiaozhua-agent-0.2.0
+pip install "pyyaml>=6.0" "websocket-client>=1.6"
+python installer/install.py --host all --target ~/xiaozhua-pkg --write
+```
+
+压缩包装的没有 `.git`，`xiaozhua update` 会直接拒绝（退出码 2）并提示改用一键安装。
+
 ## 必须看到这个才算装好
 
 ```bash
+xiaozhua doctor
+```
+
+或者手工数：
+
+```bash
 python -c "
-import sys, json; sys.path.insert(0, '.')
+import sys; sys.path.insert(0, '.')
 from adapters.mcp.server import TOOL_KEYS
 print('工具数:', len(TOOL_KEYS))
 "
 ```
 
-**必须输出 `工具数: 54`**。不是 54 就是没装对，别往下走。
+**必须 ≥ 54 且不是 0**（当前 64；README 里写 54 是早先快照）。
+是 0 就是没装对，别往下走。
 
 再验一次 MCP 真的能起（把两行 JSON 喂给它）：
 
@@ -71,7 +162,7 @@ printf '%s\n%s\n' \
   | python adapters/mcp/server.py
 ```
 
-看到两行 JSON 返回、第二行里有 54 个 `"name"` 就对了。
+看到两行 JSON 返回、第二行里有几十个 `"name"` 就对了。
 
 ## 工具怎么用分两种
 
@@ -106,10 +197,10 @@ b["expression_verify"](tokens, context, cdp_port=9333)
 `docs/delivery/tool-status.json` 生成，每个工具都标了「只读/写/删」「是否需授权」
 「已验证/未验证/已知不通」，并写明阻塞原因。
 
-当前汇总：
+当前汇总（口径以 `docs/delivery/tool-status.json` 为准，下面是快照）：
 
 ```
-54 个工具 = 平台侧 42 + 本地 12
+64 个工具 = 平台侧 52 + 本地 12
 
 ✅ 已验证      33   （平台侧 21 个在 test2 跑过完整闭环，本地 12 个装上即可用）
 ◐  部分验证     2   app_dependency_remove（REST 批删验过，GraphQL 单删未验）
@@ -145,9 +236,13 @@ b["expression_verify"](tokens, context, cdp_port=9333)
 
 | 现象 | 原因 | 解决 |
 |---|---|---|
-| `ModuleNotFoundError: No module named 'yaml'` | 没装 pyyaml | `pip install "pyyaml>=6.0"` |
-| `ModuleNotFoundError: No module named 'websocket'` | 没装 websocket-client | `pip install "websocket-client>=1.6"` |
+| `需要 Python 3.12+` | 解释器太旧 | macOS `brew install python@3.12`；Windows `winget install Python.Python.3.12` |
+| `缺 git` | 没装 git | macOS `xcode-select --install`；Windows `winget install Git.Git` |
+| `ModuleNotFoundError: No module named 'yaml'` | 没装 pyyaml | `xiaozhua update` |
+| `ModuleNotFoundError: No module named 'websocket'` | 没装 websocket-client | `xiaozhua update` |
 | 工具列表是空的 / internal error | python 版本太低 | `python --version` 要 ≥ 3.12 |
+| `xiaozhua` 不是命令 | bin 不在 PATH | macOS 把 `export PATH="$HOME/.xiaozhua/bin:$PATH"` 加进 `~/.zshrc`；Windows 重开终端 |
+| `update` 退出码 3 | 工作区有未提交改动 | 先 commit，或 `xiaozhua update --force` |
 | `PageUnavailable: 调试端口 9333 不可达` | 浏览器没开调试端口 | 用 `--remote-debugging-port=9333` 重启浏览器 |
 | `PageUnavailable: 没找到含 'lowcode-test2' 的页面` | 端口上的浏览器没打开你的环境 | 在那个浏览器里登录并打开平台首页 |
 | 工具调用回 `BOOT_3000 message:null` | 参数形态不对，平台没给线索 | 对照 `docs/operation-contracts/` 下的契约 |
@@ -156,6 +251,6 @@ b["expression_verify"](tokens, context, cdp_port=9333)
 
 - `README.md` —— 九域能力表、安全边界、实测进度
 - `docs/operation-contracts/` —— 99 份接口契约，每个接口的入参、错误码、坑
-- `core/facts/` —— 225 份事实格，反编译 + 实测得出
+- `core/facts/` —— 事实格（反编译 + 实测得出）
 - `docs/audit/mcp-setting-tools-live-batch1.md`、`mcp-tools-live-batch2.md`
   —— 哪些工具真跑过、跑出什么结果

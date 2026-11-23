@@ -18,3 +18,5 @@ __pycache__/
 *.token
 .env
 docs/audit/artifacts/extension-surface-full/batch2/
+# 一次性清理现场（原始抓包，已汇总进 docs/audit）
+docs/audit/p0-custom-trigger/cleanup-backup/

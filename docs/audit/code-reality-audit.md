@@ -1,6 +1,6 @@
 # xiaozhua Agent Code Reality Audit
 
-Test collection: `3278 tests collected`. Historical counts below are not current execution results; see `docs/plans/xiaozhua-distribution-progress.md` for the latest run.
+Test collection: `3289 tests collected`. Historical counts below are not current execution results; see `docs/plans/xiaozhua-distribution-progress.md` for the latest run.
 
 > **正文是 2026-09-03 那次审计的现场快照，不是当前状态。**
 > 其中的 `183 passing tests` / `183 collected` / `total of 59` 都是**当时**的数值（仓库后来从
