@@ -6,7 +6,7 @@ UDC / SPI 平台的操作能力包（MCP）。给 Hermes、Codex、Claude Code �
 **64 个 MCP 工具**，其中平台侧 42 个（**21 个**在 test2 真机跑过完整闭环 create → 回读 → delete），
 本地工具 22 个装上即可用。其余逐项标注状态与阻塞原因（见第 2 节生成的清单）。
 
-Test collection: `3293 tests collected`
+Test collection: `3295 tests collected`
 
 ---
 
@@ -421,7 +421,7 @@ python -m pytest tests -m "offline and acceptance" -q
 **注意区分两层**：CLI 层是只读的（写操作返回 `DENIED`，规划只能 `dry-run`），
 但 MCP 工具层有真写面（见第 3 节）。任何离线输出都不能被解读为 `LIVE PASS`。
 
-Test collection: `3293 tests collected`。收集数量不等于通过数量。
+Test collection: `3295 tests collected`。收集数量不等于通过数量。
 真机验证记录在 `docs/audit/mcp-*-live-*.md`。
 
 ---

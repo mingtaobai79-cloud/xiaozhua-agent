@@ -28,6 +28,7 @@ from pathlib import Path
 REPO_SLUG = "mingtaobai79-cloud/xiaozhua-agent"
 REPO_URL = f"https://github.com/{REPO_SLUG}.git"
 RAW_BASE = f"https://raw.githubusercontent.com/{REPO_SLUG}/main"
+ZIP_URL = f"https://codeload.github.com/{REPO_SLUG}/zip/refs/heads/{{branch}}"
 
 MIN_PY = (3, 11)
 ROOT = Path(__file__).resolve().parents[1]
@@ -287,19 +288,23 @@ def cmd_update(args) -> int:
     local_mode = not is_git_repo(ROOT)
     source = os.environ.get("XIAOZHUA_SRC") or load_state().get("source")
 
-    if local_mode and not (source and Path(source).exists()):
-        print(f"{RED}这份安装不是 git 检出（来自本地目录或 zip），也没记住源目录{RESET}。")
-        print("修法：")
-        print("  1) 指定本地仓库重装一次（PowerShell）：")
-        print("       $env:XIAOZHUA_SRC = 'C:\\path\\to\\xiaozhua-agent'")
-        print(f"       irm {RAW_BASE}/scripts/install.ps1 | iex")
-        print("  2) 或者装 git，把仓库 clone 下来再跑安装器")
-        return 2
+    zip_mode = local_mode and not (source and Path(source).exists())
 
     before_version, before_sha = read_version(ROOT), head_sha(ROOT)
     print(f"更新前 {before_version} ({before_sha})")
 
-    if local_mode:
+    if zip_mode:
+        _url = ZIP_URL.format(branch=args.branch or "main")
+        print(f"zip 安装：重新下载 {_url}")
+        try:
+            sync_from_zip(_url)
+        except Exception as exc:
+            print(f"{RED}下载失败{RESET}：{exc}")
+            print(f"修法：设 $env:XIAOZHUA_SRC 指向本地仓库后重跑安装器（{RAW_BASE}/scripts/install.ps1）")
+            return 4
+        after_version, after_sha = read_version(ROOT), before_sha
+        print(f"代码已更新  版本 {before_version} → {after_version}")
+    elif local_mode:
         print(f"本地源：{source}")
         try:
             sync_from_local(Path(source), ROOT)
@@ -394,6 +399,23 @@ def sync_from_local(source: Path, dest: Path) -> None:
         shutil.rmtree(dest)
     ignore = shutil.ignore_patterns(*IGNORE_DIRS, "*.pyc")
     shutil.copytree(source, dest, ignore=ignore)
+
+
+def sync_from_zip(url: str) -> None:
+    """zip 安装的更新路径：整包重下（不需要 git）。"""
+    import tempfile
+    import urllib.request
+    import zipfile
+
+    with tempfile.TemporaryDirectory() as td:
+        zpath = Path(td) / "src.zip"
+        urllib.request.urlretrieve(url, zpath)
+        with zipfile.ZipFile(zpath) as zf:
+            zf.extractall(td)
+        inner = [q for q in Path(td).iterdir() if q.is_dir()]
+        if not inner:
+            raise RuntimeError("zip 解开后是空的")
+        sync_from_local(inner[0], ROOT)
 
 
 def cmd_install(args) -> int:

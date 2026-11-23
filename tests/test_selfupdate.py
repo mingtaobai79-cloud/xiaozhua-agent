@@ -67,10 +67,33 @@ def test_state_roundtrip(isolated_state):
     assert su.load_state()["version"] == "9.9.9"
 
 
-def test_update_refuses_without_git_repo(monkeypatch, capsys):
+def test_update_zip_install_hints_local_source_on_failure(monkeypatch, capsys):
+    """zip 装（没有 .git、没记住 source）：update 会重下 zip；下不动就给出 XIAOZHUA_SRC 的修法。"""
     monkeypatch.setattr(su, "is_git_repo", lambda *_a, **_k: False)
-    assert su.main(["update"]) == 2
-    assert "install" in capsys.readouterr().out      # 引导去一键安装
+    monkeypatch.setattr(su, "load_state", lambda: {})
+    monkeypatch.delenv("XIAOZHUA_SRC", raising=False)
+
+    def boom(_url):
+        raise RuntimeError("no network")
+
+    monkeypatch.setattr(su, "sync_from_zip", boom)
+    assert su.main(["update"]) == 4
+    out = capsys.readouterr().out
+    assert "XIAOZHUA_SRC" in out and "下载失败" in out
+
+
+def test_update_zip_url_is_codeload():
+    url = su.ZIP_URL.format(branch="main")
+    assert url.startswith("https://codeload.github.com/") and url.endswith("/refs/heads/main")
+
+
+def test_shims_are_ascii_and_self_locating():
+    """启动器不能写死绝对路径：中文用户名写成 ASCII 会变 ???，cmd 就找不到解释器。"""
+    ps1 = (ROOT / "scripts/install.ps1").read_text(encoding="utf-8")
+    assert "%~dp0xiaozhua.ps1" in ps1          # cmd 用自身位置找 ps1
+    assert "$PSScriptRoot" in ps1              # ps1 用自身位置找 venv/src
+    # 不允许再把绝对解释器路径塞进 shim
+    assert '"$venvPy" "$Src\\installer\\selfupdate.py"' not in ps1
 
 
 def test_parser_rejects_unknown_command():

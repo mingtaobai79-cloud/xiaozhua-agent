@@ -285,15 +285,27 @@ if ($hostCfg.Exit -ne 0) {
 Ok "host configs written to $Pkg"
 
 # ---- 5. xiaozhua command (cmd shim + ps1 shim, no execution-policy dependency)
+# Shims are ASCII-only on purpose and locate the install relative to themselves
+# (%~dp0 / $PSScriptRoot). Writing the real absolute path here breaks on
+# non-ASCII user names: the shim is written in ANSI/ASCII, so a CJK user name
+# turns into "???" and cmd then cannot find the interpreter.
 New-Item -ItemType Directory -Force -Path $Bin | Out-Null
 $cmdShim = Join-Path $Bin 'xiaozhua.cmd'
 @"
 @echo off
-"$venvPy" "$Src\installer\selfupdate.py" %*
+powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0xiaozhua.ps1" %*
+exit /b %ERRORLEVEL%
 "@ | Set-Content -Path $cmdShim -Encoding ASCII
 $psShim = Join-Path $Bin 'xiaozhua.ps1'
 @"
-& "$venvPy" "$Src\installer\selfupdate.py" @args
+# ASCII-only shim: resolve the install dir from this file's own location so a
+# non-ASCII username (or a moved install) does not break the launcher.
+`$ErrorActionPreference = 'Stop'
+`$XzHome = Split-Path -Parent `$PSScriptRoot
+`$py = Join-Path `$XzHome 'venv\Scripts\python.exe'
+`$entry = Join-Path `$XzHome 'src\installer\selfupdate.py'
+if (-not (Test-Path `$py)) { Write-Error "xiaozhua-agent: venv missing at `$XzHome\venv (rerun the installer)"; exit 1 }
+& `$py `$entry @args
 exit `$LASTEXITCODE
 "@ | Set-Content -Path $psShim -Encoding ASCII
 Ok "command $cmdShim"
