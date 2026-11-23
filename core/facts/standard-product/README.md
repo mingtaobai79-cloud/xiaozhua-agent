@@ -30,21 +30,21 @@
 | ⑥ | `dubbo-cross-service.md` | 8,182 | 166 |
 | ⑦ | `boot-core-utils-and-annotations.md` | 8,994 | 176 |
 | ⑧ | `udc-runtime-and-extend-packages.md` | 8,968 | 189 |
-| ⑨ | `frontend-platform-packages.md` | 15,010 | 310 |
-| ⑩ | `frontend-package-capability-index.md` | 10,975 | 158 |
-| ⑪ | `frontend-component-signatures.md` | 12,171 | 209 |
+| ⑨ | `frontend-platform-packages.md` | 15,322 | 310 |
+| ⑩ | `frontend-package-capability-index.md` | 11,139 | 158 |
+| ⑪ | `frontend-component-signatures.md` | 12,173 | 209 |
 | ⑫ | `udc-microflow-extend-interfaces.md` | 24,079 | 441 |
 | ⑬ | `extension-project-skeleton.md` | 7,711 | 144 |
 | ⑭ | `extension-point-decision-table.md` | 19,995 | 181 |
 | ⑮ | `extension-registration-mechanisms.md` | 13,729 | 264 |
 | ⑯ | `extension-point-consumers.md` | 7,689 | 153 |
-| ⑰ | `appservice-dto-fields.md` | 5,395 | 141 |
-| ⑱ | `enums-and-constants.md` | 5,706 | 139 |
-| ⑲ | `platform-annotations.md` | 6,469 | 136 |
-| ⑳ | `service-business-flow.md` | 8,920 | 184 |
-| ㉑ | `business-action-index.md` | 7,237 | 160 |
-| ㉒ | `appservice-invocation.md` | 6,442 | 163 |
-| ㉓ | `api-usage-cards.md` | 7,393 | 181 |
+| ⑰ | `appservice-dto-fields.md` | 5,536 | 141 |
+| ⑱ | `enums-and-constants.md` | 5,845 | 139 |
+| ⑲ | `platform-annotations.md` | 6,605 | 136 |
+| ⑳ | `service-business-flow.md` | 8,915 | 184 |
+| ㉑ | `business-action-index.md` | 7,232 | 160 |
+| ㉒ | `appservice-invocation.md` | 6,605 | 163 |
+| ㉓ | `api-usage-cards.md` | 7,574 | 181 |
 | ㉔ | `code-repo-and-targets.md` | 7,566 | 180 |
 | ㉕ | `autocode-project-templates.md` | 4,990 | 136 |
 | ㉖ | `organization-ctpuser-method-index.md` | 10,900 | 230 |
@@ -209,10 +209,10 @@ cplib/*.jar (221 个)
 ## 五、锚点现值（2026-11-07 实测，改件后须重算）
 
 ```
-standard-product-contracts.md        34217 B  9b89172f…16ef8
-evidence/bytecode/manifest.json      31696 B  7da53941…5ffbd
-reconciliation.md                    17172 B  c29962df…146eb
-interface-inventory.md              149393 B  a925bd02…9977e（自动生成，重跑即复现）
+standard-product-contracts.md         34,226 B  5567670e…52d60
+evidence/bytecode/manifest.json       31,731 B  06ae1ad2…563c4
+reconciliation.md                     17,333 B  f151945a…2ee4a
+interface-inventory.md               149,393 B  a925bd02…9977e（自动生成，重跑即复现）
 ```
 
 `core/facts/INDEX.md` L119 的锚已按上表校正（旧锚 `4cd71033…efede` / `d7643f75…34f8`
