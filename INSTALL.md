@@ -24,6 +24,10 @@ curl -fsSL https://raw.githubusercontent.com/mingtaobai79-cloud/xiaozhua-agent/m
 curl -fsSL https://raw.githubusercontent.com/mingtaobai79-cloud/xiaozhua-agent/main/scripts/install.sh | bash -s -- --host hermes
 ```
 
+Windows 安装器的输出是英文（`[ok]` / `[..]` / `[fail]`）。这不是偷懒：`install.ps1` 必须纯 ASCII
+且不带 BOM，否则 `irm | iex` 在 PowerShell 5.1 上直接解析失败（BOM 会让 `[CmdletBinding()]`
+报"意外属性"；中文无 BOM 又会被按 ANSI 码页解成乱码）。中文说明只放在本文件里。
+
 脚本做的事（全程不碰系统 Python、不动任何全局配置）：
 
 ```

@@ -120,8 +120,17 @@ def test_install_sh_accepts_both_venv_layouts():
     assert "Scripts/python.exe" in sh
 
 
-def test_install_ps1_is_utf8_with_bom():
-    """PowerShell 5.1 无 BOM 时按 GBK 读中文 → 乱码 + 报\"缺 }\"（实测）。"""
+def test_install_ps1_is_ascii_and_bomless():
+    """install.ps1 必须纯 ASCII 且无 BOM —— 两条路径的编码陷阱都踩过：
+
+    * 带 BOM 走 irm|iex：BOM 变成字符串首字符，`[CmdletBinding()]` 前多出一个"语句"，
+      解析报 unexpected attribute CmdletBinding（PS 5.1 实测 5 个 parse error）。
+    * 无 BOM 但有中文、走 powershell -File：PS 5.1 按 ANSI 码页解码，UTF-8 中文变成
+      含 ASCII 标点的乱码，照样解析失败。
+    只有 ASCII + 无 BOM 两条路都干净。中文文案放在 INSTALL.md。
+    """
     raw = (ROOT / "scripts" / "install.ps1").read_bytes()
-    assert raw.startswith(b"\xef\xbb\xbf"), "install.ps1 必须 UTF-8 带 BOM"
+    assert not raw.startswith(b"\xef\xbb\xbf"), "install.ps1 不能带 BOM（irm|iex 会解析失败）"
+    bad = [i for i, b in enumerate(raw) if b > 127]
+    assert not bad, "install.ps1 必须纯 ASCII，首个非 ASCII 字节偏移 %d" % (bad[0] if bad else -1)
     assert b"ensurepip" in raw

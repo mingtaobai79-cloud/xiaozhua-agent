@@ -1,5 +1,27 @@
 # CHANGELOG
 
+## 0.2.1 — 2026-11-23
+
+修 Windows 一键安装的编码炸弹：`irm .../install.ps1 | iex` 在 PS 5.1 上直接解析失败。
+
+### 根因（两条路各踩一个）
+
+- **带 BOM + irm|iex**：BOM 成了字符串首字符，`[CmdletBinding()]` 前面凭空多出一个"语句"，
+  解析报 `unexpected attribute CmdletBinding`（实测 5 个 parse error，L16 起）。
+- **无 BOM + 中文 + powershell -File**：PS 5.1 按 ANSI 码页解码 UTF-8，中文变乱码，
+  乱码里会夹出 ASCII 标点，仍然解析失败（前一轮就是"缺少右 }"）。
+
+### 修法
+
+`scripts/install.ps1` 改为 **纯 ASCII + 无 BOM**，用户可见文案改英文（`[ok]` / `[..]` / `[fail]`），
+中文说明全部留在 `INSTALL.md`。这样 `irm|iex`、`Get-Content -Raw` + `iesx`、`powershell -File`
+三种入口都能解析。
+
+### 新增回归测试
+
+`test_install_ps1_is_ascii_and_bomless` —— 断言无 BOM、无非 ASCII 字节，并保留 ensurepip 自愈。
+
+
 ## 0.2.0 — 2026-11-23
 
 安装与升级变成一条命令，跨平台（Windows / macOS / Linux）。
