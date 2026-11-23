@@ -27,7 +27,7 @@ ANCHORED = [
 ]
 
 # 23 格表行：`| ① | \`file.md\` | 11,830 | 219 |`
-ROW = re.compile(r"^\|\s*[①-㊴]\s*\|\s*`([^`]+\.md)`\s*\|\s*([\d,]+)\s*\|\s*(\d+)\s*\|$", re.M)
+ROW = re.compile(r"^\|\s*[①-㊺]\s*\|\s*`([^`]+\.md)`\s*\|\s*([\d,]+)\s*\|\s*(\d+)\s*\|$", re.M)
 
 
 def _sha(p: Path):
@@ -96,10 +96,10 @@ def test_readme_anchor_block_matches_disk():
 
 
 def test_fact_table_rows_match_disk():
-    """39 格表的每行字节数/行数必须与磁盘一致（人工维护的表容易腐坏）。"""
+    """45 格表的每行字节数/行数必须与磁盘一致（人工维护的表容易腐坏）。"""
     text = (SP / "README.md").read_text(encoding="utf-8")
     rows = ROW.findall(text)
-    assert len(rows) == 39, "39 格表只解析出 %d 行（表格式被改坏了？）" % len(rows)
+    assert len(rows) == 45, "45 格表只解析出 %d 行（表格式被改坏了？）" % len(rows)
     bad = []
     for name, size_s, lines_s in rows:
         p = SP / name
