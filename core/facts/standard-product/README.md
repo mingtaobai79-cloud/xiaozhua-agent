@@ -16,11 +16,15 @@
 | "要发消息 / 收发 MQ" | ㉙ |
 | "事务边界、事件什么时候发、要不要 Saga" | ㉚ |
 | "GraphQL 打哪个端点、op 为什么找不到" | ㉛ |
+| "数据源/连接池/读写分离/分片" | ㉜ |
+| "要算公式 / 注册自定义函数" | ㉝ |
+| "单据导出成 Word/图片" | ㉞ |
+| "二维码/标签/印章/分类/图片/关注/积分" | ㉟ |
 
 与相邻目录分工：`core/facts/udc/` 是 **UDC 客开域**（绑客户应用、绑实例）；
 本目录是 **标品域**（平台 91 构件、1457 接口，任何客户环境都一样）。
 
-## 一、31 格（对应 `core/facts/INDEX.md` L118 的 ①–㉛）
+## 一、35 格（对应 `core/facts/INDEX.md` L118 的 ①–㉟）
 
 | # | 文件 | 字节 | 行 |
 |---|---|---:|---:|
@@ -57,8 +61,12 @@
 | ㉙ | `ctp-message-and-mq.md` | 7,205 | 160 |
 | ㉚ | `transaction-boundaries-and-saga.md` | 5,829 | 120 |
 | ㉛ | `boot-starter-graphql-and-op.md` | 5,401 | 124 |
+| ㉜ | `boot-starter-datasource.md` | 4,329 | 115 |
+| ㉝ | `boot-formula-engine.md` | 5,666 | 140 |
+| ㉞ | `boot-starter-formconvert.md` | 5,799 | 129 |
+| ㉟ | `app-common-facade.md` | 6,647 | 159 |
 
-合计 31 格。
+合计 35 格。
 INDEX L118 那一行是前 25 份的**逐格摘要**（7886 字符的单行），本表只给坐标，不重复摘要。
 ㉖㉗ 是 2026-11-18 新增的方法签名索引格，摘要待补。
 
@@ -177,7 +185,7 @@ cplib/*.jar (221 个)
 能追流转的只有 UDC 域（`udc-biz` 等有实现类在仓库）。
 ⇒ **BPM/组织的调用链只能靠实测或平台日志，静态索引到此为止。**
 
-## 二、另外三份（不在这 31 格里）
+## 二、另外三份（不在这 35 格里）
 
 | 文件 | 字节 | sha256（前 8…后 5） | 性质 |
 |---|---:|---|---|
@@ -207,7 +215,7 @@ cplib/*.jar (221 个)
 
 | 被引文件 | 引用方 |
 |---|---|
-| 31 格全部 | `core/facts/INDEX.md` L118（逐格摘要）、`skills/02-udc/xiaozhua-extension-usage/references/evidence-index.md`（自动生成）、`tools/core/platform/emit_evidence_index.py` |
+| 35 格全部 | `core/facts/INDEX.md` L118（逐格摘要）、`skills/02-udc/xiaozhua-extension-usage/references/evidence-index.md`（自动生成）、`tools/core/platform/emit_evidence_index.py` |
 | 12 份核心格（见测试 `FACTS` 列表） | `tests/udc/test_extension_usage_assets.py`（**逐份断言章节标题**，缺段落即红） |
 | `api-usage-cards.md` / `appservice-invocation.md` / `extension-point-decision-table.md` / `extension-point-consumers.md` / `platform-annotations.md` / `udc-microflow-extend-interfaces.md` | `skills/02-udc/xiaozhua-extension-usage/SKILL.md` 与 `references/extension-points.md` |
 | `standard-product-contracts.md` / `reconciliation.md` | `docs/ledger/STATUS-2026H2.md` |
@@ -233,7 +241,7 @@ interface-inventory.md               149,393 B  a925bd02…9977e（自动生成�
 - **不要**手改 `interface-inventory.md`：它是生成物，改动会被下次重跑覆盖。
 - **不要**把本目录内容改成绑具体客户应用：标品域的价值就是环境无关。凡是"客户应用里实际长什么样"的，
   归 `core/facts/udc/` 或 `docs/audit/artifacts/service-flow-20261103/`。
-- **不要**在改完 31 格里任何一份后不重算锚点：`tests/udc/test_extension_usage_assets.py`
+- **不要**在改完 35 格里任何一份后不重算锚点：`tests/udc/test_extension_usage_assets.py`
   只守章节标题，**不守字节数与 sha**——那是本文件 §五 的责任。
 - **不要**删 `evidence/` 下任何件：正文的 `VERIFIED_STATIC_BYTECODE` 分级全靠它可复算。
 
