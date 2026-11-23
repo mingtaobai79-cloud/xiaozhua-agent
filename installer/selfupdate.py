@@ -259,7 +259,11 @@ def cmd_doctor(args) -> int:
         print(f" {mark(not dirty and '落后' not in behind)} git {head_sha(ROOT)} · "
               f"{'有未提交改动' if dirty else '工作区干净'} · {behind}")
     else:
-        print(f" {DIM}·{RESET} 非 git 检出（压缩包安装），无法自动更新")
+        src = os.environ.get("XIAOZHUA_SRC") or load_state().get("source")
+        if src:
+            print(f" {DIM}·{RESET} 本地源安装（{src}），update 会从源目录重新同步")
+        else:
+            print(f" {DIM}·{RESET} 非 git 检出（zip 安装）：update 会重新下载 zip（或设 XIAOZHUA_SRC 指本地仓库）")
 
     ok, detail = mcp_selfcheck(ROOT)
     failures += 0 if ok else 1
@@ -280,42 +284,66 @@ def cmd_doctor(args) -> int:
 
 def cmd_update(args) -> int:
     started = time.time()
-    if not is_git_repo(ROOT):
-        print(f"{RED}不是 git 检出，无法 update{RESET}。请改用一键安装：")
-        print(f"  Windows  irm {RAW_BASE}/scripts/install.ps1 | iex")
-        print(f"  macOS    curl -fsSL {RAW_BASE}/scripts/install.sh | bash")
+    local_mode = not is_git_repo(ROOT)
+    source = os.environ.get("XIAOZHUA_SRC") or load_state().get("source")
+
+    if local_mode and not (source and Path(source).exists()):
+        print(f"{RED}这份安装不是 git 检出（来自本地目录或 zip），也没记住源目录{RESET}。")
+        print("修法：")
+        print("  1) 指定本地仓库重装一次（PowerShell）：")
+        print("       $env:XIAOZHUA_SRC = 'C:\\path\\to\\xiaozhua-agent'")
+        print(f"       irm {RAW_BASE}/scripts/install.ps1 | iex")
+        print("  2) 或者装 git，把仓库 clone 下来再跑安装器")
         return 2
 
     before_version, before_sha = read_version(ROOT), head_sha(ROOT)
     print(f"更新前 {before_version} ({before_sha})")
 
-    dirty = git("status", "--porcelain", cwd=ROOT, check=False).stdout.strip()
-    if dirty and not args.force:
-        print(f"{RED}工作区有未提交改动，已停止{RESET}（这些可能是没提交的证据，不自动 stash）：")
-        for line in dirty.splitlines()[:10]:
-            print(f"  {line}")
-        print(f"\n处理：先 commit / 清理，或 `xiaozhua update --force`（丢弃改动）")
-        return 3
-
-    branch = args.branch or current_branch(ROOT)
-    try:
-        git("fetch", "--prune", "origin", cwd=ROOT)
-        merge = git("merge", "--ff-only", f"origin/{branch}", cwd=ROOT, check=False)
-        if merge.returncode != 0:
-            print(f"{RED}无法快进合并（本地有分叉提交或分支不存在）{RESET}")
-            print((merge.stderr or merge.stdout).strip())
-            print(f"处理：`git log --oneline HEAD..origin/{branch}` 看清楚后再决定 rebase/reset")
+    if local_mode:
+        print(f"本地源：{source}")
+        try:
+            sync_from_local(Path(source), ROOT)
+        except Exception as exc:
+            print(f"{RED}同步失败{RESET}：{exc}")
             return 4
-    except RuntimeError as exc:
-        print(f"{RED}拉取失败{RESET}\n{exc}")
-        print("处理：确认网络与 git 凭据（`git -C {} fetch origin` 手动跑一次）".format(ROOT))
-        return 4
-
-    after_version, after_sha = read_version(ROOT), head_sha(ROOT)
-    if after_sha == before_sha:
-        print(f"代码已是最新（{after_sha}）")
+        after_version, after_sha = read_version(ROOT), before_sha
+        print(f"代码已同步  版本 {before_version} → {after_version}")
     else:
-        print(f"代码 {before_sha} → {after_sha}  版本 {before_version} → {after_version}")
+        dirty = git("status", "--porcelain", cwd=ROOT, check=False).stdout.strip()
+        if dirty and not args.force:
+            print(f"{RED}工作区有未提交改动，已停止{RESET}（这些可能是没提交的证据，不自动 stash）：")
+            for line in dirty.splitlines()[:10]:
+                print(f"  {line}")
+            print("\n处理：先 commit / 清理，或 `xiaozhua update --force`（丢弃改动）")
+            return 3
+
+        branch = args.branch or current_branch(ROOT)
+        try:
+            shallow = git("rev-parse", "--is-shallow-repository", cwd=ROOT,
+                          check=False).stdout.strip() == "true"
+            if shallow:
+                # 一键安装用的是 depth-1 检出，别为了更新把整段历史拉下来
+                spec = f"+refs/heads/{branch}:refs/remotes/origin/{branch}"
+                if git("fetch", "--depth", "1", "origin", spec, cwd=ROOT, check=False).returncode != 0:
+                    git("fetch", "--depth", "1", "origin", cwd=ROOT, check=False)
+            else:
+                git("fetch", "--prune", "origin", cwd=ROOT)
+            merge = git("merge", "--ff-only", f"origin/{branch}", cwd=ROOT, check=False)
+            if merge.returncode != 0:
+                print(f"{RED}无法快进合并（本地有分叉提交或分支不存在）{RESET}")
+                print((merge.stderr or merge.stdout).strip())
+                print(f"处理：`git log --oneline HEAD..origin/{branch}` 看清楚后再决定 rebase/reset")
+                return 4
+        except RuntimeError as exc:
+            print(f"{RED}拉取失败{RESET}\n{exc}")
+            print("处理：确认网络与 git 凭据（`git -C {} fetch origin` 手动跑一次）".format(ROOT))
+            return 4
+
+        after_version, after_sha = read_version(ROOT), head_sha(ROOT)
+        if after_sha == before_sha:
+            print(f"代码已是最新（{after_sha}）")
+        else:
+            print(f"代码 {before_sha} → {after_sha}  版本 {before_version} → {after_version}")
 
     print("装依赖 …", end="", flush=True)
     try:
@@ -348,9 +376,24 @@ def cmd_update(args) -> int:
     save_state(state)
 
     print(f"\n{GREEN}更新完成{RESET} {after_version} ({after_sha})  用时 {time.time() - started:.1f}s")
-    if after_sha == before_sha:
-        print("提示：本次没有新提交，只刷新了依赖与宿主配置。")
+    if after_sha == before_sha and after_version == before_version:
+        print("提示：本次代码没有变化，只刷新了依赖与宿主配置。")
     return 0
+
+
+IGNORE_DIRS = {".git", ".venv", "__pycache__", ".pytest_cache"}
+
+
+
+def sync_from_local(source: Path, dest: Path) -> None:
+    """从本地检出复制一份工作树（不带 .git/.venv），用于「没网/没 git」的安装与更新。"""
+    source, dest = Path(source), Path(dest)
+    if not (source / "pyproject.toml").exists():
+        raise RuntimeError(f"{source} 不像仓库根目录（没有 pyproject.toml）")
+    if dest.exists():
+        shutil.rmtree(dest)
+    ignore = shutil.ignore_patterns(*IGNORE_DIRS, "*.pyc")
+    shutil.copytree(source, dest, ignore=ignore)
 
 
 def cmd_install(args) -> int:
@@ -371,6 +414,8 @@ def cmd_install(args) -> int:
         hosts = sorted(set(state.get("hosts", [])) | set(args.host.split(",")))
         state.update({"hosts": hosts, "target": str(Path(args.target).expanduser()),
                       "version": read_version(ROOT), "sha": head_sha(ROOT)})
+        if getattr(args, "source", None):
+            state["source"] = str(Path(args.source).expanduser())
         save_state(state)
     return proc.returncode
 
@@ -396,6 +441,7 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--target", default=str(Path.home() / ".xiaozhua" / "pkg"))
     p.add_argument("--write", action="store_true", help="真正落盘（默认 dry-run）")
     p.add_argument("--portable", action="store_true")
+    p.add_argument("--source", default=None, help="本地仓库目录（记进 state，update 时用它同步）")
     p.add_argument("--force", action="store_true")
     p.set_defaults(func=cmd_install)
     return ap

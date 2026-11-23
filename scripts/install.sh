@@ -19,6 +19,7 @@ HOSTS="${XIAOZHUA_HOSTS:-all}"
 REPO="${XIAOZHUA_REPO:-https://github.com/mingtaobai79-cloud/xiaozhua-agent.git}"
 BRANCH="${XIAOZHUA_BRANCH:-main}"
 SRC="$XIAOZHUA_HOME/src"
+LOCAL_SRC="${XIAOZHUA_SRC:-}"
 VENV="$XIAOZHUA_HOME/venv"
 PKG="$XIAOZHUA_HOME/pkg"
 BIN="$XIAOZHUA_HOME/bin"
@@ -32,7 +33,8 @@ while [ $# -gt 0 ]; do
   case "$1" in
     --host)   HOSTS="$2"; shift 2 ;;
     --host=*) HOSTS="${1#*=}"; shift ;;
-    --home)   XIAOZHUA_HOME="$2"; SRC="$XIAOZHUA_HOME/src"; VENV="$XIAOZHUA_HOME/venv"
+    --home)   XIAOZHUA_HOME="$2"; SRC="$XIAOZHUA_HOME/src"
+LOCAL_SRC="${XIAOZHUA_SRC:-}"; VENV="$XIAOZHUA_HOME/venv"
               PKG="$XIAOZHUA_HOME/pkg"; BIN="$XIAOZHUA_HOME/bin"; shift 2 ;;
     -h|--help) sed -n '2,20p' "$0" 2>/dev/null || true; exit 0 ;;
     *) die "未知参数：$1" ;;
@@ -74,15 +76,30 @@ ok "Python $("$need_py" -c 'import platform;print(platform.python_version())')  
 # ---- 2. git + 代码
 command -v git >/dev/null 2>&1 || die "缺 git：macOS 跑 xcode-select --install；Debian 跑 sudo apt install git"
 mkdir -p "$XIAOZHUA_HOME"
-if [ -d "$SRC/.git" ]; then
+if [ -n "$LOCAL_SRC" ]; then
+  [ -f "$LOCAL_SRC/pyproject.toml" ] || die "XIAOZHUA_SRC=$LOCAL_SRC 不像仓库根目录（没有 pyproject.toml）"
+  info "使用本地目录 $LOCAL_SRC"
+  [ -e "$SRC" ] && rm -rf "$SRC"
+  mkdir -p "$SRC"
+  if command -v rsync >/dev/null 2>&1; then
+    rsync -a --exclude=.git --exclude=.venv --exclude=__pycache__ --exclude=.pytest_cache "$LOCAL_SRC"/ "$SRC"/
+  else
+    (cd "$LOCAL_SRC" && tar --exclude=.git --exclude=.venv --exclude=__pycache__ --exclude=.pytest_cache -cf - .) | (cd "$SRC" && tar -xf -)
+  fi
+  ok "代码已复制 $(cat "$SRC/VERSION" 2>/dev/null || echo '?')"
+elif [ -d "$SRC/.git" ]; then
   info "更新代码 $SRC"
-  git -C "$SRC" fetch --prune --quiet origin
+  if [ "$(git -C "$SRC" rev-parse --is-shallow-repository 2>/dev/null)" = "true" ]; then
+    git -C "$SRC" fetch --depth 1 --quiet origin "+refs/heads/$BRANCH:refs/remotes/origin/$BRANCH"       || git -C "$SRC" fetch --depth 1 --quiet origin
+  else
+    git -C "$SRC" fetch --prune --quiet origin
+  fi
   git -C "$SRC" checkout --quiet "$BRANCH"
   git -C "$SRC" merge --ff-only "origin/$BRANCH" --quiet || die "本地有分叉提交，无法快进：先到 $SRC 手动处理"
 else
   info "拉取代码 → $SRC"
   [ -e "$SRC" ] && rm -rf "$SRC"        # 残留的非 git 目录
-  git clone --quiet --branch "$BRANCH" "$REPO" "$SRC"
+  git clone --depth 1 --single-branch --branch "$BRANCH" "$REPO" "$SRC"     || die "git clone 失败：$REPO（检查网络/代理后重跑）"
 fi
 ok "代码 $(git -C "$SRC" rev-parse --short HEAD)  版本 $(cat "$SRC/VERSION" 2>/dev/null || echo '?')"
 
@@ -109,7 +126,9 @@ ok "依赖就绪"
 
 # ---- 4. 宿主配置
 info "生成宿主配置 → $PKG (host=$HOSTS)"
-"$VENV_PY" "$SRC/installer/selfupdate.py" install --host "$HOSTS" --target "$PKG" --write --force >/dev/null
+SRC_ARG=()
+[ -n "$LOCAL_SRC" ] && SRC_ARG=(--source "$LOCAL_SRC")
+"$VENV_PY" "$SRC/installer/selfupdate.py" install --host "$HOSTS" --target "$PKG" --write --force "${SRC_ARG[@]}" >/dev/null
 ok "宿主配置已写入 $PKG"
 
 # ---- 5. xiaozhua 命令

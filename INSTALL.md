@@ -45,6 +45,32 @@ Windows 安装器的输出是英文（`[ok]` / `[..]` / `[fail]`）。这不是�
 （self-check tools=64）、安装器自身单测通过 —— 所以放宽到 **3.11**。
 3.12 以上当然更好，脚本会优先挑高版本。
 
+## 网络不好 / git 被限速 / 没有 git 怎么办
+
+安装器取代码有三条路，按顺序自动试：
+
+```
+1 本地目录   设了 XIAOZHUA_SRC 就直接复制（最快，完全不走网络）
+2 git clone  --depth 1，最多等 180 秒
+3 zip 下载   前两条都失败 → 从 codeload.github.com 下 zip 解开（不需要 git）
+```
+
+**手上已经有仓库副本时，直接这样装**（PowerShell）：
+
+```powershell
+$env:XIAOZHUA_SRC = 'C:\Users\你\xiaozhua-agent'
+irm https://raw.githubusercontent.com/mingtaobai79-cloud/xiaozhua-agent/main/scripts/install.ps1 | iex
+```
+
+macOS / Linux：
+
+```bash
+XIAOZHUA_SRC=~/xiaozhua-agent curl -fsSL https://raw.githubusercontent.com/mingtaobai79-cloud/xiaozhua-agent/main/scripts/install.sh | bash
+```
+
+用本地源装的，`xiaozhua update` 会**从这个目录重新同步**（不碰网络）。
+那份仓库自己 `git pull` 一下，再 `xiaozhua update`，装好的那份就跟着更新了。
+
 ## 装完先体检
 
 ```bash
@@ -247,12 +273,13 @@ b["expression_verify"](tokens, context, cdp_port=9333)
 | 现象 | 原因 | 解决 |
 |---|---|---|
 | `Python 3.11+ is required` / `需要 Python 3.11+` | 解释器太旧或 PATH 里没有 | macOS `brew install python@3.12`；Windows `winget install Python.Python.3.12`；已有解释器但没在 PATH：`set XIAOZHUA_PYTHON=C:\path\python.exe` |
-| `缺 git` | 没装 git | macOS `xcode-select --install`；Windows `winget install Git.Git` |
+| `缺 git` | 没装 git | 不装也能装：安装器会退回 zip 下载；或设 `XIAOZHUA_SRC` 指本地仓库 |
 | `ModuleNotFoundError: No module named 'yaml'` | 没装 pyyaml | `xiaozhua update` |
 | `ModuleNotFoundError: No module named 'websocket'` | 没装 websocket-client | `xiaozhua update` |
 | 工具列表是空的 / internal error | python 版本太低 | `python --version` 要 ≥ 3.11 |
 | `xiaozhua` 不是命令 | bin 不在 PATH | macOS 把 `export PATH="$HOME/.xiaozhua/bin:$PATH"` 加进 `~/.zshrc`；Windows 重开终端 |
 | `update` 退出码 3 | 工作区有未提交改动 | 先 commit，或 `xiaozhua update --force` |
+| clone 卡很久 | GitHub 被限速 | 等 180 秒自动转 zip；或设 `XIAOZHUA_SRC` 用本地副本 |
 | `PageUnavailable: 调试端口 9333 不可达` | 浏览器没开调试端口 | 用 `--remote-debugging-port=9333` 重启浏览器 |
 | `PageUnavailable: 没找到含 'lowcode-test2' 的页面` | 端口上的浏览器没打开你的环境 | 在那个浏览器里登录并打开平台首页 |
 | 工具调用回 `BOOT_3000 message:null` | 参数形态不对，平台没给线索 | 对照 `docs/operation-contracts/` 下的契约 |

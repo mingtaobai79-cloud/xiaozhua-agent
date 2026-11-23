@@ -16,6 +16,7 @@
 #   XIAOZHUA_PYTHON exact python.exe to use (skips detection)
 #   XIAOZHUA_HOME   install root   (default %USERPROFILE%\.xiaozhua)
 #   XIAOZHUA_HOSTS  hosts, comma separated or all (default all)
+#   XIAOZHUA_SRC    local checkout to install from (skips clone/zip entirely)
 #   XIAOZHUA_REPO   git remote
 #   XIAOZHUA_BRANCH branch (default main)
 #
@@ -30,6 +31,7 @@ param(
   [string]$Root   = $(if ($env:XIAOZHUA_HOME)   { $env:XIAOZHUA_HOME }   else { Join-Path $env:USERPROFILE '.xiaozhua' }),
   [string]$Branch = $(if ($env:XIAOZHUA_BRANCH) { $env:XIAOZHUA_BRANCH } else { 'main' }),
   [string]$Repo   = $(if ($env:XIAOZHUA_REPO)   { $env:XIAOZHUA_REPO }   else { 'https://github.com/mingtaobai79-cloud/xiaozhua-agent.git' }),
+  [string]$Source = $(if ($env:XIAOZHUA_SRC) { $env:XIAOZHUA_SRC } else { '' }),
   [switch]$NoPath
 )
 
@@ -154,37 +156,94 @@ if (-not $pyExe) {
 }
 Ok "Python $pyVer  ($($pyExe -join ' '))"
 
-# ---- 2. git + code
-if (-not (Get-Command git -ErrorAction SilentlyContinue)) {
-  $gitDirs = @("$env:ProgramFiles\Git\cmd", "$env:LOCALAPPDATA\Programs\Git\cmd", 'D:\software\Git\cmd')
-  foreach ($d in $gitDirs) {
-    if ((Test-Path (Join-Path $d 'git.exe')) -and ($env:Path -notlike "*$d*")) { $env:Path = "$d;$env:Path" }
-  }
+# ---- 2. source code: local dir > existing git checkout > clone (180s timeout) > zip
+$gitExe = $null
+if (Get-Command git -ErrorAction SilentlyContinue) { $gitExe = 'git' }
+if ($env:XIAOZHUA_GIT -and (Test-Path $env:XIAOZHUA_GIT)) { $gitExe = $env:XIAOZHUA_GIT }
+foreach ($d in @("$env:ProgramFiles\Git\cmd", "$env:LOCALAPPDATA\Programs\Git\cmd", 'D:\software\Git\cmd')) {
+  if (-not $gitExe -and (Test-Path (Join-Path $d 'git.exe'))) { $gitExe = (Join-Path $d 'git.exe') }
 }
-if (-not (Get-Command git -ErrorAction SilentlyContinue)) {
-  Die "git is required (it fetches and updates the code). Install with:  winget install Git.Git  then reopen the terminal."
-}
-$gitExe = if ($env:XIAOZHUA_GIT) { $env:XIAOZHUA_GIT } else { 'git' }
 $Src  = Join-Path $Root 'src'
 $Venv = Join-Path $Root 'venv'
 $Pkg  = Join-Path $Root 'pkg'
 $Bin  = Join-Path $Root 'bin'
-
 New-Item -ItemType Directory -Force -Path $Root | Out-Null
-if (Test-Path (Join-Path $Src '.git')) {
+
+function Copy-Tree($from, $to) {
+  if (Test-Path $to) { Remove-Item -Recurse -Force $to }
+  $null = New-Item -ItemType Directory -Force -Path $to
+  & robocopy $from $to /E /XD .git .venv __pycache__ .pytest_cache /XF *.pyc /NFL /NDL /NJH /NJS /NP | Out-Null
+  $code = $LASTEXITCODE
+  # robocopy: 0-7 = success with various copies, >=8 = real failure
+  if ($code -ge 8) { Die "copying $from -> $to failed (robocopy exit $code)" }
+}
+
+if ($Source) {
+  if (-not (Test-Path (Join-Path $Source 'pyproject.toml'))) { Die "XIAOZHUA_SRC=$Source does not look like the repo (no pyproject.toml)" }
+  Info "using local source $Source"
+  Copy-Tree $Source $Src
+  Ok "code copied  version $(if (Test-Path (Join-Path $Src 'VERSION')) { (Get-Content (Join-Path $Src 'VERSION') -Raw).Trim() } else { '?' })"
+}
+elseif (Test-Path (Join-Path $Src '.git')) {
+  if (-not $gitExe) { Die "git not found but $Src is a git checkout; install git or set XIAOZHUA_SRC" }
   Info "updating code at $Src"
-  & $gitExe -C $Src fetch --prune --quiet origin
+  $shallow = ((& $gitExe -C $Src rev-parse --is-shallow-repository 2>$null | Select-Object -First 1) -eq 'true')
+  if ($shallow) {
+    # depth-1 checkout: fetch just the tip again instead of unshallowing the whole history
+    & $gitExe -C $Src fetch --depth 1 --quiet origin "+refs/heads/$Branch`:refs/remotes/origin/$Branch"
+    if ($LASTEXITCODE -ne 0) { & $gitExe -C $Src fetch --depth 1 --quiet origin }
+  } else {
+    & $gitExe -C $Src fetch --prune --quiet origin
+  }
   if ($LASTEXITCODE -ne 0) { Die "git fetch failed (network or credentials)" }
   & $gitExe -C $Src checkout --quiet $Branch
   & $gitExe -C $Src merge --ff-only "origin/$Branch" --quiet
   if ($LASTEXITCODE -ne 0) { Die "local commits diverge from origin/$Branch; resolve manually in $Src" }
-} else {
-  Info "cloning into $Src"
-  if (Test-Path $Src) { Remove-Item -Recurse -Force $Src }
-  & $gitExe clone --quiet --branch $Branch $Repo $Src
-  if ($LASTEXITCODE -ne 0) { Die "git clone failed: $Repo" }
 }
-$sha = (& $gitExe -C $Src rev-parse --short HEAD).Trim()
+else {
+  $got = $false
+  if ($gitExe) {
+    Info "cloning into $Src (depth 1, ~50 MB; 180s timeout, falls back to a zip download)"
+    if (Test-Path $Src) { Remove-Item -Recurse -Force $Src }
+    $job = Start-Job -ScriptBlock {
+      param($g, $r, $b, $d)
+      & $g clone --depth 1 --single-branch --branch $b $r $d 2>&1
+    } -ArgumentList $gitExe, $Repo, $Branch, $Src
+    $null = Wait-Job $job -Timeout 180
+    if ($job.State -eq 'Completed') {
+      $null = Receive-Job $job
+      if ((Test-Path (Join-Path $Src 'pyproject.toml'))) { $got = $true }
+    } else {
+      Stop-Job $job -ErrorAction SilentlyContinue
+      Info "git clone did not finish in 180s (slow or blocked); switching to zip download"
+    }
+    Remove-Job $job -Force -ErrorAction SilentlyContinue
+    if (-not $got -and (Test-Path $Src)) { Remove-Item -Recurse -Force $Src -ErrorAction SilentlyContinue }
+  }
+  if (-not $got) {
+    $slug = ($Repo -replace '^.*github\.com[:/]', '') -replace '\.git$', ''
+    $zipUrl = "https://codeload.github.com/$slug/zip/refs/heads/$Branch"
+    $zip = Join-Path $Root 'src.zip'
+    $tmp = Join-Path $Root 'src-unzip'
+    Info "downloading $zipUrl"
+    try {
+      Invoke-WebRequest -Uri $zipUrl -OutFile $zip -UseBasicParsing -TimeoutSec 600
+      if (Test-Path $tmp) { Remove-Item -Recurse -Force $tmp }
+      Expand-Archive -Path $zip -DestinationPath $tmp -Force
+      $inner = @(Get-ChildItem $tmp -Directory)[0]
+      if (-not $inner) { Die "zip archive looks empty" }
+      Copy-Tree $inner.FullName $Src
+      $got = $true
+      Info "installed from zip (no .git: `xiaozhua update` will re-download the zip instead of pulling)"
+    } catch {
+      Die ("could not fetch the code: " + $_.Exception.Message + "`n  Options: set `$env:XIAOZHUA_SRC='C:\path\to\a\local\checkout', or check proxy/VPN, then rerun.")
+    } finally {
+      Remove-Item $zip -Force -ErrorAction SilentlyContinue
+      Remove-Item $tmp -Recurse -Force -ErrorAction SilentlyContinue
+    }
+  }
+}
+$sha = if ((Test-Path (Join-Path $Src '.git')) -and $gitExe) { (& $gitExe -C $Src rev-parse --short HEAD).Trim() } else { 'zip' }
 $ver = if (Test-Path (Join-Path $Src 'VERSION')) { (Get-Content (Join-Path $Src 'VERSION') -Raw).Trim() } else { '?' }
 Ok "code $sha  version $ver"
 
@@ -217,7 +276,9 @@ Ok "dependencies ready"
 
 # ---- 4. host configs (also records state.json for `xiaozhua update`)
 Info "generating host configs -> $Pkg (host=$Hosts)"
-$hostCfg = Invoke-Native $venvPy @((Join-Path $Src 'installer\selfupdate.py'), 'install', '--host', $Hosts, '--target', $Pkg, '--write', '--force')
+$installArgs = @((Join-Path $Src 'installer\selfupdate.py'), 'install', '--host', $Hosts, '--target', $Pkg, '--write', '--force')
+if ($Source) { $installArgs += @('--source', $Source) }
+$hostCfg = Invoke-Native $venvPy $installArgs
 if ($hostCfg.Exit -ne 0) {
   Die ("host config generation failed: " + (@($hostCfg.Lines) -join ' | '))
 }

@@ -1,5 +1,36 @@
 # CHANGELOG
 
+## 0.2.3 — 2026-11-23
+
+代码来源不再只有 git clone：加本地目录与 zip 两条路，解决"GitHub 拉不动就装不上"。
+
+### 起因
+
+你机器上 `irm | iex` 走到 clone 就停住：`git clone --depth 1` 420 秒没完成（GitHub 被限速）。
+之前只认 git clone，网络一慢就必然失败，而且没有任何退路。
+
+### 三条取代码路径（按顺序自动试）
+
+1. **本地目录**：设 `XIAOZHUA_SRC` 直接复制工作树（不碰网络，最快）
+2. **git clone**：`--depth 1`，`Start-Job` + 180 秒超时
+3. **zip 下载**：`codeload.github.com/<slug>/zip/refs/heads/<branch>`，`Expand-Archive` —— 这条**不需要 git**
+
+### 顺带
+
+- `xiaozhua update` 支持本地源安装：state 里记住 `source`，update 时从该目录重新同步
+- doctor 区分三种安装形态（git 检出 / 本地源 / zip），不再一律说"无法自动更新"
+- install.sh 同样支持 `XIAOZHUA_SRC`（rsync 或 tar 复制，不依赖 git）
+- 取代码失败时直接给出修法：`$env:XIAOZHUA_SRC='...'` 指向本地仓库
+
+### 实测
+
+```
+本地源安装（干净 PATH，模拟你的终端）：Python 3.11.16 → 复制 → venv → 依赖 → 宿主 → tools=64
+xiaozhua doctor                      5 项全绿（本地源那行显示源目录）
+xiaozhua update                      从源目录重新同步 → 依赖 → 宿主 → tools=64，10.6s
+shallow 仓库 update                   c121523 → 68d7ff1，仍是 shallow（depth-1 拉取，没拉全历史）
+```
+
 ## 0.2.2 — 2026-11-23
 
 把 Python 下限从 3.12 放到 3.11，并让 Windows 安装器真的能找到解释器。
