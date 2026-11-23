@@ -115,7 +115,7 @@ def _schema_trigger_type(schema) -> str:
 
 def create(host, cookie, *, app_id, app_name, name, caption, schema,
            trigger_type="", group_id="", open_api="STOP",
-           rest_api="DISABLED") -> str:
+           rest_api="DISABLED", mf_type="SERVICE", transport=None) -> str:
     """建流程（DRAFT），返回 id。
 
     ★ trigger_type 留空时从 schema.trigger.type 推导 —— 传空串会让 create 失败，
@@ -123,7 +123,7 @@ def create(host, cookie, *, app_id, app_name, name, caption, schema,
     """
     trigger_type = trigger_type or _schema_trigger_type(schema) or "MANUAL"
     ds = schema if isinstance(schema, str) else json.dumps(schema, ensure_ascii=False)
-    body = {"appId": str(app_id), "name": name, "caption": caption, "type": "SERVICE",
+    body = {"appId": str(app_id), "name": name, "caption": caption, "type": mf_type,
             "triggerType": trigger_type, "state": "DRAFT", "dataSchema": ds,
             "serviceInterface": None, "sourceType": "PAGE",
             "creationMethod": "MANUAL", "groupType": "DEFAULT",
@@ -146,7 +146,7 @@ def get(host, cookie, mid, transport=None) -> dict:
 
 def publish(host, cookie, mid, *, app_id, schema, name="", caption="",
             trigger_type="", group_id="", open_api="STOP",
-            rest_api="DISABLED", transport=None):
+            rest_api="DISABLED", mf_type="SERVICE", transport=None):
     """走 REST checkSchema/update 真发布。返回 (ok, 详情 dict)。"""
     cur = get(host, cookie, mid, transport=transport)
     guid = cur.get("guid")
@@ -157,7 +157,7 @@ def publish(host, cookie, mid, *, app_id, schema, name="", caption="",
              "lastVersionMetadataState": "DISABLED", "restPath": None}
     body = {**extra, "appId": str(app_id), "id": str(mid),
             "name": name or cur.get("name"), "caption": caption or cur.get("caption"),
-            "type": "SERVICE", "triggerType": trigger_type, "state": "RELEASE",
+            "type": mf_type, "triggerType": trigger_type, "state": "RELEASE",
             "dataSchema": ds, "serviceInterface": None, "sourceType": "PAGE",
             "creationMethod": "MANUAL", "groupType": "DEFAULT", "versionCode": 100,
             "openApi": open_api, "restApi": rest_api}
@@ -197,15 +197,15 @@ def delete(host, cookie, mid, transport=None) -> bool:
 
 
 def deploy(host, cookie, *, app_id, app_name, name, caption, schema, group_id="",
-           trigger_type="") -> dict:
+           trigger_type="", mf_type="SERVICE") -> dict:
     """一步到位：create → publish → 回读。失败即抛（不留半成品：失败自动删）。"""
     mid = create(host, cookie, app_id=app_id, app_name=app_name, name=name,
                  caption=caption, schema=schema, trigger_type=trigger_type,
-                 group_id=group_id)
+                 group_id=group_id, mf_type=mf_type)
     try:
         ok, info = publish(host, cookie, mid, app_id=app_id, schema=schema,
                            name=name, caption=caption, trigger_type=trigger_type,
-                           group_id=group_id)
+                           group_id=group_id, mf_type=mf_type)
         return info
     except Exception:
         try:

@@ -55,6 +55,45 @@ List    attachmentAttrNames
 
 **⇒ `hasPagination=true` 时你拿到的是 `SingleRequest<OrderDto>` / `PageRequest<OrderDto>`；否则直接是 `OrderDto`。**
 
+## ★ LIVE 对照：真机构建产物逐字（2026-11-22，CUSTOM+MANUAL `p0ManualProbe`）
+
+配置：入参 `BASIC/STRING`「P0入参」无分页；出参 `BASIC/STRING`「P0出参」。
+构建 `发布应用:20261122192211435` 的生成物原文：
+
+```java
+// facade/custom/service/microflow/CustomMicroFlowService.java   ← 你写的那个
+default java.lang.String p0ManualProbe(java.lang.String _FLOW_INPUT_P0IN01)
+
+// facade/api/microflow/CustomMicroFlowAppService.java           ← 对外契约
+default SingleResponse<java.lang.String> p0ManualProbe(SingleRequest<java.lang.String> request)
+
+// biz/custom/appservice/microflow/Default…Impl.java
+public SingleResponse<java.lang.String> p0ManualProbe(
+        @ParameterInfo("P0入参") SingleRequest<java.lang.String> request) {
+    if (customMicroFlowService == null) throw …UDC_MICROFLOW_INTERFACE_NOT_IMPLEMENTED;
+    return SingleResponse.from(customMicroFlowService.p0ManualProbe(request.getData()));
+}
+```
+
+真机坐实三条：
+
+```
+1  无分页   → 裸值形参，不是 SingleRequest        （对上表第 1 行）
+2  有出参   → 方法返回值就是出参类型，不是 void    （对上表第 4 行的反面）
+3  变量名   → _FLOW_INPUT_xxxxxx（面板内部名）；业务名 desc 只进 @ParameterInfo
+```
+
+★ **生成侧铁律：只写 trigger/endNode 会生成 void。** 必须镜像到 `dataSchema` 顶层：
+
+```
+dataSchema.input   ←  trigger.output   的镜像
+dataSchema.output  ←  endNode.output   的镜像
+```
+
+实测对照：同一流程只写 `trigger.paramType/basic/desc` + `endNode.output`
+→ 生成 `void p0ManualProbe()`；补上顶层 `input`/`output` 并重新发布 →
+才生成上面带返回值的签名。
+
 ## 怎么从入参取值
 
 ```java
@@ -231,6 +270,7 @@ public class OrderCustomMicroFlowServiceImpl implements OrderCustomMicroFlowServ
 | 6 | **自定义对象 `attributes` 是全量替换** |
 | 7 | **`dataTypeCategory` 只有 3 值，`type` 只有 2 值** |
 | 8 | **方法名必须与微流程名 uncap 一致** |
+| 9 | **用接口写 `dataSchema` 时必须把 `trigger.output`/`endNode.output` 镜像到顶层 `input`/`output`，否则生成 `void`（即使面板上填了出入参）** |
 
 ## Evidence
 
@@ -239,6 +279,8 @@ public class OrderCustomMicroFlowServiceImpl implements OrderCustomMicroFlowServ
 | `MicroFlowInOutParamDto` 17 个字段 | 反射 `getMethods()` 逐个打印 | **LIVE** |
 | **`PageRequest` 无 `getData()`** | **反射实测：继承链 `PageRequest→ListRequest→BaseRequest`，只有 `getParams()/getPageInfo()/getSort()`** | **LIVE** |
 | 四种签名判定逻辑 | `CustomMicroFlowService.java.ftl` 的 `<#if hasPagination>` | STATIC_RULE |
+| **四种签名的真机对照** | **构建 `发布应用:20261122192211435` 生成物三类逐字（CUSTOM+MANUAL `p0ManualProbe`，入/出参各 1 个 BASIC）** | **LIVE** |
+| **`dataSchema` 顶层 `input`/`output` 镜像规则** | **同一流程两次构建对照：只写 trigger+endNode → `void`；补顶层 → 带返回值** | **LIVE** |
 | `hasEntityOutput` 转换链 | `CustomMicroFlowController.java.ftl` 的 `displayNameAppService.toMapList` | STATIC_RULE |
 | 节点出参命名 `_<TYPE>_<6位>` | `udc/microflow/node-data-flow.md`（既有 LIVE 格） | **LIVE** |
 | 自定义对象三接口 | `udc/setting/custom-object/create.md`（既有 LIVE 格） | **LIVE** |
@@ -251,6 +293,7 @@ public class OrderCustomMicroFlowServiceImpl implements OrderCustomMicroFlowServ
 - ✅ **引用既有 LIVE 格**：节点出参、自定义对象接口（不重复求证）
 - ✅ **LIVE**：`PageRequest` 取值方法已反射确认（无 `getData()`）
 - ⚠️ **BLOCKED**：完整接口渲染（`VirtualFullNameTransformer.<clinit>` 需真实 `AppContext`，容器外失败）
+  —— **已降级**：签名本身已有真机产物对照（上面 LIVE 对照节），BLOCKED 仅剩「容器外批量渲染」
 
 ## 给 Agent 的判据
 

@@ -114,6 +114,11 @@ hasPagination = true   → {Out} flow({Req}<{In}> request)
 hasPagination = false  → {Out} flow({In} {inputName})
 ```
 
+★ **已真机对照（2026-11-22）**：`String p0ManualProbe(String _FLOW_INPUT_P0IN01)` 生成物逐字，
+「有出参 ⇒ 返回值不是 void」坐实；同时发现生成侧坑——`dataSchema` 必须把
+`trigger.output`/`endNode.output` 镜像到顶层 `input`/`output`，否则即使面板填了出入参也生成 `void`。
+细节见 `03` 的「LIVE 对照」节。
+
 ### 3.4 调用两种形态
 
 ```
@@ -172,6 +177,7 @@ Sort sort                 = request.getSort();      // 排序
 | 6 | 组织查人返回强类型 DTO | **返回 `Map` 或 `Long`**；只有 `selectMemberBySelectPeopleData` / `selectMemberByUserId` 给 `OrgMemberCoreDto` |
 | 7 | 「BPM 更新链只发 `BeforeUpdateBatchEvent`」 | **单事件和批量事件都会发**（`EntityEventHelper.beforeEvent` case2 发两次） |
 | 8 | `com.seeyon.boot.context.ContextUtil.getCurrentUserId()` | **类不存在**，用 `SystemVariableUtils.currentUserId()`（`com.seeyon.boot.starter.systemvariable.util`） |
+| 9 | 「出参没有回传通道（只有 void）」 | **错**：那是 EVENT/SCHEDULE 的形态（没有消费者）。**MANUAL 有出参**——入参=方法形参，出参=方法返回值，`Default*Impl` 用 `SingleResponse.from(...)` 包装。真机产物见 `03` 的 LIVE 对照节 |
 
 **★ 第 3~8 条是 2026-11-19 新增 04/05/06 三格时，用 `interfaces.json` 逐方法核对发现的 ——
   全部靠「方法名/类名在索引里查不到」暴露出来。这就是维护规则第 6 条的来由。**

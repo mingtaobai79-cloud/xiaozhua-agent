@@ -12,7 +12,7 @@ LIVE 探测结果、修复方案与审结。99 份 `.md` + 27 份 `.json`。
 
 ## 一★、**先读这一节：这个目录里有一批结论已经被自己推翻了**
 
-99 份里 **24 份**带更正标记，合计 **72 处**（`menu-copy-p2-auditor-verdict.md` 一份就 16 处）。
+99 份里 **25 份**带更正标记，合计 **74 处**（`menu-copy-p2-auditor-verdict.md` 一份就 16 处）。
 **顺序读会把死结论当活结论用**，而这个目录的死结论会直接改掉处置方向——
 最典型的是 `menu-copy-p2-auditor-verdict` 那条：把「取不到证据」的成因写成
 「取证能力/通道问题」，于是**处置变成"换通道/换入口"**，而真因是**平台授权前置缺失**
@@ -52,6 +52,7 @@ LIVE 探测结果、修复方案与审结。99 份 `.md` + 27 份 `.json`。
 | ㉖ | `08100` 旧措辞 | 真实充分条件已更正（见 §4） | — | `MENU-FUNCTIONNODE-CONSTRAINTS` L86 |
 | ㉗ | 用 `location.hash` 拼路由 | 会把 appId 污染成 `8704…#/app-design/...`，后端报 `BOOT_3000 For input string`（**capture2 全批作废**） | 整批取证白跑 | `NAV-LIVE-CAPTURE-20261012` L12 |
 | ㉘ | `REST-EXPOSURE-MECHANISM` 上轮的负面结论 | 本文件 §4 **诚实标注更正** | — | `REST-EXPOSURE-MECHANISM` §4 |
+| ㉙ | 「出参没有回传通道（只有 void）」 | **只对 EVENT/SCHEDULE 成立**（没有消费者）；**MANUAL 有出参**：入参=方法形参、出参=方法返回值，`Default*Impl` 用 `SingleResponse.from(...)` 包装（真机产物 `发布应用:20261122192211435`） | 会让 Agent 把 MANUAL 出参写成 `void`，白丢返回值 | `CUSTOM-TRIGGER-JAVA-CONTRACT` §10.7 |
 
 ### 三条反复出现的错因（读之前记住）
 
