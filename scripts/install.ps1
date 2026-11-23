@@ -32,7 +32,8 @@ param(
   [string]$Branch = $(if ($env:XIAOZHUA_BRANCH) { $env:XIAOZHUA_BRANCH } else { 'main' }),
   [string]$Repo   = $(if ($env:XIAOZHUA_REPO)   { $env:XIAOZHUA_REPO }   else { 'https://github.com/mingtaobai79-cloud/xiaozhua-agent.git' }),
   [string]$Source = $(if ($env:XIAOZHUA_SRC) { $env:XIAOZHUA_SRC } else { '' }),
-  [switch]$NoPath
+  [switch]$NoPath,
+  [switch]$NoLink
 )
 
 $ErrorActionPreference = 'Stop'
@@ -169,8 +170,22 @@ $Pkg  = Join-Path $Root 'pkg'
 $Bin  = Join-Path $Root 'bin'
 New-Item -ItemType Directory -Force -Path $Root | Out-Null
 
+function Remove-Tree($path) {
+  # Locked by git / antivirus -> IOException: retry, then empty it with robocopy /MIR
+  for ($i = 0; $i -lt 3; $i++) {
+    if (-not (Test-Path $path)) { return }
+    try { Remove-Item -Recurse -Force $path -ErrorAction Stop; return } catch { Start-Sleep -Milliseconds 800 }
+  }
+  if (Test-Path $path) {
+    $empty = Join-Path $env:TEMP ("xz-empty-" + [guid]::NewGuid().ToString('N'))
+    $null = New-Item -ItemType Directory -Force -Path $empty
+    & robocopy $empty $path /MIR /NFL /NDL /NJH /NJS /NP | Out-Null
+    Remove-Item $empty -Recurse -Force -ErrorAction SilentlyContinue
+  }
+}
+
 function Copy-Tree($from, $to) {
-  if (Test-Path $to) { Remove-Item -Recurse -Force $to }
+  Remove-Tree $to
   $null = New-Item -ItemType Directory -Force -Path $to
   & robocopy $from $to /E /XD .git .venv __pycache__ .pytest_cache /XF *.pyc /NFL /NDL /NJH /NJS /NP | Out-Null
   $code = $LASTEXITCODE
@@ -215,10 +230,19 @@ else {
       if ((Test-Path (Join-Path $Src 'pyproject.toml'))) { $got = $true }
     } else {
       Stop-Job $job -ErrorAction SilentlyContinue
+      # Stop-Job only ends the PowerShell job: the native git / git-remote-https /
+      # index-pack children keep running and lock the src dir, so the next install
+      # or update cannot delete it. Match them by command line and terminate.
+      try {
+        Get-CimInstance Win32_Process -Filter "Name='git.exe'" -ErrorAction SilentlyContinue |
+          Where-Object { $_.CommandLine -and $_.CommandLine -like "*$Root*" } |
+          ForEach-Object { Stop-Process -Id $_.ProcessId -Force -ErrorAction SilentlyContinue }
+      } catch {}
+      Start-Sleep -Milliseconds 500
       Info "git clone did not finish in 180s (slow or blocked); switching to zip download"
     }
     Remove-Job $job -Force -ErrorAction SilentlyContinue
-    if (-not $got -and (Test-Path $Src)) { Remove-Item -Recurse -Force $Src -ErrorAction SilentlyContinue }
+    if (-not $got -and (Test-Path $Src)) { Remove-Tree $Src }
   }
   if (-not $got) {
     $slug = ($Repo -replace '^.*github\.com[:/]', '') -replace '\.git$', ''
@@ -278,6 +302,8 @@ Ok "dependencies ready"
 Info "generating host configs -> $Pkg (host=$Hosts)"
 $installArgs = @((Join-Path $Src 'installer\selfupdate.py'), 'install', '--host', $Hosts, '--target', $Pkg, '--write', '--force')
 if ($Source) { $installArgs += @('--source', $Source) }
+$linkReport = Join-Path $Root 'link-report.json'
+if (-not $NoLink) { $installArgs += @('--link', '--link-report', $linkReport) }
 $hostCfg = Invoke-Native $venvPy $installArgs
 if ($hostCfg.Exit -ne 0) {
   Die ("host config generation failed: " + (@($hostCfg.Lines) -join ' | '))
@@ -309,6 +335,18 @@ if (-not (Test-Path `$py)) { Write-Error "xiaozhua-agent: venv missing at `$XzHo
 exit `$LASTEXITCODE
 "@ | Set-Content -Path $psShim -Encoding ASCII
 Ok "command $cmdShim"
+
+# ---- 5b. surface the MCP link result (child's own stdout is UTF-8, PS 5.1 mangles it)
+if (-not $NoLink -and (Test-Path $linkReport)) {
+  try {
+    $rep = Get-Content $linkReport -Raw -Encoding UTF8 | ConvertFrom-Json
+    $okHosts = @($rep | Where-Object { $_.ok } | ForEach-Object { $_.host })
+    $badHosts = @($rep | Where-Object { -not $_.ok -and $_.action -eq 'linked' } | ForEach-Object { $_.host })
+    if ($okHosts.Count) { Ok ("MCP linked -> " + ($okHosts -join ', ')) }
+    if ($badHosts.Count) { Info ("MCP link FAILED -> " + ($badHosts -join ', ') + " (run: xiaozhua link)") }
+  } catch {}
+  Remove-Item $linkReport -Force -ErrorAction SilentlyContinue
+}
 
 # ---- 6. PATH (user scope, idempotent)
 if (-not $NoPath) {

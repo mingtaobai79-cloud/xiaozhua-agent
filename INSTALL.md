@@ -71,6 +71,28 @@ XIAOZHUA_SRC=~/xiaozhua-agent curl -fsSL https://raw.githubusercontent.com/mingt
 用本地源装的，`xiaozhua update` 会**从这个目录重新同步**（不碰网络）。
 那份仓库自己 `git pull` 一下，再 `xiaozhua update`，装好的那份就跟着更新了。
 
+## MCP 会自动接进宿主
+
+安装（和每次 `xiaozhua update`）之后，安装器调用各宿主**自己的 CLI** 注册 `xiaozhua`：
+
+| 宿主 | 命令 | 落在哪 |
+|---|---|---|
+| Hermes | `hermes mcp add xiaozhua --command <venv python> --args <server.py>` | `hermes config path` 指向的 config.yaml |
+| Codex | `codex mcp add xiaozhua -- <venv python> <server.py>` | `~/.codex/config.toml` |
+| Claude Code | `claude mcp add xiaozhua --scope user -- ...` | `~/.claude.json` |
+
+只有装了的宿主才会连（没装就跳过，不算失败）。不想自动连就加 `-NoLink`。
+
+```
+xiaozhua link --dry-run     # 只看会执行什么
+xiaozhua link               # 手动重连（路径变了用这个）
+xiaozhua unlink             # 从所有宿主移除
+xiaozhua doctor             # 逐宿主核对：那条 xiaozhua 是不是指向本安装
+```
+
+**接完要重启宿主才生效**：Hermes 里用 `/reload-mcp`（新会话自动加载），Codex / Claude Code
+重开进程。宿主的 `mcp list` 里应该看到 `xiaozhua` 指向 `~/.xiaozhua/src/adapters/mcp/server.py`。
+
 ## 装完先体检
 
 ```bash

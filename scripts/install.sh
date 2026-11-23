@@ -126,8 +126,9 @@ ok "依赖就绪"
 
 # ---- 4. 宿主配置
 info "生成宿主配置 → $PKG (host=$HOSTS)"
-SRC_ARG=()
-[ -n "$LOCAL_SRC" ] && SRC_ARG=(--source "$LOCAL_SRC")
+SRC_ARG=(--link)
+[ "${XIAOZHUA_NO_LINK:-}" = "1" ] && SRC_ARG=()
+[ -n "$LOCAL_SRC" ] && SRC_ARG+=(--source "$LOCAL_SRC")
 "$VENV_PY" "$SRC/installer/selfupdate.py" install --host "$HOSTS" --target "$PKG" --write --force "${SRC_ARG[@]}" >/dev/null
 ok "宿主配置已写入 $PKG"
 

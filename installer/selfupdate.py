@@ -228,6 +228,69 @@ def cmd_version(_args) -> int:
     return 0
 
 
+def _hostlink():
+    """installer/hostlink.py —— 只在需要链接宿主时导入。"""
+    here = str(Path(__file__).resolve().parent)
+    if here not in sys.path:
+        sys.path.insert(0, here)
+    import hostlink  # type: ignore
+
+    return hostlink
+
+
+def mcp_binaries() -> tuple[str, str]:
+    """返回 (python 解释器, server.py) —— 当前这份安装自己的路径。
+
+    安装布局是 <home>/{venv,src}，所以 venv 在 ROOT 的上一级；仓库布局则是
+    <repo>/.venv。两处都找不到就退回当前解释器（install.py 调用时就是 venv python）。
+    """
+    py = sys.executable
+    for cand in (ROOT / "venv" / "Scripts" / "python.exe",
+                 ROOT.parent / "venv" / "Scripts" / "python.exe",
+                 ROOT / ".venv" / "Scripts" / "python.exe"):
+        if cand.exists():
+            py = str(cand)
+            break
+    return py, str(ROOT / "adapters" / "mcp" / "server.py")
+
+
+def link_hosts(hosts, dry_run: bool = False) -> list[dict]:
+    py, server = mcp_binaries()
+    return _hostlink().link(hosts, py, server, dry_run=dry_run)
+
+
+def cmd_link(args) -> int:
+    hl = _hostlink()
+    hosts = [h.strip() for h in args.hosts.split(",") if h.strip()] if args.hosts else hl.detect()
+    if not hosts:
+        print("没有可连接的宿主（hermes / codex / claude 都没装）")
+        return 0
+    report = link_hosts(hosts, dry_run=args.dry_run)
+    for r in report:
+        mark = "✓" if r["ok"] else ("·" if r["action"] == "skipped" else "✗")
+        print(f" {mark} {r['host']}  {r['detail']}")
+    if not args.dry_run:
+        state = load_state()
+        state["link"] = True
+        state["link_hosts"] = [r["host"] for r in report if r["ok"]] or state.get("link_hosts", [])
+        save_state(state)
+    print(f"\nMCP 连接：{hl.summary(report)}")
+    return 0 if all(r["ok"] or r["action"] == "skipped" for r in report) else 8
+
+
+def cmd_unlink(args) -> int:
+    hl = _hostlink()
+    hosts = [h.strip() for h in args.hosts.split(",") if h.strip()] if args.hosts else hl.detect()
+    report = hl.unlink(hosts)
+    for r in report:
+        print(f" {'✓' if r['ok'] else '✗'} {r['host']}  {r['detail']}")
+    state = load_state()
+    state.pop("link", None)
+    state.pop("link_hosts", None)
+    save_state(state)
+    return 0
+
+
 def cmd_doctor(args) -> int:
     print(f"xiaozhua-agent doctor · {platform.system()} {platform.release()}")
     print()
@@ -274,6 +337,25 @@ def cmd_doctor(args) -> int:
         ok = target.exists()
         failures += 0 if ok else 1
         print(f" {mark(ok)} 宿主 {host} → {target}")
+
+    # 宿主侧 MCP 注册（hermes/codex/claude 各自配置里有没有一条指向本安装）
+    try:
+        hl = _hostlink()
+        st = load_state()
+        if st.get("link"):
+            want = st.get("link_hosts") or hl.detect()
+            live = [h for h in want if hl.probe(h, str(ROOT))]
+            stale = [h for h in want if h not in live]
+            if stale:
+                failures += 1
+                print(f" {mark(False)} MCP 宿主 {','.join(stale)} 未指向本安装"
+                      f"（`xiaozhua link` 修）")
+            if live:
+                print(f" {mark(True)} MCP 已连 {'、'.join(live)}")
+        else:
+            print(f" {DIM}·{RESET} MCP 尚未接入宿主（`xiaozhua link` 一条命令接上）")
+    except Exception as exc:
+        print(f" {DIM}·{RESET} MCP 宿主检查跳过：{exc}")
 
     print()
     if failures:
@@ -366,6 +448,20 @@ def cmd_update(args) -> int:
         return 6
     print(f"  {detail}")
 
+    state = load_state()
+    if state.get("link"):
+        try:
+            hl = _hostlink()
+            hosts = hl.detect()
+            if hosts:
+                report = link_hosts(hosts)
+                bad = [r["host"] for r in report if r["action"] == "linked" and not r["ok"]]
+                print(f"  MCP 已刷新 → {hl.summary(report)}")
+                if bad:
+                    print(f"  {YELLOW}其中 {','.join(bad)} 失败，可重试：xiaozhua link{RESET}")
+        except Exception as exc:
+            print(f"  {YELLOW}MCP 刷新跳过：{exc}{RESET}")
+
     ok, detail = mcp_selfcheck(ROOT)
     print(f" {mark(ok)} 自检 {detail}")
     if not ok:
@@ -395,10 +491,14 @@ def sync_from_local(source: Path, dest: Path) -> None:
     source, dest = Path(source), Path(dest)
     if not (source / "pyproject.toml").exists():
         raise RuntimeError(f"{source} 不像仓库根目录（没有 pyproject.toml）")
-    if dest.exists():
-        shutil.rmtree(dest)
     ignore = shutil.ignore_patterns(*IGNORE_DIRS, "*.pyc")
-    shutil.copytree(source, dest, ignore=ignore)
+    if dest.exists():
+        try:
+            shutil.rmtree(dest)
+        except OSError:
+            # 有进程占着（典型是被杀掉却没退干净的 git index-pack），改成原地覆盖
+            pass
+    shutil.copytree(source, dest, ignore=ignore, dirs_exist_ok=True)
 
 
 def sync_from_zip(url: str) -> None:
@@ -430,6 +530,10 @@ def cmd_install(args) -> int:
         cmd.append("--portable")
     if args.force:
         cmd.append("--force")
+    if getattr(args, "link", False):
+        cmd.append("--link")
+        if getattr(args, "link_report", None):
+            cmd += ["--link-report", str(args.link_report)]
     proc = subprocess.run(cmd, cwd=str(ROOT))
     if proc.returncode == 0:
         state = load_state()
@@ -438,6 +542,12 @@ def cmd_install(args) -> int:
                       "version": read_version(ROOT), "sha": head_sha(ROOT)})
         if getattr(args, "source", None):
             state["source"] = str(Path(args.source).expanduser())
+        if getattr(args, "link", False):
+            state["link"] = True
+            try:
+                state["link_hosts"] = _hostlink().detect()
+            except Exception:
+                pass
         save_state(state)
     return proc.returncode
 
@@ -455,6 +565,15 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--fetch", action="store_true", help="顺带 git fetch 比较落后多少提交")
     p.set_defaults(func=cmd_doctor)
 
+    p = sub.add_parser("link", help="把 MCP 注册进宿主（装了哪个连哪个）")
+    p.add_argument("--hosts", default=None, help="逗号分隔：hermes,codex,claude-code（默认自动探测）")
+    p.add_argument("--dry-run", action="store_true", help="只打印将执行的命令")
+    p.set_defaults(func=cmd_link)
+
+    p = sub.add_parser("unlink", help="从宿主移除 xiaozhua MCP")
+    p.add_argument("--hosts", default=None)
+    p.set_defaults(func=cmd_unlink)
+
     p = sub.add_parser("version", help="版本与来源")
     p.set_defaults(func=cmd_version)
 
@@ -464,6 +583,8 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--write", action="store_true", help="真正落盘（默认 dry-run）")
     p.add_argument("--portable", action="store_true")
     p.add_argument("--source", default=None, help="本地仓库目录（记进 state，update 时用它同步）")
+    p.add_argument("--link", action="store_true", help="把 MCP 注册进宿主（hermes/codex/claude）")
+    p.add_argument("--link-report", default=None, help="把逐宿主链接结果写成 JSON")
     p.add_argument("--force", action="store_true")
     p.set_defaults(func=cmd_install)
     return ap

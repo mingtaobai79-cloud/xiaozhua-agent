@@ -1,5 +1,48 @@
 # CHANGELOG
 
+## 0.2.5 — 2026-11-23
+
+一条命令装完就把 MCP 接进宿主（hermes / codex / claude-code），更新时自动跟着刷新。
+
+### 之前的问题
+
+安装器只往 `~/.xiaozhua/pkg/` 写"配置片段"，宿主真正的 `config.yaml` / `config.toml` /
+`.claude.json` 一动不动 —— 所以装完了宿主里看到的还是旧路径（甚至直接看不到）。
+`xiaozhua update` 更不会碰宿主配置，路径变了也不会自己修。
+
+### 现在的做法
+
+安装/更新之后调用各宿主**自己的 CLI**（不手改配置文件，schema 和校验交给宿主）：
+
+```
+hermes mcp add xiaozhua --command <venv python> --args <server.py>
+codex  mcp add xiaozhua -- <venv python> <server.py>
+claude mcp add xiaozhua --scope user -- <venv python> <server.py>
+```
+
+- 安装默认连（`-NoLink` 可关），state 记 `link: true` + `link_hosts`
+- `xiaozhua update` 发现 `link` 就自动重连一次 → **安装目录变了也能刷**
+- 新增 `xiaozhua link` / `xiaozhua unlink`（`--dry-run` 只打印命令）
+- `xiaozhua doctor` 会逐宿主核对"那条 xiaozhua 是不是指向本安装"，指错就红
+
+### 踩到的两个坑（已固化成测试）
+
+1. **`hermes mcp add` 是交互式的**：列出 64 个工具后问
+   `Enable all 64 tools? [Y/n/select]:`。没有 stdin 时它回 `Cancelled.`
+   而**退出码仍是 0** —— 只看 returncode 会判成功，实际是把宿主里原有的条目删掉了。
+   现在喂 `Y`，并把 `Cancelled` 一律判失败。
+2. **已存在时 claude 直接报 `already exists`**：所以顺序是 remove → add，
+   且 add 失败会立刻重试一次，失败必须显式报红，不许静默。
+
+### 实测（本机三家全部核对过）
+
+```
+hermes mcp list   xiaozhua  C:/Users/白明涛/.xiaozhua/ve...  all  ✓ enabled
+codex  mcp get    xiaozhua  enabled: true  stdio  ~/.xiaozhua/venv/Scripts/python.exe
+claude mcp list   xiaozhua: ~/.xiaozhua/venv/.../python.exe ~/.xiaozhua/src/adapters/mcp/server.py  ✔ Connected
+xiaozhua doctor   ✓ MCP 已连 hermes、codex、claude-code
+```
+
 ## 0.2.4 — 2026-11-23
 
 启动器写死绝对路径的坑：中文用户名变成 `???`，`xiaozhua` 直接不可用。

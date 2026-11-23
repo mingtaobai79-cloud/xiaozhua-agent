@@ -289,6 +289,10 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--force", action="store_true", help="允许覆盖非本工具产物")
     ap.add_argument("--xiaozhua-root", default=None,
                     help="xiaozhua Agent 仓库根（写进 MCP 片段；默认用本脚本所在仓）")
+    ap.add_argument("--link-report", default=None,
+                    help="把 --link 的逐宿主结果写成 JSON（安装器给用户展示用）")
+    ap.add_argument("--link", action="store_true",
+                    help="把 MCP 注册进宿主 CLI（hermes/codex/claude）；装了哪个连哪个")
     ap.add_argument("--portable", action="store_true",
                     help="MCP 片段用 <XIAOZHUA_AGENT_ROOT> 占位符，不写本机绝对路径")
     args = ap.parse_args(argv)
@@ -332,6 +336,20 @@ def main(argv: list[str] | None = None) -> int:
                   encoding="utf-8", newline="")
     print("\n已写入 %d 个文件 → %s" % (len(written), target))
     print("清单：%s（%d 项）" % (mf, len(manifest["files"])))
+
+    if args.link:
+        import hostlink  # 脚本模式下 installer/ 就在 sys.path（见文件头）
+
+        server_py = str(REPO_ROOT / "adapters" / "mcp" / "server.py")
+        report = hostlink.link(hosts, sys.executable, server_py)
+        for r in report:
+            mark = "OK " if r["ok"] else ("-- " if r["action"] == "skipped" else "ERR")
+            print("  [%s] %s  %s" % (mark, r["host"], r["detail"]))
+        print("MCP 连接：%s" % hostlink.summary(report))
+        if args.link_report:
+            import json as _json
+            with open(args.link_report, "w", encoding="utf-8") as fh:
+                _json.dump(report, fh, ensure_ascii=False)
     return 0
 
 
