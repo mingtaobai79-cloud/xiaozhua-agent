@@ -29,7 +29,7 @@ REPO_SLUG = "mingtaobai79-cloud/xiaozhua-agent"
 REPO_URL = f"https://github.com/{REPO_SLUG}.git"
 RAW_BASE = f"https://raw.githubusercontent.com/{REPO_SLUG}/main"
 
-MIN_PY = (3, 12)
+MIN_PY = (3, 11)
 ROOT = Path(__file__).resolve().parents[1]
 def _default_state_path() -> Path:
     """state 跟着安装根走：<home>/state.json（一键安装布局），否则 ~/.xiaozhua/state.json。

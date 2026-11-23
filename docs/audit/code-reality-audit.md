@@ -1,6 +1,6 @@
 # xiaozhua Agent Code Reality Audit
 
-Test collection: `3292 tests collected`. Historical counts below are not current execution results; see `docs/plans/xiaozhua-distribution-progress.md` for the latest run.
+Test collection: `3293 tests collected`. Historical counts below are not current execution results; see `docs/plans/xiaozhua-distribution-progress.md` for the latest run.
 
 > **正文是 2026-09-03 那次审计的现场快照，不是当前状态。**
 > 其中的 `183 passing tests` / `183 collected` / `total of 59` 都是**当时**的数值（仓库后来从
@@ -114,7 +114,7 @@ python -m py_compile <all Python files under the repository>
 ```
 
 > 收集数 2714 = 通过 2691 + 跳过 23，口径自洽。下方 `Commands and raw-result summary`
-> 表里的 `3292 tests collected` 是同一批数据，已补上对应通过数，以本节为准。
+> 表里的 `3293 tests collected` 是同一批数据，已补上对应通过数，以本节为准。
 
 ## OBSERVATION — behavior seen in current runs
 

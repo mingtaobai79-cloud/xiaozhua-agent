@@ -43,11 +43,19 @@ printf '\nxiaozhua-agent 安装器 · %s %s\n\n' "$(uname -s)" "$(uname -m)"
 
 # ---- 1. Python ≥ 3.12（macOS 系统 python 是 3.9，必须自己找）
 need_py=""
-for cand in "${PYTHON:-}" python3.13 python3.12 python3 python; do
+cands=()
+[ -n "${XIAOZHUA_PYTHON:-}" ] && cands+=("$XIAOZHUA_PYTHON")
+[ -n "${PYTHON:-}" ] && cands+=("$PYTHON")
+cands+=(python3.13 python3.12 python3.11 python3 python)
+# 也认 uv / pyenv / brew 装出来的解释器（macOS 上系统 python 往往只有 3.9）
+for d in "$HOME/.local/share/uv/python"/*/bin/python3          "$HOME/.pyenv/versions"/*/bin/python3          /opt/homebrew/bin/python3.1* /usr/local/bin/python3.1*; do
+  [ -x "$d" ] && cands+=("$d")
+done
+for cand in "${cands[@]}"; do
   [ -n "$cand" ] || continue
-  command -v "$cand" >/dev/null 2>&1 || continue
-  if "$cand" -c 'import sys; raise SystemExit(0 if sys.version_info[:2] >= (3,12) else 1)' 2>/dev/null; then
-    need_py="$(command -v "$cand")"; break
+  case "$cand" in */*) [ -x "$cand" ] || continue ;; *) command -v "$cand" >/dev/null 2>&1 || continue ;; esac
+  if "$cand" -c 'import sys; raise SystemExit(0 if sys.version_info[:2] >= (3,11) else 1)' 2>/dev/null; then
+    need_py="$cand"; break
   fi
 done
 if [ -z "$need_py" ]; then
@@ -93,7 +101,10 @@ if ! "$VENV_PY" -m pip --version >/dev/null 2>&1; then
   info "pip 不可用，用 ensurepip 修复"
   "$VENV_PY" -m ensurepip --upgrade >/dev/null 2>&1     || die "pip 修复失败：手动跑 $VENV_PY -m ensurepip --upgrade"
 fi
-"$VENV_PY" -m pip install --quiet -e "$SRC" || "$VENV_PY" -m pip install --quiet "pyyaml>=6.0" "websocket-client>=1.6"
+if ! "$VENV_PY" -m pip install --quiet -e "$SRC" 2>"$XIAOZHUA_HOME/pip-e.log"; then
+  info "editable install failed: $(grep -iE 'error' "$XIAOZHUA_HOME/pip-e.log" | tail -1)"
+  "$VENV_PY" -m pip install --quiet "pyyaml>=6.0" "websocket-client>=1.6"     || die "依赖安装失败：见 $XIAOZHUA_HOME/pip-e.log"
+fi
 ok "依赖就绪"
 
 # ---- 4. 宿主配置

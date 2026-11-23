@@ -13,10 +13,16 @@
 #   Chinese docs live in INSTALL.md; this script stays ASCII so every decode path works.
 #
 # Environment overrides:
+#   XIAOZHUA_PYTHON exact python.exe to use (skips detection)
 #   XIAOZHUA_HOME   install root   (default %USERPROFILE%\.xiaozhua)
 #   XIAOZHUA_HOSTS  hosts, comma separated or all (default all)
 #   XIAOZHUA_REPO   git remote
 #   XIAOZHUA_BRANCH branch (default main)
+#
+# Python: needs 3.11+. Detection order = XIAOZHUA_PYTHON, py launcher (3.13/3.12/3.11/3),
+#   `py -0p` registry list, PATH python/python3, then the usual install dirs
+#   (LocalAppData\Programs\Python, Program Files, C:\Python3*, uv-managed pythons).
+#   Microsoft Store stubs under WindowsApps are skipped - they are 0-byte aliases.
 
 [CmdletBinding()]
 param(
@@ -34,64 +40,136 @@ function Ok($m)   { Write-Host "[ok]   $m" -ForegroundColor Green }
 function Info($m) { Write-Host "[..]   $m" -ForegroundColor DarkGray }
 function Die($m)  { Write-Host "[fail] $m" -ForegroundColor Red; exit 1 }
 
-$Src  = Join-Path $Root 'src'
-$Venv = Join-Path $Root 'venv'
-$Pkg  = Join-Path $Root 'pkg'
-$Bin  = Join-Path $Root 'bin'
+$MinMajor = 3
+$MinMinor = 11
+
+function Test-PythonExe($exe, $pre) {
+  # Returns "3.11.16" or $null. Skips the Microsoft Store alias stub.
+  if (-not $exe) { return $null }
+  if ("$exe" -like '*\WindowsApps\*') { return $null }
+  try {
+    $out = & $exe @pre -c "import sys;print('%d.%d.%d'%sys.version_info[:3])" 2>$null
+    if ($LASTEXITCODE -ne 0) { return $null }
+    $line = @($out | Where-Object { "$_" -match '^\d+\.\d+\.\d+$' })[0]
+    if ($line) { return "$line" }
+  } catch { }
+  return $null
+}
+
+function Get-PythonCandidates {
+  $list = New-Object System.Collections.ArrayList
+  if ($env:XIAOZHUA_PYTHON) { [void]$list.Add(@($env:XIAOZHUA_PYTHON, @())) }
+
+  if (Get-Command py -ErrorAction SilentlyContinue) {
+    # `py -0p` lists every registered interpreter. Prefer 64-bit paths, then higher versions:
+    # a 32-bit 3.11 must not win over a 64-bit uv-managed 3.11.
+    try {
+      $reg = @()
+      foreach ($line in (& py -0p 2>$null)) {
+        if ("$line" -match '([A-Za-z]:\\[^ ]*python\.exe)') {
+          $path = $Matches[1]
+          $bits = if ($path -match '(?i)(-32|x86)') { 1 } else { 0 }
+          $rank = 0
+          if ($path -match '(?i)cpython-(\d+)\.(\d+)') { $rank = [int]$Matches[1] * 100 + [int]$Matches[2] }
+          elseif ($path -match '(?i)python(\d)(\d+)') { $rank = [int]$Matches[1] * 100 + [int]$Matches[2] }
+          $reg += ,@($bits, (-1 * $rank), $path)
+        }
+      }
+      foreach ($r in ($reg | Sort-Object { $_[0] }, { $_[1] })) { [void]$list.Add(@($r[2], @())) }
+    } catch { }
+    foreach ($v in @('-3.13', '-3.12', '-3.11', '-3')) { [void]$list.Add(@('py', @($v))) }
+  }
+
+  foreach ($n in @('python', 'python3')) {
+    if (Get-Command $n -ErrorAction SilentlyContinue) { [void]$list.Add(@($n, @())) }
+  }
+
+  $globs = @(
+    (Join-Path $env:LOCALAPPDATA 'Programs\Python\Python3*\python.exe'),
+    (Join-Path $env:APPDATA 'uv\python\cpython-3*\python.exe'),
+    (Join-Path $env:USERPROFILE '.local\share\uv\python\cpython-3*\python.exe'),
+    'C:\Python3*\python.exe'
+  )
+  if ($env:ProgramFiles) { $globs += (Join-Path $env:ProgramFiles 'Python3*\python.exe') }
+  if (${env:ProgramFiles(x86)}) { $globs += (Join-Path ${env:ProgramFiles(x86)} 'Python3*\python.exe') }
+
+  foreach ($g in $globs) {
+    try {
+      $hits = Get-ChildItem -Path $g -ErrorAction SilentlyContinue | Sort-Object FullName -Descending
+      foreach ($h in $hits) { [void]$list.Add(@($h.FullName, @())) }
+    } catch { }
+  }
+  return $list
+}
 
 Write-Host ""
 Write-Host "xiaozhua-agent installer - Windows $([Environment]::OSVersion.Version)"
 Write-Host ""
 
-# ---- 1. Python >= 3.12 (prefer the py launcher, which can pick a version)
+# ---- 1. Python 3.11+
+Info "looking for Python $MinMajor.$MinMinor+"
 $pyExe = $null
-$candidates = @()
-if (Get-Command py -ErrorAction SilentlyContinue) {
-  $candidates += ,@('py', @('-3.13'))
-  $candidates += ,@('py', @('-3.12'))
-  $candidates += ,@('py', @('-3'))
-}
-foreach ($c in @('python', 'python3')) {
-  if (Get-Command $c -ErrorAction SilentlyContinue) { $candidates += ,@($c, @()) }
-}
-foreach ($c in $candidates) {
-  $exe = $c[0]
+$pyVer = $null
+$seen = @{}
+$tried = @()
+foreach ($c in (Get-PythonCandidates)) {
+  $exe = "$($c[0])"
   $pre = @($c[1])
-  try {
-    $ver = & $exe @pre -c "import sys;print('%d.%d.%d'%sys.version_info[:3])" 2>$null
-    if ($LASTEXITCODE -eq 0 -and $ver) {
-      $parts = "$ver".Split('.')
-      if ([int]$parts[0] -eq 3 -and [int]$parts[1] -ge 12) {
-        $pyExe = @($exe) + $pre
-        Ok "Python $ver  ($exe $($pre -join ' '))"
-        break
-      }
+  $key = "$exe $($pre -join ' ')"
+  if ($seen.ContainsKey($key)) { continue }
+  $seen[$key] = $true
+  $v = Test-PythonExe $exe $pre
+  if ($v) {
+    $parts = $v.Split('.')
+    $tried += ("{0} -> {1}" -f $key, $v)
+    if ([int]$parts[0] -eq $MinMajor -and [int]$parts[1] -ge $MinMinor) {
+      $pyExe = @($exe) + $pre
+      $pyVer = $v
+      break
     }
-  } catch { }
+  }
 }
 if (-not $pyExe) {
-  Die "Python 3.12+ is required. Install with: winget install Python.Python.3.12 (or python.org), reopen the terminal, then rerun."
+  Write-Host ""
+  Write-Host "Candidates checked:" -ForegroundColor Yellow
+  if ($tried.Count -eq 0) { Write-Host "  (no python interpreter found on PATH or in the usual install dirs)" }
+  foreach ($t in $tried) { Write-Host "  $t" }
+  Write-Host ""
+  Die ("Python {0}.{1}+ is required. Install it with:  winget install Python.Python.3.12   (or python.org, tick 'Add python.exe to PATH'), reopen the terminal, then rerun. Or point at an existing interpreter: `$env:XIAOZHUA_PYTHON='C:\path\to\python.exe'" -f $MinMajor, $MinMinor)
 }
+Ok "Python $pyVer  ($($pyExe -join ' '))"
 
 # ---- 2. git + code
 if (-not (Get-Command git -ErrorAction SilentlyContinue)) {
-  Die "git is required. Install with: winget install Git.Git then reopen the terminal."
+  $gitDirs = @("$env:ProgramFiles\Git\cmd", "$env:LOCALAPPDATA\Programs\Git\cmd", 'D:\software\Git\cmd')
+  foreach ($d in $gitDirs) {
+    if ((Test-Path (Join-Path $d 'git.exe')) -and ($env:Path -notlike "*$d*")) { $env:Path = "$d;$env:Path" }
+  }
 }
+if (-not (Get-Command git -ErrorAction SilentlyContinue)) {
+  Die "git is required (it fetches and updates the code). Install with:  winget install Git.Git  then reopen the terminal."
+}
+$gitExe = if ($env:XIAOZHUA_GIT) { $env:XIAOZHUA_GIT } else { 'git' }
+$Src  = Join-Path $Root 'src'
+$Venv = Join-Path $Root 'venv'
+$Pkg  = Join-Path $Root 'pkg'
+$Bin  = Join-Path $Root 'bin'
+
 New-Item -ItemType Directory -Force -Path $Root | Out-Null
 if (Test-Path (Join-Path $Src '.git')) {
   Info "updating code at $Src"
-  git -C $Src fetch --prune --quiet origin
+  & $gitExe -C $Src fetch --prune --quiet origin
   if ($LASTEXITCODE -ne 0) { Die "git fetch failed (network or credentials)" }
-  git -C $Src checkout --quiet $Branch
-  git -C $Src merge --ff-only "origin/$Branch" --quiet
+  & $gitExe -C $Src checkout --quiet $Branch
+  & $gitExe -C $Src merge --ff-only "origin/$Branch" --quiet
   if ($LASTEXITCODE -ne 0) { Die "local commits diverge from origin/$Branch; resolve manually in $Src" }
 } else {
   Info "cloning into $Src"
   if (Test-Path $Src) { Remove-Item -Recurse -Force $Src }
-  git clone --quiet --branch $Branch $Repo $Src
+  & $gitExe clone --quiet --branch $Branch $Repo $Src
   if ($LASTEXITCODE -ne 0) { Die "git clone failed: $Repo" }
 }
-$sha = (git -C $Src rev-parse --short HEAD).Trim()
+$sha = (& $gitExe -C $Src rev-parse --short HEAD).Trim()
 $ver = if (Test-Path (Join-Path $Src 'VERSION')) { (Get-Content (Join-Path $Src 'VERSION') -Raw).Trim() } else { '?' }
 Ok "code $sha  version $ver"
 
@@ -113,9 +191,10 @@ if ($LASTEXITCODE -ne 0) {
   & $venvPy -m ensurepip --upgrade 2>$null | Out-Null
   if ($LASTEXITCODE -ne 0) { Die "pip repair failed: run $venvPy -m ensurepip --upgrade manually" }
 }
-& $venvPy -m pip install --quiet -e $Src
+$pipLog = & $venvPy -m pip install --quiet -e $Src 2>&1
 if ($LASTEXITCODE -ne 0) {
-  Info "editable install failed, falling back to plain deps"
+  $why = @($pipLog | Where-Object { "$_" -match 'ERROR|error:' })[-1]
+  if ($why) { Info ("editable install failed: " + $why) } else { Info "editable install failed, falling back to plain deps" }
   & $venvPy -m pip install --quiet "pyyaml>=6.0" "websocket-client>=1.6"
   if ($LASTEXITCODE -ne 0) { Die "dependency install failed" }
 }
@@ -174,11 +253,8 @@ Ok "self-check tools=$tools"
 Write-Host ""
 Write-Host "installed $ver" -ForegroundColor Green
 Write-Host ""
-if (Get-Command xiaozhua -ErrorAction SilentlyContinue) {
-  Write-Host "xiaozhua is on PATH. Try: xiaozhua doctor"
-} else {
-  Write-Host "For this window only: `$env:Path = `"$Bin;`$env:Path`""
-}
+Write-Host "For this window only: `$env:Path = `"$Bin;`$env:Path`""
+Write-Host "(a new terminal picks up the user PATH change automatically)"
 Write-Host ""
 Write-Host "next:"
 Write-Host "  xiaozhua doctor      health check"

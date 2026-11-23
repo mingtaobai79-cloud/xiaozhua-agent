@@ -134,3 +134,13 @@ def test_install_ps1_is_ascii_and_bomless():
     bad = [i for i, b in enumerate(raw) if b > 127]
     assert not bad, "install.ps1 必须纯 ASCII，首个非 ASCII 字节偏移 %d" % (bad[0] if bad else -1)
     assert b"ensurepip" in raw
+
+def test_min_python_matches_pyproject():
+    """安装器的版本下限必须与 pyproject 的 requires-python 一致，否则
+    `pip install -e .` 会在运行时被 metadata 拒绝（3.11 实测过这个坑）。"""
+    import re
+    pyproject = (ROOT / "pyproject.toml").read_text(encoding="utf-8")
+    m = re.search(r'requires-python\s*=\s*">=\s*(\d+)\.(\d+)"', pyproject)
+    assert m, "pyproject 里没有 requires-python >=X.Y"
+    assert (int(m.group(1)), int(m.group(2))) == su.MIN_PY, (
+        "selfupdate.MIN_PY=%s 与 pyproject requires-python=%s.%s 不一致" % (su.MIN_PY, m.group(1), m.group(2)))

@@ -31,13 +31,19 @@ Windows 安装器的输出是英文（`[ok]` / `[..]` / `[fail]`）。这不是�
 脚本做的事（全程不碰系统 Python、不动任何全局配置）：
 
 ```
-1 找 Python ≥ 3.12（macOS 自带 3.9，会自动去找 brew 的 python3.12）
+1 找 Python ≥ 3.11（macOS 自带 3.9 不够，会自动去找 brew/uv/pyenv 的 3.11+；Windows 会查 py 注册表、uv、常见安装目录，跳过 Microsoft Store 的空壳别名）
 2 拉代码 → ~/.xiaozhua/src      （Windows: %USERPROFILE%\.xiaozhua\src）
 3 建 venv → ~/.xiaozhua/venv    （依赖只装在这里）
 4 生成宿主配置 → ~/.xiaozhua/pkg（hermes / codex / claude-code 三选一或 all）
 5 写 xiaozhua 命令 → ~/.xiaozhua/bin
 6 自检：真起一次 MCP 服务数工具，数到 0 就报错退出
 ```
+
+## 版本下限是 3.11（不是 3.12）
+
+一开始写 3.12 是保守估计。实测 3.11.16 上：`compileall` 全通过、MCP 服务器正常起来
+（self-check tools=64）、安装器自身单测通过 —— 所以放宽到 **3.11**。
+3.12 以上当然更好，脚本会优先挑高版本。
 
 ## 装完先体检
 
@@ -46,7 +52,7 @@ xiaozhua doctor
 ```
 
 ```
- ✓ Python 3.14.9（要求 ≥ 3.12）
+ ✓ Python 3.11.16（要求 ≥ 3.11）
  ✓ 依赖 齐
  ✓ git 06e736a · 工作区干净 · 最新
  ✓ MCP serverInfo=xiaozhua-mcp tools=64
@@ -98,7 +104,7 @@ UDC 平台的**操作能力包**。给你 64 个 MCP 工具，用来在低代码
 
 ## 环境要求
 
-- Python **3.12 或更高**（一键安装脚本会自己找；手动装才要你确认）
+- Python **3.11 或更高**（一键安装脚本会自己找；手动装才要你确认）
 - git（`xiaozhua update` 靠它拉代码）
 - 网络能访问你的环境（例如 `lowcode-test2.<你的域名>`）
 
@@ -240,11 +246,11 @@ b["expression_verify"](tokens, context, cdp_port=9333)
 
 | 现象 | 原因 | 解决 |
 |---|---|---|
-| `需要 Python 3.12+` | 解释器太旧 | macOS `brew install python@3.12`；Windows `winget install Python.Python.3.12` |
+| `Python 3.11+ is required` / `需要 Python 3.11+` | 解释器太旧或 PATH 里没有 | macOS `brew install python@3.12`；Windows `winget install Python.Python.3.12`；已有解释器但没在 PATH：`set XIAOZHUA_PYTHON=C:\path\python.exe` |
 | `缺 git` | 没装 git | macOS `xcode-select --install`；Windows `winget install Git.Git` |
 | `ModuleNotFoundError: No module named 'yaml'` | 没装 pyyaml | `xiaozhua update` |
 | `ModuleNotFoundError: No module named 'websocket'` | 没装 websocket-client | `xiaozhua update` |
-| 工具列表是空的 / internal error | python 版本太低 | `python --version` 要 ≥ 3.12 |
+| 工具列表是空的 / internal error | python 版本太低 | `python --version` 要 ≥ 3.11 |
 | `xiaozhua` 不是命令 | bin 不在 PATH | macOS 把 `export PATH="$HOME/.xiaozhua/bin:$PATH"` 加进 `~/.zshrc`；Windows 重开终端 |
 | `update` 退出码 3 | 工作区有未提交改动 | 先 commit，或 `xiaozhua update --force` |
 | `PageUnavailable: 调试端口 9333 不可达` | 浏览器没开调试端口 | 用 `--remote-debugging-port=9333` 重启浏览器 |
