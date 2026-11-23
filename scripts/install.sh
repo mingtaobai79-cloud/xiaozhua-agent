@@ -85,7 +85,14 @@ info "准备虚拟环境 $VENV"
 VENV_PY="$VENV/bin/python"
 [ -x "$VENV_PY" ] || VENV_PY="$VENV/Scripts/python.exe"
 [ -x "$VENV_PY" ] || die "虚拟环境创建失败：$VENV 下没有 python（bin/ 与 Scripts/ 都不存在）"
-"$VENV_PY" -m pip install --quiet --upgrade pip >/dev/null 2>&1 || true
+
+# 不主动 `pip install --upgrade pip`：Windows 上它先把 pip/ 改名成 ~ip/ 再装新版，
+# 中途失败就留下空壳，后面全报 "No module named pip"（本机实测踩到，site-packages 里只剩 ~ip）。
+# 只在 pip 真的不可用时用 ensurepip 自愈。
+if ! "$VENV_PY" -m pip --version >/dev/null 2>&1; then
+  info "pip 不可用，用 ensurepip 修复"
+  "$VENV_PY" -m ensurepip --upgrade >/dev/null 2>&1     || die "pip 修复失败：手动跑 $VENV_PY -m ensurepip --upgrade"
+fi
 "$VENV_PY" -m pip install --quiet -e "$SRC" || "$VENV_PY" -m pip install --quiet "pyyaml>=6.0" "websocket-client>=1.6"
 ok "依赖就绪"
 

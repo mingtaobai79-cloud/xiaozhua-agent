@@ -103,7 +103,13 @@ if (-not (Test-Path (Join-Path $Venv 'Scripts\python.exe'))) {
 }
 $venvPy = Join-Path $Venv 'Scripts\python.exe'
 if (-not (Test-Path $venvPy)) { Die "找不到 $venvPy" }
-& $venvPy -m pip install --quiet --upgrade pip 2>$null | Out-Null
+# 同 install.sh：不主动升级 pip（Windows 上会把 pip 改名成 ~ip 后失败），只在坏掉时 ensurepip 自愈
+& $venvPy -m pip --version 2>$null | Out-Null
+if ($LASTEXITCODE -ne 0) {
+  Info "pip 不可用，用 ensurepip 修复"
+  & $venvPy -m ensurepip --upgrade 2>$null | Out-Null
+  if ($LASTEXITCODE -ne 0) { Die "pip 修复失败：手动跑 $venvPy -m ensurepip --upgrade" }
+}
 & $venvPy -m pip install --quiet -e $Src
 if ($LASTEXITCODE -ne 0) {
   Info "-e 安装失败，退回单包安装"
