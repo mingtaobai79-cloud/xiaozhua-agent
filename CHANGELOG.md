@@ -1,5 +1,31 @@
 # CHANGELOG
 
+## 0.2.2 — 2026-11-23
+
+把 Python 下限从 3.12 放到 3.11，并让 Windows 安装器真的能找到解释器。
+
+### 起因（用户真机）
+
+`irm | iex` 报 `[fail] Python 3.12+ is required`。查下来这台机器上：
+
+- 系统级只有 **Python 3.11.9（32 位）** + uv 管的 **3.11.16（x64）**，没有 3.12；
+- 用户 PATH 里有 Python311-32 的条目，但路径被写成了乱码（`C:\Users\??????\...`），等于没有 python；
+- `python` 只在 Hermes 进程里可见，用户自己的终端里根本不存在。
+
+### 修法
+
+1. 下限 3.12 → **3.11**。实测 3.11.16：`compileall` 全通过、MCP 起得来自检 tools=64、
+   安装器单测通过。`pyproject.requires-python` 同步改成 `>=3.11`，否则 `pip install -e .`
+   会被 metadata 拒（`requires a different Python: 3.11.16 not in '>=3.12'`）。
+2. Windows 解释器发现顺序重写：`XIAOZHUA_PYTHON` → `py -0p` 注册表清单（**64 位优先、
+   版本高优先**，避免 32 位 3.11 抢跑）→ `py -3.13/3.12/3.11/3` → PATH 的 python/python3 →
+   `LocalAppData\Programs\Python`、`%APPDATA%\uv\python`、`Program Files`、`C:\Python3*`。
+   Microsoft Store 的 `WindowsApps` 空壳别名直接跳过。
+3. 失败时不再只说一句 not found，会列出**检查过的每个候选及其版本**。
+4. git 找不到时兜底查 `Program Files\Git\cmd`、`LocalAppData\Programs\Git\cmd`、`D:\software\Git\cmd`。
+5. `pip install -e` 失败时打印 pip 的真实错误行（之前静默回退，3.11 被 metadata 拒都没看见）。
+6. 新增测试 `test_min_python_matches_pyproject`：`MIN_PY` 与 `requires-python` 必须一致。
+
 ## 0.2.1 — 2026-11-23
 
 修 Windows 一键安装的编码炸弹：`irm .../install.ps1 | iex` 在 PS 5.1 上直接解析失败。
