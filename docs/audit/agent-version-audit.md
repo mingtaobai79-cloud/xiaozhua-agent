@@ -7,7 +7,7 @@
 
 ## 结论摘要
 
-当前工程是一个可执行、可测试的**离线只读骨架**，不是已接入真实 xiaozhua 运行环境的完整 Agent。代码包版本为 `0.2.0`（历史：`0.1.0` 为 2026-11-12 首个分发版）；Test collection: `3289 tests collected`，收集数不等于通过数，实际执行结果见 `docs/plans/xiaozhua-distribution-progress.md`。CLI `capabilities` 实际声明 `udc`、`runtime`、`integration` 三个只读组件，网络边界为 `disabled`；README 中关于 SPI “占位、未实现或注册”的描述与代码一致。
+当前工程是一个可执行、可测试的**离线只读骨架**，不是已接入真实 xiaozhua 运行环境的完整 Agent。代码包版本为 `0.2.0`（历史：`0.1.0` 为 2026-11-12 首个分发版）；Test collection: `3292 tests collected`，收集数不等于通过数，实际执行结果见 `docs/plans/xiaozhua-distribution-progress.md`。CLI `capabilities` 实际声明 `udc`、`runtime`、`integration` 三个只读组件，网络边界为 `disabled`；README 中关于 SPI “占位、未实现或注册”的描述与代码一致。
 
 此前文档中出现过若干历史测试计数，本次以当前 checkout 的实际全量运行结果为准，旧计数不再作为当前版本依据，本次以当前 checkout 的实际全量运行结果为准，旧计数不再作为当前版本依据。
 

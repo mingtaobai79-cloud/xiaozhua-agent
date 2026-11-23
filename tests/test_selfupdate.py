@@ -102,3 +102,26 @@ def test_windows_only_cases_skip_on_posix():
         assert (ROOT / "scripts" / "install.ps1").is_file()
     else:
         pytest.skip("PowerShell 脚本只在 Windows 上做真实验证")
+
+
+def test_install_sh_never_self_upgrades_pip():
+    """回归：`pip install --upgrade pip` 在 Windows 上会把 pip/ 改名成 ~ip/ 再失败，
+    留下没有 pip 的 venv（真机踩过）。bootstrap 阶段不允许出现这条命令。"""
+    raw = (ROOT / "scripts" / "install.sh").read_text(encoding="utf-8")
+    code = "\n".join(l for l in raw.splitlines() if not l.lstrip().startswith("#"))
+    assert "--upgrade pip" not in code, "bootstrap 阶段不得自我升级 pip"
+    assert "ensurepip" in code, "pip 坏掉时必须有 ensurepip 自愈路径"
+
+
+def test_install_sh_accepts_both_venv_layouts():
+    """macOS/Linux 是 bin/python，Windows git-bash 是 Scripts/python.exe，两种都要认。"""
+    sh = (ROOT / "scripts" / "install.sh").read_text(encoding="utf-8")
+    assert '$VENV/bin/python' in sh
+    assert "Scripts/python.exe" in sh
+
+
+def test_install_ps1_is_utf8_with_bom():
+    """PowerShell 5.1 无 BOM 时按 GBK 读中文 → 乱码 + 报\"缺 }\"（实测）。"""
+    raw = (ROOT / "scripts" / "install.ps1").read_bytes()
+    assert raw.startswith(b"\xef\xbb\xbf"), "install.ps1 必须 UTF-8 带 BOM"
+    assert b"ensurepip" in raw
