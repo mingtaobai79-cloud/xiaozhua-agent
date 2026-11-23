@@ -81,15 +81,17 @@ ok "代码 $(git -C "$SRC" rev-parse --short HEAD)  版本 $(cat "$SRC/VERSION" 
 # ---- 3. venv + 依赖（用 venv 的 python，不污染系统）
 info "准备虚拟环境 $VENV"
 [ -d "$VENV" ] || "$need_py" -m venv "$VENV"
+# POSIX 用 venv/bin/python；在 Windows 的 git-bash 里跑会落在 venv/Scripts/python.exe，两种都认
 VENV_PY="$VENV/bin/python"
-[ -x "$VENV_PY" ] || die "虚拟环境创建失败：$VENV/bin/python 不存在"
+[ -x "$VENV_PY" ] || VENV_PY="$VENV/Scripts/python.exe"
+[ -x "$VENV_PY" ] || die "虚拟环境创建失败：$VENV 下没有 python（bin/ 与 Scripts/ 都不存在）"
 "$VENV_PY" -m pip install --quiet --upgrade pip >/dev/null 2>&1 || true
 "$VENV_PY" -m pip install --quiet -e "$SRC" || "$VENV_PY" -m pip install --quiet "pyyaml>=6.0" "websocket-client>=1.6"
 ok "依赖就绪"
 
 # ---- 4. 宿主配置
 info "生成宿主配置 → $PKG (host=$HOSTS)"
-"$VENV_PY" "$SRC/installer/install.py" --host "$HOSTS" --target "$PKG" --write --force >/dev/null
+"$VENV_PY" "$SRC/installer/selfupdate.py" install --host "$HOSTS" --target "$PKG" --write --force >/dev/null
 ok "宿主配置已写入 $PKG"
 
 # ---- 5. xiaozhua 命令

@@ -31,7 +31,21 @@ RAW_BASE = f"https://raw.githubusercontent.com/{REPO_SLUG}/main"
 
 MIN_PY = (3, 12)
 ROOT = Path(__file__).resolve().parents[1]
-STATE_PATH = Path(os.environ.get("XIAOZHUA_STATE") or (Path.home() / ".xiaozhua" / "state.json"))
+def _default_state_path() -> Path:
+    """state 跟着安装根走：<home>/state.json（一键安装布局），否则 ~/.xiaozhua/state.json。
+
+    放在 src 的同级而不是用户主目录，多份安装（测试/正式）才不会互相覆盖。
+    """
+    env = os.environ.get("XIAOZHUA_STATE")
+    if env:
+        return Path(env)
+    home = ROOT.parent
+    if (home / "venv").exists() or (home / "pkg").exists():
+        return home / "state.json"
+    return Path.home() / ".xiaozhua" / "state.json"
+
+
+STATE_PATH = _default_state_path()
 
 GREEN, RED, YELLOW, DIM, RESET = "\033[32m", "\033[31m", "\033[33m", "\033[2m", "\033[0m"
 if os.name == "nt" and not os.environ.get("WT_SESSION"):
@@ -174,8 +188,15 @@ def check_python() -> tuple[bool, str]:
 
 
 def host_targets() -> list[tuple[str, Path]]:
+    """目标目录回退链：环境变量 → state.json → 与 src 同级的 pkg → ~/.xiaozhua/pkg。
+
+    一键安装把仓库放在 <home>/src、宿主配置放 <home>/pkg，不是 ~/.xiaozhua/pkg；
+    没有 state 时若直接取 home 默认值，doctor 会指向一个不存在的目录（假红）。
+    """
     state = load_state()
-    target = Path(os.environ.get("XIAOZHUA_TARGET") or state.get("target") or (Path.home() / ".xiaozhua" / "pkg"))
+    sibling = ROOT.parent / "pkg"
+    fallback = sibling if sibling.exists() else (Path.home() / ".xiaozhua" / "pkg")
+    target = Path(os.environ.get("XIAOZHUA_TARGET") or state.get("target") or fallback)
     hosts = os.environ.get("XIAOZHUA_HOSTS")
     host_list = hosts.split(",") if hosts else (state.get("hosts") or ["all"])
     return [(h, target) for h in host_list]

@@ -114,7 +114,7 @@ Ok "依赖就绪"
 
 # ---- 4. 宿主配置
 Info "生成宿主配置 → $Pkg (host=$Hosts)"
-& $venvPy (Join-Path $Src 'installer\install.py') --host $Hosts --target $Pkg --write --force | Out-Null
+& $venvPy (Join-Path $Src 'installer\selfupdate.py') install --host $Hosts --target $Pkg --write --force | Out-Null
 if ($LASTEXITCODE -ne 0) { Die "宿主配置生成失败" }
 Ok "宿主配置已写入 $Pkg"
 
