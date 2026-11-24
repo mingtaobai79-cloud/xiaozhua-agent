@@ -62,4 +62,4 @@ DB 实测：entity **43** 行、max_order **43**、`zzprobeDate01` **0** 行。
 
 预查仍有效：`zzprobeDate01` 全库 **0** 行。DATE 先例为**全库 1364 行**（`max_length=20`/`dd=0`/DatePicker），**本 app 首个** DATE 字段。
 
-**存档**：`artifacts/c9-20261020/`（probe/auth/dialog/run3/step1/redir + manifest sha256）
+**存档**：probe/auth/dialog/run3/step1/redir + manifest sha256（**客户场景证据，已迁出至 `xiaozhua-customer-evidence/docs-archive-20261124/docs/audit/entity-field-matrix/artifacts/c9-20261020/`**；现场域名与 appId 只在该仓外副本里保留）

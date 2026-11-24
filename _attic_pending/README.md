@@ -33,6 +33,7 @@
 |---|---|---|---|---|
 | 2026-11-24 | 第 0 批（前置） | 0 | — | 本 README 补齐，`test_attic_bucket_exists_in_gitignore_and_has_readme` 转绿 |
 | 2026-11-24 | 第 1 批（零引用现场报告） | 47（含硬标识 25） | `xiaozhua-customer-evidence/docs-archive-20261124/`（`_MANIFEST-batch1.txt`） | 死链 103→100，无新增 |
+| 2026-11-24 | 第 3 批（**首个带标记的迁移**） | 8 | `docs-archive-20261124/docs/audit/entity-field-matrix/artifacts/c9-20261020/`（`_MANIFEST-batch3.txt`） | `c9*.js` 是**可执行探测脚本**，里面写死真域名与 appId —— 属「执行字符串」不是「参考资料」，整目录迁出；`C9-CREATE-DATE-20261020.md` 存档行已改写成「已迁出至 …」 |
 | 2026-11-24 | 第 2 批（零引用现场报告） | 10 选中 → 8 迁出 | `docs-archive-20261124/`（`_MANIFEST-batch2.txt`） | 契约/规则 2 份（`MIGRATION-SCHEDULER-DISPATCH.contract.md`、`ENTITY-DTO-CONSTRAINTS.md`）回仓；全量 239→240，唯一新增 `test_udc_semantics_index::test_declared_counts_match_disk`，改 README 计数后转绿 |
 | 2026-11-24 | 第 1 批修正 | **-20 回仓** | — | `entity-field-matrix` 是更正链知识资产（入口 README 有更正表和计数闸门），不是现场报告，已整体回港；净迁出 27 份，`test_entity_field_matrix_index` 转绿 |
 
