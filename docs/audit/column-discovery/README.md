@@ -1,7 +1,7 @@
 # docs/audit/column-discovery/ 入口
 
 > 列域（栏目）**S1 导航 + S2 建删全链**的原始取证（2026-10-17 / 10-18）。
-> 3 份 `.md`（61,911 B）+ 12 份 `.json`/`.txt` 原始件。
+> 3 份 `.md`（62,772 B）+ 5 份 `.json`/`.txt` 原始件（其余 7 份原始抓包已迁出仓外，见 `_attic_pending/README.md` 台账）。
 > **这里不是结论库。** 可消费的契约在 `docs/operation-contracts/udc/column/`；本目录是它的上游证据。
 3 份正文共 **15 处**更正标记（S2 10 / S1 2 / 静态 3），其中 10 条列在 §一。
 
@@ -64,12 +64,13 @@
 | `raw/s2r1_portlet_form.json` | 栏目表单 | 3,239 |
 | `raw/s2r1_delete_portlet.json` / `raw/s2r1_delete_group.json` | 删栏目 / 删分组 | 2,266 / 1,918 |
 | `raw-nav-capture-20261017.json` | S1 导航抓包 | 160,761 |
-| `raw-db-probes-20261017.json` | DB 探针结果 | 6,287 |
-| `raw-s2-write-chain-static-20261017.json` | 静态侧结构化结果 | 7,238 |
-| `raw-s2-blocked-evidence-20261017.json` | 阻断项证据 | 5,336 |
+| `raw-db-probes-20261017.json` | DB 探针结果 | 6,350 |
+| `raw-s2-write-chain-static-20261017.json` | 静态侧结构化结果 | 7,349 |
+| `raw-s2-blocked-evidence-20261017.json` | 阻断项证据 | 5,222 |
 | `static-s2-endpoint-map-20261017.txt` | 静态端点映射（纯文本） | 10,023 |
 
 > 这些是**原始抓包**，含运行态业务数据（对象 id、页面内容）。
+> **客户标识已占位**：`<APP_ID>` 代替真实应用 id；域名一律 `*.example.com`。
 > 按 `tests/test_deidentification.py` 的 `EVIDENCE_DATA_DIRS`，`/artifacts/` 与 `/live-evidence/` 是显式豁免目录 ——
 > **本目录不在豁免内**，所以文本件已核过：3 份 `.md` 对客户标识判据**零命中**（2026-11-07 复核）。
 > 但 `raw/*.json` 是**原样回读**，含运行态 id，**不要外发、不要贴进文档**。

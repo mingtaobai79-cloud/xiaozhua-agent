@@ -36,7 +36,7 @@
     },
     {
       "id": "P5-counts",
-      "sql": "SELECT COUNT(*) c FROM udc_portlet / udc_portlet_group / WHERE app_id=8704025620829192834",
+      "sql": "SELECT COUNT(*) c FROM udc_portlet / udc_portlet_group / WHERE app_id=<APP_ID>",
       "result": {"udc_portlet_total": 157, "udc_portlet_group_total": 0, "udc_portlet_this_app": 0},
       "conclusion": "本应用栏目 0 行 → 首屏空态可解释；分组表全库 0 行 → 未分组是常态。"
     },

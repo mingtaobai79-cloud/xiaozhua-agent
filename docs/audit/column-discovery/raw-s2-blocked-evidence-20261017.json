@@ -1,7 +1,7 @@
 {
   "at_gmt8": "2026-10-17 17:23:13",
   "scope": "S2 建栏目→落表取证：blocking diagnosis only (zero write)",
-  "appId": "8704025620829192834",
+  "appId": "<APP_ID>",
   "credential": {
     "path": "<COLLAB_ROOT>/agent-collaboration/shared-credentials/test2-web-credential.json",
     "secret_printed": false,
@@ -30,7 +30,7 @@
     },
     {
       "test": "GET datadictionary WITH valid cookie",
-      "url": "https://lowcode-test2.example.com/service/udc/application/datadictionary/8704025620829192834",
+      "url": "https://lowcode-test2.example.com/service/udc/application/datadictionary/<APP_ID>",
       "http": "403",
       "bytes": "548",
       "content_type": "text/html",
@@ -38,7 +38,7 @@
     },
     {
       "test": "GET portlet select-by-appId WITH valid cookie",
-      "url": "https://lowcode-test2.example.com/service/udc/portlet/select-by-appId/8704025620829192834",
+      "url": "https://lowcode-test2.example.com/service/udc/portlet/select-by-appId/<APP_ID>",
       "http": "403",
       "bytes": "548",
       "content_type": "text/html",
