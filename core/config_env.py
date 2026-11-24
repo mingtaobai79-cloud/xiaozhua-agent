@@ -20,7 +20,11 @@ from typing import Any
 _REPO_ROOT = Path(__file__).resolve().parents[1]
 CONFIG_DIR = _REPO_ROOT / "config"
 BASE = CONFIG_DIR / "environments.yaml"
-LOCAL = CONFIG_DIR / "environments.local.yaml"
+# 本机覆盖层两个位置都认：仓库工作区里、或装机后的 ~/.xiaozhua/config/
+LOCALS = (
+    CONFIG_DIR / "environments.local.yaml",
+    Path.home() / ".xiaozhua" / "config" / "environments.local.yaml",
+)
 
 
 def _deep_merge(base: dict[str, Any], over: dict[str, Any]) -> dict[str, Any]:
@@ -43,7 +47,10 @@ def load() -> dict[str, Any]:
             return {}
         return yaml.safe_load(path.read_text(encoding="utf-8")) or {}
 
-    return _deep_merge(_read(BASE), _read(LOCAL))
+    merged = _read(BASE)
+    for path in LOCALS:
+        merged = _deep_merge(merged, _read(path))
+    return merged
 
 
 def reload() -> dict[str, Any]:
@@ -63,4 +70,4 @@ def is_placeholder(value: Any) -> bool:
 
 
 def source_files() -> list[str]:
-    return [str(p) for p in (BASE, LOCAL) if p.is_file()]
+    return [str(p) for p in (BASE, *LOCALS) if p.is_file()]

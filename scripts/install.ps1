@@ -187,7 +187,13 @@ function Remove-Tree($path) {
 function Copy-Tree($from, $to) {
   Remove-Tree $to
   $null = New-Item -ItemType Directory -Force -Path $to
-  & robocopy $from $to /E /XD .git .venv __pycache__ .pytest_cache /XF *.pyc /NFL /NDL /NJH /NJS /NP | Out-Null
+  # 本机覆盖层 / 内部笔记 / 客户资料不进安装目录（工具只装机制）
+  & robocopy $from $to /E /XD .git .venv __pycache__ .pytest_cache .hermes docs definitions /XF *.pyc *.local.yaml *.local.json /NFL /NDL /NJH /NJS /NP | Out-Null
+  # 本机覆盖层搬到 ~/.xiaozhua/config（装机后仍能读到自己的环境，且不在 src 里）
+  $localCfg = Join-Path $HOME '.xiaozhua\config'
+  New-Item -ItemType Directory -Force -Path $localCfg | Out-Null
+  Get-ChildItem -Path (Join-Path $from 'config') -Filter '*.local.*' -ErrorAction SilentlyContinue |
+    ForEach-Object { Copy-Item -Force $_.FullName (Join-Path $localCfg $_.Name) }
   $code = $LASTEXITCODE
   # robocopy: 0-7 = success with various copies, >=8 = real failure
   if ($code -ge 8) { Die "copying $from -> $to failed (robocopy exit $code)" }
