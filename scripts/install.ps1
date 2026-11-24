@@ -187,9 +187,9 @@ function Remove-Tree($path) {
 function Copy-Tree($from, $to) {
   Remove-Tree $to
   $null = New-Item -ItemType Directory -Force -Path $to
-  # 本机覆盖层 / 内部笔记 / 客户资料不进安装目录（工具只装机制）
+  # keep local overlays / internal notes / customer materials out of the install dir
   & robocopy $from $to /E /XD .git .venv __pycache__ .pytest_cache .hermes docs definitions /XF *.pyc *.local.yaml *.local.json /NFL /NDL /NJH /NJS /NP | Out-Null
-  # 本机覆盖层搬到 ~/.xiaozhua/config（装机后仍能读到自己的环境，且不在 src 里）
+  # move local overlays to ~/.xiaozhua/config (still readable after install, not inside src)
   $localCfg = Join-Path $HOME '.xiaozhua\config'
   New-Item -ItemType Directory -Force -Path $localCfg | Out-Null
   Get-ChildItem -Path (Join-Path $from 'config') -Filter '*.local.*' -ErrorAction SilentlyContinue |
