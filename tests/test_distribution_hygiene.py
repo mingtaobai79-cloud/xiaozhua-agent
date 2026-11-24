@@ -46,6 +46,8 @@ LEGACY = {
     "components/udc/menu_constraints.py",
     "components/udc/microflow/gates.py",
     "core/facts/batch-modules-20260925.md",
+    # 这份就是盘点表本身（登记了哪些标识、在哪个文件），内容必须能写出来
+    "docs/audit/customer-data-inventory.md",
 }
 
 
