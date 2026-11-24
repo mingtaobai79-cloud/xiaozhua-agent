@@ -33,6 +33,7 @@
 |---|---|---|---|---|
 | 2026-11-24 | 第 0 批（前置） | 0 | — | 本 README 补齐，`test_attic_bucket_exists_in_gitignore_and_has_readme` 转绿 |
 | 2026-11-24 | 第 1 批（零引用现场报告） | 47（含硬标识 25） | `xiaozhua-customer-evidence/docs-archive-20261124/`（`_MANIFEST-batch1.txt`） | 死链 103→100，无新增 |
+| 2026-11-24 | 第 2 批（零引用现场报告） | 10 选中 → 8 迁出 | `docs-archive-20261124/`（`_MANIFEST-batch2.txt`） | 契约/规则 2 份（`MIGRATION-SCHEDULER-DISPATCH.contract.md`、`ENTITY-DTO-CONSTRAINTS.md`）回仓；全量 239→240，唯一新增 `test_udc_semantics_index::test_declared_counts_match_disk`，改 README 计数后转绿 |
 | 2026-11-24 | 第 1 批修正 | **-20 回仓** | — | `entity-field-matrix` 是更正链知识资产（入口 README 有更正表和计数闸门），不是现场报告，已整体回港；净迁出 27 份，`test_entity_field_matrix_index` 转绿 |
 
 > 原则：**能标去向就不删证据**。删掉的每一条，都要能让下一个人顺着这条记录找回原件。
