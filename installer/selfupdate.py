@@ -48,6 +48,14 @@ def _default_state_path() -> Path:
 
 STATE_PATH = _default_state_path()
 
+# 输出统一 UTF-8：控制台直连时 Windows 走 Unicode API 没问题，但一旦重定向到文件/管道，
+# 就按 locale(GBK) 编码 → 打 ✓ 直接 UnicodeEncodeError，doctor 半途死（用户实测踩过）。
+for _stream in (sys.stdout, sys.stderr):
+    try:
+        _stream.reconfigure(encoding="utf-8", errors="replace")
+    except Exception:
+        pass
+
 GREEN, RED, YELLOW, DIM, RESET = "\033[32m", "\033[31m", "\033[33m", "\033[2m", "\033[0m"
 if os.name == "nt" and not os.environ.get("WT_SESSION"):
     GREEN = RED = YELLOW = DIM = RESET = ""          # 老 cmd.exe 不乱码
@@ -482,7 +490,11 @@ def cmd_update(args) -> int:
     return 0
 
 
-IGNORE_DIRS = {".git", ".venv", "__pycache__", ".pytest_cache"}
+# 工作区 vs 产品：install src 只该有「跑得起来的东西」。
+# docs/tests/.hermes/_attic_pending 是工作区（审计报告、计划、收容桶），里面带客户标识，
+# 复制进安装等于把客户数据又发了一遍。运行期真正需要的 surface-index 已挪到 fixtures/reference/。
+IGNORE_DIRS = {".git", ".venv", "__pycache__", ".pytest_cache", ".mypy_cache", ".ruff_cache",
+               "docs", "tests", ".hermes", "n.hermes", "_attic_pending"}
 
 
 
@@ -493,12 +505,19 @@ def sync_from_local(source: Path, dest: Path) -> None:
         raise RuntimeError(f"{source} 不像仓库根目录（没有 pyproject.toml）")
     ignore = shutil.ignore_patterns(*IGNORE_DIRS, "*.pyc")
     if dest.exists():
-        try:
-            shutil.rmtree(dest)
-        except OSError:
-            # 有进程占着（典型是被杀掉却没退干净的 git index-pack），改成原地覆盖
-            pass
+        for _ in range(3):
+            try:
+                shutil.rmtree(dest)
+                break
+            except OSError:
+                time.sleep(0.5)      # 文件被占（杀进程没退干净）时重试，别默默原地覆盖
     shutil.copytree(source, dest, ignore=ignore, dirs_exist_ok=True)
+    # copytree(dirs_exist_ok) 只覆盖不删除：上一版留下的工作区目录会原地赖着，
+    # 于是 install src 里仍然带着 docs/tests —— 删不干净就等于没排除。
+    for name in IGNORE_DIRS:
+        stale = dest / name
+        if stale.exists() and name not in (".git", ".venv"):
+            shutil.rmtree(stale, ignore_errors=True)
 
 
 def sync_from_zip(url: str) -> None:

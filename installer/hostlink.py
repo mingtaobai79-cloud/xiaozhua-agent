@@ -13,6 +13,7 @@
 """
 from __future__ import annotations
 
+import os
 import pathlib
 import shutil
 import subprocess
@@ -42,13 +43,18 @@ def detect() -> list[str]:
 _CANCELLED_HINTS = ("cancelled", "canceled", "已取消", "取消")
 
 
+def _utf8_env() -> dict:
+    """子进程强制 UTF-8：非 ASCII 家目录（如 C:/Users/白明涛）在 GBK 控制台下会被解成乱码。"""
+    return {**os.environ, "PYTHONUTF8": "1", "PYTHONIOENCODING": "utf-8"}
+
+
 def _run(cmd: list[str], dry_run: bool, stdin_text: str | None = None) -> tuple[int, str]:
     if dry_run:
         return 0, "DRY-RUN: " + " ".join(cmd)
     try:
         proc = subprocess.run(cmd, capture_output=True, text=True,
                               encoding="utf-8", errors="replace",
-                              timeout=CLI_TIMEOUT, input=stdin_text)
+                              timeout=CLI_TIMEOUT, input=stdin_text, env=_utf8_env())
     except FileNotFoundError:
         return 127, "%s 不存在" % cmd[0]
     except subprocess.TimeoutExpired:
@@ -137,7 +143,7 @@ def probe(host: str, root: str) -> bool:
     try:
         proc = subprocess.run(cmd, capture_output=True, text=True,
                               encoding="utf-8", errors="replace",
-                              timeout=PROBE_TIMEOUT)
+                              timeout=PROBE_TIMEOUT, env=_utf8_env())
     except Exception:
         return False
     out = ((proc.stdout or "") + (proc.stderr or "")).replace("\\", "/")
@@ -155,7 +161,7 @@ def _hermes_entry_matches(exe: str, root_norm: str) -> bool:
     try:
         which = subprocess.run([exe, "config", "path"], capture_output=True,
                                text=True, encoding="utf-8", errors="replace",
-                               timeout=PROBE_TIMEOUT)
+                               timeout=PROBE_TIMEOUT, env=_utf8_env())
         cfg = (which.stdout or "").strip().splitlines()[-1].strip()
         text = pathlib.Path(cfg).read_text(encoding="utf-8", errors="replace")
     except Exception:

@@ -58,7 +58,7 @@ from pathlib import Path
 from typing import Any
 
 _REPO = Path(__file__).resolve().parents[2]
-_SURFACE_TGZ = _REPO / "docs" / "audit" / "reference" / "surface-index.tar.gz"
+_SURFACE_TGZ = _REPO / "fixtures" / "reference" / "surface-index.tar.gz"  # 随产品发行，不在 docs/（工作区）
 
 
 def _read_member(name: str) -> str:
@@ -592,7 +592,7 @@ def stats() -> dict[str, Any]:
     impl = _impl_map()
     cs = _consumers()
     return {
-        "source": "docs/audit/reference/surface-index.tar.gz",
+        "source": "fixtures/reference/surface-index.tar.gz",
         "domains": len(doms),
         "actionRows": len(acts),
         "queryInterfaces": len(qs),
