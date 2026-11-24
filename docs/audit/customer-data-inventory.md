@@ -40,7 +40,7 @@
 
 | 目录 | 命中文件 | 典型内容 | 建议 |
 |---|---|---|---|
-| `docs/` | ~110 | 审计报告里的真域名、pod 名、跳板机命令 | 拆「平台机制文档（可发行）」与「客户现场报告（仓外）」 |
+| `docs/` | 110 → **85** | 审计报告里的真域名、pod 名、跳板机命令 | 已迁出 47 份零引用的现场报告（其中 25 份含硬标识）（见 `_attic_pending/README.md` 台账）；剩余 85 份先留（被文档/代码引用，需逐处标「已迁出至」再动） |
 | `core/facts/` | ~92 | LIVE 证据格直接贴 appId、`kubectl --kubeconfig=configtest2`、pod 名 | 事实库只留机制与结论，LIVE 明细引用仓外 `customer-evidence` |
 | `definitions/` | 8 | 客户 DTO 定义（`com.seeyon.datamigration<appId>.…`） | 移到仓外样例库，仓库只留 1 份脱敏示例 |
 | `scripts/` | 5 → **0** | 脚本把真 appId 写成 `default=` | 已改为 `--app-id required` / `XIAOZHUA_APP_ID`；生成物 `random-biz-evidence/` 移出仓库 |
