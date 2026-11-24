@@ -1,7 +1,7 @@
 # docs/audit/column-discovery/ 入口
 
 > 列域（栏目）**S1 导航 + S2 建删全链**的原始取证（2026-10-17 / 10-18）。
-> 3 份 `.md`（62,772 B）+ 5 份 `.json`/`.txt` 原始件（其余 7 份原始抓包已迁出仓外，见 `_attic_pending/README.md` 台账）。
+> 3 份 `.md`（62,776 B）+ 5 份 `.json`/`.txt` 原始件（其余 7 份原始抓包已迁出仓外，见 `_attic_pending/README.md` 台账）。
 > **这里不是结论库。** 可消费的契约在 `docs/operation-contracts/udc/column/`；本目录是它的上游证据。
 3 份正文共 **15 处**更正标记（S2 10 / S1 2 / 静态 3），其中 10 条列在 §一。
 

@@ -5,8 +5,8 @@
 ## 范围
 
 - 环境：`test2`
-- 访问路径：SSH `root@10.0.0.1` → `kubectl --kubeconfig=configtest2`
-- Namespace：`lowcode-test`
+- 访问路径：SSH `root@10.0.0.1` → `kubectl --kubeconfig=<KUBECONFIG>`
+- Namespace：`lowcode-<env>`
 - UDC Pod：`udc-7cbfc587f5-kwjdd`
 - UDC 镜像：`chit-acr-registry.客户方.com/chjh-external/udc:5.3.517`
 - 证据类型：真实运行 Pod 中的 JAR 清单与 `javap` 字节码；只读

@@ -26,12 +26,12 @@ hermes --resume local-363f728e1d9d682cd2c3587b6e2b0eba8ea5e24c227ba7889569f7ec84
 ## 这个会话在干什么（按关键词频次旁证）
 
 `实体` 439 次 / `entity` 614 / `字段` 410 / `枚举` 168 / `默认值` 182 / `计算值` 104。
-全程在 lowcode-test2 的**实体域**里配字段属性：枚举单选、计算值、默认值、校验规则条件。
+全程在 lowcode-<env>2 的**实体域**里配字段属性：枚举单选、计算值、默认值、校验规则条件。
 
 ## 断点精确定位
 
 ```
-页面  https://lowcode-test2.example.com/main/child-frame/udc/app-design/entity-rule/editor/6514199850390097478?appId=8704025620829192834
+页面  https://lowcode-<env>2.example.com/main/child-frame/udc/app-design/entity-rule/editor/6514199850390097478?appId=9000000000000000001
 CDP   127.0.0.1:9250（2026-10-23 17:48 仍存活）
 标签页 A198C2635B7F222BD37FB3A36AE1AC7A  ← 就停在这个规则编辑器上
 ```

@@ -3,8 +3,8 @@
 切片：main HANDOFF S1 — 域定位首屏抓包
 执行：implementer（单切片，只观察不写）
 时间：2026-10-17 15:0x–15:15 +08
-环境：test2 `https://lowcode-test2.example.com`
-应用：`8704025620829192834`（datamigration，本应用栏目为空 → 同时取有数据的应用做交叉验证）
+环境：test2 `https://lowcode-<env>2.example.com`
+应用：`9000000000000000001`（datamigration，本应用栏目为空 → 同时取有数据的应用做交叉验证）
 原始抓包：`docs/audit/column-discovery/raw-nav-capture-20261017.json`（160,797B，24 条请求全量含 body/response）
 
 ---
@@ -32,7 +32,7 @@
 ### 1) 页面打开证据（DOM）✅
 
 CDP 新开 target → `Page.navigate` 到
-`https://lowcode-test2.example.com/main/child-frame/udc/app-design/page-manage/portlet?appId=8704025620829192834`
+`https://lowcode-<env>2.example.com/main/child-frame/udc/app-design/page-manage/portlet?appId=9000000000000000001`
 
 - `location.href` = 上述 URL，`document.title` = 「数据迁移」
 - `iframe` = 空数组（非 iframe 嵌套，微前端 runtime 直接挂载）
@@ -45,7 +45,7 @@ DOM 文本（`document.body.innerText` 节选）：
 应用 | 实体 | 菜单 | 规则 | 流程 | BI | 栏目 | 设置 | 角色 | 数据迁移(1.0) | 栏目 | 检查 | 页面调试(beta) | 测试 | 更多 | 栏目列表 | 暂无结果 | 欢迎来到栏目空间 | 请创建栏目 | 检查 | 设计日志 | 微流程运行日志 | 生单规则运行日志 | 扣减规则运行日志
 ```
 
-> 本应用栏目为 0 条，页面显示空态，符合 DB `SELECT COUNT(*) FROM udc_portlet WHERE app_id=8704025620829192834` = **0**。
+> 本应用栏目为 0 条，页面显示空态，符合 DB `SELECT COUNT(*) FROM udc_portlet WHERE app_id=9000000000000000001` = **0**。
 
 ### 2) 首屏请求清单（24 条，含可复放信息）✅
 
@@ -53,12 +53,12 @@ DOM 文本（`document.body.innerText` 节选）：
 
 **栏目列表主请求（唯一驱动「栏目」页面的数据请求）**
 
-- URL：`POST https://lowcode-test2.example.com/service/udc/graphql?udcPortletSelectByAppIdAppGet`
+- URL：`POST https://lowcode-<env>2.example.com/service/udc/graphql?udcPortletSelectByAppIdAppGet`
 - Headers：`Content-Type: application/json`（`credentials: include`，cookie 鉴权，token 走 `shared-credentials/test2-web-credential.json`，不落盘）
 - Body（原样）：
 
 ```json
-{"query":"query udcPortletSelectByAppIdAppGet(\n  $path: udcPortletSelectByAppIdAppGetInputPath\n) {\n  udcPortletSelectByAppIdAppGet(path: $path) {\n    code\n    data {\n      content {\n        appId\n        groupId\n        guid\n        id\n        name\n        orderNo\n        category\n        portletList{\n          appId\n          groupId\n          guid\n          id\n          name\n          orderNo\n          pageRelationId\n          publishState\n          terminalType\n          type\n          category\n          originalId\n        }\n        pageRelationId\n        publishState\n        terminalType\n        type\n        originalId\n      }\n    }\n    message\n    status\n  }\n}","variables":{"path":{"appId":"8704025620829192834"}}}
+{"query":"query udcPortletSelectByAppIdAppGet(\n  $path: udcPortletSelectByAppIdAppGetInputPath\n) {\n  udcPortletSelectByAppIdAppGet(path: $path) {\n    code\n    data {\n      content {\n        appId\n        groupId\n        guid\n        id\n        name\n        orderNo\n        category\n        portletList{\n          appId\n          groupId\n          guid\n          id\n          name\n          orderNo\n          pageRelationId\n          publishState\n          terminalType\n          type\n          category\n          originalId\n        }\n        pageRelationId\n        publishState\n        terminalType\n        type\n        originalId\n      }\n    }\n    message\n    status\n  }\n}","variables":{"path":{"appId":"9000000000000000001"}}}
 ```
 
 - Response（本应用）：`{"data":{"udcPortletSelectByAppIdAppGet":{"code":"BOOT_0000","data":{"content":[]},"message":"SUCCESS","status":0}}}` —— 空数组，与页面空态一致。
@@ -82,7 +82,7 @@ DOM 文本（`document.body.innerText` 节选）：
 | 1x | `GET /service/app-common/expression/system/values/date` |
 | 1x | `POST /service/ctp-application/appcenter/search-app-edition` |
 | 1x | `GET /service/udc/application/user-role` |
-| 1x | `GET /service/udc/sandbox/delta-build-info/8704025620829192834` |
+| 1x | `GET /service/udc/sandbox/delta-build-info/9000000000000000001` |
 | 1x | `POST /service/udc/application/search/front-detection` |
 
 **额外收获（顺带证明栏目在平台内部的正式命名）**：`udcOperationLogSearchInitDataAppGet` 返回的 `subModuleMap` 里明确登记了

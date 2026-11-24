@@ -2,7 +2,7 @@
 
 > 审计口径：只用仓库在盘证据 + 本次直连 MySQL(test2) 实测计数，不引用任何"完成度百分比"自报。
 > 证据分级：LIVE（活体调用/DB 实测）/ STATIC（字节码/bundle/反编译）/ VACUUM（域内 0 条可证据化契约）/ UNVERIFIED（未取证）。
-> 应用基线：`datamigration9000000000000000001`（appId `8704025620829192834`），环境 test2。
+> 应用基线：`datamigration9000000000000000001`（appId `9000000000000000001`），环境 test2。
 
 ## 0. 总表
 
@@ -73,7 +73,7 @@
 
    - 验收第 2 条口径：**NORMAL 域按 BLOCKED 收口；FORM 域「路径存在、可行性未闭合」**。
 2. **运行态 target `server_403` 未解**：`/service/{appName}/app-info/deploy-info` → HTTP 200 外壳 + `server_403「无权限访问」`。定性 = **应用内网关鉴权层**（非 WAF；事故前即 403，WAF 解除后仍 403）。归因指向运行态路由授权未建立（`udc_role_resource` target 391 vs 对照 4944，target 11 条角色无 `is_admin`）；**口径收紧：强相关非因果充分**（本环境无 `udc_role_member` 用户-角色绑定表，无法闭合「账号→角色→资源」链）。
-   - 佐证（2026-10-17 22:54 实测）：`GET /service/udc/application/8704025620829192834` → **200/1282B BOOT_0000**，账号能读到 target 全部字段（guid/publishState/sourceAppId）→ **不是账号读不到应用**，是运行态宿主前缀层拒绝。
+   - 佐证（2026-10-17 22:54 实测）：`GET /service/udc/application/9000000000000000001` → **200/1282B BOOT_0000**，账号能读到 target 全部字段（guid/publishState/sourceAppId）→ **不是账号读不到应用**，是运行态宿主前缀层拒绝。
 3. **`Apps.isRunInTest()` 已解**：判定依据 = `PropertySources.contains("Inlined Test Properties")`（`boot-core-5.3.358` L599-606）；test2 非 `@SpringBootTest` 上下文 → **false → 门 2（APP_DEPLOY 授权）不被短路，是真跑的**。
 4. **`publishState` 不能作上线判据**：target 与对照应用 `publishState` 均 = `UNPUBLISH`、`deployId` 均 null，而对照应用运行态是 LIVE 的。
 5. **P3-B（app-online LIVE）不发**：appId 三来源全闭（既有=授权门 / 新建=配额门 / 草稿转正=不存在）。

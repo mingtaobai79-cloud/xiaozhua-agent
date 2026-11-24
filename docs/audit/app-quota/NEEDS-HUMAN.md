@@ -2,7 +2,7 @@
 
 - **切片**：SLICE-A1（A 组 · 应用域 · P0）
 - **日期**：2026-10-18
-- **环境**：test2（库 `udc_test2` / Redis env=`test2` / 网关 `lowcode-test2.example.com`）
+- **环境**：test2（库 `udc_test2` / Redis env=`test2` / 网关 `lowcode-<env>2.example.com`）
 - **本片性质**：**只读取证**。0 写操作、0 页面重试建应用、0 数据库变更。
 - **结论状态**：配额真实口径 **已闭合（LIVE）**；「建应用」动作本身仍 **BLOCKED**，但阻塞点已从「口径不明」变为「资源已满，需人工决策」。
 
@@ -33,9 +33,9 @@
 ### E1 — 平台自述接口（最直接，就是配额门读的那份 DTO）
 
 ```
-GET https://lowcode-test2.example.com/service/udc/sandbox/tenant/config/-8112660841495312922
+GET https://lowcode-<env>2.example.com/service/udc/sandbox/tenant/config/-8112660841495312922
 Cookie: <shared-credentials 路径引用，本文件不落 secret>
-Referer: https://lowcode-test2.example.com/main/
+Referer: https://lowcode-<env>2.example.com/main/
 ```
 
 响应 **HTTP 200**：
@@ -201,7 +201,7 @@ i18n 文案（`app_common_test2.i18n_default_resource`，`resource_key='error.co
 
 | # | id | caption | 是否已在沙箱运行 | create_time |
 |---|---|---|---|---|
-| 1 | 2378987216360786643 | 应收管理 | 是 | 2025-02-13 |
+| 1 | 9000000000000000003 | 应收管理 | 是 | 2025-02-13 |
 | 2 | 1656355078954763084 | 智慧营销结算 | 是 | 2025-08-21 |
 | 3 | 5791640252914287064 | 项目考核管理 | 是 | 2026-01-27 |
 | 4 | 3117198973910469031 | 采虹链 | 是 | 2026-03-11 |
@@ -209,7 +209,7 @@ i18n 文案（`app_common_test2.i18n_default_resource`，`resource_key='error.co
 | 6 | 6570299241515796755 | **原智能项目管理平台** | **否** | 2026-04-02 |
 | 7 | 7417152852034669760 | 飞书集成 | 是 | 2026-05-15 |
 | 8 | 4396215186967839451 | 云业务 | 是 | 2026-08-14 |
-| 9 | **8704025620829192834** | **数据迁移（本项目）** | 是 | 2026-10-12 |
+| 9 | **9000000000000000001** | **数据迁移（本项目）** | 是 | 2026-10-12 |
 | 10 | 7001530513149673721 | **智慧营销结算副本（最新）** | **否** | 2026-10-14 |
 
 - `ctp_sandbox_app` 共 10 行，`app_state=1(RUNNING)` 全部 10 个，`owner_tenant_id` 全为本租户 → 运行配额同样 10/15，尚余 5。
@@ -310,7 +310,7 @@ python docs/audit/artifacts/scratch-migrated/slice-a1/a1_live_config.py
 
   | # | 请求 | 结果 |
   |---|---|---|
-  | 1 | `GET /service/6419954374508955097/sandbox/tenant/config/-811...` | `server_404`（应用级前缀不带 sandbox） |
+  | 1 | `GET /service/9000000000000000002/sandbox/tenant/config/-811...` | `server_404`（应用级前缀不带 sandbox） |
   | 2 | `GET /service/sandbox/tenant/config/-811...` | `server_404`（sandbox 非独立服务名） |
   | 3 | `GET /service/udc/sandbox/tenant/config/-811...` | **HTTP 200 BOOT_0000，createAppNum=10 ← 决定性证据** |
   | 4 | `GET /service/udc/sandbox/tenant/config/-999` | `BOOT_1006 token黑名单`（互踢） |

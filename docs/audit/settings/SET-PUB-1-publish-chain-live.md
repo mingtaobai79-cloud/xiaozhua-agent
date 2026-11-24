@@ -40,7 +40,7 @@
 ## 1. 触发路径（页面点击，非 REST 替代）
 
 CDP 9229（本组独占端口），profile `cdp-C-外围`，页面
-`/main/child-frame/udc/app-design/application?appId=8704025620829192834`。
+`/main/child-frame/udc/app-design/application?appId=9000000000000000001`。
 
 点击序列（全部 `element.click()`，真实 DOM 事件）：
 
@@ -74,7 +74,7 @@ CDP 9229（本组独占端口），profile `cdp-C-外围`，页面
 
 ```
 POST /service/udc/runtime/expect-deploy-time        HTTP 200
-body: {"deployParamDto":{"deployType":"RELEASE","appId":"8704025620829192834",
+body: {"deployParamDto":{"deployType":"RELEASE","appId":"9000000000000000001",
                           "projectType":"ALL","terminalType":"ALL"}}
 resp: {"status":0,"code":"BOOT_0000","message":"SUCCESS",
        "traceId":"17922588404061176884","data":{"content":"261"}}
@@ -91,12 +91,12 @@ body:
   udcRuntimeDeployNormalPost(body: $params0) { code data { content{appId,deployId,deployType,
   projectType,terminalType} } message status } }",
  "variables":{"params0":{"deployDto":{"projectType":"ALL","terminalType":"ALL",
-   "deployType":"RELEASE","appId":"8704025620829192834","generateLog":true}}}}
+   "deployType":"RELEASE","appId":"9000000000000000001","generateLog":true}}}}
 
 resp:
 {"traceId":"17922589005077478983",
  "data":{"data0":{"code":"BOOT_0000",
-   "data":{"content":{"appId":"8704025620829192834",
+   "data":{"content":{"appId":"9000000000000000001",
                       "deployId":"-3191446022183863452",
                       "deployType":"RELEASE","projectType":"ALL","terminalType":"ALL"}},
    "message":"SUCCESS","status":0}}}
@@ -140,7 +140,7 @@ resp:
 
 ```
 POST /service/udc/graphql?udcSandboxBuildInfoAppGet     HTTP 200
-variables: {"params0":{"appId":"8704025620829192834"}}
+variables: {"params0":{"appId":"9000000000000000001"}}
 
 resp.data.data0.data.content:   【转录，无原始帧落盘支撑——见勘误块】
 {"validate":true,"appName":"datamigration9000000000000000001",
@@ -192,7 +192,7 @@ resp.data.data0.data.content:   【转录，无原始帧落盘支撑——见勘
 
 ```sql
 SELECT * FROM udc_test2.udc_deploy_record
-WHERE app_id='8704025620829192834' AND deploy_id='-3191446022183863452';
+WHERE app_id='9000000000000000001' AND deploy_id='-3191446022183863452';
 ```
 
 | 字段 | 值 |
@@ -230,7 +230,7 @@ WHERE app_id='8704025620829192834' AND deploy_id='-3191446022183863452';
 ### 4.3 `udc_app_version`（版本行被本次发布更新）
 
 ```sql
-SELECT * FROM udc_test2.udc_app_version WHERE app_id='8704025620829192834' ORDER BY create_time DESC;
+SELECT * FROM udc_test2.udc_app_version WHERE app_id='9000000000000000001' ORDER BY create_time DESC;
 ```
 
 | id | create_time | update_time | version | state | show_version | deploy_type | deploy_time | fail_reason |
@@ -244,7 +244,7 @@ SELECT * FROM udc_test2.udc_app_version WHERE app_id='8704025620829192834' ORDER
 
 ```sql
 SELECT COUNT(*) FROM udc_test2.udc_resource
-WHERE app_id='8704025620829192834'
+WHERE app_id='9000000000000000001'
   AND update_time BETWEEN '2026-10-18 01:41:30' AND '2026-10-18 01:42:40';
 -- → 120
 ```

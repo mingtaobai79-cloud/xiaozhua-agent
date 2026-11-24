@@ -110,7 +110,7 @@
 
 ### 已看到的可追溯链（仅列观察，不升级为 PASS）
 
-- 应用 ID `8704025620829192834` 与多个 DTO/entity fullName 绑定，见 `FIXED20.json`。
+- 应用 ID `9000000000000000001` 与多个 DTO/entity fullName 绑定，见 `FIXED20.json`。
 - 实体 ID `474806313816300867` 在 `RETRIEVE/RETRIEVE_ARRAY/CREATE_LIST/CHANGE_ENTITY/CALL_APP_SERVICE` 等节点结构中重复出现，并与 `com.seeyon.datamigration9000000000000000001.domain.entity.XzhExp950795` 关联。
 - 服务 md5 `3277002066736383209` 和子微流程 id `301785209408604048` 被落库态记录，但仍需分别绑定到对应接口/服务查询响应，不能仅凭数字存在认定已溯源。
 - `FIXED20.json` 文本未命中本轮外部残留词表；这只说明落库态局部扫描干净，不能覆盖全部证据 JSON。

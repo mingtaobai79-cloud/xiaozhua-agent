@@ -1,7 +1,7 @@
 # P0｜UDC 角色（Role）域 对象模型钉死
 
 - 生成时间：2026-10-17 15:18:57 (GMT+8)
-- 环境：test2（`lowcode-test2.example.com` 同租户）
+- 环境：test2（`lowcode-<env>2.example.com` 同租户）
 - DB：`udc_test2`，MySQL；凭据经 Skill 配置层 `xiaozhua-low-code-environment/.env` 读取，**未打印、未落盘 secret**
 - 探针脚本（只读）：`<HERMES_HOME>/cache/scratch/p0_role_ddl_v2.py`、`p0_role_samples.py`、`p0_role_probe3.py`、`p0_role_probe4.py`、`p0_role_probe5.py`、`p0_role_probe6.py`
 - 原始返回 JSON：同目录 `p0_role_ddl.json`、`p0_role_samples.json`、`p0_role_probe{3,4,5,6}.json`
@@ -264,10 +264,10 @@ SQL：`... LEFT JOIN udc_resource res ON res.id=rr.resource_id WHERE res.id IS N
 | role_id | code | app_id | role_type | action3_cnt |
 |---|---|---|---|---|
 | -5633280307046271567 | zhihuiyingxiaojiesuanxiaoshouyuan | 1656355078954763084 | 1 | 1 |
-| -5097658000409025553 | xinkong | 2378987216360786643 | 1 | 1 |
-| 2558713164951079164 | faccountsreceivable2378987216360786643Admin | 2378987216360786643 | 0 | 10 |
+| -5097658000409025553 | xinkong | 9000000000000000003 | 1 | 1 |
+| 2558713164951079164 | faccountsreceivable9000000000000000003Admin | 9000000000000000003 | 0 | 10 |
 | 4191458464292495620 | xiangmuguanli9000000000000000001AdminSystemAdmin | 1656355078954763084 | 0 | 1 |
-| 8435806223213278410 | faccountsreceivable237898721636078EnBSystemAdmin | 2378987216360786643 | 0 | 10 |
+| 8435806223213278410 | faccountsreceivable237898721636078EnBSystemAdmin | 9000000000000000003 | 0 | 10 |
 
 → 判定（原文，**已被 23:05 上方纠正块取代**）：`action` 是**授权动作枚举**（0=查看/访问，3=按钮级操作权限）。当前 test2 只有 5 个角色用到 3，全部集中在应收管理/智慧营销两个 app 的按钮资源上。0 与 3 之外无第三种取值。
 
@@ -401,7 +401,7 @@ SQL：`SELECT * FROM udc_role ORDER BY id LIMIT 5`
   "version": 0,
   "guid": 4986728102259410347,
   "is_admin": 0,
-  "app_id": 2378987216360786643,
+  "app_id": 9000000000000000003,
   "code": "xiaoshou",
   "description": "",
   "is_display": 1,
@@ -517,7 +517,7 @@ SQL：`SELECT * FROM udc_resource ORDER BY id LIMIT 5`
   "guid": 2031150547911656629,
   "is_admin": 0,
   "allow_end": 0,
-  "app_id": 2378987216360786643,
+  "app_id": 9000000000000000003,
   "entity_full_name": "",
   "client_type": 0,
   "code": "4218049612453738645",
@@ -532,7 +532,7 @@ SQL：`SELECT * FROM udc_resource ORDER BY id LIMIT 5`
   "ref_code": "-8413029560995702980",
   "sort_number": 281,
   "type": 0,
-  "url": "/faccountsreceivable2378987216360786643/xsgzjjda",
+  "url": "/faccountsreceivable9000000000000000003/xsgzjjda",
   "url_parameters": "",
   "out_parameters": "",
   "group_id": null,
@@ -872,7 +872,7 @@ SELECT * FROM udc_role_resource WHERE role_id IN (SELECT role_id FROM (SELECT DI
 |---|---|
 | 3289082814923688017 | 14 |
 | 9000000000000000002 | 11 |
-| 2378987216360786643 | 8 |
+| 9000000000000000003 | 8 |
 | 1656355078954763084 | 7 |
 | 5791640252914287064 | 6 |
 | 6570299241515796755 | 6 |

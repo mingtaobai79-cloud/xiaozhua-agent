@@ -70,7 +70,7 @@ XiaozhuaAgent
 
 ### Phase 5：test2 只读动态取证
 
-显式使用 `kubectl --kubeconfig=configtest2`，不擅自追加 namespace。
+显式使用 `kubectl --kubeconfig=<KUBECONFIG>`，不擅自追加 namespace。
 
 只读：Deployment/Pod/Image、环境变量与挂载、应用独立 Nacos、无副作用查询、MySQL schema/table/index/count、Redis pattern/type/TTL、日志/路由、artifact 版本/hash。
 

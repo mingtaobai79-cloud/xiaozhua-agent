@@ -1,7 +1,7 @@
 # P2 · 角色域 LIVE 读链回读（阶段2 LIVE 半片 + 阶段4 基线重取）
 
 > 任务：HANDOFF-03（dedupe_key `role-handoff-03-stage2-live-readback`）
-> 目标应用：`datamigration9000000000000000001`（appId `8704025620829192834`），环境 test2
+> 目标应用：`datamigration9000000000000000001`（appId `9000000000000000001`），环境 test2
 > 证据时点：as-of **2026-10-17 22:44–22:56 GMT+8**（每项单独标注）
 > 边界：只读（唯一例外见 §7 自报事件）；未改 ROUTE/P0/P1；未 push。
 
@@ -74,13 +74,13 @@ SQL 原文：
 SELECT NOW() AS as_of,
  (SELECT COUNT(*) FROM udc_role) r_tot,
  (SELECT COUNT(*) FROM udc_role WHERE is_deleted=0) r_live,
- (SELECT COUNT(*) FROM udc_role WHERE is_deleted=0 AND app_id=8704025620829192834) r_app,
+ (SELECT COUNT(*) FROM udc_role WHERE is_deleted=0 AND app_id=9000000000000000001) r_app,
  (SELECT COUNT(*) FROM udc_role_resource) rr_tot,
  (SELECT COUNT(*) FROM udc_resource) res_tot,
  (SELECT COUNT(*) FROM udc_resource WHERE is_deleted=0) res_live,
- (SELECT COUNT(*) FROM udc_resource WHERE is_deleted=0 AND app_id=8704025620829192834) res_app,
+ (SELECT COUNT(*) FROM udc_resource WHERE is_deleted=0 AND app_id=9000000000000000001) res_app,
  (SELECT COUNT(*) FROM udc_role_resource rr JOIN udc_role r ON r.id=rr.role_id
-   WHERE r.is_deleted=0 AND r.app_id=8704025620829192834) rr_app;
+   WHERE r.is_deleted=0 AND r.app_id=9000000000000000001) rr_app;
 ```
 
 **结论 A（LIVE）**：自 15:41:35 至 22:42:15（约 7 小时）**目标 app 与三表总量零变化**，A1 的写入方静默事实延长到 22:42，阶段4 基线可安全使用。
@@ -103,7 +103,7 @@ SELECT NOW() AS as_of,
 ### 2.2 请求原文（cookie 脱敏）
 
 ```
-POST https://lowcode-test2.example.com/service/udc/graphql
+POST https://lowcode-<env>2.example.com/service/udc/graphql
 Content-Type: application/json
 Accept: application/json
 Cookie: SY_ACCESS_TOKEN=***
@@ -114,7 +114,7 @@ redirectUrl: (无)
 
 {"query":"mutation udcCtpUserRoleSelectListPost ($body: udcCtpUserRoleSelectListPostInputBody) {\n  udcCtpUserRoleSelectListPost(body: $body){\n    code data{content{admin appId code description id name type}\n    pageInfo{needTotal pageNumber pageSize pages total}} message status } }",
  "variables":{"body":{"pageInfo":{"pageNumber":1,"pageSize":50,"needTotal":true},
-                      "params":{"appId":8704025620829192834}}}}
+                      "params":{"appId":9000000000000000001}}}}
 ```
 
 traceId `3278809582884882620`；响应 `data.udcCtpUserRoleSelectListPost.code = BOOT_0000`，
@@ -123,7 +123,7 @@ traceId `3278809582884882620`；响应 `data.udcCtpUserRoleSelectListPost.code =
 响应首条（原文，逐字）：
 
 ```json
-{"admin":false,"appId":"8704025620829192834",
+{"admin":false,"appId":"9000000000000000001",
  "code":"ZNXMGLTBGLY-datamigration9000000000000000001","description":"",
  "id":"4266600482366704431","name":"智能项目管理平台投标管理员","type":"APP","g_l_index":"1"}
 ```
@@ -140,7 +140,7 @@ DB 侧 SQL：
 
 ```sql
 SELECT id,code,name,is_admin,type FROM udc_role
- WHERE app_id=8704025620829192834 AND is_deleted=0 ORDER BY id;
+ WHERE app_id=9000000000000000001 AND is_deleted=0 ORDER BY id;
 ```
 
 | 项目 | 数值 |
@@ -182,14 +182,14 @@ ORG    ordinal 3  code  2
 
 ### 3.3 真实页面触发的链路（不是裸 curl）
 
-页面：`https://lowcode-test2.example.com/main/child-frame/udc/app-design/role-permission?appId=8704025620829192834`
+页面：`https://lowcode-<env>2.example.com/main/child-frame/udc/app-design/role-permission?appId=9000000000000000001`
 （进入方式：设计器侧边栏点击「角色」`<a href="/main/child-frame/udc/app-design/role-permission?appId=...">`，非深链直开）
 
 点击后页面实际发出（CDP `Network.requestWillBeSent` 逐条捕获，共 **31** 条 `/service/*`，其中角色域相关 4 条）：
 
 | # | 方法 | 状态 | 端点 | 说明 |
 |---|---|---|---|---|
-| 1 | POST | 200 | `/service/udc/ctp-user/role/create-system-admin` | body `{"appId":"8704025620829192834"}` → `data.content:1` ⚠️ 见 §7 |
+| 1 | POST | 200 | `/service/udc/ctp-user/role/create-system-admin` | body `{"appId":"9000000000000000001"}` → `data.content:1` ⚠️ 见 §7 |
 | 2 | POST | 200 | `/service/udc/graphql?udcCtpUserRoleAppResourceGet` | 资源树（PC/PC_LAYOUT 分层） |
 | 3 | POST | 200 | `/service/udc/graphql?udcCtpUserRoleSelectListPost` | **角色列表 = 本节核心证据** |
 | 4 | GET | 200 | `/service/app-common/i18n/resource?bundleName=ctp-user/web-pages` | i18n 包 |
@@ -276,7 +276,7 @@ REST 行结构比 GraphQL 更全（**15 字段**，VERDICT-03 D-C 更正原「14
 
 ## 7. ⚠️ 边界事件自报：`create-system-admin` 被页面加载触发
 
-**事实**：进入设计器「角色权限」页时，前端**自动**发出 `POST /service/udc/ctp-user/role/create-system-admin`，body `{"appId":"8704025620829192834"}`，响应 `BOOT_0000 / data.content:1`。
+**事实**：进入设计器「角色权限」页时，前端**自动**发出 `POST /service/udc/ctp-user/role/create-system-admin`，body `{"appId":"9000000000000000001"}`，响应 `BOOT_0000 / data.content:1`。
 **发生次数**：2 次（22:51 首次点击、22:53 reload；22:55 第三次 reload 亦复现）。每次均为页面加载自动触发，非本实现主动构造。
 
 **DB 影响实测**：调用前后 8 项计数完全一致；目标 app 11 行角色的 `create_time` 全为 `2026-10-12 17:16:02`，无新增行；`SystemAdmin`/`Admin` 两行 `update_time=2026-10-17 15:48:33`（早于本次会话，非本次写入）。

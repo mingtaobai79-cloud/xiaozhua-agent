@@ -11,7 +11,7 @@
 > 2026-10-31。P0 交付物：把"现在到底能用什么、什么没验、什么还坏着"一次性钉死。
 > 数据来源：`core/facts/udc/microflow/node-contract-from-samples.json`（643 条真实语料）、
 > `components/construction/*`（构造器源码）、`components/udc/microflow/gates.py`（闸门）、
-> 以及本应用（`8704025620829192834`）分组 `-5906489607826727193` 里 15 条已验收流程的**真实 dataSchema**。
+> 以及本应用（`9000000000000000001`）分组 `-5906489607826727193` 里 15 条已验收流程的**真实 dataSchema**。
 
 ## 一、状态定义（不许混用）
 

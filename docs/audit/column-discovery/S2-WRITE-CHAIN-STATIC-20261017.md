@@ -196,8 +196,8 @@ S2 取证必须包含一条「门户侧残留复查」，证据等级记 LIVE �
 
 | create_time | app_id | module | sub_module | action_type | domain_caption |
 |---|---|---|---|---|---|
-| 2026-09-30 22:42:23 | 6419954374508955097 | 4 | 40 (PORTLET_PAGE) | 1 (CREATE) | zzprobe栏目 |
-| 2026-10-01 00:42:04 | 6419954374508955097 | 4 | 40 (PORTLET_PAGE) | 2 (DELETE) | zzprobe栏目 |
+| 2026-09-30 22:42:23 | 9000000000000000002 | 4 | 40 (PORTLET_PAGE) | 1 (CREATE) | zzprobe栏目 |
+| 2026-10-01 00:42:04 | 9000000000000000002 | 4 | 40 (PORTLET_PAGE) | 2 (DELETE) | zzprobe栏目 |
 
 当前该应用实测：`udc_portlet` **0 行**、`udc_page_info`（含 PORTLET）**0 行**。
 
@@ -237,7 +237,7 @@ S2 取证必须包含一条「门户侧残留复查」，证据等级记 LIVE �
 `udc_page_info` 的 +6 来源明确（LIVE，按 create_time 倒序）：
 
 ```
-15:18:49 / 15:18:50 / 15:41:03  app_id=8704025620829192834
+15:18:49 / 15:18:50 / 15:41:03  app_id=9000000000000000001
   caption: 迁移方案配置列表_副本 / 迁移方案配置详情_副本 / 数据源配置信息列表弹窗选择页面_副本
   page_type: SEARCH_LIST / DETAIL
 ```
@@ -259,7 +259,7 @@ S2 取证必须包含一条「门户侧残留复查」，证据等级记 LIVE �
 
 | 基线项 | 值 |
 |---|---|
-| `udc_portlet` 本应用 `8704025620829192834` | **0 行**（`t0`/`t1` 均 NULL） |
+| `udc_portlet` 本应用 `9000000000000000001` | **0 行**（`t0`/`t1` 均 NULL） |
 | `udc_portlet` 本应用 `MAX(order_no)` | **0**（空表，`COALESCE` 后） |
 | `udc_portlet` 全库 / type=0 / type=1 | **157 / 26 / 131** |
 | `udc_portlet_group` 全库 | **0** |
@@ -267,19 +267,19 @@ S2 取证必须包含一条「门户侧残留复查」，证据等级记 LIVE �
 ```sql
 -- W1 分组白名单（<group_id> = 建分组响应 id）
 SELECT id,name,type,group_id,terminal_type,template_type,page_relation_id,publish_state,order_no,create_time
-FROM udc_portlet WHERE app_id=8704025620829192834 AND id=<group_id>;
+FROM udc_portlet WHERE app_id=9000000000000000001 AND id=<group_id>;
 --   断言：命中 1 行；type=0；order_no = 建前该应用 max+1（H5，实测基线 max=0 → 期望 1）
 --   group_id / page_relation_id / terminal_type 按响应原值断言；template_type 必为 NULL（平台不写）
 
 -- W2 栏目白名单（<portlet_id> = 建栏目响应 id）
 SELECT id,name,type,group_id,terminal_type,template_type,page_relation_id,publish_state,order_no,create_time
-FROM udc_portlet WHERE app_id=8704025620829192834 AND id=<portlet_id>;
+FROM udc_portlet WHERE app_id=9000000000000000001 AND id=<portlet_id>;
 --   断言：命中 1 行；type=1；group_id = <group_id>（S1 强制更正交叉验证）
 --   order_no = 建前（含刚建分组）该应用 max+1（基线 max=1 → 期望 2）
 
 -- W3 page_info 白名单（<relation_group_id> = 建栏目响应的 relationGroupId）
 SELECT id,caption,page_type,relation_group_id,group_id,url_type,layout_id,schema_state,hand_written
-FROM udc_page_info WHERE app_id=8704025620829192834 AND relation_group_id=<relation_group_id>;
+FROM udc_page_info WHERE app_id=9000000000000000001 AND relation_group_id=<relation_group_id>;
 --   断言：命中行数 = 表单端勾选数（+1 或 +2，I5 现场定）；page_type 全 'PORTLET'
 --   url_type 组合与勾选端一致；group_id = <group_id>（交叉一致性断言，136/136 全库校验支持）
 --   layout_id 全 0、hand_written 非 1、default_open_type NULL —— 不设强期望（§5.4）
@@ -289,8 +289,8 @@ SELECT COUNT(*) FROM udc_page_schema WHERE page_id IN (<W3_ids>);
 --   断言：命中行数 = pageItems 条数（不用全库计数）
 
 -- W5 删除后归零（白名单三张表逐条断言 0 行）
-SELECT COUNT(*) FROM udc_portlet WHERE app_id=8704025620829192834;   -- 期望 0
-SELECT COUNT(*) FROM udc_page_info WHERE app_id=8704025620829192834 AND relation_group_id IN (<rg_ids>);  -- 期望 0
+SELECT COUNT(*) FROM udc_portlet WHERE app_id=9000000000000000001;   -- 期望 0
+SELECT COUNT(*) FROM udc_page_info WHERE app_id=9000000000000000001 AND relation_group_id IN (<rg_ids>);  -- 期望 0
 SELECT COUNT(*) FROM udc_portlet_group;                              -- 期望仍 0（I4）
 ```
 
@@ -432,7 +432,7 @@ S2 不得误判为两次操作。分组创建为 `PORTLET_GROUP(6) DELETE/CREATE
 
 ## 附：级联删除 LIVE 佐证（裁定 I 补充登记，恢复后随 S2 产物一并核实引用）
 
-`zzprobe` 应用 `6419954374508955097`：建（2026-09-30 22:42）→ 删（2026-10-01 00:42）
+`zzprobe` 应用 `9000000000000000002`：建（2026-09-30 22:42）→ 删（2026-10-01 00:42）
 → 当前该应用 `udc_portlet` 0 行 / `udc_page_info` 0 行（归零，无残留）。
 `udc_operation_log` 有对应 CREATE/DELETE 记录（`sub_module=40 PORTLET_PAGE`）。
 → 作为「级联删除 + 无残留」的 LIVE 先例，支撑 §3.2 结论。

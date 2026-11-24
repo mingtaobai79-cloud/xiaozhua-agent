@@ -124,4 +124,4 @@ cd <XIAOZHUA_AGENT_ROOT>
 # 关键 schema：udc_test2（元数据）/ ctp_user_test2 / organization_test2
 ```
 
-CDP：Edge 9222 起不来时用 9231（当前设计器标签页 `BCD2D805…`，appId=8704025620829192834）。
+CDP：Edge 9222 起不来时用 9231（当前设计器标签页 `BCD2D805…`，appId=9000000000000000001）。

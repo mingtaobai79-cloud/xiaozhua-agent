@@ -29,8 +29,8 @@
 
 - 入口：栏目列表页 folder 图标按钮 → 表单仅一个必填「分组名称」→ 确定
 - REST：`POST /service/udc/graphql?udcPortletCreatePost`
-- 请求 variables：`{"body":{"appId":"8704025620829192834","terminalType":"PC","type":"GROUP","name":"S2GROUP20261017"}}`
-- 响应（原文）：`{"traceId":"17922483013725158661","data":{"udcPortletCreatePost":{"code":"BOOT_0000","data":{"content":{"appId":"8704025620829192834","groupId":null,"guid":null,"id":"-2821989384273517473","name":"S2GROUP20261017","orderNo":0,"pageRelationId":null,"portletList":null,"publishState":null,"terminalType":"PC","type":"GROUP"}},"message":"SUCCESS","status":0}}}`
+- 请求 variables：`{"body":{"appId":"9000000000000000001","terminalType":"PC","type":"GROUP","name":"S2GROUP20261017"}}`
+- 响应（原文）：`{"traceId":"17922483013725158661","data":{"udcPortletCreatePost":{"code":"BOOT_0000","data":{"content":{"appId":"9000000000000000001","groupId":null,"guid":null,"id":"-2821989384273517473","name":"S2GROUP20261017","orderNo":0,"pageRelationId":null,"portletList":null,"publishState":null,"terminalType":"PC","type":"GROUP"}},"message":"SUCCESS","status":0}}}`
 - 原始：`raw/s2r1_group_create.json`
 
 **恢复判定标准第 4 条（op 命中判定）**：实际命中 `udcPortletCreatePost`（→ `udc/portlet/create`，PortletDto，type=GROUP），**未命中** `portlet-group/create`。静态预置 5.2.1 推断成立；`udc_portlet_group` 建后仍 0 行，与「建分组不碰该表（走门户 Dubbo 分类）」一致。
@@ -39,8 +39,8 @@
 
 - 提交前表单快照（裁定 I5，`raw/s2r1_portlet_form.json`）：适配终端 **PC=checked / MOBILE=unchecked** → page_info 期望 +1；「自定义页面」handWritten 未勾选；**栏目分组下拉已自动选中 S2GROUP20261017**（required 前置条件满足）
 - REST：`POST /service/udc/graphql?udcPortletCreatePortletPost`
-- 请求 variables：`{"body":{"appId":"8704025620829192834","caption":"S2PROBE20261017","curTerminalType":"PC","groupId":"-2821989384273517473","pageItems":[{"menuId":"-2821989384273517473","urlType":"PC"}],"pageType":"PORTLET","pageUrl":"S2PROBE20261017"}}`
-- 响应（原文）：`{"traceId":"17922483545794594178","data":{"udcPortletCreatePortletPost":{"code":"BOOT_0000","data":{"content":{"appId":"8704025620829192834","groupId":"-2821989384273517473","guid":null,"id":"5810462779490574369","name":"S2PROBE20261017","orderNo":0,"pageRelationId":"8758458332069176381","portletList":null,"publishState":null,"terminalType":"PC","type":"PORTLET"}},"message":"SUCCESS","status":0}}}`
+- 请求 variables：`{"body":{"appId":"9000000000000000001","caption":"S2PROBE20261017","curTerminalType":"PC","groupId":"-2821989384273517473","pageItems":[{"menuId":"-2821989384273517473","urlType":"PC"}],"pageType":"PORTLET","pageUrl":"S2PROBE20261017"}}`
+- 响应（原文）：`{"traceId":"17922483545794594178","data":{"udcPortletCreatePortletPost":{"code":"BOOT_0000","data":{"content":{"appId":"9000000000000000001","groupId":"-2821989384273517473","guid":null,"id":"5810462779490574369","name":"S2PROBE20261017","orderNo":0,"pageRelationId":"8758458332069176381","portletList":null,"publishState":null,"terminalType":"PC","type":"PORTLET"}},"message":"SUCCESS","status":0}}}`
 - 创建后自动跳转页面设计器 `portlet/edit/8758458332069176381`
 - 原始：`raw/s2r1_portlet_create.json`（12 次调用，含跳转后设计器初始化全链）
 
@@ -48,7 +48,7 @@
 
 ### 2.3 H5 orderNo 动态断言
 
-建前现场基线：`SELECT COUNT(*), COALESCE(MAX(order_no),0) FROM udc_portlet WHERE app_id=8704025620829192834` → `0, 0`
+建前现场基线：`SELECT COUNT(*), COALESCE(MAX(order_no),0) FROM udc_portlet WHERE app_id=9000000000000000001` → `0, 0`
 - 分组行 order_no=**1** = 建前 max+1 ✅
 - 栏目行 order_no=**2** = 新 max+1 ✅
 - 响应体 `orderNo` 恒为 0（两个创建响应都是 0），**不反映落库值** → H5 断言只能以 DB 回读为准（见 §六.6）
@@ -132,7 +132,7 @@ SELECT * FROM udc_test2.udc_page_info WHERE relation_group_id=875845833206917638
 SELECT * FROM portal_test2.portal_portlet_category WHERE category_code='-2821989384273517473';
 ```
 建分组后**即时**命中 1 行：
-`id=-1582715737185534094, category_code='-2821989384273517473'`（**== 本地分组 id ✅**，精确比对键生效，name 模糊匹配未使用）`, category_name='S2GROUP20261017', category_path='-1/datamigration9000000000000000001/-2821989384273517473', sort_no=1（=order_no）, category_type=0（注册的栏目分类）, data_status=0（设计态）, app_code='datamigration9000000000000000001', original_app_id=8704025620829192834`
+`id=-1582715737185534094, category_code='-2821989384273517473'`（**== 本地分组 id ✅**，精确比对键生效，name 模糊匹配未使用）`, category_name='S2GROUP20261017', category_path='-1/datamigration9000000000000000001/-2821989384273517473', sort_no=1（=order_no）, category_type=0（注册的栏目分类）, data_status=0（设计态）, app_code='datamigration9000000000000000001', original_app_id=9000000000000000001`
 
 **与静态预置不符（提交 main 更正）**：`parent_category_code` 实为 **`datamigration9000000000000000001`**（应用 code），**不是**字节码常量 `PARENT_CATEGORY_CODE="-1"`；`-1` 只出现在 `category_path` 的根前缀。即「门户分类父级 = 应用」而非「全局根 -1」。
 
@@ -169,7 +169,7 @@ SELECT * FROM udc_test2.udc_operation_log WHERE create_time>='2026-10-17 22:40:0
 - **H6-a 本轮不适用**（不落 UNVERIFIED 标签）：「只建栏目不保存页面」场景未发生 —— 本轮先建（22:45）后保存（22:47），直接取到 LIVE 正证据
 - **H6-b 单端形态验证 ✅（裁定 M 三项核对）**：仅 PC 端保存 → 该端 `enable_pc=1 + expose_name + definition_info` **三项齐**；手机端 `enable_mobile=0 + m_definition_info=NULL`。与字节码推演一致
 - **重大映射更正（静态件需改）**：`portal_portlet_definition.portlet_id = **8758458332069176381（= pageRelationId / relationGroupId）**，**不是** `udc_portlet.id`(5810462779490574369)。此前按 portlet.id 精确查 0 行即此故
-- **另一个不同键**：`definition_info` JSON 内 `categoryCode=8704025620829192834`（**appId 语义**），与表列 `category_code`（**分组 id 语义**）不是同一个东西，判读不得混用
+- **另一个不同键**：`definition_info` JSON 内 `categoryCode=9000000000000000001`（**appId 语义**），与表列 `category_code`（**分组 id 语义**）不是同一个东西，判读不得混用
 - 原始：`raw/s2r1_page_save.json`（暂存草稿）、`raw/s2r1_page_save_submit.json`（保存并提交）
 
 ---
@@ -220,5 +220,5 @@ SELECT * FROM udc_test2.udc_operation_log WHERE create_time>='2026-10-17 22:40:0
 
 ## 历史：BLOCKED 轮（403，2026-10-17 17:2x，结论已被本轮取代）
 
-17:00–17:1x 间 `lowcode-test2` 入口对 `/service/*` 整段 403（nginx 页 548B，与 token/cookie/浏览器均无关，登录接口同时被拒），S2 首轮零写 BLOCKED（证据与推断原文见 git 历史 commit）。22:27 main 门禁复核解封（`/service/common/version`=200 业务 JSON、`/main/`=200），S2-R1 重启即本轮。
+17:00–17:1x 间 `lowcode-<env>2` 入口对 `/service/*` 整段 403（nginx 页 548B，与 token/cookie/浏览器均无关，登录接口同时被拒），S2 首轮零写 BLOCKED（证据与推断原文见 git 历史 commit）。22:27 main 门禁复核解封（`/service/common/version`=200 业务 JSON、`/main/`=200），S2-R1 重启即本轮。
 首轮（22:36）提交虽有 HTTP 200 但响应体缺失 + DB 零落行，main 22:41 裁定 `UNVERIFIED-响应体缺失` 并给出 fetch/XHR hook 取证修正 —— 本轮已采用，问题闭环。

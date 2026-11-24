@@ -214,7 +214,7 @@
 - HEAD `cf45180`；test2 5.3.496；create 成功数 **0**；证据 5 jsonl + 1 md + 九段式格 1 件全在盘。
 
 ### 8.5 R1 unblock 轮（main option a 供 E7 · 16:30 CST 实测）
-- main 按 8.3 (a) 供给侧给有效 `hostAppName`（E7 = test2 驻留宿主码 `znxmglptcopy579…`，config L59-71 `running_profile:test2`/`k8s_namespace:lowcode-test`）+ E8 只读枚举端点；重发 R1 单环，R2-R4 仍待。
+- main 按 8.3 (a) 供给侧给有效 `hostAppName`（E7 = test2 驻留宿主码 `znxmglptcopy579…`，config L59-71 `running_profile:test2`/`k8s_namespace:lowcode-<env>`）+ E8 只读枚举端点；重发 R1 单环，R2-R4 仍待。
 - **实测**：重新登录 OK（cookie 值 0 入件）→ E8 `serial-config/select-entity-list?appName={E7}` = 200/BOOT_0000/**18 实体**（traceId `3253789492108069052`），**但 18 个实体 fullName 全挂 uat 命名空间 `com.seeyon.znxmglpt3289…`（= default_app_id），非 E7/test2 命名空间**。
 - create 用满 unblock 允许 **3/3 次全 `status:2` 静默业务失败**（traceId `3253789499322271932` E7+me / `3253789511989070012` default+me / `3253790538922461372` E7-alone 最小体）；**未建成应用，无 `data` id，无 deleteByIds 清单**。
 - **根因判定（交 main 裁定）**：create 网关前缀走 uat `default_app_id`，而 `hostAppName`=E7(test2) → 网关把 create 路由到 uat 宿主，uat 宿主绑不到 test2 host app → status:2。最小体（E7+无 me）亦 status:2 ⇒ 根因**非 masterEntity 命名空间污染本身**，而是 **host 经 uat 路由未解析到 test2 host**。
@@ -362,9 +362,9 @@
 - **本环执行主体 = HUMAN controller 代跑**（implementer 的 R4 HANDOFF `r4-data-write-handoff-v1` turn 挂死被停，
   main 按 HUMAN 指令**不再重派同一 HANDOFF**，改由 main 收口落格）。事实源 = `evidence/R4-data-write-readback-20261001.json`
   （1959 B，git `aa5dfef`）+ 通道探测 6 件 jsonl，非转述。
-- **回读环 = LIVE PASS（第 4 环 · TASK-GOAL 加分项落地）**：物理表 `zzprobenew26419954374508955097_test2.zzprobeen_m2128447441671076182`
+- **回读环 = LIVE PASS（第 4 环 · TASK-GOAL 加分项落地）**：物理表 `zzprobenew29000000000000000002_test2.zzprobeen_m2128447441671076182`
   新增 1 行（`id=147154`，`ziduan1='ZZPROBE-R4-202610010406'`，`tenant_id=-8112660841495312922`）→
-  `POST /service/zzprobenew26419954374508955097/udc-runtime/data/query`（三键 `appName/entityFullName/dataId`，
+  `POST /service/zzprobenew29000000000000000002/udc-runtime/data/query`（三键 `appName/entityFullName/dataId`，
   复用 `runtime-data-read.md` §3 未重探）→ **`BOOT_0000` / traceId `3254491595596105916`**，回读行 `id` 与 `dataId` 同值、
   `ziduan1` 逐字一致且非空 → 写→回读同一目标配对成立，非 200 空结果。
 - **口径三分（不虚写）**：① 回读面 REST = **LIVE PASS**；② 写入面 = **DB 直插实测（非 API 写面）**；

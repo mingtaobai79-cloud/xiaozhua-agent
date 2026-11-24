@@ -6,8 +6,8 @@
 
 - Parent component: xiaozhua Agent
 - Component: UDC
-- Environment: test2 via SSH 10.0.0.1 → `kubectl --kubeconfig=configtest2`
-- Namespace: `lowcode-test`
+- Environment: test2 via SSH 10.0.0.1 → `kubectl --kubeconfig=<KUBECONFIG>`
+- Namespace: `lowcode-<env>`
 - Pod: `udc-7cbfc587f5-kwjdd`
 - Artifact: `udc-web-5.3.517.jar` inside `/app/udc-assemble.jar`
 - Controller: `com.seeyon.udc.controller.EntityController`

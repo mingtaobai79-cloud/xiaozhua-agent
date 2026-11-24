@@ -7,10 +7,10 @@
 ## 请求 1（成功，决定性证据）
 
 ```
-GET https://lowcode-test2.example.com/service/udc/sandbox/tenant/config/-8112660841495312922
+GET https://lowcode-<env>2.example.com/service/udc/sandbox/tenant/config/-8112660841495312922
 Cookie: <shared-credentials/test2-web-credential.json 的 cookie 字段，本文不落 secret>
 Accept: application/json, text/plain, */*
-Referer: https://lowcode-test2.example.com/main/
+Referer: https://lowcode-<env>2.example.com/main/
 ```
 
 响应 **HTTP 200**，耗时 ~100ms，body 长度 **276**：
@@ -36,8 +36,8 @@ Referer: https://lowcode-test2.example.com/main/
 ## 请求 2（探路失败，记录前缀结论）
 
 ```
-GET .../service/6419954374508955097/sandbox/tenant/config/-8112660841495312922
--> HTTP 200 {"status":3,"code":"server_404","message":"6419954374508955097 服务不存在，请重启服务或重新发布应用后再试！"}
+GET .../service/9000000000000000002/sandbox/tenant/config/-8112660841495312922
+-> HTTP 200 {"status":3,"code":"server_404","message":"9000000000000000002 服务不存在，请重启服务或重新发布应用后再试！"}
 ```
 
 ```

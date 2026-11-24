@@ -27,13 +27,13 @@
 
 | 问题 | 处理 |
 |---|---|
-| `components/logs/loki.py` 文档串写死客户 datasource 名、`search()` 默认 `namespace="lowcode-test"` | 默认值全部清空，文档改 `<env-name>`；工具不认识任何具体环境 |
+| `components/logs/loki.py` 文档串写死客户 datasource 名、`search()` 默认 `namespace="lowcode-<env>"` | 默认值全部清空，文档改 `<env-name>`；工具不认识任何具体环境 |
 | `xiaozhua_host_bootstrap.logs_search` 默认 `env="test2"`、`namespace` 默认客户命名空间 | 默认空串，缺 env 时报「必须指定 env」并列出本机已配置的键 |
 | MCP 工具描述里写 test2/uat/prod | 改成「使用时自定的环境名」 |
 | `config/logs.example.yaml` 带客户 datasource 名 | 全占位符 |
 | CHANGELOG 0.2.6 写了真实主机/命名空间/pod/日志样例 | 重写为通用口径 |
 | `config/environments.yaml` 含真实本地凭据路径、appId、租户、桶名、k8s namespace | 拆成 **骨架**（入库）+ **`environments.local.yaml`**（本机、gitignore）；读取时深合并（`core/config_env.py`） |
-| `.hermes/plans/*`（研发笔记，含 configtest2 等） | `git rm --cached` + gitignore，文件留在本机 |
+| `.hermes/plans/*`（研发笔记，含 <KUBECONFIG> 等） | `git rm --cached` + gitignore，文件留在本机 |
 | `config/udc-semantics-evidence.local.json`（名字就写 local） | 同上 |
 
 ## B 桶：还没动，需要单独立项
@@ -41,7 +41,7 @@
 | 目录 | 命中文件 | 典型内容 | 建议 |
 |---|---|---|---|
 | `docs/` | 110 → **98** | 审计报告里的真域名、pod 名、跳板机命令 | 净迁出 35 份零引用现场报告（第 1 批 47 份中 entity-field-matrix 20 份回仓；第 2 批再迁 8 份，契约/规则 2 份回仓）（见 `_attic_pending/README.md` 台账）；剩余 98 份先留（被文档/代码引用，需逐处标「已迁出至」再动） |
-| `core/facts/` | ~92 | LIVE 证据格直接贴 appId、`kubectl --kubeconfig=configtest2`、pod 名 | 事实库只留机制与结论，LIVE 明细引用仓外 `customer-evidence` |
+| `core/facts/` | ~92 | LIVE 证据格直接贴 appId、`kubectl --kubeconfig=<KUBECONFIG>`、pod 名 | 事实库只留机制与结论，LIVE 明细引用仓外 `customer-evidence` |
 | `definitions/` | 8 | 客户 DTO 定义（`com.seeyon.datamigration<appId>.…`） | 移到仓外样例库，仓库只留 1 份脱敏示例 |
 | `scripts/` | 5 → **0** | 脚本把真 appId 写成 `default=` | 已改为 `--app-id required` / `XIAOZHUA_APP_ID`；生成物 `random-biz-evidence/` 移出仓库 |
 
