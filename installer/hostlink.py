@@ -47,6 +47,7 @@ def _run(cmd: list[str], dry_run: bool, stdin_text: str | None = None) -> tuple[
         return 0, "DRY-RUN: " + " ".join(cmd)
     try:
         proc = subprocess.run(cmd, capture_output=True, text=True,
+                              encoding="utf-8", errors="replace",
                               timeout=CLI_TIMEOUT, input=stdin_text)
     except FileNotFoundError:
         return 127, "%s 不存在" % cmd[0]
@@ -134,7 +135,9 @@ def probe(host: str, root: str) -> bool:
     if not cmd:
         return False
     try:
-        proc = subprocess.run(cmd, capture_output=True, text=True, timeout=PROBE_TIMEOUT)
+        proc = subprocess.run(cmd, capture_output=True, text=True,
+                              encoding="utf-8", errors="replace",
+                              timeout=PROBE_TIMEOUT)
     except Exception:
         return False
     out = ((proc.stdout or "") + (proc.stderr or "")).replace("\\", "/")
@@ -151,7 +154,8 @@ def probe(host: str, root: str) -> bool:
 def _hermes_entry_matches(exe: str, root_norm: str) -> bool:
     try:
         which = subprocess.run([exe, "config", "path"], capture_output=True,
-                               text=True, timeout=PROBE_TIMEOUT)
+                               text=True, encoding="utf-8", errors="replace",
+                               timeout=PROBE_TIMEOUT)
         cfg = (which.stdout or "").strip().splitlines()[-1].strip()
         text = pathlib.Path(cfg).read_text(encoding="utf-8", errors="replace")
     except Exception:

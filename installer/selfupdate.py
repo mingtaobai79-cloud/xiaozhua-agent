@@ -534,7 +534,9 @@ def cmd_install(args) -> int:
         cmd.append("--link")
         if getattr(args, "link_report", None):
             cmd += ["--link-report", str(args.link_report)]
-    proc = subprocess.run(cmd, cwd=str(ROOT))
+    # PYTHONUTF8=1：子进程（install.py）会打 ✓/✗，GBK 控制台下不设它会 UnicodeEncodeError 半途死
+    proc = subprocess.run(cmd, cwd=str(ROOT),
+                          env={**os.environ, "PYTHONUTF8": "1"})
     if proc.returncode == 0:
         state = load_state()
         hosts = sorted(set(state.get("hosts", [])) | set(args.host.split(",")))
