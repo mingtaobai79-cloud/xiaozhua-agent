@@ -1,6 +1,7 @@
 # 一次性调试脚本
 /scratch/
-/_attic_pending/
+/_attic_pending/*
+!/_attic_pending/README.md
 /build/
 /dist/
 # 证据快照（反编译产物 / 客户抓包）
