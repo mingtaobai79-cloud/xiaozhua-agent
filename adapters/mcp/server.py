@@ -208,8 +208,8 @@ def build_tool_schemas(caps: dict[str, Callable]) -> list[dict]:
         "live_probe": "活体只读探测 4 端点。默认离线返回 status=BLOCKED（allow_network=False）；"
                       "活体需显式 XIAOZHUA_ALLOW_NETWORK=1。任何离线输出不得解读为 LIVE PASS。",
         "logs_search": "查运行期日志（Loki，经 Grafana datasource proxy，只读）。"
-                       "env 来自 ~/.xiaozhua/logs.yaml（test2/uat/prod）；凭据只认环境变量 "
-                       "GRAFANA_USER/GRAFANA_PASSWORD 或 GRAFANA_TOKEN。"
+                       "env 是使用者在 ~/.xiaozhua/logs.yaml 里自定的环境名（工具不认识任何具体环境）；"
+                       "凭据只认环境变量 GRAFANA_USER/GRAFANA_PASSWORD 或 GRAFANA_TOKEN。"
                        "给了 query 就原样当 LogQL；否则按 namespace/app/pod/grep 拼 selector。",
         "logs_labels": "列日志 label（不传 label 返回全部 label 名，传了返回取值），用来发现 app / pod / namespace。",
         "logs_envs": "已配置的日志环境 + 每个环境能否列 label（连通性自检）。",

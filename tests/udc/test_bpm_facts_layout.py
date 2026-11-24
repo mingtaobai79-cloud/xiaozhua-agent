@@ -127,7 +127,12 @@ def test_no_customer_identifiers_in_readme():
     # 不在这里写出客户标识字面量（本文件也属结论区，写了会被 test_deidentification 抓）。
     # 改为从真实数据源派生：config/environments.yaml 里的活体环境域名与默认应用名。
     text = _readme().lower()
-    cfg = (ROOT / "config" / "environments.yaml").read_text(encoding="utf-8", errors="replace")
+    # 骨架 + 本机 local 覆盖层合并后的文本（真实值只在 local，不进 git）
+    import json as _json
+    import sys as _sys
+    _sys.path.insert(0, str(ROOT))
+    from core.config_env import load as _load_env_config
+    cfg = _json.dumps(_load_env_config(), ensure_ascii=False)
     hosts = set(re.findall(r"https?://([A-Za-z0-9.-]+)", cfg))
     # 只取非占位域名（example.com / localhost 之类不算）
     banned = {h.lower() for h in hosts if not h.lower().endswith(("example.com", "localhost"))}

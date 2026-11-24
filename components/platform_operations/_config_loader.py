@@ -39,9 +39,10 @@ _DEFAULT_TEMPLATE = "{maven_root}/{artifact}/{version}/{artifact}-{version}.jar"
 
 @lru_cache(maxsize=None)
 def _load_environments() -> dict:
+    """仓库骨架 config/environments.yaml + 本机 config/environments.local.yaml（不进 git）。"""
     _need_yaml()
-    with _ENVIRONMENTS.open(encoding="utf-8") as fh:
-        return yaml.safe_load(fh) or {}
+    from core.config_env import load as _load_env_config
+    return _load_env_config()
 
 
 @lru_cache(maxsize=None)

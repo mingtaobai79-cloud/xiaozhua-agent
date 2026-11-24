@@ -28,9 +28,8 @@ def _customer_evidence_root_from_config() -> str | None:
     会导致"构造器用占位、loader 读真名"的两侧不一致。
     """
     try:
-        import yaml as _yaml
-        cfg_path = Path(__file__).resolve().parents[2] / "config" / "environments.yaml"
-        cfg = _yaml.safe_load(cfg_path.read_text(encoding="utf-8")) or {}
+        from core.config_env import load as _load_env_config
+        cfg = _load_env_config()
         envs = cfg.get("environments") or {}
         for env in ("test2", "uat", "default"):
             node = envs.get(env) or {}

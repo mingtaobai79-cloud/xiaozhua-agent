@@ -1,89 +1,46 @@
-# xiaozhua-agent 环境清单 v1 —— 所有环境常量的唯一来源
-# 铁律: 代码/测试/文档/契约禁止写死 URL/appId/版本/路径, 一律引用这里的键
+# xiaozhua-agent 环境清单（骨架，跟仓库走）—— 只有结构和占位符
+#
+# 铁律: 代码/测试/文档/契约禁止写死 URL/appId/版本/路径, 一律引用这里的键;
+#       真实值写在本机 config/environments.local.yaml（不进 git），读取时深合并覆盖这里。
+#
+# 为什么分两个文件: 这个仓库是「装到别人机器上的工具」，不能带客户/本机环境信息
+# （主机、命名空间、appId、租户、桶名、凭据路径）。骨架保证 clone 下来就能看懂结构。
 default: local-maven
 
 environments:
   local-maven:
     kind: maven
-    maven_root: <MAVEN_REPO>/com/seeyon     # 本地 Maven 仓库根(按机器可在 profile 覆盖)
+    maven_root: <MAVEN_REPO>/com/<vendor>      # 本地 Maven 仓库根（在 local 覆盖里填）
     note: 离线取证默认环境; artifact 路径 = {maven_root}/{artifact}/{version}/
 
-  test2:
-    kind: gateway
-    gateway_base: https://lowcode-test2.example.com
-    gateway_prefix_template: "/service/{appId}"
-    default_app_id: app9000000000000000001
-    udc_image_version: "5.3.496"            # test2 镜像版本(与本地 5.3.517 是两个证据单元)
-    credential:
-      ref: test2-web-credential
-      file: ../../多agent协助/agent-collaboration/shared-credentials/test2-web-credential.json
-      note: token 有时效; 看门狗/人工经 shared-credentials/ctp-user-login.json 自助续期(2026-09-25 起, 老会话深路径已归档)
-    note: 联调活体回读环境
-
-  # uat:
+  # 网关型环境模板（照抄到 environments.local.yaml 里填真值）：
+  # <env-name>:
   #   kind: gateway
-  #   gateway_base: https://lowcode-uat.example.com
+  #   gateway_base: https://<host>.example.com
   #   gateway_prefix_template: "/service/{appId}"
-  #   default_app_id: <按客户填>
+  #   default_app_id: <按环境填>
   #   udc_image_version: "<部署版本>"
-  #   credential: {ref: uat-credential, file: <仓库外路径>}
+  #   credential: {ref: <credential-ref>, file: <仓库外路径>}
 
-# ─── 客户场景证据根（迁出仓库外，2026-10-09）──────────────
-customer_evidence_root: <EVIDENCE_ROOT>/xiaozhua-customer-evidence   # golden 样本/客户 javap/metadata dump
+# --- 客户场景证据根（在仓外，2026-10-09 迁出）---
+customer_evidence_root: <EVIDENCE_ROOT>/xiaozhua-customer-evidence
 customer_evidence_note: >
   客户应用场景证据不进本仓库。需要 golden 样本回放时设
-  XIAOZHUA_CUSTOMER_EVIDENCE_ROOT 指向此根（或直接引用该路径）。
+  XIAOZHUA_CUSTOMER_EVIDENCE_ROOT指向此根，
+  或直接在 local 覆盖里写真实路径。
 
-# ─── S6-CONFIG-PROJECTS-MERGE: projects 段（U6 建议件 4201B/239ac37227c0 逐字并入）──
-# 铁律 040402：代码不写死配置值 → 每 project 只登记引用键 + 来源 dataId/group/tenant，值走 Nacos 只读取，不写进仓库
-projects:
-  # 目标 app（本任务验收①）
-  app9000000000000000001:
-    display: 项目管理平台(znxmglpt)
-    running_profile: uat            # 来自 raw-01 pod env SPRING_PROFILES_ACTIVE
-    k8s_namespace: lowcode-uat     # 来自 raw-01 C5/C7
-    nacos:
-      endpoint_ref: mse-c19f9232
-      tenant: xiaozhua-uat
-      group: xiaozhua
-      dataIds:
-        primary: app9000000000000000001
-        shared: [udc, public, public-common, public-system]
-    key_refs:                       # 键名→来源 dataId（值不入库，运行态经 Nacos 只读取）
-      datasource.database: {value_hint: 9000000000000000001_uat, source: primary/seeyon/xiaozhua-uat}
-      datasource.url:              {source: public/seeyon/xiaozhua-uat}
-      datasource.username:         {value_hint: low_code, source: public/seeyon/xiaozhua-uat}
-      datasource.password:         {redacted: true, source: public/seeyon/xiaozhua-uat}
-      cache.redis-nodes:           {source: public/seeyon/xiaozhua-uat}
-      cache.redis-password:        {redacted: true, source: public/seeyon/xiaozhua-uat}
-      storage.oss.private-bucket-name: {value_hint: xiaozhua-private-uat, source: public/seeyon/xiaozhua-uat}
-      storage.oss.api-endpoint:    {source: public/seeyon/xiaozhua-uat}
-      autocode.frontDomain:        {value_hint: http://lowcode-uat.example.com, source: udc/seeyon/xiaozhua-uat}
-      udc.tenantId:                {value_hint: "-8112660841495312922", source: primary/seeyon/xiaozhua-uat}
+# --- projects 段（结构示例；真实项目登记写在 local 覆盖层）---
+# 铁律：代码不写死配置值 -> 每 project 只登记引用键 + 来源 dataId/group/tenant，
+#       值走 Nacos 只读取，不写进仓库。
+projects: {}
 
-  # 对照 app
-  znxmglptcopy5791640252914287064:
-    display: 项目管理平台复制(znxmglptcopy)
-    running_profile: test2          # 来自 raw-01 C5/C8
-    k8s_namespace: lowcode-test     # 来自 raw-01 C5/C8
-    nacos:
-      endpoint_ref: mse-c19f9232
-      tenant: xiaozhua-test2
-      group: xiaozhua
-      dataIds:
-        primary: znxmglptcopy5791640252914287064
-        shared: [udc, public, public-common, public-system]
-    key_refs:
-      datasource.database: {value_hint: znxmglptcopy5791640252914287064_test2, source: primary/seeyon/xiaozhua-test2}
-      storage.oss.private-bucket-name: {value_hint: xiaozhua-private-test2, source: public/seeyon/xiaozhua-test2}
-      autocode.frontDomain: {value_hint: http://lowcode-test2.example.com, source: udc/seeyon/xiaozhua-test2}
-
-# ─── S6-CONFIG-PROJECTS-MERGE: nacos_endpoints 段（U6 建议件配套建议逐字并入）──
-nacos_endpoints:
-  mse-c19f9232:
-    kind: aliyun-mse
-    host_hint: mse-c19f9232-nacos-ans.mse.aliyuncs.com   # 可登记为可读事实（非私密凭据）
-    port: 8848
-    protocol: http
-    readonly: true
-    credential: {ref: nacos-mse-credential, file: "<仓库外路径, git 忽略>"}
+# --- nacos_endpoints（结构示例）---
+# nacos_endpoints:
+#   <endpoint-ref>:
+#     kind: aliyun-mse
+#     host_hint: <host>
+#     port: 8848
+#     protocol: http
+#     readonly: true
+#     credential: {ref: <credential-ref>, file: "<仓库外路径, git 忽略>"}
+nacos_endpoints: {}

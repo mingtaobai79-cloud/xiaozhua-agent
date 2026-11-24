@@ -20,3 +20,13 @@ __pycache__/
 docs/audit/artifacts/extension-surface-full/batch2/
 # 一次性清理现场（原始抓包，已汇总进 docs/audit）
 docs/audit/p0-custom-trigger/cleanup-backup/
+
+# 本机环境覆盖层（真实主机/命名空间/appId/租户/凭据路径，绝不入库）
+config/environments.local.yaml
+config/*.local.json
+config/apps/*.local.yaml
+config/logs.yaml
+~/.xiaozhua/logs.yaml
+
+# 本机工作笔记（含环境细节，不进发行包）
+/.hermes/

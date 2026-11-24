@@ -5,17 +5,16 @@
 用 Grafana 账号（basic auth）或 API token。不直连 Loki 3100 —— 那是集群内地址，
 本机不可达；Grafana 的 proxy 已经把鉴权和租户选好了。
 
-配置（非机密）放 `~/.xiaozhua/logs.yaml`：
+配置（非机密，不进仓库）放 `~/.xiaozhua/logs.yaml`，环境名与 datasource 都由使用者自己定：
 
 ```yaml
 environments:
-  test2:
-    grafana: https://grafana-loki-test.example.com
-    datasource: loki-lowcode-test2        # 可以写名字，也可以写数字 id
-  uat:
-    grafana: https://grafana-loki-test.example.com
-    datasource: loki-lowcode-uat
+  <env-name>:
+    grafana: https://grafana.example.com      # 你的 Grafana 根地址
+    datasource: <loki datasource 名字或 id>    # 名字会先查 /api/datasources
 ```
+
+工具本身不认识任何具体环境：不写死主机、命名空间、app、pod。
 
 凭据只从环境变量取：`GRAFANA_USER` / `GRAFANA_PASSWORD`，或 `GRAFANA_TOKEN`
 （Bearer，优先生效）。本模块不读、不写任何密码文件。
@@ -62,6 +61,10 @@ def env_names() -> list[str]:
 
 
 def _env_conf(env: str) -> dict[str, Any]:
+    if not env:
+        raise LokiError(
+            f"必须指定 env（{_config_path()} 里的 environments 键之一："
+            f"{', '.join(env_names()) or '尚未配置'}）")
     conf = load_config()["environments"].get(env)
     if not conf:
         raise LokiError(
@@ -138,7 +141,7 @@ def _logql(namespace: str, app: str, pod: str, grep: str, query: str) -> str:
     return selector
 
 
-def search(env: str = "test2", query: str = "", namespace: str = "lowcode-test",
+def search(env: str = "", query: str = "", namespace: str = "",
            app: str = "", pod: str = "", grep: str = "", minutes: int = 15,
            limit: int = 200, direction: str = "backward") -> dict[str, Any]:
     """按时间窗拉日志。返回 {env, datasource, query, streams, lines[], stats}。
@@ -183,7 +186,7 @@ def search(env: str = "test2", query: str = "", namespace: str = "lowcode-test",
     }
 
 
-def labels(env: str = "test2", label: str = "") -> dict[str, Any]:
+def labels(env: str = "", label: str = "") -> dict[str, Any]:
     """列 label 名；给了 label 就返回它的取值（用来发现 app/pod/namespace）。"""
     grafana, ds_id = _datasource_id(env)
     base = f"{grafana}/api/datasources/proxy/{ds_id}/loki/api/v1"

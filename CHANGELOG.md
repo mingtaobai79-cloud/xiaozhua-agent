@@ -6,53 +6,48 @@
 
 ### 为什么走 Grafana 而不是 Loki 3100
 
-`http://loki-read:3100` 是集群内地址，本机不可达；Grafana 的 datasource proxy 已经把
-鉴权和租户选好了：
+`loki-read:3100` 是集群内地址，本机不可达；Grafana 的 datasource proxy 已经把鉴权和租户选好了：
 
 ```
 {grafana}/api/datasources/proxy/{id}/loki/api/v1/query_range
 ```
 
-实测这台机器：`/api/datasources` 200，`loki-lowcode-test2` = id 28，`query_range` 能拉到
-`{"namespace=~\"lowcode-test\",app=~\"udc\"}` 的真实日志行。
+### 仓库里只放机制，不放环境
 
-### 配置与凭据
-
-非机密配置 `~/.xiaozhua/logs.yaml`（模板 `config/logs.example.yaml`）：
+**工具本身不认识任何具体环境** —— 没有写死的主机、namespace、app、pod，也没有默认 env。
+环境名、Grafana 地址、datasource 全在使用者自己的 `~/.xiaozhua/logs.yaml`（模板
+`config/logs.example.yaml` 只有占位符），该文件不进 git。
 
 ```yaml
 environments:
-  test2: {grafana: https://.../lowcode, datasource: loki-lowcode-test2}
-  uat:   {grafana: https://.../lowcode, datasource: loki-lowcode-uat}
-  prod:  {grafana: https://.../lowcode, datasource: loki-lowcode}
+  <env-name>:
+    grafana: https://grafana.example.com
+    datasource: <datasource 名字或数字 id>   # 名字会先查 /api/datasources
 ```
 
 凭据只认环境变量：`GRAFANA_USER` + `GRAFANA_PASSWORD`，或 `GRAFANA_TOKEN`（优先）。
-仓库与安装件里零密码。
+仓库、安装件、日志里零凭据、零客户主机。
 
 ### 工具口径
 
 | 工具 | 作用 |
 |---|---|
 | `xiaozhua_logs_search` | 时间窗查日志；`query` 给了就原样当 LogQL，否则按 namespace/app/pod/grep 拼；返回 `{ts,pod,app,line}` 倒序 + `truncated` |
-| `xiaozhua_logs_labels` | 列 label 名/取值，发现 app、pod、namespace |
+| `xiaozhua_logs_labels` | 列 label 名/取值，用来发现有哪些 app / pod / namespace |
 | `xiaozhua_logs_envs` | 配了哪些环境 + 每个环境能否列 label（连通性自检） |
 
-### 实测
+### 验证
 
 ```
-MCP tools/list                 67 个（+3 日志）
-tools/call logs_search         returned=2  query={namespace=~"lowcode-test",app=~"udc"}
-                               2026-11-24 14:15:52 udc-76f87b9d6f-xkdpv ... AppServiceLogFilter
-tools/call logs_envs           test2/uat ok=true, prod labels=0（prod 无数据，通道通）
-pytest tests/test_logs_loki    10 passed（全离线）
+tests/test_logs_loki.py        10 条，全离线（monkeypatch 掉 HTTP）
+tests/test_distribution_hygiene.py  断言发行面不含客户/环境标识
+MCP tools/list                 67 个
 ```
 
 ### 还没做的
 
-- K8s 侧（pods/logs/exec/restart）：本机无 kubectl，test2 的 kubeconfig 在跳板机
-  `jump:/root/.kube/configtest2`；`providers/kubernetes_readonly.py` 目前只有 fixture、
-  网络禁用。下一步按 `providers/loki.py` 同样的形状加 `k8s_*`，写操作（restart）走确认门。
+- K8s 侧（pods / pod / logs / 容器内文件 / restart）：`providers/kubernetes_readonly.py`
+  目前只有 fixture、网络禁用；本机无 kubectl。下一步加 `k8s_*`，写操作（restart）走确认门。
 
 ## 0.2.5 — 2026-11-23
 

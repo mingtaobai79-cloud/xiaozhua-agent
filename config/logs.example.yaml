@@ -1,9 +1,8 @@
-# 运行期日志源（非机密，可入库）。真实文件放 ~/.xiaozhua/logs.yaml
+# 运行期日志源（非机密，可入库；真实文件放 ~/.xiaozhua/logs.yaml，不进 git）
 # 凭据只从环境变量取：GRAFANA_USER / GRAFANA_PASSWORD，或 GRAFANA_TOKEN（优先）
+#
+# 工具不认识任何具体环境 —— 下面的 env 名、主机、datasource 都换成你自己的。
 environments:
-  test2:
-    grafana: https://grafana-loki.example.com
-    datasource: loki-lowcode-test2      # 名字或数字 id 都行
-  uat:
-    grafana: https://grafana-loki.example.com
-    datasource: loki-lowcode-uat
+  <env-name>:
+    grafana: https://grafana.example.com
+    datasource: <datasource 名字或数字 id>

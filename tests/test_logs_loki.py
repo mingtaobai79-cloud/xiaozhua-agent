@@ -23,7 +23,7 @@ def cfg(tmp_path, monkeypatch):
         "environments:\n"
         "  test2:\n"
         "    grafana: https://grafana.example.com\n"
-        "    datasource: loki-lowcode-test2\n"
+        "    datasource: ds-by-name\n"
         "  uat:\n"
         "    grafana: https://grafana.example.com\n"
         "    datasource: 29\n",
@@ -52,7 +52,7 @@ def test_datasource_by_name_resolves_id(cfg, monkeypatch):
         calls.append(url)
         if url.endswith("/api/datasources"):
             return [{"id": 13, "name": "loki-other", "type": "loki"},
-                    {"id": 28, "name": "loki-lowcode-test2", "type": "loki"}]
+                    {"id": 28, "name": "ds-by-name", "type": "loki"}]
         return {"data": {"result": []}}
 
     monkeypatch.setattr(loki, "_get", fake_get)
@@ -81,8 +81,8 @@ def test_selector_built_from_filters(cfg, monkeypatch):
         return {"data": {"result": []}}
 
     monkeypatch.setattr(loki, "_get", fake_get)
-    loki.search(env="uat", namespace="lowcode-test", app="udc", pod="udc-", grep="Exception")
-    assert seen["q"] == '{namespace=~"lowcode-test",app=~"udc",pod=~"udc-"} |= "Exception"'
+    loki.search(env="uat", namespace="ns-a", app="udc", pod="udc-", grep="Exception")
+    assert seen["q"] == '{namespace=~"ns-a",app=~"udc",pod=~"udc-"} |= "Exception"'
 
 
 def test_explicit_query_passthrough(cfg, monkeypatch):

@@ -38,10 +38,10 @@ def _resolve_class_dir() -> Path:
     if env_dir:
         return Path(env_dir)
     try:
-        import yaml as _yaml
-        cfg = _yaml.safe_load(
-            (Path(__file__).resolve().parents[2] / "config" / "environments.yaml")
-            .read_text(encoding="utf-8")) or {}
+        import sys as _sys
+        _sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+        from core.config_env import load as _load_env_config
+        cfg = _load_env_config()
         for scope in (cfg.get("environments") or {}).values():
             if isinstance(scope, dict) and scope.get("sup_classes_dir"):
                 return Path(str(scope["sup_classes_dir"]))

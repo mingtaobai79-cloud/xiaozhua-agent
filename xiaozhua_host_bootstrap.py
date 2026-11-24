@@ -1787,13 +1787,13 @@ def bootstrap(*, credential_file: str | None = None, allow_network: bool = False
         return stats()
 
     # --- 运行期日志（Loki / Grafana proxy，只读）---
-    def logs_search(env: str = "test2", query: str = "", namespace: str = "lowcode-test",
+    def logs_search(env: str = "", query: str = "", namespace: str = "",
                     app: str = "", pod: str = "", grep: str = "", minutes: int = 15,
                     limit: int = 200, direction: str = "backward") -> dict[str, Any]:
         """查某环境日志（LogQL 可选透传）。
 
-        env 来自 ~/.xiaozhua/logs.yaml（test2/uat/prod…）；凭据只认环境变量
-        GRAFANA_USER/GRAFANA_PASSWORD 或 GRAFANA_TOKEN。
+        env 是使用者自己在 ~/.xiaozhua/logs.yaml 里起的名字（本例配置不在仓库里）；
+        凭据只认环境变量 GRAFANA_USER/GRAFANA_PASSWORD 或 GRAFANA_TOKEN。
         给了 query 就原样当 LogQL 用；否则按 namespace/app/pod/grep 拼 selector。
         """
         from components.logs import loki
@@ -1801,7 +1801,7 @@ def bootstrap(*, credential_file: str | None = None, allow_network: bool = False
                            pod=pod, grep=grep, minutes=minutes, limit=limit,
                            direction=direction)
 
-    def logs_labels(env: str = "test2", label: str = "") -> dict[str, Any]:
+    def logs_labels(env: str = "", label: str = "") -> dict[str, Any]:
         """列日志 label（不传 label 返回全部 label 名，传了返回取值），用于发现 app/pod。"""
         from components.logs import loki
         return loki.labels(env=env, label=label)
