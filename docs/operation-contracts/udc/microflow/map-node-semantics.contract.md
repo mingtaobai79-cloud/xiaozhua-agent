@@ -1,6 +1,6 @@
 # 微流程映射类节点语义契约（B-6）
 
-> 切片：B-6（P2 子片）｜ 环境：test2 ｜ 应用参照：`datamigration9000000000000000001`（appId `8704025620829192834`）
+> 切片：B-6（P2 子片）｜ 环境：test2 ｜ 应用参照：`datamigration9000000000000000001`（appId `9000000000000000001`）
 > 写授权：**0 写** ｜ `/service` 调用：**0 次**（全部取自 DB 只读 + 已落盘样本 + CFR 反编译）
 > 证据分级：SAMPLE / STATIC_BYTECODE / LIVE / UNVERIFIED（严格区分，禁混用）
 > 基准 commit：见 §9「版本与状态锚点」（引用行号前请先核对 HEAD 与 `git status`）
@@ -20,7 +20,7 @@
 **三个最容易踩的坑（本文档主要价值）**
 
 1. **分母口径有三层，不是一层**（本切片最重要的产出）：
-   - **第 0 层 · 应用范围**：先问「**哪个应用**」。本应用 `8704025620829192834` 只有 **9 个**映射节点；全库 4755 行微流程有 **42 个**。混用会差 4.7 倍。
+   - **第 0 层 · 应用范围**：先问「**哪个应用**」。本应用 `9000000000000000001` 只有 **9 个**映射节点；全库 4755 行微流程有 **42 个**。混用会差 4.7 倍。
    - **第 1 层 · 遍历位置**：只读 `data_schema.nodes[*]`；任意深度求 `actionType` 会把引用碎片算进来。本应用 9 → 10（差 1，与 B-5 同量级）；全库 42 → 244（差 202）。
    - **第 2 层 · 去重主键**：主键必须是 `(微流程 id, nodeId)`。全库有 **848 个名称**对应 1811 行同名不同 id 的微流程，按 name 去重会把 42 掉到 37；**本应用 0 个同名组，按 name 去重仍是 9**。
 2. **`mappingType` 不属于映射节点**：本应用 9 个 + 全库对照（R3）131 个映射节点中**含该字段的 0 个**（R1 的 42 集合上同样是 0/42，两口径均否证成立）。它是**变量/调用类节点**的参数装配方式枚举（`attrs`/`value`/`mapping`）。拿它去描述映射节点是错的。
@@ -35,7 +35,7 @@
 > **纪律**：报任何映射节点数字前，必须同时声明三件事：**哪个应用 / 只读哪个位置 / 用什么主键去重**。
 > 只写一个数字不说这三项，等于没写。
 
-| 层 | 问题 | 本应用 `8704025620829192834` | 全库 4755 行 | 差 |
+| 层 | 问题 | 本应用 `9000000000000000001` | 全库 4755 行 | 差 |
 |---|---|---|---|---|
 | **0 应用范围** | 哪个 `app_id`？ | **9** | 42 | 4.7× |
 | **1 遍历位置** | 只读 `nodes[*]` 还是任意深度？ | 9 vs **10**（差 1） | 42 vs **244**（差 202） | — |
@@ -46,7 +46,7 @@
 
 ### 1.1 唯一正确口径（D37 定稿三层）
 
-**映射类节点 = `WHERE app_id = 8704025620829192834` 下、递归遍历 node 容器（含 `nodes[i].conditions[j].nodes[k]` 分支内嵌套）、跳过引用位 `REF_SLOTS={nodeInfo, selectParam, selectMap, selectEvent}`，主键 `(udc_microflow_info.id, node.nodeId)`。**
+**映射类节点 = `WHERE app_id = 9000000000000000001` 下、递归遍历 node 容器（含 `nodes[i].conditions[j].nodes[k]` 分支内嵌套）、跳过引用位 `REF_SLOTS={nodeInfo, selectParam, selectMap, selectEvent}`，主键 `(udc_microflow_info.id, node.nodeId)`。**
 
 > **口径修正留痕（main D37 指出，我独立复现确认）**：我初版只读 `nodes[*]` 顶层，**会漏掉分支条件里嵌套的节点**。
 > 全库 R3（递归跳REF）= 131 vs 我 R1 = 42：**有 89 个真节点嵌在 `nodes[i].conditions[j].nodes[k]`**，我全漏了。
@@ -119,11 +119,11 @@ R3 递归+跳REF（D37定稿）occ=131 uniq=131 {CREATE_MAP:30, MAP_OPERATION:75
 **我的核实（`_attic_pending/legacy-audit/b6_auditor_claim.py`（**已移入 `_attic_pending/legacy-audit/b6_auditor_claim.py`**，仓库内已无此路径）（**已移入 `_attic_pending/legacy-audit/b6_auditor_claim.py`**，仓库内已无此路径），LIVE）**：
 ```
 MFSERVICERD1uB6  id=-9063453479472505266  app_id=3289082814923688017  state=20
-                                        ↑ 不是本应用 8704025620829192834
+                                        ↑ 不是本应用 9000000000000000001
 全库 89 个内层节点按 app_id 分布：
   3289082814923688017: 25 / 5791640252914287064: 35 / 1656355078954763084: 2
-  2378987216360786643: 21 / 6570299241515796755: 5 / 7001530513149673721: 1
-  8704025620829192834: 0        ← 本应用零个
+  9000000000000000003: 21 / 6570299241515796755: 5 / 7001530513149673721: 1
+  9000000000000000001: 0        ← 本应用零个
 ```
 → **89 个分支臂内节点全部属于其他 6 个应用，本应用一个都没有。**
 → 本应用 R1=9 与 R3=9 完全一致，不是"恰好"，是**确实没有嵌套**。
@@ -465,7 +465,7 @@ public enum MapOperationTypeEnum implements Messageable {
 {
   "actionType": "DATA_MAPPING",
   "targetType": "ENTITY",
-  "app": { "appId":"8704025620829192834", "appName":"datamigration…", "caption":"数据迁移", "inApp":true, "udcApp":true },
+  "app": { "appId":"9000000000000000001", "appName":"datamigration…", "caption":"数据迁移", "inApp":true, "udcApp":true },
   "structure": {
     "key": "com.seeyon…domain.entity.XzhExp950795",
     "id": "com.seeyon…dto.XzhExp950795Dto",
@@ -728,7 +728,7 @@ python <XIAOZHUA_AGENT_ROOT>/_attic_pending/legacy-audit/b6_r3check.py
 # SELF-CHECK 1b2 【D39 回应】auditor 决定性证据归属核实（LIVE，只读）
 # 期望: MFSERVICERD1uB6 id=-9063453479472505266 app_id=3289082814923688017（非本应用）
 #       全库 89 个内层节点按 app 分布：3289...017:25 / 5791...064:35 / 1656...084:2 / 2378...643:21 / 6570...755:5 / 7001...721:1
-#       本应用 8704025620829192834: **0**
+#       本应用 9000000000000000001: **0**
 #       内层键数 {13:18,14:43,21:24,22:4}，3键壳 0
 #       内层 runAfter：键存在 75/89、值非 None 0/89（input/name 也是 75/89）
 python <XIAOZHUA_AGENT_ROOT>/_attic_pending/legacy-audit/b6_auditor_claim.py
@@ -844,7 +844,7 @@ grep "MAPPING_MODE_" <XIAOZHUA_AGENT_ROOT>/docs/audit/artifacts/scratch-migrated
 # 三组 state 数字必须同时成立（B-6 D48 修正 L252 那个拆反的数字后新增）
 mysql -N -e "
 SELECT '本应用47行', state, COUNT(*) FROM udc_microflow_info
-  WHERE app_id='8704025620829192834' GROUP BY state;
+  WHERE app_id='9000000000000000001' GROUP BY state;
 " 
 # 期望 {10: 5, 20: 42}   ← 原写 {10: 45, 20: 2} 是拆反（auditor 20261017T210010 抓出，main 复核确认）
 # 反例识别：若出现 45，说明把 42 与 5 对调了；45 在本应用不存在

@@ -1,6 +1,6 @@
 # 网关前缀活体确证 + 部署态差异（test2, 无凭据 GET, 只读）
 
-取证时间：2026-09-17T15:13Z · target: https://lowcode-test2.example.com · app=app9000000000000000001
+取证时间：2026-09-17T15:13Z · target: https://lowcode-<env>.example.com · app=app9000000000000000001
 方式：公网 GET（无需登录即可拿到业务 envelope）；只读；不打印凭据。
 
 ## 网关 service 前缀活体确证（与本地 5.3.517 静态分列，不混写）

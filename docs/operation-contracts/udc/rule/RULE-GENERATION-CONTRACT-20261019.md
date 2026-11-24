@@ -97,7 +97,7 @@ type=2 同名跨 app 8 组×2 app，组内 md5 全互异：rulecUbY53/ruleeZofmv
 ### 5.1 CONDITION 口径（7/34、30/67）
 ```
 udc_test2.udc_microflow_info，仅 type=='BRANCH' 的 .conditions[]
-本 app app_id=8704025620829192834 → 47 行 / BRANCH 16 / COND 34 / 空[] 7
+本 app app_id=9000000000000000001 → 47 行 / BRANCH 16 / COND 34 / 空[] 7
 全库 type=2                     → 25 行 / BRANCH 33 / COND 67 / 空[] 30
 scratch/p3_cond2.py
 ```

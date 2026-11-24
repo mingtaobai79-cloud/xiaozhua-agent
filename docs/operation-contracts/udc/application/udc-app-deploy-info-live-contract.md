@@ -41,7 +41,7 @@
 | 面 | 实测 | 形态 |
 |---|---|---|
 | deploy-info 内层原文（LIVE round16） | `"appId":3289082814923688017` | **JSON number（Long）** |
-| `GET /service/udc/application/{id}`（LIVE round6/round10） | `"id":"8704025620829192834"` | **字符串**（ApplicationDto 序列化为 String） |
+| `GET /service/udc/application/{id}`（LIVE round6/round10） | `"id":"9000000000000000001"` | **字符串**（ApplicationDto 序列化为 String） |
 | DB `udc_application.id`（r19 DB 实测） | `bigint(20)` | **bigint** |
 
 → 底层为 Long/bigint；**各接口外层序列化表现不一致**（deploy-info=数字、application DTO=字符串），两形态并列登记，写入契约，不归一。

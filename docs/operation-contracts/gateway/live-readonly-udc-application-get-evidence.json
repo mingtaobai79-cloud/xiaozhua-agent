@@ -8,7 +8,7 @@
   "session_id": "v02-live-session",
   "run_id": "v02-live-run",
   "credential_ref": "<REDACTED-ID>",
-  "gateway": "https://lowcode-test2.example.com",
+  "gateway": "https://lowcode-<env>.example.com",
   "gateway_path": "/service/udc/application/3289082814923688017",
   "route_id": "xiaozhua-udc",
   "service": "udc",

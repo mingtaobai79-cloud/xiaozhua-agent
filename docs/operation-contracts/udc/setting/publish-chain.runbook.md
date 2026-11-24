@@ -1,7 +1,7 @@
 # 设置发布链 runbook（build → publish → 资源可访问）
 
 > 角色：implementer（C 组 · 设置域）· 2026-10-18 12:5x（GMT+8）
-> 目标应用：`datamigration9000000000000000001`（appId `8704025620829192834`），环境 test2
+> 目标应用：`datamigration9000000000000000001`（appId `9000000000000000001`），环境 test2
 > 证据等级：**本文件全部为 STATIC**（反编译签名 + 已有文档交叉），**未执行任何请求**
 > 凭据：仅引用 `<COLLAB_ROOT>\agent-collaboration\shared-credentials\test2-web-credential.json`，不打印、不落盘
 > HANDOFF：`#SETTING-PUB-RUNBOOK`（main 12:40:44）
@@ -69,7 +69,7 @@
 
 | 项 | 值 |
 |---|---|
-| 页面 | `/main/child-frame/udc/app-design/application?appId=8704025620829192834` |
+| 页面 | `/main/child-frame/udc/app-design/application?appId=9000000000000000001` |
 | 入口控件 | 顶部「测试」按钮 |
 | 性质 | **页面点击**（硬约束 7：构建必须页面点击，不能纯 REST 替代） |
 | STATIC 依据 | 前端 store 声明 `udcRuntimeDeployNormalPost` 等 op（`docs/audit/udc-semantics/SETTINGS-TABS-CALLCHAIN.md` 附录「构建/部署执行链 op 组」） |
@@ -79,7 +79,7 @@
 | 项 | 值 |
 |---|---|
 | 方法/路径 | `POST /service/udc/runtime/expect-deploy-time` |
-| 关键参数 | `DeployParamDto`，`@MultiRequestBody`；**body 顶层键 = `deployParamDto`**（**不是裸 DTO，也不是 `deployDto`**）<br>【引用已有 LIVE 抓包，非本次结论】原文：`{"deployParamDto":{"deployType":"RELEASE","appId":"8704025620829192834","projectType":"ALL","terminalType":"ALL"}}` |
+| 关键参数 | `DeployParamDto`，`@MultiRequestBody`；**body 顶层键 = `deployParamDto`**（**不是裸 DTO，也不是 `deployDto`**）<br>【引用已有 LIVE 抓包，非本次结论】原文：`{"deployParamDto":{"deployType":"RELEASE","appId":"9000000000000000001","projectType":"ALL","terminalType":"ALL"}}` |
 | 返回 | `SingleResponse<Long>`，`content` = **秒数**（LIVE 记录里是字符串 `"261"`，见 §7） |
 | 性质 | 页面点击附带（不需要人手动调 REST） |
 | STATIC 来源 | `DeployController.javap.txt` L744 `SingleResponse<java.lang.Long> expectDeployTime(DeployParamDto)`；L769 `PostMapping value=["expect-deploy-time"]`；L782 `@MultiRequestBody` |
@@ -206,7 +206,7 @@
 ```sql
 SELECT create_time, module, sub_module, action_type, domain_caption, trace_id, log_path
 FROM udc_test2.udc_operation_log
-WHERE app_id = '8704025620829192834'
+WHERE app_id = '9000000000000000001'
   AND create_time BETWEEN '<执行前 -1min>' AND '<执行后 +10min>'
 ORDER BY create_time;
 ```
@@ -247,7 +247,7 @@ ORDER BY create_time;
 SELECT create_time, deploy_id, deploy_type, state, build_version, app_version,
        image_url, schema_storage_key, sql_storage_key, serial_num, msg
 FROM udc_test2.udc_deploy_record
-WHERE app_id = '8704025620829192834'
+WHERE app_id = '9000000000000000001'
 ORDER BY create_time DESC LIMIT 5;
 ```
 
@@ -303,19 +303,19 @@ ORDER BY create_time DESC LIMIT 5;
 ```sql
 -- ① 发布记录基线（行数 + 最新 deploy_id + 最新 state）
 SELECT COUNT(*) n, MAX(create_time) last_time FROM udc_test2.udc_deploy_record
-WHERE app_id='8704025620829192834';                       -- 【引用已有 LIVE 查询，非本次结论】基线 4 行以上，最新 01:41:44 state=2
+WHERE app_id='9000000000000000001';                       -- 【引用已有 LIVE 查询，非本次结论】基线 4 行以上，最新 01:41:44 state=2
 
 -- ② 当前运行版本基线（S2 判据锚点）
 SELECT app_version, state, fail_reason, show_version, deploy_time
-FROM udc_test2.udc_app_version WHERE app_id='8704025620829192834' ORDER BY update_time DESC;
+FROM udc_test2.udc_app_version WHERE app_id='9000000000000000001' ORDER BY update_time DESC;
 
 -- ③ 资源版本族基线（发布后 version 会整体刷成一个新值）
 SELECT version, COUNT(*) c FROM udc_test2.udc_resource
-WHERE app_id='8704025620829192834' GROUP BY version ORDER BY version DESC;
+WHERE app_id='9000000000000000001' GROUP BY version ORDER BY version DESC;
 -- 基线：version=20 → 120 行；17→2；3→283；2→543；1→220；0→6（合计 1174）
 
 -- ④ 资源总行数
-SELECT COUNT(*) FROM udc_test2.udc_resource WHERE app_id='8704025620829192834';   -- 1174
+SELECT COUNT(*) FROM udc_test2.udc_resource WHERE app_id='9000000000000000001';   -- 1174
 
 -- ⑤ OSS 侧：当前 remoteEntry 的 sha256[:16]（步骤见 §3.4）
 ```
@@ -331,7 +331,7 @@ SELECT COUNT(*) FROM udc_test2.udc_resource WHERE app_id='8704025620829192834'; 
 
 | 表 | 键列 | 值形态 |
 |---|---|---|
-| `udc_deploy_record` | `app_id` | **数字** `8704025620829192834` |
+| `udc_deploy_record` | `app_id` | **数字** `9000000000000000001` |
 | `udc_app_version` | `app_id` | **数字** |
 | `udc_resource` | `app_id` | **数字** |
 | `udc_operation_log` | `app_id` | **数字** |
@@ -387,7 +387,7 @@ SELECT COUNT(*) FROM udc_test2.udc_resource WHERE app_id='8704025620829192834'; 
 | 运行态版本 | 仍服务 1.0.14 |
 
 > 本次执行前**必须先查**：该 `XzhExp950795` 实体是否已修复。
-> 查法（只读）：`SELECT MAX(create_time), state, LEFT(fail_reason,200) FROM udc_test2.udc_deploy_record WHERE app_id='8704025620829192834' ORDER BY create_time DESC LIMIT 1;`
+> 查法（只读）：`SELECT MAX(create_time), state, LEFT(fail_reason,200) FROM udc_test2.udc_deploy_record WHERE app_id='9000000000000000001' ORDER BY create_time DESC LIMIT 1;`
 > 以及看 `udc_app_version` 最新行的 `state`（1=成功）。**若最新仍 state=2，本次构建必然同样失败，应报 main 不要空跑配额。**
 
 ---

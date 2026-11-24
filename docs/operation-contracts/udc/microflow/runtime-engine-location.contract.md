@@ -281,7 +281,7 @@ MicroFlowExecutor/MicroFlowExecution/executeMicroFlow` = **0 命中** → 平台
 
 - 0 次 /service、0 写、未 push；全部证据来自本地 jar 常量池/javap 与既有解包产物。
   **例外声明（铁律 2）**：§6 的配对检验用了 **1 次只读 DB 查询**（`SELECT ... FROM udc_microflow_info
-  WHERE app_id=8704025620829192834`，47 行），不是 /service 调用，不写库。
+  WHERE app_id=9000000000000000001`，47 行），不是 /service 调用，不写库。
   这是把 §0 的结构性推演变成可证伪检验所必需的；§0–§5 的 STATIC 定性不受影响，
   §6 单列证据等级 **STATIC+DB-READ**（不是 LIVE —— 没有真实执行回读）。
 - 未动 B-6/B-7 已结项内容；未扩到 21 节点全采集（B-1 仍绑 SSO 窗口）。

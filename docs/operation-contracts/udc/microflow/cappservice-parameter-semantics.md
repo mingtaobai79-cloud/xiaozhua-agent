@@ -1,6 +1,6 @@
 # CALL_APP_SERVICE 节点「服务参数」语义契约
 
-> 环境：test2（`lowcode-test2.example.com`），租户 `-8112660841495312922`
+> 环境：test2（`lowcode-<env>.example.com`），租户 `-8112660841495312922`
 > 目标应用：`datamigration9000000000000000001`
 > 切片：B-3（P2 纯读）。**写操作 0 次**，`/service` 请求 **0 次**（全部走 DB 只读 + 已落盘样本 + 反编译）
 > 分级：**[SAMPLE]** 真实样本回读 / **[LIVE-DB]** 本会话 DB 直查 / **[STATIC]** 字节码反编译 / **[VACUUM]** 完备负证据 / **[UNVERIFIED]** 未取证
@@ -33,7 +33,7 @@ udcMicroflowSearchAppServiceByAppNamePost  (契约面, GET 候选列表)
 ```
 
 **样本池覆盖声明（D8 第 1 点）**：`real_CALL_APP_SERVICE.json` 共 12 条，覆盖 4 个**他应用** appId，
-**目标应用 `8704025620829192834` 0 条** → 该池只支撑「平台通用形态」。本文所有涉及本应用的断言，
+**目标应用 `9000000000000000001` 0 条** → 该池只支撑「平台通用形态」。本文所有涉及本应用的断言，
 均改用本应用 LIVE 数据：`udc_microflow_info` 47 条中仅 **3** 个 `actionType=CALL_APP_SERVICE` 节点
 （分布在 2 条微流程，其中 `CALL_APP_SERVICE_pfQeP7` 只有 `nodeId/type/actionType` 三键、`selectMethod` 缺失=空壳）。
 产物：`docs/audit/artifacts/udc-node-evidence/b3-target-app-CALL_APP_SERVICE.json`。
@@ -300,7 +300,7 @@ python "<HERMES_HOME>/cache/scratch/b3_extract.py"
 ## 6.5 已知变体 / 样本池未覆盖（D8 第 4 点：如实列出，不硬闭合）
 
 > **前提**：`real_CALL_APP_SERVICE.json` 的 12 条样本覆盖 **4 个他应用 appId**
-> （`2378987216360786643` / `3289082814923688017` / `5791640252914287064` / `7001530513149673721`），
+> （`9000000000000000003` / `3289082814923688017` / `5791640252914287064` / `7001530513149673721`），
 > **目标应用 0 条**。该池只能支撑「**平台通用形态**」结论；凡涉及本应用的断言已全部改用本应用 LIVE 数据（3 节点，1 空壳）。
 
 以下 4 处结构变体**样本池未覆盖**，本文按实测记录，**不据此硬闭合语义**：

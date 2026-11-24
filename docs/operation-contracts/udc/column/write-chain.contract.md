@@ -37,7 +37,7 @@
 
 | 字段 | 类型 | 必填 | LIVE 样例值 | 说明 | 来源 |
 |---|---|---|---|---|---|
-| `variables.body.appId` | string(数字串) | 是 | `"8704025620829192834"` | 目标应用 id | LIVE raw L9 |
+| `variables.body.appId` | string(数字串) | 是 | `"9000000000000000001"` | 目标应用 id | LIVE raw L9 |
 | `variables.body.terminalType` | enum string | 是 | `"PC"` | 枚举见 `enums.md` §terminalType | LIVE raw L9 |
 | `variables.body.type` | enum string | 是 | `"GROUP"` | 建分组固定 `GROUP`；枚举见 `enums.md` §type | LIVE raw L9 |
 | `variables.body.name` | string | 是 | `"S2GROUP20261017"` | 分组名称；DB 唯一键 `uk_udc_portlet_name(app_id,name,type)` | LIVE raw L9 + STATIC 唯一键 |
@@ -48,7 +48,7 @@
 
 | 字段 | 类型 | LIVE 值样例 | 语义 / 注意 | 来源 |
 |---|---|---|---|---|
-| `appId` | string | `"8704025620829192834"` | 回显 | LIVE raw L11 |
+| `appId` | string | `"9000000000000000001"` | 回显 | LIVE raw L11 |
 | `groupId` | string \| null | `null` | 分组的父分组恒 null | LIVE raw L11 |
 | `guid` | string \| null | `null` | **建分组响应内为 null**，落库后 `udc_portlet.guid=-4399224624179689670`（DISCREPANCY，见下） | LIVE raw L11 + DB |
 | `id` | string(数字串) | `"-2821989384273517473"` | 新建分组 id，**后续建栏目 groupId 用它** | LIVE raw L11 |
@@ -71,11 +71,11 @@
 
 请求：
 ```json
-{"body":{"appId":"8704025620829192834","terminalType":"PC","type":"GROUP","name":"S2GROUP20261017"}}
+{"body":{"appId":"9000000000000000001","terminalType":"PC","type":"GROUP","name":"S2GROUP20261017"}}
 ```
 响应：
 ```json
-{"traceId":"17922483013725158661","data":{"udcPortletCreatePost":{"code":"BOOT_0000","data":{"content":{"appId":"8704025620829192834","groupId":null,"guid":null,"id":"-2821989384273517473","name":"S2GROUP20261017","orderNo":0,"pageRelationId":null,"portletList":null,"publishState":null,"terminalType":"PC","type":"GROUP"}},"message":"SUCCESS","status":0}}}
+{"traceId":"17922483013725158661","data":{"udcPortletCreatePost":{"code":"BOOT_0000","data":{"content":{"appId":"9000000000000000001","groupId":null,"guid":null,"id":"-2821989384273517473","name":"S2GROUP20261017","orderNo":0,"pageRelationId":null,"portletList":null,"publishState":null,"terminalType":"PC","type":"GROUP"}},"message":"SUCCESS","status":0}}}
 ```
 raw 指针：`raw/s2r1_group_create.json` L7（请求）/ L11（响应）
 
@@ -123,7 +123,7 @@ raw 指针：`raw/s2r1_group_create.json` L7（请求）/ L11（响应）
 
 | 字段 | 类型 | 必填 | LIVE 样例值 | 说明 | 来源 |
 |---|---|---|---|---|---|
-| `variables.body.appId` | string | 是 | `"8704025620829192834"` | 应用 id | LIVE raw L24 |
+| `variables.body.appId` | string | 是 | `"9000000000000000001"` | 应用 id | LIVE raw L24 |
 | `variables.body.caption` | string | 是 | `"S2PROBE20261017"` | 栏目显示名（落 `udc_page_info.caption`） | LIVE raw L24 |
 | `variables.body.curTerminalType` | enum string | 是 | `"PC"` | 当前端（与 pageItems 端对应） | LIVE raw L24 |
 | `variables.body.groupId` | string | 是 | `"-2821989384273517473"` | 所属分组 id（必须先有 type=0 行） | LIVE raw L24 |
@@ -137,7 +137,7 @@ raw 指针：`raw/s2r1_group_create.json` L7（请求）/ L11（响应）
 
 | 字段 | 类型 | LIVE 值 | 说明 | 来源 |
 |---|---|---|---|---|
-| `appId` | string | `"8704025620829192834"` | 回显 | LIVE raw L26 |
+| `appId` | string | `"9000000000000000001"` | 回显 | LIVE raw L26 |
 | `groupId` | string | `"-2821989384273517473"` | = 请求 groupId（落 DB `group_id`） | LIVE |
 | `guid` | string \| null | `null` | 响应缺；DB `guid=-7672842714696691825`（DISCREPANCY） | LIVE + DB |
 | `id` | string | `"5810462779490574369"` | 新建栏目 id | LIVE |
@@ -160,11 +160,11 @@ raw 指针：`raw/s2r1_group_create.json` L7（请求）/ L11（响应）
 
 请求：
 ```json
-{"body":{"appId":"8704025620829192834","caption":"S2PROBE20261017","curTerminalType":"PC","groupId":"-2821989384273517473","pageItems":[{"menuId":"-2821989384273517473","urlType":"PC"}],"pageType":"PORTLET","pageUrl":"S2PROBE20261017"}}
+{"body":{"appId":"9000000000000000001","caption":"S2PROBE20261017","curTerminalType":"PC","groupId":"-2821989384273517473","pageItems":[{"menuId":"-2821989384273517473","urlType":"PC"}],"pageType":"PORTLET","pageUrl":"S2PROBE20261017"}}
 ```
 响应：
 ```json
-{"traceId":"17922483545794594178","data":{"udcPortletCreatePortletPost":{"code":"BOOT_0000","data":{"content":{"appId":"8704025620829192834","groupId":"-2821989384273517473","guid":null,"id":"5810462779490574369","name":"S2PROBE20261017","orderNo":0,"pageRelationId":"8758458332069176381","portletList":null,"publishState":null,"terminalType":"PC","type":"PORTLET"}},"message":"SUCCESS","status":0}}}
+{"traceId":"17922483545794594178","data":{"udcPortletCreatePortletPost":{"code":"BOOT_0000","data":{"content":{"appId":"9000000000000000001","groupId":"-2821989384273517473","guid":null,"id":"5810462779490574369","name":"S2PROBE20261017","orderNo":0,"pageRelationId":"8758458332069176381","portletList":null,"publishState":null,"terminalType":"PC","type":"PORTLET"}},"message":"SUCCESS","status":0}}}
 ```
 raw 指针：`raw/s2r1_portlet_create.json` L22 / L26
 
@@ -894,7 +894,7 @@ SELECT COUNT(*) FROM udc_test2.udc_portlet WHERE id = 2167176325786336959;      
 -- 栏目页：物理删（id 与 caption 双查）
 SELECT COUNT(*) FROM udc_test2.udc_page_info WHERE id = 6854945873513807584;      -- → 0
 SELECT COUNT(*) FROM udc_test2.udc_page_info
- WHERE app_id = 8704025620829192834 AND caption LIKE '%S2VIS20261018%';           -- → 0
+ WHERE app_id = 9000000000000000001 AND caption LIKE '%S2VIS20261018%';           -- → 0
 -- category：按被删栏目 id 查（应为 0，因为 category 存的是分组 id）
 SELECT COUNT(*) FROM portal_test2.portal_portlet_category
  WHERE category_code = '2167176325786336959';                                     -- → 0
@@ -916,9 +916,9 @@ SELECT COUNT(*) FROM portal_test2.portal_portlet_category
 ```sql
 -- 本案局部事实（S4 依据）：本应用删分组前，page_info 已无引用该 group 的行 → 0
 SELECT COUNT(*) FROM udc_test2.udc_page_info
- WHERE app_id = 8704025620829192834 AND group_id = 3314443730917955770;   -- → 0
+ WHERE app_id = 9000000000000000001 AND group_id = 3314443730917955770;   -- → 0
 SELECT COUNT(*) FROM udc_test2.udc_page_info
- WHERE app_id = 8704025620829192834 AND relation_group_id = -6614000841111425014; -- → 0
+ WHERE app_id = 9000000000000000001 AND relation_group_id = -6614000841111425014; -- → 0
 -- 全表值域（勿推广成本应用快照）：0=1422 / NULL=16 / 非空非 0=136（全部 type=0 分组）
 SELECT SUM(group_id=0), SUM(group_id IS NULL), SUM(group_id<>0 AND group_id IS NOT NULL)
   FROM udc_test2.udc_page_info;                                          -- → 1422 / 16 / 136
@@ -934,7 +934,7 @@ SELECT SUM(group_id=0), SUM(group_id IS NULL), SUM(group_id<>0 AND group_id IS N
 -- 操作日志：删分组行 domain_id = 分组 id
 SELECT create_time, action_type, sub_module, domain_caption, domain_id, trace_id
   FROM udc_test2.udc_operation_log
- WHERE app_id = 8704025620829192834 AND create_time = '2026-10-17 23:29:52' AND module = 4;
+ WHERE app_id = 9000000000000000001 AND create_time = '2026-10-17 23:29:52' AND module = 4;
 -- → action_type=2, sub_module=6, domain_caption='S2GROUP20261017', domain_id=-2821989384273517473
 
 -- 删后：category 行与 udc_portlet 行均查无
@@ -957,7 +957,7 @@ SELECT COUNT(*) FROM udc_test2.udc_portlet WHERE id = -2821989384273517473;     
 
 | 项 | 实测 |
 |---|---|
-| 路由 | `/main/child-frame/udc/app-design/page-manage/portlet?appId=8704025620829192834`（**非** `column-list`） |
+| 路由 | `/main/child-frame/udc/app-design/page-manage/portlet?appId=9000000000000000001`（**非** `column-list`） |
 | 会话态 | `cookieLen=375  hasToken=true`（排除缓存空壳） |
 | 树节点 | `S2VISG20261018`（分组，缩进 0 层，259×30）+ `S2VIS20261018`（栏目，缩进 1 层，259×30） |
 
@@ -1064,7 +1064,7 @@ text  = "操作时间 操作人 模块 ... 2026-10-18 05:24:16 ... 栏目\栏目
 SELECT id, create_time, action_type, module, sub_module, domain_caption, domain_id,
        operator_id, trace_id, operation_time, elements_size, log_path
   FROM udc_test2.udc_operation_log
- WHERE app_id = 8704025620829192834
+ WHERE app_id = 9000000000000000001
    AND log_element LIKE '%S2VIS%'
  ORDER BY create_time;
 ```
@@ -1120,7 +1120,7 @@ SELECT id, create_time, action_type, module, sub_module, domain_caption, domain_
 
 | 字段 | 类型 | LIVE 样例 | 说明 | 来源 |
 |---|---|---|---|---|
-| `appId` | string | `"8704025620829192834"` | 应用 id | LIVE |
+| `appId` | string | `"9000000000000000001"` | 应用 id | LIVE |
 | `id` | string | `"-1695224980799982257"` | **页面 id（udc_page_info.id）**，非 portlet id | LIVE |
 | `urlType` | enum string | `"PC"` | 端类型 | LIVE |
 | `inParams` | string(JSON 串) | `"[]"` | 入参定义 | LIVE |
@@ -1148,7 +1148,7 @@ SELECT id, create_time, action_type, module, sub_module, domain_caption, domain_
 
 | 字段 | 类型 | LIVE 值 | 说明 |
 |---|---|---|---|
-| `operationLog.appId` | string | `"8704025620829192834"` | 应用 id |
+| `operationLog.appId` | string | `"9000000000000000001"` | 应用 id |
 | `operationLog.domainId` | string | `"-1695224980799982257"` | 页面 id（= body.id） |
 | `operationLog.domainCaption` | string | `"S2PROBE20261017"` | 页面 caption |
 | `operationLog.path` | string | `"terminal=PC&relationGroupId=8758458332069176381&pageId=-1695224980799982257"` | **与 op-log.log_path 同形**，可交叉核对 |
@@ -1214,7 +1214,7 @@ raw 指针：`raw/s2r1_page_save_submit.json` L66 段
 ```sql
 SELECT create_time, action_type, sub_module, domain_caption, trace_id, log_path
   FROM udc_test2.udc_operation_log
- WHERE app_id = 8704025620829192834
+ WHERE app_id = 9000000000000000001
    AND create_time BETWEEN '2026-10-17 22:40:00' AND '2026-10-17 23:35:00'
    AND module = 4
  ORDER BY create_time;
@@ -1272,7 +1272,7 @@ SELECT id, portlet_id, delete_flag, create_time, update_time
 ```
 
 > **键口径（重要，勿混）**：本表 `app_id` 与 `app_code` **都是 varchar，值存 code 字符串**。
-> `WHERE app_id = 8704025620829192834`（数字形式）→ **0 行**，会被误读成「没有数据」。
+> `WHERE app_id = 9000000000000000001`（数字形式）→ **0 行**，会被误读成「没有数据」。
 > 正确写法：`WHERE app_id = 'datamigration9000000000000000001'`（→ 149）。
 > 两列结果不同（`app_id` 列 149 / `app_code` 列 160，差 11 行 = `app_id` 为 `-1`(7) + `cdp-data`(2) + `ctp-affair`(2)）。
 > **断言必须锁定同一列，并在文档里写明是哪一列。**
@@ -1314,7 +1314,7 @@ SELECT id, portlet_id, delete_flag, create_time, update_time
 > **本节全部内容 = `LIVE`**（来源：`raw/s2r1_page_save.json` 中 `url=/service/udc/graphql?udcPageInfoUpdateDrafPost`、`method=POST`、`status=200` 的那一次调用，`body` 字段原文逐字复制，未做任何裁剪或改写）。
 
 ```
-{"query":"\n          mutation savePageDraf($body: udcPageInfoUpdateDrafPostInputBody) {\n            udcPageInfoUpdateDrafPost(body: $body) {\n              data {\n                content\n              }\n              message\n              status\n            }\n          }\n        ","variables":{"body":{"appId":"8704025620829192834","id":"-1695224980799982257","urlType":"PC","inParams":"[]","inPortletParams":"[]","draftPageSchema":"{\"children\":[],\"id\":\"-1695224980799982257\",\"appId\":\"8704025620829192834\",\"pageType\":\"PORTLET\",\"pageUrl\":\"S2PROBE20261017\",\"urlType\":\"PC\",\"defaultOpenType\":null,\"description\":\"\",\"groupId\":\"-2821989384273517473\",\"guid\":\"-8194165606485703903\",\"relationGroupId\":\"8758458332069176381\",\"sortNo\":331,\"masterEntityIds\":null,\"createTime\":\"1792248354000\",\"version\":null,\"handWritten\":false,\"inPortletParams\":[],\"settings\":{\"styles\":{},\"alignment\":\"center\",\"backgroundAdapt\":\"cover\",\"backgroundColor\":\"#ffffff\",\"gap\":\"20px 0\",\"boxModel\":{\"margin\":\"0 auto 0 auto\",\"padding\":\"0 0 0 0\"}},\"portletEvents\":[{\"eventTitle\":\"更多\",\"isMoreEvent\":true,\"eventType\":\"onClick\",\"actionName\":\"\",\"actionType\":\"\"}],\"pageLayout\":false,\"originId\":\"-1695224980799982257\",\"name\":\"页面\",\"type\":\"PAGE\",\"childById\":{},\"pageVariable\":[],\"terminal\":\"PC\",\"expressSchemaPathMaps\":{}}","publicAccess":false,"pageUrl":"S2PROBE20261017","pageType":"PORTLET","pageVariable":"[]","defaultOpenType":null,"description":"","groupId":"-2821989384273517473","guid":"-8194165606485703903","relationGroupId":"8758458332069176381","sortNo":331,"layoutId":"0","layoutInfo":"","defaultPlan":"[]"}}}
+{"query":"\n          mutation savePageDraf($body: udcPageInfoUpdateDrafPostInputBody) {\n            udcPageInfoUpdateDrafPost(body: $body) {\n              data {\n                content\n              }\n              message\n              status\n            }\n          }\n        ","variables":{"body":{"appId":"9000000000000000001","id":"-1695224980799982257","urlType":"PC","inParams":"[]","inPortletParams":"[]","draftPageSchema":"{\"children\":[],\"id\":\"-1695224980799982257\",\"appId\":\"9000000000000000001\",\"pageType\":\"PORTLET\",\"pageUrl\":\"S2PROBE20261017\",\"urlType\":\"PC\",\"defaultOpenType\":null,\"description\":\"\",\"groupId\":\"-2821989384273517473\",\"guid\":\"-8194165606485703903\",\"relationGroupId\":\"8758458332069176381\",\"sortNo\":331,\"masterEntityIds\":null,\"createTime\":\"1792248354000\",\"version\":null,\"handWritten\":false,\"inPortletParams\":[],\"settings\":{\"styles\":{},\"alignment\":\"center\",\"backgroundAdapt\":\"cover\",\"backgroundColor\":\"#ffffff\",\"gap\":\"20px 0\",\"boxModel\":{\"margin\":\"0 auto 0 auto\",\"padding\":\"0 0 0 0\"}},\"portletEvents\":[{\"eventTitle\":\"更多\",\"isMoreEvent\":true,\"eventType\":\"onClick\",\"actionName\":\"\",\"actionType\":\"\"}],\"pageLayout\":false,\"originId\":\"-1695224980799982257\",\"name\":\"页面\",\"type\":\"PAGE\",\"childById\":{},\"pageVariable\":[],\"terminal\":\"PC\",\"expressSchemaPathMaps\":{}}","publicAccess":false,"pageUrl":"S2PROBE20261017","pageType":"PORTLET","pageVariable":"[]","defaultOpenType":null,"description":"","groupId":"-2821989384273517473","guid":"-8194165606485703903","relationGroupId":"8758458332069176381","sortNo":331,"layoutId":"0","layoutInfo":"","defaultPlan":"[]"}}}
 ```
 
 > 该 body 共 1711 字符。注意 `draftPageSchema` 是**字符串化的 JSON**（双重转义），不是嵌套对象 —— 这是本 op 与前 4 个 op 最易踩的形态差异。
@@ -1355,7 +1355,7 @@ raw 指针：`raw/s2r1_page_save.json` L16 段；`raw/s2r1_page_save_submit.json
 
 | 字段 | 类型 | 必填 | LIVE 值 | 说明 | 来源 |
 |---|---|---|---|---|---|
-| `variables.path.appId` | string | 是 | `"8704025620829192834"` | 应用 id；**唯一观测到的参数** | LIVE |
+| `variables.path.appId` | string | 是 | `"9000000000000000001"` | 应用 id；**唯一观测到的参数** | LIVE |
 
 > 未观测到分页/排序/过滤参数 → 本契约不写（留 C2 补）。
 
@@ -1363,7 +1363,7 @@ raw 指针：`raw/s2r1_page_save.json` L16 段；`raw/s2r1_page_save_submit.json
 
 | 字段 | 类型 | 顶层(GROUP) LIVE 值 | 子层(PORTLET) LIVE 值 | 说明 | 来源 |
 |---|---|---|---|---|---|
-| `appId` | string | `"8704025620829192834"` | 同 | 应用 id | LIVE |
+| `appId` | string | `"9000000000000000001"` | 同 | 应用 id | LIVE |
 | `groupId` | string \| null | `null` | `"-2821989384273517473"` | 分组节点无父；栏目节点指向分组 | LIVE |
 | `guid` | string | `"-4399224624179689670"` | `"-7672842714696691825"` | **此处有值**（与创建响应 null 不同） | LIVE |
 | `id` | string | `"-2821989384273517473"` | `"5810462779490574369"` | udc_portlet.id | LIVE |
@@ -1382,11 +1382,11 @@ raw 指针：`raw/s2r1_page_save.json` L16 段；`raw/s2r1_page_save_submit.json
 
 请求：
 ```json
-{"path":{"appId":"8704025620829192834"}}
+{"path":{"appId":"9000000000000000001"}}
 ```
 响应 content（`raw/s2r1_portlet_create.json` L32 段）：
 ```json
-[{"appId":"8704025620829192834","groupId":null,"guid":"-4399224624179689670","id":"-2821989384273517473","name":"S2GROUP20261017","orderNo":1,"category":"ADVANCED","portletList":[{"appId":"8704025620829192834","groupId":"-2821989384273517473","guid":"-7672842714696691825","id":"5810462779490574369","name":"S2PROBE20261017","orderNo":2,"pageRelationId":"8758458332069176381","publishState":"UNPUBLISH","terminalType":"PC","type":"PORTLET","category":"ADVANCED","originalId":"0","g_l_index":"1"}],"pageRelationId":null,"publishState":"UNPUBLISH","terminalType":"PC","type":"GROUP","originalId":"0","g_l_index":"1"}]
+[{"appId":"9000000000000000001","groupId":null,"guid":"-4399224624179689670","id":"-2821989384273517473","name":"S2GROUP20261017","orderNo":1,"category":"ADVANCED","portletList":[{"appId":"9000000000000000001","groupId":"-2821989384273517473","guid":"-7672842714696691825","id":"5810462779490574369","name":"S2PROBE20261017","orderNo":2,"pageRelationId":"8758458332069176381","publishState":"UNPUBLISH","terminalType":"PC","type":"PORTLET","category":"ADVANCED","originalId":"0","g_l_index":"1"}],"pageRelationId":null,"publishState":"UNPUBLISH","terminalType":"PC","type":"GROUP","originalId":"0","g_l_index":"1"}]
 ```
 
 空态样例（`raw/s2r1_delete_group.json` L17 段）：`"content":[]` —— **接口空态，不等于页面空态**（页面空态需 DOM innerText 作证）。
