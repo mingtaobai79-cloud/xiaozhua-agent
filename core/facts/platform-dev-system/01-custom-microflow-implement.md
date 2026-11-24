@@ -26,25 +26,26 @@
 
 ## 你实现的接口（真实模板）
 
+平台对每个 `serviceInterface` 生成**两个**接口，分属两层，别混：
+
+| 层 | 接口 | 包 | 签名形制 | 谁实现 |
+|---|---|---|---|---|
+| 对外 AppService | `{App}CustomMicroFlowAppService` | `api.microflow` | **带平台包装**：`SingleRequest<{InDto}> → SingleResponse/ListResponse/{Page}Response` | **平台**（`Default…Impl`） |
+| 扩展入口 | `{App}CustomMicroFlowService`（旧模板形制）<br>`<Xxx>ServiceService`（另一批模板形制） | `custom.service.microflow` | **不带 SingleRequest/SingleResponse**：裸 DTO 进出；分页时才用 `PageDtoRequest<{InDto}> → PageData<{OutDto}>` | **← 你实现这个** |
+
 ```java
 package com.seeyon.{app}.custom.service.microflow;
 
-import com.seeyon.boot.transport.*;
-import java.util.List;
-import java.util.Map;
-
-/**
- * 自定义微流程 AppService 接口
- */
+// ★ 名字按真实生成物照抄：可能是 {App}CustomMicroFlowService，也可能是 <Xxx>ServiceService
 public interface {App}CustomMicroFlowService {
 
-    // 有分页时 —— 入参是整个 Request
-    default {OutDto} {flowName}({Req}<{InDto}> request) {
+    // 无分页 —— 裸 DTO 进出（没有 SingleRequest/SingleResponse）
+    default {OutDto} {flowName}({InDto} {inputName}) {
         throw new UnsupportedOperationException(...);   // throwUnimplemented()
     }
 
-    // 无分页时 —— 入参是裸 DTO
-    default {OutDto} {flowName}({InDto} {inputName}) {
+    // 有分页 —— 平台分页类型，但仍不是 SingleRequest
+    default PageData<{OutDto}> {flowName}(PageDtoRequest<{InDto}> request) {
         throw new UnsupportedOperationException(...);
     }
 }
@@ -56,7 +57,25 @@ public interface {App}CustomMicroFlowService {
 |---|---|
 | 1 | **方法名 = 微流程名 uncap 首字母**（`CreateOrder` → `createOrder`） |
 | 2 | **`default` 方法** —— 你不实现也能编译，运行时报「接口未实现」 |
-| 3 | **有分页 → 入参 `{Req}<{InDto}>`；无分页 → 入参裸 `{InDto}`** |
+| 3 | **扩展层裸 DTO；包装（`SingleRequest`/`SingleResponse`）是 `Default{App}CustomMicroFlowAppServiceImpl` 那一层的职责** |
+
+**★ 不要直接 `implements` `api.microflow.{App}CustomMicroFlowAppService`** —— 它带 `@AppServiceOperation` 注解、签名是 `SingleRequest`，和平台默认实现撞同一个 bean；照着它的签名写 `@Override` 直接编译失败。
+
+### LIVE 实测（怎么一眼判断哪层是哪层）
+
+`billarchive2776130152975518413`（build 5.3.81，2025-09-30）的 facade jar：
+
+```text
+custom/service/microflow/CustomMicroFlowService.class        ← 扩展入口（裸 DTO）
+  ()Ljava/util/List;
+  (Ljava/lang/Long;)V
+  (Lcom/seeyon/.../PageDtoRequest<...NewsQueryOpenApiParams;>)Lcom/seeyon/boot/transport/PageData<...NewsDto;>
+
+api/microflow/CustomMicroFlowAppService.class               ← 对外（带包装）
+  (Lcom/seeyon/boot/transport/SingleRequest<...Fasongxiaoxi;>;)Lcom/seeyon/boot/transport/SingleResponse<Ljava/lang/Void;>;
+```
+
+判据：**类在 `custom.service.microflow` 包里、方法签名里没有 `SingleRequest`** ⇒ 这是你要实现的扩展入口。
 
 **生成物是 `interface` + `default` 方法，不是抽象类。你写 `implements`，只覆盖你要的方法。**
 
@@ -130,15 +149,15 @@ if (distinctClassCount > 1 && ArrayUtils.contains(beanNames, "{defaultBeanName}"
 
 ## 方法签名怎么读（出入参 → Java）
 
-平台按微流程配置生成签名，你照抄即可：
+平台按微流程配置生成签名，你照抄即可（**下表是扩展层 `custom.service.microflow.*` 的形制；`api.microflow.*` 那层平台自己实现，会把裸 DTO 包成 `SingleRequest`/`SingleResponse`**）：
 
-| 微流程配置 | 生成的方法签名 |
-|---|---|
-| 有输入（`hasPagination=false`） | `{OutDto} createOrder(OrderDto orderDto)` |
-| 有输入 + 分页 | `{OutDto} createOrder(Request<OrderDto> request)` |
-| 无输入 | `{OutDto} createOrder()` |
-| 无输出 | `void createOrder(OrderDto orderDto)` |
-| 输出是实体 | AppService 层返回 `SingleResponse<Map<String,?>>`（走 `DisplayNameAppService.toMapList`） |
+| 微流程配置 | 扩展层生成的方法签名 | 对外 AppService 层（平台实现） |
+|---|---|---|
+| 有输入（`hasPagination=false`） | `{OutDto} createOrder(OrderDto orderDto)` | `SingleResponse<{OutDto}> createOrder(SingleRequest<OrderDto> req)` |
+| 有输入 + 分页 | `PageData<{OutDto}> createOrder(PageDtoRequest<OrderDto> request)` | `{Page}Response<{OutDto}> createOrder(SingleRequest<OrderDto> req)` |
+| 无输入 | `{OutDto} createOrder()` | `SingleResponse<{OutDto}> createOrder(SingleRequest<Void> req)` |
+| 无输出 | `void createOrder(OrderDto orderDto)` | `SingleResponse<Void> …` |
+| 输出是实体 | 扩展层返回裸 DTO / `List` | AppService 层返回 `SingleResponse<Map<String,?>>`（走 `DisplayNameAppService.toMapList`） |
 
 **★★★ 命名细节（容易踩）：**
 ```
