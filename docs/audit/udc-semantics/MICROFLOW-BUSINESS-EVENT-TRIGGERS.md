@@ -1,7 +1,7 @@
 # 微流程「业务事件」触发（事件监听）——候选来源与 messageInfo 契约
 
 结论来源：设计器前端 bundle（module-76440 事件选择弹窗、module-18640 aT、module-30269 ZK/lZ、module-89647 lZ）
-+ LIVE 对照（test2 app=8704025620829192834，微流程 xzhEvtAhN7 = -1516089433318810738）。
++ LIVE 对照（test2 app=9000000000000000001，微流程 xzhEvtAhN7 = -1516089433318810738）。
 状态：**FOCUSED VERIFIED（前端静态 + LIVE 读写回读一致）**。
 
 ## 1. 触发类型总表（module-30269 `ZK`，创建表单 microlfowType + type）
@@ -77,7 +77,7 @@ body= { "appId":"<app>", "appName":"<app.name>", "microFlowId":"<微流程id>" }
 返回 content[{ caption, description, fullName, topic, available, customs,
                 contentDto{ type, item{ enums, itemType, item{ enums, itemType } } } }]
 ```
-LIVE 实测各应用消息数（app=8704025620829192834）：
+LIVE 实测各应用消息数（app=9000000000000000001）：
 ```
 bpm            29 条  topic=BPM        流程发起/结束/终止/回退/撤销/挂起/催办/移交/取回/复活/删除…
                                        + 审核结果/BPM vip督办…（dto.message.* 与 dto.message.event.*）

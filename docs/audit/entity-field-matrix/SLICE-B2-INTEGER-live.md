@@ -1,7 +1,7 @@
 # SLICE-B2｜矩阵第 3 类 INTEGER（含值域验证）+ batch 契约原文回收
 
 - 日期：2026-10-18
-- 环境：test2（`lowcode-test2.example.com`），应用 `datamigration9000000000000000001`（数据迁移）
+- 环境：test2（`lowcode-<env>.example.com`），应用 `datamigration9000000000000000001`（数据迁移）
 - 实体：`xzhExp950795V2`（entity_id=`474806313816300867`）
 - 字段：**`b2IntField`**（attr id=`7734018642261617786`），`caption=b2IntField`
 - 结论：**A 项 PARTIAL（类型 LIVE，值域 UNVERIFIED）／B 项 PASS（batch 原文已回收）／C 项 DONE**
@@ -45,7 +45,7 @@ FROM udc_test2.udc_attribute WHERE id=7734018642261617786;
 
 ```
 POST /service/udc/graphql?udcAttributeGroupEntityGet
-{"variables":{"p":{"appId":"8704025620829192834","entityId":"474806313816300867"}}}
+{"variables":{"p":{"appId":"9000000000000000001","entityId":"474806313816300867"}}}
 ```
 
 `traceId=3279181010616453308`：
@@ -244,7 +244,7 @@ uniqueKey, index, parentKey
  "enableDesensitization":false, "auditLog":false, "searchable":false,
  "publishState":"UNPUBLISH", "defaultValueIsChange":true,
  "widgetConfig":"{\"pc\":\"Input\",\"mobile\":\"Input\",\"list\":true,\"detail\":true,\"quickSearch\":true}",
- "enableOpenApiEncrypt":false, "appId":"8704025620829192834", "actionType":"ADD"}
+ "enableOpenApiEncrypt":false, "appId":"9000000000000000001", "actionType":"ADD"}
 ```
 
 **类型变更（`actionType:"UPDATE"`，本次 04:52 那次）：**

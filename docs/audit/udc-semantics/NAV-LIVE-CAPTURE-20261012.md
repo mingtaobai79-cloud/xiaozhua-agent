@@ -3,7 +3,7 @@
 日期：2026-10-12
 方法：独立调试 Edge (CDP 9222) + cookie 注入 + 从设计器壳真实点击导航 + Network 域抓包（请求 URL/body + 响应体）。
 抓包原始数据：`cache/scratch/udc-live-capture.jsonl`、`udc-live-capture3.jsonl`（未入库，临时证据）。
-应用：`8704025620829192834`（datamigration9000000000000000001，"数…"）。**此前用 zzprobe 6419954374508955097 是错误对象——zzprobe 深链时壳不注入 xcbpbi，BI 域直接 no.auth。**
+应用：`9000000000000000001`（datamigration9000000000000000001，"数…"）。**此前用 zzprobe 9000000000000000002 是错误对象——zzprobe 深链时壳不注入 xcbpbi，BI 域直接 no.auth。**
 
 ## 0. 本轮修正的机制认知（全部 LIVE 证实）
 

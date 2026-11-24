@@ -4,7 +4,7 @@
 > 时间：2026-10-17 22:55 (GMT+8)
 > 被审对象：implementer RESULT（`docs/audit/udc-semantics/menu-copy-events-migration.md`，commit `d69c4c5`）
 > 复审请求：`menu-p2-events-migration-review`（main → auditor）
-> 环境：test2 / app `8704025620829192834` / DB `udc_test2`
+> 环境：test2 / app `9000000000000000001` / DB `udc_test2`
 > 本轮性质：**纯只读**。零建对象、零改数据、零写请求。
 
 ## 0. 裁决

@@ -6,13 +6,13 @@ Environment/source: `udc_test2`, credentials loaded from the existing local envi
 
 Query time: 2026-10-18 17:42:18 (DB server time).
 
-Predicate: `app_id='8704025620829192834' AND data_type='BIGINTEGER' AND is_system=0`.
+Predicate: `app_id='9000000000000000001' AND data_type='BIGINTEGER' AND is_system=0`.
 
 ## 一、查询
 
 - 查询时刻（DB 服务器时间，第一次）：`2026-10-18 17:42:18`
 - 复核时刻（DB 服务器时间，第二次全量复算）：`2026-10-18 17:48:22`
-- 谓词：`app_id='8704025620829192834' AND data_type='BIGINTEGER' AND is_system=0`
+- 谓词：`app_id='9000000000000000001' AND data_type='BIGINTEGER' AND is_system=0`
 - 关联：`udc_entity` 取实体名，按 `entity_name, name` 排序
 
 ## 二、结果：9 条业务 BIGINTEGER 字段（全量，非抽样）

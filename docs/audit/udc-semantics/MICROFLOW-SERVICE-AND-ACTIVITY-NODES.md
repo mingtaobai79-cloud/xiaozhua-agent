@@ -1,7 +1,7 @@
 # 微流程「标品」类型 + 活动节点（ACTIVITY）机制
 
 结论来源：设计器前端 module-83128（节点 schema 权威）、module-30269（ZK 类型表）、module-89647（lZ 创建模型）
-+ LIVE 对照（test2 app=8704025620829192834）。
++ LIVE 对照（test2 app=9000000000000000001）。
 状态：**FOCUSED VERIFIED（前端静态 + LIVE 创建/回读一致）**。
 
 ## 1. 标品 vs 自定义（type）

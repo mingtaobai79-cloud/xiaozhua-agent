@@ -1,6 +1,6 @@
 # C-5｜编辑/删除回流写（CRUD 闭环）
 
-app 8704025620829192834｜实体 4796455827714164161｜zzprobeDecimal01 (6019556237194179089)｜test2
+app 9000000000000000001｜实体 4796455827714164161｜zzprobeDecimal01 (6019556237194179089)｜test2
 **结论：PASS**（两步各 CROSS-VERIFIED＋组装映射）
 
 ## 0. 基线：编辑前 43 行，目标 ml=18/dd=4/字段1。
@@ -15,7 +15,7 @@ DB：dd 4→2。**值层零漂移 DIFFS=1**（仅目标值变，其余 38 条零
 
 op_log（写 1）：14:48:41 `action_type=3`/`module=6 sub=11`/`小数位数 4 -> 2`；`attributeId=5694401663173477663`（=createTime）**再次指错** ⇒ 按 A1 以 elementRecords 为准。
 
-CROSS-VERIFIED（10 项）：zzprobeDecimal01｜DECIMAL｜ml=18｜**dd=2**｜min=0｜orderNo=43｜zzprobe_decimal01｜entityId 4796455827714164161｜appId 8704025620829192834｜id 6019556237194179089，三源一致。
+CROSS-VERIFIED（10 项）：zzprobeDecimal01｜DECIMAL｜ml=18｜**dd=2**｜min=0｜orderNo=43｜zzprobe_decimal01｜entityId 4796455827714164161｜appId 9000000000000000001｜id 6019556237194179089，三源一致。
 
 ## 2. ②删除
 勾选行内 `.ant-checkbox`（点行无效）→「删除」→弹窗「确定删除吗？」→「确定」→页面 29→28→**再点「保存」才提交**（删除是暂存）。

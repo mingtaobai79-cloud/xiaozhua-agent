@@ -1,7 +1,7 @@
 # C-1｜BIGINTEGER 页面可见证据｜PARTIAL（页面 LIVE，字段未取到）
 
 时间：2026-10-18 18:22 (+08)　端口：CDP 9223（本组独占，未碰 9226/9229）
-URL：`https://lowcode-test2.example.com/main/child-frame/udc/app-design/entity?appId=8704025620829192834`
+URL：`https://lowcode-<env>.example.com/main/child-frame/udc/app-design/entity?appId=9000000000000000001`
 
 ## 一、已取到（LIVE，页面可见）
 
@@ -54,10 +54,10 @@ b2IntField     | b2IntField| 整数        | 整数：- 至 -
 本轮**未手工发起任何 `/service` 请求**（零 curl / 零 fetch）。观测到的请求全部是页面自身刷新流量：
 
 ```
-Document 200  .../entity?appId=8704025620829192834
+Document 200  .../entity?appId=9000000000000000001
 200 udc/graphql ×N
 200 udc/application/user-role
-200 udc/sandbox/delta-build-info/8704025620829192834
+200 udc/sandbox/delta-build-info/9000000000000000001
 200 udc/application/search/front-detection
 ```
 **零 302，零 ≥400，零写请求**（无 save/commit/delete/publish）。点击保存/提交/删除/发布 0 次。

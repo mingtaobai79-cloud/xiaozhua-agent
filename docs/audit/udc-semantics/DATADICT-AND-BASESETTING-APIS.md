@@ -1,8 +1,8 @@
 # UDC 数据字典 / 基础设置 / 页面字典 / 构建 接口审计
 
 - 审计时间: 2026-10-12 (CST)
-- 目标应用: appId=8704025620829192834 (datamigration9000000000000000001, caption=数据迁移)
-- 环境: https://lowcode-test2.example.com (test2, UDC 5.3.517)
+- 目标应用: appId=9000000000000000001 (datamigration9000000000000000001, caption=数据迁移)
+- 环境: https://lowcode-<env>.example.com (test2, UDC 5.3.517)
 - 凭据: 使用 shared-credentials/test2-web-credential.json 的 cookie（本文一律脱敏为 [REDACTED]）
 - 纪律: 全程只读。唯一执行的写端点 = 无；构建 op 仅抽取字段，未触发。
 - 证据来源标注: 【curl 实测】【chunk 原文】【javap】【DB 查询】【DTO 常量池】
@@ -11,7 +11,7 @@
 
 ### 1.1 请求
 ```
-GET https://lowcode-test2.example.com/service/udc/application/datadictionary/8704025620829192834
+GET https://lowcode-<env>.example.com/service/udc/application/datadictionary/9000000000000000001
 Cookie: [REDACTED]
 ```
 - HTTP 状态: **200 OK**
@@ -107,7 +107,7 @@ Cookie: [REDACTED]
 ### 活体验证（curl 实测, GraphQL POST）
 | op | 变量 | code | message | 结果 |
 |---|---|---|---|---|
-| udcApplicationDetailGet | path:{id:8704025620829192834} | **BOOT_0000** | SUCCESS | content: id/name=caption 数据迁移/sourceType NORMAL/terminalType ALL/featureType BUSINESS/publishState UNPUBLISH/appFrame 0/guid 2275741415570096882/copVersion 5.3 |
+| udcApplicationDetailGet | path:{id:9000000000000000001} | **BOOT_0000** | SUCCESS | content: id/name=caption 数据迁移/sourceType NORMAL/terminalType ALL/featureType BUSINESS/publishState UNPUBLISH/appFrame 0/guid 2275741415570096882/copVersion 5.3 |
 | udcApplicationGet | path:{id:同上} | **BOOT_0000** | SUCCESS | content: id name caption sourceType terminalType publishState |
 | udcPageInfoSearchNoPagePost | body:{params:{appId,urlType:"CUSTOM"},sort...} | BOOT_4000 | DB Error | 带 urlType=CUSTOM 报 DB Error；**去掉 urlType 键**（body:{params:{appId},sort:{orders:[{direction:ASC,property:createTime}]}}）→ **BOOT_0000 SUCCESS**，返回该应用页面行: `{id:8643109752427203840, caption:"导入导出模板管理", pageUrl:"_excelSetting", sourceType:"PRESET"}`, `{id:5175227629061096197, caption:"数据源配置信息列表页", pageUrl:"sjypzxxListPage", sourceType:"TEMPLATE"}` 等 |
 | udcPageLayoutDetailGet | path:{id:6401563406455381090(冒烟分组id)} | **UDC_PAGE_0025** | The page outline does not exist | 说明冒烟分组 id 不是 pageLayout id；该应用 pageLayout 列表为空（下节） |

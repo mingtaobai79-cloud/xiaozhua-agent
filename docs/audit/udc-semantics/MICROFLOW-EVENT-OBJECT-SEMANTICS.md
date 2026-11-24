@@ -1,6 +1,6 @@
 # 微流程「事件对象」语义闭合契约（B-5）
 
-> 切片：B-5（P2 子片）｜ 环境：test2 ｜ 应用：`datamigration9000000000000000001`（appId `8704025620829192834`）
+> 切片：B-5（P2 子片）｜ 环境：test2 ｜ 应用：`datamigration9000000000000000001`（appId `9000000000000000001`）
 > 写授权：**0 写**（本轮纯读）｜ `/service` 调用：**0 次**（全部输入取自已落盘样本 + 本地反编译 + 只读 SQL）
 > 证据等级：STATIC（CFR 0.152 反编译 udc-biz/udc-plugin-api 5.3.517）+ SAMPLE（已落盘 JSON）+ LIVE（MySQL 只读实测）
 > 生成时间：2026-10-18
@@ -110,7 +110,7 @@
 ```
 **分布**：`SERVICE` 9 个 + `CUSTOM` 1 个，跨 **4** 个应用（逐个可核）
 - `3289082814923688017` — 6 个：`MFCUSTOM1NQOZa`(CUSTOM)、`MFSERVICE1UObFN`、`MFSERVICE4DfyMz`、`MFSERVICEKlp1Gn`、`MFSERVICEqcowKl`、`MFSERVICEK8q51U`
-- `2378987216360786643` — 2 个：`MFSERVICEFNm5Ve`、`MFSERVICEsxTrIB`
+- `9000000000000000003` — 2 个：`MFSERVICEFNm5Ve`、`MFSERVICEsxTrIB`
 - `1656355078954763084` — 1 个：`MFSERVICE3sfACo`
 - `7001530513149673721` — 1 个：`MFSERVICEQKaa9b`
 
@@ -409,7 +409,7 @@ python <XIAOZHUA_AGENT_ROOT>/tools/audit/b5_scan.py
 # SELF-CHECK 2a —— 三链量化 + trigger 分母 + §5 对账（LIVE，只读）
 # 实跑输出（EXIT=0，tools/audit/b5_scan7.py）：
 #   [分母三行 D22] total=254 / with_mi=244 / without=10
-#   空壳(无 messageInfo)=10；分布 {3289082814923688017:6, 2378987216360786643:2,
+#   空壳(无 messageInfo)=10；分布 {3289082814923688017:6, 9000000000000000003:2,
 #                                  1656355078954763084:1, 7001530513149673721:1}
 #   空壳键集合 = {(caption,description,input,name,nodeId,output,type)}  ← 单一形态
 #   CUSTOM/SERVICE = {CUSTOM:1, SERVICE:9}

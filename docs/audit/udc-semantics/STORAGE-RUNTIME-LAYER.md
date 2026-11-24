@@ -10,7 +10,7 @@
 | 模式 | 例 | 语义 |
 | --- | --- | --- |
 | `{env}:Metadata:JSON:MD5:{appName}:udc@{EntityClass}@{TYPE}@{id}.json` | `test2:Metadata:JSON:MD5:app9000000000000000001:udc@com.seeyon.udc.page.domain.entity.PageSchemaEntity@PAGE@-786727548396484538.json` | **元数据缓存失效戳**（值是版本戳如 `"1.0.11222-20261014181248"`，非全量内容） |
-| `{env}:{tenantId}:{component}:{version}:CtpEnumCodeLocal::{appId}#{enumName}#{bool}` | `test2:-8112660841495312922:udc:5.3.517:CtpEnumCodeLocal::8704025620829192834#shifoutuisong#true` | 枚举 code 本地缓存（值 `["java.lang.Long",1791986471198]`） |
+| `{env}:{tenantId}:{component}:{version}:CtpEnumCodeLocal::{appId}#{enumName}#{bool}` | `test2:-8112660841495312922:udc:5.3.517:CtpEnumCodeLocal::9000000000000000001#shifoutuisong#true` | 枚举 code 本地缓存（值 `["java.lang.Long",1791986471198]`） |
 | `{env}:udc:app:sandbox:deploy-info:{appName}` | `test2:udc:app:sandbox:deploy-info:datamigration9000000000000000001` | 沙箱部署信息 |
 | `{env}:udc:{version}:dubbo:log::{date}` | `test2:udc:5.3.517:dubbo:log::2026-10-13` | dubbo 调用日志 |
 | `{env}:udc::dataChange` | — | 数据变更标记 |

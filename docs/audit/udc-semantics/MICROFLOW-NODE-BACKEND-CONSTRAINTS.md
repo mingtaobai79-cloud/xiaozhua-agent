@@ -3,7 +3,7 @@
 **证据源**：`udc-biz-5.3.517.jar` 反编译（CFR 0.152）
 `com.seeyon.udc.microflow.domain.bo.flow.activity.*` + `com.seeyon.udc.microflow.util.MicroFlowParserUtils` +
 `com.seeyon.udc.microflow.common.MicroFlowParser`
-运行时版本：pod `udc-*` / `datamigration*`（lowcode-test，`udc-*-5.3.517`）。
+运行时版本：pod `udc-*` / `datamigration*`（lowcode-<env>，`udc-*-5.3.517`）。
 提取方法：每个 Activity 类 `parseActivityNode()` 里 `NodeUtils.getXxx("field", node, required, ...)` 的 required 标志。
 
 ★ 后端解析器 = 节点字段的**权威约束源**（比前端推断精确），生成前以此为准。

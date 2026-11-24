@@ -10,7 +10,7 @@
 
 | 面 | 版本 | 证据 |
 |---|---|---|
-| 后端镜像 | `chit-acr-registry.客户方.com/chjh-external/udc:5.3.517` | SSH+`kubectl get pod` jsonpath（pod `udc-7cbfc587f5-zzvmv`，namespace `lowcode-test`） |
+| 后端镜像 | `chit-acr-registry.客户方.com/chjh-external/udc:5.3.517` | SSH+`kubectl get pod` jsonpath（pod `udc-7cbfc587f5-zzvmv`，namespace `lowcode-<env>`） |
 | 后端 javap artifact | 5.3.517 | `docs/audit/artifacts/udc-web-5.3.517-javap/`（与镜像同号 → 本地反编译产物即 test2 部署代码） |
 | 前端壳 | `seeyonGlobalVersion=5.3.41`、`seeyonSyfVersion=5.3.11`、`seeyonVendorVersion=1.0.12` | 设置页 HTML 内联 script（`/main/child-frame/udc/app-design/basic-setting`） |
 | 设计器远端入口 | `/udc/remoteEntry.js` 47,554 字节，166 个 chunk | 同上，`GET /udc/remoteEntry.js` |
@@ -62,7 +62,7 @@
 
 | # | 操作 | 参数 | 结果 |
 |---|---|---|---|
-| 1 | `udcPageTemplateSearchNoPagePost` | `body:{appId: 6419954374508955097}` | `BOOT_0000`，3 条 PORTLET 模板 |
+| 1 | `udcPageTemplateSearchNoPagePost` | `body:{appId: 9000000000000000002}` | `BOOT_0000`，3 条 PORTLET 模板 |
 | 2 | `udcPageTemplatePublishedSearchNoPagePost` | `body:{}` | `BOOT_0000`，33 条，**LAYOUT 6 条**（档案外框/审批外框_经典布局/审批外框_左右布局） |
 | 3 | `udcMetaDataSelectCtpEnumAppGet` | `path:{appId}` | `BOOT_0000`，`rootEnumDtos[].fullName = com.seeyon.boot.starter...` |
 
@@ -168,7 +168,7 @@ SUBPAGE / LAYOUT / NORMAL / FORM / MOBILE
 - **GraphQL op（`src_redux_store_ts`，形态 A' `udcMutationLoader`）**：`udcScalabilityOptionSelectAllOptionNamePost`（queryFields 含 `attributeDtoList{attributeGroup auditLog calculate caption dataFormat dataType dataTypeDisplayName ...}`）
 - **REST 面（LIVE 端点存在性验证，只读 GET）**：
   - `GET /service/udc/scalability/selectByOptionId` → **200 `BOOT_3000`**（缺参，端点在）
-  - `GET /service/udc/scalability-option/selectByAppId?appId=6419954374508955097` → **200 `BOOT_3000`**
+  - `GET /service/udc/scalability-option/selectByAppId?appId=9000000000000000002` → **200 `BOOT_3000`**
   - `select-by-appid/tree` → 404；`/udc-extension-plan`（多个候选路径）→ **全 404**（它是前端 svc 变量名，非 REST 路径）
 - **后端对齐（javap 5.3.517）**：`ScalabilityController` `udc/scalability`(6 api: create/update/deleteById/deleteByIds/selectById/selectByOptionId)、`ScalabilityOptionController`(8 api: …/`selectAllOptionName`/`selectScalabilityDataType`)
 - **闭合证据**：前端 op `…SelectAllOptionNamePost` ↔ 后端 method `selectAllOptionName`，名逐字对上
@@ -289,4 +289,4 @@ SUBPAGE / LAYOUT / NORMAL / FORM / MOBILE
 
 **状态枚举**：`NONE | STOP | RUNNING | PENDING | FAILED | UNKNOWN`。
 
-**LIVE 记录（2026-10-12）**：`udcDeploymentAppReadyStatePost` + `body:{appId:8704025620829192834}` → `BOOT_0000`，`appName="datamigration9000000000000000001"`、`appVersion="1.0.0"`、`enableLoginEntry:false`、`enableClearEntry:true`。两种 URL 形态（`?op` / 纯 body）结果一致。
+**LIVE 记录（2026-10-12）**：`udcDeploymentAppReadyStatePost` + `body:{appId:9000000000000000001}` → `BOOT_0000`，`appName="datamigration9000000000000000001"`、`appVersion="1.0.0"`、`enableLoginEntry:false`、`enableClearEntry:true`。两种 URL 形态（`?op` / 纯 body）结果一致。

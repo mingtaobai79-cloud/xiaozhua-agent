@@ -1,7 +1,7 @@
 # 复制菜单字段行为实测（P1）——「页面不换实体」字段定界 + 规则随迁 + 默认页错位
 
 > 领域：菜单/导航 → `udcFunctionCopyPost` 复制路径的字段行为
-> 状态：**LIVE PASS**（test2，app `8704025620829192834`，2026-10-17）
+> 状态：**LIVE PASS**（test2，app `9000000000000000001`，2026-10-17）
 > 证据：页面点击（CDP 真实鼠标右键→复制）+ REST 抓包 + DB 前后快照 diff + CFR 字节码
 > 接续：`core/facts/udc/write-chain/menu-default-page-write-chain.md`（建/绑/删/树回读）
 
@@ -29,7 +29,7 @@ CDP 真实鼠标操作设计器页面 `app-design/page-manage/functions`：
 POST /service/udc/graphql?udcFunctionCopyPost
 {"query":"mutation graphqlLoader ($params0: udcFunctionCopyPostInputBody) {
    data0: udcFunctionCopyPost(body: $params0) { code data { content } message status } }",
- "variables":{"params0":{"appId":"8704025620829192834",
+ "variables":{"params0":{"appId":"9000000000000000001",
    "copyOtherTerminal":true,"terminalType":"PC","ids":["9183843213439484192"]}}}
 
 响应：{"traceId":"...","data":{"data0":{"code":"BOOT_0000","data":null,"message":"SUCCESS","status":0}}}
@@ -63,7 +63,7 @@ POST /service/udc/graphql?udcFunctionCopyPost
 | 弹窗页 源 992522359796286320 → 新 1185161788250969507 | 5738598551920790169 | 5738598551920790169 | ✅ |
 
 实体归属核验：`4796455827714164161` = `migrationPlan`（迁移方案配置），`5738598551920790169` = `migrationDatasource`（数据源配置信息），
-两者都属于**本应用**（app_id=8704025620829192834）——即同应用内复制时实体本来就同属一应用，字段照抄在**跨应用**场景才会成为错绑。
+两者都属于**本应用**（app_id=9000000000000000001）——即同应用内复制时实体本来就同属一应用，字段照抄在**跨应用**场景才会成为错绑。
 
 ### 4.2 Schema 层（`udc_page_schema.page_schema` JSON）
 

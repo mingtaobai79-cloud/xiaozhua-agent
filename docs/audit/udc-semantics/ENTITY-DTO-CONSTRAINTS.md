@@ -5,7 +5,7 @@
 - `com.seeyon.udc.common.dto.AttributeDto` / `BaseUdcAttributeDto`
 - 约束来自 `javax.validation` 注解（`@NotNull` / `@NotBlank` / `@Length(max=...)` / `@Min(0)`）
 
-**LIVE 回读验证**（test2 app=8704025620829192834）：**8 实体 + 190 属性全部满足必填约束，零误报**。
+**LIVE 回读验证**（test2 app=9000000000000000001）：**8 实体 + 190 属性全部满足必填约束，零误报**。
 
 ---
 

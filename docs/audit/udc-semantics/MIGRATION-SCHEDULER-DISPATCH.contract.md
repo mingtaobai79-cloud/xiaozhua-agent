@@ -1,6 +1,6 @@
 # MigrationScheduler 调度关系契约（B-9）
 
-> 目标应用：`datamigration9000000000000000001`（appId `8704025620829192834`），环境 test2
+> 目标应用：`datamigration9000000000000000001`（appId `9000000000000000001`），环境 test2
 > 证据基准（三个 jar 的**绝对路径**，须原样可复算；外部复现缺一不可）：
 > ```
 > BIZ = <MAVEN_REPO>/com/seeyon/datamigration9000000000000000001-biz/1.0.7/

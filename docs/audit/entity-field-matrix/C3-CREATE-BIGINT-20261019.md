@@ -1,6 +1,6 @@
 # C-3｜BIGINTEGER 字段页面点击新建（migrationPlan）
 
-2026-10-19｜appId `8704025620829192834`｜实体 `migrationPlan`「迁移方案配置」`4796455827714164161`｜CDP 9223｜test2
+2026-10-19｜appId `9000000000000000001`｜实体 `migrationPlan`「迁移方案配置」`4796455827714164161`｜CDP 9223｜test2
 **判决：PASS**（①②③ 全达成，写边界零越界）
 
 ## 一、验收（三选二 → 三选三）
@@ -17,7 +17,7 @@
 
 ```
 id=-6254649020690020123  name=caption=zzprobeBigint01  data_type=BIGINTEGER
-entity_id=4796455827714164161  app_id=8704025620829192834
+entity_id=4796455827714164161  app_id=9000000000000000001
 db_column_name=zzprobe_bigint01  max_length=20  min_length=0  order_no=42
 publish_state=1  edit=1  guid=3239184580109746931
 create_time=update_time=2026-10-19 12:04:40

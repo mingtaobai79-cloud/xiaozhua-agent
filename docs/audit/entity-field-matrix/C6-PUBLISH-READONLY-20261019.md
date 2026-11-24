@@ -1,12 +1,12 @@
 # C-6 第一段｜发布链路只读取证（零写、零发布）
 
-2026-10-19｜test2｜app 8704025620829192834｜**仅只读，零发布**
+2026-10-19｜test2｜app 9000000000000000001｜**仅只读，零发布**
 
 ## 结论先行
 发布入口在「应用」子页二级子菜单；该 app **走不到发布那一步** —— 沙箱已失败，卡点=实体 `XzhExp950795` 后端代码生成 NumberFormatException。P3 403 的 ctp_role_application 零行是**结果不是原因**。
 
 ## 1. 发布入口在哪（页面实测）
-路径：设计器左侧「应用」→ `app-basic-info?appId=8704025620829192834` → 二级子菜单 8 项：
+路径：设计器左侧「应用」→ `app-basic-info?appId=9000000000000000001` → 二级子菜单 8 项：
 `页面测试`/`沙箱测试`/**`发布版本(version)`**/`依赖设置`/`应用依赖`/`组件依赖`/`团队设置`/`应用主题`
 
 - 「发布版本」= **纯历史记录表**（发布时间/上次测试版本/发布状态/失败原因），**无操作按钮**。现有 1 条：`2026-10-15 15:32:38｜V1.0.7｜发布成功`。
@@ -15,7 +15,7 @@
 
 **⇒ 发布不是手动点按钮，而是沙箱测试成功后平台自动触发**（沙箱日志末尾打印「发布失败/成功」）。入口 = 顶部「测试」→ 沙箱流水线。
 
-**实测 REST（抓包原文）**：端点 `POST /service/udc/graphql`。就绪查询 `udcDeploymentAppReadyStatePost`〔`{"appId":"8704025620829192834"}` 242B〕；元数据读取 `udcApplicationGetInputPath`/`udcApplicationDetailGetInputPath`/`udcApplicationAppVersionAppGuidPostInputPath`/`udcSandboxSelectAppGetInputPath`。
+**实测 REST（抓包原文）**：端点 `POST /service/udc/graphql`。就绪查询 `udcDeploymentAppReadyStatePost`〔`{"appId":"9000000000000000001"}` 242B〕；元数据读取 `udcApplicationGetInputPath`/`udcApplicationDetailGetInputPath`/`udcApplicationAppVersionAppGuidPostInputPath`/`udcSandboxSelectAppGetInputPath`。
 
 **本段未点「测试」，流水线未启动，故未捕获到 publish/release/deploy 写接口。此为切片范围限制，非「接口不存在」。**
 
@@ -29,7 +29,7 @@
 - `id=-1268511255652519052`：version=1、**state=1 成功**、show_version=**1.0.7**、deploy_time=2026-10-15 15:32:38、fail_reason=`udc发布成功`
 
 ## 3. ctp_role_application 零行（已确认）
-表在 **`ctp_user_test2`** 库（不在 udc_test2）。列：`id,tenant_id,create_time,update_time,version,role_id,app_id,status,sort_number`。`WHERE app_id='8704025620829192834'` → **0 行**；全表 199 行。
+表在 **`ctp_user_test2`** 库（不在 udc_test2）。列：`id,tenant_id,create_time,update_time,version,role_id,app_id,status,sort_number`。`WHERE app_id='9000000000000000001'` → **0 行**；全表 199 行。
 
 ## 4. 风险评估（STATIC）
 **写哪些表**：`udc_app_version` 增/改一行（已实测）→ `udc_application` publish_state/update_time → `ctp_role_application` 发布成功后写权限行（**P3 403 的钥匙**）。平台：Redis `{env}:Metadata:*` + OSS `udc@*.json`。

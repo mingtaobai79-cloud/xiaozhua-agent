@@ -118,3 +118,6 @@
 2. 想用「类型值域」：读 `SLICE-B5` / `SLICE-B6` / `SLICE-B7`（B7 是 B6 的源级升级，冲突时以 B7 为准）。
 3. 想用「页面/接口实测」：读 `C3`–`C9`；`C9` 是 **BLOCKED**，不要当"已支持 DATE"。
 4. 想引用任何数字：**先看该文件的证据等级行**，`UNVERIFIED` 的不要当结论用。
+
+> **标识口径**：正文里的应用 id 已占位为 `9000000000000000001/…2/…3`、域名 `*.example.com`；
+> `artifacts/`、`live-evidence/` 里的原始回包/请求**保留原值**——`test_evidence_data_may_retain_platform_ids` 把「可复核性」当前提，洗掉就无法按 path:line 复核。

@@ -10,7 +10,7 @@
     "RBAC 自审实测：pods/exec=forbidden，故 BOOT-INF/lib 静态路径仍被挡；pod 内 /tmp 快照为历史遗留，无法复现。"
   ],
   "live_channel": {
-    "namespace": "lowcode-test",
+    "namespace": "lowcode-<env>",
     "pod_role": "udc (image tag 5.3.517)",
     "rbac": {
       "pods/exec": "forbidden(403)",

@@ -37,7 +37,7 @@
 
 ## 2. 页面侧实测（LIVE，CDP）——SPA 加载链证明路由真实生效
 
-带新 token 直开 `https://lowcode-test2.example.com/main/portal/datamigration9000000000000000001/qyfapzlb`：
+带新 token 直开 `https://lowcode-<env>.example.com/main/portal/datamigration9000000000000000001/qyfapzlb`：
 
 **网络流（前 3.3s 内 122 事件）关键序列**（全部 200）：
 
@@ -171,7 +171,7 @@ URL 形状 `/main/portal/{appName}/{pageName}` 中 `{pageName}` 消费运行态 
 > **ZZprobe 应用对照同 403，排除单应用问题**。」
 
 **错在哪（auditor 实测，2026-10-18 00:35）**：
-`zzprobenew26419954374508955097` 的 `ctp_role_application` 是 **3 行，不是 0 行**；
+`zzprobenew29000000000000000002` 的 `ctp_role_application` 是 **3 行，不是 0 行**；
 但它 `udc_application` **无注册记录**、`ctp_sandbox_app` **无沙箱记录**、`udc_page_info` **0**、`udc_function_node` **0**。
 
 **正确表述（以此为唯一版本）**：
@@ -207,7 +207,7 @@ URL 形状 `/main/portal/{appName}/{pageName}` 中 `{pageName}` 消费运行态 
 ```sql
 SELECT id,create_time,state,jar_version,build_version,msg,
        schema_storage_key IS NULL AS sk_null, image_url IS NULL AS img_null, deploy_type
-FROM udc_deploy_record WHERE app_id=8704025620829192834 ORDER BY create_time DESC;
+FROM udc_deploy_record WHERE app_id=9000000000000000001 ORDER BY create_time DESC;
 ```
 
 - 总 **20** 条；`state=1` 成功 **3**，失败 **17**
@@ -228,7 +228,7 @@ FROM udc_deploy_record WHERE app_id=8704025620829192834 ORDER BY create_time DES
 
 ```sql
 SELECT id,caption,page_url,create_time,update_time FROM udc_page_info
-WHERE app_id=8704025620829192834;   -- 31 行，page_url 唯一，无重复
+WHERE app_id=9000000000000000001;   -- 31 行，page_url 唯一，无重复
 ```
 Redis `key = test2:Metadata:Page:datamigration9000000000000000001`（hash），`fields = 24`，**`TTL = 459958s (127.8h)`**（与 main 一致，排除缓存过期）。
 

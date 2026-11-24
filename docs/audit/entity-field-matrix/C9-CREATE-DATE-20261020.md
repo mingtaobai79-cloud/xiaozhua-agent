@@ -1,6 +1,6 @@
 # C-9｜DATE 类型探针 — BLOCKED（第 3 次：9223 实例无登录态）
 
-2026-10-20 12:02｜app `8704025620829192834`｜entity `4796455827714164161` (migrationPlan)
+2026-10-20 12:02｜app `9000000000000000001`｜entity `4796455827714164161` (migrationPlan)
 **状态：BLOCKED**｜写授权 **consumed 0 / 剩余 1**｜DB 43 行原状｜**非挂死**（renderer 健康）
 
 ## 0. 结论
@@ -11,14 +11,14 @@
 
 **导航链（复原：`c9redir.js` L26-27 监听 `Page.frameNavigated` + `Network` Document 请求）**
 ```
-lowcode-test2/.../udc/app-design/entity?appId=8704025620829192834
+lowcode-<env>/.../udc/app-design/entity?appId=9000000000000000001
  → uatsso.客户方.com/esc-sso/oauth2.0/authorize?client_id=3fa73130e3a3804fb659...
  → uatsso.客户方.com/esc-sso/login            (302)
  → uatsso.客户方.com/esc-sso/login/page       (302)
 ```
 **cookie 实况（复原：`Network.getCookies` 按域查询）**
 ```
-lowcode-test2.example.com -> 0 个
+lowcode-<env>.example.com -> 0 个
 uatsso.客户方.com        -> 2 个 (pg-rl, browserId)
 ```
 ⇒ 9223 实例从未登录 test2；human 11:51 的登录落在另一 profile，未流入 `cdp-A-平台基础`。

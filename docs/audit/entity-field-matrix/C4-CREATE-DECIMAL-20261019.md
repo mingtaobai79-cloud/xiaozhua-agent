@@ -1,6 +1,6 @@
 # C-4｜DECIMAL 精度/标度建字段
 
-2026-10-19｜test2｜CDP 9223｜app 8704025620829192834｜实体 migrationPlan 4796455827714164161
+2026-10-19｜test2｜CDP 9223｜app 9000000000000000001｜实体 migrationPlan 4796455827714164161
 **结论：PASS**（三选三 + 三层组装映射全成）
 
 ## 0. 实体选择
@@ -35,7 +35,7 @@ udc_operation_log 独立记录：14:17:22 CREATE「阈值设置[最大长度]-�
 - **udc_attribute 无 precision/scale 列**（SHOW COLUMNS 已验），精度只能落 max_length。
 
 ## 4. CROSS-VERIFIED（3/3：body 存档 + DB + op_log 审计层均可独立复核；读接口/页面渲染同窗已在存档内）
-name=zzprobeDecimal01｜dataType=DECIMAL｜maxLength=18｜decimalDigits=4｜minLength=0｜orderNo=43｜columnName=zzprobe_decimal01｜entityId=4796455827714164161｜appId=8704025620829192834｜id/guid=6019556237194179089/7107955787235477438 —— 三源逐项一致。
+name=zzprobeDecimal01｜dataType=DECIMAL｜maxLength=18｜decimalDigits=4｜minLength=0｜orderNo=43｜columnName=zzprobe_decimal01｜entityId=4796455827714164161｜appId=9000000000000000001｜id/guid=6019556237194179089/7107955787235477438 —— 三源逐项一致。
 
 读接口 `udcAttributeGroupEntityGet` → `$.data.data0.data.content[3].attributeDtoList[6]`（72 键）。
 

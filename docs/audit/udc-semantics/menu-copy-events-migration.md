@@ -1,7 +1,7 @@
 # 复制页面事件随迁实测（P2）——events[].microFlow 重映射完整性核验
 
 > 领域：菜单/导航 → `udcFunctionCopyPost` 复制路径的事件（绑定动作）随迁行为
-> 状态：**LIVE PASS**（test2，app `8704025620829192834`，2026-10-17）
+> 状态：**LIVE PASS**（test2，app `9000000000000000001`，2026-10-17）
 > 证据：DB 全量回读（只读 SQL），复用 P1 已留存的 3 份副本对象；全程零写操作
 > 接续：`menu-copy-field-behavior.md`（P1）；`main/ROUTE.md` P2（auditor VERDICT 修正 A 之后路线）
 > 复现脚本：`session/implementer/p2_ref_integrity.py`、`p2_final_verify.py`（终验表）、`p2_global_census.py`（全库普查）、`p2_events_census.py`（控件级普查）、`p2_eventdefine_check.py`（eventDefine 普查）——全部可重跑
@@ -92,7 +92,7 @@ HANDOFF 假设「现仅 1 条 onLoad，样本不足」。实测源详情页 `728
 - 事件条目 **6595**，其中 microflow 引用 **2327**
 - 悬空引用（规则不存在）**6 条** —— 全部指向同一 id `-6114638575851512413`，全在**其他应用**
 - 跨页引用（source_id 非本页）**31 条** —— 全在 `page_id=0` 等异常行/其他应用
-- **本应用（8704025620829192834）：97 条事件、40 条引用、失配 0**
+- **本应用（9000000000000000001）：97 条事件、40 条引用、失配 0**
 - 全库失配率 37/2327 ≈ 1.59%，且没有一条落在本应用或本轮副本上
 
 ## 5. 边界条件与未重映射残留（LIVE）
