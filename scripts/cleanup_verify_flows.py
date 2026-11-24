@@ -34,7 +34,7 @@ def log(*a):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--app-id", default="8704025620829192834")
+    ap.add_argument("--app-id", required=True, help="目标应用 appId（必填；不设默认，换环境不能打错租户）")
     ap.add_argument("--app-name", default=os.environ.get("UDC_APP_NAME", ""))
     ap.add_argument("--host", default=os.environ.get("UDC_HOST", ""))
     ap.add_argument("--cookie-file", default="scratch/_ck.txt")

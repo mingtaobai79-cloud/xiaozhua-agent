@@ -7,8 +7,10 @@ import sys, json, os
 sys.path.insert(0, '.')
 from providers.cdp import CdpClient
 
-APP = '8704025620829192834'
-APP_NAME = 'datamigration9000000000000000001'
+APP = os.environ.get('XIAOZHUA_APP_ID')
+APP_NAME = os.environ.get('XIAOZHUA_APP_NAME', '')
+if not APP:
+    raise SystemExit("必须给目标应用：export XIAOZHUA_APP_ID=<appId>（脚本不写死 appId）")
 OUT_DIR = 'definitions'
 
 def gql(op, content_fields, variables):

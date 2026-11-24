@@ -14,7 +14,7 @@ for f in 验收/*.spec.json; do
   nm=$(echo "$base" | awk -F- '{printf "%s", $1; for(i=2;i<=NF;i++) printf "%s%s", toupper(substr($i,1,1)), substr($i,2)}')
   log=$(mktemp)
   ./.venv/Scripts/python.exe tools/core/microflow/build_microflow.py \
-     --app-id 8704025620829192834 \
+     --app-id "${XIAOZHUA_APP_ID:?先 export XIAOZHUA_APP_ID=<appId>}" \
      --caption "$cap" --name "$nm" \
      --spec "$f" > "$log" 2>&1
   create=$(grep -o "已创建 id = [0-9]*" "$log" | head -1)

@@ -10,6 +10,7 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT))
 
 from components.udc.event_listener_constraints import (
+    live_evidence,
     APP_NAME_KEY_ABSENCE_CAUSES_DETECTION_NPE,
     BUSINESS_EVENT_ENDPOINTS,
     BUSINESS_EVENT_TRIGGER_CAPTION,
@@ -29,8 +30,6 @@ from components.udc.event_listener_constraints import (
     CONNECTOR_CALLBACK_TOPIC_FIXED,
     CONNECTOR_CALLBACK_TOPIC_IS_NOT_A_LISTEN_TARGET,
     CONNECTOR_DTOS_ARE_INVISIBLE_TO_FILTER_MQ,
-    CONNECTOR_DTO_REGISTRY_DB,
-    CONNECTOR_DTO_REGISTRY_LIVE,
     CONNECTOR_DTO_REGISTRY_TABLE,
     CONNECTOR_DYNAMIC_DTO_MARKER,
     CONNECTOR_LISTENER_TEMPLATE,
@@ -58,7 +57,6 @@ from components.udc.event_listener_constraints import (
     EVENT_TRIGGER_TYPES,
     EVENT_TYPES,
     EVENT_TYPES_IS_IGNORED_BY_FILTER_EVENT,
-    FILTER_MQ_PLANE_LIVE,
     LIVE_MESSAGE_SOURCE_HISTOGRAM,
     LIVE_R43_DETECTION_PAIR,
     LIVE_R43_READBACK_KEYS_MESSAGE,
@@ -614,8 +612,9 @@ def test_adversarial_static_marker_check_is_consistent_with_prefix_matching():
 
 def test_connector_registry_evidence_is_recorded_with_its_channel():
     assert CONNECTOR_DTO_REGISTRY_TABLE == "cip_linker_metadata_info"
-    assert CONNECTOR_DTO_REGISTRY_DB == "cip_connector_test2"
-    reg = CONNECTOR_DTO_REGISTRY_LIVE
+    ev = live_evidence()          # 证据住在 core/facts/...，不进运行逻辑
+    assert ev["registry_db"]
+    reg = ev["registry_live"]
     assert reg["rows"] == 54
     assert sum(reg["linker_type_histogram"].values()) == 54
     assert reg["dynamic_dto_prefix"] == "com.seeyon.cip.connector.dynamic.dto."
@@ -626,7 +625,7 @@ def test_read_plane_negative_evidence_is_pinned_to_numbers():
     """负证据必须落到数字：filter/mq 对 cip-connector/cip-manager 全 0，对 cip-capability 恒 7。"""
     assert CONNECTOR_DTOS_ARE_INVISIBLE_TO_FILTER_MQ is True
     assert CONNECTOR_SELECTOR_IS_UNREACHABLE_ON_THIS_TENANT is True
-    p = FILTER_MQ_PLANE_LIVE
+    p = live_evidence()["filter_mq_plane_live"]
     assert set(p["cip-connector"].values()) == {0}
     assert set(p["cip-manager"].values()) == {0}
     assert set(p["cip-capability"].values()) == {7}

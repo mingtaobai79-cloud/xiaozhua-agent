@@ -1,0 +1,45 @@
+{
+  "kind": "LIVE_EVIDENCE",
+  "env": "<env-name>",
+  "note": "历史资产：从 components/udc/event_listener_constraints.py 迁出。只作证据记录，运行逻辑不读这些值。",
+  "filter_mq_plane_live": {
+    "cip-connector": {
+      "8704025620829192834": 0,
+      "2378987216360786643": 0,
+      "3289082814923688017": 0,
+      "1656355078954763084": 0
+    },
+    "cip-manager": {
+      "8704025620829192834": 0,
+      "2378987216360786643": 0,
+      "3289082814923688017": 0,
+      "1656355078954763084": 0
+    },
+    "cip-capability": {
+      "8704025620829192834": 7,
+      "2378987216360786643": 7,
+      "3289082814923688017": 7,
+      "1656355078954763084": 7
+    }
+  },
+  "registry_db": "cip_connector_test2",
+  "registry_live": {
+    "rows": 54,
+    "linker_type_histogram": {
+      "0": 33,
+      "2": 5,
+      "3": 2,
+      "4": 1,
+      "5": 13
+    },
+    "dynamic_dto_prefix": "com.seeyon.cip.connector.dynamic.dto.",
+    "sample_links": {
+      "VDAIBANJICHENG": "V5待办集成",
+      "ZHJHZZTB": "客户方_组织集成",
+      "CESHIDANDIANDENGLU": "测试单点登录",
+      "JICHENGCESHI": "集成测试",
+      "CESHIYINGYONG": "测试应用",
+      "FASONGXIAOXI": "发送消息"
+    }
+  }
+}

@@ -15,6 +15,14 @@
 | **B 知识库与开发资产** | `core/facts/`、`docs/`、`definitions/`、`scripts/` | **216 个文件**含 LIVE 环境细节 | 只准减不准增（测试卡基线） |
 | **C 本机覆盖层** | `config/environments.local.yaml`、`~/.xiaozhua/logs.yaml`、`.hermes/` | 已在 `.gitignore`，且 `git rm --cached` | 永不进 git |
 
+## 口径（2026-11-24 定）
+
+**历史资产留着没问题，前提是它不参与发行/执行。** 判据两条：
+
+1. **可执行代码**（被 import、被安装、被脚本调用）→ 换环境必须不出错 → 代码里零环境标识，
+   AST 级测试 `test_no_hard_identifiers_in_executable_code` 守住（docstring 不算代码）。
+2. **纯引用资产**（审计报告、事实库证据、样例 JSON）→ 可以留，但登记在案、只准减。
+
 ## A 桶：这次真正修掉的
 
 | 问题 | 处理 |
@@ -35,7 +43,16 @@
 | `docs/` | ~110 | 审计报告里的真域名、pod 名、跳板机命令 | 拆「平台机制文档（可发行）」与「客户现场报告（仓外）」 |
 | `core/facts/` | ~92 | LIVE 证据格直接贴 appId、`kubectl --kubeconfig=configtest2`、pod 名 | 事实库只留机制与结论，LIVE 明细引用仓外 `customer-evidence` |
 | `definitions/` | 8 | 客户 DTO 定义（`com.seeyon.datamigration<appId>.…`） | 移到仓外样例库，仓库只留 1 份脱敏示例 |
-| `scripts/` | 5 | 一次性脚本把真 appId 写成 `default=` | 参数化（必须传 `--app-id`），或移进 `.hermes/dev-scripts/` |
+| `scripts/` | 5 → **0** | 脚本把真 appId 写成 `default=` | 已改为 `--app-id required` / `XIAOZHUA_APP_ID`；生成物 `random-biz-evidence/` 移出仓库 |
+
+### 已迁出运行代码的两处
+
+* `components/udc/event_listener_constraints.py` 的 `FILTER_MQ_PLANE_LIVE` /
+  `CONNECTOR_DTO_REGISTRY_DB` / `CONNECTOR_DTO_REGISTRY_LIVE` —— 三个 LIVE 证据常量只在测试里用，
+  已搬到 `core/facts/udc/event-listener/connector-live-evidence.json`，模块只留机制常量 +
+  `live_evidence()` 读接口。
+* 4 个一次性脚本的 `default=<真appId>` —— 改成必填参数/环境变量，缺了直接报错，
+  换环境不会静默打到我们自己的租户。
 
 这 216 个文件不静默放过：`tests/test_distribution_hygiene.py::test_facts_evidence_hits_do_not_grow`
 把 216 当基线，新增一个就红。

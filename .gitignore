@@ -30,3 +30,6 @@ config/logs.yaml
 
 # 本机工作笔记（含环境细节，不进发行包）
 /.hermes/
+
+# 脚本生成的一次性证据（含真实 appId/实体名，不进仓库）
+scripts/random-biz-evidence/

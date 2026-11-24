@@ -9,6 +9,7 @@
 """
 from __future__ import annotations
 
+import ast
 import subprocess
 from pathlib import Path
 
@@ -126,3 +127,50 @@ def test_facts_evidence_hits_do_not_grow():
         f"core/facts 里的环境标识从 {BASELINE_FACTS_HITS} 涨到 {len(hits)} 份；"
         "新增证据请放仓外 customer-evidence，别把 LIVE 环境细节写进事实库。新命中："
         + ", ".join(sorted(hits)[:10]))
+
+
+# ---------------------------------------------------------------- 代码级（AST）
+CODE_ROOTS = ("adapters", "components", "core", "installer", "providers", "scripts")
+
+
+def _docstring_lines(tree) -> set[int]:
+    lines: set[int] = set()
+    for node in ast.walk(tree):
+        body = getattr(node, "body", None)
+        if isinstance(body, list) and body:
+            first = body[0]
+            if isinstance(first, ast.Expr) and isinstance(getattr(first, "value", None), ast.Constant) \
+                    and isinstance(first.value.value, str):
+                lines.add(first.lineno)
+    return lines
+
+
+def test_no_hard_identifiers_in_executable_code():
+    """可执行代码里零容忍（docstring 算历史资产，允许；字符串/常量才是语义风险）。
+
+    这条比「发行面文件」更严：它不管文件在不在白名单，只看**真会执行的字符串常量**。
+    换一个环境跑，代码不该因为写死了某个 appId / 库名 / kubeconfig 而打错目标。
+    """
+    hits: list[str] = []
+    for root in CODE_ROOTS:
+        base = ROOT / root
+        if not base.is_dir():
+            continue
+        for path in base.rglob("*.py"):
+            rel = path.relative_to(ROOT).as_posix()
+            if rel.startswith("core/facts/"):
+                continue
+            try:
+                tree = ast.parse(path.read_text(encoding="utf-8", errors="replace"))
+            except SyntaxError:
+                continue
+            docs = _docstring_lines(tree)
+            for node in ast.walk(tree):
+                if isinstance(node, ast.Constant) and isinstance(node.value, str):
+                    if node.lineno in docs:
+                        continue
+                    for token in DENY:
+                        if token in node.value:
+                            hits.append(f"{rel}:{node.lineno}: {token}")
+                            break
+    assert not hits, "可执行代码里写死了环境标识（改成 config 引用 / 环境变量 / 必填参数）：\n" + "\n".join(hits[:30])

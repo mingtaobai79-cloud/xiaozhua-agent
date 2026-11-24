@@ -478,27 +478,21 @@ CONNECTOR_RESOLUTION_REQUIRES_DEPENDENT_APPLICATION_ROW: bool = True
 
 # 读面负证据（LIVE，test2 本租户全量）：**/microflow/filter/mq 永远取不到连接器动态 DTO**
 CONNECTOR_DTOS_ARE_INVISIBLE_TO_FILTER_MQ: bool = True
-FILTER_MQ_PLANE_LIVE: dict = {
-    "cip-connector": {"8704025620829192834": 0, "2378987216360786643": 0,
-                      "3289082814923688017": 0, "1656355078954763084": 0},
-    "cip-manager": {"8704025620829192834": 0, "2378987216360786643": 0,
-                    "3289082814923688017": 0, "1656355078954763084": 0},
-    "cip-capability": {"8704025620829192834": 7, "2378987216360786643": 7,
-                       "3289082814923688017": 7, "1656355078954763084": 7},
-}
-# cip-capability 那 7 条 topic=CONNECTOR_CALLBACK 是 connector **方法参数** DTO
-# （cip.capability.dto.*），不是合法监听目标 —— 第四十二轮负控 E 已实测报 04004。
 CONNECTOR_CALLBACK_TOPIC_IS_NOT_A_LISTEN_TARGET: bool = True
-# ★ 合法目标的真身只在连接器主数据里（MySQL，另一条通道：cip_linker_metadata_info）
 CONNECTOR_DTO_REGISTRY_TABLE: str = "cip_linker_metadata_info"
-CONNECTOR_DTO_REGISTRY_DB: str = "cip_connector_test2"
-CONNECTOR_DTO_REGISTRY_LIVE: dict = {
-    "rows": 54, "linker_type_histogram": {"0": 33, "2": 5, "3": 2, "4": 1, "5": 13},
-    "dynamic_dto_prefix": "com.seeyon.cip.connector.dynamic.dto.",
-    "sample_links": {"VDAIBANJICHENG": "V5待办集成", "ZHJHZZTB": "客户方_组织集成",
-                     "CESHIDANDIANDENGLU": "测试单点登录", "JICHENGCESHI": "集成测试",
-                     "CESHIYINGYONG": "测试应用", "FASONGXIAOXI": "发送消息"},
-}
+# ★ LIVE 证据（某环境的 filter/mq 全 0、registry 54 行这些数字）不放代码里：
+#   仓库要能给任何环境用，证据是历史资产，见 core/facts/udc/event-listener/connector-live-evidence.json
+LIVE_EVIDENCE_FILE: str = "core/facts/udc/event-listener/connector-live-evidence.json"
+
+
+def live_evidence() -> dict:
+    """读 LIVE 证据（只给测试/报告用；运行逻辑不依赖它）。"""
+    import json
+    from pathlib import Path
+    path = Path(__file__).resolve().parents[2] / LIVE_EVIDENCE_FILE
+    if not path.is_file():
+        return {}
+    return json.loads(path.read_text(encoding="utf-8-sig"))
 # ★ 读取通道错配（诚实边界）：前端 EXTERNAL 弹层走 filter/mq，而该端点在 test2
 #   对 cip-connector/cip-manager 恒返回 0 条 ⇒ 平台面本身取不到合法 CONNECTOR 目标。
 #   已存在的 CONNECTOR 监听配置在 500 条微流程的 messageSource 直方图里 **0 条**
