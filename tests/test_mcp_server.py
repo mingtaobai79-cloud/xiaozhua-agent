@@ -26,6 +26,8 @@ from adapters.mcp.server import (  # noqa: E402
 # 2026-11-09：第四批 1 个（八大模块总索引）→ 共 39 个
 # （`agent` 是装配好的对象，不是可调用能力，不暴露）。
 EXPECTED_TOOL_NAMES = {
+    # 运行期日志（Loki via Grafana proxy，只读）
+    "xiaozhua_logs_search", "xiaozhua_logs_labels", "xiaozhua_logs_envs",
     # 原有 5 个
     "xiaozhua_dispatch", "xiaozhua_generate", "xiaozhua_generate_from_requirement",
     "xiaozhua_live_probe", "xiaozhua_deploy_plan",
@@ -67,6 +69,13 @@ EXPECTED_TOOL_NAMES = {
     "xiaozhua_ui_component_catalog",
 }
 
+# 权威工具清单来自 server.TOOL_KEYS —— 上面那份是历史人工登记，容易漏（已漏 6 个）。
+# 断言以派生集合为准，人工那份只做「名字前缀/写操作面」的样例。
+from adapters.mcp.server import MCP_TOOL_NAMES as _NAMES, TOOL_KEYS as _TOOL_KEYS  # noqa: E402
+
+# 名字不一定等于 xiaozhua_<key>（有历史别名），以 MCP_TOOL_NAMES 为准
+EXPECTED_TOOL_NAMES_DERIVED = {_NAMES[k] for k in _TOOL_KEYS}
+
 
 @pytest.fixture(scope="module")
 def server() -> McpServer:
@@ -85,8 +94,8 @@ def _caps_or_skip():
 def test_list_all_tools():
     caps = _caps_or_skip()
     tools = build_tool_schemas(caps)
-    assert len(tools) == len(EXPECTED_TOOL_NAMES)
-    assert {t["name"] for t in tools} == EXPECTED_TOOL_NAMES
+    assert len(tools) == len(EXPECTED_TOOL_NAMES_DERIVED)
+    assert {t["name"] for t in tools} == EXPECTED_TOOL_NAMES_DERIVED
 
 
 def test_schema_from_signatures():
@@ -322,7 +331,7 @@ def test_write_not_exposed():
         if any(s in t["name"] for s in body_only):
             assert not any(w in t["name"] for w in ("write", "delete", "commit", "submit")), t["name"]
 
-    assert len(tools) == len(EXPECTED_TOOL_NAMES)
+    assert len(tools) == len(EXPECTED_TOOL_NAMES_DERIVED)
 
 
 def test_initialize_handshake(server: McpServer):
@@ -350,7 +359,7 @@ def test_stdio_end_to_end(server: McpServer):
     lines = [json.loads(x) for x in fout.getvalue().strip().splitlines()]
     assert len(lines) == 2
     assert lines[0]["result"]["protocolVersion"] == PROTOCOL_VERSION
-    assert len(lines[1]["result"]["tools"]) == len(EXPECTED_TOOL_NAMES)
+    assert len(lines[1]["result"]["tools"]) == len(EXPECTED_TOOL_NAMES_DERIVED)
     fin = io.StringIO('[]\n' + json.dumps({"jsonrpc": "2.0", "id": 3, "method": "initialize"}) + '\n')
     fout = io.StringIO()
     assert server.serve(stdin=fin, stdout=fout) == 0

@@ -25,6 +25,8 @@ SERVER_INFO = {"name": "xiaozhua-mcp", "version": "0.1.0"}
 # schema 由 inspect 签名自动生成（`_schema_from_callable`），加一个 key 即可，不用手抄。
 TOOL_KEYS = (
     "dispatch", "generate", "generate_from_requirement", "live_probe", "deploy_plan",
+    # ---- 运行期日志（Loki，经 Grafana datasource proxy，只读）----
+    "logs_search", "logs_labels", "logs_envs",
     # ---- 以下 9 个此前未接入 MCP ----
     "list_page_schema", "detail_page_schema", "microflow_create_body",
     "index_body", "enum_body", "enum_item_body", "dto_body",
@@ -71,6 +73,9 @@ MCP_TOOL_NAMES = {
     "generate_from_requirement": "xiaozhua_generate_from_requirement",
     "live_probe": "xiaozhua_live_probe",
     "deploy_plan": "xiaozhua_deploy_plan",
+    "logs_search": "xiaozhua_logs_search",
+    "logs_labels": "xiaozhua_logs_labels",
+    "logs_envs": "xiaozhua_logs_envs",
     "list_page_schema": "xiaozhua_list_page_schema",
     "detail_page_schema": "xiaozhua_detail_page_schema",
     "microflow_create_body": "xiaozhua_microflow_create_body",
@@ -202,6 +207,12 @@ def build_tool_schemas(caps: dict[str, Callable]) -> list[dict]:
         "generate_from_requirement": "自然语言需求 → 解析(parsed)+后端骨架+前端产物（同上，只读）。",
         "live_probe": "活体只读探测 4 端点。默认离线返回 status=BLOCKED（allow_network=False）；"
                       "活体需显式 XIAOZHUA_ALLOW_NETWORK=1。任何离线输出不得解读为 LIVE PASS。",
+        "logs_search": "查运行期日志（Loki，经 Grafana datasource proxy，只读）。"
+                       "env 来自 ~/.xiaozhua/logs.yaml（test2/uat/prod）；凭据只认环境变量 "
+                       "GRAFANA_USER/GRAFANA_PASSWORD 或 GRAFANA_TOKEN。"
+                       "给了 query 就原样当 LogQL；否则按 namespace/app/pod/grep 拼 selector。",
+        "logs_labels": "列日志 label（不传 label 返回全部 label 名，传了返回取值），用来发现 app / pod / namespace。",
+        "logs_envs": "已配置的日志环境 + 每个环境能否列 label（连通性自检）。",
         "deploy_plan": "生成 4 步部署方案 data（readonly_plan=True，只读出方案；写由宿主执行）。"
                        "steps op 链：entity.create→entity.attribute.create→page.create→deploy.normal"
                        "（page.create 为 registry-gap：链级 OBSERVED_LIVE，registry 未登记）。"

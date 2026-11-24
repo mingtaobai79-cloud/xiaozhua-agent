@@ -258,7 +258,7 @@ b["expression_verify"](tokens, context, cdp_port=9333)
 当前汇总（口径以 `docs/delivery/tool-status.json` 为准，下面是快照）：
 
 ```
-64 个工具 = 平台侧 52 + 本地 12
+67 个工具 = 平台侧 52 + 本地 15（含 3 个日志工具）
 
 ✅ 已验证      33   （平台侧 21 个在 test2 跑过完整闭环，本地 12 个装上即可用）
 ◐  部分验证     2   app_dependency_remove（REST 批删验过，GraphQL 单删未验）

@@ -1,5 +1,59 @@
 # CHANGELOG
 
+## 0.2.6 — 2026-11-24
+
+运行期日志接进 MCP：`logs_search` / `logs_labels` / `logs_envs`（Loki，经 Grafana proxy，只读）。
+
+### 为什么走 Grafana 而不是 Loki 3100
+
+`http://loki-read:3100` 是集群内地址，本机不可达；Grafana 的 datasource proxy 已经把
+鉴权和租户选好了：
+
+```
+{grafana}/api/datasources/proxy/{id}/loki/api/v1/query_range
+```
+
+实测这台机器：`/api/datasources` 200，`loki-lowcode-test2` = id 28，`query_range` 能拉到
+`{"namespace=~\"lowcode-test\",app=~\"udc\"}` 的真实日志行。
+
+### 配置与凭据
+
+非机密配置 `~/.xiaozhua/logs.yaml`（模板 `config/logs.example.yaml`）：
+
+```yaml
+environments:
+  test2: {grafana: https://.../lowcode, datasource: loki-lowcode-test2}
+  uat:   {grafana: https://.../lowcode, datasource: loki-lowcode-uat}
+  prod:  {grafana: https://.../lowcode, datasource: loki-lowcode}
+```
+
+凭据只认环境变量：`GRAFANA_USER` + `GRAFANA_PASSWORD`，或 `GRAFANA_TOKEN`（优先）。
+仓库与安装件里零密码。
+
+### 工具口径
+
+| 工具 | 作用 |
+|---|---|
+| `xiaozhua_logs_search` | 时间窗查日志；`query` 给了就原样当 LogQL，否则按 namespace/app/pod/grep 拼；返回 `{ts,pod,app,line}` 倒序 + `truncated` |
+| `xiaozhua_logs_labels` | 列 label 名/取值，发现 app、pod、namespace |
+| `xiaozhua_logs_envs` | 配了哪些环境 + 每个环境能否列 label（连通性自检） |
+
+### 实测
+
+```
+MCP tools/list                 67 个（+3 日志）
+tools/call logs_search         returned=2  query={namespace=~"lowcode-test",app=~"udc"}
+                               2026-11-24 14:15:52 udc-76f87b9d6f-xkdpv ... AppServiceLogFilter
+tools/call logs_envs           test2/uat ok=true, prod labels=0（prod 无数据，通道通）
+pytest tests/test_logs_loki    10 passed（全离线）
+```
+
+### 还没做的
+
+- K8s 侧（pods/logs/exec/restart）：本机无 kubectl，test2 的 kubeconfig 在跳板机
+  `jump:/root/.kube/configtest2`；`providers/kubernetes_readonly.py` 目前只有 fixture、
+  网络禁用。下一步按 `providers/loki.py` 同样的形状加 `k8s_*`，写操作（restart）走确认门。
+
 ## 0.2.5 — 2026-11-23
 
 一条命令装完就把 MCP 接进宿主（hermes / codex / claude-code），更新时自动跟着刷新。
