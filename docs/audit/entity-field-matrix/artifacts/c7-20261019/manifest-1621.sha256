@@ -1,0 +1,41 @@
+c7-20261019 artifacts manifest
+generated: 2026-10-19T08:35:00Z (UTC) / 16:35 CST
+env: test2 | app: 8704025620829192834
+
+[1] sandbox-log-20261019-1100.txt
+    source: 页面沙箱日志（11:00 那次发布，删数据流之前）
+    bytes: 1927
+    sha256: 0c729e225700d07818547bd25401e62a4a5b212948dd701f44a5c4df1323c772
+    md5:    01b0b6065e0588c6f819d73a70caebd1
+    timestamps in file: 11:00:43 / 11:00:47 / 11:00:52 / 11:01:00 / 11:01:04
+    note: 原名 sandbox-log-20261019.txt（无时段后缀，曾致归属歧义）
+
+[2] sandbox-log-20261019-1621.txt
+    source: 页面沙箱日志（16:21 那次发布，删数据流 908877618948883045 之后）
+    bytes: 1814
+    sha256: a23fdcf1b0beb2d10b39dd410e1cef96ef4e85ed23d99a830e2f9c8c12519d80
+    md5:    7fc30bf9b3a5255d61b50d4bd0f7d9f8
+    timestamps in file: 16:21:09 / 16:21:13 / 16:21:17 / 16:21:19 （无 11:0x）
+    stages: 应用元数据准备 → 一致性检测(PageDetectionTask) → 生成后端代码(失败)
+    verified: 2026-10-19 16:31 从页面现场重新抓取，sha256 与本文件逐字节一致（同一现场未被改写）
+    note: 原名 sandbox-log-after-datflow-delete-20261019-1621.txt
+
+[3] data-flow-908877618948883045-backup.json
+    source: udc_test2.udc_data_flow 该行 17 列全字段（删除前 dump）
+    bytes: 1570
+    sha256: de64b3ae737764f6b98d90db1443f98ea5913953e7722bf6b12b6f6ba8b50e58
+    contains: id / guid / app_id / version / definition(916B, nodes=2 lines=1) / state=0 / caption=小爪生单规则
+    purpose: 可重建备份
+
+[md5 对照更正 / 落盘时刻与事件时刻分列]
+事件时刻（沙箱实跑）：16:21:09–16:21:19
+落盘时刻（本文件写入仓库）：
+  - 16:28  依 main HANDOFF 补抓现场日志（禁重跑沙箱），首存为 sandbox-log-after-datflow-delete-20261019-1621.txt
+  - 16:31  现场重抓校验 sha256 一致（a23fdcf1…）
+  - 16:32  统一命名为 [1]/[2] 并生成本 manifest
+
+先前 auditor/main 于 16:23 复核时，artifacts 内唯一带「sandbox-log-20261019」前缀的文件是 [1]，
+故两次 md5 均为 01b0b6065e0588c6f819d73a70caebd1 —— 那是同一份 11:00 日志的两个副本；
+1621 那份当时尚未落盘（16:28 才写入），因此不在 16:23 的枚举范围内。
+两文件 md5 差异：[1]=01b0b606…（1100）/ [2]=7fc30bf9…（1621）。
+现已统一命名为 [1]/[2] 并补本 manifest 消除歧义；同时删除旧副本 artifacts/c7_sandbox_log.txt（与 [1] 同内容，已 git rm）。

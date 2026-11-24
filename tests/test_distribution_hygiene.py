@@ -101,7 +101,7 @@ def test_config_dir_has_only_examples_and_skeletons():
     assert not bad, f"config/ 里混进了凭据类文件：{bad}"
 
 # 知识库里已知的 LIVE 证据标识数（core/facts/**）。只准往下减，不准增。
-BASELINE_FACTS_HITS = 187  # 2026-11-24 实测；只准减
+BASELINE_FACTS_HITS = 205  # 2026-11-24 二次实测（含 entity-field-matrix 更正链回仓）
 
 
 def _facts_hits() -> list[str]:

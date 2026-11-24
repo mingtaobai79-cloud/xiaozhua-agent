@@ -1,0 +1,64 @@
+C-9 环境故障诊断记录
+generated: 2026-10-20 11:20 CST
+env: test2 | app 8704025620829192834 | entity 4796455827714164161
+状态：BLOCKED（环境级，非脚本逻辑）
+
+## 一、凭据有效性（已证有效，排除）
+HTTP 直连（带凭据 cookie，不经浏览器）：
+  GET https://lowcode-test2.example.com/main/portal -> status 200, len 11714
+  GET https://lowcode-test2.example.com/main/       -> status 200, len 11714
+  location 头为空（未 302 到 login）
+凭据元数据：expires_gmt8 2026-10-20 23:34，refreshed_at 2026-10-19 23:34:55
+  cookie 3 个：SY_ACCESS_TOKEN / TK_EXP / SY_UID（375 字符）
+  now 2026-10-20 11:05 -> 未过期
+=> 凭据/server 侧有效，问题在浏览器 renderer
+
+## 二、renderer 卡死（主症状）
+三次独立会话，每次都是同一模式：
+  1. 注入 3 个 cookie -> Network.getCookies 回读 3 个（注入成功）
+  2. Page.navigate 到 app-design/entity?appId=...
+  3. 等待 .ant-tree 出现 -> 14 次轮询（每次 4.5s，共 63s）全部 false
+  4. 页面 URL 停在 /main/portal 或 /login
+  5. Runtime.evaluate 对该 page 全部超时（20s 上限）
+     location.href -> 空 / null
+     document.body.innerText.length -> null
+=> renderer 主线程不响应 JS 求值，属进程级挂死
+
+## 三、时间线（事件时刻 / 落盘时刻分列）
+11:02:xx  第 1 次运行 c9run.js：LOAD@0 / SEL: OK / N0:29 / N1:30
+          -> 页面可交互；名称校验拦截（字zzprobeDate011），ABORT 未保存
+11:03-11:05 第 2 次 c9run2.js：NO_TREE（首次出现）
+11:06    判定凭据：expires 23:34 未过期
+11:07    c9run2.js 前台 -> terminal 超时 420s
+11:08    CDP 探活 CDP_UP，page=/main/child-frame/udc/app-design/
+11:09    Runtime.evaluate 超时（ERR t）
+11:10    taskkill msedge -> 端口仍 LISTENING（PID 44684 为独立残留）
+11:11    taskkill -F -PID 44684 -> DOWN_OK
+11:12    重启 + sleep 22 -> CDP_UP / PAGES:1 / about:blank
+11:13    c9run2.js -> NO_TREE
+11:14    页面 = /login（LEN 104，"密码登录 / 短信登录"）
+11:15    c9diag.js：HTTP 直连 200/11714（凭据有效）
+11:16    再导航 /main/portal -> URL 正确，Runtime.evaluate 超时
+11:17    taskkill -F -PID 46876 -> DOWN_OK
+11:18    重启（加 --disable-extensions）-> CDP_UP
+11:19    c9run2.js -> terminal 超时 420s
+11:20    探活 CDP_UP，page=/main/portal；DB count=43 max=43 target=0
+
+## 四、已排除的假设
+- 凭据过期：否，HTTP 直连 200
+- cookie 注入失败：否，getCookies 回读 3/3
+- 脚本逻辑错误：否，第 1 次运行已跑到 N1:30（新增行成功）
+- 名称校验误拦：否，校验正确拦截了 字zzprobeDate011
+- 端口残留占用：已清（PID 44684 / 46876 均 taskkill -F）
+- 浏览器 profile 损坏：未证，但三次冷启后症状完全一致
+
+## 五、未尝试（按 HANDOFF「不猜不重试」停止）
+- 换 user-data-dir 全新 profile
+- 换 CDP 端口
+- 用 REST 替代页面写（HANDOFF 明确禁止）
+- 反复重启超过 3 次
+
+## 六、环境写状态
+授权写：0/1 已消耗（页面从未进入可保存状态）
+DB：entity 43 行、max_order 43、zzprobeDate01 0 行、无 字 前缀残留行
+=> 环境零改动，可在环境恢复后重跑 C-9

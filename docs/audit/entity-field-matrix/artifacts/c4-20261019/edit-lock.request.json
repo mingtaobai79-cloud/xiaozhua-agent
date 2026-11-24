@@ -1,0 +1,10 @@
+{
+ "query": "mutation graphqlLoader ($params0: udcMultiEditLockPostInputBody) { \n  data0: udcMultiEditLockPost(body: $params0) { code data { content {\n      appId\n      lockId\n      resource\n      holdLock\n      expireTimeStamp\n      holdUserId___displayname {\n        name\n      }\n    } } message status } }",
+ "variables": {
+  "params0": {
+   "appId": "8704025620829192834",
+   "lockId": "1792390252245",
+   "resource": "4796455827714164161"
+  }
+ }
+}
