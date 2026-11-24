@@ -107,7 +107,7 @@ def _facts_hits() -> list[str]:
     hits = []
     for rel in _tracked_files():
         rel = rel.replace("\\", "/")
-        if not rel.startswith(("core/facts/", "definitions/", "scripts/", "docs/")):
+        if not rel.startswith(("core/facts/", "definitions/", "scripts/", "docs/")) or rel in LEGACY:
             continue
         path = ROOT / rel
         if not path.is_file():
