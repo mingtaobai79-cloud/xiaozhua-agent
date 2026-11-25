@@ -121,7 +121,7 @@
 |---|---|---|---|
 | 本地 Maven | **5.3.517** | `config/environments.yaml#environments.local-maven` 组装的 jar | 4 份（static 取证） |
 | test2 镜像 | **5.3.496** | LIVE 环境 | 2 份（LIVE 实测） |
-| lowcode-<env> 命名空间 | 5.3.358 | 部署态构件清单 | 1 份（`udc-app-online-contract.md` §10 单独声明**不是 test2**） |
+| lowcode-test 命名空间 | 5.3.358 | 部署态构件清单 | 1 份（`udc-app-online-contract.md` §10 单独声明**不是 test2**） |
 
 `udc-app-deploy-info-live-contract.md` 原文：
 

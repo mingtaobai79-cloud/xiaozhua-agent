@@ -10,7 +10,7 @@
 
 | 面 | 版本 | 证据 |
 |---|---|---|
-| 后端镜像 | `chit-acr-registry.客户方.com/chjh-external/udc:5.3.517` | SSH+`kubectl get pod` jsonpath（pod `udc-7cbfc587f5-zzvmv`，namespace `lowcode-<env>`） |
+| 后端镜像 | `chit-acr-registry.客户方.com/chjh-external/udc:5.3.517` | SSH+`kubectl get pod` jsonpath（pod `udc-7cbfc587f5-zzvmv`，namespace `lowcode-test`） |
 | 后端 javap artifact | 5.3.517 | `docs/audit/artifacts/udc-web-5.3.517-javap/`（与镜像同号 → 本地反编译产物即 test2 部署代码） |
 | 前端壳 | `seeyonGlobalVersion=5.3.41`、`seeyonSyfVersion=5.3.11`、`seeyonVendorVersion=1.0.12` | 设置页 HTML 内联 script（`/main/child-frame/udc/app-design/basic-setting`） |
 | 设计器远端入口 | `/udc/remoteEntry.js` 47,554 字节，166 个 chunk | 同上，`GET /udc/remoteEntry.js` |

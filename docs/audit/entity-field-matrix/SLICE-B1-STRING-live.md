@@ -1,7 +1,7 @@
 # SLICE-B1｜实体字段类型矩阵第 2 类：STRING —— 判定 **PARTIAL**
 
 - 日期：2026-10-18
-- 环境：test2（`lowcode-<env>.example.com`），目标应用 `datamigration9000000000000000001`（数据迁移）
+- 环境：test2（`lowcode-test2.example.com`），目标应用 `datamigration9000000000000000001`（数据迁移）
 - 实体：`xzhExp950795V2`（小爪实验实体950795V2，entity_id=`474806313816300867`）
 - 新增字段：**`B1文本验证` / `B1wenbenyanzheng` / `STRING` / `max_length=50`**（attr id=1021739412060058618）
 - 执行方式：设计器页面交互构建（CDP Input 域真实事件），REST 只用于读面取证
@@ -25,7 +25,7 @@ STRING 类型字段通过设计器页面点击（添加→填名→保存）完�
 
 ## 二、操作步骤（真实页面交互，全部 CDP Input 域真实事件）
 
-1. 打开实体设计器：`https://lowcode-<env>.example.com/main/child-frame/udc/app-design/entity?appId=9000000000000000002`
+1. 打开实体设计器：`https://lowcode-test2.example.com/main/child-frame/udc/app-design/entity?appId=9000000000000000002`
    > 路径要点：必须带 `/main/child-frame/udc/` 前缀；`/main/app-design/entity` 会得到「页面找不到了」。
 2. 点击字段工具栏「添加」按钮（`button.ant-btn-link`，坐标 386,118）→ 表格新增第 14 行（编辑态，默认 caption=字段1 / 自动 name=ziduan1 / 类型=文本）
 3. 真实鼠标点击名称输入框（td1 的 `input.ant-input`，坐标 501,548）→ `Input.insertText` 输入 `b1StrField` → Tab 失焦

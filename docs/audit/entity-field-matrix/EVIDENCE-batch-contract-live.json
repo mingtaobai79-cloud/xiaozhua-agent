@@ -2,7 +2,7 @@
  "_meta": {
   "slice": "SLICE-B2",
   "captured_at": "2026-10-17T20:08:54.101Z",
-  "url": "https://lowcode-<env>.example.com/service/udc/graphql?udcAttributeGroupOperateBatchPost",
+  "url": "https://lowcode-test2.example.com/service/udc/graphql?udcAttributeGroupOperateBatchPost",
   "method": "POST",
   "postDataLen": 30003,
   "note": "B1 豁免的强制回收交付物：udcAttributeGroupOperateBatchPost 的 LIVE 请求原文（action=ADD/CREATE）。headers 中 cookie/token 已脱敏。",

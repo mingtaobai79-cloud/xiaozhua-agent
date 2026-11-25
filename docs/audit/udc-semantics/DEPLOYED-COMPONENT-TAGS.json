@@ -4,7 +4,7 @@
     "kind": "LIVE",
     "channel": "K8s API read-only GET /api/v1/namespaces/<ns>/pods (spec.containers[].image)",
     "captured": "2026-10-15 (round 10)",
-    "ns": "lowcode-<env>",
+    "ns": "lowcode-test",
     "pdodnames_recorded": false,
     "note": "只落平台构件；客户应用 pod 名/镜像名含客户标识，一律不入库、不落名"
   },
@@ -67,7 +67,7 @@
   "reverification": {
     "round": 14,
     "date": "2026-10-15",
-    "channel": "K8s API read-only GET /api/v1/namespaces/lowcode-<env>/pods",
+    "channel": "K8s API read-only GET /api/v1/namespaces/lowcode-test/pods",
     "pods_total": 79,
     "components_seen": 19,
     "matched": 19,

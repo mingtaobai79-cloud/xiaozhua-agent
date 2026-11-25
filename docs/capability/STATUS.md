@@ -48,7 +48,7 @@
       实测：五阶段各给 输入/输出/通过判据/失败回流边界；绑定 A3 §2.2 三要素(compile_unit/test_binding/sandbox_dep)；
       现状=未建（modules/sandbox/、sandbox/ 在盘不存在，components/ 无 sandbox 执行体）全标 UNVERIFIED；
       替代门=test2 应用级"构建即部署"(boot-starter-sandbox UdcAppDeployService，LIVE)+写门 DENIED/POLICY_DENIED(layer.py:22)；
-      test2 sandbox 事实引 docs/audit/evidence/nacos-udc.yaml（enable/domain/name-space=lowcode-<env>/deployEnv/imageUrlPrefix=app-sandbox:5.3.00，凭据 0 入仓）
+      test2 sandbox 事实引 docs/audit/evidence/nacos-udc.yaml（enable/domain/name-space=lowcode-test/deployEnv/imageUrlPrefix=app-sandbox:5.3.00，凭据 0 入仓）
 - [x] **A7 TOOL-SKILL-MODULE.md** — Tool/Skill/Module 三者定义与映射
       落盘：`docs/capability/TOOL-SKILL-MODULE.md`（10501 B，sha256 `e4531ac421e7f3d3524e6bbc9ef8f9c5722ea4b91115a0aea802e9d542ef3f65`）
       实测：三者定义（1 契约=1 Tool 候选，registry 外=UNVERIFIED）；64 裸=59 基础+2 R18+3 别名、读 57/写 7、17 域逐条 status（map_a7.py 逐条打印）；写 7 全走写门 DENIED；Skill 首例=deploy_plan 4 步建单据实体（组合 4 Tool+回读，LIVE 实证）；A8 留接口（Tool 清单→MCP 占位，不重复定义宿主）

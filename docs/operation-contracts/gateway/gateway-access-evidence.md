@@ -26,8 +26,8 @@ UDC EntityService → EntityDao 的既有静态审计保留为背景证据，不
 
 ```text
 SSH root@10.0.0.1
-kubectl --kubeconfig=<KUBECONFIG>
-namespace=lowcode-<env>
+kubectl --kubeconfig=configtest2
+namespace=lowcode-test
 ```
 
 已观察到的 Gateway 资源：
@@ -187,7 +187,7 @@ Agent → Gateway → UDC real readonly operation   BLOCKED（当前 VPN 断开�
 本机 Sangfor SSL VPN VNIC：媒体已断开连接
 10.0.0.1:22：TCP timeout
 10.0.0.1：ICMP 单包超时
-lowcode-<env>.example.com：DNS 无法解析
+lowcode-test2.example.com：DNS 无法解析
 lowcode-openapi-test2.客户方.com：DNS 无法解析
 SSH 私钥：本机存在
 kubeconfig：本机存在

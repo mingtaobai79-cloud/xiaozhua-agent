@@ -1,7 +1,7 @@
 # P0｜UDC 角色（Role）域 对象模型钉死
 
 - 生成时间：2026-10-17 15:18:57 (GMT+8)
-- 环境：test2（`lowcode-<env>2.example.com` 同租户）
+- 环境：test2（`lowcode-test2.example.com` 同租户）
 - DB：`udc_test2`，MySQL；凭据经 Skill 配置层 `xiaozhua-low-code-environment/.env` 读取，**未打印、未落盘 secret**
 - 探针脚本（只读）：`<HERMES_HOME>/cache/scratch/p0_role_ddl_v2.py`、`p0_role_samples.py`、`p0_role_probe3.py`、`p0_role_probe4.py`、`p0_role_probe5.py`、`p0_role_probe6.py`
 - 原始返回 JSON：同目录 `p0_role_ddl.json`、`p0_role_samples.json`、`p0_role_probe{3,4,5,6}.json`

@@ -1,7 +1,7 @@
 # C-1｜BIGINTEGER 页面可见证据｜PARTIAL（页面 LIVE，字段未取到）
 
 时间：2026-10-18 18:22 (+08)　端口：CDP 9223（本组独占，未碰 9226/9229）
-URL：`https://lowcode-<env>.example.com/main/child-frame/udc/app-design/entity?appId=9000000000000000001`
+URL：`https://lowcode-test2.example.com/main/child-frame/udc/app-design/entity?appId=9000000000000000001`
 
 ## 一、已取到（LIVE，页面可见）
 

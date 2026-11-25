@@ -103,7 +103,7 @@ SELECT NOW() AS as_of,
 ### 2.2 请求原文（cookie 脱敏）
 
 ```
-POST https://lowcode-<env>2.example.com/service/udc/graphql
+POST https://lowcode-test2.example.com/service/udc/graphql
 Content-Type: application/json
 Accept: application/json
 Cookie: SY_ACCESS_TOKEN=***
@@ -182,7 +182,7 @@ ORG    ordinal 3  code  2
 
 ### 3.3 真实页面触发的链路（不是裸 curl）
 
-页面：`https://lowcode-<env>2.example.com/main/child-frame/udc/app-design/role-permission?appId=9000000000000000001`
+页面：`https://lowcode-test2.example.com/main/child-frame/udc/app-design/role-permission?appId=9000000000000000001`
 （进入方式：设计器侧边栏点击「角色」`<a href="/main/child-frame/udc/app-design/role-permission?appId=...">`，非深链直开）
 
 点击后页面实际发出（CDP `Network.requestWillBeSent` 逐条捕获，共 **31** 条 `/service/*`，其中角色域相关 4 条）：

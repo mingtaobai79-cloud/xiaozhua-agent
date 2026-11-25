@@ -3,7 +3,7 @@
   "status": "MINIMAL_VERIFIED",
   "verification_level": "LIVE_STATIC_ARTIFACT_AND_K8S",
   "environment": "test2",
-  "namespace": "lowcode-<env>",
+  "namespace": "lowcode-test",
   "gateway": {
     "deployment": "ctp-webapi-gateway",
     "service": "ctp-webapi-gateway",

@@ -37,7 +37,7 @@
 
 ## 2. 页面侧实测（LIVE，CDP）——SPA 加载链证明路由真实生效
 
-带新 token 直开 `https://lowcode-<env>.example.com/main/portal/datamigration9000000000000000001/qyfapzlb`：
+带新 token 直开 `https://lowcode-test2.example.com/main/portal/datamigration9000000000000000001/qyfapzlb`：
 
 **网络流（前 3.3s 内 122 事件）关键序列**（全部 200）：
 

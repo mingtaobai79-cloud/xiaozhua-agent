@@ -2,7 +2,7 @@
  "schema": "deployed-lib-inventory.v1",
  "evidence": "LIVE-DEPLOYED (kubectl exec pod udc -> /app/udc-assemble.jar -> jar xf BOOT-INF/lib)",
  "source": "udc-assemble.jar (Spring Boot fat jar, 502607791 bytes)",
- "namespace": "lowcode-<env>",
+ "namespace": "lowcode-test",
  "container_version": "5.3.517",
  "jar_count": 544,
  "udc_jar_count": 22,

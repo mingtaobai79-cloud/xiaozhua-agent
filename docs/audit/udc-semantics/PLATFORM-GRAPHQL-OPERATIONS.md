@@ -2,7 +2,7 @@
 
 **证据源**：`<MAVEN_REPO>/com/seeyon/udc-biz/5.3.517/udc-biz-5.3.517.jar`
 反编译 `com.seeyon.udc.api.*` 共 **29 个 AppService / 240+ 方法**。
-运行时版本确认：udc-*-5.3.517（pod `udc-7cbfc587f5-*` / `datamigration*`，ns `lowcode-<env>`）。
+运行时版本确认：udc-*-5.3.517（pod `udc-7cbfc587f5-*` / `datamigration*`，ns `lowcode-test`）。
 
 每个方法 = 一个网关可路由的 GraphQL 操作（经 `POST /service/udc/graphql?<op>Post` 或 REST `GET /service/udc/...`）。
 **这是"页面每个交互 → 请求 → 后端处理"的平台能力全集**，也是生成器可依附的操作面。

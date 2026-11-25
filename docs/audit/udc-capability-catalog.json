@@ -2,7 +2,7 @@
   "schema_version": "xiaozhua-agent.udc-capability-catalog.v1",
   "parent_component": "xiaozhua-agent",
   "environment": "test2",
-  "namespace": "lowcode-<env>",
+  "namespace": "lowcode-test",
   "gateway": {
     "component": "ctp-webapi-gateway",
     "artifact": "ctp-webapi-gateway-biz-5.3.266.jar",

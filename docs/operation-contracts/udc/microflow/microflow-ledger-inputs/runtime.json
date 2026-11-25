@@ -5,6 +5,6 @@
   "gaps": [
     "P1 部署态 jar 不可达：SSH 10.0.0.1:22 无 VPN 路由（两次同参超时，记网络 BLOCKED，不重试）",
     "test2 udc-runtime service 命名域未部署（活体报『udc-runtime 服务不存在』），微流程 C1/C2/C3 控制器路径段 test2 404",
-    "deployed-image version 未确证（需 P1 kubectl <KUBECONFIG> 定位 UDC Pod/镜像 tag，区分本地 5.3.517 与服务器版本）"
+    "deployed-image version 未确证（需 P1 kubectl configtest2 定位 UDC Pod/镜像 tag，区分本地 5.3.517 与服务器版本）"
   ]
 }

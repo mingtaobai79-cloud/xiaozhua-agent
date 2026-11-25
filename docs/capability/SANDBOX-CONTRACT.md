@@ -77,9 +77,9 @@ test2 活体配置快照；本文件只引对象标识与键名，不引任何�
 | 键 | 在盘值（test2） | 语义（yaml 注释原话） |
 |---|---|---|
 | `udc.sandbox.enable` | `true` | "设计环境设置为 true, 非设计环境为 false" |
-| `udc.sandbox.domain` | `lowcode-<env>2.example.com` | 沙箱应用运行态入口域名 |
-| `udc.sandbox.name-space` | `lowcode-<env>` | k8s 运行沙箱宿主服务的命名空间（"建议使用独立空间方便控制资源"） |
-| `udc.sandbox.deployEnv` | `lowcode-<env>` | udc 发布应用的目标环境标识 |
+| `udc.sandbox.domain` | `lowcode-test2.example.com` | 沙箱应用运行态入口域名 |
+| `udc.sandbox.name-space` | `lowcode-test` | k8s 运行沙箱宿主服务的命名空间（"建议使用独立空间方便控制资源"） |
+| `udc.sandbox.deployEnv` | `lowcode-test` | udc 发布应用的目标环境标识 |
 | `udc.sandbox.imageUrlPrefix` | `chit-acr-registry.客户方.com/chjh-external/app-sandbox:5.3.00` | 沙箱镜像地址前缀 |
 | `udc.deploy.disableK8s` | `true` | deploy 段，同文件 L29 |
 

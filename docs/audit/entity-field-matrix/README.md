@@ -120,4 +120,5 @@
 4. 想引用任何数字：**先看该文件的证据等级行**，`UNVERIFIED` 的不要当结论用。
 
 > **标识口径**：正文里的应用 id 已占位为 `9000000000000000001/…2/…3`、域名 `*.example.com`；
-> `artifacts/`、`live-evidence/` 里的原始回包/请求**保留原值**——`test_evidence_data_may_retain_platform_ids` 把「可复核性」当前提，洗掉就无法按 path:line 复核。
+> `artifacts/`、`live-evidence/` 的原始回包**保留原值**——`test_evidence_data_may_retain_platform_ids` 把「可复核性」当前提。
+> 环境约定（`configtest2`/`configuat`、namespace）**保留**：它是操作知识，不是客户标识。

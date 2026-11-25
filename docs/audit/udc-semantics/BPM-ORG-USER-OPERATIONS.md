@@ -9,7 +9,7 @@
 本地只有 facade jar）。方法名即操作语义，是"页面功能 → 请求 → 后端处理"中**后端处理**的契约面。
 
 > 方法论（同 UDC）：前端功能 → REST/JSON → biz service → 交互表。
-> BPM/ORG/USER 的 biz 实现在运行时 pod（NS `lowcode-<env>`），facade 是接口契约；
+> BPM/ORG/USER 的 biz 实现在运行时 pod（NS `lowcode-test`），facade 是接口契约；
 > 需要具体 DTO 字段约束时，从运行时 pod 反编译对应 `*-biz` 构件。
 
 ## 方法目录

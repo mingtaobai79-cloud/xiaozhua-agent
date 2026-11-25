@@ -205,7 +205,7 @@ UI 面板「重新检查」按钮 = `POST /udc/application/do/detection`（重�
 | Nacos | ✅ 通 |
 | 跳板机 SSH `10.0.0.1:22` | ❌ `Connection timed out` |
 | Redis | ❌ 超时 |
-| `https://lowcode-<env>.example.com/service/*` | ❌ 全 **403**（浏览器内 fetch 同样 403；`/main/portal` 200） |
+| `https://lowcode-test2.example.com/service/*` | ❌ 全 **403**（浏览器内 fetch 同样 403；`/main/portal` 200） |
 
 ⇒ 环境侧网络/网关异常，**非脚本问题**。受影响：平台枚举 create 实测、检测重算、构建复跑、CDP 取证。
 DB/Nacos 可用，故本轮以 DB + 本地字节码完成根因定位。

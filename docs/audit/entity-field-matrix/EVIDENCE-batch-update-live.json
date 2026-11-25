@@ -5,7 +5,7 @@
   "note": "本文件装的是 04:52:05 那次 STRING->INTEGER 类型变更的 batch 原文（请求 30259B + 响应 31590B）。B1 那次 CREATE（30003B，actionType=ADD，dataType=STRING）在 EVIDENCE-batch-contract-live.json，两份不要混用。",
   "captured_at": "2026-10-17T20:52:05.359Z",
   "completed_at": "2026-10-17T20:52:06.264Z",
-  "url": "https://lowcode-<env>.example.com/service/udc/graphql?udcAttributeGroupOperateBatchPost",
+  "url": "https://lowcode-test2.example.com/service/udc/graphql?udcAttributeGroupOperateBatchPost",
   "method": "POST",
   "requestBodyLen": 30259,
   "responseBodyLen": 31590,

@@ -1,7 +1,7 @@
 # P5 写节点运行时验证阶段报告（CHANGE_ENTITY / DELETE_ENTITY）
 
 日期：2026-11-02
-环境：lowcode-<env>2（appId=9000000000000000001）
+环境：lowcode-test2（appId=9000000000000000001）
 实体：迁移断点（MigrationCheckpoint），物理表 `migration_1962926556161096741`
 
 ## 一、结论

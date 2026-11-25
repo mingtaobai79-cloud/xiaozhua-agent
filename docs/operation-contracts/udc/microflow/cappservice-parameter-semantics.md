@@ -1,6 +1,6 @@
 # CALL_APP_SERVICE 节点「服务参数」语义契约
 
-> 环境：test2（`lowcode-<env>.example.com`），租户 `-8112660841495312922`
+> 环境：test2（`lowcode-test2.example.com`），租户 `-8112660841495312922`
 > 目标应用：`datamigration9000000000000000001`
 > 切片：B-3（P2 纯读）。**写操作 0 次**，`/service` 请求 **0 次**（全部走 DB 只读 + 已落盘样本 + 反编译）
 > 分级：**[SAMPLE]** 真实样本回读 / **[LIVE-DB]** 本会话 DB 直查 / **[STATIC]** 字节码反编译 / **[VACUUM]** 完备负证据 / **[UNVERIFIED]** 未取证

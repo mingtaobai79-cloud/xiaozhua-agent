@@ -3,7 +3,7 @@
 > 本件登记**发布（上线）动作**的 op 形态、入参、前置门链与 pushEnv 判定。**纯 STATIC 产物，本片 0 次 LIVE 调用**；
 > 全篇禁写「发布已打通 / 可上线」——功能可用仍以 P3-B LIVE 串联回读为准。
 > 证据单元：`udc-web 5.3.517`（本地 Maven，Controller javap + CFR 反编译）
-> ｜`boot-starter-environment 5.3.358`（部署态构件清单实证版本，来源为 lowcode-<env> 命名空间 —— 环境口径见 §10，不是 test2）
+> ｜`boot-starter-environment 5.3.358`（部署态构件清单实证版本，来源为 lowcode-test 命名空间 —— 环境口径见 §10，不是 test2）
 > ｜Nacos `public-common` test2 实配（`docs/audit/evidence/nacos-public-common.yaml`，sha256 见 `nacos-test2-manifest.json`）
 > 凭据：本片**完全未读取**（0 值入件）。
 
@@ -764,14 +764,14 @@ for line in raw.split(b'\n'):
 |---|---|---|
 | Controller / DeploymentService | **udc-web 5.3.517** | 本地 Maven `<MAVEN_REPO>/com/seeyon/udc-web/5.3.517`；javap class_sha256 `4b72a4fb...cbb0cfe8` |
 | **DTO（DeployNormalDto / DeployParamDto / DeployTypeEnum 等）** | **udc-common 5.3.517** | 本地 Maven `<MAVEN_REPO>/com/seeyon/udc-common/5.3.517/udc-common-5.3.517.jar`。**补正（采纳 auditor VERDICT-handoff03 补正 2，本侧独立验证）**：`unzip -l udc-web-5.3.517.jar \| grep DeployNormalDto` → **0 命中**；`DeployNormalDto.class` 只在 `udc-common-5.3.517.jar` 内。原稿只标采集目录 `tools/jars/udc-web-classes/`，**目录名与实际来源 jar 不一致**，此处按真实来源 jar 登记 |
-| pushEnv 判定链 | **boot-starter-environment 5.3.358** | 部署态构件清单实证：`docs/audit/udc-semantics/DEPLOYED-EXPOSURE-CENSUS.json` `marker_jars` 含该 jar 全名。**注意环境口径**：该清单由 `DEPLOYED-LIB-INVENTORY.json` 标注 `namespace=lowcode-<env>` / `container_version=5.3.517`（`kubectl exec` 取 `udc-assemble.jar` → `BOOT-INF/lib`，544 jar），**是 lowcode-<env> 命名空间的部署态，不是 test2** |
+| pushEnv 判定链 | **boot-starter-environment 5.3.358** | 部署态构件清单实证：`docs/audit/udc-semantics/DEPLOYED-EXPOSURE-CENSUS.json` `marker_jars` 含该 jar 全名。**注意环境口径**：该清单由 `DEPLOYED-LIB-INVENTORY.json` 标注 `namespace=lowcode-test` / `container_version=5.3.517`（`kubectl exec` 取 `udc-assemble.jar` → `BOOT-INF/lib`，544 jar），**是 lowcode-test 命名空间的部署态，不是 test2** |
 | test2 运行镜像 | **5.3.496** | `config/environments.yaml` `environments.test2.udc_image_version` |
 
 > **四单元禁混写（本轮再校准）**：
 > - `udc-web 5.3.517` 是**本地 Maven 静态样本**（Controller / DeploymentService 字节码来源）。
 > - `udc-common 5.3.517` 是**本地 Maven 静态样本**（DTO 来源）。**注意**：`tools/jars/udc-web-classes/` 只是**采集目录名**，
 >   不代表其中 class 都来自 udc-web —— DTO 实际来自 udc-common。
-> - `boot-starter-environment 5.3.358` 是 **lowcode-<env> 命名空间部署态**构件清单里的实证版本，用于 pushEnv 判定链源码。
+> - `boot-starter-environment 5.3.358` 是 **lowcode-test 命名空间部署态**构件清单里的实证版本，用于 pushEnv 判定链源码。
 > - `test2` 运行镜像登记为 **5.3.496**，且 `agent-version-audit.md` L36/L39 明确：5.3.496「仅在 inventory 可用版本列表中观察到，未进入实际样本集」，
 >   **不得写成已采样实现事实**。
 >

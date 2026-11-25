@@ -2,7 +2,7 @@
 
 - 审计时间: 2026-10-12 (CST)
 - 目标应用: appId=9000000000000000001 (datamigration9000000000000000001, caption=数据迁移)
-- 环境: https://lowcode-<env>.example.com (test2, UDC 5.3.517)
+- 环境: https://lowcode-test2.example.com (test2, UDC 5.3.517)
 - 凭据: 使用 shared-credentials/test2-web-credential.json 的 cookie（本文一律脱敏为 [REDACTED]）
 - 纪律: 全程只读。唯一执行的写端点 = 无；构建 op 仅抽取字段，未触发。
 - 证据来源标注: 【curl 实测】【chunk 原文】【javap】【DB 查询】【DTO 常量池】
@@ -11,7 +11,7 @@
 
 ### 1.1 请求
 ```
-GET https://lowcode-<env>.example.com/service/udc/application/datadictionary/9000000000000000001
+GET https://lowcode-test2.example.com/service/udc/application/datadictionary/9000000000000000001
 Cookie: [REDACTED]
 ```
 - HTTP 状态: **200 OK**

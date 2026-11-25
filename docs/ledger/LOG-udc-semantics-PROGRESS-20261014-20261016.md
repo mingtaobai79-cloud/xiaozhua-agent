@@ -225,7 +225,7 @@
      `CheckUtils.detectionTrigger:1452-1459` 查 `connectorDtoMap.containsKey(output.javaType)`；
      `MicroFlowDetectionMetadataAware.putDtoMetadata:125-137` 该 map 用
      `search.appName = depApp.getDepAppName()`（**依赖 `udc_dependent_application` 行**）。
-   - **存储面真身**：`cip_connector_<env>.cip_linker_metadata_info` **54 行**，
+   - **存储面真身**：`cip_connector_test2.cip_linker_metadata_info` **54 行**，
      `linker_type {0:33, 2:5, 3:2, 4:1, 5:13}`，前缀 `com.seeyon.cip.connector.dynamic.dto.<链路>.<DTO>`；
      6 条链路：VDAIBANJICHENG=V5待办集成 / ZHJHZZTB=客户方_组织集成 / CESHIDANDIANDENGLU=测试单点登录 /
      JICHENGCESHI=集成测试 / CESHIYINGYONG=测试应用 / FASONGXIAOXI=发送消息。
@@ -287,7 +287,7 @@
 - **连接器读面矩阵**：`docs/audit/artifacts/scratch-migrated/root/r43_conn_readplane.json`
 - **对象**：微流程 `3832725036227491834`（`xzhMsgBusL1` / 小爪消息总线监听），
   orig sha256(ds) = `a6c6f9ebb632d92923c26ebde2e3544957cae9204d9f0f81df2fdf96bb7eede7`；还原件 `docs/audit/artifacts/scratch-migrated/root/r41_restore.py`
-- **存储面**：`cip_connector_<env>.cip_linker_metadata_info` 54 行（linker_type 直方图见 §③）；
+- **存储面**：`cip_connector_test2.cip_linker_metadata_info` 54 行（linker_type 直方图见 §③）；
   `udc_test2.udc_dependent_application`（app 9000000000000000001 × cip-connector = 一行）
 
 **更新时间**：2026-10-16 第三十二轮（**04004 最后 1 条真因 LIVE 收口（含负控）+ 交接的「未收尾」全部结清 + 计数契约修复**：
@@ -791,7 +791,7 @@
      - ✅ **K8s API 直连成功**（`kubeconfig-zhiyuan` token + CA 直连 `10.0.0.1:6443`，
        本地无 kubectl 亦可）；**SSH 跳板 `10.0.0.1:22` 仍 timeout**（已被 K8s API 替代，不再阻塞）；
      - ⛔ **但 `pods/exec` 被 RBAC 挡死**：`SelfSubjectRulesReview` 实测
-       `User system:serviceaccount:low-code:zhiyuan cannot get resource "pods/exec" in namespace lowcode-<env>`（403）；
+       `User system:serviceaccount:low-code:zhiyuan cannot get resource "pods/exec" in namespace lowcode-test`（403）；
        同理无 `attach` / `portforward` / `pods/portforward`。**故 pod 内 jar 仍取不到**（不是放弃，是权限事实）；
      - ✅ **换到 `pods/log` 通道（新）**：udc pod 的 `AppContextFilter:50` 逐条打印**真实请求 URL**
        ⇒ 首次拿到**真实运行期**面，见第八轮「(d)」；
@@ -941,7 +941,7 @@
 **本轮推进两项**：① 把 19 个平台构件 LIVE 部署 tag 正式**对齐进版本边界审计文档**（候选 (vii)，纯本地）；
 ② 用设计器 bundle 的**族 op 全集**把候选 (vi) 收窄一支（负证据）。
 
-1. **★ LIVE 复验（候选 vii 的第一步，只读 K8s API）**：`GET /api/v1/namespaces/lowcode-<env>/pods`
+1. **★ LIVE 复验（候选 vii 的第一步，只读 K8s API）**：`GET /api/v1/namespaces/lowcode-test/pods`
    （pod 总数 **79**，比第十轮快照大）取 `spec.containers[].image`，对 19 个平台构件逐一比对
    第十轮落盘的 tag ⇒ **19/19 相同、差异 0、无未观测构件**；`udc` 仍 = `5.3.517`。
    复验记录写进证据件 `DEPLOYED-COMPONENT-TAGS.json#reverification`（`matched=19 / differences=0 / not_seen=[]`）。
@@ -1198,7 +1198,7 @@
 ⇒ 复测口径更正：**「不可达」只对 SSH 跳板成立；K8s 控制面一直可达**。
 
 **2. ★ RBAC 自审：`pods/exec` 被挡，`pods/log` 可用（实测，非推测）**
-用 `SelfSubjectRulesReview` 逐 namespace 拉规则（`lowcode-<env>` / `low-code` / `default`）：
+用 `SelfSubjectRulesReview` 逐 namespace 拉规则（`lowcode-test` / `low-code` / `default`）：
 - ❌ 无 `pods/exec`：直连 WS 返回 **403**
   `pods "udc-…" is forbidden: User "system:serviceaccount:low-code:zhiyuan" cannot get resource "pods/exec"`
 - ❌ 无 `attach` / `portforward`（规则表里不存在）

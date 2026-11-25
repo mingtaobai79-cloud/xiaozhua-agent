@@ -7,10 +7,10 @@
 ## 请求 1（成功，决定性证据）
 
 ```
-GET https://lowcode-<env>2.example.com/service/udc/sandbox/tenant/config/-8112660841495312922
+GET https://lowcode-test2.example.com/service/udc/sandbox/tenant/config/-8112660841495312922
 Cookie: <shared-credentials/test2-web-credential.json 的 cookie 字段，本文不落 secret>
 Accept: application/json, text/plain, */*
-Referer: https://lowcode-<env>2.example.com/main/
+Referer: https://lowcode-test2.example.com/main/
 ```
 
 响应 **HTTP 200**，耗时 ~100ms，body 长度 **276**：

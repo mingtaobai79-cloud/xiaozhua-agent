@@ -75,7 +75,7 @@ UDC `5.3.517` 六个 jar 上，按 13 个 BI 关键词宽口径扫描并逐条�
 | 前端子应用 | Module Federation scope = **`cdp-data`**；页面 URL 段 `/cdp-data/report/<guid>`、`/cdp-data/reportReception` | LIVE |
 | 后端服务 | `/service/cdp-bi/*`（**路径段是 `cdp-bi`，页面 URL 段是 `cdp-data`，两者不同名**） | LIVE |
 | 数据 | `cdp_data` / `cdp_data_test2`；`cdp_data_test2` 内 7 张 `cdp_bi_*` 表 + `cdp_big_screen_model_rel`（合计 8 张；`cdp_bi_report` = **362** 行精确 `COUNT(*)`） | LIVE |
-| 部署面 | 独立工作负载 `cdp-data-587fb58d45-74jld` 1/1 Running（`kubectl --kubeconfig=<KUBECONFIG>` 只读）；应用名 `cdp-data` 与 schema / 前端 scope / 后端路径同族 | LIVE |
+| 部署面 | 独立工作负载 `cdp-data-587fb58d45-74jld` 1/1 Running（`kubectl --kubeconfig=configtest2` 只读）；应用名 `cdp-data` 与 schema / 前端 scope / 后端路径同族 | LIVE |
 | 与 UDC 关系 | **无表级耦合**：BI 表全在 `cdp_data*`，UDC 目标库 0 张 BI 表 | LIVE |
 
 **报表按归属应用分布**（`cdp_bi_report`，LIVE）：`app9000000000000000001` 158 / `yznxmglpt…` 38 / `znxmgl121386570299241515796755` 38 / `xiangmuguanli…` 32 / `cdp-data` 21 / … / 共 12 个应用。⇒ 这是**多应用共享的标品 BI 引擎**，不是某一应用的私有能力，更不是 UDC 的延伸。

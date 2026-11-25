@@ -220,5 +220,5 @@ SELECT * FROM udc_test2.udc_operation_log WHERE create_time>='2026-10-17 22:40:0
 
 ## 历史：BLOCKED 轮（403，2026-10-17 17:2x，结论已被本轮取代）
 
-17:00–17:1x 间 `lowcode-<env>2` 入口对 `/service/*` 整段 403（nginx 页 548B，与 token/cookie/浏览器均无关，登录接口同时被拒），S2 首轮零写 BLOCKED（证据与推断原文见 git 历史 commit）。22:27 main 门禁复核解封（`/service/common/version`=200 业务 JSON、`/main/`=200），S2-R1 重启即本轮。
+17:00–17:1x 间 `lowcode-test2` 入口对 `/service/*` 整段 403（nginx 页 548B，与 token/cookie/浏览器均无关，登录接口同时被拒），S2 首轮零写 BLOCKED（证据与推断原文见 git 历史 commit）。22:27 main 门禁复核解封（`/service/common/version`=200 业务 JSON、`/main/`=200），S2-R1 重启即本轮。
 首轮（22:36）提交虽有 HTTP 200 但响应体缺失 + DB 零落行，main 22:41 裁定 `UNVERIFIED-响应体缺失` 并给出 fetch/XHR hook 取证修正 —— 本轮已采用，问题闭环。

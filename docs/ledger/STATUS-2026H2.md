@@ -214,7 +214,7 @@
 - HEAD `cf45180`；test2 5.3.496；create 成功数 **0**；证据 5 jsonl + 1 md + 九段式格 1 件全在盘。
 
 ### 8.5 R1 unblock 轮（main option a 供 E7 · 16:30 CST 实测）
-- main 按 8.3 (a) 供给侧给有效 `hostAppName`（E7 = test2 驻留宿主码 `znxmglptcopy579…`，config L59-71 `running_profile:test2`/`k8s_namespace:lowcode-<env>`）+ E8 只读枚举端点；重发 R1 单环，R2-R4 仍待。
+- main 按 8.3 (a) 供给侧给有效 `hostAppName`（E7 = test2 驻留宿主码 `znxmglptcopy579…`，config L59-71 `running_profile:test2`/`k8s_namespace:lowcode-test`）+ E8 只读枚举端点；重发 R1 单环，R2-R4 仍待。
 - **实测**：重新登录 OK（cookie 值 0 入件）→ E8 `serial-config/select-entity-list?appName={E7}` = 200/BOOT_0000/**18 实体**（traceId `3253789492108069052`），**但 18 个实体 fullName 全挂 uat 命名空间 `com.seeyon.znxmglpt3289…`（= default_app_id），非 E7/test2 命名空间**。
 - create 用满 unblock 允许 **3/3 次全 `status:2` 静默业务失败**（traceId `3253789499322271932` E7+me / `3253789511989070012` default+me / `3253790538922461372` E7-alone 最小体）；**未建成应用，无 `data` id，无 deleteByIds 清单**。
 - **根因判定（交 main 裁定）**：create 网关前缀走 uat `default_app_id`，而 `hostAppName`=E7(test2) → 网关把 create 路由到 uat 宿主，uat 宿主绑不到 test2 host app → status:2。最小体（E7+无 me）亦 status:2 ⇒ 根因**非 masterEntity 命名空间污染本身**，而是 **host 经 uat 路由未解析到 test2 host**。

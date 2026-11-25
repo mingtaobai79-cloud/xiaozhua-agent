@@ -3,7 +3,7 @@
 切片：main HANDOFF S1 — 域定位首屏抓包
 执行：implementer（单切片，只观察不写）
 时间：2026-10-17 15:0x–15:15 +08
-环境：test2 `https://lowcode-<env>2.example.com`
+环境：test2 `https://lowcode-test2.example.com`
 应用：`9000000000000000001`（datamigration，本应用栏目为空 → 同时取有数据的应用做交叉验证）
 原始抓包：`docs/audit/column-discovery/raw-nav-capture-20261017.json`（160,797B，24 条请求全量含 body/response）
 
@@ -32,7 +32,7 @@
 ### 1) 页面打开证据（DOM）✅
 
 CDP 新开 target → `Page.navigate` 到
-`https://lowcode-<env>2.example.com/main/child-frame/udc/app-design/page-manage/portlet?appId=9000000000000000001`
+`https://lowcode-test2.example.com/main/child-frame/udc/app-design/page-manage/portlet?appId=9000000000000000001`
 
 - `location.href` = 上述 URL，`document.title` = 「数据迁移」
 - `iframe` = 空数组（非 iframe 嵌套，微前端 runtime 直接挂载）
@@ -53,7 +53,7 @@ DOM 文本（`document.body.innerText` 节选）：
 
 **栏目列表主请求（唯一驱动「栏目」页面的数据请求）**
 
-- URL：`POST https://lowcode-<env>2.example.com/service/udc/graphql?udcPortletSelectByAppIdAppGet`
+- URL：`POST https://lowcode-test2.example.com/service/udc/graphql?udcPortletSelectByAppIdAppGet`
 - Headers：`Content-Type: application/json`（`credentials: include`，cookie 鉴权，token 走 `shared-credentials/test2-web-credential.json`，不落盘）
 - Body（原样）：
 

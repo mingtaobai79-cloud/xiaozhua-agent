@@ -2,7 +2,7 @@
 
 - **切片**：SLICE-A1（A 组 · 应用域 · P0）
 - **日期**：2026-10-18
-- **环境**：test2（库 `udc_test2` / Redis env=`test2` / 网关 `lowcode-<env>2.example.com`）
+- **环境**：test2（库 `udc_test2` / Redis env=`test2` / 网关 `lowcode-test2.example.com`）
 - **本片性质**：**只读取证**。0 写操作、0 页面重试建应用、0 数据库变更。
 - **结论状态**：配额真实口径 **已闭合（LIVE）**；「建应用」动作本身仍 **BLOCKED**，但阻塞点已从「口径不明」变为「资源已满，需人工决策」。
 
@@ -33,9 +33,9 @@
 ### E1 — 平台自述接口（最直接，就是配额门读的那份 DTO）
 
 ```
-GET https://lowcode-<env>2.example.com/service/udc/sandbox/tenant/config/-8112660841495312922
+GET https://lowcode-test2.example.com/service/udc/sandbox/tenant/config/-8112660841495312922
 Cookie: <shared-credentials 路径引用，本文件不落 secret>
-Referer: https://lowcode-<env>2.example.com/main/
+Referer: https://lowcode-test2.example.com/main/
 ```
 
 响应 **HTTP 200**：

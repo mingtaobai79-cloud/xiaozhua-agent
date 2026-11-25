@@ -40,23 +40,23 @@
 
 ## 四、取证顺序（按证据强度，逐条推进，一次一个动作）
 
-- P1 运行态/部署态 jar（最强）：SSH `root@10.0.0.1`（key 见访问材料）→ 远端执行 `kubectl --kubeconfig=<KUBECONFIG>` → 定位 UDC 应用 Pod/镜像 → 取 udc 相关 jar → 反编译微流程 Controller → 路径 + DTO + 类归属。
+- P1 运行态/部署态 jar（最强）：SSH `root@10.0.0.1`（key 见访问材料）→ 远端执行 `kubectl --kubeconfig=configtest2` → 定位 UDC 应用 Pod/镜像 → 取 udc 相关 jar → 反编译微流程 Controller → 路径 + DTO + 类归属。
 - P2 客户侧已落地 javap：`docs/audit/artifacts/customer-web-1.0.11029/` 下的微流程 Controller → 提取路径形态与入参，交叉验证 P1。
 - P3 平台 metadata / GraphQL 通道：`UdcFunctionNodeController` / `GraphqlProxyController` / `UdcRestPathParse` 已有 javap → 判断微流程定义读取是否走 metadata 查询接口而非专用 Controller。
-- P4 活体只读探测：对 `https://lowcode-<env>2.example.com` 发只读查询请求做交叉验证；凭据只从本机环境变量或私密文件读取，不落盘、不进对话、不写进产物。
+- P4 活体只读探测：对 `https://lowcode-test2.example.com` 发只读查询请求做交叉验证；凭据只从本机环境变量或私密文件读取，不落盘、不进对话、不写进产物。
 
 ## 五、访问材料（全部只读）
 
 - `<HERMES_HOME>/skills/devops/xiaozhua-low-code-environment/.env`：`XIAOZHUA_SSH_*`、`XIAOZHUA_KUBECONFIG_TEST2`、`XIAOZHUA_KUBECONFIG_UAT`、`XIAOZHUA_DB_*`、`XIAOZHUA_REDIS_*`、`XIAOZHUA_K8S_NAMESPACE`、`XIAOZHUA_ENV`
 - 同目录 `low-code-test.pem`（仅用于 10.0.0.1）、`kubeconfig-zhiyuan`（作为 test2 kubeconfig 使用）
 - 同目录 `SKILL.md`：环境识别、凭据边界、Pod 诊断、Redis/MySQL 访问规范
-- 应用基址 `https://lowcode-<env>2.example.com`；业务路径形态 `/service/{applicationId}/{业务路径}`
+- 应用基址 `https://lowcode-test2.example.com`；业务路径形态 `/service/{applicationId}/{业务路径}`
 - 本机命令：`uv run --quiet --with pytest python -m pytest tests -q`（本机 python 无 pytest，必须走 uv）
 
 ## 六、约束（硬约束）
 
 - 只读。写操作、发布、部署、数据库/Redis 修改本轮一律不做。
-- test2 命令必须 SSH 到 `10.0.0.1` 后在远端执行 `kubectl --kubeconfig=<KUBECONFIG>`；禁止连接 `10.0.0.1`；禁止擅自追加 `-n low-code`（namespace 由远端 context 决定）。
+- test2 命令必须 SSH 到 `10.0.0.1` 后在远端执行 `kubectl --kubeconfig=configtest2`；禁止连接 `10.0.0.1`；禁止擅自追加 `-n low-code`（namespace 由远端 context 决定）。
 - 证据等级不得升级：STATIC_CONTRACT < VERIFIED_STATIC_BYTECODE < LIVE。本地 5.3.517 与服务器镜像版本若有差异必须分别标注，不混写。
 - 不打印密钥、密码、cookie、accessToken；产物中一律脱敏。
 - 客户业务明细（微流程实例数据）只按任务临时查询，不进长期事实库；只沉淀平台机制与契约。

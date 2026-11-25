@@ -23,8 +23,8 @@ Gateway 不是 UDC 子模块，也不是普通业务组件。它是多个业务�
 ## 2. Live test2 gateway deployment facts
 
 Environment: `test2`
-Path: SSH `10.0.0.1` → `kubectl --kubeconfig=<KUBECONFIG>`
-Namespace: `lowcode-<env>`
+Path: SSH `10.0.0.1` → `kubectl --kubeconfig=configtest2`
+Namespace: `lowcode-test`
 
 Observed deployments/services:
 
