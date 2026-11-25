@@ -45,8 +45,12 @@ from functools import lru_cache
 from pathlib import Path
 from typing import Any
 
+from core.index_data import missing_message, resolve
+
 _REPO = Path(__file__).resolve().parents[2]
-_SIG = _REPO / "docs" / "audit" / "signatures.txt.gz"
+# 签名库随产品发行，位置由 core.index_data 解析（发行树 fixtures/reference/，
+# 工作区兼容 docs/audit/，可用 XIAOZHUA_INDEX_DIR 覆盖）
+_SIG_NAME = "signatures.txt.gz"
 
 # ───────────────────────────── 中文 token 词典 ─────────────────────────────
 # 来源：2388 个目标类名驼峰拆词后的 token 频次统计，取高频 + 语义明确的
@@ -286,10 +290,11 @@ def _bucket(name: str) -> str | None:
 @lru_cache(maxsize=1)
 def _index() -> tuple[dict[str, dict[str, Any]], str]:
     """构建一次，进程内缓存。返回 (classes, error)。"""
-    if not _SIG.exists():
-        return {}, "signatures.txt.gz 不存在（缺件，索引不可用）"
+    sig = resolve(_SIG_NAME)
+    if sig is None:
+        return {}, missing_message(_SIG_NAME)
 
-    with gzip.open(_SIG, "rt", encoding="utf-8", errors="replace") as f:
+    with gzip.open(sig, "rt", encoding="utf-8", errors="replace") as f:
         lines = f.read().splitlines()
 
     classes: dict[str, dict[str, Any]] = {}

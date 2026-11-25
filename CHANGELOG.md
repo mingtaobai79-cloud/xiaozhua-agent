@@ -1,5 +1,51 @@
 # CHANGELOG
 
+## 0.2.8 — 2026-11-25
+
+修 0.2.7 引入的回归：装机环境里 `xiaozhua_platform_class_search` / `platform_class_methods`
+报「signatures.txt.gz 不存在（缺件，索引不可用）」。
+
+### 根因
+
+签名库躺在 `docs/audit/signatures.txt.gz`，而 `docs/` 是工作区（审计报告、客户证据），
+0.2.7 收紧安装树时被 `installer/selfupdate.py::IGNORE_DIRS` 整个排除 —— 装机树里没有这个文件，
+代码却只认那一个路径。两个工具、同一个死路径。
+
+### 改法
+
+1. **索引数据挪到发行位置**：`fixtures/reference/signatures.txt.gz`（2.1 MB，随产品走）。
+   `fixtures/` 不在安装排除列表里，装机树会带上；`docs/` 仍排除。
+2. **新增 `core/index_data.py`** 统一解析顺序：
+
+   ```
+   1. $XIAOZHUA_INDEX_DIR/<name>        显式覆盖
+   2. <src>/fixtures/reference/<name>    发行位置（installed 也有）
+   3. <src>/docs/audit/<name>            工作区旧位置（兼容）
+   4. <src>/docs/audit/reference/<name>
+   5. ~/.xiaozhua/data/<name>            用户自备/热更新
+   ```
+
+3. 两个工具改走 `resolve()`，不再拼死路径。
+4. 缺件报错改成可执行提示：列出自试过的所有路径，并给出三条自修路径
+   （`xiaozhua update` / 复制到 `~/.xiaozhua/data/` / 设 `XIAOZHUA_INDEX_DIR`）。
+
+### 回归闸门（`tests/test_index_data_resolution.py`，9 条）
+
+- 签名库必须在 `fixtures/reference/` 且在 git 里；
+- `resolve()` 命中发行位置、缺件返回 None；
+- 缺件提示必须含三条自修路径；
+- 安装排除表：`docs` 在、`fixtures` 不在；
+- 两个工具源码里不许再出现 `docs/audit` 硬拼路径；
+- 端到端：`Utils` / `AppService` 能搜到类，`JsonUtils` 能列出 28 个方法。
+
+### 验证
+
+```
+tests/test_index_data_resolution.py   9 passed
+tests/test_documentation_contract.py  6 passed（测试收集数 3317 → 3326 同步）
+全量 pytest                            238 failed / 2681 passed（既有失败，差集为空）
+```
+
 ## 0.2.7 — 2026-11-25
 
 发行面与工作区分开、安装器 UTF-8 全链路、现场报告迁出与客户标识占位、自定义微流程分层事实修正。

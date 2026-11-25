@@ -35,8 +35,9 @@ import gzip
 from pathlib import Path
 from typing import Any
 
-_REPO = Path(__file__).resolve().parents[2]
-_SIG = _REPO / "docs" / "audit" / "signatures.txt.gz"
+from core.index_data import missing_message, resolve
+
+_SIG_NAME = "signatures.txt.gz"
 
 # ───────────────────────────── 手工整理的高频业务动作 ─────────────────────────────
 # 结构：中文业务词（含同义词） → 条目
@@ -131,9 +132,10 @@ NO_REINVENT = {
 # ───────────────────────────── 检索 ─────────────────────────────
 
 def _load_signatures() -> tuple[list[str], str]:
-    if not _SIG.exists():
-        return [], "signatures.txt.gz 不存在（离线索引缺件）"
-    with gzip.open(_SIG, "rt", encoding="utf-8", errors="replace") as f:
+    sig = resolve(_SIG_NAME)
+    if sig is None:
+        return [], missing_message(_SIG_NAME)
+    with gzip.open(sig, "rt", encoding="utf-8", errors="replace") as f:
         return f.read().splitlines(), ""
 
 
