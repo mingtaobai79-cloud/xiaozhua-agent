@@ -120,8 +120,8 @@ FROM udc_attribute WHERE id=2166766729287798468;
 ```
 id=2166766729287798468  name=expEnum  caption=实验枚举字段  data_type=CTPENUM
 relation_entity=4456389269786582653  relation_entity_name=小爪平台枚举
-relation_code=XzhCtpEnum953322  relation_app=8704025620829192834
-entity_id=474806313816300867  app_id=8704025620829192834
+relation_code=XzhCtpEnum953322  relation_app=9000000000000000001
+entity_id=474806313816300867  app_id=9000000000000000001
 publish_state=1  version=35  update_time=2026-10-16 09:55:14
 ```
 
@@ -129,7 +129,7 @@ publish_state=1  version=35  update_time=2026-10-16 09:55:14
 
 ```
 SELECT id, code, name, app_id, data_status, is_delete FROM ctp_enum WHERE id=4456389269786582653;
-→ id=4456389269786582653 code=XzhCtpEnum953322 app_id=8704025620829192834 data_status=0 is_delete=0
+→ id=4456389269786582653 code=XzhCtpEnum953322 app_id=9000000000000000001 data_status=0 is_delete=0
 ```
 
 注：`XzhCtpEnum953322` 在 `ctp_enum_item` 中 **0 条**（对照组 SyncMode=2、FieldType=6、enums=4）。
@@ -144,7 +144,7 @@ SELECT id, code, name, app_id, data_status, is_delete FROM ctp_enum WHERE id=445
 - 历史实验（`docs/audit/udc-semantics/FIX-PLAN-entity-rule-menu.md` §1.1，10-15 基线）：
   relation_entity 指向 `udc_enum.id=3934748939202274853` 时 02104=1（阻断），
   指向 `ctp_enum.id=343286139204944935` 时 02104=0。当时检测面可达，A/B LIVE 完成。
-- 当轮：udc_enum 行仍在（DB 回读确认 id=3934748939202274853 name=XzhEnum953322 app_id=8704025620829192834），
+- 当轮：udc_enum 行仍在（DB 回读确认 id=3934748939202274853 name=XzhEnum953322 app_id=9000000000000000001），
   但无属性指向它（`attrs pointing = 0`）；新建对照字段需调 `POST /service/udc/entity/attribute`，
   该端点本轮 403（§5），A 组当轮重做被阻断。
 
@@ -155,7 +155,7 @@ SELECT id, code, name, app_id, data_status, is_delete FROM ctp_enum WHERE id=445
 POST /service/udc/graphql?udcApplicationSearchDetectionPost
 body: {query:"query graphqlLoader ($params0: udcApplicationSearchDetectionPostInputBody) {
   data0: udcApplicationSearchDetectionPost(body: $params0) { code message status data { content } } }",
- variables:{params0:{appId:"8704025620829192834"}}}
+ variables:{params0:{appId:"9000000000000000001"}}}
 ```
 响应（浏览器登录态 fetch / curl 带 token / 裸请求，全部一致）：
 ```
@@ -194,7 +194,7 @@ expEnum 行 update_time=2026-10-16 09:55:14（修复动作完成于故障窗口�
 POST https://lowcode-test2.example.com/service/udc/graphql?udcApplicationSearchDetectionPost
 Cookie: SY_ACCESS_TOKEN=***（凭据只引用路径，未落盘）
 body: {query:"mutation udcApplicationSearchDetectionPost ($body: ...InputBody){ ... }",
-       variables:{body:{appId:"8704025620829192834"}}}
+       variables:{body:{appId:"9000000000000000001"}}}
 ```
 
 响应原文（22:36:15，HTTP 200）：
@@ -206,7 +206,7 @@ body: {query:"mutation udcApplicationSearchDetectionPost ($body: ...InputBody){ 
 **但同一轮引擎状态是 FAIL（22:36:12）**：
 ```json
 {"status":0,"code":"BOOT_0000","message":"SUCCESS","traceId":"3278801094720882876",
- "data":{"content":{"validate":true,"appId":"8704025620829192834","status":"FAIL",
+ "data":{"content":{"validate":true,"appId":"9000000000000000001","status":"FAIL",
  "message":"Business Error[应用元数据处理类[DtoCodeMetaDataPostProcessor]执行异常: null]",
  "count":"0","errorCount":"0","seriouCount":"0","warnCount":"0"}}}
 ```
@@ -230,10 +230,10 @@ body: {query:"mutation udcApplicationSearchDetectionPost ($body: ...InputBody){ 
 写操作（新增对象，无需锁），22:31:59：
 ```
 POST /service/udc/entity/attribute
-{"appId":"8704025620829192834","entityId":"474806313816300867",
+{"appId":"9000000000000000001","entityId":"474806313816300867",
  "name":"expEnumUdc","caption":"实验枚举字段(指向udc_enum对照)","dataType":"CTPENUM",
  "relationEntity":"3934748939202274853","relationEntityName":"小爪实验枚举953322",
- "relationCode":"XzhEnum953322","relationApp":"8704025620829192834",
+ "relationCode":"XzhEnum953322","relationApp":"9000000000000000001",
  "relationType":"Many2OneAssociation","relationEntityCategory":"ENTITY",
  "relationCtpEnum":{"id":"3934748939202274853","code":"XzhEnum953322","enumLevel":0,"enumType":"SAME_LEVEL"},
  "widgetConfig":"{\"pc\":\"TreeSelect\"}","sourceType":"ENTITY","parentEnumAttributeId":"0",
@@ -245,7 +245,7 @@ DB 回读（udc_test2，22:32:09，`handoff-b-go-step2-db.json`）：
 ```
 id=-4640078061759031866  name=expEnumUdc  data_type=CTPENUM  entity_id=474806313816300867
 relation_entity=3934748939202274853  relation_entity_name=小爪实验枚举953322
-relation_code=XzhEnum953322  relation_app=8704025620829192834
+relation_code=XzhEnum953322  relation_app=9000000000000000001
 publish_state=1  version=0  create_time=2026-10-17 22:31:59  db_column_name=exp_enum_udc
 ```
 
@@ -334,7 +334,7 @@ REST 回读（`GET /service/udc/entity/attribute/-4640078061759031866`）四列�
 
 **原阻塞 B（检测引擎 FAIL）— 已解除**：
 ```
-POST /service/udc/application/do/detection-state  {appId:8704025620829192834}
+POST /service/udc/application/do/detection-state  {appId:9000000000000000001}
 -> 解除前: status=FAIL, message=Business Error[应用元数据处理类[DtoCodeMetaDataPostProcessor]执行异常: null], content=[]
 -> 解除后: status=SUCCESS, errorCount=1(仅固有 03907), warnCount=6
 ```

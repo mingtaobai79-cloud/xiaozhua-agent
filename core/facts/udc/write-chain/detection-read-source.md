@@ -11,7 +11,7 @@
 | 1 | 属性 `expEnum`（CTPENUM）三列 `relation_entity_name/relation_code/relation_app` | 修复前全 **NULL** |
 | 2 | 同一应用其它 6 个 CTPENUM 字段 | 三列**齐备**（如 `syncMode` → `同步模式`/`SyncMode`/`8704...834`） |
 | 3 | 平台真实 CTPENUM 字段（跨应用样本，如 `OAlcspzt`） | 三列齐备 |
-| 4 | REST 修复（`POST /udc/entity/attribute/update`）→ 回读 | ✅ 三列已写入，`relationEntityName=小爪实验枚举953322`、`relationCode=XzhEnum953322`、`relationApp=8704025620829192834` |
+| 4 | REST 修复（`POST /udc/entity/attribute/update`）→ 回读 | ✅ 三列已写入，`relationEntityName=小爪实验枚举953322`、`relationCode=XzhEnum953322`、`relationApp=9000000000000000001` |
 | 5 | 检测面（检测 `UDC_CE_ENTITY_02104`） | **仍报**「Attr relation ctpEnum not exist」 |
 | 6 | Redis `Metadata:JSON:MD5:{app}:udc@...Attribute.json` | 值 = `"1.0.7-20261013113125"`（**纯版本戳**，TTL ~450k s） |
 | 7 | Redis `Metadata:JSON:MD5:{app}:udc@...MicroFlowEntity@FRONTEND@{id}.json` | **存在**（前端页面规则类） |
@@ -50,7 +50,7 @@ CTPENUM（`data_type='CTPENUM'`）字段在 `udc_attribute` 的**必填四件套
 | `relation_entity` | 目标枚举 id | `3934748939202274853` |
 | `relation_entity_name` | 枚举 **caption** | `小爪实验枚举953322` |
 | `relation_code` | 枚举 **name** | `XzhEnum953322` |
-| `relation_app` | 归属 appId | `8704025620829192834` |
+| `relation_app` | 归属 appId | `9000000000000000001` |
 
 - `relation_type=1`（Many2OneAssociation）、`relation_entity_category=0`（ENTITY）
 - **缺 `relation_entity_name` 即被检出 `UDC_CE_ENTITY_02104`**（"Attr relation ctpEnum not exist"）

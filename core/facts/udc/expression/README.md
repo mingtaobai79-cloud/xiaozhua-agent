@@ -294,7 +294,7 @@ mode: "DESIIGN | ".concat(y, " | BACKEND")
 ## R-E8 Evidence（逐条实测，禁转述）
 
 ```
-LIVE 2026-10-23 test2 appId=8704025620829192834
+LIVE 2026-10-23 test2 appId=9000000000000000001
 
 operator/list          GET  200  BOOT_0000  operators=18 functions=4
                        POST 405  ← 只接受 GET
@@ -337,7 +337,7 @@ schema ENTITY 节点 paramId 实证：
 
 ## R-E10 本轮端到端实测记录（2026-10-23，可复算）
 
-实体 `ysFull6956`（id=-2537349473285092530），test2，appId `8704025620829192834`。
+实体 `ysFull6956`（id=-2537349473285092530），test2，appId `9000000000000000001`。
 
 ### 10.1 默认值 → `f12doc`（DOCUMENTNUMBER → resultTypeInfo=STRING）
 

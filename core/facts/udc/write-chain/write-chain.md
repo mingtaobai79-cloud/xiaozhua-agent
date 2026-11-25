@@ -361,18 +361,18 @@ list-page.md §4 必填链 #2）、`curTerminalType=PC`、`pageItems=[{pageUrl,u
   **DB 直插**产生。故本环终态 = 「写（DB 面）→ 回读（REST LIVE）」配对成立，「写（REST 面）」仍 UNVERIFIED。
 
 ### R4.2 Version
-- 应用 `zzprobenew26419954374508955097`（appId `6419954374508955097`），运行态 jar `1.0.4` / build `20261001025632`
+- 应用 `zzprobenew29000000000000000002`（appId `9000000000000000002`），运行态 jar `1.0.4` / build `20261001025632`
   / deployId `-1650043294083294531`（state=0 成功）；实体 `ZzprobeEnt1`（entityId `1214120700508048602`，
-  fullName `com.seeyon.zzprobenew26419954374508955097.domain.entity.ZzprobeEnt1`）；页面 `zzprobeshouye`
+  fullName `com.seeyon.zzprobenew29000000000000000002.domain.entity.ZzprobeEnt1`）；页面 `zzprobeshouye`
   （pageId `-2795971120707411668`，类型 **SEARCH_LIST**）。
 - 上轮 §R4「未实施」三条阻因（T2 运行时未发布 / 实体 UNPUBLISH 无物理表 / 无平台级入口）已随
   1.0.4 部署 + API 建页消解，本段更正为实测态。
 
 ### R4.3 Input
-- 写入（DB 面）：`INSERT` → schema `zzprobenew26419954374508955097_test2`，表
+- 写入（DB 面）：`INSERT` → schema `zzprobenew29000000000000000002_test2`，表
   `zzprobeen_m2128447441671076182`，`id=147154`，`ziduan1='ZZPROBE-R4-202610010406'`，
   `tenant_id=-8112660841495312922`。
-- 回读（REST 面）：body 三键 `{appName:"zzprobenew26419954374508955097", entityFullName:"…domain.entity.ZzprobeEnt1", dataId:147154}`
+- 回读（REST 面）：body 三键 `{appName:"zzprobenew29000000000000000002", entityFullName:"…domain.entity.ZzprobeEnt1", dataId:147154}`
   （契约取自已收口格 `runtime-data-read.md` §3，未重探参数字典）。
 
 ### R4.4 Required（实测坐实）
@@ -383,13 +383,13 @@ list-page.md §4 必填链 #2）、`curTerminalType=PC`、`pageItems=[{pageUrl,u
 
 ### R4.5 Execution（2026-10-01 04:06 +08）
 1. 写：DB 直插 1 行 → `id=147154`。
-2. 回读：`POST /service/zzprobenew26419954374508955097/udc-runtime/data/query` →
+2. 回读：`POST /service/zzprobenew29000000000000000002/udc-runtime/data/query` →
    `status=0` / `code=BOOT_0000` / `message=SUCCESS` / **traceId `3254491595596105916`**。
 3. 断言（PASS 判据核心，逐条核对）：回读行 `id` 与请求 `dataId` **同值 147154** + `ziduan1` 与写入字面
    **逐字一致且非空** `ZZPROBE-R4-202610010406` → **回读环 LIVE PASS**（非 200 空结果、非命中他行）。
 
 ### R4.6 Side Effects + 回滚方式
-- **Side Effects**：新增 **1 行物理数据**（`id=147154` @ `zzprobenew26419954374508955097_test2.zzprobeen_m2128447441671076182`）。
+- **Side Effects**：新增 **1 行物理数据**（`id=147154` @ `zzprobenew29000000000000000002_test2.zzprobeen_m2128447441671076182`）。
   0 建应用 / 0 建实体 / 0 建页面 / 0 部署 / 0 元数据写；未碰 znxmglpt。
 - **回滚**：删该行 = `DELETE FROM … WHERE id=147154`（DB 面）或运行态删除 op（**端点 UNVERIFIED**，见 §R4.7 同根）。
   按裁定**留置不删**，并入终态清理清单（现 main 侧 5 项：R3 页面 / R2 字段 / R2 实体 / R1 草稿 / **R4 数据行 147154**）。
@@ -448,7 +448,7 @@ list-page.md §4 必填链 #2）、`curTerminalType=PC`、`pageItems=[{pageUrl,u
 | R5（加分）· **HUMAN 侧 部署触发 @ znxmglpt** | `POST /service/udc/runtime/deploy-normal` | deployId 状态回读 | **LIVE PASS**（deployId `-5934667574923322524` SUCCESS jar 1.0.11175 ~19min；`-3075684243680240588` 18:19:49 编译完成） | 2 轮 TEST 部署 **待 HUMAN 裁定** |
 | R6（加分）· **HUMAN 侧 元数据注册 @ znxmglpt** | `POST /service/{app}/udc-runtime/meta-data/select-entity`（extmetadata jar，appName+fullName 双键） | 部署后实体元数据已注册 | **LIVE PASS**（ZzprobeEntTest 45 attrs / ZzprobeSimple 9 attrs 注册，trace 在盘） | 同 R2/R5 实体/部署 |
 | R3 建页面 · **main 侧 @ T2（R3 HANDOFF 实测）** | `udc/page-info/base-info/create`（无前缀·单 dto，§R3.5） | `select-by-appId` 展平 pageList[] | **LIVE PASS（1 LIST 页建成，`relationGroupId=-1825103036523123395`，回读命中 caption+pageUrl 非空 = 第 3 环；页面删除端点 UNVERIFIED）** | 页面 delete（`relationGroupId -1825103036523123395`，端点 UNVERIFIED；清单待 main 终态裁） |
-| R4 写数据 · **回读环（HUMAN 代跑 · 2026-10-01 04:06 实测）** | 写面 = **DB 直插** `zzprobenew*_test2.zzprobeen_m2128447441671076182`（`id=147154`）；**REST API 写面 UNVERIFIED-待终端字段协议**（通道 A `BOOT_4002`×4 + 16 候选 404 / 通道 B 无 mutation / `addPage` 被 `BOOT_1000` 阻断） | `POST /service/zzprobenew26419954374508955097/udc-runtime/data/query` 三键按 `dataId` 查同一行 | **LIVE PASS（回读环：BOOT_0000 + traceId `3254491595596105916` + `id` 同值 + `ziduan1` 逐字一致非空）→ 第 4 环（加分项）回读面达成；REST 写面维持 UNVERIFIED** | 删行 `id=147154`（DB DELETE；REST 删除端点 UNVERIFIED）→ **留置不删，并入 main 侧清理清单（现 5 项）** |
+| R4 写数据 · **回读环（HUMAN 代跑 · 2026-10-01 04:06 实测）** | 写面 = **DB 直插** `zzprobenew*_test2.zzprobeen_m2128447441671076182`（`id=147154`）；**REST API 写面 UNVERIFIED-待终端字段协议**（通道 A `BOOT_4002`×4 + 16 候选 404 / 通道 B 无 mutation / `addPage` 被 `BOOT_1000` 阻断） | `POST /service/zzprobenew29000000000000000002/udc-runtime/data/query` 三键按 `dataId` 查同一行 | **LIVE PASS（回读环：BOOT_0000 + traceId `3254491595596105916` + `id` 同值 + `ziduan1` 逐字一致非空）→ 第 4 环（加分项）回读面达成；REST 写面维持 UNVERIFIED** | 删行 `id=147154`（DB DELETE；REST 删除端点 UNVERIFIED）→ **留置不删，并入 main 侧清理清单（现 5 项）** |
 
 **北极星「≥3 环闭环」达成（双链独立复现 + R4 回读环补登）**：
 - **main 侧完整写路径链 3 环 LIVE 闭环**（建应用→实体→页面，逐环「写→回读同一目标」配对）：

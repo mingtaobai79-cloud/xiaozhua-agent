@@ -1,6 +1,6 @@
 # `output.appName` 缺键 = 检测面硬 NPE；CONNECTOR 监听目标 = 连接器动态 DTO
 
-> 应用 `8704025620829192834`（test2）。权威字节码：`udc-biz-5.3.517`（本仓反编译件 `docs/audit/artifacts/scratch-migrated/cfr-r31b`）。
+> 应用 `9000000000000000001`（test2）。权威字节码：`udc-biz-5.3.517`（本仓反编译件 `docs/audit/artifacts/scratch-migrated/cfr-r31b`）。
 > 日期：2026-10-16（第四十三轮）。状态：**FOCUSED VERIFIED（CFR + LIVE 双侧）**。
 
 ## 0. 一句话
@@ -30,7 +30,7 @@ MESSAGE 源监听的 `output.appName` **键缺失或为 null** 会让整个应�
 
 NPE 原文（`detection-state` 原始返回）：
 ```json
-{"validate":true,"appId":"8704025620829192834","status":"FAIL",
+{"validate":true,"appId":"9000000000000000001","status":"FAIL",
  "message":"System Error[java.lang.NullPointerException]",
  "count":"0","errorCount":"0","seriouCount":"0","warnCount":"0"}
 ```
@@ -90,7 +90,7 @@ prefix: com.seeyon.cip.connector.dynamic.dto.<链路名>.<DTO名>
 ### 4.3 ★ 读面错配（诚实边界）
 前端「事件选择 → 应用间」弹层走 `POST /udc/microflow/filter/mq`，实测（4 个应用 × 3 个应用名）：
 
-| appName | 8704025620829192834 | 2378987216360786643 | 3289082814923688017 | 1656355078954763084 |
+| appName | 9000000000000000001 | 9000000000000000003 | 3289082814923688017 | 1656355078954763084 |
 |---|---|---|---|---|
 | `cip-connector` | **0** | **0** | **0** | **0** |
 | `cip-manager` | **0** | **0** | **0** | **0** |

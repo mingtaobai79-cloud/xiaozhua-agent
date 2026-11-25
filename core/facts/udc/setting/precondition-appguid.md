@@ -54,7 +54,7 @@ Content-Type: application/json
 
 ```json
 {"data":{"data0":{"code":"BOOT_0000","data":{"content":{
-  "id":"8704025620829192834","name":"datamigration9000000000000000001",
+  "id":"9000000000000000001","name":"datamigration9000000000000000001",
   "guid":"2275741415570096882","caption":"数据迁移"}},"message":"SUCCESS","status":0}}}
 ```
 
@@ -95,7 +95,7 @@ SELECT guid FROM udc_application WHERE id = '<appId>';
 
 | 项 | 值 |
 |---|---|
-| appId | `8704025620829192834` |
+| appId | `9000000000000000001` |
 | appGuid | `2275741415570096882` |
 | name | `datamigration9000000000000000001` |
 | caption | 数据迁移 |

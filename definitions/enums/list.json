@@ -70,7 +70,7 @@
      "id": "-4270547897684553498"
     }
    ],
-   "appName": "datamigration8704025620829192834"
+   "appName": "datamigration9000000000000000001"
   },
   "description": "",
   "enums": {
@@ -80,7 +80,7 @@
     "caption": "草稿",
     "code": "0",
     "name": "DRAFT",
-    "fullName": "com.seeyon.datamigration8704025620829192834.enums.XzhDedBillbillStatus.DRAFT"
+    "fullName": "com.seeyon.datamigration9000000000000000001.enums.XzhDedBillbillStatus.DRAFT"
    },
    "TO_BE_SUBMITTED": {
     "validate": true,
@@ -88,7 +88,7 @@
     "caption": "待提交",
     "code": "1",
     "name": "TO_BE_SUBMITTED",
-    "fullName": "com.seeyon.datamigration8704025620829192834.enums.XzhDedBillbillStatus.TO_BE_SUBMITTED"
+    "fullName": "com.seeyon.datamigration9000000000000000001.enums.XzhDedBillbillStatus.TO_BE_SUBMITTED"
    },
    "PENDING_REVIEW": {
     "validate": true,
@@ -96,7 +96,7 @@
     "caption": "提交中",
     "code": "2",
     "name": "PENDING_REVIEW",
-    "fullName": "com.seeyon.datamigration8704025620829192834.enums.XzhDedBillbillStatus.PENDING_REVIEW"
+    "fullName": "com.seeyon.datamigration9000000000000000001.enums.XzhDedBillbillStatus.PENDING_REVIEW"
    },
    "COME_INTO_FORCE": {
     "validate": true,
@@ -104,7 +104,7 @@
     "caption": "已生效",
     "code": "3",
     "name": "COME_INTO_FORCE",
-    "fullName": "com.seeyon.datamigration8704025620829192834.enums.XzhDedBillbillStatus.COME_INTO_FORCE"
+    "fullName": "com.seeyon.datamigration9000000000000000001.enums.XzhDedBillbillStatus.COME_INTO_FORCE"
    },
    "TERMINATED": {
     "validate": true,
@@ -112,7 +112,7 @@
     "caption": "已终止",
     "code": "4",
     "name": "TERMINATED",
-    "fullName": "com.seeyon.datamigration8704025620829192834.enums.XzhDedBillbillStatus.TERMINATED"
+    "fullName": "com.seeyon.datamigration9000000000000000001.enums.XzhDedBillbillStatus.TERMINATED"
    },
    "NULLIFIED": {
     "validate": true,
@@ -120,7 +120,7 @@
     "caption": "已作废",
     "code": "5",
     "name": "NULLIFIED",
-    "fullName": "com.seeyon.datamigration8704025620829192834.enums.XzhDedBillbillStatus.NULLIFIED"
+    "fullName": "com.seeyon.datamigration9000000000000000001.enums.XzhDedBillbillStatus.NULLIFIED"
    },
    "SUSPENDED": {
     "validate": true,
@@ -128,7 +128,7 @@
     "caption": "已挂起",
     "code": "6",
     "name": "SUSPENDED",
-    "fullName": "com.seeyon.datamigration8704025620829192834.enums.XzhDedBillbillStatus.SUSPENDED"
+    "fullName": "com.seeyon.datamigration9000000000000000001.enums.XzhDedBillbillStatus.SUSPENDED"
    },
    "FAILED": {
     "validate": true,
@@ -136,10 +136,10 @@
     "caption": "不通过",
     "code": "7",
     "name": "FAILED",
-    "fullName": "com.seeyon.datamigration8704025620829192834.enums.XzhDedBillbillStatus.FAILED"
+    "fullName": "com.seeyon.datamigration9000000000000000001.enums.XzhDedBillbillStatus.FAILED"
    }
   },
-  "fullName": "com.seeyon.datamigration8704025620829192834.enums.XzhDedBillbillStatus",
+  "fullName": "com.seeyon.datamigration9000000000000000001.enums.XzhDedBillbillStatus",
   "id": "1045264166166260005",
   "md5": null,
   "g_l_index": "1"
@@ -150,11 +150,11 @@
    "name": "YsEnumOpt",
    "id": "-723094135390654197",
    "items": [],
-   "appName": "datamigration8704025620829192834"
+   "appName": "datamigration9000000000000000001"
   },
   "description": "",
   "enums": {},
-  "fullName": "com.seeyon.datamigration8704025620829192834.enums.YsEnumOpt",
+  "fullName": "com.seeyon.datamigration9000000000000000001.enums.YsEnumOpt",
   "id": "-723094135390654197",
   "md5": null,
   "g_l_index": "2"
@@ -182,7 +182,7 @@
      "id": "-1836127336324794833"
     }
    ],
-   "appName": "datamigration8704025620829192834"
+   "appName": "datamigration9000000000000000001"
   },
   "description": "",
   "enums": {
@@ -192,7 +192,7 @@
     "caption": "发送成功",
     "code": "0",
     "name": "SEND_SUCCESS",
-    "fullName": "com.seeyon.datamigration8704025620829192834.enums.XzhDedBillbillSendState.SEND_SUCCESS"
+    "fullName": "com.seeyon.datamigration9000000000000000001.enums.XzhDedBillbillSendState.SEND_SUCCESS"
    },
    "SENDING": {
     "validate": true,
@@ -200,10 +200,10 @@
     "caption": "发送中",
     "code": "1",
     "name": "SENDING",
-    "fullName": "com.seeyon.datamigration8704025620829192834.enums.XzhDedBillbillSendState.SENDING"
+    "fullName": "com.seeyon.datamigration9000000000000000001.enums.XzhDedBillbillSendState.SENDING"
    }
   },
-  "fullName": "com.seeyon.datamigration8704025620829192834.enums.XzhDedBillbillSendState",
+  "fullName": "com.seeyon.datamigration9000000000000000001.enums.XzhDedBillbillSendState",
   "id": "7654494908217993802",
   "md5": null,
   "g_l_index": "3"
@@ -239,7 +239,7 @@
      "id": "-7059635510157837634"
     }
    ],
-   "appName": "datamigration8704025620829192834"
+   "appName": "datamigration9000000000000000001"
   },
   "description": "",
   "enums": {
@@ -249,7 +249,7 @@
     "caption": "待处理",
     "code": "1",
     "name": "PENDING",
-    "fullName": "com.seeyon.datamigration8704025620829192834.enums.ZxjSampleSetA.PENDING"
+    "fullName": "com.seeyon.datamigration9000000000000000001.enums.ZxjSampleSetA.PENDING"
    },
    "RUNNING": {
     "validate": true,
@@ -257,7 +257,7 @@
     "caption": "处理中",
     "code": "2",
     "name": "RUNNING",
-    "fullName": "com.seeyon.datamigration8704025620829192834.enums.ZxjSampleSetA.RUNNING"
+    "fullName": "com.seeyon.datamigration9000000000000000001.enums.ZxjSampleSetA.RUNNING"
    },
    "DONE": {
     "validate": true,
@@ -265,10 +265,10 @@
     "caption": "已完成",
     "code": "3",
     "name": "DONE",
-    "fullName": "com.seeyon.datamigration8704025620829192834.enums.ZxjSampleSetA.DONE"
+    "fullName": "com.seeyon.datamigration9000000000000000001.enums.ZxjSampleSetA.DONE"
    }
   },
-  "fullName": "com.seeyon.datamigration8704025620829192834.enums.ZxjSampleSetA",
+  "fullName": "com.seeyon.datamigration9000000000000000001.enums.ZxjSampleSetA",
   "id": "8161370978931637323",
   "md5": null,
   "g_l_index": "4"
@@ -312,7 +312,7 @@
      "id": "7593965558791182179"
     }
    ],
-   "appName": "datamigration8704025620829192834"
+   "appName": "datamigration9000000000000000001"
   },
   "description": "",
   "enums": {
@@ -322,7 +322,7 @@
     "caption": "低",
     "code": "1",
     "name": "LOW",
-    "fullName": "com.seeyon.datamigration8704025620829192834.enums.ZxjSampleSetB.LOW"
+    "fullName": "com.seeyon.datamigration9000000000000000001.enums.ZxjSampleSetB.LOW"
    },
    "MIDDLE": {
     "validate": true,
@@ -330,7 +330,7 @@
     "caption": "中",
     "code": "2",
     "name": "MIDDLE",
-    "fullName": "com.seeyon.datamigration8704025620829192834.enums.ZxjSampleSetB.MIDDLE"
+    "fullName": "com.seeyon.datamigration9000000000000000001.enums.ZxjSampleSetB.MIDDLE"
    },
    "HIGH": {
     "validate": true,
@@ -338,7 +338,7 @@
     "caption": "高",
     "code": "3",
     "name": "HIGH",
-    "fullName": "com.seeyon.datamigration8704025620829192834.enums.ZxjSampleSetB.HIGH"
+    "fullName": "com.seeyon.datamigration9000000000000000001.enums.ZxjSampleSetB.HIGH"
    },
    "URGENT": {
     "validate": true,
@@ -346,10 +346,10 @@
     "caption": "紧急",
     "code": "4",
     "name": "URGENT",
-    "fullName": "com.seeyon.datamigration8704025620829192834.enums.ZxjSampleSetB.URGENT"
+    "fullName": "com.seeyon.datamigration9000000000000000001.enums.ZxjSampleSetB.URGENT"
    }
   },
-  "fullName": "com.seeyon.datamigration8704025620829192834.enums.ZxjSampleSetB",
+  "fullName": "com.seeyon.datamigration9000000000000000001.enums.ZxjSampleSetB",
   "id": "360546335236704893",
   "md5": null,
   "g_l_index": "5"
@@ -377,7 +377,7 @@
      "id": "5393394652078269693"
     }
    ],
-   "appName": "datamigration8704025620829192834"
+   "appName": "datamigration9000000000000000001"
   },
   "description": "S7 实验枚举",
   "enums": {
@@ -387,7 +387,7 @@
     "caption": "选项一",
     "code": "1",
     "name": "ONE",
-    "fullName": "com.seeyon.datamigration8704025620829192834.enums.XzhEnum953322.ONE"
+    "fullName": "com.seeyon.datamigration9000000000000000001.enums.XzhEnum953322.ONE"
    },
    "TWO": {
     "validate": true,
@@ -395,10 +395,10 @@
     "caption": "选项二",
     "code": "2",
     "name": "TWO",
-    "fullName": "com.seeyon.datamigration8704025620829192834.enums.XzhEnum953322.TWO"
+    "fullName": "com.seeyon.datamigration9000000000000000001.enums.XzhEnum953322.TWO"
    }
   },
-  "fullName": "com.seeyon.datamigration8704025620829192834.enums.XzhEnum953322",
+  "fullName": "com.seeyon.datamigration9000000000000000001.enums.XzhEnum953322",
   "id": "3934748939202274853",
   "md5": null,
   "g_l_index": "6"

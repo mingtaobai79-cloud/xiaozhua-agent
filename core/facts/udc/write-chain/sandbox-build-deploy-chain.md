@@ -91,11 +91,11 @@ Redis 键：
 
 ## 6. LIVE 验证（2026-10-15，test2）
 
-- `GET /service/udc/sandbox/select/8704025620829192834`（数据迁移）→ BOOT_0000，
+- `GET /service/udc/sandbox/select/9000000000000000001`（数据迁移）→ BOOT_0000，
   `sandboxCreateStatus=ENABLE`，logs=["【沙箱环境准备】沙箱准备完成"]
-- `GET /service/udc/sandbox/build-info/8704025620829192834` → BOOT_0000，
+- `GET /service/udc/sandbox/build-info/9000000000000000001` → BOOT_0000，
   `state=SUCCESS progress=100`，buildTime=2026-10-13 11:29:56（版本 1.0.7），总耗时 294s，37 行流水日志（全文见上）
-- `GET /service/udc/sandbox/select/6419954374508955097`（zzprobe）→ UDC_APP_0001 "The application is not exist"
+- `GET /service/udc/sandbox/select/9000000000000000002`（zzprobe）→ UDC_APP_0001 "The application is not exist"
   （zzprobe 已被删除，与用户"那个应用被我删除了"一致）
 
 ## 7. 与既有事实的接驳

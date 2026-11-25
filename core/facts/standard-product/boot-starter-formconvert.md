@@ -24,7 +24,7 @@
 
 FormConvertDto req = new FormConvertDto();
 req.setTemplateId(templateId);
-req.setEntityFullName("com.seeyon.datamigration163126498398523384.dto.AeProbeEntityDto");
+req.setEntityFullName("com.seeyon.datamigration9000000000000000004.dto.AeProbeEntityDto");
 req.setEntityId(recordId);
 req.setEntity(entityDto);                    // 也可以直接给对象，不用 entityId
 req.setMasterTableFields(masterFields);      // 主表字段清单

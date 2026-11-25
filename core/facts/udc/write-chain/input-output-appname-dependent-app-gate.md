@@ -1,7 +1,7 @@
 # UDC_MICRO_FLOW_04004「依赖应用已删除」= input/output 的 appName 未跨接依赖应用表
 
 > 领域：微流程一致性检测（`UDC_MICRO_FLOW_04004` = `UDC_MICRO_FLOW_NODE_DATA_ERROR`）
-> 状态：**LIVE PASS**（test2 app 8704025620829192834）+ **VERIFIED_STATIC_BYTECODE**（udc-biz 5.3.517）
+> 状态：**LIVE PASS**（test2 app 9000000000000000001）+ **VERIFIED_STATIC_BYTECODE**（udc-biz 5.3.517）
 > 代码：`components/udc/microflow_constraints.py`（`validate_input_output_dependency` /
 > `input_output_detection_branch` / `LIVE_R44_ARMS`）；护栏 `tests/udc/test_microflow_constraints.py`（+6）
 > 关联：`draft-warn-masking-mechanism.md`（04003 掩蔽）、`appname-key-npe-and-connector-target.md`
@@ -40,7 +40,7 @@ appNameSet 来源: ImmutableNodeContext.from():174
    ⇒ `getInApp().booleanValue()` 若被走到即 NPE；实测**键缺失走的是非 inApp 分支**（与显式 false 同结论，见 §2 臂 B/E0）。
 2. `toStructure()`（`:61-71`）把 `appName` 原样带进 Structure，`udcApp` 默认 true ⇒ 结构面与依赖面是**两条独立判据**。
 
-## 2. LIVE 单变量臂矩阵（app 8704025620829192834，对象 `-1014184770817921434`）
+## 2. LIVE 单变量臂矩阵（app 9000000000000000001，对象 `-1014184770817921434`）
 
 对象：微流程「小爪标准微流程-全节点流转(最终)」（当时 `state=RELEASE`、`triggerType=MANUAL`、`type=3 CUSTOM`）。
 检测范式：`do/detection` → 轮询 `do/detection-state` 到 `status!=doing` → `search/detection`；DB 以 `state`/`data_schema` 回读。

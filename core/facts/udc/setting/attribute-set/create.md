@@ -406,7 +406,7 @@ python tools/core/setting/attribute_set_field_config.py --dump --set-id <字段�
                           relation_app=4396215186967839451
                           relation_entity_name='OA流程审批状态'   ← 有中文名
 我建  tq12ctpenum          relation_entity=-1052013552430069963
-                          relation_app=8704025620829192834
+                          relation_app=9000000000000000001
                           relation_entity_name=None               ← 空的
 ```
 

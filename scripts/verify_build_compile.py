@@ -6,7 +6,7 @@
 Java 时才炸。本脚本是唯一能证明「生成的代码能编译」的手段。
 
 用法：
-    python verify_build_compile.py --app 8704025620829192834
+    python verify_build_compile.py --app <appId>
     python verify_build_compile.py --app <id> --cdp 9333 --expect-biz-sources 116
 
 前置：浏览器已登录 UDC 环境（低代码设计器页签在），CDP 端口可达。

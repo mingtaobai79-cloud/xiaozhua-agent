@@ -4,7 +4,7 @@
 > 权威字节码：`boot-starter-formula-5.3.318.jar`（本仓反编译件 `docs/audit/artifacts/decompiled/r38_full`，202 个 `.java`）。
 > LIVE 端点：`POST /service/udc/expression/check`（**纯校验，无落库副作用**）；
 > `GET /service/udc/expression/system-variable/list`。
-> LIVE 环境：test2，appId `8704025620829192834`。
+> LIVE 环境：test2，appId `9000000000000000001`。
 > 日期：2026-10-16（第四十轮）。
 >
 > ★ 本件**同时登记两处对上一轮交接的证伪/更正**（§6、§7），不接受只有正例的结论。

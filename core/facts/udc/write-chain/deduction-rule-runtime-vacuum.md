@@ -264,7 +264,7 @@ L1201 `ResourceUtils.getAppClassPathResources(appName, INIT_TENANT + "*" + postF
 
 | # | 请求 | HTTP | 响应码 | 判读 |
 |---|---|---|---|---|
-| 1 | `POST /service/6419954374508955097/udc-runtime/deduction/rule/getAll` | 200 | `server_404` | 凭据 `gateway_prefix` 属他应用，非本应用前缀 |
+| 1 | `POST /service/9000000000000000002/udc-runtime/deduction/rule/getAll` | 200 | `server_404` | 凭据 `gateway_prefix` 属他应用，非本应用前缀 |
 | 2 | `GET /service/9000000000000000002/udc-runtime/deduction/map/getAll/9000000000000000002` | 200 | `server_404` | appId 不是服务名 |
 | 3 | `GET /service/datamigration9000000000000000001/udc-runtime/deduction/map/getAll/9000000000000000002` | 200 | `server_403` | 服务前缀存在，test-account-1 对本应用运行态扣减接口**无权限** |
 

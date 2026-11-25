@@ -35,7 +35,7 @@ DataFlowDto {
 
 **实测成功体**：
 ```json
-{"appId":"8704025620829192834","caption":"小爪生单规则","description":"REST 实测生单规则",
+{"appId":"9000000000000000001","caption":"小爪生单规则","description":"REST 实测生单规则",
  "state":"ON","definition":""}
 → content = "908877618948883045"
 ```

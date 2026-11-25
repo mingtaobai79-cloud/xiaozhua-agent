@@ -43,7 +43,7 @@
 
 ## 3. 本应用现状（MySQL 直连 LIVE）
 
-    udc_data_transfer_object WHERE app_id=8704025620829192834 AND source IN (4,5)  →  0 行
+    udc_data_transfer_object WHERE app_id=9000000000000000001 AND source IN (4,5)  →  0 行
     全租户 WHERE name LIKE '%Xzh%'  →  0 行
     udc_last_version_metadata WHERE metadata_schema LIKE '%MICRO_FLOW_EVENT%'  →  0 行
     udc_event (本应用)  →  4 行（xzhBusListener / xzhMfEventListener / xzhEntityEvent / xzhEvtObj1）—— 但这是「事件表」，不是候选池来源

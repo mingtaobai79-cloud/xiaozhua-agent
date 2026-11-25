@@ -1,7 +1,7 @@
 # 菜单写链（PAGE 子节点 / default_page / 树回读）—— 全链打通
 
 > 领域：菜单/导航 → `udc/function` 下的 **PAGE 子节点创建** + **默认页设定** + **树回读**
-> 状态：**LIVE PASS**（test2，app `8704025620829192834`）
+> 状态：**LIVE PASS**（test2，app `9000000000000000001`）
 > 证据：LIVE REST 双向回读（GET + GET 树）+ pod 真实堆栈 + DB 回读 + CFR 字节码
 > 承接：`docs/audit/udc-semantics/MENU-FUNCTIONNODE-CONSTRAINTS.md`（字段面）补充**写链行为面**
 
@@ -55,7 +55,7 @@ org.mybatis.spring.MyBatisSystemException ... BusinessException
 
 ```
 POST /service/udc/function/create/function-refer
-{"appId":"8704025620829192834","terminalType":"PC","type":"PAGE","name":"小爪验收页面",
+{"appId":"9000000000000000001","terminalType":"PC","type":"PAGE","name":"小爪验收页面",
  "parentId":"-1628253460115858501","url":"xzhpage951440",
  "resourceId":"1520098474917276520","pageType":"SEARCH_LIST","openState":"EDIT"}
 → {"code":"BOOT_0000","data":{"content":"4630606675502338872"}}

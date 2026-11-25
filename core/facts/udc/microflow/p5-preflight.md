@@ -39,7 +39,7 @@ _net(d) / form_values(d)           网络记录 / 表单值
 - CDP `http://127.0.0.1:9333` → `Browser: Edg/156.0.4314.50`，可用
 - `<测试环境域名>` → HTTP 301，0.08s，通路正常
 - 11 个页面已打开，**含设计器页面**：
-  `/main/child-frame/udc/app-design/rule?appId=8704025620829192834`
+  `/main/child-frame/udc/app-design/rule?appId=9000000000000000001`
 - 登录态仍在（无需重新登录）
 
 ## 关键结论

@@ -71,7 +71,7 @@ DeductionConditionExtDto     { dataNotFoundStrategy /*默认 'ERROR'*/, toast }
 ## 3. 实测成功体（本应用）
 
 ```json
-{"appId":"8704025620829192834","caption":"小爪扣减规则","name":"xzhDedRule",
+{"appId":"9000000000000000001","caption":"小爪扣减规则","name":"xzhDedRule",
  "deductionMapId":"-3894187973392826420",
  "sourceEntityId/targetEntityId/sourceEndEntityId/targetEndEntityId":"474806313816300867",
  "…FullName":"com.seeyon.datamigration9000000000000000001.domain.entity.XzhExp950795",

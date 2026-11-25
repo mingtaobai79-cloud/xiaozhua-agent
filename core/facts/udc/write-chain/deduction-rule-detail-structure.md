@@ -159,7 +159,7 @@ return "bill".equals(entityDto.getStereotype()) && attributeMatch;
 ```json
 "deductionRuleDetailDtoList": [
   {
-    "appId": "8704025620829192834",
+    "appId": "9000000000000000001",
     "algorithmCode": "s0alg",
     "orderNum": 1,
     "notice": "S0结构取证样本",
@@ -239,7 +239,7 @@ update_time            2026-10-17 15:17:20
 version                0
 guid                   -392464900923832725
 publish_state          NULL
-app_id                 8704025620829192834
+app_id                 9000000000000000001
 bill_status_info       [{"validate":true,"fieldDto":{"validate":true,"fixedValue":null,
                          "attributeFullName":"com.seeyon.datamigration9000000000000000001.domain.entity.XzhExp950795.expText",
                          "attributeId":8016904624316689195,"entityId":474806313816300867,
@@ -266,7 +266,7 @@ original_id            0
 
 ## 7. 本应用 vs 样本应用的严格区分
 
-| 项 | 本应用 `datamigration9000000000000000001`（appId `8704025620829192834`） | 样本来源 |
+| 项 | 本应用 `datamigration9000000000000000001`（appId `9000000000000000001`） | 样本来源 |
 |---|---|---|
 | `udc_deduction_rule_detail` 原始行数 | **0 行**（取证前，机制必然：9 个实体全 `standard`，无 `statusType`） | — |
 | `udc_deduction_rule` | 1 行（`xzhDedRule` / 小爪扣减规则 / `publishState=UNPUBLISH`） | — |

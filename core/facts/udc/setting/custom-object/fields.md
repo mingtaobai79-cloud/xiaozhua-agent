@@ -37,7 +37,7 @@ mutation graphqlLoader ($params0: udcDataTransferObjectUpdateDtoPostInputBody) {
 
 ```json
 {
-  "appId": "8704025620829192834",
+  "appId": "9000000000000000001",
   "name": "zxjAllTypeProbe",
   "caption": "全类型字段探针",
   "description": null,
@@ -64,7 +64,7 @@ mutation graphqlLoader ($params0: udcDataTransferObjectUpdateDtoPostInputBody) {
   "type": "OBJECT",
   "description": "",
   "defaultValue": null,
-  "appId": "8704025620829192834"
+  "appId": "9000000000000000001"
 }
 ```
 
@@ -172,14 +172,14 @@ multiSelect      = true/false（多选与 type 正交）
 rel_enum     dt=CTPENUM                              cat=PRIMITIVE  type=OBJECT  relApp=datamigration…（应用名） relEnt=5079316968262147703
 rel_optset   dt=com.seeyon.boot.starter.cip.enums.ActivityStateEnum
                                                      cat=ENUM       type=OBJECT  relApp=bpm                  relEnt=3934748939202274853
-rel_optset2  dt=3934748939202274853                  cat=ENUM       type=OBJECT  relApp=8704025620829192834   relEnt=3934748939202274853
+rel_optset2  dt=3934748939202274853                  cat=ENUM       type=OBJECT  relApp=9000000000000000001   relEnt=3934748939202274853
 rel_obj      dt=com.seeyon.<app>.dto.microflow.Pddqqyfasfczzxtyzbcc
-                                                     cat=COMPOSITE  type=OBJECT  relApp=8704025620829192834   relEnt=""
+                                                     cat=COMPOSITE  type=OBJECT  relApp=9000000000000000001   relEnt=""
 rel_obj2     dt=com.seeyon.<app>.dto.microflow.DataSourceTestDTO
-                                                     cat=COMPOSITE  type=OBJECT  relApp=8704025620829192834   relEnt=""
+                                                     cat=COMPOSITE  type=OBJECT  relApp=9000000000000000001   relEnt=""
 rel_objlist  dt=com.seeyon.<app>.dto.ZxjVerifyEntityDto
-                                                     cat=COMPOSITE  type=LIST    relApp=8704025620829192834   relEnt=5417588098661281954
-rel_entity   dt=ENTITY                               cat=PRIMITIVE  type=OBJECT  relApp=8704025620829192834   relEnt=8456954308866361572
+                                                     cat=COMPOSITE  type=LIST    relApp=9000000000000000001   relEnt=5417588098661281954
+rel_entity   dt=ENTITY                               cat=PRIMITIVE  type=OBJECT  relApp=9000000000000000001   relEnt=8456954308866361572
 ```
 
 **这 7 个覆盖了 5 个根分支的全部形态**（枚举 / 选项集×2 / 对象×3 / 关联实体）。

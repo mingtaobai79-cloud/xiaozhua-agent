@@ -72,7 +72,7 @@ if (MicroFlowDataStateEnum.RELEASE.equals(dto.getState())) { checkSchema -> ... 
 ⇒ **SERVICE 型可以经 `checkSchema/update` 发布**。旧结论「SERVICE 型永不可能经 update 发布」
 只覆盖了 `create`/`update` 两个入口，**对 `checkSchemaAndUpdate` 不成立**（本轮更正）。
 
-## 2. LIVE 实测（test2，app 8704025620829192834）
+## 2. LIVE 实测（test2，app 9000000000000000001）
 
 样本：微流程 `1524985498115296151`「小爪标品事件监听」（`type=SERVICE`，`triggerType=BUSINESS_EVENT`）。
 

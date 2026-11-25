@@ -7,7 +7,7 @@
 
 | 页面点击 | 发出的请求 |
 |---|---|
-| 应用列表行「测试」（数据迁移 8704025620829192834） | 无网络请求（纯前端弹「应用测试」对话框：预估时长、版本号、运行中测试版本 V1.0.7、按钮「取 消/立即构建」）|
+| 应用列表行「测试」（数据迁移 9000000000000000001） | 无网络请求（纯前端弹「应用测试」对话框：预估时长、版本号、运行中测试版本 V1.0.7、按钮「取 消/立即构建」）|
 | 「立即构建」 | ① `POST /service/udc/graphql?udcDeploymentAppReadyStatePost&udcSandboxBuildInfoAppGet`（就绪态+构建信息联合查询）② `POST /service/udc/runtime/expect-deploy-time`（预估秒数）③ `POST /service/udc/graphql?udcDeploymentLatestTestInfoPost` ④ **`POST /service/udc/graphql?udcRuntimeDeployNormalPost` ← 入队构建** |
 | 应用列表行「发布」 | 弹「发布应用」对话框（推送到实施/生产 radio、锁定应用 switch、版本 checkbox）；未勾版本提交 → toast「请选择发布版本」；勾选后提交 → **toast「当前应用有修改,请先测试发布后再上线!」**（服务端/前端校验：必须先 TEST 发布成功才能 ON_ONLINE）|
 
@@ -20,7 +20,7 @@ POST /service/udc/graphql?udcRuntimeDeployNormalPost
     code data { content{appId,deployId,deployType,projectType,terminalType} } message status } }",
  "variables":{"params0":{"deployDto":{
    "projectType":"ALL","terminalType":"ALL",
-   "deployType":"RELEASE","appId":"8704025620829192834","generateLog":true}}}}
+   "deployType":"RELEASE","appId":"9000000000000000001","generateLog":true}}}}
 ```
 响应：`BOOT_0000 SUCCESS`，`content={appId, deployId:-2139846499842280759, deployType:RELEASE, projectType:ALL, terminalType:ALL}`
 
@@ -46,7 +46,7 @@ variables.params0 = {deployId}
 → 一致性检测：PageDetectionTask 完成(3s)，检测完成(5s)
 → 生成后端代码：开始 →
 [ERROR] 失败原因:业务异常[请点击链接:
-  https://lowcode-test2.example.com/main/child-frame/udc/app-design/basic-info/page-by-id/1520098474917276520?appId=8704025620829192834，
+  https://lowcode-test2.example.com/main/child-frame/udc/app-design/basic-info/page-by-id/1520098474917276520?appId=9000000000000000001，
   补全实体数据源错误：页面控件配置的字段不存在，udcDataGridView_xzh1->null]
 [ERROR] 结束 发布失败: 业务异常[一致性检测未通过],报错位置:
   com.seeyon.udc.pipeline.AbstractDeployService.doParallel(AbstractDeployService.java:242)

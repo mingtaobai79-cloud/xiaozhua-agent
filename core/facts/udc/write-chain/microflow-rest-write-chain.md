@@ -28,7 +28,7 @@
 
 ```
 POST /service/udc/microflow/create
-{"appId":"8704025620829192834","name":"xzhRestMf","caption":"小爪REST微流程",
+{"appId":"9000000000000000001","name":"xzhRestMf","caption":"小爪REST微流程",
  "type":"CUSTOM","triggerType":"MANUAL","groupType":"DEFAULT",
  "description":"REST 写链验证","nodes":[],"sourceType":"PAGE"}
 → {"code":"BOOT_0000","data":{"content":"-5161505652062878096"}}   # 返回 id 字符串
