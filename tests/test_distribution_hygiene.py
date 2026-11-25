@@ -38,17 +38,14 @@ DENY = (
     "trVLY2sJKQPf",
 )
 
-# 历史遗留：功能数据里以真 appId 为键（连接器默认值/约束模块），删了会改行为。
-# 不静默放过——每一条都登记在 docs/audit/customer-data-inventory.md，等迁移成
-# config/ 引用键。新增文件不许再进这个集合。
+# 历史遗留：曾以真 appId 为键的功能数据，现只剩两类必须保留的例外。
 LEGACY = {
-    "components/udc/event_listener_constraints.py",
-    "components/udc/attribute_expression_constraints.py",
-    "components/udc/menu_constraints.py",
-    "components/udc/microflow/gates.py",
-    "core/facts/batch-modules-20260925.md",
-    # 这份就是盘点表本身（登记了哪些标识、在哪个文件），内容必须能写出来
+    # 盘点表本身（登记了哪些标识、在哪个文件），内容必须能写出来
     "docs/audit/customer-data-inventory.md",
+    # docstring 里钉着本轮 LIVE 证据锚点，被
+    # tests/udc/test_attribute_expression_constraints.py::test_module_records_the_live_app_id_and_entity 断言
+    # （「模块必须记录自己对哪个应用实测过」——换成占位就失去可复核性）
+    "components/udc/attribute_expression_constraints.py",
 }
 
 
@@ -101,7 +98,7 @@ def test_config_dir_has_only_examples_and_skeletons():
     assert not bad, f"config/ 里混进了凭据类文件：{bad}"
 
 # 知识库里已知的 LIVE 证据标识数（core/facts/**）。只准往下减，不准增。
-BASELINE_FACTS_HITS = 200  # 2026-11-24 二次实测（含 entity-field-matrix 更正链回仓）
+BASELINE_FACTS_HITS = 133  # 2026-11-25 实测（docs 正文占位 + components 注释迁移后）
 
 
 def _facts_hits() -> list[str]:

@@ -75,7 +75,7 @@ def validate_function_node(body: dict) -> list[str]:
 # 菜单写链（PAGE 子节点 / default_page / 树回读）—— 第二十六轮 LIVE + CFR 双层证据
 # ============================================================================
 # 证据分层（禁止跨层互套）：
-#   LIVE（test2, app=8704025620829192834, 菜单 -1628253460115858501）：
+#   LIVE（test2, app=9000000000000000001, 菜单 -1628253460115858501）：
 #     POST /udc/function/create/function-refer -> BOOT_0000, content=<新PAGE节点id>
 #     POST /udc/function/default_page {functionId,sourceId} -> BOOT_0000, content=1
 #     POST /udc/function/update/name/function-refer {appId,relationId,name}

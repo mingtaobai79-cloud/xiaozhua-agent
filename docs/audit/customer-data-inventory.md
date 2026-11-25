@@ -12,7 +12,7 @@
 | 桶 | 路径 | 现状 | 规则 |
 |---|---|---|---|
 | **A 装机执行面** | `adapters/ components/ config/ installer/ providers/ core/config_env.py scripts→(见B)` + README/INSTALL/CHANGELOG | **0 命中** | 零容忍，`tests/test_distribution_hygiene.py` 守住 |
-| **B 知识库与开发资产** | `core/facts/`、`docs/`、`definitions/`、`scripts/` | **216 个文件**含 LIVE 环境细节 | 只准减不准增（测试卡基线） |
+| **B 知识库与开发资产** | `core/facts/`、`docs/`、`definitions/`、`scripts/` | **133 个文件**含 LIVE 环境细节 | 只准减不准增（测试卡基线） |
 | **C 本机覆盖层** | `config/environments.local.yaml`、`~/.xiaozhua/logs.yaml`、`.hermes/` | 已在 `.gitignore`，且 `git rm --cached` | 永不进 git |
 
 ## 口径（2026-11-24 定）
@@ -54,15 +54,26 @@
 * 4 个一次性脚本的 `default=<真appId>` —— 改成必填参数/环境变量，缺了直接报错，
   换环境不会静默打到我们自己的租户。
 
-这 216 个文件不静默放过：`tests/test_distribution_hygiene.py::test_facts_evidence_hits_do_not_grow`
-把 216 当基线，新增一个就红。
+这 133 个文件不静默放过：`tests/test_distribution_hygiene.py::test_facts_evidence_hits_do_not_grow`
+把 133 当基线（2026-11-25 收紧，原 200/216），新增一个就红。
 
 ## 为什么要分桶，而不是一把清完
 
-`components/udc/event_listener_constraints.py`、`menu_constraints.py` 这类模块把真 appId 当
-**功能数据键**（连接器默认值、菜单对照），删了会改行为 —— 它们需要先迁成
-`config/` 引用键再脱敏，属于功能改造，不是改文档。所以先进 `LEGACY` 白名单并登记在案，
-不许再新增。
+### 分桶结论（2026-11-25 收敛）
+
+原先的 `LEGACY` 六条收敛到两条例外：
+
+- `components/udc/{event_listener,attribute_expression,menu}_constraints.py`、
+  `components/udc/microflow/gates.py` 的命中**全在注释/docstring 里**（`LIVE（test2, app=…）`），
+  已改成占位 id，不涉及可执行字符串，行为零变化；
+- `core/facts/batch-modules-20260925.md` 已无命中；
+- `components/udc/attribute_expression_constraints.py` **保留原值**：它的 docstring 是
+  `test_module_records_the_live_app_id_and_entity` 断言的 LIVE 证据锚点（模块必须记录自己对哪个
+  应用实测过），换占位就失去可复核性；
+- 本盘点表自身（必须写清「哪些标识曾在哪个文件」）。
+
+真正需要 `config/` 引用键改造的（连接器默认值这类**可执行**常量）此前已改完，
+见上面「已迁出运行代码的两处」。
 
 ## 自检
 

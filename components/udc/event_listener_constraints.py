@@ -2,7 +2,7 @@
 
 证据分层（本轮全部实测，禁止跨层互套）：
 
-LIVE（test2，app=8704025620829192834，实体 474806313816300867，微流程 -1516089433318810738）：
+LIVE（test2，app=9000000000000000001，实体 474806313816300867，微流程 -1516089433318810738）：
   - POST /udc/microflow/checkSchema + POST /udc/microflow/update -> 落库
   - GET  /udc/microflow/findById/{id}                          -> 回读（messageInfo 逐键比对）
   - POST /udc/microflow/filter/event                            -> 事件选择器读面（含负控）
@@ -534,7 +534,7 @@ DYNAMIC_DEPENDENCY_GATES_FILTER_MQ: bool = False   # ★ 纠正：/filter/mq 不
 CONNECTOR_BLOCKER_IS_NOT_DYNAMIC_DEPENDENCY: bool = True
 
 # ★ 真因：本租户连接器动态元数据未注册（DTO + appService 都不在 UDC 元数据面）。
-#   LIVE 对照（app=8704025620829192834, tenant=-8112660841495312922，与连接器主数据同租户）：
+#   LIVE 对照（app=9000000000000000001, tenant=-8112660841495312922，与连接器主数据同租户）：
 #     POST /udc/microflow/search/apps            -> 30 行，cip-connector 在列，dynamicDependency="NONE"
 #     POST /udc/microflow/search/appService-by-appName {cip-connector}  -> 0 条
 #     POST /udc/microflow/search/appService-by-appName {cip-capability} -> 28 条

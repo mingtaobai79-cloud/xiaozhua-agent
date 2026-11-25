@@ -734,7 +734,7 @@ def run_gates(schema: dict, *, dep_apps: set[str] | None = None,
     #    语料 39 条：主流形态 SUB_ENTITY/children（13 条）+ 空引用（22 条）；
     #    MASTER_ENTITY+parent 单对象形态代码生成器会把节点输出声明成 List<Dto>
     #    再对它取字段 → 后端编译失败（VerifyDataMapping1928Service.getName() 找不到符号，
-    #    backBuild.log compile-info/8704025620829192834/20261031185114）。
+    #    backBuild.log compile-info/9000000000000000001/20261031185114）。
     #    设计器/checkSchema/一致性检测全不拦，只有构建能暴露 —— 必须闸门拦。
     for n9 in _walk_nodes(schema.get("nodes")):
         if n9.get("actionType") != "DATA_MAPPING":
