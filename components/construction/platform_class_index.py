@@ -301,16 +301,16 @@ def _index() -> tuple[dict[str, dict[str, Any]], str]:
     for line in lines:
         if "\t" in line:
             name, kind = line.split("\t")
-            if _bucket(name):
-                classes[name] = {
-                    "name": name,
-                    "kind": kind,
-                    "simple": name.split(".")[-1],
-                    "package": ".".join(name.split(".")[:-1]),
-                    "bucket": _bucket(name),
-                    "methods": [],
-                    "tokens": _tokenize(name.split(".")[-1]),
-                }
+            bucket = _bucket(name) or "other"
+            classes[name] = {
+                "name": name,
+                "kind": kind,
+                "simple": name.split(".")[-1],
+                "package": ".".join(name.split(".")[:-1]),
+                "bucket": bucket,
+                "methods": [],
+                "tokens": _tokenize(name.split(".")[-1]),
+            }
 
     # 第二遍挂方法（签名库是「先类后方法」顺序，也可能交错，所以两遍更稳）
     meth_re = re.compile(r"^([\w.$]+)#([\w$<>]+)\((.*)\):(.+)$")
@@ -408,8 +408,11 @@ def search(term: str = "", pkg: str = "", bucket: str = "",
             "methods": [m.get("name") for m in c["methods"][:25] if m.get("name")],
         })
 
-    # 排序：先按匹配质量，再按方法数（多的更可能是有用工具类）
-    hits.sort(key=lambda h: (-h["quality"], -h["methodCount"], h["name"]))
+    # 排序：匹配质量 → 常用桶优先 → 方法数（多的更可能是有用工具类）
+    def _rank(h: dict[str, Any]) -> tuple:
+        return (-h["quality"], 0 if h["bucket"] != "other" else 1, -h["methodCount"], h["name"])
+
+    hits.sort(key=_rank)
 
     out: dict[str, Any] = {
         "query": term,
@@ -438,7 +441,8 @@ def methods_of(class_name: str, keyword: str = "") -> dict[str, Any]:
         # 给相近建议
         sim = [n for n in classes if class_name.split(".")[-1] in n][:5]
         return {"class": class_name, "methods": [], "total": 0,
-                "note": "该类不在索引里（只索引 util/AppService/SPI 三类）",
+                "note": "该类不在签名库里（索引是 javap 全量快照，共 21389 类）；"
+                        "核对拼写，或改用 similar 里的候选",
                 "similar": sim}
     ms = c["methods"]
     if keyword:
@@ -461,8 +465,9 @@ def stats() -> dict[str, Any]:
         by_bucket[c["bucket"]] = by_bucket.get(c["bucket"], 0) + 1
         by_kind[c["kind"]] = by_kind.get(c["kind"], 0) + 1
         total_methods += len(c["methods"])
+    sig = resolve(_SIG_NAME)
     return {"classes": len(classes), "methods": total_methods,
             "byBucket": by_bucket, "byKind": by_kind,
             "tokenDict": len(TOKEN_ZH),
-            "source": "docs/audit/signatures.txt.gz",
+            "source": str(sig) if sig else None,
             "level": "VERIFIED_STATIC_BYTECODE"}

@@ -103,3 +103,42 @@ def test_platform_class_methods_works_offline():
     names = [m["name"] for m in got["methods"]]
     for expected in ("toJson", "fromJson"):
         assert expected in names, f"{cls} 缺 {expected}"
+
+# ── 覆盖度：签名库是全量 21389 类，不能只索引 util/AppService/SPI（2669）──
+
+def test_index_covers_all_classes_not_just_curated_buckets():
+    from components.construction import platform_class_index as idx
+
+    s = idx.stats()
+    assert s["classes"] >= 21_000, f"只索引了 {s['classes']} 类 —— 全量应是 21389"
+    assert s["methods"] >= 220_000, f"方法数 {s['methods']} 不足（应 224320）"
+    other = s["byBucket"].get("other", 0)
+    assert other >= 18_000, f"非常用桶类 {other} 个未入索引"
+
+
+def test_udc_dto_and_enum_are_searchable():
+    """UDC 的 DTO/枚举以前全查不到（bucket 过滤），这是实际踩到的坑。"""
+    from components.construction import platform_class_index as idx
+
+    r = idx.search(term="UdcPageInfoSearchDto", limit=3)
+    assert r["total"] >= 1, "udc DTO 查不到"
+    assert r["hits"][0]["name"] == "com.seeyon.udc.common.dto.UdcPageInfoSearchDto"
+
+    e = idx.search(term="PageUrlTypeEnum", limit=3)
+    assert e["total"] >= 1, "udc 枚举查不到"
+
+    m = idx.methods_of("com.seeyon.udc.common.dto.UdcPageInfoSearchDto")
+    assert m["total"] > 0, "DTO 方法列为空"
+
+
+def test_two_signature_copies_do_not_drift():
+    """docs/ 与 fixtures/ 各有一份时，必须字节一致（否则线上/工作区结论会不同）。"""
+    import hashlib
+
+    a = ROOT / "docs" / "audit" / SIG
+    b = ROOT / "fixtures" / "reference" / SIG
+    if not a.exists():
+        pytest.skip("工作区没有 docs 副本")
+    assert hashlib.sha256(a.read_bytes()).hexdigest() == hashlib.sha256(b.read_bytes()).hexdigest(), (
+        "两份签名库不一致：改了 javap 快照后忘了同步另一份"
+    )

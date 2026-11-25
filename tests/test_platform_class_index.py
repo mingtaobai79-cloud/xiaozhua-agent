@@ -84,11 +84,11 @@ def test_unknown_term_no_fabrication():
 def test_methods_of_unknown_class_suggests():
     r = methods_of("com.seeyon.boot.util.NotExistUtils")
     assert r["total"] == 0
-    assert "不在索引里" in r["note"]
+    assert "不在签名库里" in r["note"]
 
 
 def test_bucket_only_three_kinds():
-    """★只索引 util/appservice/spi，实现类不该进来。"""
+    """★bucket 只是标签/优先级：util/appservice/spi 三类，其余归 other（仍入索引）。"""
     assert _bucket("com.seeyon.boot.util.JsonUtils") == "util"
     assert _bucket("com.seeyon.bpm.api.common.BpmAppService") == "appservice"
     assert _bucket("com.seeyon.x.spi.SomeProvider") == "spi"

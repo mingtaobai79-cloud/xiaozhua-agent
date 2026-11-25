@@ -1,5 +1,51 @@
 # CHANGELOG
 
+## 0.2.9 — 2026-11-25
+
+修 `platform_class_search` / `platform_class_methods` 的**覆盖度**问题：索引文件里明明有 21389 类，
+工具只能查到 2669 类（12.5%），UDC 的 DTO / 枚举 / 非 AppService 接口全部 0 命中 ——
+用户用 Claude Code 实测时表现为「查不到、以为索引缺件」，只能退回 javap。
+
+### 根因
+
+`_index()` 里有一句 `if _bucket(name):` —— `_bucket()` 只认三类
+（`util` / `AppService` / `.spi.`），其余 **18720 类被直接丢弃**，而签名库本身是全量的。
+`udc.*` 共 2947 类，只有 348 类能查到（11.8%）；`com.seeyon.udc.common.dto.UdcPageInfoSearchDto`
+这种天天要用的 DTO 恰恰是查不到的那批。
+
+### 改法
+
+1. 全量入索引：`bucket = _bucket(name) or "other"`，`bucket` 从「准入门槛」降级为「标签/优先级」。
+2. 排序加一层：匹配质量 → 常用桶优先（util/AppService/SPI）→ 方法数。
+   「日期」「缓存」这类中文词仍然先出 `DateUtils` / 缓存工具类，不会被 18720 个 DTO 淹没。
+3. `methods_of()` 对任何类都能列方法；找不到时提示「不在签名库里（21389 类）」并给相似候选。
+4. `stats()` 的 `source` 改成解析出的真实路径，`byBucket` 多一个 `other` 计数。
+5. MCP 工具描述与 README 数字同步：21389 类 / 224320 方法，其中 2669 类带中文标签并优先。
+
+### 量化
+
+```
+索引类数     2,669  →  21,389      （方法 26,235 → 224,320）
+udc 类可见    348  → 2,947
+UdcPageInfoSearchDto    0 命中 → 1 命中（10 个方法可列）
+PageUrlTypeEnum         0 命中 → 1 命中
+建索引耗时   0.29s → 0.67s（进程内缓存一次）  搜索单次 0.05–0.07s
+```
+
+### 闸门
+
+`tests/test_index_data_resolution.py` 增 3 条：全量覆盖（≥21000 类 / ≥220000 方法 / other ≥18000）、
+UDC DTO 与枚举可搜可列方法、`docs/` 与 `fixtures/` 两份签名库 sha256 一致（防漂移）。
+`tests/test_platform_class_index.py` 的「不在索引里」断言跟着更新。
+
+### 验证
+
+```
+tests/test_index_data_resolution.py   12 passed
+tests/test_platform_class_index.py    18 passed
+全量 pytest                            238 failed / 2684 passed（既有失败，差集为空）
+```
+
 ## 0.2.8 — 2026-11-25
 
 修 0.2.7 引入的回归：装机环境里 `xiaozhua_platform_class_search` / `platform_class_methods`

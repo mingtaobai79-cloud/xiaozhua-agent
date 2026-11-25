@@ -297,7 +297,7 @@ def build_tool_schemas(caps: dict[str, Callable]) -> list[dict]:
         "entity_rule_publish": "实体规则 checkSchema + create。需显式 host+cookie。★判据 content.check==true 且 errors==0（BOOT_0000 也可能 check=False）；校验不过时不执行 create，避免库里留空条件规则。",
         # ---- 业务拆解计划（需求 → 计划 → 挑工具，不产节点）----
         "business_plan": "★业务需求拆解（流水线第①②③段）：口语需求 → 业务要素表 → 校验 → 待确认问题。只传 requirement 返回拆解提示词（本工具不调 LLM）；传 elements 则校验并返回 status/questions/routes。★不产任何平台节点 JSON。★status=CONFIRMED 才能进组装。★五维必填 purpose/inputShape/outputShape/trigger/persistTo，缺了不许猜。",
-        "platform_class_search": "★★查平台后端全量类（2669 类 / 26235 方法），支持中文业务词。facts 文档只覆盖 4.5% 的类，写代码前用这个查标品是否已有实现，别重复造轮子。term=中文（日期/JSON/缓存/加密/文件/流程/Excel/HTTP/锁/导出）或英文类名片段；bucket=util|appservice|spi；pkg=包前缀。★查不到明说 0 命中，绝不发明类名。",
+        "platform_class_search": "★★查平台后端全量类（21389 类 / 224320 方法，javap 快照全量入索引），支持中文业务词。其中 2669 个常用类（util/AppService/SPI）带中文标签、排序优先；其余 18720 类（DTO/枚举/内部 Service）同样可查，别只试常用那批。facts 文档只登记少量常用类，签名以本索引为准。term=中文（日期/JSON/缓存/加密/文件/流程/Excel/HTTP/锁/导出）或英文类名片段；bucket=util|appservice|spi|other；pkg=包前缀；method=只列含该方法的类。★查不到明说 0 命中，绝不发明类名。",
         "platform_class_methods": "列某个平台类的全部方法签名（入参/返回类型）。先用 platform_class_search 找到类全名，再用这个看方法细节。",
         "platform_class_stats": "平台类索引规模统计（类数/方法数/按 util|appservice|spi 分布）。",
         "business_action_index": "★标品能力反查：按**业务语言**（中文）查标品接口/方法/入参DTO。解决 microflow_service_catalog 只会按类名子串查、中文业务词 0 命中的问题。term=业务词或类名（精确查）；capability=能力描述（返回相关标品域提示）。★查不到就明说，绝不发明方法名。★命中标品域就别自己写。",
