@@ -1,5 +1,60 @@
 # CHANGELOG
 
+## 0.2.7 — 2026-11-25
+
+发行面与工作区分开、安装器 UTF-8 全链路、现场报告迁出与客户标识占位、自定义微流程分层事实修正。
+本版以「仓库能装到别人机器上而不带环境」为主线，功能面不变。
+
+### 1. 发行面 vs 工作区（`f6bbfba` `bd26b9c`）
+
+- 仓库只带骨架：真实主机/namespace/appId/租户/桶名/凭据路径一律进 `~/.xiaozhua/config` 或
+  `config/environments.local.yaml`（该文件 gitignore，`test_local_overlay_is_not_tracked` 盯着）。
+- 装机树不再复制工作区；安装件里不带本机覆盖层与内部笔记。
+
+### 2. 安装器（`3c926f7` `36c6927` `e93cbdb`）
+
+- 子进程统一 UTF-8 解码 —— GBK 控制台下 `doctor` 不再抛 `UnicodeDecodeError` 崩线程。
+- 安装树不再复制工作区（避免把内部笔记/证据带进用户机器）。
+- `install.ps1` 注释改回 ASCII：PowerShell 5.1 无 BOM 时非 ASCII 注释会乱码，`irm | iex` 直接挂。
+
+### 3. 事实修正：自定义微流程是**两层**（`748a09d`）
+
+原文把两层的签名混成一条。实测（`billarchive2776130152975518413`，build 5.3.81，facade jar）：
+
+```
+custom/service/microflow/CustomMicroFlowService.class     ← 扩展入口，裸 DTO
+  (PageDtoRequest<…>)PageData<…>           分页用平台分页类型，仍不是 SingleRequest
+api/microflow/CustomMicroFlowAppService.class             ← 对外，平台实现
+  (SingleRequest<…>)SingleResponse<Void>    包装只在这一层
+```
+
+判据：**类在 `custom.service.microflow` 包里、签名无 `SingleRequest` ⇒ 这是你要实现的接口**；
+名字是 `XxxCustomMicroFlowService` 还是 `<Xxx>ServiceService` 随模板版本变，不能按应用名拼。
+
+### 4. 现场报告治理（`d0e764e` … `3d5f36a`，11 个提交）
+
+- 55 份零引用现场报告迁出仓外，落 `_attic_pending/` 台账并逐处标「已迁出至 …」。
+- `docs/` 正文客户标识占位：真实 appId → `900000000000000000{1..4}`，域名 → `example.com`。
+- **`artifacts/` 与 `live-evidence/` 保留原值** —— `test_evidence_data_may_retain_platform_ids`
+  把「可复核性」当前提，洗掉就按不了 path:line 复核。
+- **环境约定保留**（各环境的 kubeconfig 名、namespace 前缀）：它是操作知识，不是客户标识。
+
+### 5. 卫生基线收紧
+
+| 项 | 之前 | 现在 |
+|---|---|---|
+| `LEGACY` 白名单 | 6 条 | 2 条（盘点表 + docstring 证据锚点） |
+| `BASELINE_FACTS_HITS` | 200 | 93 |
+| 分发脱敏表 `SCRUBS` | 2 个 appId | 4 个 appId + 库名 |
+
+### 验证
+
+```
+tests/test_distribution_hygiene.py           5 passed
+tests/udc/test_{column_discovery,udc_semantics,entity_field_matrix}_index  7/6/7 passed
+全量 pytest                                   238 failed / 2672 passed（既有失败，差集为空）
+```
+
 ## 0.2.6 — 2026-11-24
 
 运行期日志接进 MCP：`logs_search` / `logs_labels` / `logs_envs`（Loki，经 Grafana proxy，只读）。
