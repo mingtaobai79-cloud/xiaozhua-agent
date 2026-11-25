@@ -88,8 +88,10 @@ EXCLUDE_NAME_RX = re.compile(r"^LIVE-", re.I)
 SCRUBS = [
     (re.compile("lowcode-" + "test" + "2." + "chang" + "hong" + "it\\.com", re.I), "lowcode.example.com"),
     (re.compile(r"8704025620829192834"), "app0000000000000000"),
-    (re.compile(r"163126498398523384"), "app0000000000000001"),
-    (re.compile(r"6419954374508955097"), "app0000000000000002"),
+        (re.compile(r"163126498398523384"), "app0000000000000001"),
+        (re.compile(r"6419954374508955097"), "app0000000000000002"),
+        (re.compile(r"2378987216360786643"), "app0000000000000003"),
+        (re.compile(r"cip_connector_" + "test2"), "db_<env>"),
     (re.compile("chang" + "hong", re.I), "customer"),
     (re.compile(r"10\.3\.4\.157"), "10.0.0.1"),
     (re.compile("\u957f\u8679"), "客户"),
