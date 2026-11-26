@@ -802,24 +802,52 @@ def bootstrap(*, credential_file: str | None = None, allow_network: bool = False
         return _pci.health()
 
     # --- SPI 域 ---
-    def spi_catalog() -> dict[str, Any]:
-        """SPI 扩展点事实目录（4 格结论 + evidence 13 份）。
+    def spi_catalog(term: str = "", category: str = "", limit: int = 20) -> dict[str, Any]:
+        """SPI 扩展点事实目录 + 扩展点分档检索（plain / plugin / spi）。
 
-        事实层：core/facts/spi/（spi-ext-registration / loading / live / runtime /
-                contract-surface），入口 core/facts/spi/README.md
+        事实层：core/facts/spi/（registration / loading / live / runtime / contract-surface）
+        分档件：docs/audit/artifacts/extension-surface-20261118/extension-points-classified.json
         ★ 分级纪律：配置启用 ≠ 插件已加载 ≠ 实现被调用。
+        ★ 三档不是一回事：plain 放 extend/；plugin 是 PluginDefinition/PluginExecutor 那套；
+          spi 是 spring.factories + spi_info.json + Nacos spi-plugins。代码与注册格式都不同。
         """
         d = _REPO_ROOT / "core" / "facts" / "spi"
         if not d.exists():
             return {"status": "UNVERIFIED", "reason": "core/facts/spi 不在盘"}
-        docs = []
-        for p in sorted(d.glob("*.md")):
-            docs.append({"file": p.name, "bytes": p.stat().st_size})
+        docs = [{"file": p.name, "bytes": p.stat().st_size}
+                for p in sorted(d.glob("*.md"))]
         ev = d / "evidence"
         evid = [{"file": p.name, "bytes": p.stat().st_size}
                 for p in sorted(ev.glob("*.md"))] if ev.exists() else []
+
+        ext_p = (_REPO_ROOT / "docs" / "audit" / "artifacts"
+                 / "extension-surface-20261118" / "extension-points-classified.json")
+        points: list[dict[str, Any]] = []
+        counts: dict[str, int] = {}
+        registration: dict[str, str] = {}
+        if ext_p.exists():
+            data = json.loads(ext_p.read_text(encoding="utf-8"))
+            allpts = data.get("points") or []
+            counts = data.get("counts") or {}
+            registration = data.get("registration") or {}
+            sel = allpts
+            if category:
+                sel = [x for x in sel if x.get("category") == category]
+            if term:
+                tl = term.lower()
+                sel = [x for x in sel
+                       if tl in (x.get("fqn") or "").lower()
+                       or tl in (x.get("name") or "").lower()]
+            points = sel[: int(limit)]
+
         return {"status": "OK", "conclusion_docs": docs, "evidence_docs": evid,
-                "entry": "core/facts/spi/README.md"}
+                "entry": "core/facts/spi/README.md",
+                "surfaces": {"udcExtension": sum(counts.values()) if counts else None,
+                             "platformSpi": 20},
+                "categoryCounts": counts,
+                "registration": registration,
+                "points": points,
+                "pointsTotal": None if not counts else sum(counts.values())}
 
     # ================= 设置域 7 子域（按八大模块：setting/）=================
     # 契约：docs/operation-contracts/udc/setting/*-contracts.md

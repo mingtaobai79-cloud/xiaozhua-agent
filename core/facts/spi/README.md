@@ -21,6 +21,20 @@
 **读法**：先 `contract-surface` 看清「平台给了哪些扩展点」，再 `registration`（怎么声明）、
 `loading`（平台怎么加载），最后 `live`/`runtime`（运行态能看到什么）。
 
+## 一·五、★ 扩展点分三档，别混着写（2026-11-25 补）
+
+「150 个 UDC 扩展点」是混称。按工程形态必须分三档，代码与注册格式都不同：
+
+| 档 | 数量 | 代表 | 代码放哪 | 注册/生成格式 |
+|---|---:|---|---|---|
+| `plain` | 124 | `TransportHandler` / `CodeTask` | 客开 `extend/` 下 implements | 平台内部扫描；无 `META-INF/services`、无 `spring.factories` |
+| `plugin` | 3 | `PluginDefinition` / `PluginExecutor` / `PluginHandler` | 插件 jar（向平台交出 CodeTasks / PomDependencies / TransportHandlers / Detections） | 发现机制 **UNVERIFIED**（`udc-plugin-api-5.3.517` 内既无 spring.factories 也无 META-INF/services） |
+| `spi` | 0（本表） | 平台 SPI 面另计 20 个（`cip-connector-api:5.3.286`） | implements 扩展点 + 插件 jar | `META-INF/spring.factories` + `metadata/spi_info.json` + Nacos `seeyon.spi.enable/spi-plugins` |
+
+机器可读件：`docs/audit/artifacts/extension-surface-20261118/extension-points-classified.json`
+（`tools/core/platform/classify_extension_points.py` 生成；判据只看包名/类名，可复核）。
+工具：`spi_catalog(category="plugin")` 直接列那一档。
+
 ## 二、★ 三份文件都写着同一条判据边界（本目录最贵的一句话）
 
 `spi-ext-runtime.md` §1 与 `spi-ext-live.md` §1 原文：

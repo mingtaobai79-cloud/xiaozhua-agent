@@ -1,5 +1,44 @@
 # CHANGELOG
 
+## 0.2.11 — 2026-11-25
+
+把「UDC 扩展点」按工程形态分档，并修掉 `code_targets` 的死链。
+
+### 为什么要分
+
+「150 个 UDC 扩展点」是混称。它们在代码和注册格式上分三档，混着写必然加载不到：
+
+| 档 | 数量 | 代表 | 代码 | 注册/生成格式 |
+|---|---:|---|---|---|
+| `plain` | 124 | `TransportHandler` / `CodeTask` | `extend/` 下 implements | 平台内部扫描；无 `META-INF/services`、无 `spring.factories` |
+| `plugin` | 3 | `PluginDefinition` / `PluginExecutor` / `PluginHandler` | 插件 jar（交出 CodeTasks / PomDependencies / TransportHandlers / Detections） | 发现机制 **UNVERIFIED**（`udc-plugin-api-5.3.517` 里既无 spring.factories 也无 META-INF/services） |
+| `spi` | 0（本表） | 平台 SPI 另计 20 个：`cip-connector-api:5.3.286` | implements + 插件 jar | `META-INF/spring.factories` + `metadata/spi_info.json` + Nacos `seeyon.spi.enable/spi-plugins` |
+
+### 做了什么
+
+1. 新增 `tools/core/platform/classify_extension_points.py`：读落地表 → 出
+   `extension-points-classified.json`（127 个真接口：124 plain / 3 plugin / 0 spi，附每档 `registration`）。
+   判据只用包名/类名（`.spi.` / `cip.connector` / `*Provider` → spi；`PluginDefinition` / `.plugin` → plugin），可复核。
+2. `spi_catalog(term=, category=, limit=)`：可按档检索，返回 `categoryCounts` / `registration` / `surfaces`
+   （udcExtension 127 / platformSpi 20）。
+3. `code_targets(target="spi")` 的 `catalog` 从死链
+   `extension-surface-20261029/extension-points.md（151 个）` 改为真实存在的分档件（127 个），
+   并加一条约束「先看 category 再动手」。
+4. `core/facts/spi/README.md` 补「一·五 扩展点分三档」小节 + 指向分档件。
+
+### 闸门（`tests/test_extension_point_categories.py`，5 条）
+
+计数 124/3/0 且总 127；plugin 档必须正好是 `PluginDefinition` / `PluginExecutor` / `PluginHandler`；
+每档必须有 registration 说明；`spi_catalog` 的 category/term 过滤可用；`code_targets.catalog` 路径必须真实存在。
+
+### 验证
+
+```
+tests/test_extension_point_categories.py   5 passed
+tests/test_documentation_contract.py       6 passed（收集数 3337 → 3342）
+全量 pytest                                 236 failed / 2700 passed（无新增失败）
+```
+
 ## 0.2.10 — 2026-11-25
 
 新增自检工具 `xiaozhua_version`，把「改了不生效」这种事故从「靠人发现」变成「工具自己说」。

@@ -268,7 +268,8 @@ def build_tool_schemas(caps: dict[str, Callable]) -> list[dict]:
                                 "route/source。★新建目录后必须重启 dev server（启动时一次性 glob 扫描）。",
         "version": "自检：本进程加载的版本号、索引来源与规模、是否还挂在旧代码/旧索引上。"
                    "★查不到类或「改了不生效」时先跑这个：code_stale=true 说明宿主没重载，需重启宿主/重连 MCP。",
-        "spi_catalog": "SPI 扩展点事实目录（5 格结论 + evidence 清单）。"
+        "spi_catalog": "SPI 扩展点事实目录（5 格结论 + evidence）+ 扩展点分档检索。"
+                       "term=接口名片段；category=plain|plugin|spi（三档代码与注册格式完全不同，别混着写）。"
                        "★分级纪律：配置启用 ≠ 插件已加载 ≠ 实现被调用。",
         # ---- 设置域 7 子域（八大模块 setting/）----
         "option_set_category_body": "选项集分组 body → udcUdcEnumCategoryPost。★name 必须首字母大写（UDC_ENUM_0001）。",

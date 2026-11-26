@@ -141,7 +141,7 @@ MCP 工具总数          68
 
 | 工具 | 必填参数 | 可选参数 | 说明 |
 |---|---|---|---|
-| `xiaozhua_spi_catalog` | — | — | SPI 扩展点事实目录 |
+| `xiaozhua_spi_catalog` | — | `term`, `category`, `limit` | SPI 扩展点事实目录 |
 
 ### microflow（1）
 

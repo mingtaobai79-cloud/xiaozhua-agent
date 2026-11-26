@@ -180,10 +180,12 @@ def targets_for(target: str, app_name: str, *,
                        "side": "backend",
                        "note": "implements 某个扩展点；类名自定"}],
             "extensionPoint": extension_point or "<待指定>",
-            "catalog": "docs/audit/artifacts/extension-surface-20261029/extension-points.md（157 行表格，151 个可选）",
+            "catalog": ("docs/audit/artifacts/extension-surface-20261118/"
+                        "extension-points-classified.json（127 个真接口：124 plain / 3 plugin / 0 spi）"),
             "constraints": [
                 "★ext 默认只有一个 package-info.java，平台不预置任何钩子",
                 "★注册要自己写：无 META-INF/services、无 spring.factories 自动装配",
+                "★分档先看 category：plain=extend/ 里 implements；plugin=PluginDefinition/PluginExecutor 那套；spi=spring.factories+spi_info.json+Nacos",
                 "★不要拿生成的 Abstract*Controller 当继承抓手 —— 它随元数据变",
             ],
         })
