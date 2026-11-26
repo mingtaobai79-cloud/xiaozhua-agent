@@ -59,6 +59,9 @@ CASES = {
     "capability_index": ({}, ("domains", "summary")),
     "spi_catalog": ({}, ("status", "conclusion_docs")),
     "version": ({}, ("version", "classes", "indexSource")),
+    # 构建是写操作：离线/不带 confirm 必须回 BLOCKED（这条同时验证闸门没被拆）
+    "build_watch": ({"app_id": APP}, ("status",)),
+    "logs_watch": ({"rounds": 1}, ("rounds", "errorCount")),
 
     # ---- entity ----
     "deploy_plan": ({"application_id": APP, "entity_name": "SmokeEntity",

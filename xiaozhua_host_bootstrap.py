@@ -1420,6 +1420,59 @@ def bootstrap(*, credential_file: str | None = None, allow_network: bool = False
         from components.udc.application.app_inner_ops import build_build_info_query
         return build_build_info_query(app_id)
 
+    # --- 构建 → 循环监听 → 拉日志 ---
+    def logs_watch(env: str = "", namespace: str = "", app: str = "", pod: str = "",
+                   grep: str = "", minutes: int = 10, limit: int = 300,
+                   rounds: int = 1, interval_s: float = 15.0) -> dict[str, Any]:
+        """循环拉日志并按级别归类（只读，不联网判断）。
+
+        rounds=1 拉一次；rounds>1 每 interval_s 拉一次、按行去重合并（抓启动期滚动错误）。
+        ★ 0 条 error ≠ 业务正常：先确认 namespace/app/pod 选对。
+        """
+        from components.construction.build_watch import watch_logs
+        return watch_logs(env=env, namespace=namespace, app=app, pod=pod, grep=grep,
+                          minutes=minutes, limit=limit, rounds=rounds,
+                          interval_s=interval_s)
+
+    def build_watch(app_id: str, app_name: str = "", cred_file: str = "",
+                    deploy_type: str = "RELEASE", env: str = "", namespace: str = "",
+                    app: str = "", pod: str = "", grep: str = "",
+                    minutes: int = 10, rounds: int = 3, interval_s: float = 15.0,
+                    poll_interval: float = 8.0, timeout_s: float = 900.0,
+                    limit: int = 300, confirm: bool = False) -> dict[str, Any]:
+        """触发构建 → 轮询终态 → 按状态拉日志。**写操作，必须 confirm=True**。
+
+        app_id 缺省用凭据文件里的 app_id。host/cookie 只从凭据文件读（路径载体），
+        也可用 XIAOZHUA_CRED_FILE 指定；凭据不进返回值。
+        FAILED → 拉 1 轮最近 minutes 日志；SUCCESS → rounds × interval_s 循环拉。
+        ★ BUILDING 不是成功；超时也不拉「成功日志」。
+        """
+        cf = cred_file or credential_file
+        if not allow_network:
+            return {"status": "BLOCKED", "reason": "allow_network=False（默认离线）"}
+        if not confirm:
+            return {"status": "BLOCKED",
+                    "reason": "构建是写操作，必须 confirm=True",
+                    "wouldDo": {"appId": str(app_id), "deployType": deploy_type,
+                                "watch": {"rounds": rounds, "interval_s": interval_s,
+                                          "minutes": minutes}},
+                    "hint": "先看 app_build_info / app_version_list 确认目标，再带 confirm=True 调。"}
+        if not cf:
+            return {"status": "BLOCKED", "reason": "没有凭据文件（cred_file 或 XIAOZHUA_CRED_FILE）"}
+        cred = json.loads(Path(cf).read_text(encoding="utf-8-sig"))
+        host = cred.get("host") or cred.get("base") or ""
+        cookie = cred.get("cookie") or cred.get("cookie_header") or ""
+        aid = str(app_id or cred.get("app_id") or "")
+        if not (host and cookie and aid):
+            return {"status": "BLOCKED",
+                    "reason": "凭据文件缺 host/base 或 cookie，或没给 app_id"}
+        from components.construction.build_watch import build_and_watch
+        return build_and_watch(host=host, cookie=cookie, app_id=aid, app_name=app_name,
+                               deploy_type=deploy_type, poll_interval=poll_interval,
+                               timeout_s=timeout_s, env=env, namespace=namespace,
+                               app=app, pod=pod, minutes=minutes, rounds=rounds,
+                               interval_s=interval_s, grep=grep, limit=limit)
+
     # --- 规则域（实体规则，写入链已 LIVE，body 与微流程同构）---
     def entity_rule_body(app_id: Any, entity_id: Any, name: str, caption: str = "",
                          *, group_type: int = 1, nodes: list | None = None,
@@ -1909,6 +1962,8 @@ def bootstrap(*, credential_file: str | None = None, allow_network: bool = False
         "app_deploy_body": app_deploy_body,
         "app_version_list": app_version_list,
         "app_build_info": app_build_info,
+        "logs_watch": logs_watch,
+        "build_watch": build_watch,
         "entity_rule_body": entity_rule_body,
         "microflow_trigger": microflow_trigger,
         "microflow_data_schema": microflow_data_schema,

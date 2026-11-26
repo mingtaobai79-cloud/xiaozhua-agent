@@ -67,6 +67,8 @@ TOOL_KEYS = (
     "platform_class_search", "platform_class_methods", "platform_class_stats",
     # ---- 自检：版本 + 索引规模 + 进程是否落后于磁盘 ----
     "version",
+    # ---- 构建 → 循环监听 → 拉日志 ----
+    "build_watch", "logs_watch",
 )
 
 MCP_TOOL_NAMES = {
@@ -142,6 +144,8 @@ MCP_TOOL_NAMES = {
     "platform_class_methods": "xiaozhua_platform_class_methods",
     "platform_class_stats": "xiaozhua_platform_class_stats",
     "version": "xiaozhua_version",
+    "build_watch": "xiaozhua_build_watch",
+    "logs_watch": "xiaozhua_logs_watch",
 }
 
 # ---- JSON-RPC 错误码（DESIGN §1.1）----
@@ -266,6 +270,11 @@ def build_tool_schemas(caps: dict[str, Callable]) -> list[dict]:
                               "kind=variable 返回 131 个系统变量事实。",
         "custom_page_scaffold": "生成 customPage.tsx 骨架（含可选接口调用）。返回 target_path/artifact/"
                                 "route/source。★新建目录后必须重启 dev server（启动时一次性 glob 扫描）。",
+        "build_watch": "触发构建 → 轮询终态 → 按状态拉日志（**写操作，必须 confirm=True**）。"
+                       "FAILED 拉 1 轮最近 minutes 的 error；SUCCESS 按 rounds×interval_s 循环拉启动期错误。"
+                       "★BUILDING/超时不算成功，也不拉成功日志；日志 0 error ≠ 业务正常。",
+        "logs_watch": "循环拉日志并按级别归类（只读）：rounds=1 一次，rounds>1 每 interval_s 一次、"
+                      "按行去重合并。回 errorCount/warnCount/errors/failedRounds。",
         "version": "自检：本进程加载的版本号、索引来源与规模、是否还挂在旧代码/旧索引上。"
                    "★查不到类或「改了不生效」时先跑这个：code_stale=true 说明宿主没重载，需重启宿主/重连 MCP。",
         "spi_catalog": "SPI 扩展点事实目录（5 格结论 + evidence）+ 扩展点分档检索。"

@@ -42,6 +42,8 @@ DOMAIN_OF = {
     "platform_class_methods": ("跨模块", False, "列平台类的方法签名"),
     "platform_class_stats": ("跨模块", False, "平台类索引规模统计"),
     "version": ("跨模块", False, "自检：版本/索引规模/进程是否落后于磁盘"),
+    "build_watch": ("application", True, "构建→轮询终态→拉日志（写，需 confirm）"),
+    "logs_watch": ("application", False, "循环拉日志并按级别归类（只读）"),
     "generate": ("跨模块", False, "实体 → 后端骨架 + 前端页面定义"),
     "generate_from_requirement": ("跨模块", False, "自然语言 → 实体模型"),
     "live_probe": ("跨模块", False, "活体只读探测（默认离线 BLOCKED）"),

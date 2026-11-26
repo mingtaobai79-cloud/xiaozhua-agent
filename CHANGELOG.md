@@ -1,5 +1,46 @@
 # CHANGELOG
 
+## 0.2.12 — 2026-11-25
+
+把「提交代码 → 构建 → 起应用 → 看日志」的后半段接上：新增 `build_watch` / `logs_watch`。
+
+### 断点在哪
+
+改代码、提交、构建三步各有工具（`repo_sync` / `PlatformBuilder`），但构建完到「知道为什么失败」
+之间是断的 —— 构建 FAILED 后得人再去 Loki / k8s 面板翻。启动期滚动的错误也没人盯。
+
+### 做了什么
+
+```
+build_watch(app_id, cred_file, deploy_type="RELEASE", confirm=True)
+  ├─ PlatformBuilder.trigger   （deployDto 包裹，成功码认 BOOT_0000/0/None）
+  ├─ PlatformBuilder.wait      （按 deployId 查 search-deploy-status；BUILDING 不算成功）
+  └─ 按状态拉日志
+       FAILED  → 1 轮最近 minutes 的日志，先把失败原因摆出来
+       SUCCESS → rounds × interval_s 循环拉，抓启动期滚动错误
+       BUILDING/TIMEOUT → 不拉「成功日志」，只回状态
+
+logs_watch(env, namespace, app, pod, grep, rounds, interval_s)
+  └─ 循环拉 + 按行去重合并 + 分 error/warn（只读，可单独用）
+```
+
+### 三条判据（都写进闸门）
+
+1. **BUILDING / TIMEOUT 不算成功** —— 也不去拉「成功日志」，免得拿空日志当绿灯；
+2. **日志拉不到 ≠ 没错误** —— BLOCKED / 异常记成 `failedRounds`，报告里明说「别把 0 error 当结论」；
+3. **构建是写操作** —— 没 `confirm=True` 一律 BLOCKED，并回 `wouldDo`（要说清本来要干什么）。
+
+另：`logs_watch` 的默认提示保留了 `容器日志 /var/logs/webappck/<应用>` 这条路 ——
+Loki 没采到的场景，还能从 k8s 面板读容器内日志。
+
+### 验证
+
+```
+tests/test_build_watch.py      8 passed（FAILED 拉 1 轮 / SUCCESS 3 轮 / BUILDING 不拉 / 触发失败上报 / 双闸门）
+tests/test_mcp_tools_smoke.py  156 passed（build_watch、logs_watch 都进冒烟）
+全量 pytest                     240 failed / 2707 passed（无新增失败）
+```
+
 ## 0.2.11 — 2026-11-25
 
 把「UDC 扩展点」按工程形态分档，并修掉 `code_targets` 的死链。

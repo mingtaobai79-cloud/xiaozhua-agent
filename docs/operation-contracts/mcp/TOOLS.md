@@ -7,9 +7,9 @@
 ## 概览
 
 ```
-bootstrap 可调用能力  71
-MCP 工具总数          68
-需要凭据的工具        4（xiaozhua_microflow_publish / xiaozhua_expression_verify / xiaozhua_expression_filter / xiaozhua_entity_rule_publish）
+bootstrap 可调用能力  73
+MCP 工具总数          70
+需要凭据的工具        5（xiaozhua_microflow_publish / xiaozhua_expression_verify / xiaozhua_expression_filter / xiaozhua_entity_rule_publish / xiaozhua_build_watch）
 ```
 
 ## 按域分布
@@ -17,7 +17,7 @@ MCP 工具总数          68
 | 域 | 工具数 |
 |---|---:|
 | 跨模块 | 17 |
-| application | 5 |
+| application | 7 |
 | entity | 4 |
 | setting | 16 |
 | serial | 2 |
@@ -54,7 +54,7 @@ MCP 工具总数          68
 | `xiaozhua_platform_class_stats` | — | — | 平台类索引规模统计 |
 | `xiaozhua_version` | — | — | 自检：版本/索引规模/进程是否落后于磁盘 |
 
-### application（5）
+### application（7）
 
 | 工具 | 必填参数 | 可选参数 | 说明 |
 |---|---|---|---|
@@ -63,6 +63,8 @@ MCP 工具总数          68
 | `xiaozhua_app_deploy_body` | `app_id` | `project_type`, `terminal_type`, `deploy_type` | 沙箱立即构建 body |
 | `xiaozhua_app_version_list` | `app_name` | `page_size` | 发布版本列表 body |
 | `xiaozhua_app_build_info` | `app_id` | — | 构建信息查询（含 logs[]） |
+| `xiaozhua_build_watch` 🔑 | `app_id` | `app_name`, `cred_file`, `deploy_type`, `env`, `namespace`, `app`, `pod`, `grep`, `minutes`, `rounds`, `interval_s`, `poll_interval`, `timeout_s`, `limit`, `confirm` | 构建→轮询终态→拉日志（写，需 confirm） |
+| `xiaozhua_logs_watch` | — | `env`, `namespace`, `app`, `pod`, `grep`, `minutes`, `limit`, `rounds`, `interval_s` | 循环拉日志并按级别归类（只读） |
 
 ### entity（4）
 
