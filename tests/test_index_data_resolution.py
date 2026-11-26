@@ -142,3 +142,62 @@ def test_two_signature_copies_do_not_drift():
     assert hashlib.sha256(a.read_bytes()).hexdigest() == hashlib.sha256(b.read_bytes()).hexdigest(), (
         "两份签名库不一致：改了 javap 快照后忘了同步另一份"
     )
+
+
+# ── 自检闸门：改了不生效（长驻进程）必须能被工具自己说出来 ──
+
+def test_health_reports_version_and_scale():
+    from components.construction import platform_class_index as idx
+
+    h = idx.health()
+    assert h["version"] == (ROOT / "VERSION").read_text(encoding="utf-8").strip()
+    assert h["classes"] >= 21_000 and h["methods"] >= 220_000
+    assert h["indexSource"] and Path(h["indexSource"]).exists()
+    assert h.get("ok") is True
+
+
+def test_code_stale_detected(monkeypatch):
+    """进程启动早于磁盘代码 → 必须报 code_stale（这正是「改了没生效」的形态）。"""
+    import time as _t
+
+    from components.construction import platform_class_index as idx
+
+    monkeypatch.setattr(idx, "_PROCESS_START", _t.time() - 86_400)
+    h = idx.health()
+    assert h.get("code_stale") is True
+    assert "重启宿主" in h.get("action", "")
+    assert "ok" not in h
+
+
+def test_index_stale_detected(monkeypatch):
+    """内存索引早于磁盘签名库 → 必须报 index_stale。"""
+    from components.construction import platform_class_index as idx
+
+    monkeypatch.setattr(idx, "_LOADED_SIG_MTIME", 1.0)
+    assert idx.health().get("index_stale") is True
+
+
+def test_zero_hit_carries_stale_hint(monkeypatch):
+    """0 命中时带上自检提示，别让人误以为索引坏了。"""
+    import time as _t
+
+    from components.construction import platform_class_index as idx
+
+    monkeypatch.setattr(idx, "_PROCESS_START", _t.time() - 86_400)
+    r = idx.search(term="DefinitelyNotAClass_ZZZ", limit=1)
+    assert r["total"] == 0
+    assert r.get("code_stale") is True and "code_stale_hint" in r
+
+
+def test_version_tool_registered_in_mcp():
+    sys.path.insert(0, str(ROOT))
+    import xiaozhua_host_bootstrap as b
+
+    caps = b.bootstrap()
+    assert "version" in caps, "bootstrap 没暴露 version"
+
+    sys.path.insert(0, str(ROOT / "adapters" / "mcp"))
+    import server
+
+    assert "version" in server.TOOL_KEYS
+    assert server.MCP_TOOL_NAMES["version"] == "xiaozhua_version"

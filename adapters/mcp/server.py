@@ -65,6 +65,8 @@ TOOL_KEYS = (
     "business_plan", "business_plan_confirm", "business_action_index",
     # ---- 平台后端全量类索引（离线，不联网）----
     "platform_class_search", "platform_class_methods", "platform_class_stats",
+    # ---- 自检：版本 + 索引规模 + 进程是否落后于磁盘 ----
+    "version",
 )
 
 MCP_TOOL_NAMES = {
@@ -139,6 +141,7 @@ MCP_TOOL_NAMES = {
     "platform_class_search": "xiaozhua_platform_class_search",
     "platform_class_methods": "xiaozhua_platform_class_methods",
     "platform_class_stats": "xiaozhua_platform_class_stats",
+    "version": "xiaozhua_version",
 }
 
 # ---- JSON-RPC 错误码（DESIGN §1.1）----
@@ -263,6 +266,8 @@ def build_tool_schemas(caps: dict[str, Callable]) -> list[dict]:
                               "kind=variable 返回 131 个系统变量事实。",
         "custom_page_scaffold": "生成 customPage.tsx 骨架（含可选接口调用）。返回 target_path/artifact/"
                                 "route/source。★新建目录后必须重启 dev server（启动时一次性 glob 扫描）。",
+        "version": "自检：本进程加载的版本号、索引来源与规模、是否还挂在旧代码/旧索引上。"
+                   "★查不到类或「改了不生效」时先跑这个：code_stale=true 说明宿主没重载，需重启宿主/重连 MCP。",
         "spi_catalog": "SPI 扩展点事实目录（5 格结论 + evidence 清单）。"
                        "★分级纪律：配置启用 ≠ 插件已加载 ≠ 实现被调用。",
         # ---- 设置域 7 子域（八大模块 setting/）----

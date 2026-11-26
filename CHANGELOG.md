@@ -1,5 +1,43 @@
 # CHANGELOG
 
+## 0.2.10 — 2026-11-25
+
+新增自检工具 `xiaozhua_version`，把「改了不生效」这种事故从「靠人发现」变成「工具自己说」。
+
+### 为什么加
+
+0.2.9 修完覆盖度后，真实 MCP 通道仍然返回旧结果 —— 因为 MCP server 是**长驻进程**：
+磁盘代码换成 0.2.9，进程内存里还是 0.2.8 的逻辑（11-24 与 11-25 17:00 启动的两对进程）。
+查不到东西时，人和 AI 都容易误判成「索引坏了」，而实际是「进程旧了」。
+
+### 做了什么
+
+1. `platform_class_index.health()`：返回版本号、索引来源/规模、`processStart`，并判两种陈旧：
+   - `code_stale`：磁盘 `VERSION` / `server.py` / 本模块 mtime 晚于进程启动 → 宿主没重载；
+   - `index_stale`：签名库文件 mtime 晚于内存索引加载时刻。
+2. 检索结果自带守卫：`search()` 的返回里带 `code_stale` / `index_stale` 与对应 `*_hint`。
+   0 命中时不再只有「换个词试试」，还会说「你可能挂在旧进程上」。
+3. 新 MCP 工具 `xiaozhua_version`（68 个工具）：返回 `{version, indexSource, classes, methods, ok | code_stale+action}`。
+4. 顺手修了 `tests/test_mcp_tools_smoke.py` 的长期红灯：`logs_*` 三个工具需要 Loki 真环境，
+   原来被判「没冒烟用例」；现在放进 `NEEDS_ENV` 白名单，并补一条「入口必须在」的闸门。
+
+### 用法
+
+```
+查到 0 条 / 觉得「改了没用」→ 先跑 xiaozhua_version
+  code_stale=true  → 重启宿主（或 xiaozhua update 后重连 MCP）
+  index_stale=true → 同上，重建索引进程
+  ok=true          → 索引没问题，安心换词/放宽过滤
+```
+
+### 验证
+
+```
+tests/test_index_data_resolution.py   17 passed（新增 5 条：health 字段、code_stale、index_stale、0 命中带提示、MCP 注册）
+全量 pytest                            236 failed / 2694 passed（比 0.2.9 少 2 条红：冒烟白名单 + 文档计数）
+xiaozhua_version                       实测 ok=true, classes=21389, methods=224320
+```
+
 ## 0.2.9 — 2026-11-25
 
 修 `platform_class_search` / `platform_class_methods` 的**覆盖度**问题：索引文件里明明有 21389 类，

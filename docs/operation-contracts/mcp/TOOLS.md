@@ -7,8 +7,8 @@
 ## 概览
 
 ```
-bootstrap 可调用能力  67
-MCP 工具总数          64
+bootstrap 可调用能力  71
+MCP 工具总数          68
 需要凭据的工具        4（xiaozhua_microflow_publish / xiaozhua_expression_verify / xiaozhua_expression_filter / xiaozhua_entity_rule_publish）
 ```
 
@@ -16,7 +16,7 @@ MCP 工具总数          64
 
 | 域 | 工具数 |
 |---|---:|
-| 跨模块 | 16 |
+| 跨模块 | 17 |
 | application | 5 |
 | entity | 4 |
 | setting | 16 |
@@ -28,10 +28,11 @@ MCP 工具总数          64
 | SPI | 1 |
 | microflow | 1 |
 | reference | 3 |
+| 未归类 | 3 |
 
 ## 全部工具
 
-### 跨模块（16）
+### 跨模块（17）
 
 | 工具 | 必填参数 | 可选参数 | 说明 |
 |---|---|---|---|
@@ -48,9 +49,10 @@ MCP 工具总数          64
 | `xiaozhua_business_plan` | — | `requirement`, `elements` | 业务需求拆解：口语 → 业务要素表 + 待澄清问题 |
 | `xiaozhua_business_plan_confirm` | `elements` | `by` | 用户确认计划 + 渲染组装提示词（缺项拒绝） |
 | `xiaozhua_business_action_index` | — | `term`, `capability` | 业务语言反查标品能力（防重复造轮子） |
-| `xiaozhua_platform_class_search` | — | `term`, `pkg`, `bucket`, `kind`, `method`, `limit` | 平台后端全量类检索（2669类/26235方法，中文可查） |
+| `xiaozhua_platform_class_search` | — | `term`, `pkg`, `bucket`, `kind`, `method`, `limit` | 平台后端全量类检索（21389类/224320方法，中文可查） |
 | `xiaozhua_platform_class_methods` | `class_name` | `keyword` | 列平台类的方法签名 |
 | `xiaozhua_platform_class_stats` | — | — | 平台类索引规模统计 |
+| `xiaozhua_version` | — | — | 自检：版本/索引规模/进程是否落后于磁盘 |
 
 ### application（5）
 
@@ -154,6 +156,14 @@ MCP 工具总数          64
 | `xiaozhua_signature_search` | — | `query`, `pkg`, `kind`, `limit` | 查全平台类/方法签名（21389 类） |
 | `xiaozhua_microflow_service_catalog` | — | `query`, `dep`, `limit` | 查自定义微流程可调用的服务与方法（带依赖 jar） |
 | `xiaozhua_ui_component_catalog` | — | `query`, `pkg`, `limit` | 查自定义页面可用前端组件与属性 |
+
+### 未归类（3）
+
+| 工具 | 必填参数 | 可选参数 | 说明 |
+|---|---|---|---|
+| `xiaozhua_logs_search` | — | `env`, `query`, `namespace`, `app`, `pod`, `grep`, `minutes`, `limit`, `direction` |  |
+| `xiaozhua_logs_labels` | — | `env`, `label` |  |
+| `xiaozhua_logs_envs` | — | — |  |
 
 ## 凭据边界
 

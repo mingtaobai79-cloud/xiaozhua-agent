@@ -791,6 +791,16 @@ def bootstrap(*, credential_file: str | None = None, allow_network: bool = False
                 "restart_required": True,
                 "source": src}
 
+    # --- 自检（版本/索引规模/进程是否落后于磁盘）---
+    def version() -> dict[str, Any]:
+        """自检本进程跑的是哪版、索引多大、是否还挂在旧代码上。
+
+        踩过的坑：MCP server 长驻，磁盘更新后进程不重载 —— 工具照旧返回旧结果，
+        看着像「改了没用」。查不到东西时先看这个。
+        """
+        from components.construction import platform_class_index as _pci
+        return _pci.health()
+
     # --- SPI 域 ---
     def spi_catalog() -> dict[str, Any]:
         """SPI 扩展点事实目录（4 格结论 + evidence 13 份）。
@@ -1844,6 +1854,7 @@ def bootstrap(*, credential_file: str | None = None, allow_network: bool = False
         "microflow_capability": microflow_capability,
         "expression_catalog": expression_catalog,
         "custom_page_scaffold": custom_page_scaffold,
+        "version": version,
         "spi_catalog": spi_catalog,
         # ---- 设置域 7 子域（按八大模块：setting/）----
         "option_set_category_body": option_set_category_body,

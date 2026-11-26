@@ -10,14 +10,19 @@
 - 想算日期，不知道 `DateUtils` 有 66 个方法（addDay/getFirstDayInMonth/collectLocalDates）→ 手写
 - 想发流程，不知道 `BpmAppService` 22 个方法 → 自己拼 HTTP
 
-本模块把 **2388 个「写代码时会用到」的类**（util 821 / AppService 1001 / SPI 566）
-全部建成可检索索引，共 **23842 个方法**，并且支持**中文业务词**反查。
+本模块把 **全部 21389 个类 / 224320 个方法**建成可检索索引，并支持**中文业务词**反查。
 
-## 为什么不是全部 21389 个
+## 为什么是全量（0.2.9 修正）
 
-剩下 19001 个是 `*Impl` / `*Handler` / `*Config` 等实现与内部类，
-写扩展代码时不会直接 import，索引进来只会淹没真正有用的结果。
-判定规则见 `bucket()`：util / appservice / spi 三类才收。
+0.2.8 及更早只收 util / AppService / SPI 三类（2669 类），理由是「实现类会淹没结果」。
+实战证明这是错的：`com.seeyon.udc.common.dto.UdcPageInfoSearchDto`、`PageUrlTypeEnum`
+这类**天天要用的 DTO / 枚举**全被丢掉（udc 2947 类只可见 348 类，11.8%），
+签名库明明有，工具却 0 命中 —— 用户以为索引坏了，只能退回 javap。
+
+现在 `bucket()` 从「准入门槛」降级为「标签/优先级」：
+- `util` / `appservice` / `spi` 三类共 2669 个，带中文标签且在排序里优先；
+- 其余 18720 类归 `other`，同样可查、可列方法；
+- 中文词检索仍先出 `DateUtils` 这类常用工具，不会被 DTO 淹没。
 
 ## 中文映射怎么做（这是关键）
 
@@ -40,7 +45,9 @@
 from __future__ import annotations
 
 import gzip
+import os
 import re
+import time
 from functools import lru_cache
 from pathlib import Path
 from typing import Any
@@ -51,6 +58,11 @@ _REPO = Path(__file__).resolve().parents[2]
 # 签名库随产品发行，位置由 core.index_data 解析（发行树 fixtures/reference/，
 # 工作区兼容 docs/audit/，可用 XIAOZHUA_INDEX_DIR 覆盖）
 _SIG_NAME = "signatures.txt.gz"
+
+# 进程启动时刻：用来判断「磁盘代码比进程新」= 宿主还挂在旧代码上（长驻 MCP 进程踩过）
+_PROCESS_START = time.time()
+# 索引加载时签名库的 mtime：用来判断「索引文件比内存快照新」
+_LOADED_SIG_MTIME: float | None = None
 
 # ───────────────────────────── 中文 token 词典 ─────────────────────────────
 # 来源：2388 个目标类名驼峰拆词后的 token 频次统计，取高频 + 语义明确的
@@ -290,9 +302,12 @@ def _bucket(name: str) -> str | None:
 @lru_cache(maxsize=1)
 def _index() -> tuple[dict[str, dict[str, Any]], str]:
     """构建一次，进程内缓存。返回 (classes, error)。"""
+    global _LOADED_SIG_MTIME
+
     sig = resolve(_SIG_NAME)
     if sig is None:
         return {}, missing_message(_SIG_NAME)
+    _LOADED_SIG_MTIME = sig.stat().st_mtime
 
     with gzip.open(sig, "rt", encoding="utf-8", errors="replace") as f:
         lines = f.read().splitlines()
@@ -428,6 +443,7 @@ def search(term: str = "", pkg: str = "", bucket: str = "",
         )
     elif len(hits) > int(limit):
         out["note"] = f"共 {len(hits)} 条，只返回前 {limit} 条；用 pkg/bucket 收窄。"
+    out.update(_stale_flag(classes))
     return out
 
 
@@ -451,6 +467,57 @@ def methods_of(class_name: str, keyword: str = "") -> dict[str, Any]:
     return {"class": class_name, "zh": _zh_of(c["tokens"]),
             "bucket": c["bucket"], "kind": c["kind"],
             "total": len(ms), "methods": ms[:200]}
+
+
+def _stale_flag(classes: dict[str, dict[str, Any]] | None = None) -> dict[str, Any]:
+    """进程/索引是否落后于磁盘。
+
+    长驻 MCP server 踩过的坑：磁盘代码更新了，进程内存里还是旧逻辑，
+    工具照旧返回旧结果 —— 看起来像「改了没用」。所以每次检索都附一条自检。
+    """
+    sig = resolve(_SIG_NAME)
+    disk = sig.stat().st_mtime if sig else None
+    if classes is None:
+        classes, _ = _index()
+    out: dict[str, Any] = {}
+    if disk and _LOADED_SIG_MTIME and disk > _LOADED_SIG_MTIME + 1:
+        out["index_stale"] = True
+        out["index_stale_hint"] = "签名库文件比内存索引新：重建索引进程（重启宿主/重连 MCP）。"
+    code = [p for p in (_REPO / "VERSION", _REPO / "adapters" / "mcp" / "server.py",
+                        _REPO / "components" / "construction" / "platform_class_index.py") if p.exists()]
+    newest = max((p.stat().st_mtime for p in code), default=0.0)
+    if newest and newest > _PROCESS_START + 1:
+        out["code_stale"] = True
+        out["code_stale_hint"] = (
+            "磁盘代码比当前进程新（进程启动于更新之前）：宿主仍跑旧代码，"
+            "重启宿主或 xiaozhua update 后重连 MCP 才会生效。"
+        )
+    return out
+
+
+def health() -> dict[str, Any]:
+    """自检：产品版本、索引来源与规模、进程是否落后于磁盘。"""
+    classes, err = _index()
+    sig = resolve(_SIG_NAME)
+    vp = _REPO / "VERSION"
+    version = vp.read_text(encoding="utf-8").strip() if vp.exists() else "unknown"
+    out: dict[str, Any] = {
+        "version": version,
+        "indexSource": str(sig) if sig else None,
+        "indexMtime": (sig.stat().st_mtime if sig else None),
+        "loadedAt": _LOADED_SIG_MTIME,
+        "processStart": _PROCESS_START,
+        "classes": len(classes),
+        "methods": sum(len(c["methods"]) for c in classes.values()),
+    }
+    if err:
+        out["error"] = err
+    out.update(_stale_flag(classes))
+    if out.get("code_stale") or out.get("index_stale"):
+        out["action"] = "重启宿主（或重连 MCP）；CLI 侧跑 xiaozhua update 后再查一次。"
+    else:
+        out["ok"] = True
+    return out
 
 
 def stats() -> dict[str, Any]:

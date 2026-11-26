@@ -3,10 +3,10 @@
 UDC / SPI 平台的操作能力包（MCP）。给 Hermes、Codex、Claude Code 这类宿主用，
 让 AI 以用户身份经平台接口真实操作 —— 建实体、配枚举、发规则、出报文。
 
-**67 个 MCP 工具**，其中平台侧 42 个（**21 个**在 test2 真机跑过完整闭环 create → 回读 → delete），
+**68 个 MCP 工具**，其中平台侧 42 个（**21 个**在 test2 真机跑过完整闭环 create → 回读 → delete），
 本地工具 22 个装上即可用。其余逐项标注状态与阻塞原因（见第 2 节生成的清单）。
 
-Test collection: `3329 tests collected`
+Test collection: `3337 tests collected`
 
 ---
 
@@ -150,7 +150,7 @@ printf '%s\n%s\n' \
 
 > 本表由 `tools/core/delivery/gen_tool_table.py` 从 `docs/delivery/tool-status.json` 生成，**不要手改**。
 
-合计 **67** 个工具：平台侧 42 个（其中 **21** 个真机验证过），本地工具 25 个（含 3 个运行期日志工具：`logs_search` / `logs_labels` / `logs_envs`）。
+合计 **68** 个工具：平台侧 42 个（其中 **21** 个真机验证过），本地工具 26 个（含 3 个运行期日志工具：`logs_search` / `logs_labels` / `logs_envs`）。
 
 | 状态 | 数量 |
 |---|---:|
@@ -231,6 +231,7 @@ printf '%s\n%s\n' \
 | `business_plan_confirm` | 本地 | — | ✅ 已验证 | 确认闸门；缺项拒绝（ok=false）实测，确认后返回组装 prompt |
 | `business_action_index` | 本地 | — | ✅ 已验证 | 业务语言反查标品能力；中文业务词命中实测（发起流程/查人/上传文件），查不到明说不臆造 |
 | `platform_class_search` | 本地 | — | ✅ 已验证 | 平台后端全量类检索：21389 类/224320 方法（常用 2669 类带中文标签并优先），中文业务词实测（日期/JSON/缓存/加密/文件/流程/Excel/HTTP/锁/导出） |
+| `version` | 本地 | — | ✅ 已验证 | 自检：本进程版本号、索引来源与规模、`code_stale` / `index_stale`。查不到类或「改了不生效」时先跑它 —— 长驻 MCP 进程不重载，磁盘更新后必须重启宿主 |
 | `platform_class_methods` | 本地 | — | ✅ 已验证 | 列类方法签名；JsonUtils 28 方法、DateUtils 61 方法实测带出入参类型 |
 | `platform_class_stats` | 本地 | — | ✅ 已验证 | 索引规模统计 |
 
@@ -421,7 +422,7 @@ python -m pytest tests -m "offline and acceptance" -q
 **注意区分两层**：CLI 层是只读的（写操作返回 `DENIED`，规划只能 `dry-run`），
 但 MCP 工具层有真写面（见第 3 节）。任何离线输出都不能被解读为 `LIVE PASS`。
 
-Test collection: `3329 tests collected`。收集数量不等于通过数量。
+Test collection: `3337 tests collected`。收集数量不等于通过数量。
 真机验证记录在 `docs/audit/mcp-*-live-*.md`。
 
 ---

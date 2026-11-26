@@ -32,6 +32,9 @@ ENTITY = "7000000000000000001"
 GUID = "8000000000000000001"
 
 # 每个工具一组合法参数 + 必须出现的键
+# 需要真环境（Loki 地址 + token）才有意义；离线只能验证「有入口、参数不炸」
+NEEDS_ENV = {"logs_search", "logs_labels", "logs_envs"}
+
 CASES = {
     # ---- 跨模块 ----
     "dispatch": ({"intent": "inspect", "target": "request"}, ("status",)),
@@ -55,6 +58,7 @@ CASES = {
     "live_probe": ({}, ("status",)),
     "capability_index": ({}, ("domains", "summary")),
     "spi_catalog": ({}, ("status", "conclusion_docs")),
+    "version": ({}, ("version", "classes", "indexSource")),
 
     # ---- entity ----
     "deploy_plan": ({"application_id": APP, "entity_name": "SmokeEntity",
@@ -209,8 +213,14 @@ def test_every_tool_has_a_case(caps):
     from adapters.mcp.server import TOOL_KEYS
     cred = {"microflow_publish", "expression_verify", "expression_filter",
             "entity_rule_publish"}
-    missing = [k for k in TOOL_KEYS if k not in cred and k not in CASES]
+    missing = [k for k in TOOL_KEYS if k not in cred and k not in CASES and k not in NEEDS_ENV]
     assert not missing, "以下工具没有冒烟用例，请补进 CASES：%s" % missing
+
+
+def test_env_tools_still_exposed(caps):
+    """3 个日志工具免冒烟（要 Loki 真环境），但入口必须在，不能悄悄消失。"""
+    for k in NEEDS_ENV:
+        assert k in caps, "%s 从 bootstrap 掉了" % k
 
 
 @pytest.mark.parametrize("key", sorted(CASES))
